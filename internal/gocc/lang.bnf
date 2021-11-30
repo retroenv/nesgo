@@ -1,0 +1,343 @@
+// === [ Lexical part] =========================================================
+
+terminator : ';' '\n'
+           | ';' | '\n'
+           | _lineComment
+           | _blockComment ;
+
+// --- [ Keywords ] ------------------------------------------------------------
+kwdBreak     : 'b' 'r' 'e' 'a' 'k' ;
+kwdConst     : 'c' 'o' 'n' 's' 't' ;
+kwdFor       : 'f' 'o' 'r' ;
+kwdFunc      : 'f' 'u' 'n' 'c' ;
+kwdGoto      : 'g' 'o' 't' 'o' ;
+kwdIf        : 'i' 'f' ;
+kwdImport    : 'i' 'm' 'p' 'o' 'r' 't' ;
+kwdInline    : 'i' 'n' 'l' 'i' 'n' 'e' ;
+kwdInterface : 'i' 'n' 't' 'e' 'r' 'f' 'a' 'c' 'e' '{' '}' ;
+kwdPackage   : 'p' 'a' 'c' 'k' 'a' 'g' 'e' ;
+kwdRet       : 'r' 'e' 't' 'u' 'r' 'n' ;
+kwdType      : 't' 'y' 'p' 'e' ;
+kwdVar       : 'v' 'a' 'r' ;
+kwdVariadic  : '.' '.' '.' ;
+
+// --- [ Types ] ---------------------------------------------------------------
+type
+        : 'i' 'n' 't' '8'
+        | 'u' 'i' 'n' 't' '8'
+        | 'u' 'i' 'n' 't' '1' '6'
+        ;
+
+typeConstructor
+        : 'N' 'e' 'w' 'I' 'n' 't' '8'
+        | 'N' 'e' 'w' 'U' 'i' 'n' 't' '8'
+        | 'N' 'e' 'w' 'U' 'i' 'n' 't' '1' '6'
+        ;
+
+// --- [ Operators ] -----------------------------------------------------------
+operators : '+' | '-' | '*' | '|' | '^' | '&' | '<' '<' | '>' '>' ;
+singleOperators : '+' '+' | '-' '-' ;
+relOp : '=' '=' | '!' '=' | '<' | '<' '=' | '>' | '>' '=' ;
+not : '!' ;
+
+// --- [ Whitespaces (suppressed) ] --------------------------------------------
+!whitespace : ' ' | '\t' | '\r' ;
+
+// --- [ Comments (suppressed) ] -----------------------------------------------
+!comment      : _lineComment | _blockComment ;
+_lineComment  : '/' '/' { . } '\n' ;
+_blockComment : '/' '*' { . | '*' } '*' '/' ;
+
+// --- [ Letters and digits ] --------------------------------------------------
+_letter        : 'a' - 'z' | 'A' - 'Z' | '_' ;
+_binaryDigit   : '0' - '1' ;
+_decimalDigit  : '0' - '9' ;
+_octalDigit    : '0' - '7' ;
+_hexDigit      : _decimalDigit | 'a' - 'f' | 'A' - 'F' ;
+
+// --- [ Identifiers ] ---------------------------------------------------------
+identifier : _letter { _letter | _decimalDigit } ;
+
+// --- [ Integer literals ] ----------------------------------------------------
+intLit      : _decimalLit | _octalLit | _hexLit | _binLit ;
+_decimalLit : '1' - '9' { _decimalDigit } ;
+_octalLit   : '0' { _octalDigit } ;
+_hexLit     : '0' ( 'x' | 'X' ) _hexDigit { _hexDigit } ;
+_binLit     : '0' ( 'b' | 'B' ) _binaryDigit { _binaryDigit } ;
+
+// --- [ String literals ] -----------------------------------------------------
+importLit : '"' { . | '/' } '"' ;
+
+// --- [ Single-character escapes ] --------------------------------------------
+_escapeChar : '\\' 'n' | '\\' 'r' | '\\' 't' ;
+
+// === [ Syntax part] ==========================================================
+
+<<
+import (
+	"github.com/retroenv/nesgo/internal/ast"
+	"github.com/retroenv/nesgo/internal/gocc/token"
+)
+>>
+
+Start
+        : SourceFile
+        ;
+
+SourceFile
+        : RepeatTerminator PackageClause terminator RepeatTerminator RepeatTopLevelDecl  << ast.NewFile($1.(*ast.Package), $4) >>
+        ;
+
+PackageClause
+        : kwdPackage identifier  << ast.NewPackage(string($1.(*token.Token).Lit)) >>
+        ;
+
+ImportDecl
+        : kwdImport ImportSpec                           << $1, nil >>
+        | kwdImport "(" RepeatTerminator ImportList ")"  << $3, nil >>
+        ;
+
+ImportList
+        : ImportSpec terminator RepeatTerminator ImportList  << ast.NewNodeList($0, $3) >>
+        | ImportSpec RepeatTerminator                        << $0, nil >>
+        ;
+
+ImportSpec
+        : "." importLit         << ast.NewImport(".", string($1.(*token.Token).Lit)) >>
+        | identifier importLit  << ast.NewImport(string($0.(*token.Token).Lit), string($1.(*token.Token).Lit)) >>
+        | importLit             << ast.NewImport("", string($0.(*token.Token).Lit)) >>
+        ;
+
+// --- [ Top level declarations ] ----------------------------------------------
+
+RepeatTopLevelDecl
+        : TopLevelDecl RepeatTopLevelDecl  << ast.NewNodeList($0, $1) >>
+        | empty
+        ;
+
+TopLevelDecl
+        : Declaration RepeatTerminator   << $0, nil >>
+        | FunctionDecl RepeatTerminator  << $0, nil >>
+        ;
+
+Declaration
+        : ConstDecl
+        | TypeDecl
+        | VarDecl
+        | ImportDecl
+        ;
+
+// --- [ Variable declarations ] -----------------------------------------------
+
+VarDecl
+        : kwdVar VarSpec                           << $1, nil >>
+        | kwdVar "(" RepeatTerminator VarList ")"  << $3, nil >>
+        ;
+
+VarList
+        : VarSpec terminator RepeatTerminator VarList  << ast.NewNodeList($0, $3) >>
+        | VarSpec RepeatTerminator                     << $0, nil >>
+        ;
+
+VarSpec
+        : IdentifierList Type                                    << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), nil) >>
+        | IdentifierList Type "=" Expression                     << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), $3) >>
+        | IdentifierList "=" TypeConstructor "(" Expression ")"  << ast.NewVariable($0.(ast.Node), $2.(*ast.Type), $4) >>
+        | empty
+        ;
+
+// --- [ Type declarations ] ---------------------------------------------------
+
+TypeDecl
+        : kwdType TypeDef  << nil, nil >>
+        ;
+
+TypeDef
+        : identifier Type
+        | kwdInline Type
+        ;
+
+// --- [ Constant declarations ] -----------------------------------------------
+
+ConstDecl
+        : kwdConst ConstSpec                           << $1, nil >>
+        | kwdConst "(" RepeatTerminator ConstList ")"  << $3, nil >>
+        ;
+
+ConstList
+        : ConstSpec terminator RepeatTerminator ConstList  << ast.NewNodeList($0, $3) >>
+        | ConstSpec RepeatTerminator                       << $0, nil >>
+        ;
+
+ConstSpec
+        : IdentifierList "=" Expression  << ast.NewConstant($0.(*ast.Identifier), $2.(*ast.Value)) >>
+        ;
+
+// --- [ Expressions ] ---------------------------------------------------------
+
+Expression
+        : "(" Expression ")"         << $1, nil >>
+        | Type "(" Expression ")"    << ast.NewExpressionList($0, "cast", $2) >>
+        | Operand singleOperators    << ast.NewExpressionList($0, string($1.(*token.Token).Lit)) >>
+        | Operand operators Operand  << ast.NewExpressionList($0, string($1.(*token.Token).Lit), $2) >>
+        | Operand relOp Operand      << ast.NewExpressionList($0, string($1.(*token.Token).Lit), $2) >>
+        | PrimaryExpr
+        ;
+
+PrimaryExpr
+        : Operand
+        | PrimaryExpr "(" Arguments ")"  << ast.NewCall($0.(*ast.Identifier), $2) >>
+        ;
+
+Operand
+        : Literal          << $0, nil >>
+        | "*" OperandName  << $1, nil >> // * is used to access the cpu registers in Go mode
+        | OperandName      << $0, nil >>
+        ;
+
+Literal
+        : BasicLit
+        ;
+
+BasicLit
+        : intLit  << ast.NewValue(string($0.(*token.Token).Lit)) >>
+        ;
+
+OperandName
+        : identifier  << ast.NewIdentifier(string($0.(*token.Token).Lit)) >>
+        ;
+
+Arguments
+        : empty
+        | Expression                      << $0, nil >>
+        | Arguments "," Expression        << ast.NewNodeList($0, $2) >>
+        | Arguments operators Expression  << ast.NewExpressionList($0, string($1.(*token.Token).Lit), $2) >>
+        ;
+
+FunctionDecl
+        : FunctionMarker FunctionBody  << ast.NewFunction($0.(*ast.FunctionDefinition), $1) >>
+        ;
+
+FunctionMarker
+        : kwdFunc FunctionName Parameters  << ast.NewFunctionHeader($1.(*ast.Identifier), $2) >>
+        ;
+
+Parameters
+        : "(" RepeatTerminator ")"
+        | "(" ParameterDecl ")"  << $1, nil >>
+        ;
+
+ParameterDecl
+        : IdentifierList Type               << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), nil) >>
+        | Type
+        | identifier kwdVariadic kwdInline  << ast.NewInline() >>
+        | kwdVariadic kwdInline             << ast.NewInline() >>
+        | ParameterDecl "," ParameterDecl   << ast.NewNodeList($0, $2) >>
+        | identifier "," ParameterDecl      << ast.NewNodeList(ast.NewUntypedParamListEntry(string($0.(*token.Token).Lit), $2), $2) >>
+        ;
+
+Type
+        : "*" type  << ast.NewType(string($0.(*token.Token).Lit)) >>
+        | type      << ast.NewType(string($0.(*token.Token).Lit)) >>
+        | TypeLit
+        ;
+
+TypeConstructor
+        : typeConstructor  << ast.NewType(string($0.(*token.Token).Lit)) >>
+        ;
+
+TypeLit
+        : InterfaceType
+        ;
+
+InterfaceType
+        : kwdInterface
+        ;
+
+IdentifierList
+        : identifier                     << ast.NewIdentifier(string($0.(*token.Token).Lit)) >>
+        | identifier "," IdentifierList  << ast.NewNodeList(ast.NewIdentifierNoError(string($0.(*token.Token).Lit)), $2) >>
+        ;
+
+FunctionName : identifier    << ast.NewIdentifier(string($0.(*token.Token).Lit)) >> ;
+
+FunctionBody : Block;
+
+RepeatTerminator
+        : terminator RepeatTerminator
+        | empty
+        ;
+
+// --- [ Statements ] ----------------------------------------------------------
+
+StatementList
+        : Statement terminator RepeatTerminator StatementList  << ast.NewNodeList($0, $3) >>
+        | Statement RepeatTerminator                           << ast.NewNodeList($0) >>
+        ;
+
+Statement
+        : Declaration
+        | LabeledStmt
+        | SimpleStmt
+        | ReturnStmt
+        | BreakStmt
+        | GotoStmt
+        | Block
+        | IfStmt
+        | ForStmt
+        ;
+
+LabeledStmt
+        : Label ":" RepeatTerminator Statement  << ast.NewLabel($0.(*ast.Identifier), $3) >>
+        ;
+
+SimpleStmt
+        : empty
+        | Assignment
+        | Expression
+        ;
+
+BreakStmt
+        : kwdBreak  << ast.NewBranching(string($0.(*token.Token).Lit), "") >>
+        ;
+
+ReturnStmt
+        : kwdRet  << ast.NewReturnStatement() >>
+        ;
+
+GotoStmt
+        : kwdGoto Label  << ast.NewBranching(string($0.(*token.Token).Lit), $1.(*ast.Identifier).Name) >>
+        ;
+
+Block
+        : "{" RepeatTerminator StatementList "}"  << $2, nil >>
+        ;
+
+IfStmt
+        : kwdIf not Expression Block << ast.NewIfStatement(true, $2.(*ast.Branching), $3.(ast.Node)) >>
+        | kwdIf Expression Block     << ast.NewIfStatement(false, $1.(*ast.Branching), $2.(ast.Node)) >>
+        ;
+
+ForStmt
+        : kwdFor Block             << ast.NewForStatement(nil, $1.(ast.Node)) >>
+        | kwdFor ForClause Block   << ast.NewForStatement($1.(ast.Node), $2.(ast.Node)) >>
+        ;
+
+ForClause
+        : terminator terminator                                   << ast.NewForClause(nil, nil, nil) >>
+        | SimpleStmt terminator terminator                        << ast.NewForClause($0.(ast.Node), nil, nil) >>
+        | SimpleStmt terminator Expression terminator             << ast.NewForClause($0.(ast.Node), $2.(ast.Node), nil) >>
+        | SimpleStmt terminator Expression terminator Expression  << ast.NewForClause($0.(ast.Node), $2.(ast.Node), $4.(ast.Node)) >>
+        | SimpleStmt terminator terminator Expression             << ast.NewForClause($0.(ast.Node), nil, $3.(ast.Node)) >>
+        | terminator terminator Expression                        << ast.NewForClause(nil, nil, $2.(ast.Node)) >>
+        | terminator Expression terminator Expression             << ast.NewForClause(nil, $1.(ast.Node), $3.(ast.Node)) >>
+        | SimpleStmt                                              << ast.NewForClause(nil, $0.(ast.Node), nil) >>
+        ;
+
+Assignment
+        : Expression "=" Expression  << ast.NewAssignStatement($0.(*ast.Identifier), $2) >>
+        ;
+
+Label
+        : identifier  << ast.NewIdentifier(string($0.(*token.Token).Lit)) >>
+        ;
