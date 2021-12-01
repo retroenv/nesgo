@@ -42,16 +42,12 @@ depending on the operating system:
     mingw-w64-x86_64-toolchain mingw64/mingw-w64-x86_64-SDL2`
   * Add `c:\tools\msys64\mingw64\bin\` to user path environment variable
 
-## Compiling from Source
-
-* Install the parser / scanner generator https://github.com/goccmack/gocc
-* Run `make generate` to regenerate the code parser 
-
 ## Differences / Limitations
 
-* `return` has to be used instead of `rts`
+* `return` has to be used instead of `rts` - it will get automatically
+  added at the end of functions that are not inlined
 * `goto` has to be used instead of `jump` - it is limited to the labels in the
-  current function as jump target
+  current function as jump destination
 * instructions that accept immediate addressing and zero page,
   addressing mode have an alias function for the addressing mode, for example:
   `Lda(i uint8)` and `LdaAddr(address interface{}, reg ...interface{}`

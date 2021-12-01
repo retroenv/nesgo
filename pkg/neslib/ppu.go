@@ -7,7 +7,6 @@ func WaitSync() {
 	for Bpl() {
 		Bit(PPU_STATUS)
 	}
-	return
 }
 
 // StartPPUTransfer starts the PPU transfer to the passed address.

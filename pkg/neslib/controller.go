@@ -19,5 +19,4 @@ func ReadJoypad0() {
 		Rol()               // carry -> bit 0 of result
 		Dex()               // X = X - 1
 	}
-	return
 }

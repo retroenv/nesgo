@@ -41,5 +41,4 @@ func ClearRAM() {
 		Sta(0x700, X) // clear 0x700-0x7ff
 		Inx()         // X = X + 1
 	}
-	return
 }

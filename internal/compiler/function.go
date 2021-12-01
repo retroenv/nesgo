@@ -55,6 +55,7 @@ func (c *Compiler) resolveFunctionNodes(f *Function) error {
 	}
 
 	f.Body.Nodes = newNodes
+	addFunctionReturn(f)
 	return nil
 }
 
@@ -316,4 +317,31 @@ func getArgument(functionContext *Function, packages map[string]*Package,
 	default:
 		return "", fmt.Errorf("type %T is not supported as inlining call parameter", n)
 	}
+}
+
+// addFunctionReturn adds a return at the end of functions unless the
+// function is inlined or there is already a branching instruction as
+// last node.
+func addFunctionReturn(f *Function) {
+	if f.Definition.Inline || f.Definition.Name == VarInitFunctionName {
+		return
+	}
+
+	if len(f.Body.Nodes) > 0 {
+		last := f.Body.Nodes[len(f.Body.Nodes)-1]
+		switch n := last.(type) {
+		case *ast.Branching:
+			return
+
+		case *ast.Instruction:
+			if n.Name == ast.ReturnInstruction {
+				return
+			}
+		}
+	}
+
+	f.Body.Nodes = append(f.Body.Nodes, ast.Instruction{
+		Name: ast.ReturnInstruction,
+		Comment: "automatically added by nesgo",
+	})
 }
