@@ -1,8 +1,7 @@
 # goNES - Golang for the NES
 
-[![GoPkg Widget]][GoPkg]
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/retroenv/nesgo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/retroenv/nesgo)](https://goreportcard.com/report/github.com/retroenv/nesgo)
-[![GoDoc](https://godoc.org/github.com/retroenv/nesgo?status.svg)](https://godoc.org/github.com/retroenv/nesgo)
 
 goNES allows you to write programs for the Nintendo Entertainment System (NES).
 
