@@ -15,7 +15,11 @@ func runRenderer() error {
 	}
 	defer cleanup()
 
-	go resetHandler()
+	go func() {
+		resetHandler()
+		for { // forever loop in case reset handler returns
+		}
+	}()
 
 	running := true
 	for running {

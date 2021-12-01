@@ -14,15 +14,12 @@ func main() {
 func run() {
 	Init()
 
-	WaitSync() // wait for VSYNC
-	ClearRAM() // clear RAM
-	WaitSync() // wait for VSYNC (and PPU warmup)
-	NesGoVariableInit()
+	WaitSync()          // wait for VSYNC
+	ClearRAM()          // clear RAM
+	WaitSync()          // wait for VSYNC (and PPU warmup)
+	NesGoVariableInit() // initialize variables after RAM has been cleared
 
 	StartPPUTransfer(PALETTE_START)
 	PPUTransferVar(backgroundColor)
 	PPUMask(MASK_BG_CLIP | MASK_SPR_CLIP | MASK_BG | MASK_SPR)
-
-	for { // forever loop
-	}
 }
