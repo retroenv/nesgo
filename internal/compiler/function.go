@@ -340,8 +340,8 @@ func addFunctionReturn(f *Function) {
 		}
 	}
 
-	f.Body.Nodes = append(f.Body.Nodes, ast.Instruction{
-		Name: ast.ReturnInstruction,
+	f.Body.Nodes = append(f.Body.Nodes, &ast.Instruction{
+		Name:    ast.ReturnInstruction,
 		Comment: "automatically added by nesgo",
 	})
 }
