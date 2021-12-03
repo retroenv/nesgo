@@ -17,8 +17,8 @@ The code for NES programs is written using Aliases for 6502 assembly
 instructions, this allows to have full control over the outputted
 binary code. The compiler generates an .asm file that can be inspected.
 
-goNES is in an early state of development and needs more work before it
-can be used to build a larger project for NES!
+**goNES is in an early stage of development and needs more work before it
+can be used to build a larger project for NES!**
 
 ## Installation
 
@@ -57,6 +57,9 @@ depending on the operating system:
 ## Usage
 
 See one of the examples on how to write code for the NES!
+
+The first compilation can take a few minutes depending on the system,
+this is due to Golang compiling the CGO GUI dependencies.
 
 goNES can be used in different ways:
 
