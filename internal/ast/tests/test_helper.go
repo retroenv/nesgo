@@ -30,6 +30,13 @@ var headerMainIr = `func, main
 
 var footer = []byte(`}`)
 
+type testCase struct {
+	name          string
+	input         []byte
+	expectedIr    string
+	expectedError string
+}
+
 func runTest(t *testing.T, useMainFunc bool, input []byte,
 	expectedIr, expectedError, testDescription string) {
 	t.Helper()

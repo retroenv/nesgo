@@ -56,12 +56,7 @@ inst, dex
 label, if_not_bne
 `
 
-var ifTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var ifTestCases = []testCase{
 	{
 		"if with not branching and instruction",
 		ifNotBranchingInstruction,

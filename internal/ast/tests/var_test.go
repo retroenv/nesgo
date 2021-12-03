@@ -66,12 +66,7 @@ var, i, int8
 var, j, int8
 `
 
-var varTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var varTestCases = []testCase{
 	{
 		"var list declaration with type and valid initializer",
 		multipleVarsTypeInitializer,

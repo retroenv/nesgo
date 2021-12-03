@@ -38,12 +38,7 @@ func, test
 inst, dex
 `
 
-var functionTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var functionTestCases = []testCase{
 	{
 		"function with body",
 		functionWithBody,

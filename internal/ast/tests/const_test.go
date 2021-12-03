@@ -25,12 +25,7 @@ var singleConstValueBinIr = `
 const, bg_color, 128
 `
 
-var constTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var constTestCases = []testCase{
 	{
 		"single const declaration with binary value",
 		singleConstValueBin,

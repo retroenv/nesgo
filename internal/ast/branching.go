@@ -92,7 +92,15 @@ type Call struct {
 
 // String implement the fmt.Stringer interface.
 func (c Call) String() string {
-	return fmt.Sprintf("call, %s", c.Function)
+	b := &strings.Builder{}
+	_, _ = fmt.Fprintf(b, "call, %s", c.Function)
+
+	for _, p := range c.Parameter {
+		_, _ = fmt.Fprintf(b, ", %s", p)
+	}
+
+	s := b.String()
+	return s
 }
 
 // newCall returns a call instruction.

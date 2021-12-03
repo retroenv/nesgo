@@ -30,12 +30,7 @@ label, a
 inst, bne, a
 `
 
-var branchTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var branchTestCases = []testCase{
 	{
 		"label with branching",
 		branchLabelBranching,

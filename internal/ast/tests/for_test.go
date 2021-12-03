@@ -185,12 +185,7 @@ inst, jmp, loop
 label, loop_end
 `
 
-var forTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var forTestCases = []testCase{
 	{
 		"while loop with branch, instructions and multiple breaks",
 		forWhileMultipleBreaks,
