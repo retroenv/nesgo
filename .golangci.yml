@@ -1,7 +1,7 @@
 run:
   deadline: 5m
   build-tags:
-    - sdl
+    - nogui
 
 linters:
   disable:
