@@ -43,7 +43,7 @@ linters:
     - stylecheck # Stylecheck is a replacement for golint
     - thelper # checks the consistency of test helpers
     - tparallel # detects inappropriate usage of t.Parallel()
-    - typecheck # parses and type-checks Go code
+    #- typecheck # parses and type-checks Go code
     - unconvert # Remove unnecessary type conversions
     - unparam # Reports unused function parameters
     - unused # Checks Go code for unused constants, variables, functions and types
