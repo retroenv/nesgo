@@ -4,6 +4,8 @@ run:
     - sdl
 
 linters:
+  disable:
+    - typecheck # fails in github CI - parses and type-checks Go code
   enable:
     - asciicheck # Simple linter to check that your code does not contain non-ASCII identifiers
     - bidichk # Checks for dangerous unicode character sequences
@@ -43,7 +45,6 @@ linters:
     - stylecheck # Stylecheck is a replacement for golint
     - thelper # checks the consistency of test helpers
     - tparallel # detects inappropriate usage of t.Parallel()
-    #- typecheck # parses and type-checks Go code
     - unconvert # Remove unnecessary type conversions
     - unparam # Reports unused function parameters
     - unused # Checks Go code for unused constants, variables, functions and types
