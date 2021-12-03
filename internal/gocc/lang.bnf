@@ -56,7 +56,7 @@ _octalDigit    : '0' - '7' ;
 _hexDigit      : _decimalDigit | 'a' - 'f' | 'A' - 'F' ;
 
 // --- [ Identifiers ] ---------------------------------------------------------
-identifier : _letter { _letter | _decimalDigit } ;
+identifier : _letter { _letter | _decimalDigit | '.' } ;
 
 // --- [ Integer literals ] ----------------------------------------------------
 intLit      : _decimalLit | _octalLit | _hexLit | _binLit ;

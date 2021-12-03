@@ -34,6 +34,9 @@ func parsePackage(name string) (*Package, error) {
 
 	// TODO support external packages
 	if !strings.HasPrefix(name, packName) {
+		if name == "fmt" {
+			return nil, nil // nolint: nilnil
+		}
 		return nil, errors.New("external packages are not support yet")
 	}
 
@@ -133,6 +136,9 @@ func (p *Package) findFunction(packages map[string]*Package,
 	imports := p.functionFile[caller].Imports
 	for _, imp := range imports {
 		impPack := packages[imp.Path]
+		if impPack == nil {
+			continue
+		}
 		if f, ok := impPack.functions[function]; ok {
 			s := fmt.Sprintf("%s.%s", imp.Path, function)
 			return s, f, nil

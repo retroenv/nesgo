@@ -62,6 +62,9 @@ func (l Label) String() string {
 // for a CPU instruction.
 func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 	name := strings.ToLower(expr.Name)
+	if strings.HasPrefix(name, "fmt.") {
+		return nil, nil // nolint: nilnil
+	}
 
 	if _, ok := CPUBranchingInstructions[name]; ok {
 		var destination string
