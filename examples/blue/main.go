@@ -8,10 +8,10 @@ import (
 var backgroundColor = NewUint8(COLOR_MEDIUM_BLUE)
 
 func main() {
-	Start(run)
+	Start(resetHandler)
 }
 
-func run() {
+func resetHandler() {
 	Init()
 
 	WaitSync()          // wait for VSYNC
