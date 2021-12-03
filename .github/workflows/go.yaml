@@ -30,11 +30,11 @@ jobs:
       - name: Get dependencies
         run: go mod download
 
+      - name: Test
+        run: go test -tags nogui ./... -v
+
       - name: Install linter
         run: "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.43.0"
 
       - name: Run linter
         run: golangci-lint linters && golangci-lint run
-
-      - name: Test
-        run: go test -tags nogui ./... -v
