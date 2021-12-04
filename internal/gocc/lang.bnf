@@ -66,7 +66,9 @@ _hexLit     : '0' ( 'x' | 'X' ) _hexDigit { _hexDigit } ;
 _binLit     : '0' ( 'b' | 'B' ) _binaryDigit { _binaryDigit } ;
 
 // --- [ String literals ] -----------------------------------------------------
-importLit : '"' { . | '/' } '"' ;
+stringLit          :  _rawStrLit | _interpretedStrLit ;
+_rawStrLit         : '`' { . } '`' ;
+_interpretedStrLit : '"' { . | '\\' '"' | _escapeChar } '"' ;
 
 // --- [ Single-character escapes ] --------------------------------------------
 _escapeChar : '\\' 'n' | '\\' 'r' | '\\' 't' ;
@@ -103,9 +105,9 @@ ImportList
         ;
 
 ImportSpec
-        : "." importLit         << ast.NewImport(".", string($1.(*token.Token).Lit)) >>
-        | identifier importLit  << ast.NewImport(string($0.(*token.Token).Lit), string($1.(*token.Token).Lit)) >>
-        | importLit             << ast.NewImport("", string($0.(*token.Token).Lit)) >>
+        : "." stringLit         << ast.NewImport(".", string($1.(*token.Token).Lit)) >>
+        | identifier stringLit  << ast.NewImport(string($0.(*token.Token).Lit), string($1.(*token.Token).Lit)) >>
+        | stringLit             << ast.NewImport("", string($0.(*token.Token).Lit)) >>
         ;
 
 // --- [ Top level declarations ] ----------------------------------------------
@@ -200,7 +202,8 @@ Literal
         ;
 
 BasicLit
-        : intLit  << ast.NewValue(string($0.(*token.Token).Lit)) >>
+        : intLit     << ast.NewValue(string($0.(*token.Token).Lit)) >>
+        | stringLit  << ast.NewValue(string($0.(*token.Token).Lit)) >>
         ;
 
 OperandName

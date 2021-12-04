@@ -37,8 +37,7 @@ type testCase struct {
 	expectedError string
 }
 
-func runTest(t *testing.T, useMainFunc bool, input []byte,
-	expectedIr, expectedError, testDescription string) {
+func runTest(t *testing.T, useMainFunc bool, test testCase) {
 	t.Helper()
 
 	buf := bytes.Buffer{}
@@ -46,7 +45,7 @@ func runTest(t *testing.T, useMainFunc bool, input []byte,
 	if useMainFunc {
 		buf.Write(headerMain)
 	}
-	buf.Write(input)
+	buf.Write(test.input)
 	if useMainFunc {
 		buf.Write(footer)
 	}
@@ -54,12 +53,18 @@ func runTest(t *testing.T, useMainFunc bool, input []byte,
 	l := lexer.NewLexer(buf.Bytes())
 	p := parser.NewParser()
 	res, err := p.Parse(l)
-	if expectedError == "" {
-		assert.NoError(t, err, testDescription)
+	if test.expectedError == "" {
+		assert.NoError(t, err, test.name)
 	} else {
-		var e *goccErrors.Error
-		assert.True(t, errors.As(err, &e), testDescription)
-		assert.Error(t, e.Err, expectedError, testDescription)
+		e := &goccErrors.Error{}
+		if errors.As(err, &e) {
+			assert.True(t, errors.As(err, &e), test.name)
+			s := e.String()
+			assert.True(t, strings.Contains(s, test.expectedError),
+				fmt.Sprintf("%s:\n%s", test.name, s))
+		} else {
+			assert.Error(t, err, test.expectedError, test.name)
+		}
 		return
 	}
 
@@ -70,6 +75,6 @@ func runTest(t *testing.T, useMainFunc bool, input []byte,
 	}
 
 	s = strings.TrimSpace(s)
-	expectedIr = strings.TrimSpace(expectedIr)
-	assert.Equal(t, expectedIr, s, testDescription)
+	expectedIr := strings.TrimSpace(test.expectedIr)
+	assert.Equal(t, expectedIr, s, test.name)
 }

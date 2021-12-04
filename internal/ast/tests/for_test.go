@@ -280,6 +280,6 @@ var forTestCases = []testCase{
 
 func TestFor(t *testing.T) {
 	for _, test := range forTestCases {
-		runTest(t, true, test.input, test.expectedIr, test.expectedError, test.name)
+		runTest(t, true, test)
 	}
 }

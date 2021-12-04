@@ -27,7 +27,7 @@ func (f Function) String() string {
 			p := f.Definition.Params[i]
 			_, _ = fmt.Fprint(b, p.Name)
 			if i+1 < len(f.Definition.Params) {
-				_, _ = fmt.Fprint(b, ",")
+				_, _ = fmt.Fprint(b, ", ")
 			}
 			// TODO print type
 		}
@@ -98,7 +98,7 @@ func NewFunctionHeader(id *Identifier, signature interface{}) (interface{}, erro
 	}
 
 	if len(f.Params) > 0 && !f.Inline {
-		return nil, fmt.Errorf("functions with parameters without inlining are currently not supported")
+		return nil, ErrFunctionsWithParamsNoInline
 	}
 
 	return f, nil

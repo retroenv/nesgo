@@ -53,6 +53,6 @@ var branchTestCases = []testCase{
 
 func TestBranch(t *testing.T) {
 	for _, test := range branchTestCases {
-		runTest(t, true, test.input, test.expectedIr, test.expectedError, test.name)
+		runTest(t, true, test)
 	}
 }

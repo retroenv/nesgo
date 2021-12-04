@@ -56,7 +56,19 @@ inst, dex
 label, if_not_bne
 `
 
+var ifBranchingVarDeclare = []byte(`
+if Bne() {
+  Bne()
+}
+`)
+
 var ifTestCases = []testCase{
+	{
+		"if with branching and unsupported branching block instruction",
+		ifBranchingVarDeclare,
+		"",
+		"if block does not supported branching instruction 'bne'",
+	},
 	{
 		"if with not branching and instruction",
 		ifNotBranchingInstruction,
@@ -91,6 +103,6 @@ var ifTestCases = []testCase{
 
 func TestIf(t *testing.T) {
 	for _, test := range ifTestCases {
-		runTest(t, true, test.input, test.expectedIr, test.expectedError, test.name)
+		runTest(t, true, test)
 	}
 }

@@ -48,6 +48,6 @@ var constTestCases = []testCase{
 
 func TestConst(t *testing.T) {
 	for _, test := range constTestCases {
-		runTest(t, false, test.input, test.expectedIr, test.expectedError, test.name)
+		runTest(t, false, test)
 	}
 }

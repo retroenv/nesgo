@@ -16,4 +16,6 @@ var (
 		"has to use constructors like NewUint8()")
 	ErrInvalidVariableName = errors.New("variable can not use " +
 		"reserved name")
+	ErrFunctionsWithParamsNoInline = errors.New("functions with parameters " +
+		"without inlining are currently not supported")
 )

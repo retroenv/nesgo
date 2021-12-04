@@ -63,6 +63,8 @@ func NoError(t *testing.T, err error, errorMessage ...string) {
 func Error(t *testing.T, err error, expectedError string, errorMessage ...string) {
 	t.Helper()
 	if err == nil {
+		msg := fmt.Sprintf("Error message not equal: \nexpected: %v\nactual  : nil", expectedError)
+		fail(t, msg, errorMessage...)
 		return
 	}
 

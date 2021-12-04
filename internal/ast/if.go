@@ -56,7 +56,7 @@ func handleIfBlockBranching(branch *Branching, block *Branching) (Node, error) {
 		branch.DestinationName = block.DestinationName
 		return branch, nil
 
-	case BreakOperator:
+	case breakOperator:
 		return NewNodeList(branch, block)
 
 	default:
