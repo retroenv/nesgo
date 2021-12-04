@@ -1,5 +1,6 @@
 # goNES - Golang for the NES
 
+[![Build status](https://github.com/retroenv/nesgo/actions/workflows/go.yaml/badge.svg?branch=main)](https://github.com/retroenv/nesgo/actions)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/retroenv/nesgo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/retroenv/nesgo)](https://goreportcard.com/report/github.com/retroenv/nesgo)
 
@@ -7,7 +8,7 @@ goNES allows you to write programs for the Nintendo Entertainment System (NES).
 
 Benefits of writing NES programs in Golang:
 
-- Code autocompletion support in IDEs
+- Code autocompletion in any IDE that supports Golang
 - You can debug code directly from an IDE, it will be executed in the
   built-in Emulator (currently in a rather simple state) 
 - Easy unit testing for your code
@@ -30,11 +31,10 @@ It is planned to remove this dependency in future versions.
 
 The integrated OpenGL GUI support is enabled by default. Debugging
 your code will execute using the built-in Emulator and GUI.
-The GUI modes can be selected using the following build flags:
+To select the GUI mode to use, set the following build flags:
 
 * `nogui`: disables all GUI modules
-* `noopengl` disables the OpenGL GUI
-* `sdl` enables the SDL GUI
+* `noopengl` `sdl` enables the SDL GUI
 
 The following libraries need to be installed, 
 depending on the operating system:
