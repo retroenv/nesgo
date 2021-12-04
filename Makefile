@@ -7,13 +7,16 @@ generate: ## regenerate all files
 	cd internal/gocc && gocc -p github.com/retroenv/nesgo/internal/gocc -a lang.bnf
 
 lint: ## run code linters
+	flint ./cmd/...
 	flint ./internal/ast/...
 	flint ./internal/gocc/...
 	flint ./pkg/nes/...
 	golangci-lint run
 
-test: ## run unit tests
+test: install ## run tests
 	go test -race ./...
+	nesgo -f ./examples/blue/main.go -o ./examples/blue/main.nes
+	nesgo -f ./examples/debugprint/main.go -o ./examples/debugprint/main.nes
 
 test-no-gui: ## run unit tests with gui disabled
 	go test -tags nogui ./... -v
@@ -25,3 +28,7 @@ test-coverage: ## run unit tests and show test coverage
 
 install: ## install all binaries
 	go install ./cmd/...
+
+install-linters: ## install all linters
+	go install github.com/fraugster/flint@v0.1.1
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.43.0
