@@ -14,10 +14,10 @@ func main() {
 func resetHandler() {
 	Init()
 
-	WaitSync()          // wait for VSYNC
-	ClearRAM()          // clear RAM
-	WaitSync()          // wait for VSYNC (and PPU warmup)
-	NesGoVariableInit() // initialize variables after RAM has been cleared
+	WaitSync()     // wait for VSYNC
+	ClearRAM()     // clear RAM
+	WaitSync()     // wait for VSYNC (and PPU warmup)
+	VariableInit() // initialize variables after RAM has been cleared
 
 	StartPPUTransfer(PALETTE_START)
 	PPUTransferVar(backgroundColor)

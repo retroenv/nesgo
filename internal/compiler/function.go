@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	VarInitFunctionName     = "NesGoVariableInit"
-	VarInitFunctionFullName = "github.com/retroenv/nesgo/pkg/neslib.NesGoVariableInit"
+	VarInitFunctionName     = "VariableInit"
+	VarInitFunctionFullName = "github.com/retroenv/nesgo/pkg/nes.VariableInit"
 )
 
 // Function is a function declaration.

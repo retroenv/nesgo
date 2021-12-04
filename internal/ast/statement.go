@@ -36,5 +36,5 @@ func NewAssignStatement(id *Identifier, val interface{}) (Node, error) {
 
 // NewReturnStatement returns a return statement.
 func NewReturnStatement() (Node, error) {
-	return newInstruction(ReturnInstruction), nil
+	return newInstruction(ReturnInstruction, nil)
 }

@@ -3,7 +3,7 @@ package neslib
 import . "github.com/retroenv/nesgo/pkg/nes"
 
 // Init is the NES setup start routine.
-func Init(_ ...inline) {
+func Init(_ ...Inline) {
 	Sei()
 	Cld()
 	Ldx(0xff)

@@ -15,7 +15,7 @@ func, test
 `
 
 var inlineFunction = []byte(`
-func test(_ ...inline) {
+func test(_ ...Inline) {
 }
 `)
 var inlineFunctionIr = `
@@ -23,7 +23,7 @@ func, inline, test
 `
 
 var inlineFunctionSingleParam = []byte(`
-func test(data *uint8, _ ...inline) {
+func test(data *uint8, _ ...Inline) {
 }
 `)
 var inlineFunctionSingleParamIr = `
@@ -31,7 +31,7 @@ func, inline, (data), test
 `
 
 var inlineFunctionMultipleParams = []byte(`
-func test(data *uint8, value uint8, _ ...inline) {
+func test(data *uint8, value uint8, _ ...Inline) {
 }
 `)
 var inlineFunctionMultipleParamsIr = `
@@ -64,7 +64,7 @@ inst, rts
 `
 
 var functionInlineRegisterParam = []byte(`
-func test(X, _ ...inline) {
+func test(X, _ ...Inline) {
 }
 `)
 var functionInlineRegisterParamIr = `

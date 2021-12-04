@@ -75,12 +75,10 @@ func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 	}
 
 	if _, isInst := CPUInstructions[name]; isInst {
-		i := newInstruction(name).(*Instruction)
-		if arg == nil {
-			return i, nil
+		i, err := newInstruction(name, arg)
+		if err != nil {
+			return nil, err
 		}
-
-		i.addArgument(arg)
 		return i, nil
 	}
 

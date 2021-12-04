@@ -13,7 +13,7 @@ kwdFunc      : 'f' 'u' 'n' 'c' ;
 kwdGoto      : 'g' 'o' 't' 'o' ;
 kwdIf        : 'i' 'f' ;
 kwdImport    : 'i' 'm' 'p' 'o' 'r' 't' ;
-kwdInline    : 'i' 'n' 'l' 'i' 'n' 'e' ;
+kwdInline    : 'I' 'n' 'l' 'i' 'n' 'e' ;
 kwdInterface : 'i' 'n' 't' 'e' 'r' 'f' 'a' 'c' 'e' '{' '}' ;
 kwdPackage   : 'p' 'a' 'c' 'k' 'a' 'g' 'e' ;
 kwdRet       : 'r' 'e' 't' 'u' 'r' 'n' ;
