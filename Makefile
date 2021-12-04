@@ -21,8 +21,10 @@ test: install ## run tests
 test-no-gui: ## run unit tests with gui disabled
 	go test -tags nogui ./... -v
 
-test-coverage: ## run unit tests and show test coverage
-	go test ./... -coverprofile .testCoverage -covermode=atomic -coverpkg=./...
+test-coverage: ## run unit tests with test coverage
+	go test -tags nogui ./... -coverprofile .testCoverage -covermode=atomic -coverpkg=./...
+
+test-coverage-web: test-coverage ## run unit tests and show test coverage in browser
 	go tool cover -func .testCoverage | grep total | awk '{print "Total coverage: "$$3}'
 	go tool cover -html=.testCoverage
 
