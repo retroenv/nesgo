@@ -19,13 +19,7 @@ func StartPPUTransfer(address uint16, _ ...Inline) {
 }
 
 // PPUTransfer transfers a constant to the PPU.
-func PPUTransfer(data uint8, _ ...Inline) {
-	Lda(data)
-	Sta(PPU_DATA)
-}
-
-// PPUTransferVar transfers a variable content to the PPU.
-func PPUTransferVar(data *uint8, _ ...Inline) {
+func PPUTransfer(data interface{}, _ ...Inline) {
 	Lda(data)
 	Sta(PPU_DATA)
 }

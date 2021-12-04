@@ -20,6 +20,6 @@ func resetHandler() {
 	VariableInit() // initialize variables after RAM has been cleared
 
 	StartPPUTransfer(PALETTE_START)
-	PPUTransferVar(backgroundColor)
+	PPUTransfer(backgroundColor)
 	PPUMask(MASK_BG_CLIP | MASK_SPR_CLIP | MASK_BG | MASK_SPR)
 }

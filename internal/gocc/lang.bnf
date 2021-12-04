@@ -240,21 +240,13 @@ ParameterDecl
         ;
 
 Type
-        : "*" type  << ast.NewType(string($0.(*token.Token).Lit)) >>
-        | type      << ast.NewType(string($0.(*token.Token).Lit)) >>
-        | TypeLit
+        : "*" type      << ast.NewType(string($0.(*token.Token).Lit)) >>
+        | type          << ast.NewType(string($0.(*token.Token).Lit)) >>
+        | kwdInterface  << ast.NewType(string($0.(*token.Token).Lit)) >>
         ;
 
 TypeConstructor
         : typeConstructor  << ast.NewType(string($0.(*token.Token).Lit)) >>
-        ;
-
-TypeLit
-        : InterfaceType
-        ;
-
-InterfaceType
-        : kwdInterface
         ;
 
 IdentifierList
