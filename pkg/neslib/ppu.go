@@ -10,8 +10,8 @@ func WaitSync() {
 }
 
 // StartPPUTransfer starts the PPU transfer to the passed address.
-func StartPPUTransfer(address uint16, _ ...inline) {
-	LdxAddr(PPU_STATUS)
+func StartPPUTransfer(address uint16, _ ...Inline) {
+	Ldx(PPU_STATUS)
 	Ldx(uint8(address >> 8))
 	Stx(PPU_ADDR)
 	Ldx(uint8(address))
@@ -19,19 +19,19 @@ func StartPPUTransfer(address uint16, _ ...inline) {
 }
 
 // PPUTransfer transfers a constant to the PPU.
-func PPUTransfer(data uint8, _ ...inline) {
+func PPUTransfer(data uint8, _ ...Inline) {
 	Lda(data)
 	Sta(PPU_DATA)
 }
 
 // PPUTransferVar transfers a variable content to the PPU.
-func PPUTransferVar(data *uint8, _ ...inline) {
-	LdaAddr(data)
+func PPUTransferVar(data *uint8, _ ...Inline) {
+	Lda(data)
 	Sta(PPU_DATA)
 }
 
 // PPUMask sets the PPU mask.
-func PPUMask(flags uint8, _ ...inline) {
+func PPUMask(flags uint8, _ ...Inline) {
 	Lda(flags)
 	Sta(PPU_MASK)
 }

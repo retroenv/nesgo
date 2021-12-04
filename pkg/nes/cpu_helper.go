@@ -3,6 +3,11 @@
 
 package nes
 
+import (
+	"fmt"
+	"math"
+)
+
 var cpu *cPU
 
 type cPU struct {
@@ -68,5 +73,35 @@ func compare(a, b byte) {
 		C = 1
 	} else {
 		C = 0
+	}
+}
+
+func readMemoryAddressModes(param interface{}, reg ...interface{}) byte {
+	switch val := param.(type) {
+	case int:
+		if val <= math.MaxUint8 {
+			return uint8(val) // immediate, not an address
+		}
+		return readMemoryAbsolute(val, reg...)
+	case uint8:
+		return val // immediate, not an address
+	case *uint8: // variable
+		return *val
+	case Absolute:
+		return readMemoryAbsolute(val, reg...)
+	}
+	panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
+}
+
+func writeMemoryAddressModes(param interface{}, value byte, reg ...interface{}) {
+	switch val := param.(type) {
+	case int:
+		writeMemoryAbsolute(val, value, reg...)
+	case Absolute:
+		writeMemoryAbsolute(val, value, reg...)
+	case Indirect:
+		writeMemoryIndirect(val, value, reg...)
+	default:
+		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
 }

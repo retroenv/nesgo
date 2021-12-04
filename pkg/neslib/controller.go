@@ -12,11 +12,11 @@ func ReadJoypad0() {
 	Sta(JOYPAD1, Y) // clear strobe bit
 	Ldx(8)          // read 8 bits
 	for Bne() {     // repeat while X is 0
-		Pha()               // save A (result)
-		LdaAddr(JOYPAD1, Y) // load controller state
-		Lsr()               // bit 0 -> carry
-		Pla()               // restore A (result)
-		Rol()               // carry -> bit 0 of result
-		Dex()               // X = X - 1
+		Pha()           // save A (result)
+		Lda(JOYPAD1, Y) // load controller state
+		Lsr()           // bit 0 -> carry
+		Pla()           // restore A (result)
+		Rol()           // carry -> bit 0 of result
+		Dex()           // X = X - 1
 	}
 }

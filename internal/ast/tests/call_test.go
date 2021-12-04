@@ -39,12 +39,7 @@ var callFmtDebugPrintIr = `
 inst, dex
 `
 
-var callTestCases = []struct {
-	name          string
-	input         []byte
-	expectedIr    string
-	expectedError string
-}{
+var callTestCases = []testCase{
 	{
 		"fmt debug print call",
 		callFmtDebugPrint,

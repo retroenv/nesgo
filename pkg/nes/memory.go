@@ -90,7 +90,7 @@ func writeMemoryAbsoluteRegister(address interface{}, value byte, register *uint
 	}
 }
 
-func writeMemoryIndirect(address uint16, value byte, reg ...interface{}) {
+func writeMemoryIndirect(address interface{}, value byte, reg ...interface{}) {
 	switch len(reg) {
 	case 0:
 		panic("register parameter missing for indirect memory addressing")
@@ -100,11 +100,15 @@ func writeMemoryIndirect(address uint16, value byte, reg ...interface{}) {
 		if !ok {
 			panic(fmt.Sprintf("unsupported extra parameter type %T for indirect memory write", reg[0]))
 		}
+		addr, ok := reg[0].(uint16)
+		if !ok {
+			panic(fmt.Sprintf("unsupported address parameter type %T for indirect memory write", address))
+		}
 		switch {
 		case p == X:
-			writeMemory(address+uint16(*p), value)
+			writeMemory(addr+uint16(*p), value)
 		case p == Y:
-			ptr := readPointer(address)
+			ptr := readPointer(addr)
 			ptr += uint16(*p)
 			writeMemory(ptr, value)
 		default:

@@ -41,13 +41,6 @@ func Asl() {
 	panic(notImplemented)
 }
 
-// AslAddr - Arithmetic Shift Left - of address Addr and add
-// an optional register to the address.
-func AslAddr(address uint16, reg ...interface{}) {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
 // Bcc - Branch if Carry Clear - returns whether the
 // carry flag is clear.
 func Bcc() bool {
@@ -150,32 +143,18 @@ func Cmp(address uint16) {
 	panic(notImplemented)
 }
 
-// Cpx - Compare X Register - compares the contents of X with given immediate.
-func Cpx(immediate byte) {
+// Cpx - Compare X Register - compares the contents of X.
+func Cpx(param interface{}) {
 	timeInstructionExecution()
-	compare(cpu.X, immediate)
+	i := readMemoryAddressModes(param)
+	compare(cpu.X, i)
 }
 
-// CpxAddr - Compare X Register - compares the contents of X with given
-// address content.
-func CpxAddr(address interface{}) {
+// Cpy - Compare Y Register - compares the contents of Y.
+func Cpy(param interface{}) {
 	timeInstructionExecution()
-	value := readMemoryAbsolute(address)
-	compare(cpu.X, value)
-}
-
-// Cpy - Compare Y Register - compares the contents of Y with given immediate.
-func Cpy(immediate byte) {
-	timeInstructionExecution()
-	compare(cpu.Y, immediate)
-}
-
-// CpyAddr - Compare Y Register - compares the contents of Y with given
-// address content.
-func CpyAddr(address interface{}) {
-	timeInstructionExecution()
-	value := readMemoryAbsolute(address)
-	compare(cpu.Y, value)
+	i := readMemoryAddressModes(param)
+	compare(cpu.Y, i)
 }
 
 // Dex - Decrement X Register.
@@ -198,20 +177,6 @@ func Eor(immediate byte) {
 	panic(notImplemented)
 }
 
-// EorAddr - Exclusive OR - of address Addr and
-// add an optional register to the address.
-func EorAddr(address uint16, reg ...interface{}) {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// EorInd - Exclusive OR - of address located in Addr and
-// add an optional register to the address.
-func EorInd(address uint8, reg ...interface{}) {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
 // Inx - Increment X Register.
 func Inx() {
 	timeInstructionExecution()
@@ -227,55 +192,23 @@ func Iny() {
 }
 
 // Lda - Load Accumulator - load a byte into A.
-func Lda(i uint8) {
+func Lda(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	cpu.A = i
+	cpu.A = readMemoryAddressModes(param, reg...)
 	setZN(cpu.A)
-}
-
-// LdaAddr - loading Accumulator from address Addr and
-// add an optional register to the address.
-func LdaAddr(address interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	cpu.A = readMemoryAbsolute(address, reg...)
-	setZN(cpu.A)
-}
-
-// LdaInd - loading Accumulator of address located in Addr and
-// add an optional register to the address.
-// Indirect addressing.
-func LdaInd(address uint16, reg ...interface{}) {
-	timeInstructionExecution()
-	panic(notImplemented)
 }
 
 // Ldx - Load X Register - load a byte into X.
-func Ldx(i uint8) {
+func Ldx(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	cpu.X = i
-	setZN(cpu.X)
-}
-
-// LdxAddr - loading X from address Addr and
-// add an optional register to the address.
-func LdxAddr(address interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	cpu.X = readMemoryAbsolute(address, reg...)
+	cpu.X = readMemoryAddressModes(param, reg...)
 	setZN(cpu.X)
 }
 
 // Ldy - Load Y Register - load a byte into Y.
-func Ldy(i uint8) {
+func Ldy(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	cpu.Y = i
-	setZN(cpu.Y)
-}
-
-// LdyAddr - loading Y from address Addr and
-// add an optional register to the address.
-func LdyAddr(address interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	cpu.Y = readMemoryAbsolute(address, reg...)
+	cpu.Y = readMemoryAddressModes(param, reg...)
 	setZN(cpu.Y)
 }
 
@@ -368,29 +301,21 @@ func Sei() {
 // Zero Page/Absolute addressing.
 func Sta(address interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAbsolute(address, cpu.A, reg...)
-}
-
-// StaInd - Store Accumulator - store content of A at address Addr and
-// add an optional register to the address.
-// Indirect addressing.
-func StaInd(address uint16, reg ...interface{}) {
-	timeInstructionExecution()
-	writeMemoryIndirect(address, cpu.A, reg...)
+	writeMemoryAddressModes(address, cpu.A, reg...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
 func Stx(address interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAbsolute(address, cpu.X, reg...)
+	writeMemoryAddressModes(address, cpu.X, reg...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
 func Sty(address interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAbsolute(address, cpu.Y, reg...)
+	writeMemoryAddressModes(address, cpu.Y, reg...)
 }
 
 // Tax - Transfer Accumulator to X.

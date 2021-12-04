@@ -11,7 +11,7 @@ import (
 
 const (
 	NoState    = -1
-	NumStates  = 126
+	NumStates  = 128
 	NumSymbols = 187
 )
 
@@ -162,7 +162,7 @@ Lexer symbols:
 30: 'o'
 31: 'r'
 32: 't'
-33: 'i'
+33: 'I'
 34: 'n'
 35: 'l'
 36: 'i'
