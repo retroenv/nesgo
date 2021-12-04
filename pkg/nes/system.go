@@ -9,8 +9,6 @@ var nmiHandler func()
 // nolint: unused
 var irqHandler func()
 
-var guiStarter = setupNoGui
-
 // nolint: unused
 var resetHandler func()
 
