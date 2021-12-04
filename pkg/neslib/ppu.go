@@ -11,7 +11,7 @@ func WaitSync() {
 
 // StartPPUTransfer starts the PPU transfer to the passed address.
 func StartPPUTransfer(address uint16, _ ...Inline) {
-	Ldx(Absolute(PPU_STATUS))
+	Ldx(PPU_STATUS)
 	Ldx(uint8(address >> 8))
 	Stx(PPU_ADDR)
 	Ldx(uint8(address))

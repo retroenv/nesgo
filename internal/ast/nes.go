@@ -1,9 +1,12 @@
 package ast
 
+// AddressingMode defines an address mode.
+type AddressingMode int
+
 // addressing modes.
 const (
-	NoAddressing      = 0
-	ImpliedAddressing = 1 << iota
+	NoAddressing      AddressingMode = 0
+	ImpliedAddressing AddressingMode = 1 << iota
 	AccumulatorAddressing
 	ImmediateAddressing
 	AbsoluteAddressing
@@ -21,7 +24,7 @@ const (
 // CPUInstruction contains information about a NES CPU instruction.
 type CPUInstruction struct {
 	Alias      string
-	Addressing int
+	Addressing AddressingMode
 }
 
 // CPUInstructions maps to NES CPU instruction information.
@@ -155,6 +158,6 @@ var CPURegisters = map[string]struct{}{
 }
 
 // HasAddressing ...
-func (c CPUInstruction) HasAddressing(flags int) bool {
+func (c CPUInstruction) HasAddressing(flags AddressingMode) bool {
 	return c.Addressing&flags != 0
 }

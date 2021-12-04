@@ -142,11 +142,10 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInst
 	}
 	if info.HasAddressing(ast.ImmediateAddressing) {
 		val, err := strconv.ParseUint(node.Value, 0, 8)
-		if err != nil {
-			return fmt.Errorf("instruction '%s' has an invalid immediate parameter '%s'", ins.Name, arg)
+		if err == nil {
+			c.outputLineWithComment(ins.Comment, "  %s #$%02x", info.Alias, val)
+			return nil
 		}
-		c.outputLineWithComment(ins.Comment, "  %s #$%02x", info.Alias, val)
-		return nil
 	}
 	if info.HasAddressing(ast.ZeroPageAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 8); err == nil {

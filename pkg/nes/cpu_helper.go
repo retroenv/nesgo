@@ -79,11 +79,14 @@ func compare(a, b byte) {
 func readMemoryAddressModes(param interface{}, reg ...interface{}) byte {
 	switch val := param.(type) {
 	case int:
-		if val < math.MaxUint8 {
+		if val <= math.MaxUint8 {
 			return uint8(val) // immediate, not an address
 		}
+		return readMemoryAbsolute(val, reg...)
 	case uint8:
 		return val // immediate, not an address
+	case *uint8: // variable
+		return *val
 	case Absolute:
 		return readMemoryAbsolute(val, reg...)
 	}

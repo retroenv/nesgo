@@ -3,6 +3,7 @@ package ast
 import (
 	"errors"
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -12,7 +13,7 @@ type Instruction struct {
 	Arguments Arguments
 	Comment   string
 
-	Addressing int
+	Addressing AddressingMode
 }
 
 // newInstruction creates an instruction specification.
@@ -21,14 +22,15 @@ func newInstruction(name string, arg interface{}) (*Instruction, error) {
 		Name: name,
 	}
 	if arg != nil {
-		if err := i.addArgument(arg); err != nil {
+		info := CPUInstructions[name]
+		if err := i.addArgument(info, arg); err != nil {
 			return nil, err
 		}
 	}
 	return i, nil
 }
 
-func (i *Instruction) addArgument(arg interface{}) error {
+func (i *Instruction) addArgument(info *CPUInstruction, arg interface{}) error {
 	switch val := arg.(type) {
 	case *Identifier:
 		if err := i.addIdentifierArgument(val); err != nil {
@@ -36,14 +38,11 @@ func (i *Instruction) addArgument(arg interface{}) error {
 		}
 
 	case *Value:
-		i.Arguments = append(i.Arguments, &ArgumentValue{Value: val.Value})
-		if i.Addressing == NoAddressing {
-			i.Addressing = ImmediateAddressing
-		}
+		i.addValueArgument(info, val)
 
 	case *NodeList:
 		for _, node := range val.Nodes {
-			if err := i.addArgument(node); err != nil {
+			if err := i.addArgument(info, node); err != nil {
 				return err
 			}
 		}
@@ -52,7 +51,7 @@ func (i *Instruction) addArgument(arg interface{}) error {
 		i.Arguments = append(i.Arguments, val)
 
 	case *Call:
-		if err := i.addCallArgument(val); err != nil {
+		if err := i.addCallArgument(info, val); err != nil {
 			return err
 		}
 
@@ -100,7 +99,7 @@ func (i *Instruction) addIdentifierArgument(arg *Identifier) error {
 	return nil
 }
 
-func (i *Instruction) addCallArgument(val *Call) error {
+func (i *Instruction) addCallArgument(info *CPUInstruction, val *Call) error {
 	switch val.Function {
 	case "ZeroPage":
 		i.Addressing = ZeroPageAddressing
@@ -111,11 +110,33 @@ func (i *Instruction) addCallArgument(val *Call) error {
 	}
 
 	for _, node := range val.Parameter {
-		if err := i.addArgument(node); err != nil {
+		if err := i.addArgument(info, node); err != nil {
 			return err
 		}
 	}
 	return nil
+}
+
+func (i *Instruction) addValueArgument(info *CPUInstruction, val *Value) {
+	i.Arguments = append(i.Arguments, &ArgumentValue{Value: val.Value})
+	if i.Addressing != NoAddressing {
+		return
+	}
+	if info.HasAddressing(ImmediateAddressing) {
+		_, err := strconv.ParseUint(val.Value, 0, 8)
+		if err == nil {
+			i.Addressing = ImmediateAddressing
+			return
+		}
+	}
+	if info.HasAddressing(ZeroPageAddressing) {
+		_, err := strconv.ParseUint(val.Value, 0, 8)
+		if err == nil {
+			i.Addressing = ZeroPageAddressing
+			return
+		}
+	}
+	i.Addressing = AbsoluteAddressing
 }
 
 // String implement the fmt.Stringer interface.

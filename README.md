@@ -82,7 +82,7 @@ nesgo can be used in different ways:
   added at the end of functions that are not inlined
 * `goto` has to be used instead of `jump` - it is limited to the labels in the
   current function as jump destination
-* for instructions that accept immediate addressing and zero page
-  addressing, an alias function for the addressing mode has to be used,
-  for example: `Lda(i uint8)` and
-  `LdaAddr(address interface{}, reg ...interface{}`
+* instructions that accept multiple addressing modes, the parameters can be
+  cast into a helper type to set the mode, using the identifiers
+  `ZeroPage`, `Absolute` or `Indirect`. If the instruction supports
+  an immediate parameter, it will be set by default
