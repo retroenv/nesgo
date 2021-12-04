@@ -25,7 +25,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println("[ goNES - Golang to NES Compiler ]")
+	fmt.Println("[ nesgo - Golang to NES Compiler ]")
 	fmt.Printf("Compiling %s\n", *input)
 
 	if err := compileFile(*input, *output); err != nil {
