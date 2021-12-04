@@ -31,12 +31,26 @@ op, |,
 MASK_SPR
 `
 
+var callFmtDebugPrint = []byte(`
+Dex()
+fmt.Println("debug")
+`)
+var callFmtDebugPrintIr = `
+inst, dex
+`
+
 var callTestCases = []struct {
 	name          string
 	input         []byte
 	expectedIr    string
 	expectedError string
 }{
+	{
+		"fmt debug print call",
+		callFmtDebugPrint,
+		callFmtDebugPrintIr,
+		"",
+	},
 	{
 		"call without parameters",
 		callNoParam,
@@ -59,6 +73,6 @@ var callTestCases = []struct {
 
 func TestCall(t *testing.T) {
 	for _, test := range callTestCases {
-		runTest(t, true, test.input, test.expectedIr, test.expectedError, test.name)
+		runTest(t, true, test)
 	}
 }

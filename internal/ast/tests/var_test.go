@@ -113,7 +113,7 @@ var varTestCases = []testCase{
 		"single var declaration with invalid type",
 		singleVarInvalidType,
 		"",
-		"error: expected one of",
+		"Expected one of:",
 	},
 	{
 		"single var declaration with type",
@@ -125,6 +125,6 @@ var varTestCases = []testCase{
 
 func TestVar(t *testing.T) {
 	for _, test := range varTestCases {
-		runTest(t, false, test.input, test.expectedIr, test.expectedError, test.name)
+		runTest(t, false, test)
 	}
 }

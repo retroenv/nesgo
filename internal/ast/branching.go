@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	BreakOperator     = "break"
+	breakOperator     = "break"
 	GotoInstruction   = "goto"
 	JmpInstruction    = "jmp"
 	NotOperator       = "!"

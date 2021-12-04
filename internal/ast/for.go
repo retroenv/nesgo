@@ -115,7 +115,7 @@ func processForBody(body []Node) ([]Node, *Label, error) {
 	var newBody []Node
 	for i, node := range body {
 		branch, ok := node.(*Branching)
-		if !ok || branch.Instruction != BreakOperator {
+		if !ok || branch.Instruction != breakOperator {
 			newBody = append(newBody, node)
 			continue
 		}
