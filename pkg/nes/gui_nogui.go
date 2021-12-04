@@ -1,11 +1,9 @@
-//go:build !nesgo
-// +build !nesgo
+//go:build !nesgo && nogui
+// +build !nesgo,nogui
 
 package nes
 
-func init() {
-	guiStarter = setupNoGui
-}
+var guiStarter = setupNoGui
 
 func setupNoGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
 	render := func() (bool, error) {

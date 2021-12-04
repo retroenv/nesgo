@@ -9,9 +9,7 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-func init() {
-	guiStarter = setupSDLGui
-}
+var guiStarter = setupSDLGui
 
 func setupSDLGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
 	window, renderer, tex, err := setupSDL()

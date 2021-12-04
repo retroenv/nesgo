@@ -11,13 +11,12 @@ import (
 	"github.com/go-gl/glfw/v3.3/glfw"
 )
 
-func init() {
-	// GLFW event handling must run on the main OS thread
-	runtime.LockOSThread()
-	guiStarter = setupOpenGLGui
-}
+var guiStarter = setupOpenGLGui
 
 func setupOpenGLGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
+	// GLFW event handling must run on the main OS thread
+	runtime.LockOSThread()
+
 	window, texture, err := setupOpenGL()
 	if err != nil {
 		return nil, nil, err
