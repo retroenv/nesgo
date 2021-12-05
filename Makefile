@@ -18,8 +18,10 @@ test: install ## run tests
 	nesgo -f ./examples/blue/main.go -o ./examples/blue/main.nes
 	nesgo -f ./examples/debugprint/main.go -o ./examples/debugprint/main.nes
 
-test-no-gui: ## run unit tests with gui disabled
+test-no-gui: install ## run unit tests with gui disabled
 	go test -tags nogui ./... -v
+	nesgo -f ./examples/blue/main.go -o ./examples/blue/main.nes
+	nesgo -f ./examples/debugprint/main.go -o ./examples/debugprint/main.nes
 
 test-coverage: ## run unit tests with test coverage
 	go test -tags nogui ./... -coverprofile .testCoverage -covermode=atomic -coverpkg=./...
