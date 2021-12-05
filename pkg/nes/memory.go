@@ -8,8 +8,6 @@ import (
 	"sync"
 )
 
-var ram *RAM
-
 // RAM implements the Random-access memory.
 type RAM struct {
 	data []byte
@@ -160,6 +158,10 @@ func readMemory(address uint16) byte {
 		return b
 	case address < 0x4000:
 		return ppu.readRegister(address)
+	case address == JOYPAD1:
+		return controller1.read()
+	case address == JOYPAD2:
+		return controller2.read()
 	case address == APU_CHAN_CTRL:
 		return 0 // TODO
 	default:
@@ -173,6 +175,9 @@ func writeMemory(address uint16, value byte) {
 		ram.writeMemory(address&0x07FF, value)
 	case address < 0x4000:
 		ppu.writeRegister(address, value)
+	case address == JOYPAD1:
+		controller1.setStrobeMode(value)
+		controller2.setStrobeMode(value)
 	case address == DMC_FREQ:
 		return // TODO
 	case address == APU_CHAN_CTRL:

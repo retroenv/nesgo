@@ -11,6 +11,17 @@ import (
 
 var guiStarter = setupSDLGui
 
+var sdlKeyMapping = map[sdl.Keycode]button{
+	sdl.K_UP:        buttonUp,
+	sdl.K_DOWN:      buttonDown,
+	sdl.K_LEFT:      buttonLeft,
+	sdl.K_RIGHT:     buttonRight,
+	sdl.K_z:         buttonA,
+	sdl.K_x:         buttonB,
+	sdl.K_RETURN:    buttonStart,
+	sdl.K_BACKSPACE: buttonSelect,
+}
+
 func setupSDLGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
 	window, renderer, tex, err := setupSDL()
 	if err != nil {
@@ -63,10 +74,11 @@ func renderSDL(renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
 			break
 
 		case *sdl.KeyboardEvent:
-			if et.Type == sdl.KEYUP && et.Keysym.Sym == sdl.K_ESCAPE {
+			if et.Type == sdl.KEYDOWN && et.Keysym.Sym == sdl.K_ESCAPE {
 				running = false
 				break
 			}
+			onSDLKey(et)
 		}
 	}
 
@@ -78,4 +90,17 @@ func renderSDL(renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
 	}
 	renderer.Present()
 	return running, nil
+}
+
+func onSDLKey(event *sdl.KeyboardEvent) {
+	controllerKey, ok := sdlKeyMapping[event.Keysym.Sym]
+	if !ok {
+		return
+	}
+	switch event.Type {
+	case sdl.KEYDOWN:
+		controller1.setButtonState(controllerKey, true)
+	case sdl.KEYUP:
+		controller1.setButtonState(controllerKey, false)
+	}
 }
