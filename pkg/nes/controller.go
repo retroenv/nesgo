@@ -28,7 +28,7 @@ type controller struct {
 	// written by the main goroutine that is locked for SDL/OpenGL usage
 	// and the emulator running in a separate goroutine.
 	buttons uint64
-	// index of next button state to read
+	// index (mask) of next button state to read
 	index uint8
 }
 
@@ -41,7 +41,7 @@ func (c *controller) reset() {
 func (c *controller) setStrobeMode(mode uint8) {
 	if mode&1 == 1 {
 		c.strobeMode = true
-		c.index = 0
+		c.index = 1
 	} else {
 		c.strobeMode = false
 	}
