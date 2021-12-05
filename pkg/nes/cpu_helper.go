@@ -8,29 +8,10 @@ import (
 	"math"
 )
 
-var cpu *cPU
-
 type cPU struct {
 	A uint8 // accumulator
 	X uint8 // x register
 	Y uint8 // y register
-}
-
-func init() {
-	ram = newRAM()
-	ppu = newPPU()
-	reset()
-}
-
-func reset() {
-	cpu = &cPU{}
-	A = &cpu.A
-	X = &cpu.X
-	Y = &cpu.Y
-	SP = 0xFD
-	setFlags(0x24)
-	ram.reset()
-	ppu.reset()
 }
 
 func setFlags(flags uint8) {

@@ -13,6 +13,17 @@ import (
 
 var guiStarter = setupOpenGLGui
 
+var openGLKeyMapping = map[glfw.Key]button{
+	glfw.KeyUp:        buttonUp,
+	glfw.KeyDown:      buttonDown,
+	glfw.KeyLeft:      buttonLeft,
+	glfw.KeyRight:     buttonRight,
+	glfw.KeyZ:         buttonA,
+	glfw.KeyX:         buttonB,
+	glfw.KeyEnter:     buttonStart,
+	glfw.KeyBackspace: buttonSelect,
+}
+
 func setupOpenGLGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
 	// GLFW event handling must run on the main OS thread
 	runtime.LockOSThread()
@@ -48,7 +59,7 @@ func setupOpenGL() (*glfw.Window, uint32, error) {
 		return nil, 0, fmt.Errorf("creating GLFW window: %w", err)
 	}
 
-	window.SetKeyCallback(onKey)
+	window.SetKeyCallback(onGLFWKey)
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)
 
@@ -100,8 +111,19 @@ func renderOpenGL(window *glfw.Window, texture uint32) {
 	glfw.PollEvents()
 }
 
-func onKey(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
+func onGLFWKey(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
 	if action == glfw.Press && key == glfw.KeyEscape {
 		window.SetShouldClose(true)
+	}
+
+	controllerKey, ok := openGLKeyMapping[key]
+	if !ok {
+		return
+	}
+	switch action {
+	case glfw.Press:
+		controller1.setButtonState(controllerKey, true)
+	case glfw.Release:
+		controller1.setButtonState(controllerKey, false)
 	}
 }
