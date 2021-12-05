@@ -137,24 +137,25 @@ func Clv() {
 	V = 0
 }
 
-// Cmp - Compare - compares the contents of A with given address content.
-func Cmp(address uint16) {
+// Cmp - Compare - compares the contents of A.
+func Cmp(param interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+	val := readMemoryAddressModes(param)
+	compare(cpu.A, val)
 }
 
 // Cpx - Compare X Register - compares the contents of X.
 func Cpx(param interface{}) {
 	timeInstructionExecution()
-	i := readMemoryAddressModes(param)
-	compare(cpu.X, i)
+	val := readMemoryAddressModes(param)
+	compare(cpu.X, val)
 }
 
 // Cpy - Compare Y Register - compares the contents of Y.
 func Cpy(param interface{}) {
 	timeInstructionExecution()
-	i := readMemoryAddressModes(param)
-	compare(cpu.Y, i)
+	val := readMemoryAddressModes(param)
+	compare(cpu.Y, val)
 }
 
 // Dex - Decrement X Register.
@@ -213,9 +214,21 @@ func Ldy(param interface{}, reg ...interface{}) {
 }
 
 // Lsr - Logical Shift Right - shift right.
-func Lsr(reg ...interface{}) {
+func Lsr(param ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+
+	if param == nil { // A implied
+		C = cpu.A & 1
+		cpu.A >>= 1
+		setZN(cpu.A)
+		return
+	}
+
+	val := readMemoryAddressModes(param)
+	C = val & 1
+	val >>= 1
+	setZN(val)
+	writeMemoryAddressModes(param, val)
 }
 
 // Nop - No Operation.
@@ -232,7 +245,7 @@ func Ora() {
 // Pha - Push Accumulator - push A content to stack.
 func Pha() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	push(cpu.A)
 }
 
 // Php - Push Processor Status - push status flags to stack.
@@ -244,7 +257,8 @@ func Php() {
 // Pla - Pull Accumulator - pull A content from stack.
 func Pla() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	cpu.A = pop()
+	setZN(cpu.A)
 }
 
 // Plp - Pull Processor Status - pull status flags from stack.
@@ -253,16 +267,42 @@ func Plp() {
 	panic(notImplemented)
 }
 
-// Rol - Rotate Left - rotate Accumulator left.
-func Rol() {
+// Rol - Rotate Left.
+func Rol(param ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+
+	c := C
+	if param == nil { // A implied
+		C = (cpu.A >> 7) & 1
+		cpu.A = (cpu.A << 1) | c
+		setZN(cpu.A)
+		return
+	}
+
+	val := readMemoryAddressModes(param)
+	C = (val >> 7) & 1
+	val = (val << 1) | c
+	setZN(val)
+	writeMemoryAddressModes(param, val)
 }
 
-// Ror - Rotate Right - rotate Accumulator right.
-func Ror() {
+// Ror - Rotate Right.
+func Ror(param ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+
+	c := C
+	if param == nil { // A implied
+		C = cpu.A & 1
+		cpu.A = (cpu.A >> 1) | (c << 7)
+		setZN(cpu.A)
+		return
+	}
+
+	val := readMemoryAddressModes(param)
+	C = val & 1
+	val = (val >> 1) | (c << 7)
+	setZN(val)
+	writeMemoryAddressModes(param, val)
 }
 
 // Rti - Return from Interrupt.

@@ -51,7 +51,14 @@ var CPUInstructions = map[string]*CPUInstruction{
 	"cld": {Alias: "cld", Addressing: ImpliedAddressing},
 	"cli": {Alias: "cli", Addressing: ImpliedAddressing},
 	"clv": {Alias: "clv", Addressing: ImpliedAddressing},
-	"cmp": nil, // TODO
+	"cmp": {Alias: "cmp", Addressing: ImmediateAddressing |
+		AbsoluteAddressing |
+		ZeroPageAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		ZeroPageXAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
 	"cpx": {Alias: "cpx", Addressing: ImmediateAddressing |
 		AbsoluteAddressing |
 		ZeroPageAddressing},

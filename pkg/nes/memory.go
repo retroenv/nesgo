@@ -121,24 +121,34 @@ func writeMemoryIndirect(address interface{}, value byte, reg ...interface{}) {
 func readMemoryAbsolute(address interface{}, reg ...interface{}) byte {
 	switch len(reg) {
 	case 0:
-		return readMemoryAbsoluteNoRegister(address)
+		return readMemoryAbsoluteOffset(address, 0)
 
 	case 1:
-		panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", reg[0]))
+		var offset uint8
+		switch val := reg[0].(type) {
+		case *uint8:
+			offset = *val
+		default:
+			panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", reg[0]))
+		}
+		return readMemoryAbsoluteOffset(address, uint16(offset))
 
 	default:
 		panic(fmt.Sprintf("unsupported extra parameter count %d for absolute memory write", len(reg)))
 	}
 }
 
-func readMemoryAbsoluteNoRegister(address interface{}) byte {
+func readMemoryAbsoluteOffset(address interface{}, offset uint16) byte {
 	switch addr := address.(type) {
 	case *uint8:
+		if offset != 0 {
+			panic("memory pointer read with offset is not supported")
+		}
 		return *addr
 	case uint16:
-		return readMemory(addr)
+		return readMemory(addr + offset)
 	case int:
-		return readMemory(uint16(addr))
+		return readMemory(uint16(addr) + offset)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
 	}
@@ -154,8 +164,7 @@ func readPointer(address uint16) uint16 {
 func readMemory(address uint16) byte {
 	switch {
 	case address < 0x2000:
-		b := ram.readMemory(address & 0x07FF)
-		return b
+		return ram.readMemory(address & 0x07FF)
 	case address < 0x4000:
 		return ppu.readRegister(address)
 	case address == JOYPAD1:
