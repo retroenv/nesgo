@@ -23,6 +23,9 @@ func newInstruction(name string, arg interface{}) (*Instruction, error) {
 	}
 	if arg != nil {
 		info := CPUInstructions[name]
+		if info == nil {
+			return nil, fmt.Errorf("missing instruction info for '%s'", name)
+		}
 		if err := i.addArgument(info, arg); err != nil {
 			return nil, err
 		}

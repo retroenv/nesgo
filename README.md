@@ -5,9 +5,10 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/retroenv/nesgo)](https://goreportcard.com/report/github.com/retroenv/nesgo)
 [![codecov](https://codecov.io/gh/retroenv/nesgo/branch/main/graph/badge.svg?token=NS5UY28V3A)](https://codecov.io/gh/retroenv/nesgo)
 
-nesgo allows you to write programs for the Nintendo Entertainment System (NES).
+nesgo allows you to write programs for the Nintendo Entertainment System
+(NES) in Golang.
 
-Benefits of writing NES programs in Golang:
+The benefits over other tooling options:
 
 - Code autocompletion in any IDE that supports Golang
 - You can debug code directly from an IDE, it will be executed in the
@@ -82,6 +83,8 @@ nesgo can be used in different ways:
   added at the end of functions that are not inlined
 * `goto` has to be used instead of `jump` - it is limited to the labels in the
   current function as jump destination
+* instructions that have the A register or an address as operand do not
+  need to specify A, it is used if no address is passed, for example `Rol()`
 * instructions that accept multiple addressing modes, the parameters can be
   cast into a helper type to set the mode, using the identifiers
   `ZeroPage`, `Absolute` or `Indirect`. If the instruction supports

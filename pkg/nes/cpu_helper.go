@@ -8,6 +8,8 @@ import (
 	"math"
 )
 
+const stackBase = 0x100
+
 type cPU struct {
 	A uint8 // accumulator
 	X uint8 // x register
@@ -57,10 +59,22 @@ func compare(a, b byte) {
 	}
 }
 
+// push a value to the stack and update the stack pointer.
+func push(value byte) {
+	writeMemory(uint16(stackBase+int(SP)), value)
+	SP--
+}
+
+// pop a value from the stack and update the stack pointer.
+func pop() byte {
+	SP++
+	return readMemory(uint16(stackBase + int(SP)))
+}
+
 func readMemoryAddressModes(param interface{}, reg ...interface{}) byte {
 	switch val := param.(type) {
 	case int:
-		if val <= math.MaxUint8 {
+		if reg == nil && val <= math.MaxUint8 {
 			return uint8(val) // immediate, not an address
 		}
 		return readMemoryAbsolute(val, reg...)
@@ -82,6 +96,8 @@ func writeMemoryAddressModes(param interface{}, value byte, reg ...interface{}) 
 		writeMemoryAbsolute(val, value, reg...)
 	case Indirect:
 		writeMemoryIndirect(val, value, reg...)
+	case *uint8: // variable
+		*val = value
 	default:
 		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
