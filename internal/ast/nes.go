@@ -23,125 +23,162 @@ const (
 
 // CPUInstruction contains information about a NES CPU instruction.
 type CPUInstruction struct {
-	Alias      string
 	Addressing AddressingMode
 }
 
 // CPUInstructions maps to NES CPU instruction information.
 var CPUInstructions = map[string]*CPUInstruction{
-	"adc": nil, // TODO
-	"and": nil, // TODO
-	"asl": {Alias: "asl", Addressing: AccumulatorAddressing |
-		AbsoluteAddressing |
+	"adc": {Addressing: ImmediateAddressing |
 		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		ZeroPageXAddressing},
-	"bcc": {Alias: "bcc", Addressing: RelativeAddressing},
-	"bcs": {Alias: "bcs", Addressing: RelativeAddressing},
-	"beq": {Alias: "beq", Addressing: RelativeAddressing},
-	"bit": {Alias: "bit", Addressing: AbsoluteAddressing |
-		ZeroPageAddressing},
-	"bmi": {Alias: "bmi", Addressing: RelativeAddressing},
-	"bne": {Alias: "bne", Addressing: RelativeAddressing},
-	"bpl": {Alias: "bpl", Addressing: RelativeAddressing},
-	"brk": {Alias: "brk", Addressing: ImpliedAddressing},
-	"bvc": {Alias: "bvc", Addressing: RelativeAddressing},
-	"bvs": {Alias: "bvs", Addressing: RelativeAddressing},
-	"clc": {Alias: "clc", Addressing: ImpliedAddressing},
-	"cld": {Alias: "cld", Addressing: ImpliedAddressing},
-	"cli": {Alias: "cli", Addressing: ImpliedAddressing},
-	"clv": {Alias: "clv", Addressing: ImpliedAddressing},
-	"cmp": {Alias: "cmp", Addressing: ImmediateAddressing |
+		ZeroPageXAddressing |
 		AbsoluteAddressing |
-		ZeroPageAddressing |
 		AbsoluteXAddressing |
 		AbsoluteYAddressing |
-		ZeroPageXAddressing |
 		IndirectXAddressing |
 		IndirectYAddressing},
-	"cpx": {Alias: "cpx", Addressing: ImmediateAddressing |
-		AbsoluteAddressing |
-		ZeroPageAddressing},
-	"cpy": {Alias: "cpy", Addressing: ImmediateAddressing |
-		AbsoluteAddressing |
-		ZeroPageAddressing},
-	"dex": {Alias: "dex", Addressing: ImpliedAddressing},
-	"dey": {Alias: "dey", Addressing: ImpliedAddressing},
-	"eor": {Alias: "eor", Addressing: ImmediateAddressing |
-		AbsoluteAddressing |
+	"and": {Addressing: ImmediateAddressing |
 		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
 		AbsoluteXAddressing |
 		AbsoluteYAddressing |
-		ZeroPageXAddressing |
 		IndirectXAddressing |
 		IndirectYAddressing},
-	"inx": {Alias: "inx", Addressing: ImpliedAddressing},
-	"iny": {Alias: "iny", Addressing: ImpliedAddressing},
-	"jmp": {Alias: "jmp", Addressing: RelativeAddressing},
-	"lda": {Alias: "lda", Addressing: ImmediateAddressing |
-		AbsoluteAddressing |
+	"asl": {Addressing: AccumulatorAddressing |
 		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		AbsoluteYAddressing |
 		ZeroPageXAddressing |
-		IndirectXAddressing |
-		IndirectYAddressing},
-	"ldx": {Alias: "ldx", Addressing: ImmediateAddressing |
 		AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteYAddressing |
-		ZeroPageYAddressing},
-	"ldy": {Alias: "ldy", Addressing: ImmediateAddressing |
-		AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		ZeroPageXAddressing},
-	"lsr": {Alias: "lsr", Addressing: AccumulatorAddressing |
-		AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		ZeroPageXAddressing},
-	"nop": {Alias: "nop", Addressing: ImpliedAddressing},
-	"ora": nil, // TODO
-	"pha": {Alias: "pha", Addressing: ImpliedAddressing},
-	"php": {Alias: "php", Addressing: ImpliedAddressing},
-	"pla": {Alias: "pla", Addressing: ImpliedAddressing},
-	"plp": {Alias: "plp", Addressing: ImpliedAddressing},
-	"rol": {Alias: "rol", Addressing: AccumulatorAddressing |
-		AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		ZeroPageXAddressing},
-	"ror": {Alias: "ror", Addressing: AccumulatorAddressing |
-		AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		ZeroPageXAddressing},
-	"rti": {Alias: "rti", Addressing: ImpliedAddressing},
-	"rts": {Alias: "rts", Addressing: ImpliedAddressing},
-	"sbc": nil, // TODO
-	"sec": {Alias: "sec", Addressing: ImpliedAddressing},
-	"sed": {Alias: "sed", Addressing: ImpliedAddressing},
-	"sei": {Alias: "sei", Addressing: ImpliedAddressing},
-	"sta": {Alias: "sta", Addressing: AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteXAddressing |
-		AbsoluteYAddressing |
-		ZeroPageXAddressing |
-		IndirectXAddressing |
-		IndirectYAddressing},
-	"stx": {Alias: "stx", Addressing: AbsoluteAddressing |
-		ZeroPageAddressing |
-		AbsoluteYAddressing},
-	"sty": {Alias: "sty", Addressing: AbsoluteAddressing |
-		ZeroPageAddressing |
 		AbsoluteXAddressing},
-	"tax": {Alias: "tax", Addressing: ImpliedAddressing},
-	"tay": {Alias: "tay", Addressing: ImpliedAddressing},
-	"tsx": {Alias: "tsx", Addressing: ImpliedAddressing},
-	"txa": {Alias: "txa", Addressing: ImpliedAddressing},
-	"txs": {Alias: "txs", Addressing: ImpliedAddressing},
-	"tya": {Alias: "tya", Addressing: ImpliedAddressing},
+	"bcc": {Addressing: RelativeAddressing},
+	"bcs": {Addressing: RelativeAddressing},
+	"beq": {Addressing: RelativeAddressing},
+	"bit": {Addressing: AbsoluteAddressing |
+		ZeroPageAddressing},
+	"bmi": {Addressing: RelativeAddressing},
+	"bne": {Addressing: RelativeAddressing},
+	"bpl": {Addressing: RelativeAddressing},
+	"brk": {Addressing: ImpliedAddressing},
+	"bvc": {Addressing: RelativeAddressing},
+	"bvs": {Addressing: RelativeAddressing},
+	"clc": {Addressing: ImpliedAddressing},
+	"cld": {Addressing: ImpliedAddressing},
+	"cli": {Addressing: ImpliedAddressing},
+	"clv": {Addressing: ImpliedAddressing},
+	"cmp": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
+	"cpx": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		AbsoluteAddressing},
+	"cpy": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		AbsoluteAddressing},
+	"dec": {Addressing: ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing},
+	"dex": {Addressing: ImpliedAddressing},
+	"dey": {Addressing: ImpliedAddressing},
+	"eor": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
+	"inc": {Addressing: ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing},
+	"inx": {Addressing: ImpliedAddressing},
+	"iny": {Addressing: ImpliedAddressing},
+	"jmp": {Addressing: AbsoluteAddressing |
+		IndirectAddressing},
+	"jsr": {Addressing: AbsoluteAddressing},
+	"lda": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
+	"ldx": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageYAddressing |
+		AbsoluteAddressing |
+		AbsoluteYAddressing},
+	"ldy": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing},
+	"lsr": {Addressing: AccumulatorAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing},
+	"nop": {Addressing: ImpliedAddressing},
+	"ora": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
+	"pha": {Addressing: ImpliedAddressing},
+	"php": {Addressing: ImpliedAddressing},
+	"pla": {Addressing: ImpliedAddressing},
+	"plp": {Addressing: ImpliedAddressing},
+	"rol": {Addressing: AccumulatorAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing},
+	"ror": {Addressing: AccumulatorAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing},
+	"rti": {Addressing: ImpliedAddressing},
+	"rts": {Addressing: ImpliedAddressing},
+	"sbc": {Addressing: ImmediateAddressing |
+		ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
+	"sec": {Addressing: ImpliedAddressing},
+	"sed": {Addressing: ImpliedAddressing},
+	"sei": {Addressing: ImpliedAddressing},
+	"sta": {Addressing: ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing |
+		AbsoluteXAddressing |
+		AbsoluteYAddressing |
+		IndirectXAddressing |
+		IndirectYAddressing},
+	"stx": {Addressing: ZeroPageAddressing |
+		ZeroPageYAddressing |
+		AbsoluteAddressing},
+	"sty": {Addressing: ZeroPageAddressing |
+		ZeroPageXAddressing |
+		AbsoluteAddressing},
+	"tax": {Addressing: ImpliedAddressing},
+	"tay": {Addressing: ImpliedAddressing},
+	"tsx": {Addressing: ImpliedAddressing},
+	"txa": {Addressing: ImpliedAddressing},
+	"txs": {Addressing: ImpliedAddressing},
+	"tya": {Addressing: ImpliedAddressing},
 }
 
 // CPUBranchingInstructions ...

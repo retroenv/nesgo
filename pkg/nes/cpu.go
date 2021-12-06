@@ -3,6 +3,8 @@
 
 package nes
 
+import "math"
+
 // CPU register and flags
 var (
 	SP uint8 // stack pointer
@@ -24,43 +26,53 @@ var (
 var notImplemented = "instruction is not implemented yet"
 
 // Adc - Add with Carry.
-func Adc() {
+func Adc(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+	value := readMemoryAddressModes(param, reg...)
+	sum := int(cpu.A) + int(C) + int(value)
+	cpu.A = uint8(sum)
+	setZN(cpu.A)
+
+	if sum > math.MaxUint8 {
+		C = 1
+	} else {
+		C = 0
+	}
+
+	// TODO support decimal mode
 }
 
 // And - AND with accumulator.
-func And() {
+func And(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+	value := readMemoryAddressModes(param, reg...)
+	cpu.A &= value
+	setZN(cpu.A)
 }
 
 // Asl - Arithmetic Shift Left - shift left Accumulator.
 func Asl() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	panic(notImplemented) // TODO: implement
 }
 
 // Bcc - Branch if Carry Clear - returns whether the
 // carry flag is clear.
 func Bcc() bool {
 	timeInstructionExecution()
-	b := C == 0
-	return b
+	return C == 0
 }
 
 // Bcs - Branch if Carry Set - returns whether the carry flag is set.
 func Bcs() bool {
 	timeInstructionExecution()
-	b := C != 0
-	return b
+	return C != 0
 }
 
 // Beq - Branch if Equal - returns whether the zero flag is set.
 func Beq() bool {
 	timeInstructionExecution()
-	b := Z != 0
-	return b
+	return Z != 0
 }
 
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
@@ -75,42 +87,37 @@ func Bit(address uint16) {
 // Bmi - Branch if Minus - returns whether the negative flag is set.
 func Bmi() bool {
 	timeInstructionExecution()
-	b := N != 0
-	return b
+	return N != 0
 }
 
 // Bne - Branch if Not Equal - returns whether the zero flag is clear.
 func Bne() bool {
 	timeInstructionExecution()
-	b := Z == 0
-	return b
+	return Z == 0
 }
 
 // Bpl - Branch if Positive - returns whether the negative flag is clear.
 func Bpl() bool {
 	timeInstructionExecution()
-	b := N == 0
-	return b
+	return N == 0
 }
 
 // Brk - Force Interrupt.
 func Brk() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	panic(notImplemented) // TODO: implement
 }
 
 // Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
 func Bvc() bool {
 	timeInstructionExecution()
-	b := V == 0
-	return b
+	return V == 0
 }
 
 // Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
 func Bvs() bool {
 	timeInstructionExecution()
-	b := V != 0
-	return b
+	return V != 0
 }
 
 // Clc - Clear Carry Flag.
@@ -172,10 +179,12 @@ func Dey() {
 	setZN(cpu.Y)
 }
 
-// Eor - Exclusive OR - XOR the Accumulator.
-func Eor(immediate byte) {
+// Eor - Exclusive OR - XOR.
+func Eor(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+	value := readMemoryAddressModes(param, reg...)
+	cpu.A ^= value
+	setZN(cpu.A)
 }
 
 // Inx - Increment X Register.
@@ -237,9 +246,11 @@ func Nop() {
 }
 
 // Ora - OR with Accumulator.
-func Ora() {
+func Ora(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	panic(notImplemented)
+	value := readMemoryAddressModes(param, reg...)
+	cpu.A |= value
+	setZN(cpu.A)
 }
 
 // Pha - Push Accumulator - push A content to stack.
@@ -251,7 +262,7 @@ func Pha() {
 // Php - Push Processor Status - push status flags to stack.
 func Php() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	panic(notImplemented) // TODO: implement
 }
 
 // Pla - Pull Accumulator - pull A content from stack.
@@ -264,7 +275,7 @@ func Pla() {
 // Plp - Pull Processor Status - pull status flags from stack.
 func Plp() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	panic(notImplemented) // TODO: implement
 }
 
 // Rol - Rotate Left.
@@ -308,13 +319,12 @@ func Ror(param ...interface{}) {
 // Rti - Return from Interrupt.
 func Rti() {
 	timeInstructionExecution()
-	panic(notImplemented)
 }
 
-// Sbc - subtract with Carry
+// Sbc - subtract with Carry.
 func Sbc() {
 	timeInstructionExecution()
-	panic(notImplemented)
+	panic(notImplemented) // TODO: implement
 }
 
 // Sec - Set Carry Flag.
@@ -332,30 +342,28 @@ func Sed() {
 // Sei - Set Interrupt Disable.
 func Sei() {
 	timeInstructionExecution()
-	timeInstructionExecution()
 	I = 1
 }
 
 // Sta - Store Accumulator - store content of A at address Addr and
 // add an optional register to the address.
-// Zero Page/Absolute addressing.
-func Sta(address interface{}, reg ...interface{}) {
+func Sta(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(address, cpu.A, reg...)
+	writeMemoryAddressModes(param, cpu.A, reg...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
-func Stx(address interface{}, reg ...interface{}) {
+func Stx(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(address, cpu.X, reg...)
+	writeMemoryAddressModes(param, cpu.X, reg...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
-func Sty(address interface{}, reg ...interface{}) {
+func Sty(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(address, cpu.Y, reg...)
+	writeMemoryAddressModes(param, cpu.Y, reg...)
 }
 
 // Tax - Transfer Accumulator to X.
