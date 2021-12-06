@@ -68,6 +68,8 @@ func writeMemoryAbsoluteNoRegister(address interface{}, value byte) {
 		*addr = uint16(value)
 	case int:
 		writeMemory(uint16(addr), value)
+	case Absolute:
+		writeMemory(uint16(addr), value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
 	}
@@ -82,6 +84,8 @@ func writeMemoryAbsoluteRegister(address interface{}, value byte, register *uint
 	case uint16:
 		writeMemory(addr+uint16(*register), value)
 	case int:
+		writeMemory(uint16(addr)+uint16(*register), value)
+	case Absolute:
 		writeMemory(uint16(addr)+uint16(*register), value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
