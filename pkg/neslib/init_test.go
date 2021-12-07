@@ -10,5 +10,5 @@ import (
 func TestParser(t *testing.T) {
 	ClearRAM()
 	// TODO add test
-	assert.Equal(t, 0, *A)
+	assert.Equal(t, 0, *X)
 }

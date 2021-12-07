@@ -10,8 +10,6 @@ var (
 	controller2 controller
 )
 
-const initialStack = 0xFD
-
 func init() {
 	ram = newRAM()
 	ppu = newPPU()
@@ -19,12 +17,9 @@ func init() {
 }
 
 func reset() {
-	cpu = &cPU{}
-	A = &cpu.A
+	cpu = newCPU()
 	X = &cpu.X
 	Y = &cpu.Y
-	SP = initialStack
-	setFlags(0x24)
 	ram.reset()
 	ppu.reset()
 	controller1.reset()
