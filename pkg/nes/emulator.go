@@ -4,10 +4,22 @@
 package nes
 
 var (
-	ram         *RAM
-	controller1 controller
-	controller2 controller
-	docCPU      *CPU
+	docCPU *CPU
+	system *System
+)
+
+func init() {
+	system = newSystem()
+	setAliases(system.CPU)
+	X = &system.CPU.X
+	Y = &system.CPU.Y
+}
+
+// CPU registers that can be used as parameter for instructions that support
+// absolute or indirect indexing using X or Y register.
+var (
+	X *uint8 // x register
+	Y *uint8 // y register
 )
 
 // cpu instructions, linked to the unitialized cpu type functions to allow
@@ -120,25 +132,6 @@ var (
 	// Tya - Transfer Y to Accumulator.
 	Tya = docCPU.Tya
 )
-
-func init() {
-	ram = newRAM()
-	ppu = newPPU()
-	reset()
-}
-
-func reset() *System {
-	cpu := newCPU()
-	system := &System{CPU: cpu}
-	setAliases(system.CPU)
-	X = &cpu.X
-	Y = &cpu.Y
-	ram.reset()
-	ppu.reset()
-	controller1.reset()
-	controller2.reset()
-	return system
-}
 
 // nolint: funlen
 func setAliases(cpu *CPU) {

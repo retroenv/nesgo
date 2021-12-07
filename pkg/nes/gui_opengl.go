@@ -24,16 +24,16 @@ var openGLKeyMapping = map[glfw.Key]button{
 	glfw.KeyBackspace: buttonSelect,
 }
 
-func setupOpenGLGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupOpenGLGui(ppu *PPU) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	// GLFW event handling must run on the main OS thread
 	runtime.LockOSThread()
 
-	window, texture, err := setupOpenGL()
+	window, texture, err := setupOpenGL(ppu)
 	if err != nil {
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		renderOpenGL(window, texture)
+		renderOpenGL(ppu, window, texture)
 		return !window.ShouldClose(), nil
 	}
 	cleanup := func() {
@@ -43,7 +43,7 @@ func setupOpenGLGui() (guiRender func() (bool, error), guiCleanup func(), err er
 	return render, cleanup, nil
 }
 
-func setupOpenGL() (*glfw.Window, uint32, error) {
+func setupOpenGL(ppu *PPU) (*glfw.Window, uint32, error) {
 	// setup GLFW
 	if err := glfw.Init(); err != nil {
 		return nil, 0, fmt.Errorf("initializing GLFW: %w", err)
@@ -77,7 +77,7 @@ func setupOpenGL() (*glfw.Window, uint32, error) {
 	return window, texture, nil
 }
 
-func renderOpenGL(window *glfw.Window, texture uint32) {
+func renderOpenGL(ppu *PPU, window *glfw.Window, texture uint32) {
 	gl.BindTexture(gl.TEXTURE_2D, texture)
 	gl.TexSubImage2D(gl.TEXTURE_2D, 0, 0, 0, width, height,
 		gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&ppu.image.Pix[0]))
@@ -120,8 +120,8 @@ func onGLFWKey(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ g
 	}
 	switch action {
 	case glfw.Press:
-		controller1.setButtonState(controllerKey, true)
+		system.memory.controller1.setButtonState(controllerKey, true)
 	case glfw.Release:
-		controller1.setButtonState(controllerKey, false)
+		system.memory.controller1.setButtonState(controllerKey, false)
 	}
 }

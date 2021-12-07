@@ -22,13 +22,13 @@ var sdlKeyMapping = map[sdl.Keycode]button{
 	sdl.K_BACKSPACE: buttonSelect,
 }
 
-func setupSDLGui() (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupSDLGui(ppu *PPU) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	window, renderer, tex, err := setupSDL()
 	if err != nil {
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		return renderSDL(renderer, tex)
+		return renderSDL(ppu, renderer, tex)
 	}
 	cleanup := func() {
 		_ = tex.Destroy()
@@ -65,7 +65,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	return window, renderer, tex, nil
 }
 
-func renderSDL(renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
+func renderSDL(ppu *PPU, renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
 	running := true
 	for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
 		switch et := event.(type) {
@@ -99,8 +99,8 @@ func onSDLKey(event *sdl.KeyboardEvent) {
 	}
 	switch event.Type {
 	case sdl.KEYDOWN:
-		controller1.setButtonState(controllerKey, true)
+		system.memory.controller1.setButtonState(controllerKey, true)
 	case sdl.KEYUP:
-		controller1.setButtonState(controllerKey, false)
+		system.memory.controller1.setButtonState(controllerKey, false)
 	}
 }

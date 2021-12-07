@@ -12,6 +12,8 @@ type CPU struct {
 	Y     uint8 // y register
 	SP    uint8 // stack pointer
 	Flags flags
+
+	memory *Memory
 }
 
 type flags struct {
@@ -30,9 +32,10 @@ const (
 	initialStack = 0xFD
 )
 
-func newCPU() *CPU {
+func newCPU(memory *Memory) *CPU {
 	c := &CPU{
-		SP: initialStack,
+		SP:     initialStack,
+		memory: memory,
 	}
 	c.setFlags(initialFlags)
 	return c
@@ -96,12 +99,12 @@ func (c *CPU) compare(a, b byte) {
 
 // push a value to the stack and update the stack pointer.
 func (c *CPU) push(value byte) {
-	writeMemory(uint16(stackBase+int(c.SP)), value)
+	c.memory.writeMemory(uint16(stackBase+int(c.SP)), value)
 	c.SP--
 }
 
 // pop a value from the stack and update the stack pointer.
 func (c *CPU) pop() byte {
 	c.SP++
-	return readMemory(uint16(stackBase + int(c.SP)))
+	return c.memory.readMemory(uint16(stackBase + int(c.SP)))
 }
