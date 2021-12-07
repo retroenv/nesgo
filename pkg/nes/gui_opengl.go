@@ -86,16 +86,14 @@ func renderOpenGL(window *glfw.Window, texture uint32) {
 	gl.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST)
 	gl.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST)
 
-	// set an orthogonal projection (2D) with the size of
-	// the Game Boy Screen
+	// set an orthogonal projection (2D) with the size of the screen
 	gl.MatrixMode(gl.PROJECTION)
 	gl.LoadIdentity()
 	gl.Ortho(0.0, width, 0.0, height, -1.0, 1.0)
 	gl.MatrixMode(gl.MODELVIEW)
 
-	// render a single quad with the size of the Game Boy
-	// screen and with the contents of the emulator
-	// frame buffer (already in the texture)
+	// render a single quad with the size of the screen and with the
+	// contents of the emulator frame buffer
 	gl.Begin(gl.QUADS)
 	gl.TexCoord2d(0.0, 1.0)
 	gl.Vertex2d(0.0, 0.0)
