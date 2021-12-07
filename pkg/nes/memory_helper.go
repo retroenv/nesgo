@@ -1,0 +1,204 @@
+//go:build !nesgo
+// +build !nesgo
+
+package nes
+
+import (
+	"fmt"
+	"math"
+)
+
+func writeMemoryAbsolute(address interface{}, value byte, reg ...interface{}) {
+	switch len(reg) {
+	case 0:
+		writeMemoryAbsoluteNoRegister(address, value)
+
+	case 1:
+		p, ok := reg[0].(*uint8)
+		if !ok {
+			panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory write", reg[0]))
+		}
+		writeMemoryAbsoluteRegister(address, value, p)
+
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter count %d for absolute memory write", len(reg)))
+	}
+}
+
+func writeMemoryAbsoluteNoRegister(address interface{}, value byte) {
+	switch addr := address.(type) {
+	case uint8:
+		writeMemory(uint16(addr), value)
+	case *uint8:
+		*addr = value
+	case uint16:
+		writeMemory(addr, value)
+	case *uint16:
+		*addr = uint16(value)
+	case int:
+		writeMemory(uint16(addr), value)
+	case Absolute:
+		writeMemory(uint16(addr), value)
+	default:
+		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
+	}
+}
+
+func writeMemoryAbsoluteRegister(address interface{}, value byte, register *uint8) {
+	switch addr := address.(type) {
+	case int8:
+		writeMemory(uint16(addr)+uint16(*register), value)
+	case uint8:
+		writeMemory(uint16(addr)+uint16(*register), value)
+	case uint16:
+		writeMemory(addr+uint16(*register), value)
+	case int:
+		writeMemory(uint16(addr)+uint16(*register), value)
+	case Absolute:
+		writeMemory(uint16(addr)+uint16(*register), value)
+	default:
+		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
+	}
+}
+
+func writeMemoryIndirect(address interface{}, value byte, reg ...interface{}) {
+	switch len(reg) {
+	case 0:
+		panic("register parameter missing for indirect memory addressing")
+
+	case 1:
+		p, ok := reg[0].(*uint8)
+		if !ok {
+			panic(fmt.Sprintf("unsupported extra parameter type %T for indirect memory write", reg[0]))
+		}
+		addr, ok := reg[0].(uint16)
+		if !ok {
+			panic(fmt.Sprintf("unsupported address parameter type %T for indirect memory write", address))
+		}
+		switch {
+		case p == X:
+			writeMemory(addr+uint16(*p), value)
+		case p == Y:
+			ptr := readPointer(addr)
+			ptr += uint16(*p)
+			writeMemory(ptr, value)
+		default:
+			panic("only X and Y registers are supported for indirect addressing")
+		}
+
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter count %d for indirect memory write", len(reg)))
+	}
+}
+
+func readMemoryAbsolute(address interface{}, reg ...interface{}) byte {
+	switch len(reg) {
+	case 0:
+		return readMemoryAbsoluteOffset(address, 0)
+
+	case 1:
+		var offset uint8
+		switch val := reg[0].(type) {
+		case *uint8:
+			offset = *val
+		default:
+			panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", reg[0]))
+		}
+		return readMemoryAbsoluteOffset(address, uint16(offset))
+
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter count %d for absolute memory write", len(reg)))
+	}
+}
+
+func readMemoryAbsoluteOffset(address interface{}, offset uint16) byte {
+	switch addr := address.(type) {
+	case *uint8:
+		if offset != 0 {
+			panic("memory pointer read with offset is not supported")
+		}
+		return *addr
+	case uint16:
+		return readMemory(addr + offset)
+	case int:
+		return readMemory(uint16(addr) + offset)
+	default:
+		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
+	}
+}
+
+func readPointer(address uint16) uint16 {
+	b1 := readMemory(address)
+	b2 := readMemory(address + 1)
+	ptr := uint16(b1)<<8 + uint16(b2)
+	return ptr
+}
+
+func readMemory(address uint16) byte {
+	switch {
+	case address < 0x2000:
+		return ram.readMemory(address & 0x07FF)
+	case address < 0x4000:
+		return ppu.readRegister(address)
+	case address == JOYPAD1:
+		return controller1.read()
+	case address == JOYPAD2:
+		return controller2.read()
+	case address == APU_CHAN_CTRL:
+		return 0 // TODO
+	default:
+		panic(fmt.Sprintf("unhandled memory read at address: 0x%04X", address))
+	}
+}
+
+func writeMemory(address uint16, value byte) {
+	switch {
+	case address < 0x2000:
+		ram.writeMemory(address&0x07FF, value)
+	case address < 0x4000:
+		ppu.writeRegister(address, value)
+	case address == JOYPAD1:
+		controller1.setStrobeMode(value)
+		controller2.setStrobeMode(value)
+	case address == DMC_FREQ:
+		return // TODO
+	case address == APU_CHAN_CTRL:
+		return // TODO
+	case address == APU_FRAME:
+		return // TODO
+	default:
+		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
+	}
+}
+
+func readMemoryAddressModes(param interface{}, reg ...interface{}) byte {
+	switch val := param.(type) {
+	case int:
+		if reg == nil && val <= math.MaxUint8 {
+			return uint8(val) // immediate, not an address
+		}
+		return readMemoryAbsolute(val, reg...)
+	case uint8:
+		return val // immediate, not an address
+	case *uint8: // variable
+		return *val
+	case Absolute:
+		return readMemoryAbsolute(val, reg...)
+	}
+	panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
+}
+
+func writeMemoryAddressModes(param interface{}, value byte, reg ...interface{}) {
+	switch val := param.(type) {
+	case int:
+		writeMemoryAbsolute(val, value, reg...)
+	case Absolute:
+		writeMemoryAbsolute(val, value, reg...)
+	case Indirect:
+		writeMemoryIndirect(val, value, reg...)
+	case *uint8: // variable
+		*val = value
+	default:
+		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
+	}
+}
