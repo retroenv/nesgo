@@ -3,6 +3,11 @@
 
 package nes
 
+// System implements a NES system.
+type System struct {
+	*CPU
+}
+
 // nolint: unused
 var nmiHandler func()
 

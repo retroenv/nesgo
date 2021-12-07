@@ -7,345 +7,345 @@ import (
 )
 
 func TestAdc(t *testing.T) {
-	reset()
-	cpu.A = 2
-	Adc(0xff)
-	assert.Equal(t, 1, cpu.A)
-	assert.Equal(t, 1, cpu.Flags.C)
+	system := reset()
+	system.A = 2
+	system.Adc(0xff)
+	assert.Equal(t, 1, system.A)
+	assert.Equal(t, 1, system.Flags.C)
 
-	Adc(2)
-	assert.Equal(t, 4, cpu.A)
-	assert.Equal(t, 0, cpu.Flags.C)
+	system.Adc(2)
+	assert.Equal(t, 4, system.A)
+	assert.Equal(t, 0, system.Flags.C)
 }
 
 func TestAnd(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	And(0)
+	system.And(0)
 }
 
 func TestAsl(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Asl()
+	system.Asl()
 }
 
 func TestBcc(t *testing.T) {
-	reset()
-	assert.Equal(t, true, Bcc())
-	cpu.Flags.C = 1
-	assert.Equal(t, false, Bcc())
+	system := reset()
+	assert.Equal(t, true, system.Bcc())
+	system.Flags.C = 1
+	assert.Equal(t, false, system.Bcc())
 }
 
 func TestBcs(t *testing.T) {
-	reset()
-	assert.Equal(t, false, Bcs())
-	cpu.Flags.C = 1
-	assert.Equal(t, true, Bcs())
+	system := reset()
+	assert.Equal(t, false, system.Bcs())
+	system.Flags.C = 1
+	assert.Equal(t, true, system.Bcs())
 }
 
 func TestBeq(t *testing.T) {
-	reset()
-	assert.Equal(t, false, Beq())
-	cpu.Flags.Z = 1
-	assert.Equal(t, true, Beq())
+	system := reset()
+	assert.Equal(t, false, system.Beq())
+	system.Flags.Z = 1
+	assert.Equal(t, true, system.Beq())
 }
 
 func TestBit(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Bit(0)
+	system.Bit(0)
 }
 
 func TestBmi(t *testing.T) {
-	reset()
-	assert.Equal(t, false, Bmi())
-	cpu.Flags.N = 1
-	assert.Equal(t, true, Bmi())
+	system := reset()
+	assert.Equal(t, false, system.Bmi())
+	system.Flags.N = 1
+	assert.Equal(t, true, system.Bmi())
 }
 
 func TestBne(t *testing.T) {
-	reset()
-	assert.Equal(t, true, Bne())
-	cpu.Flags.Z = 1
-	assert.Equal(t, false, Bne())
+	system := reset()
+	assert.Equal(t, true, system.Bne())
+	system.Flags.Z = 1
+	assert.Equal(t, false, system.Bne())
 }
 
 func TestBpl(t *testing.T) {
-	reset()
-	assert.Equal(t, true, Bpl())
-	cpu.Flags.N = 1
-	assert.Equal(t, false, Bpl())
+	system := reset()
+	assert.Equal(t, true, system.Bpl())
+	system.Flags.N = 1
+	assert.Equal(t, false, system.Bpl())
 }
 
 func TestBvc(t *testing.T) {
-	reset()
-	assert.Equal(t, true, Bvc())
-	cpu.Flags.V = 1
-	assert.Equal(t, false, Bvc())
+	system := reset()
+	assert.Equal(t, true, system.Bvc())
+	system.Flags.V = 1
+	assert.Equal(t, false, system.Bvc())
 }
 
 func TestBvs(t *testing.T) {
-	reset()
-	assert.Equal(t, false, Bvs())
-	cpu.Flags.V = 1
-	assert.Equal(t, true, Bvs())
+	system := reset()
+	assert.Equal(t, false, system.Bvs())
+	system.Flags.V = 1
+	assert.Equal(t, true, system.Bvs())
 }
 
 func TestClc(t *testing.T) {
-	reset()
-	cpu.Flags.C = 1
-	Clc()
-	assert.Equal(t, 0, cpu.Flags.C)
+	system := reset()
+	system.Flags.C = 1
+	system.Clc()
+	assert.Equal(t, 0, system.Flags.C)
 }
 
 func TestCld(t *testing.T) {
-	reset()
-	cpu.Flags.D = 1
-	Cld()
-	assert.Equal(t, 0, cpu.Flags.D)
+	system := reset()
+	system.Flags.D = 1
+	system.Cld()
+	assert.Equal(t, 0, system.Flags.D)
 }
 
 func TestCli(t *testing.T) {
-	reset()
-	cpu.Flags.I = 1
-	Cli()
-	assert.Equal(t, 0, cpu.Flags.I)
+	system := reset()
+	system.Flags.I = 1
+	system.Cli()
+	assert.Equal(t, 0, system.Flags.I)
 }
 
 func TestClv(t *testing.T) {
-	reset()
-	cpu.Flags.V = 1
-	Clv()
-	assert.Equal(t, 0, cpu.Flags.V)
+	system := reset()
+	system.Flags.V = 1
+	system.Clv()
+	assert.Equal(t, 0, system.Flags.V)
 }
 
 func TestCpx(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Cpx(0)
+	system.Cpx(0)
 }
 
 func TestCpy(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Cpy(0)
+	system.Cpy(0)
 }
 
 func TestDex(t *testing.T) {
-	reset()
-	cpu.X = 2
-	Dex()
-	assert.Equal(t, 1, cpu.X)
+	system := reset()
+	system.X = 2
+	system.Dex()
+	assert.Equal(t, 1, system.X)
 }
 
 func TestDey(t *testing.T) {
-	reset()
-	cpu.Y = 2
-	Dey()
-	assert.Equal(t, 1, cpu.Y)
+	system := reset()
+	system.Y = 2
+	system.Dey()
+	assert.Equal(t, 1, system.Y)
 }
 
 func TestEor(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Eor(0)
+	system.Eor(0)
 }
 
 func TestInx(t *testing.T) {
-	reset()
-	Inx()
-	assert.Equal(t, 1, cpu.X)
+	system := reset()
+	system.Inx()
+	assert.Equal(t, 1, system.X)
 }
 
 func TestIny(t *testing.T) {
-	reset()
-	Iny()
-	assert.Equal(t, 1, cpu.Y)
+	system := reset()
+	system.Iny()
+	assert.Equal(t, 1, system.Y)
 }
 
 func TestLda(t *testing.T) {
-	reset()
-	Lda(1)
-	assert.Equal(t, 1, cpu.A)
+	system := reset()
+	system.Lda(1)
+	assert.Equal(t, 1, system.A)
 }
 
 func TestLdx(t *testing.T) {
-	reset()
-	Ldx(1)
-	assert.Equal(t, 1, cpu.X)
+	system := reset()
+	system.Ldx(1)
+	assert.Equal(t, 1, system.X)
 }
 
 func TestLdy(t *testing.T) {
-	reset()
-	Ldy(1)
-	assert.Equal(t, 1, cpu.Y)
+	system := reset()
+	system.Ldy(1)
+	assert.Equal(t, 1, system.Y)
 }
 
 func TestLsr(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Lsr()
+	system.Lsr()
 }
 
 func TestNop(t *testing.T) {
-	reset()
-	Nop()
+	system := reset()
+	system.Nop()
 }
 
 func TestOra(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Ora(0)
+	system.Ora(0)
 }
 
 func TestPha(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Pha()
+	system.Pha()
 }
 
 func TestPhp(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Php()
+	system.Php()
 }
 
 func TestPla(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Lsr()
+	system.Lsr()
 }
 
 func TestPlp(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Plp()
+	system.Plp()
 }
 
 func TestRol(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Rol()
+	system.Rol()
 }
 
 func TestRor(t *testing.T) {
-	reset()
+	system := reset()
 	// TODO add test
-	Ror()
+	system.Ror()
 }
 
 func TestRti(t *testing.T) {
-	reset()
-	Rti()
+	system := reset()
+	system.Rti()
 }
 
 func TestSbc(t *testing.T) {
-	reset()
-	cpu.A = 2
-	Sbc(0xff)
-	assert.Equal(t, 2, cpu.A)
-	assert.Equal(t, 0, cpu.Flags.C)
+	system := reset()
+	system.A = 2
+	system.Sbc(0xff)
+	assert.Equal(t, 2, system.A)
+	assert.Equal(t, 0, system.Flags.C)
 
-	Sbc(2)
-	assert.Equal(t, 0xff, cpu.A)
-	assert.Equal(t, 0, cpu.Flags.C)
+	system.Sbc(2)
+	assert.Equal(t, 0xff, system.A)
+	assert.Equal(t, 0, system.Flags.C)
 }
 
 func TestSec(t *testing.T) {
-	reset()
-	Sec()
-	assert.Equal(t, 1, cpu.Flags.C)
+	system := reset()
+	system.Sec()
+	assert.Equal(t, 1, system.Flags.C)
 }
 
 func TestSed(t *testing.T) {
-	reset()
-	Sed()
-	assert.Equal(t, 1, cpu.Flags.D)
+	system := reset()
+	system.Sed()
+	assert.Equal(t, 1, system.Flags.D)
 }
 
 func TestSei(t *testing.T) {
-	reset()
-	Sei()
-	assert.Equal(t, 1, cpu.Flags.I)
+	system := reset()
+	system.Sei()
+	assert.Equal(t, 1, system.Flags.I)
 }
 
 func TestSta(t *testing.T) {
-	reset()
-	cpu.A = 11
-	Sta(0)
+	system := reset()
+	system.A = 11
+	system.Sta(0)
 	b := readMemory(0)
-	assert.Equal(t, cpu.A, b)
+	assert.Equal(t, system.A, b)
 
-	cpu.X = 0x22
-	Sta(Absolute(0), X)
+	system.X = 0x22
+	system.Sta(Absolute(0), X)
 	b = readMemory(0x22)
-	assert.Equal(t, cpu.A, b)
+	assert.Equal(t, system.A, b)
 }
 
 func TestStx(t *testing.T) {
-	reset()
-	cpu.X = 11
-	Stx(0)
+	system := reset()
+	system.X = 11
+	system.Stx(0)
 	b := readMemory(0)
-	assert.Equal(t, cpu.X, b)
+	assert.Equal(t, system.X, b)
 
-	cpu.Y = 0x22
-	Stx(Absolute(0), Y)
+	system.Y = 0x22
+	system.Stx(Absolute(0), Y)
 	b = readMemory(0x22)
-	assert.Equal(t, cpu.X, b)
+	assert.Equal(t, system.X, b)
 }
 
 func TestSty(t *testing.T) {
-	reset()
-	cpu.Y = 11
-	Sty(0)
+	system := reset()
+	system.Y = 11
+	system.Sty(0)
 	b := readMemory(0)
-	assert.Equal(t, cpu.Y, b)
+	assert.Equal(t, system.Y, b)
 
-	cpu.X = 0x22
-	Sty(Absolute(0), X)
+	system.X = 0x22
+	system.Sty(Absolute(0), X)
 	b = readMemory(0x22)
-	assert.Equal(t, cpu.Y, b)
+	assert.Equal(t, system.Y, b)
 }
 
 func TestTax(t *testing.T) {
-	reset()
-	cpu.A = 2
-	Tax()
-	assert.Equal(t, cpu.A, cpu.X)
+	system := reset()
+	system.A = 2
+	system.Tax()
+	assert.Equal(t, system.A, system.X)
 }
 
 func TestTay(t *testing.T) {
-	reset()
-	cpu.A = 2
-	Tay()
-	assert.Equal(t, cpu.A, cpu.Y)
+	system := reset()
+	system.A = 2
+	system.Tay()
+	assert.Equal(t, system.A, system.Y)
 }
 
 func TestTsx(t *testing.T) {
-	reset()
-	Tsx()
-	assert.Equal(t, initialStack, cpu.SP)
+	system := reset()
+	system.Tsx()
+	assert.Equal(t, initialStack, system.SP)
 }
 
 func TestTxa(t *testing.T) {
-	reset()
-	cpu.X = 2
-	Txa()
-	assert.Equal(t, cpu.X, cpu.A)
+	system := reset()
+	system.X = 2
+	system.Txa()
+	assert.Equal(t, system.X, system.A)
 }
 
 func TestTxs(t *testing.T) {
-	reset()
-	cpu.X = 2
-	Txs()
-	assert.Equal(t, cpu.X, cpu.SP)
+	system := reset()
+	system.X = 2
+	system.Txs()
+	assert.Equal(t, system.X, system.SP)
 }
 
 func TestTya(t *testing.T) {
-	reset()
-	cpu.Y = 2
-	Tya()
-	assert.Equal(t, cpu.Y, cpu.A)
+	system := reset()
+	system.Y = 2
+	system.Tya()
+	assert.Equal(t, system.Y, system.A)
 }

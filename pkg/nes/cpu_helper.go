@@ -5,7 +5,8 @@ package nes
 
 const stackBase = 0x100
 
-type cPU struct {
+// CPU implements a MOS Technology 650 CPU.
+type CPU struct {
 	A     uint8 // accumulator
 	X     uint8 // x register
 	Y     uint8 // y register
@@ -29,15 +30,15 @@ const (
 	initialStack = 0xFD
 )
 
-func newCPU() *cPU {
-	c := &cPU{
+func newCPU() *CPU {
+	c := &CPU{
 		SP: initialStack,
 	}
 	c.setFlags(initialFlags)
 	return c
 }
 
-func (c *cPU) setFlags(flags uint8) {
+func (c *CPU) setFlags(flags uint8) {
 	c.Flags.C = (flags >> 0) & 1
 	c.Flags.Z = (flags >> 1) & 1
 	c.Flags.I = (flags >> 2) & 1
@@ -48,21 +49,21 @@ func (c *cPU) setFlags(flags uint8) {
 	c.Flags.N = (flags >> 7) & 1
 }
 
-func (c *cPU) flags() uint8 {
+func (c *CPU) flags() uint8 {
 	var f byte
-	f |= cpu.Flags.C << 0
-	f |= cpu.Flags.Z << 1
-	f |= cpu.Flags.I << 2
-	f |= cpu.Flags.D << 3
-	f |= cpu.Flags.B << 4
-	f |= cpu.Flags.U << 5
-	f |= cpu.Flags.V << 6
-	f |= cpu.Flags.N << 7
+	f |= c.Flags.C << 0
+	f |= c.Flags.Z << 1
+	f |= c.Flags.I << 2
+	f |= c.Flags.D << 3
+	f |= c.Flags.B << 4
+	f |= c.Flags.U << 5
+	f |= c.Flags.V << 6
+	f |= c.Flags.N << 7
 	return f
 }
 
 // setZ - set the zero flag if the argument is zero.
-func (c *cPU) setZ(value uint8) {
+func (c *CPU) setZ(value uint8) {
 	if value == 0 {
 		c.Flags.Z = 1
 	} else {
@@ -71,7 +72,7 @@ func (c *cPU) setZ(value uint8) {
 }
 
 // setN - set the negative flag if the argument is negative (high bit is set).
-func (c *cPU) setN(value uint8) {
+func (c *CPU) setN(value uint8) {
 	if value&0x80 != 0 {
 		c.Flags.N = 1
 	} else {
@@ -79,12 +80,12 @@ func (c *cPU) setN(value uint8) {
 	}
 }
 
-func (c *cPU) setZN(value uint8) {
+func (c *CPU) setZN(value uint8) {
 	c.setZ(value)
 	c.setN(value)
 }
 
-func (c *cPU) compare(a, b byte) {
+func (c *CPU) compare(a, b byte) {
 	c.setZN(a - b)
 	if a >= b {
 		c.Flags.C = 1
@@ -94,13 +95,13 @@ func (c *cPU) compare(a, b byte) {
 }
 
 // push a value to the stack and update the stack pointer.
-func push(value byte) {
-	writeMemory(uint16(stackBase+int(cpu.SP)), value)
-	cpu.SP--
+func (c *CPU) push(value byte) {
+	writeMemory(uint16(stackBase+int(c.SP)), value)
+	c.SP--
 }
 
 // pop a value from the stack and update the stack pointer.
-func pop() byte {
-	cpu.SP++
-	return readMemory(uint16(stackBase + int(cpu.SP)))
+func (c *CPU) pop() byte {
+	c.SP++
+	return readMemory(uint16(stackBase + int(c.SP)))
 }

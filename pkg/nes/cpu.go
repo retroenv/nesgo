@@ -15,411 +15,415 @@ var (
 var notImplemented = "instruction is not implemented yet"
 
 // Adc - Add with Carry.
-func Adc(param interface{}, reg ...interface{}) {
+func (c *CPU) Adc(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
 	value := readMemoryAddressModes(param, reg...)
-	sum := int(cpu.A) + int(cpu.Flags.C) + int(value)
-	cpu.A = uint8(sum)
-	cpu.setZN(cpu.A)
+	sum := int(c.A) + int(c.Flags.C) + int(value)
+	c.A = uint8(sum)
+	c.setZN(c.A)
 
 	if sum > math.MaxUint8 {
-		cpu.Flags.C = 1
+		c.Flags.C = 1
 	} else {
-		cpu.Flags.C = 0
+		c.Flags.C = 0
 	}
 
-	// TODO support decimal mode
+	if c.Flags.D == 1 {
+		panic(notImplemented) // TODO: support decimal mode
+	}
 }
 
 // And - AND with accumulator.
-func And(param interface{}, reg ...interface{}) {
+func (c *CPU) And(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
 	value := readMemoryAddressModes(param, reg...)
-	cpu.A &= value
-	cpu.setZN(cpu.A)
+	c.A &= value
+	c.setZN(c.A)
 }
 
 // Asl - Arithmetic Shift Left.
-func Asl(param ...interface{}) {
+func (c *CPU) Asl(param ...interface{}) {
 	timeInstructionExecution()
 
 	if param == nil { // A implied
-		cpu.Flags.C = (cpu.A >> 7) & 1
-		cpu.A <<= 1
-		cpu.setZN(cpu.A)
+		c.Flags.C = (c.A >> 7) & 1
+		c.A <<= 1
+		c.setZN(c.A)
 		return
 	}
 
 	val := readMemoryAddressModes(param)
-	cpu.Flags.C = (val >> 7) & 1
+	c.Flags.C = (val >> 7) & 1
 	val <<= 1
-	cpu.setZN(val)
+	c.setZN(val)
 	writeMemoryAddressModes(param, val)
 }
 
 // Bcc - Branch if Carry Clear - returns whether the
 // carry flag is clear.
-func Bcc() bool {
+func (c *CPU) Bcc() bool {
 	timeInstructionExecution()
-	return cpu.Flags.C == 0
+	return c.Flags.C == 0
 }
 
 // Bcs - Branch if Carry Set - returns whether the carry flag is set.
-func Bcs() bool {
+func (c *CPU) Bcs() bool {
 	timeInstructionExecution()
-	return cpu.Flags.C != 0
+	return c.Flags.C != 0
 }
 
 // Beq - Branch if Equal - returns whether the zero flag is set.
-func Beq() bool {
+func (c *CPU) Beq() bool {
 	timeInstructionExecution()
-	return cpu.Flags.Z != 0
+	return c.Flags.Z != 0
 }
 
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
-func Bit(address uint16) {
+func (c *CPU) Bit(address uint16) {
 	timeInstructionExecution()
 	value := readMemoryAbsolute(address)
-	cpu.Flags.V = (value >> 6) & 1
-	cpu.setZ(value & cpu.A)
-	cpu.setN(value)
+	c.Flags.V = (value >> 6) & 1
+	c.setZ(value & c.A)
+	c.setN(value)
 }
 
 // Bmi - Branch if Minus - returns whether the negative flag is set.
-func Bmi() bool {
+func (c *CPU) Bmi() bool {
 	timeInstructionExecution()
-	return cpu.Flags.N != 0
+	return c.Flags.N != 0
 }
 
 // Bne - Branch if Not Equal - returns whether the zero flag is clear.
-func Bne() bool {
+func (c *CPU) Bne() bool {
 	timeInstructionExecution()
-	return cpu.Flags.Z == 0
+	return c.Flags.Z == 0
 }
 
 // Bpl - Branch if Positive - returns whether the negative flag is clear.
-func Bpl() bool {
+func (c *CPU) Bpl() bool {
 	timeInstructionExecution()
-	return cpu.Flags.N == 0
+	return c.Flags.N == 0
 }
 
 // Brk - Force Interrupt.
-func Brk() {
+func (c *CPU) Brk() {
 	timeInstructionExecution()
 	panic(notImplemented) // TODO: implement
 }
 
 // Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
-func Bvc() bool {
+func (c *CPU) Bvc() bool {
 	timeInstructionExecution()
-	return cpu.Flags.V == 0
+	return c.Flags.V == 0
 }
 
 // Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
-func Bvs() bool {
+func (c *CPU) Bvs() bool {
 	timeInstructionExecution()
-	return cpu.Flags.V != 0
+	return c.Flags.V != 0
 }
 
 // Clc - Clear Carry Flag.
-func Clc() {
+func (c *CPU) Clc() {
 	timeInstructionExecution()
-	cpu.Flags.C = 0
+	c.Flags.C = 0
 }
 
 // Cld - Clear Decimal Mode.
-func Cld() {
+func (c *CPU) Cld() {
 	timeInstructionExecution()
-	cpu.Flags.D = 0
+	c.Flags.D = 0
 }
 
 // Cli - Clear Interrupt Disable.
-func Cli() {
+func (c *CPU) Cli() {
 	timeInstructionExecution()
-	cpu.Flags.I = 0
+	c.Flags.I = 0
 }
 
 // Clv - Clear Overflow Flag.
-func Clv() {
+func (c *CPU) Clv() {
 	timeInstructionExecution()
-	cpu.Flags.V = 0
+	c.Flags.V = 0
 }
 
 // Cmp - Compare - compares the contents of A.
-func Cmp(param interface{}) {
+func (c *CPU) Cmp(param interface{}) {
 	timeInstructionExecution()
 	val := readMemoryAddressModes(param)
-	cpu.compare(cpu.A, val)
+	c.compare(c.A, val)
 }
 
 // Cpx - Compare X Register - compares the contents of X.
-func Cpx(param interface{}) {
+func (c *CPU) Cpx(param interface{}) {
 	timeInstructionExecution()
 	val := readMemoryAddressModes(param)
-	cpu.compare(cpu.X, val)
+	c.compare(c.X, val)
 }
 
 // Cpy - Compare Y Register - compares the contents of Y.
-func Cpy(param interface{}) {
+func (c *CPU) Cpy(param interface{}) {
 	timeInstructionExecution()
 	val := readMemoryAddressModes(param)
-	cpu.compare(cpu.Y, val)
+	c.compare(c.Y, val)
 }
 
 // Dex - Decrement X Register.
-func Dex() {
+func (c *CPU) Dex() {
 	timeInstructionExecution()
-	cpu.X--
-	cpu.setZN(cpu.X)
+	c.X--
+	c.setZN(c.X)
 }
 
 // Dey - Decrement Y Register.
-func Dey() {
+func (c *CPU) Dey() {
 	timeInstructionExecution()
-	cpu.Y--
-	cpu.setZN(cpu.Y)
+	c.Y--
+	c.setZN(c.Y)
 }
 
 // Eor - Exclusive OR - XOR.
-func Eor(param interface{}, reg ...interface{}) {
+func (c *CPU) Eor(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
 	value := readMemoryAddressModes(param, reg...)
-	cpu.A ^= value
-	cpu.setZN(cpu.A)
+	c.A ^= value
+	c.setZN(c.A)
 }
 
 // Inx - Increment X Register.
-func Inx() {
+func (c *CPU) Inx() {
 	timeInstructionExecution()
-	cpu.X++
-	cpu.setZN(cpu.X)
+	c.X++
+	c.setZN(c.X)
 }
 
 // Iny - Increment Y Register.
-func Iny() {
+func (c *CPU) Iny() {
 	timeInstructionExecution()
-	cpu.Y++
-	cpu.setZN(cpu.Y)
+	c.Y++
+	c.setZN(c.Y)
 }
 
 // Lda - Load Accumulator - load a byte into A.
-func Lda(param interface{}, reg ...interface{}) {
+func (c *CPU) Lda(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	cpu.A = readMemoryAddressModes(param, reg...)
-	cpu.setZN(cpu.A)
+	c.A = readMemoryAddressModes(param, reg...)
+	c.setZN(c.A)
 }
 
 // Ldx - Load X Register - load a byte into X.
-func Ldx(param interface{}, reg ...interface{}) {
+func (c *CPU) Ldx(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	cpu.X = readMemoryAddressModes(param, reg...)
-	cpu.setZN(cpu.X)
+	c.X = readMemoryAddressModes(param, reg...)
+	c.setZN(c.X)
 }
 
 // Ldy - Load Y Register - load a byte into Y.
-func Ldy(param interface{}, reg ...interface{}) {
+func (c *CPU) Ldy(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	cpu.Y = readMemoryAddressModes(param, reg...)
-	cpu.setZN(cpu.Y)
+	c.Y = readMemoryAddressModes(param, reg...)
+	c.setZN(c.Y)
 }
 
 // Lsr - Logical Shift Right.
-func Lsr(param ...interface{}) {
+func (c *CPU) Lsr(param ...interface{}) {
 	timeInstructionExecution()
 
 	if param == nil { // A implied
-		cpu.Flags.C = cpu.A & 1
-		cpu.A >>= 1
-		cpu.setZN(cpu.A)
+		c.Flags.C = c.A & 1
+		c.A >>= 1
+		c.setZN(c.A)
 		return
 	}
 
 	val := readMemoryAddressModes(param)
-	cpu.Flags.C = val & 1
+	c.Flags.C = val & 1
 	val >>= 1
-	cpu.setZN(val)
+	c.setZN(val)
 	writeMemoryAddressModes(param, val)
 }
 
 // Nop - No Operation.
-func Nop() {
+func (c *CPU) Nop() {
 	timeInstructionExecution()
 }
 
 // Ora - OR with Accumulator.
-func Ora(param interface{}, reg ...interface{}) {
+func (c *CPU) Ora(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
 	value := readMemoryAddressModes(param, reg...)
-	cpu.A |= value
-	cpu.setZN(cpu.A)
+	c.A |= value
+	c.setZN(c.A)
 }
 
 // Pha - Push Accumulator - push A content to stack.
-func Pha() {
+func (c *CPU) Pha() {
 	timeInstructionExecution()
-	push(cpu.A)
+	c.push(c.A)
 }
 
 // Php - Push Processor Status - push status flags to stack.
-func Php() {
+func (c *CPU) Php() {
 	timeInstructionExecution()
-	f := cpu.flags()
+	f := c.flags()
 	f |= 0b11000 // bit 4 and 5 are set to 1
-	push(f)
+	c.push(f)
 }
 
 // Pla - Pull Accumulator - pull A content from stack.
-func Pla() {
+func (c *CPU) Pla() {
 	timeInstructionExecution()
-	cpu.A = pop()
-	cpu.setZN(cpu.A)
+	c.A = c.pop()
+	c.setZN(c.A)
 }
 
 // Plp - Pull Processor Status - pull status flags from stack.
-func Plp() {
+func (c *CPU) Plp() {
 	timeInstructionExecution()
-	f := pop()
+	f := c.pop()
 	f &^= 0b11000 // bit 4 and 5 are cleared
-	cpu.setFlags(f)
+	c.setFlags(f)
 }
 
 // Rol - Rotate Left.
-func Rol(param ...interface{}) {
+func (c *CPU) Rol(param ...interface{}) {
 	timeInstructionExecution()
 
-	c := cpu.Flags.C
+	cFlag := c.Flags.C
 	if param == nil { // A implied
-		cpu.Flags.C = (cpu.A >> 7) & 1
-		cpu.A = (cpu.A << 1) | c
-		cpu.setZN(cpu.A)
+		c.Flags.C = (c.A >> 7) & 1
+		c.A = (c.A << 1) | cFlag
+		c.setZN(c.A)
 		return
 	}
 
 	val := readMemoryAddressModes(param)
-	cpu.Flags.C = (val >> 7) & 1
-	val = (val << 1) | c
-	cpu.setZN(val)
+	c.Flags.C = (val >> 7) & 1
+	val = (val << 1) | cFlag
+	c.setZN(val)
 	writeMemoryAddressModes(param, val)
 }
 
 // Ror - Rotate Right.
-func Ror(param ...interface{}) {
+func (c *CPU) Ror(param ...interface{}) {
 	timeInstructionExecution()
 
-	c := cpu.Flags.C
+	cFlag := c.Flags.C
 	if param == nil { // A implied
-		cpu.Flags.C = cpu.A & 1
-		cpu.A = (cpu.A >> 1) | (c << 7)
-		cpu.setZN(cpu.A)
+		c.Flags.C = c.A & 1
+		c.A = (c.A >> 1) | (cFlag << 7)
+		c.setZN(c.A)
 		return
 	}
 
 	val := readMemoryAddressModes(param)
-	cpu.Flags.C = val & 1
-	val = (val >> 1) | (c << 7)
-	cpu.setZN(val)
+	c.Flags.C = val & 1
+	val = (val >> 1) | (cFlag << 7)
+	c.setZN(val)
 	writeMemoryAddressModes(param, val)
 }
 
 // Rti - Return from Interrupt.
-func Rti() {
+func (c *CPU) Rti() {
 	timeInstructionExecution()
 }
 
 // Sbc - subtract with Carry.
-func Sbc(param interface{}, reg ...interface{}) {
+func (c *CPU) Sbc(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
 
 	value := readMemoryAddressModes(param, reg...)
-	sub := int(cpu.A) - int(value) - (1 - int(cpu.Flags.C))
-	cpu.A = uint8(sub)
-	cpu.setZN(cpu.A)
+	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
+	c.A = uint8(sub)
+	c.setZN(c.A)
 
 	if sub >= 0 {
-		cpu.Flags.C = 1
+		c.Flags.C = 1
 	} else {
-		cpu.Flags.C = 0
+		c.Flags.C = 0
 	}
 
-	// TODO support decimal mode
+	if c.Flags.D == 1 {
+		panic(notImplemented) // TODO: support decimal mode
+	}
 }
 
 // Sec - Set Carry Flag.
-func Sec() {
+func (c *CPU) Sec() {
 	timeInstructionExecution()
-	cpu.Flags.C = 1
+	c.Flags.C = 1
 }
 
 // Sed - Set Decimal Flag.
-func Sed() {
+func (c *CPU) Sed() {
 	timeInstructionExecution()
-	cpu.Flags.D = 1
+	c.Flags.D = 1
 }
 
 // Sei - Set Interrupt Disable.
-func Sei() {
+func (c *CPU) Sei() {
 	timeInstructionExecution()
-	cpu.Flags.I = 1
+	c.Flags.I = 1
 }
 
 // Sta - Store Accumulator - store content of A at address Addr and
 // add an optional register to the address.
-func Sta(param interface{}, reg ...interface{}) {
+func (c *CPU) Sta(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(param, cpu.A, reg...)
+	writeMemoryAddressModes(param, c.A, reg...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
-func Stx(param interface{}, reg ...interface{}) {
+func (c *CPU) Stx(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(param, cpu.X, reg...)
+	writeMemoryAddressModes(param, c.X, reg...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
-func Sty(param interface{}, reg ...interface{}) {
+func (c *CPU) Sty(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(param, cpu.Y, reg...)
+	writeMemoryAddressModes(param, c.Y, reg...)
 }
 
 // Tax - Transfer Accumulator to X.
-func Tax() {
+func (c *CPU) Tax() {
 	timeInstructionExecution()
-	cpu.X = cpu.A
-	cpu.setZN(cpu.X)
+	c.X = c.A
+	c.setZN(c.X)
 }
 
 // Tay - Transfer Accumulator to Y.
-func Tay() {
+func (c *CPU) Tay() {
 	timeInstructionExecution()
-	cpu.Y = cpu.A
-	cpu.setZN(cpu.Y)
+	c.Y = c.A
+	c.setZN(c.Y)
 }
 
 // Tsx - Transfer Stack Pointer to X.
-func Tsx() {
+func (c *CPU) Tsx() {
 	timeInstructionExecution()
-	cpu.X = cpu.SP
-	cpu.setZN(cpu.X)
+	c.X = c.SP
+	c.setZN(c.X)
 }
 
 // Txa - Transfer X to Accumulator.
-func Txa() {
+func (c *CPU) Txa() {
 	timeInstructionExecution()
-	cpu.A = cpu.X
-	cpu.setZN(cpu.A)
+	c.A = c.X
+	c.setZN(c.A)
 }
 
 // Txs - Transfer X to Stack Pointer.
-func Txs() {
+func (c *CPU) Txs() {
 	timeInstructionExecution()
-	cpu.SP = cpu.X
+	c.SP = c.X
 }
 
 // Tya - Transfer Y to Accumulator.
-func Tya() {
+func (c *CPU) Tya() {
 	timeInstructionExecution()
-	cpu.A = cpu.Y
-	cpu.setZN(cpu.A)
+	c.A = c.Y
+	c.setZN(c.A)
 }
