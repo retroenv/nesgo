@@ -5,19 +5,12 @@ package nes
 
 import "math"
 
-// CPU registers that can be used as parameter for instructions that support
-// absolute or indirect indexing using X or Y register.
-var (
-	X *uint8 // x register
-	Y *uint8 // y register
-)
-
 var notImplemented = "instruction is not implemented yet"
 
 // Adc - Add with Carry.
 func (c *CPU) Adc(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	value := readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(param, reg...)
 	sum := int(c.A) + int(c.Flags.C) + int(value)
 	c.A = uint8(sum)
 	c.setZN(c.A)
@@ -36,7 +29,7 @@ func (c *CPU) Adc(param interface{}, reg ...interface{}) {
 // And - AND with accumulator.
 func (c *CPU) And(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	value := readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(param, reg...)
 	c.A &= value
 	c.setZN(c.A)
 }
@@ -52,11 +45,11 @@ func (c *CPU) Asl(param ...interface{}) {
 		return
 	}
 
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.Flags.C = (val >> 7) & 1
 	val <<= 1
 	c.setZN(val)
-	writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(param, val)
 }
 
 // Bcc - Branch if Carry Clear - returns whether the
@@ -81,7 +74,7 @@ func (c *CPU) Beq() bool {
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
 func (c *CPU) Bit(address uint16) {
 	timeInstructionExecution()
-	value := readMemoryAbsolute(address)
+	value := c.memory.readMemoryAbsolute(address)
 	c.Flags.V = (value >> 6) & 1
 	c.setZ(value & c.A)
 	c.setN(value)
@@ -150,21 +143,21 @@ func (c *CPU) Clv() {
 // Cmp - Compare - compares the contents of A.
 func (c *CPU) Cmp(param interface{}) {
 	timeInstructionExecution()
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.compare(c.A, val)
 }
 
 // Cpx - Compare X Register - compares the contents of X.
 func (c *CPU) Cpx(param interface{}) {
 	timeInstructionExecution()
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.compare(c.X, val)
 }
 
 // Cpy - Compare Y Register - compares the contents of Y.
 func (c *CPU) Cpy(param interface{}) {
 	timeInstructionExecution()
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.compare(c.Y, val)
 }
 
@@ -185,7 +178,7 @@ func (c *CPU) Dey() {
 // Eor - Exclusive OR - XOR.
 func (c *CPU) Eor(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	value := readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(param, reg...)
 	c.A ^= value
 	c.setZN(c.A)
 }
@@ -207,21 +200,21 @@ func (c *CPU) Iny() {
 // Lda - Load Accumulator - load a byte into A.
 func (c *CPU) Lda(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	c.A = readMemoryAddressModes(param, reg...)
+	c.A = c.memory.readMemoryAddressModes(param, reg...)
 	c.setZN(c.A)
 }
 
 // Ldx - Load X Register - load a byte into X.
 func (c *CPU) Ldx(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	c.X = readMemoryAddressModes(param, reg...)
+	c.X = c.memory.readMemoryAddressModes(param, reg...)
 	c.setZN(c.X)
 }
 
 // Ldy - Load Y Register - load a byte into Y.
 func (c *CPU) Ldy(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	c.Y = readMemoryAddressModes(param, reg...)
+	c.Y = c.memory.readMemoryAddressModes(param, reg...)
 	c.setZN(c.Y)
 }
 
@@ -236,11 +229,11 @@ func (c *CPU) Lsr(param ...interface{}) {
 		return
 	}
 
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.Flags.C = val & 1
 	val >>= 1
 	c.setZN(val)
-	writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(param, val)
 }
 
 // Nop - No Operation.
@@ -251,7 +244,7 @@ func (c *CPU) Nop() {
 // Ora - OR with Accumulator.
 func (c *CPU) Ora(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	value := readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(param, reg...)
 	c.A |= value
 	c.setZN(c.A)
 }
@@ -297,11 +290,11 @@ func (c *CPU) Rol(param ...interface{}) {
 		return
 	}
 
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.Flags.C = (val >> 7) & 1
 	val = (val << 1) | cFlag
 	c.setZN(val)
-	writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(param, val)
 }
 
 // Ror - Rotate Right.
@@ -316,11 +309,11 @@ func (c *CPU) Ror(param ...interface{}) {
 		return
 	}
 
-	val := readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(param)
 	c.Flags.C = val & 1
 	val = (val >> 1) | (cFlag << 7)
 	c.setZN(val)
-	writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(param, val)
 }
 
 // Rti - Return from Interrupt.
@@ -332,7 +325,7 @@ func (c *CPU) Rti() {
 func (c *CPU) Sbc(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
 
-	value := readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(param, reg...)
 	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
 	c.A = uint8(sub)
 	c.setZN(c.A)
@@ -370,21 +363,21 @@ func (c *CPU) Sei() {
 // add an optional register to the address.
 func (c *CPU) Sta(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(param, c.A, reg...)
+	c.memory.writeMemoryAddressModes(param, c.A, reg...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
 func (c *CPU) Stx(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(param, c.X, reg...)
+	c.memory.writeMemoryAddressModes(param, c.X, reg...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
 func (c *CPU) Sty(param interface{}, reg ...interface{}) {
 	timeInstructionExecution()
-	writeMemoryAddressModes(param, c.Y, reg...)
+	c.memory.writeMemoryAddressModes(param, c.Y, reg...)
 }
 
 // Tax - Transfer Accumulator to X.

@@ -32,6 +32,12 @@ type controller struct {
 	index uint8
 }
 
+func newController() *controller {
+	c := &controller{}
+	c.reset()
+	return c
+}
+
 func (c *controller) reset() {
 	c.buttons = 0
 	c.strobeMode = false

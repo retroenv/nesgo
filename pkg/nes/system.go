@@ -6,6 +6,16 @@ package nes
 // System implements a NES system.
 type System struct {
 	*CPU
+	*Memory
+}
+
+func newSystem() *System {
+	memory := newMemory()
+	cpu := newCPU(memory)
+	return &System{
+		CPU:    cpu,
+		Memory: memory,
+	}
 }
 
 // nolint: unused
@@ -37,7 +47,7 @@ func Start(resetHandlerParam func(), nmiIrqHandlers ...func()) {
 	}
 
 	resetHandler = resetHandlerParam
-	if err := runRenderer(); err != nil {
+	if err := runRenderer(system.ppu); err != nil {
 		panic(err)
 	}
 }
