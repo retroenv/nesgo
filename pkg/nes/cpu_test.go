@@ -29,6 +29,7 @@ func TestAnd(t *testing.T) {
 func TestAsl(t *testing.T) {
 	t.Parallel()
 	sys := newSystem()
+
 	sys.A = 0b00000001
 	sys.Asl()
 	assert.Equal(t, 0b00000010, sys.A)
@@ -38,6 +39,15 @@ func TestAsl(t *testing.T) {
 	sys.Asl()
 	assert.Equal(t, 0b11111100, sys.A)
 	assert.Equal(t, 1, sys.Flags.C)
+
+	sys.writeMemory(1, 0b00000010)
+	sys.Asl(Absolute(1))
+	assert.Equal(t, 0b00000100, sys.readMemory(1))
+
+	sys.writeMemory(4, 0b00000010)
+	sys.X = 3
+	sys.Asl(Absolute(1), sys.X)
+	assert.Equal(t, 0b00000100, sys.readMemory(4))
 }
 
 func TestBcc(t *testing.T) {
