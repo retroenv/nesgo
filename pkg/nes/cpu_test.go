@@ -7,6 +7,7 @@ import (
 )
 
 func TestAdc(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.A = 2
 	sys.Adc(0xff)
@@ -19,18 +20,28 @@ func TestAdc(t *testing.T) {
 }
 
 func TestAnd(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.And(0)
 }
 
 func TestAsl(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
+	sys.A = 0b00000001
 	sys.Asl()
+	assert.Equal(t, 0b00000010, sys.A)
+	assert.Equal(t, 0, sys.Flags.C)
+
+	sys.A = 0b11111110
+	sys.Asl()
+	assert.Equal(t, 0b11111100, sys.A)
+	assert.Equal(t, 1, sys.Flags.C)
 }
 
 func TestBcc(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, true, sys.Bcc())
 	sys.Flags.C = 1
@@ -38,6 +49,7 @@ func TestBcc(t *testing.T) {
 }
 
 func TestBcs(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, false, sys.Bcs())
 	sys.Flags.C = 1
@@ -45,6 +57,7 @@ func TestBcs(t *testing.T) {
 }
 
 func TestBeq(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, false, sys.Beq())
 	sys.Flags.Z = 1
@@ -52,12 +65,14 @@ func TestBeq(t *testing.T) {
 }
 
 func TestBit(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.Bit(0)
 }
 
 func TestBmi(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, false, sys.Bmi())
 	sys.Flags.N = 1
@@ -65,6 +80,7 @@ func TestBmi(t *testing.T) {
 }
 
 func TestBne(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, true, sys.Bne())
 	sys.Flags.Z = 1
@@ -72,6 +88,7 @@ func TestBne(t *testing.T) {
 }
 
 func TestBpl(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, true, sys.Bpl())
 	sys.Flags.N = 1
@@ -79,6 +96,7 @@ func TestBpl(t *testing.T) {
 }
 
 func TestBvc(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, true, sys.Bvc())
 	sys.Flags.V = 1
@@ -86,6 +104,7 @@ func TestBvc(t *testing.T) {
 }
 
 func TestBvs(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	assert.Equal(t, false, sys.Bvs())
 	sys.Flags.V = 1
@@ -93,6 +112,7 @@ func TestBvs(t *testing.T) {
 }
 
 func TestClc(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Flags.C = 1
 	sys.Clc()
@@ -100,6 +120,7 @@ func TestClc(t *testing.T) {
 }
 
 func TestCld(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Flags.D = 1
 	sys.Cld()
@@ -107,6 +128,7 @@ func TestCld(t *testing.T) {
 }
 
 func TestCli(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Flags.I = 1
 	sys.Cli()
@@ -114,6 +136,7 @@ func TestCli(t *testing.T) {
 }
 
 func TestClv(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Flags.V = 1
 	sys.Clv()
@@ -121,18 +144,21 @@ func TestClv(t *testing.T) {
 }
 
 func TestCpx(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.Cpx(0)
 }
 
 func TestCpy(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.Cpy(0)
 }
 
 func TestDex(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.X = 2
 	sys.Dex()
@@ -140,6 +166,7 @@ func TestDex(t *testing.T) {
 }
 
 func TestDey(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Y = 2
 	sys.Dey()
@@ -147,100 +174,145 @@ func TestDey(t *testing.T) {
 }
 
 func TestEor(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.Eor(0)
 }
 
 func TestInx(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Inx()
 	assert.Equal(t, 1, sys.X)
 }
 
 func TestIny(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Iny()
 	assert.Equal(t, 1, sys.Y)
 }
 
 func TestLda(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Lda(1)
 	assert.Equal(t, 1, sys.A)
 }
 
 func TestLdx(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Ldx(1)
 	assert.Equal(t, 1, sys.X)
 }
 
 func TestLdy(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Ldy(1)
 	assert.Equal(t, 1, sys.Y)
 }
 
 func TestLsr(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
+	sys.A = 0b00000010
 	sys.Lsr()
+	assert.Equal(t, 0b00000001, sys.A)
+	assert.Equal(t, 0, sys.Flags.C)
+
+	sys.A = 0b01111111
+	sys.Lsr()
+	assert.Equal(t, 0b00111111, sys.A)
+	assert.Equal(t, 1, sys.Flags.C)
 }
 
 func TestNop(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Nop()
 }
 
 func TestOra(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.Ora(0)
 }
 
 func TestPha(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
+	sys.A = 1
 	sys.Pha()
+	b := sys.readMemory(stackBase + initialStack)
+	assert.Equal(t, sys.A, b)
+	assert.Equal(t, stackBase+initialStack-1, sys.SP)
 }
 
 func TestPhp(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
 	sys.Php()
+	b := sys.readMemory(stackBase + initialStack)
+	// I + U are set by default, bit 4 and 5 are set from PHP
+	assert.Equal(t, 0b111100, b)
 }
 
 func TestPla(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
-	sys.Lsr()
+	sys.SP = 1
+	sys.writeMemory(stackBase+2, 1)
+	sys.Pla()
+	assert.Equal(t, 1, sys.A)
+	assert.Equal(t, 2, sys.SP)
 }
 
 func TestPlp(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
+	sys.SP = 1
+	sys.writeMemory(stackBase+2, 1)
 	sys.Plp()
+	assert.Equal(t, 1, sys.flags())
+	assert.Equal(t, 2, sys.SP)
 }
 
 func TestRol(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	// TODO add test
 	sys.Rol()
 }
 
 func TestRor(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
-	// TODO add test
+	sys.A = 0b00000010
 	sys.Ror()
+	assert.Equal(t, 0b00000001, sys.A)
+	assert.Equal(t, 0, sys.Flags.C)
+
+	sys.A = 0b01111111
+	sys.Ror()
+	assert.Equal(t, 0b00111111, sys.A)
+	assert.Equal(t, 1, sys.Flags.C)
+	sys.Ror()
+	assert.Equal(t, 0b10011111, sys.A)
+	assert.Equal(t, 1, sys.Flags.C)
 }
 
 func TestRti(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Rti()
 }
 
 func TestSbc(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.A = 2
 	sys.Sbc(0xff)
@@ -253,24 +325,28 @@ func TestSbc(t *testing.T) {
 }
 
 func TestSec(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Sec()
 	assert.Equal(t, 1, sys.Flags.C)
 }
 
 func TestSed(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Sed()
 	assert.Equal(t, 1, sys.Flags.D)
 }
 
 func TestSei(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Sei()
 	assert.Equal(t, 1, sys.Flags.I)
 }
 
 func TestSta(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.A = 11
 	sys.Sta(0)
@@ -284,6 +360,7 @@ func TestSta(t *testing.T) {
 }
 
 func TestStx(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.X = 11
 	sys.Stx(0)
@@ -297,6 +374,7 @@ func TestStx(t *testing.T) {
 }
 
 func TestSty(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Y = 11
 	sys.Sty(0)
@@ -310,6 +388,7 @@ func TestSty(t *testing.T) {
 }
 
 func TestTax(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.A = 2
 	sys.Tax()
@@ -317,6 +396,7 @@ func TestTax(t *testing.T) {
 }
 
 func TestTay(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.A = 2
 	sys.Tay()
@@ -324,12 +404,14 @@ func TestTay(t *testing.T) {
 }
 
 func TestTsx(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Tsx()
 	assert.Equal(t, initialStack, sys.SP)
 }
 
 func TestTxa(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.X = 2
 	sys.Txa()
@@ -337,6 +419,7 @@ func TestTxa(t *testing.T) {
 }
 
 func TestTxs(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.X = 2
 	sys.Txs()
@@ -344,6 +427,7 @@ func TestTxs(t *testing.T) {
 }
 
 func TestTya(t *testing.T) {
+	t.Parallel()
 	sys := newSystem()
 	sys.Y = 2
 	sys.Tya()
