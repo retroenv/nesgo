@@ -120,6 +120,8 @@ func (m *Memory) readMemoryAbsolute(address interface{}, reg ...interface{}) byt
 	case 1:
 		var offset uint8
 		switch val := reg[0].(type) {
+		case uint8:
+			offset = val
 		case *uint8:
 			offset = *val
 		default:
@@ -142,6 +144,8 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 	case uint16:
 		return m.readMemory(addr + offset)
 	case int:
+		return m.readMemory(uint16(addr) + offset)
+	case Absolute:
 		return m.readMemory(uint16(addr) + offset)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))

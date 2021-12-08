@@ -22,7 +22,7 @@ var (
 	Y *uint8 // y register
 )
 
-// cpu instructions, linked to the unitialized cpu type functions to allow
+// cpu instructions, linked to the uninitialized cpu type functions to allow
 // easier code browsing.
 var (
 	// Adc - Add with Carry.
