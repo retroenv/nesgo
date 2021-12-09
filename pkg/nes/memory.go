@@ -16,6 +16,8 @@ type Memory struct {
 	controller2 *controller
 }
 
+// newMemory returns a new memory instance, embedded it has
+// new instances for PPU and the Controllers.
 func newMemory() *Memory {
 	r := &Memory{
 		ram:         newRAM(0),
@@ -26,112 +28,165 @@ func newMemory() *Memory {
 	return r
 }
 
-func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, reg ...interface{}) {
-	switch len(reg) {
-	case 0:
-		m.writeMemoryAbsoluteNoRegister(address, value)
+// writeMemoryAddressModes writes to memory using different address modes:
+// Absolute: the absolut memory address is used to write the value
+// Absolute, X: the absolut memory address with offset from X is used
+// Absolute, Y: the absolut memory address with offset from Y is used
+// (Indirect, X): TODO: add
+// (Indirect), Y: TODO: add
+func (m *Memory) writeMemoryAddressModes(value byte, params ...interface{}) {
+	param := params[0]
+	var register interface{}
+	if len(params) > 1 {
+		register = params[1]
+	}
 
-	case 1:
-		switch p := reg[0].(type) {
-		case *uint8: // X/Y register referenced in normal code
-			m.writeMemoryAbsoluteRegister(address, value, p)
-		case uint8: // X/Y register referenced in unit test as system.X
-			m.writeMemoryAbsoluteRegister(address, value, &p)
-		default:
-			panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory write", reg[0]))
-		}
-
+	switch address := param.(type) {
+	case int:
+		m.writeMemoryAbsolute(address, value, register)
+	case *uint8: // variable
+		*address = value
+	case Absolute:
+		m.writeMemoryAbsolute(address, value, register)
+	case Indirect:
+		m.writeMemoryIndirect(address, value, register)
 	default:
-		panic(fmt.Sprintf("unsupported extra parameter count %d for absolute memory write", len(reg)))
+		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
 }
 
-func (m *Memory) writeMemoryAbsoluteNoRegister(address interface{}, value byte) {
+func (m *Memory) writeMemoryIndirect(address interface{}, value byte, register interface{}) {
+	if register == nil {
+		panic("register parameter missing for indirect memory addressing")
+	}
+
+	p, ok := register.(*uint8)
+	if !ok {
+		panic(fmt.Sprintf("unsupported extra parameter type %T for indirect memory write", register))
+	}
+	addr, ok := address.(uint16)
+	if !ok {
+		panic(fmt.Sprintf("unsupported address parameter type %T for indirect memory write", address))
+	}
+	switch {
+	case p == X:
+		m.writeMemory(addr+uint16(*p), value)
+	case p == Y:
+		ptr := m.readPointer(addr)
+		ptr += uint16(*p)
+		m.writeMemory(ptr, value)
+	default:
+		panic("only X and Y registers are supported for indirect addressing")
+	}
+}
+
+func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register interface{}) {
+	if register == nil {
+		m.writeMemoryAbsoluteOffset(address, value, 0)
+		return
+	}
+
+	var offset uint16
+	switch val := register.(type) {
+	case *uint8: // X/Y register referenced in normal code
+		offset = uint16(*val)
+	case uint8: // X/Y register referenced in unit test as system.X
+		offset = uint16(val)
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory write", register))
+	}
+
+	m.writeMemoryAbsoluteOffset(address, value, offset)
+}
+
+func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offset uint16) {
 	switch addr := address.(type) {
+	case int8:
+		m.writeMemory(uint16(addr)+offset, value)
 	case uint8:
-		m.writeMemory(uint16(addr), value)
+		m.writeMemory(uint16(addr)+offset, value)
 	case *uint8:
 		*addr = value
 	case uint16:
-		m.writeMemory(addr, value)
+		m.writeMemory(addr+offset, value)
 	case *uint16:
 		*addr = uint16(value)
 	case int:
-		m.writeMemory(uint16(addr), value)
+		m.writeMemory(uint16(addr)+offset, value)
 	case Absolute:
-		m.writeMemory(uint16(addr), value)
-	default:
-		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
-	}
-}
-
-func (m *Memory) writeMemoryAbsoluteRegister(address interface{}, value byte, register *uint8) {
-	switch addr := address.(type) {
-	case int8:
-		m.writeMemory(uint16(addr)+uint16(*register), value)
-	case uint8:
-		m.writeMemory(uint16(addr)+uint16(*register), value)
-	case uint16:
-		m.writeMemory(addr+uint16(*register), value)
-	case int:
-		m.writeMemory(uint16(addr)+uint16(*register), value)
-	case Absolute:
-		m.writeMemory(uint16(addr)+uint16(*register), value)
+		m.writeMemory(uint16(addr)+offset, value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
 	}
 }
 
-func (m *Memory) writeMemoryIndirect(address interface{}, value byte, reg ...interface{}) {
-	switch len(reg) {
-	case 0:
-		panic("register parameter missing for indirect memory addressing")
-
-	case 1:
-		p, ok := reg[0].(*uint8)
-		if !ok {
-			panic(fmt.Sprintf("unsupported extra parameter type %T for indirect memory write", reg[0]))
-		}
-		addr, ok := reg[0].(uint16)
-		if !ok {
-			panic(fmt.Sprintf("unsupported address parameter type %T for indirect memory write", address))
-		}
-		switch {
-		case p == X:
-			m.writeMemory(addr+uint16(*p), value)
-		case p == Y:
-			ptr := m.readPointer(addr)
-			ptr += uint16(*p)
-			m.writeMemory(ptr, value)
-		default:
-			panic("only X and Y registers are supported for indirect addressing")
-		}
-
+func (m *Memory) writeMemory(address uint16, value byte) {
+	switch {
+	case address < 0x2000:
+		m.ram.writeMemory(address&0x07FF, value)
+	case address < 0x4000:
+		m.ppu.writeRegister(address, value)
+	case address == JOYPAD1:
+		m.controller1.setStrobeMode(value)
+		m.controller2.setStrobeMode(value)
+	case address == DMC_FREQ:
+		return // TODO
+	case address == APU_CHAN_CTRL:
+		return // TODO
+	case address == APU_FRAME:
+		return // TODO
 	default:
-		panic(fmt.Sprintf("unsupported extra parameter count %d for indirect memory write", len(reg)))
+		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
 	}
 }
 
-func (m *Memory) readMemoryAbsolute(address interface{}, reg ...interface{}) byte {
-	switch len(reg) {
-	case 0:
-		return m.readMemoryAbsoluteOffset(address, 0)
-
-	case 1:
-		var offset uint8
-		switch val := reg[0].(type) {
-		case uint8:
-			offset = val
-		case *uint8:
-			offset = *val
-		default:
-			panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", reg[0]))
-		}
-		return m.readMemoryAbsoluteOffset(address, uint16(offset))
-
-	default:
-		panic(fmt.Sprintf("unsupported extra parameter count %d for absolute memory write", len(reg)))
+// readMemoryAddressModes reads memory using different address modes:
+// Immediate: if immediate is true and the passed first param fits into
+//            a byte, it's immediate value is returned
+// Absolute: the absolut memory address is used to read the value
+// Absolute, X: the absolut memory address with offset from X is used
+// Absolute, Y: the absolut memory address with offset from Y is used
+// (Indirect, X): TODO: add
+// (Indirect), Y: TODO: add
+func (m *Memory) readMemoryAddressModes(immediate bool, params ...interface{}) byte {
+	param := params[0]
+	var register interface{}
+	if len(params) > 1 {
+		register = params[1]
 	}
+
+	switch address := param.(type) {
+	case int:
+		if immediate && register == nil && address <= math.MaxUint8 {
+			return uint8(address) // immediate, not an address
+		}
+		return m.readMemoryAbsolute(address, register)
+	case uint8:
+		return address // immediate, not an address
+	case *uint8: // variable
+		return *address
+	case Absolute:
+		return m.readMemoryAbsolute(address, register)
+	default:
+		panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
+	}
+}
+
+func (m *Memory) readMemoryAbsolute(address interface{}, register interface{}) byte {
+	if register == nil {
+		return m.readMemoryAbsoluteOffset(address, 0)
+	}
+
+	var offset uint16
+	switch val := register.(type) {
+	case uint8:
+		offset = uint16(val)
+	case *uint8:
+		offset = uint16(*val)
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", register))
+	}
+	return m.readMemoryAbsoluteOffset(address, offset)
 }
 
 func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) byte {
@@ -173,57 +228,5 @@ func (m *Memory) readMemory(address uint16) byte {
 		return 0 // TODO
 	default:
 		panic(fmt.Sprintf("unhandled memory read at address: 0x%04X", address))
-	}
-}
-
-func (m *Memory) writeMemory(address uint16, value byte) {
-	switch {
-	case address < 0x2000:
-		m.ram.writeMemory(address&0x07FF, value)
-	case address < 0x4000:
-		m.ppu.writeRegister(address, value)
-	case address == JOYPAD1:
-		m.controller1.setStrobeMode(value)
-		m.controller2.setStrobeMode(value)
-	case address == DMC_FREQ:
-		return // TODO
-	case address == APU_CHAN_CTRL:
-		return // TODO
-	case address == APU_FRAME:
-		return // TODO
-	default:
-		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
-	}
-}
-
-func (m *Memory) readMemoryAddressModes(param interface{}, reg ...interface{}) byte {
-	switch val := param.(type) {
-	case int:
-		if reg == nil && val <= math.MaxUint8 {
-			return uint8(val) // immediate, not an address
-		}
-		return m.readMemoryAbsolute(val, reg...)
-	case uint8:
-		return val // immediate, not an address
-	case *uint8: // variable
-		return *val
-	case Absolute:
-		return m.readMemoryAbsolute(val, reg...)
-	}
-	panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
-}
-
-func (m *Memory) writeMemoryAddressModes(param interface{}, value byte, reg ...interface{}) {
-	switch val := param.(type) {
-	case int:
-		m.writeMemoryAbsolute(val, value, reg...)
-	case Absolute:
-		m.writeMemoryAbsolute(val, value, reg...)
-	case Indirect:
-		m.writeMemoryIndirect(val, value, reg...)
-	case *uint8: // variable
-		*val = value
-	default:
-		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
 }
