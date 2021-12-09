@@ -17,6 +17,7 @@ const (
 func main() {
 	input := flag.String("f", "", "go file to parse")
 	output := flag.String("o", "", "name of the output .nes file")
+	quiet := flag.Bool("q", false, "perform operations quietly")
 
 	flag.Parse()
 
@@ -25,15 +26,19 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println("[ nesgo - Golang to NES Compiler ]")
-	fmt.Printf("Compiling %s\n", *input)
+	if !*quiet {
+		fmt.Println("[ nesgo - Golang to NES Compiler ]")
+		fmt.Printf("Compiling %s\n", *input)
+	}
 
 	if err := compileFile(*input, *output); err != nil {
 		fmt.Println(fmt.Errorf("error: %w", err))
 		os.Exit(1)
 	}
 
-	fmt.Printf("Output file %s created successfully\n", *output)
+	if !*quiet {
+		fmt.Printf("Output file %s created successfully\n", *output)
+	}
 }
 
 func compileFile(input, output string) error {

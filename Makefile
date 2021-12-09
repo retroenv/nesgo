@@ -1,5 +1,3 @@
-.PHONY: check-direnv
-
 help:
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -15,8 +13,8 @@ lint: ## run code linters
 
 test: install ## run tests
 	go test -race ./...
-	nesgo -f ./examples/blue/main.go -o ./examples/blue/main.nes
-	nesgo -f ./examples/debugprint/main.go -o ./examples/debugprint/main.nes
+	nesgo -q -f ./examples/blue/main.go -o ./examples/blue/main.nes
+	nesgo -q -f ./examples/debugprint/main.go -o ./examples/debugprint/main.nes
 
 test-no-gui: ## run unit tests with gui disabled
 	go test -tags nogui ./... -v
