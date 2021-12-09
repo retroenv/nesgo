@@ -12,6 +12,8 @@ type System struct {
 func newSystem() *System {
 	memory := newMemory()
 	cpu := newCPU(memory)
+	memory.x = &cpu.X
+	memory.y = &cpu.Y
 	return &System{
 		CPU:    cpu,
 		Memory: memory,
