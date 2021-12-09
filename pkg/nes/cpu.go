@@ -8,9 +8,9 @@ import "math"
 var notImplemented = "instruction is not implemented yet"
 
 // Adc - Add with Carry.
-func (c *CPU) Adc(param interface{}, reg ...interface{}) {
+func (c *CPU) Adc(params ...interface{}) {
 	timeInstructionExecution()
-	value := c.memory.readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(true, params...)
 	sum := int(c.A) + int(c.Flags.C) + int(value)
 	c.A = uint8(sum)
 	c.setZN(c.A)
@@ -27,29 +27,29 @@ func (c *CPU) Adc(param interface{}, reg ...interface{}) {
 }
 
 // And - AND with accumulator.
-func (c *CPU) And(param interface{}, reg ...interface{}) {
+func (c *CPU) And(params ...interface{}) {
 	timeInstructionExecution()
-	value := c.memory.readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(true, params...)
 	c.A &= value
 	c.setZN(c.A)
 }
 
 // Asl - Arithmetic Shift Left.
-func (c *CPU) Asl(param ...interface{}) {
+func (c *CPU) Asl(params ...interface{}) {
 	timeInstructionExecution()
 
-	if param == nil { // A implied
+	if params == nil { // A implied
 		c.Flags.C = (c.A >> 7) & 1
 		c.A <<= 1
 		c.setZN(c.A)
 		return
 	}
 
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(false, params...)
 	c.Flags.C = (val >> 7) & 1
 	val <<= 1
 	c.setZN(val)
-	c.memory.writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(val, params...)
 }
 
 // Bcc - Branch if Carry Clear - returns whether the
@@ -74,7 +74,7 @@ func (c *CPU) Beq() bool {
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
 func (c *CPU) Bit(address uint16) {
 	timeInstructionExecution()
-	value := c.memory.readMemoryAbsolute(address)
+	value := c.memory.readMemoryAbsolute(address, nil)
 	c.Flags.V = (value >> 6) & 1
 	c.setZ(value & c.A)
 	c.setN(value)
@@ -143,21 +143,21 @@ func (c *CPU) Clv() {
 // Cmp - Compare - compares the contents of A.
 func (c *CPU) Cmp(param interface{}) {
 	timeInstructionExecution()
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(true, param)
 	c.compare(c.A, val)
 }
 
 // Cpx - Compare X Register - compares the contents of X.
 func (c *CPU) Cpx(param interface{}) {
 	timeInstructionExecution()
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(true, param)
 	c.compare(c.X, val)
 }
 
 // Cpy - Compare Y Register - compares the contents of Y.
 func (c *CPU) Cpy(param interface{}) {
 	timeInstructionExecution()
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(true, param)
 	c.compare(c.Y, val)
 }
 
@@ -176,9 +176,9 @@ func (c *CPU) Dey() {
 }
 
 // Eor - Exclusive OR - XOR.
-func (c *CPU) Eor(param interface{}, reg ...interface{}) {
+func (c *CPU) Eor(params ...interface{}) {
 	timeInstructionExecution()
-	value := c.memory.readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(true, params...)
 	c.A ^= value
 	c.setZN(c.A)
 }
@@ -198,42 +198,42 @@ func (c *CPU) Iny() {
 }
 
 // Lda - Load Accumulator - load a byte into A.
-func (c *CPU) Lda(param interface{}, reg ...interface{}) {
+func (c *CPU) Lda(params ...interface{}) {
 	timeInstructionExecution()
-	c.A = c.memory.readMemoryAddressModes(param, reg...)
+	c.A = c.memory.readMemoryAddressModes(true, params...)
 	c.setZN(c.A)
 }
 
 // Ldx - Load X Register - load a byte into X.
-func (c *CPU) Ldx(param interface{}, reg ...interface{}) {
+func (c *CPU) Ldx(params ...interface{}) {
 	timeInstructionExecution()
-	c.X = c.memory.readMemoryAddressModes(param, reg...)
+	c.X = c.memory.readMemoryAddressModes(true, params...)
 	c.setZN(c.X)
 }
 
 // Ldy - Load Y Register - load a byte into Y.
-func (c *CPU) Ldy(param interface{}, reg ...interface{}) {
+func (c *CPU) Ldy(params ...interface{}) {
 	timeInstructionExecution()
-	c.Y = c.memory.readMemoryAddressModes(param, reg...)
+	c.Y = c.memory.readMemoryAddressModes(true, params...)
 	c.setZN(c.Y)
 }
 
 // Lsr - Logical Shift Right.
-func (c *CPU) Lsr(param ...interface{}) {
+func (c *CPU) Lsr(params ...interface{}) {
 	timeInstructionExecution()
 
-	if param == nil { // A implied
+	if params == nil { // A implied
 		c.Flags.C = c.A & 1
 		c.A >>= 1
 		c.setZN(c.A)
 		return
 	}
 
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(false, params...)
 	c.Flags.C = val & 1
 	val >>= 1
 	c.setZN(val)
-	c.memory.writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(val, params...)
 }
 
 // Nop - No Operation.
@@ -242,9 +242,9 @@ func (c *CPU) Nop() {
 }
 
 // Ora - OR with Accumulator.
-func (c *CPU) Ora(param interface{}, reg ...interface{}) {
+func (c *CPU) Ora(params ...interface{}) {
 	timeInstructionExecution()
-	value := c.memory.readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(true, params...)
 	c.A |= value
 	c.setZN(c.A)
 }
@@ -279,41 +279,41 @@ func (c *CPU) Plp() {
 }
 
 // Rol - Rotate Left.
-func (c *CPU) Rol(param ...interface{}) {
+func (c *CPU) Rol(params ...interface{}) {
 	timeInstructionExecution()
 
 	cFlag := c.Flags.C
-	if param == nil { // A implied
+	if params == nil { // A implied
 		c.Flags.C = (c.A >> 7) & 1
 		c.A = (c.A << 1) | cFlag
 		c.setZN(c.A)
 		return
 	}
 
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(false, params...)
 	c.Flags.C = (val >> 7) & 1
 	val = (val << 1) | cFlag
 	c.setZN(val)
-	c.memory.writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(val, params...)
 }
 
 // Ror - Rotate Right.
-func (c *CPU) Ror(param ...interface{}) {
+func (c *CPU) Ror(params ...interface{}) {
 	timeInstructionExecution()
 
 	cFlag := c.Flags.C
-	if param == nil { // A implied
+	if params == nil { // A implied
 		c.Flags.C = c.A & 1
 		c.A = (c.A >> 1) | (cFlag << 7)
 		c.setZN(c.A)
 		return
 	}
 
-	val := c.memory.readMemoryAddressModes(param)
+	val := c.memory.readMemoryAddressModes(false, params...)
 	c.Flags.C = val & 1
 	val = (val >> 1) | (cFlag << 7)
 	c.setZN(val)
-	c.memory.writeMemoryAddressModes(param, val)
+	c.memory.writeMemoryAddressModes(val, params...)
 }
 
 // Rti - Return from Interrupt.
@@ -322,10 +322,10 @@ func (c *CPU) Rti() {
 }
 
 // Sbc - subtract with Carry.
-func (c *CPU) Sbc(param interface{}, reg ...interface{}) {
+func (c *CPU) Sbc(params ...interface{}) {
 	timeInstructionExecution()
 
-	value := c.memory.readMemoryAddressModes(param, reg...)
+	value := c.memory.readMemoryAddressModes(true, params...)
 	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
 	c.A = uint8(sub)
 	c.setZN(c.A)
@@ -361,23 +361,23 @@ func (c *CPU) Sei() {
 
 // Sta - Store Accumulator - store content of A at address Addr and
 // add an optional register to the address.
-func (c *CPU) Sta(param interface{}, reg ...interface{}) {
+func (c *CPU) Sta(params ...interface{}) {
 	timeInstructionExecution()
-	c.memory.writeMemoryAddressModes(param, c.A, reg...)
+	c.memory.writeMemoryAddressModes(c.A, params...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
-func (c *CPU) Stx(param interface{}, reg ...interface{}) {
+func (c *CPU) Stx(params ...interface{}) {
 	timeInstructionExecution()
-	c.memory.writeMemoryAddressModes(param, c.X, reg...)
+	c.memory.writeMemoryAddressModes(c.X, params...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
-func (c *CPU) Sty(param interface{}, reg ...interface{}) {
+func (c *CPU) Sty(params ...interface{}) {
 	timeInstructionExecution()
-	c.memory.writeMemoryAddressModes(param, c.Y, reg...)
+	c.memory.writeMemoryAddressModes(c.Y, params...)
 }
 
 // Tax - Transfer Accumulator to X.
