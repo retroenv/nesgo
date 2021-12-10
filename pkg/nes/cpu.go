@@ -20,10 +20,6 @@ func (c *CPU) Adc(params ...interface{}) {
 	} else {
 		c.Flags.C = 0
 	}
-
-	if c.Flags.D == 1 {
-		panic(notImplemented) // TODO: support decimal mode
-	}
 }
 
 // And - AND with accumulator.
@@ -334,10 +330,6 @@ func (c *CPU) Sbc(params ...interface{}) {
 		c.Flags.C = 1
 	} else {
 		c.Flags.C = 0
-	}
-
-	if c.Flags.D == 1 {
-		panic(notImplemented) // TODO: support decimal mode
 	}
 }
 
