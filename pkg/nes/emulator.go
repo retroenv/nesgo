@@ -3,19 +3,6 @@
 
 package nes
 
-var (
-	docCPU *CPU
-	system *System
-)
-
-func init() {
-	system = newSystem()
-	setAliases(system.CPU)
-	A = &system.CPU.A
-	X = &system.CPU.X
-	Y = &system.CPU.Y
-}
-
 // CPU registers that can be used as parameter for instructions that support
 // absolute or indirect indexing using X or Y register.
 var (
@@ -27,6 +14,8 @@ var (
 // cpu instructions, linked to the uninitialized cpu type functions to allow
 // easier code browsing.
 var (
+	docCPU *CPU
+
 	// Adc - Add with Carry.
 	Adc = docCPU.Adc
 	// And - AND with accumulator.

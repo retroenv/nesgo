@@ -8,8 +8,8 @@ const (
 	windowTitle = "nesgo"
 )
 
-func runRenderer(ppu *PPU) error {
-	render, cleanup, err := guiStarter(ppu)
+func runRenderer(system *System) error {
+	render, cleanup, err := guiStarter(system)
 	if err != nil {
 		return err
 	}
@@ -23,16 +23,16 @@ func runRenderer(ppu *PPU) error {
 
 	running := true
 	for running {
-		ppu.startRender()
+		system.ppu.startRender()
 
-		ppu.renderScreen()
+		system.ppu.renderScreen()
 
 		running, err = render()
 		if err != nil {
 			return err
 		}
 
-		ppu.finishRender()
+		system.ppu.finishRender()
 	}
 	return nil
 }

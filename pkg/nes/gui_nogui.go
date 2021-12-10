@@ -5,7 +5,7 @@ package nes
 
 var guiStarter = setupNoGui
 
-func setupNoGui(_ *PPU) (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupNoGui(_ *System) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	render := func() (bool, error) {
 		return true, nil
 	}
