@@ -11,6 +11,7 @@ var (
 func init() {
 	system = newSystem()
 	setAliases(system.CPU)
+	A = &system.CPU.A
 	X = &system.CPU.X
 	Y = &system.CPU.Y
 }
@@ -18,6 +19,7 @@ func init() {
 // CPU registers that can be used as parameter for instructions that support
 // absolute or indirect indexing using X or Y register.
 var (
+	A *uint8 // x register
 	X *uint8 // x register
 	Y *uint8 // y register
 )
