@@ -253,13 +253,16 @@ func (c *Compiler) inlineFunctionCall(functionContext *Function,
 
 	nodes := fixLabelNameCollisions(functionContext, f.Body.Nodes)
 
-	for _, node := range nodes {
+	for i, node := range nodes {
 		ins, ok := node.(*ast.Instruction)
 		if !ok {
 			continue
 		}
+		if i == 0 {
+			ins.Comment = "inlined " + call.Function
+		}
 
-		for i, arg := range ins.Arguments {
+		for j, arg := range ins.Arguments {
 			if _, ok := arg.(*ast.ArgumentValue); ok {
 				continue
 			}
@@ -269,7 +272,7 @@ func (c *Compiler) inlineFunctionCall(functionContext *Function,
 					return nil, err
 				}
 				ins.Comment = formatNodeListComment(list.Nodes)
-				ins.Arguments[i] = &ast.ArgumentValue{Value: val}
+				ins.Arguments[j] = &ast.ArgumentValue{Value: val}
 				continue
 			}
 
@@ -282,7 +285,7 @@ func (c *Compiler) inlineFunctionCall(functionContext *Function,
 			if err != nil {
 				return nil, err
 			}
-			ins.Arguments[i] = &ast.ArgumentValue{Value: val}
+			ins.Arguments[j] = &ast.ArgumentValue{Value: val}
 		}
 		body = append(body, node)
 	}

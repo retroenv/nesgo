@@ -117,7 +117,7 @@ func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
 		if !info.HasAddressing(ast.ImpliedAddressing | ast.AccumulatorAddressing) {
 			return fmt.Errorf("instruction '%s' is missing a parameter", ins.Name)
 		}
-		c.outputLine("  %s", ins.Name)
+		c.outputLineWithComment(ins.Comment, "  %s", ins.Name)
 		return nil
 
 	case 1:
