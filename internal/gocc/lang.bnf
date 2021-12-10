@@ -8,6 +8,7 @@ terminator : ';' '\n'
 // --- [ Keywords ] ------------------------------------------------------------
 kwdBreak     : 'b' 'r' 'e' 'a' 'k' ;
 kwdConst     : 'c' 'o' 'n' 's' 't' ;
+kwdContinue  : 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e';
 kwdFor       : 'f' 'o' 'r' ;
 kwdFunc      : 'f' 'u' 'n' 'c' ;
 kwdGoto      : 'g' 'o' 't' 'o' ;
@@ -225,6 +226,14 @@ FunctionMarker
         : kwdFunc FunctionName Parameters  << ast.NewFunctionHeader($1.(*ast.Identifier), $2) >>
         ;
 
+FunctionName
+        : identifier    << ast.NewIdentifier(string($0.(*token.Token).Lit)) >>
+        ;
+
+FunctionBody
+        : Block
+        ;
+
 Parameters
         : "(" RepeatTerminator ")"
         | "(" ParameterDecl ")"  << $1, nil >>
@@ -254,10 +263,6 @@ IdentifierList
         | identifier "," IdentifierList  << ast.NewNodeList(ast.NewIdentifierNoError(string($0.(*token.Token).Lit)), $2) >>
         ;
 
-FunctionName : identifier    << ast.NewIdentifier(string($0.(*token.Token).Lit)) >> ;
-
-FunctionBody : Block;
-
 RepeatTerminator
         : terminator RepeatTerminator
         | empty
@@ -272,36 +277,21 @@ StatementList
 
 Statement
         : Declaration
-        | LabeledStmt
+        | Label ":" RepeatTerminator Statement  << ast.NewLabel($0.(*ast.Identifier), $3) >>
         | SimpleStmt
-        | ReturnStmt
-        | BreakStmt
-        | GotoStmt
+        | kwdRet                                << ast.NewReturnStatement() >>
+        | kwdBreak                              << ast.NewBranching(string($0.(*token.Token).Lit), "") >>
+        | kwdContinue                           << ast.NewBranching(string($0.(*token.Token).Lit), "") >>
+        | kwdGoto Label                         << ast.NewBranching(string($0.(*token.Token).Lit), $1.(*ast.Identifier).Name) >>
         | Block
         | IfStmt
         | ForStmt
-        ;
-
-LabeledStmt
-        : Label ":" RepeatTerminator Statement  << ast.NewLabel($0.(*ast.Identifier), $3) >>
         ;
 
 SimpleStmt
         : empty
         | Assignment
         | Expression
-        ;
-
-BreakStmt
-        : kwdBreak  << ast.NewBranching(string($0.(*token.Token).Lit), "") >>
-        ;
-
-ReturnStmt
-        : kwdRet  << ast.NewReturnStatement() >>
-        ;
-
-GotoStmt
-        : kwdGoto Label  << ast.NewBranching(string($0.(*token.Token).Lit), $1.(*ast.Identifier).Name) >>
         ;
 
 Block

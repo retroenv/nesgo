@@ -185,7 +185,30 @@ inst, jmp, loop
 label, loop_end
 `
 
+var forWhileContinue = []byte(`
+for {
+  if Bne() {
+    continue
+  }
+  Dex()
+}
+
+`)
+var forWhileContinueIr = `
+label, loop
+inst, bne, loop_post
+inst, dex
+label, loop_post
+inst, jmp, loop
+`
+
 var forTestCases = []testCase{
+	{
+		"while loop with continue",
+		forWhileContinue,
+		forWhileContinueIr,
+		"",
+	},
 	{
 		"while loop with branch, instructions and multiple breaks",
 		forWhileMultipleBreaks,

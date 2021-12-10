@@ -42,8 +42,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -83,8 +84,9 @@ var actionTab = actionTable{
 			nil,          // kwdInterface
 			nil,          // typeConstructor
 			nil,          // :
-			nil,          // kwdBreak
 			nil,          // kwdRet
+			nil,          // kwdBreak
+			nil,          // kwdContinue
 			nil,          // kwdGoto
 			nil,          // {
 			nil,          // }
@@ -124,8 +126,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -165,8 +168,9 @@ var actionTab = actionTable{
 			nil,      // kwdInterface
 			nil,      // typeConstructor
 			nil,      // :
-			nil,      // kwdBreak
 			nil,      // kwdRet
+			nil,      // kwdBreak
+			nil,      // kwdContinue
 			nil,      // kwdGoto
 			nil,      // {
 			nil,      // }
@@ -206,8 +210,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -247,8 +252,9 @@ var actionTab = actionTable{
 			nil,      // kwdInterface
 			nil,      // typeConstructor
 			nil,      // :
-			nil,      // kwdBreak
 			nil,      // kwdRet
+			nil,      // kwdBreak
+			nil,      // kwdContinue
 			nil,      // kwdGoto
 			nil,      // {
 			nil,      // }
@@ -288,8 +294,9 @@ var actionTab = actionTable{
 			nil,      // kwdInterface
 			nil,      // typeConstructor
 			nil,      // :
-			nil,      // kwdBreak
 			nil,      // kwdRet
+			nil,      // kwdBreak
+			nil,      // kwdContinue
 			nil,      // kwdGoto
 			nil,      // {
 			nil,      // }
@@ -329,8 +336,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -370,8 +378,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -411,8 +420,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -452,8 +462,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -493,8 +504,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -534,8 +546,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -575,8 +588,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -616,8 +630,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -657,8 +672,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -698,8 +714,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -739,8 +756,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -780,8 +798,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -821,8 +840,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -862,8 +882,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -903,8 +924,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -944,8 +966,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -985,8 +1008,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1026,8 +1050,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			shift(48), // {
 			nil,       // }
@@ -1067,8 +1092,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1108,8 +1134,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1149,8 +1176,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1190,8 +1218,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1231,8 +1260,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1272,8 +1302,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1313,8 +1344,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1354,8 +1386,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1395,8 +1428,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1436,8 +1470,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1461,24 +1496,25 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			reduce(68), // =, reduce: IdentifierList
+			reduce(70), // =, reduce: IdentifierList
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			reduce(68), // *, reduce: IdentifierList
+			reduce(70), // *, reduce: IdentifierList
 			nil,        // intLit
 			shift(55),  // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			reduce(68), // type, reduce: IdentifierList
-			reduce(68), // kwdInterface, reduce: IdentifierList
+			reduce(70), // type, reduce: IdentifierList
+			reduce(70), // kwdInterface, reduce: IdentifierList
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1518,8 +1554,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1559,8 +1596,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1600,8 +1638,9 @@ var actionTab = actionTable{
 			shift(62), // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1641,8 +1680,9 @@ var actionTab = actionTable{
 			shift(66), // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1682,8 +1722,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1723,8 +1764,9 @@ var actionTab = actionTable{
 			shift(66), // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1748,7 +1790,7 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			reduce(68), // =, reduce: IdentifierList
+			reduce(70), // =, reduce: IdentifierList
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -1764,8 +1806,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1805,8 +1848,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1846,8 +1890,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -1887,8 +1932,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1928,8 +1974,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -1942,35 +1989,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(71), // $, reduce: FunctionBody
-			reduce(71), // terminator, reduce: FunctionBody
+			reduce(57), // $, reduce: FunctionBody
+			reduce(57), // terminator, reduce: FunctionBody
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(71), // kwdImport, reduce: FunctionBody
+			reduce(57), // kwdImport, reduce: FunctionBody
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(71), // kwdVar, reduce: FunctionBody
+			reduce(57), // kwdVar, reduce: FunctionBody
 			nil,        // =
-			reduce(71), // kwdType, reduce: FunctionBody
+			reduce(57), // kwdType, reduce: FunctionBody
 			nil,        // kwdInline
-			reduce(71), // kwdConst, reduce: FunctionBody
+			reduce(57), // kwdConst, reduce: FunctionBody
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(71), // kwdFunc, reduce: FunctionBody
+			reduce(57), // kwdFunc, reduce: FunctionBody
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2010,8 +2058,9 @@ var actionTab = actionTable{
 			reduce(73), // kwdInterface, reduce: RepeatTerminator
 			nil,        // typeConstructor
 			nil,        // :
-			reduce(73), // kwdBreak, reduce: RepeatTerminator
 			reduce(73), // kwdRet, reduce: RepeatTerminator
+			reduce(73), // kwdBreak, reduce: RepeatTerminator
+			reduce(73), // kwdContinue, reduce: RepeatTerminator
 			reduce(73), // kwdGoto, reduce: RepeatTerminator
 			reduce(73), // {, reduce: RepeatTerminator
 			reduce(73), // }, reduce: RepeatTerminator
@@ -2029,7 +2078,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			reduce(70), // (, reduce: FunctionName
+			reduce(56), // (, reduce: FunctionName
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -2051,8 +2100,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2092,8 +2142,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2133,8 +2184,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2174,8 +2226,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2215,8 +2268,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2256,8 +2310,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2297,8 +2352,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2338,8 +2394,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2379,8 +2436,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2420,8 +2478,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2461,8 +2520,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			shift(89), // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2502,8 +2562,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2516,35 +2577,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(65), // $, reduce: Type
-			reduce(65), // terminator, reduce: Type
+			reduce(67), // $, reduce: Type
+			reduce(67), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(65), // kwdImport, reduce: Type
+			reduce(67), // kwdImport, reduce: Type
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(65), // kwdVar, reduce: Type
-			reduce(65), // =, reduce: Type
-			reduce(65), // kwdType, reduce: Type
+			reduce(67), // kwdVar, reduce: Type
+			reduce(67), // =, reduce: Type
+			reduce(67), // kwdType, reduce: Type
 			nil,        // kwdInline
-			reduce(65), // kwdConst, reduce: Type
+			reduce(67), // kwdConst, reduce: Type
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(65), // kwdFunc, reduce: Type
+			reduce(67), // kwdFunc, reduce: Type
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2557,35 +2619,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(66), // $, reduce: Type
-			reduce(66), // terminator, reduce: Type
+			reduce(68), // $, reduce: Type
+			reduce(68), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(66), // kwdImport, reduce: Type
+			reduce(68), // kwdImport, reduce: Type
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(66), // kwdVar, reduce: Type
-			reduce(66), // =, reduce: Type
-			reduce(66), // kwdType, reduce: Type
+			reduce(68), // kwdVar, reduce: Type
+			reduce(68), // =, reduce: Type
+			reduce(68), // kwdType, reduce: Type
 			nil,        // kwdInline
-			reduce(66), // kwdConst, reduce: Type
+			reduce(68), // kwdConst, reduce: Type
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(66), // kwdFunc, reduce: Type
+			reduce(68), // kwdFunc, reduce: Type
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2625,8 +2688,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2666,8 +2730,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2680,35 +2745,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(65), // $, reduce: Type
-			reduce(65), // terminator, reduce: Type
+			reduce(67), // $, reduce: Type
+			reduce(67), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(65), // kwdImport, reduce: Type
+			reduce(67), // kwdImport, reduce: Type
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(65), // kwdVar, reduce: Type
+			reduce(67), // kwdVar, reduce: Type
 			nil,        // =
-			reduce(65), // kwdType, reduce: Type
+			reduce(67), // kwdType, reduce: Type
 			nil,        // kwdInline
-			reduce(65), // kwdConst, reduce: Type
+			reduce(67), // kwdConst, reduce: Type
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(65), // kwdFunc, reduce: Type
+			reduce(67), // kwdFunc, reduce: Type
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2721,35 +2787,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(66), // $, reduce: Type
-			reduce(66), // terminator, reduce: Type
+			reduce(68), // $, reduce: Type
+			reduce(68), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(66), // kwdImport, reduce: Type
+			reduce(68), // kwdImport, reduce: Type
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(66), // kwdVar, reduce: Type
+			reduce(68), // kwdVar, reduce: Type
 			nil,        // =
-			reduce(66), // kwdType, reduce: Type
+			reduce(68), // kwdType, reduce: Type
 			nil,        // kwdInline
-			reduce(66), // kwdConst, reduce: Type
+			reduce(68), // kwdConst, reduce: Type
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(66), // kwdFunc, reduce: Type
+			reduce(68), // kwdFunc, reduce: Type
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2789,8 +2856,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2830,8 +2898,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2871,8 +2940,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -2912,8 +2982,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2953,8 +3024,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -2994,14 +3066,15 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			shift(144), // kwdBreak
-			shift(145), // kwdRet
-			shift(146), // kwdGoto
-			shift(147), // {
+			shift(137), // kwdRet
+			shift(138), // kwdBreak
+			shift(139), // kwdContinue
+			shift(140), // kwdGoto
+			shift(144), // {
 			reduce(86), // }, reduce: SimpleStmt
-			shift(148), // kwdIf
+			shift(145), // kwdIf
 			nil,        // not
-			shift(149), // kwdFor
+			shift(146), // kwdFor
 		},
 	},
 	actionRow{ // S73
@@ -3035,8 +3108,9 @@ var actionTab = actionTable{
 			reduce(73), // kwdInterface, reduce: RepeatTerminator
 			nil,        // typeConstructor
 			nil,        // :
-			reduce(73), // kwdBreak, reduce: RepeatTerminator
 			reduce(73), // kwdRet, reduce: RepeatTerminator
+			reduce(73), // kwdBreak, reduce: RepeatTerminator
+			reduce(73), // kwdContinue, reduce: RepeatTerminator
 			reduce(73), // kwdGoto, reduce: RepeatTerminator
 			reduce(73), // {, reduce: RepeatTerminator
 			reduce(73), // }, reduce: RepeatTerminator
@@ -3050,9 +3124,9 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(152), // terminator
+			shift(149), // terminator
 			nil,        // kwdPackage
-			shift(153), // identifier
+			shift(150), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			reduce(73), // ), reduce: RepeatTerminator
@@ -3067,17 +3141,18 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(156), // *
+			shift(153), // *
 			nil,        // intLit
 			nil,        // ,
 			nil,        // kwdFunc
-			shift(158), // kwdVariadic
-			shift(159), // type
-			shift(160), // kwdInterface
+			shift(155), // kwdVariadic
+			shift(156), // type
+			shift(157), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3117,8 +3192,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(55), // {, reduce: FunctionMarker
 			nil,        // }
@@ -3139,7 +3215,7 @@ var actionTab = actionTable{
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(161), // stringLit
+			shift(158), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -3158,8 +3234,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3173,7 +3250,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(163), // terminator
+			shift(160), // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -3199,8 +3276,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3219,7 +3297,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(164), // )
+			shift(161), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -3240,8 +3318,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3262,7 +3341,7 @@ var actionTab = actionTable{
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(165), // stringLit
+			shift(162), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -3281,8 +3360,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3322,8 +3402,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3363,8 +3444,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3388,24 +3470,25 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			reduce(69), // =, reduce: IdentifierList
+			reduce(71), // =, reduce: IdentifierList
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			reduce(69), // *, reduce: IdentifierList
+			reduce(71), // *, reduce: IdentifierList
 			nil,        // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			reduce(69), // type, reduce: IdentifierList
-			reduce(69), // kwdInterface, reduce: IdentifierList
+			reduce(71), // type, reduce: IdentifierList
+			reduce(71), // kwdInterface, reduce: IdentifierList
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3419,7 +3502,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(167), // terminator
+			shift(164), // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -3445,8 +3528,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3465,7 +3549,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(168), // )
+			shift(165), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -3486,8 +3570,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3511,24 +3596,25 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			shift(170), // =
+			shift(167), // =
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(171), // *
+			shift(168), // *
 			nil,        // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(172), // type
-			shift(173), // kwdInterface
+			shift(169), // type
+			shift(170), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3568,8 +3654,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3609,8 +3696,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3628,7 +3716,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			shift(175), // (
+			shift(172), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -3650,8 +3738,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3669,7 +3758,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			reduce(67), // (, reduce: TypeConstructor
+			reduce(69), // (, reduce: TypeConstructor
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -3691,8 +3780,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3705,35 +3795,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(64), // $, reduce: Type
-			reduce(64), // terminator, reduce: Type
+			reduce(66), // $, reduce: Type
+			reduce(66), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(64), // kwdImport, reduce: Type
+			reduce(66), // kwdImport, reduce: Type
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(64), // kwdVar, reduce: Type
-			reduce(64), // =, reduce: Type
-			reduce(64), // kwdType, reduce: Type
+			reduce(66), // kwdVar, reduce: Type
+			reduce(66), // =, reduce: Type
+			reduce(66), // kwdType, reduce: Type
 			nil,        // kwdInline
-			reduce(64), // kwdConst, reduce: Type
+			reduce(66), // kwdConst, reduce: Type
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(64), // kwdFunc, reduce: Type
+			reduce(66), // kwdFunc, reduce: Type
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3746,35 +3837,36 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			reduce(64), // $, reduce: Type
-			reduce(64), // terminator, reduce: Type
+			reduce(66), // $, reduce: Type
+			reduce(66), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
-			reduce(64), // kwdImport, reduce: Type
+			reduce(66), // kwdImport, reduce: Type
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(64), // kwdVar, reduce: Type
+			reduce(66), // kwdVar, reduce: Type
 			nil,        // =
-			reduce(64), // kwdType, reduce: Type
+			reduce(66), // kwdType, reduce: Type
 			nil,        // kwdInline
-			reduce(64), // kwdConst, reduce: Type
+			reduce(66), // kwdConst, reduce: Type
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(64), // kwdFunc, reduce: Type
+			reduce(66), // kwdFunc, reduce: Type
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3798,7 +3890,7 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			reduce(69), // =, reduce: IdentifierList
+			reduce(71), // =, reduce: IdentifierList
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -3814,8 +3906,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3839,7 +3932,7 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			shift(176), // =
+			shift(173), // =
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -3855,8 +3948,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3870,7 +3964,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(178), // terminator
+			shift(175), // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -3896,8 +3990,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3916,7 +4011,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(179), // )
+			shift(176), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -3937,8 +4032,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -3978,8 +4074,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4019,8 +4116,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4036,12 +4134,12 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -4051,8 +4149,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -4060,8 +4158,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4101,8 +4200,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4120,7 +4220,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			shift(192), // (
+			shift(189), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -4142,8 +4242,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4183,8 +4284,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4212,9 +4314,9 @@ var actionTab = actionTable{
 			reduce(41), // kwdType, reduce: PrimaryExpr
 			nil,        // kwdInline
 			reduce(41), // kwdConst, reduce: PrimaryExpr
-			shift(193), // singleOperators
-			shift(194), // operators
-			shift(195), // relOp
+			shift(190), // singleOperators
+			shift(191), // operators
+			shift(192), // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
@@ -4224,8 +4326,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4243,7 +4346,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			reduce(40), // kwdImport, reduce: Expression
-			shift(196), // (
+			shift(193), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -4265,8 +4368,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4306,8 +4410,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4343,12 +4448,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(198), // type
+			shift(195), // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4388,8 +4494,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4429,8 +4536,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4470,8 +4578,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4489,7 +4598,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			reduce(65), // (, reduce: Type
+			reduce(67), // (, reduce: Type
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -4511,8 +4620,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4530,7 +4640,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			reduce(66), // (, reduce: Type
+			reduce(68), // (, reduce: Type
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -4552,8 +4662,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4592,9 +4703,10 @@ var actionTab = actionTable{
 			nil,         // type
 			nil,         // kwdInterface
 			nil,         // typeConstructor
-			reduce(106), // :, reduce: Label
-			nil,         // kwdBreak
+			reduce(103), // :, reduce: Label
 			nil,         // kwdRet
+			nil,         // kwdBreak
+			nil,         // kwdContinue
 			nil,         // kwdGoto
 			nil,         // {
 			reduce(49),  // }, reduce: OperandName
@@ -4634,8 +4746,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(18), // }, reduce: Declaration
@@ -4651,12 +4764,12 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(199), // identifier
+			shift(196), // identifier
 			nil,        // kwdImport
-			shift(201), // (
+			shift(198), // (
 			nil,        // )
-			shift(202), // .
-			shift(203), // stringLit
+			shift(199), // .
+			shift(200), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -4675,8 +4788,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4692,12 +4806,12 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -4707,8 +4821,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -4716,8 +4830,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -4757,8 +4872,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(48), // }, reduce: BasicLit
@@ -4798,8 +4914,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(76), // }, reduce: Statement
@@ -4839,8 +4956,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(15), // }, reduce: Declaration
@@ -4880,8 +4998,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(16), // }, reduce: Declaration
@@ -4921,8 +5040,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(17), // }, reduce: Declaration
@@ -4939,6 +5059,48 @@ var actionTab = actionTable{
 			reduce(26), // terminator, reduce: VarSpec
 			nil,        // kwdPackage
 			shift(35),  // identifier
+			nil,        // kwdImport
+			shift(202), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(26), // }, reduce: VarSpec
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S121
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
 			nil,        // kwdImport
 			shift(205), // (
 			nil,        // )
@@ -4962,49 +5124,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(26), // }, reduce: VarSpec
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S121
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(208), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
 			nil,        // kwdBreak
-			nil,        // kwdRet
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -5028,7 +5150,7 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			shift(209), // =
+			shift(206), // =
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -5044,8 +5166,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(88), // }, reduce: SimpleStmt
@@ -5061,7 +5184,7 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(210), // identifier
+			shift(207), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -5071,7 +5194,7 @@ var actionTab = actionTable{
 			nil,        // kwdVar
 			nil,        // =
 			nil,        // kwdType
-			shift(212), // kwdInline
+			shift(209), // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
 			nil,        // operators
@@ -5085,8 +5208,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -5104,7 +5228,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			shift(42),  // identifier
 			nil,        // kwdImport
-			shift(213), // (
+			shift(210), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -5126,8 +5250,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -5155,9 +5280,9 @@ var actionTab = actionTable{
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
-			shift(216), // singleOperators
-			shift(217), // operators
-			shift(218), // relOp
+			shift(213), // singleOperators
+			shift(214), // operators
+			shift(215), // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
@@ -5167,8 +5292,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(41), // }, reduce: PrimaryExpr
@@ -5186,7 +5312,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			shift(219), // (
+			shift(216), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -5208,8 +5334,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(40), // }, reduce: Expression
@@ -5249,8 +5376,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(43), // }, reduce: Operand
@@ -5266,7 +5394,7 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(220), // identifier
+			shift(217), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -5286,12 +5414,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(198), // type
+			shift(195), // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -5331,8 +5460,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(45), // }, reduce: Operand
@@ -5372,8 +5502,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(46), // }, reduce: Literal
@@ -5413,8 +5544,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(47), // }, reduce: BasicLit
@@ -5428,7 +5560,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(82), // terminator, reduce: Statement
+			reduce(83), // terminator, reduce: Statement
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -5454,11 +5586,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(82), // }, reduce: Statement
+			reduce(83), // }, reduce: Statement
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -5495,11 +5628,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			shift(222), // }
+			shift(219), // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -5510,7 +5644,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(224), // terminator
+			shift(221), // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -5536,8 +5670,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(73), // }, reduce: RepeatTerminator
@@ -5551,7 +5686,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(77), // terminator, reduce: Statement
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -5576,12 +5711,13 @@ var actionTab = actionTable{
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
+			shift(222), // :
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(77), // }, reduce: Statement
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -5618,8 +5754,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(78), // }, reduce: Statement
@@ -5659,8 +5796,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(79), // }, reduce: Statement
@@ -5700,8 +5838,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(80), // }, reduce: Statement
@@ -5741,8 +5880,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(81), // }, reduce: Statement
@@ -5756,9 +5896,9 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(83), // terminator, reduce: Statement
+			nil,        // terminator
 			nil,        // kwdPackage
-			nil,        // identifier
+			shift(223), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -5782,11 +5922,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(83), // }, reduce: Statement
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -5823,8 +5964,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(84), // }, reduce: Statement
@@ -5838,7 +5980,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // terminator
+			reduce(85), // terminator, reduce: Statement
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -5863,12 +6005,13 @@ var actionTab = actionTable{
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
-			shift(225), // :
-			nil,        // kwdBreak
+			nil,        // :
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			nil,        // }
+			reduce(85), // }, reduce: Statement
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -5905,8 +6048,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(87), // }, reduce: SimpleStmt
@@ -5916,129 +6060,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S144
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(89), // terminator, reduce: BreakStmt
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(89), // }, reduce: BreakStmt
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S145
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(90), // terminator, reduce: ReturnStmt
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(90), // }, reduce: ReturnStmt
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S146
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(226), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S147
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -6069,8 +6090,9 @@ var actionTab = actionTable{
 			reduce(73), // kwdInterface, reduce: RepeatTerminator
 			nil,        // typeConstructor
 			nil,        // :
-			reduce(73), // kwdBreak, reduce: RepeatTerminator
 			reduce(73), // kwdRet, reduce: RepeatTerminator
+			reduce(73), // kwdBreak, reduce: RepeatTerminator
+			reduce(73), // kwdContinue, reduce: RepeatTerminator
 			reduce(73), // kwdGoto, reduce: RepeatTerminator
 			reduce(73), // {, reduce: RepeatTerminator
 			reduce(73), // }, reduce: RepeatTerminator
@@ -6079,19 +6101,19 @@ var actionTab = actionTable{
 			reduce(73), // kwdFor, reduce: RepeatTerminator
 		},
 	},
-	actionRow{ // S148
+	actionRow{ // S145
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(229), // identifier
+			shift(226), // identifier
 			nil,        // kwdImport
-			shift(230), // (
+			shift(227), // (
 			nil,        // )
 			nil,        // .
-			shift(231), // stringLit
+			shift(228), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -6101,8 +6123,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(237), // *
-			shift(240), // intLit
+			shift(234), // *
+			shift(237), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -6110,29 +6132,30 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
 			nil,        // kwdIf
-			shift(241), // not
+			shift(238), // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S149
+	actionRow{ // S146
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(242), // terminator
+			shift(239), // terminator
 			nil,        // kwdPackage
-			shift(243), // identifier
+			shift(240), // identifier
 			nil,        // kwdImport
-			shift(244), // (
+			shift(241), // (
 			nil,        // )
 			nil,        // .
-			shift(245), // stringLit
+			shift(242), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -6142,8 +6165,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(251), // *
-			shift(254), // intLit
+			shift(248), // *
+			shift(251), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -6151,17 +6174,18 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			shift(147), // {
+			shift(144), // {
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S150
+	actionRow{ // S147
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -6192,14 +6216,141 @@ var actionTab = actionTable{
 			reduce(72), // kwdInterface, reduce: RepeatTerminator
 			nil,        // typeConstructor
 			nil,        // :
-			reduce(72), // kwdBreak, reduce: RepeatTerminator
 			reduce(72), // kwdRet, reduce: RepeatTerminator
+			reduce(72), // kwdBreak, reduce: RepeatTerminator
+			reduce(72), // kwdContinue, reduce: RepeatTerminator
 			reduce(72), // kwdGoto, reduce: RepeatTerminator
 			reduce(72), // {, reduce: RepeatTerminator
 			reduce(72), // }, reduce: RepeatTerminator
 			reduce(72), // kwdIf, reduce: RepeatTerminator
 			nil,        // not
 			reduce(72), // kwdFor, reduce: RepeatTerminator
+		},
+	},
+	actionRow{ // S148
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(256), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S149
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(149), // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(73), // ), reduce: RepeatTerminator
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S150
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			reduce(70), // *, reduce: IdentifierList
+			nil,        // intLit
+			shift(258), // ,
+			nil,        // kwdFunc
+			shift(259), // kwdVariadic
+			reduce(70), // type, reduce: IdentifierList
+			reduce(70), // kwdInterface, reduce: IdentifierList
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
 		},
 	},
 	actionRow{ // S151
@@ -6212,7 +6363,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(259), // )
+			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -6224,17 +6375,18 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			nil,        // *
+			shift(153), // *
 			nil,        // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
+			shift(156), // type
+			shift(157), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -6244,4721 +6396,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S152
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(152), // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(73), // ), reduce: RepeatTerminator
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S153
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			reduce(68), // *, reduce: IdentifierList
-			nil,        // intLit
-			shift(261), // ,
-			nil,        // kwdFunc
-			shift(262), // kwdVariadic
-			reduce(68), // type, reduce: IdentifierList
-			reduce(68), // kwdInterface, reduce: IdentifierList
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S154
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(156), // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(159), // type
-			shift(160), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S155
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(59), // ), reduce: ParameterDecl
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(59), // ,, reduce: ParameterDecl
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S156
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(264), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S157
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(265), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			shift(266), // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S158
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			shift(267), // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S159
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(65), // ), reduce: Type
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(65), // ,, reduce: Type
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S160
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(66), // ), reduce: Type
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(66), // ,, reduce: Type
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S161
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			reduce(9), // terminator, reduce: ImportSpec
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			reduce(9), // ), reduce: ImportSpec
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			nil,       // }
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S162
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // terminator
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			reduce(7), // ), reduce: ImportList
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			nil,       // }
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S163
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(269), // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			nil,        // kwdImport
-			nil,        // (
-			reduce(73), // ), reduce: RepeatTerminator
-			reduce(73), // ., reduce: RepeatTerminator
-			reduce(73), // stringLit, reduce: RepeatTerminator
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S164
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			reduce(5), // $, reduce: ImportDecl
-			reduce(5), // terminator, reduce: ImportDecl
-			nil,       // kwdPackage
-			nil,       // identifier
-			reduce(5), // kwdImport, reduce: ImportDecl
-			nil,       // (
-			nil,       // )
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			reduce(5), // kwdVar, reduce: ImportDecl
-			nil,       // =
-			reduce(5), // kwdType, reduce: ImportDecl
-			nil,       // kwdInline
-			reduce(5), // kwdConst, reduce: ImportDecl
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			reduce(5), // kwdFunc, reduce: ImportDecl
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			nil,       // }
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S165
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			reduce(8), // terminator, reduce: ImportSpec
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			reduce(8), // ), reduce: ImportSpec
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			nil,       // }
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S166
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(22), // ), reduce: VarList
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S167
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(57),  // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			nil,        // kwdImport
-			nil,        // (
-			reduce(73), // ), reduce: RepeatTerminator
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S168
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(20), // $, reduce: VarDecl
-			reduce(20), // terminator, reduce: VarDecl
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(20), // kwdImport, reduce: VarDecl
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(20), // kwdVar, reduce: VarDecl
-			nil,        // =
-			reduce(20), // kwdType, reduce: VarDecl
-			nil,        // kwdInline
-			reduce(20), // kwdConst, reduce: VarDecl
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(20), // kwdFunc, reduce: VarDecl
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S169
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(23), // terminator, reduce: VarSpec
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(23), // ), reduce: VarSpec
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			shift(271), // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S170
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // terminator
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			nil,       // )
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			shift(89), // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			nil,       // }
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S171
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(273), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S172
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(65), // terminator, reduce: Type
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(65), // ), reduce: Type
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(65), // =, reduce: Type
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S173
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(66), // terminator, reduce: Type
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(66), // ), reduce: Type
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(66), // =, reduce: Type
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S174
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(24), // $, reduce: VarSpec
-			reduce(24), // terminator, reduce: VarSpec
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(24), // kwdImport, reduce: VarSpec
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(24), // kwdVar, reduce: VarSpec
-			nil,        // =
-			reduce(24), // kwdType, reduce: VarSpec
-			nil,        // kwdInline
-			reduce(24), // kwdConst, reduce: VarSpec
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(24), // kwdFunc, reduce: VarSpec
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S175
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S176
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(275), // identifier
-			nil,        // kwdImport
-			shift(276), // (
-			nil,        // )
-			nil,        // .
-			shift(277), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(283), // *
-			shift(286), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S177
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(33), // ), reduce: ConstList
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S178
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(288), // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			nil,        // kwdImport
-			nil,        // (
-			reduce(73), // ), reduce: RepeatTerminator
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S179
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(31), // $, reduce: ConstDecl
-			reduce(31), // terminator, reduce: ConstDecl
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(31), // kwdImport, reduce: ConstDecl
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(31), // kwdVar, reduce: ConstDecl
-			nil,        // =
-			reduce(31), // kwdType, reduce: ConstDecl
-			nil,        // kwdInline
-			reduce(31), // kwdConst, reduce: ConstDecl
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(31), // kwdFunc, reduce: ConstDecl
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S180
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			reduce(49), // ), reduce: OperandName
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S181
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S182
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(48), // (, reduce: BasicLit
-			reduce(48), // ), reduce: BasicLit
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(48), // singleOperators, reduce: BasicLit
-			reduce(48), // operators, reduce: BasicLit
-			reduce(48), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S183
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(290), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S184
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(291), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S185
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			reduce(41), // ), reduce: PrimaryExpr
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(292), // singleOperators
-			shift(293), // operators
-			shift(294), // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S186
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(295), // (
-			reduce(40), // ), reduce: Expression
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S187
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(43), // (, reduce: Operand
-			reduce(43), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(43), // singleOperators, reduce: Operand
-			reduce(43), // operators, reduce: Operand
-			reduce(43), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S188
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(198), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S189
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(45), // (, reduce: Operand
-			reduce(45), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(45), // singleOperators, reduce: Operand
-			reduce(45), // operators, reduce: Operand
-			reduce(45), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S190
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(46), // (, reduce: Literal
-			reduce(46), // ), reduce: Literal
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(46), // singleOperators, reduce: Literal
-			reduce(46), // operators, reduce: Literal
-			reduce(46), // relOp, reduce: Literal
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S191
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(47), // (, reduce: BasicLit
-			reduce(47), // ), reduce: BasicLit
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(47), // singleOperators, reduce: BasicLit
-			reduce(47), // operators, reduce: BasicLit
-			reduce(47), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S192
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S193
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(37), // $, reduce: Expression
-			reduce(37), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(37), // kwdImport, reduce: Expression
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(37), // kwdVar, reduce: Expression
-			nil,        // =
-			reduce(37), // kwdType, reduce: Expression
-			nil,        // kwdInline
-			reduce(37), // kwdConst, reduce: Expression
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(37), // kwdFunc, reduce: Expression
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S194
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(298), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(299), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(302), // *
-			shift(305), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S195
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(298), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(299), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(302), // *
-			shift(305), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S196
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(307), // identifier
-			nil,        // kwdImport
-			shift(308), // (
-			reduce(50), // ), reduce: Arguments
-			nil,        // .
-			shift(309), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			reduce(50), // operators, reduce: Arguments
-			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
-			reduce(50), // ,, reduce: Arguments
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S197
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(44), // $, reduce: Operand
-			reduce(44), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(44), // kwdImport, reduce: Operand
-			reduce(44), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(44), // kwdVar, reduce: Operand
-			nil,        // =
-			reduce(44), // kwdType, reduce: Operand
-			nil,        // kwdInline
-			reduce(44), // kwdConst, reduce: Operand
-			reduce(44), // singleOperators, reduce: Operand
-			reduce(44), // operators, reduce: Operand
-			reduce(44), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(44), // kwdFunc, reduce: Operand
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S198
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(64), // (, reduce: Type
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S199
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(320), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S200
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			reduce(4), // terminator, reduce: ImportDecl
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			nil,       // )
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			reduce(4), // }, reduce: ImportDecl
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S201
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(53),  // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			reduce(73), // ., reduce: RepeatTerminator
-			reduce(73), // stringLit, reduce: RepeatTerminator
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S202
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(322), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S203
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(10), // terminator, reduce: ImportSpec
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(10), // }, reduce: ImportSpec
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S204
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(323), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S205
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(57),  // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			nil,        // kwdImport
-			nil,        // (
-			reduce(73), // ), reduce: RepeatTerminator
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S206
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(19), // terminator, reduce: VarDecl
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(19), // }, reduce: VarDecl
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S207
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			shift(326), // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(327), // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(328), // type
-			shift(329), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S208
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S209
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(331), // identifier
-			nil,        // kwdImport
-			shift(332), // (
-			nil,        // )
-			nil,        // .
-			shift(333), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(339), // *
-			shift(342), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S210
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(344), // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(345), // type
-			shift(346), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S211
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(27), // terminator, reduce: TypeDecl
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(27), // }, reduce: TypeDecl
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S212
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(344), // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(345), // type
-			shift(346), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S213
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(70),  // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S214
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			shift(349), // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S215
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(30), // terminator, reduce: ConstDecl
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(30), // }, reduce: ConstDecl
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S216
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(37), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(37), // =, reduce: Expression
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(37), // }, reduce: Expression
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S217
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(350), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(351), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(354), // *
-			shift(357), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S218
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(350), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(351), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(354), // *
-			shift(357), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S219
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(307), // identifier
-			nil,        // kwdImport
-			shift(308), // (
-			reduce(50), // ), reduce: Arguments
-			nil,        // .
-			shift(309), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			reduce(50), // operators, reduce: Arguments
-			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
-			reduce(50), // ,, reduce: Arguments
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S220
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(49), // terminator, reduce: OperandName
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(49), // =, reduce: OperandName
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(49), // }, reduce: OperandName
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S221
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(44), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(44), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(44), // =, reduce: Operand
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(44), // singleOperators, reduce: Operand
-			reduce(44), // operators, reduce: Operand
-			reduce(44), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(44), // }, reduce: Operand
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S222
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(92), // $, reduce: Block
-			reduce(92), // terminator, reduce: Block
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(92), // kwdImport, reduce: Block
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(92), // kwdVar, reduce: Block
-			nil,        // =
-			reduce(92), // kwdType, reduce: Block
-			nil,        // kwdInline
-			reduce(92), // kwdConst, reduce: Block
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(92), // kwdFunc, reduce: Block
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S223
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(75), // }, reduce: StatementList
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S224
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(73),  // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			reduce(73), // kwdImport, reduce: RepeatTerminator
-			reduce(73), // (, reduce: RepeatTerminator
-			nil,        // )
-			nil,        // .
-			reduce(73), // stringLit, reduce: RepeatTerminator
-			nil,        // empty
-			reduce(73), // kwdVar, reduce: RepeatTerminator
-			nil,        // =
-			reduce(73), // kwdType, reduce: RepeatTerminator
-			nil,        // kwdInline
-			reduce(73), // kwdConst, reduce: RepeatTerminator
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			reduce(73), // *, reduce: RepeatTerminator
-			reduce(73), // intLit, reduce: RepeatTerminator
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			reduce(73), // type, reduce: RepeatTerminator
-			reduce(73), // kwdInterface, reduce: RepeatTerminator
-			nil,        // typeConstructor
-			nil,        // :
-			reduce(73), // kwdBreak, reduce: RepeatTerminator
-			reduce(73), // kwdRet, reduce: RepeatTerminator
-			reduce(73), // kwdGoto, reduce: RepeatTerminator
-			reduce(73), // {, reduce: RepeatTerminator
-			reduce(73), // }, reduce: RepeatTerminator
-			reduce(73), // kwdIf, reduce: RepeatTerminator
-			nil,        // not
-			reduce(73), // kwdFor, reduce: RepeatTerminator
-		},
-	},
-	actionRow{ // S225
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(73),  // terminator
-			nil,        // kwdPackage
-			reduce(73), // identifier, reduce: RepeatTerminator
-			reduce(73), // kwdImport, reduce: RepeatTerminator
-			reduce(73), // (, reduce: RepeatTerminator
-			nil,        // )
-			nil,        // .
-			reduce(73), // stringLit, reduce: RepeatTerminator
-			nil,        // empty
-			reduce(73), // kwdVar, reduce: RepeatTerminator
-			nil,        // =
-			reduce(73), // kwdType, reduce: RepeatTerminator
-			nil,        // kwdInline
-			reduce(73), // kwdConst, reduce: RepeatTerminator
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			reduce(73), // *, reduce: RepeatTerminator
-			reduce(73), // intLit, reduce: RepeatTerminator
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			reduce(73), // type, reduce: RepeatTerminator
-			reduce(73), // kwdInterface, reduce: RepeatTerminator
-			nil,        // typeConstructor
-			nil,        // :
-			reduce(73), // kwdBreak, reduce: RepeatTerminator
-			reduce(73), // kwdRet, reduce: RepeatTerminator
-			reduce(73), // kwdGoto, reduce: RepeatTerminator
-			reduce(73), // {, reduce: RepeatTerminator
-			reduce(73), // }, reduce: RepeatTerminator
-			reduce(73), // kwdIf, reduce: RepeatTerminator
-			nil,        // not
-			reduce(73), // kwdFor, reduce: RepeatTerminator
-		},
-	},
-	actionRow{ // S226
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,         // INVALID
-			nil,         // $
-			reduce(106), // terminator, reduce: Label
-			nil,         // kwdPackage
-			nil,         // identifier
-			nil,         // kwdImport
-			nil,         // (
-			nil,         // )
-			nil,         // .
-			nil,         // stringLit
-			nil,         // empty
-			nil,         // kwdVar
-			nil,         // =
-			nil,         // kwdType
-			nil,         // kwdInline
-			nil,         // kwdConst
-			nil,         // singleOperators
-			nil,         // operators
-			nil,         // relOp
-			nil,         // *
-			nil,         // intLit
-			nil,         // ,
-			nil,         // kwdFunc
-			nil,         // kwdVariadic
-			nil,         // type
-			nil,         // kwdInterface
-			nil,         // typeConstructor
-			nil,         // :
-			nil,         // kwdBreak
-			nil,         // kwdRet
-			nil,         // kwdGoto
-			nil,         // {
-			reduce(106), // }, reduce: Label
-			nil,         // kwdIf
-			nil,         // not
-			nil,         // kwdFor
-		},
-	},
-	actionRow{ // S227
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(91), // terminator, reduce: GotoStmt
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(91), // }, reduce: GotoStmt
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S228
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(86), // terminator, reduce: SimpleStmt
-			nil,        // kwdPackage
-			shift(111), // identifier
-			shift(113), // kwdImport
-			shift(114), // (
-			nil,        // )
-			nil,        // .
-			shift(115), // stringLit
-			nil,        // empty
-			shift(120), // kwdVar
-			nil,        // =
-			shift(123), // kwdType
-			nil,        // kwdInline
-			shift(124), // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(128), // *
-			shift(131), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			shift(144), // kwdBreak
-			shift(145), // kwdRet
-			shift(146), // kwdGoto
-			shift(147), // {
-			reduce(86), // }, reduce: SimpleStmt
-			shift(148), // kwdIf
-			nil,        // not
-			shift(149), // kwdFor
-		},
-	},
-	actionRow{ // S229
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(49), // {, reduce: OperandName
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S230
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S231
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(48), // (, reduce: BasicLit
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(48), // singleOperators, reduce: BasicLit
-			reduce(48), // operators, reduce: BasicLit
-			reduce(48), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(48), // {, reduce: BasicLit
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S232
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(364), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S233
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			shift(147), // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S234
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(366), // singleOperators
-			shift(367), // operators
-			shift(368), // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(41), // {, reduce: PrimaryExpr
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S235
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(369), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(40), // {, reduce: Expression
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S236
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(43), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(43), // singleOperators, reduce: Operand
-			reduce(43), // operators, reduce: Operand
-			reduce(43), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(43), // {, reduce: Operand
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S237
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(229), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(198), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S238
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(45), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(45), // singleOperators, reduce: Operand
-			reduce(45), // operators, reduce: Operand
-			reduce(45), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(45), // {, reduce: Operand
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S239
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(46), // (, reduce: Literal
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(46), // singleOperators, reduce: Literal
-			reduce(46), // operators, reduce: Literal
-			reduce(46), // relOp, reduce: Literal
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(46), // {, reduce: Literal
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S240
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(47), // (, reduce: BasicLit
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(47), // singleOperators, reduce: BasicLit
-			reduce(47), // operators, reduce: BasicLit
-			reduce(47), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(47), // {, reduce: BasicLit
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S241
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(229), // identifier
-			nil,        // kwdImport
-			shift(230), // (
-			nil,        // )
-			nil,        // .
-			shift(231), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(237), // *
-			shift(240), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S242
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(372), // terminator
-			nil,        // kwdPackage
-			shift(373), // identifier
-			nil,        // kwdImport
-			shift(374), // (
-			nil,        // )
-			nil,        // .
-			shift(375), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(381), // *
-			shift(384), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S243
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(49), // terminator, reduce: OperandName
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(49), // =, reduce: OperandName
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(49), // {, reduce: OperandName
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S244
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S245
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(48), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(48), // (, reduce: BasicLit
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(48), // =, reduce: BasicLit
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(48), // singleOperators, reduce: BasicLit
-			reduce(48), // operators, reduce: BasicLit
-			reduce(48), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(48), // {, reduce: BasicLit
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S246
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(386), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S247
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(88), // terminator, reduce: SimpleStmt
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			shift(387), // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(88), // {, reduce: SimpleStmt
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S248
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(41), // terminator, reduce: PrimaryExpr
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(41), // =, reduce: PrimaryExpr
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(388), // singleOperators
-			shift(389), // operators
-			shift(390), // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(41), // {, reduce: PrimaryExpr
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S249
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(40), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(391), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(40), // =, reduce: Expression
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(40), // {, reduce: Expression
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S250
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(43), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(43), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(43), // =, reduce: Operand
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(43), // singleOperators, reduce: Operand
-			reduce(43), // operators, reduce: Operand
-			reduce(43), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(43), // {, reduce: Operand
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S251
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(243), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(198), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S252
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(45), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(45), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(45), // =, reduce: Operand
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(45), // singleOperators, reduce: Operand
-			reduce(45), // operators, reduce: Operand
-			reduce(45), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(45), // {, reduce: Operand
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S253
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(46), // terminator, reduce: Literal
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(46), // (, reduce: Literal
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(46), // =, reduce: Literal
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(46), // singleOperators, reduce: Literal
-			reduce(46), // operators, reduce: Literal
-			reduce(46), // relOp, reduce: Literal
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(46), // {, reduce: Literal
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S254
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(47), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(47), // (, reduce: BasicLit
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(47), // =, reduce: BasicLit
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(47), // singleOperators, reduce: BasicLit
-			reduce(47), // operators, reduce: BasicLit
-			reduce(47), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(47), // {, reduce: BasicLit
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S255
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(95), // terminator, reduce: ForStmt
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(95), // }, reduce: ForStmt
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S256
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,         // INVALID
-			nil,         // $
-			shift(393),  // terminator
-			nil,         // kwdPackage
-			nil,         // identifier
-			nil,         // kwdImport
-			nil,         // (
-			nil,         // )
-			nil,         // .
-			nil,         // stringLit
-			nil,         // empty
-			nil,         // kwdVar
-			nil,         // =
-			nil,         // kwdType
-			nil,         // kwdInline
-			nil,         // kwdConst
-			nil,         // singleOperators
-			nil,         // operators
-			nil,         // relOp
-			nil,         // *
-			nil,         // intLit
-			nil,         // ,
-			nil,         // kwdFunc
-			nil,         // kwdVariadic
-			nil,         // type
-			nil,         // kwdInterface
-			nil,         // typeConstructor
-			nil,         // :
-			nil,         // kwdBreak
-			nil,         // kwdRet
-			nil,         // kwdGoto
-			reduce(104), // {, reduce: ForClause
-			nil,         // }
-			nil,         // kwdIf
-			nil,         // not
-			nil,         // kwdFor
-		},
-	},
-	actionRow{ // S257
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(87), // terminator, reduce: SimpleStmt
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(87), // {, reduce: SimpleStmt
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S258
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			shift(147), // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S259
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(56), // {, reduce: Parameters
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S260
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(72), // ), reduce: RepeatTerminator
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S261
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(153), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(156), // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			shift(158), // kwdVariadic
-			shift(159), // type
-			shift(160), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S262
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			shift(397), // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S263
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(58), // ), reduce: ParameterDecl
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(58), // ,, reduce: ParameterDecl
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S264
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(64), // ), reduce: Type
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(64), // ,, reduce: Type
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S265
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(57), // {, reduce: Parameters
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S266
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(153), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(156), // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			shift(158), // kwdVariadic
-			shift(159), // type
-			shift(160), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S267
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -10989,8 +6426,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -10999,19 +6437,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S268
+	actionRow{ // S153
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(76),  // identifier
+			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			reduce(72), // ), reduce: RepeatTerminator
-			shift(79),  // .
-			shift(80),  // stringLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -11026,12 +6464,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			nil,        // type
+			shift(261), // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -11040,12 +6479,264 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S269
+	actionRow{ // S154
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(269), // terminator
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(262), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			shift(263), // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S155
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			shift(264), // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S156
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(67), // ), reduce: Type
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(67), // ,, reduce: Type
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S157
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(68), // ), reduce: Type
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(68), // ,, reduce: Type
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S158
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			reduce(9), // terminator, reduce: ImportSpec
+			nil,       // kwdPackage
+			nil,       // identifier
+			nil,       // kwdImport
+			nil,       // (
+			reduce(9), // ), reduce: ImportSpec
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S159
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // terminator
+			nil,       // kwdPackage
+			nil,       // identifier
+			nil,       // kwdImport
+			nil,       // (
+			reduce(7), // ), reduce: ImportList
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S160
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(266), // terminator
 			nil,        // kwdPackage
 			reduce(73), // identifier, reduce: RepeatTerminator
 			nil,        // kwdImport
@@ -11071,8 +6762,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -11081,171 +6773,91 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S270
+	actionRow{ // S161
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(26), // terminator, reduce: VarSpec
-			nil,        // kwdPackage
-			shift(35),  // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(26), // ), reduce: VarSpec
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
+			nil,       // INVALID
+			reduce(5), // $, reduce: ImportDecl
+			reduce(5), // terminator, reduce: ImportDecl
+			nil,       // kwdPackage
+			nil,       // identifier
+			reduce(5), // kwdImport, reduce: ImportDecl
+			nil,       // (
+			nil,       // )
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			reduce(5), // kwdVar, reduce: ImportDecl
+			nil,       // =
+			reduce(5), // kwdType, reduce: ImportDecl
+			nil,       // kwdInline
+			reduce(5), // kwdConst, reduce: ImportDecl
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			reduce(5), // kwdFunc, reduce: ImportDecl
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
 		},
 	},
-	actionRow{ // S271
+	actionRow{ // S162
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(275), // identifier
-			nil,        // kwdImport
-			shift(276), // (
-			nil,        // )
-			nil,        // .
-			shift(277), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(283), // *
-			shift(286), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
+			nil,       // INVALID
+			nil,       // $
+			reduce(8), // terminator, reduce: ImportSpec
+			nil,       // kwdPackage
+			nil,       // identifier
+			nil,       // kwdImport
+			nil,       // (
+			reduce(8), // ), reduce: ImportSpec
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
 		},
 	},
-	actionRow{ // S272
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(403), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S273
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(64), // terminator, reduce: Type
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(64), // ), reduce: Type
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(64), // =, reduce: Type
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S274
+	actionRow{ // S163
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -11255,7 +6867,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(404), // )
+			reduce(22), // ), reduce: VarList
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -11276,8 +6888,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -11286,545 +6899,12 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S275
+	actionRow{ // S164
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(49), // terminator, reduce: OperandName
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			reduce(49), // ), reduce: OperandName
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S276
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S277
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(48), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(48), // (, reduce: BasicLit
-			reduce(48), // ), reduce: BasicLit
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(48), // singleOperators, reduce: BasicLit
-			reduce(48), // operators, reduce: BasicLit
-			reduce(48), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S278
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(406), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S279
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(34), // terminator, reduce: ConstSpec
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(34), // ), reduce: ConstSpec
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S280
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(41), // terminator, reduce: PrimaryExpr
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			reduce(41), // ), reduce: PrimaryExpr
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(407), // singleOperators
-			shift(408), // operators
-			shift(409), // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S281
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(40), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(410), // (
-			reduce(40), // ), reduce: Expression
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S282
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(43), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(43), // (, reduce: Operand
-			reduce(43), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(43), // singleOperators, reduce: Operand
-			reduce(43), // operators, reduce: Operand
-			reduce(43), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S283
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(275), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(198), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S284
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(45), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(45), // (, reduce: Operand
-			reduce(45), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(45), // singleOperators, reduce: Operand
-			reduce(45), // operators, reduce: Operand
-			reduce(45), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S285
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(46), // terminator, reduce: Literal
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(46), // (, reduce: Literal
-			reduce(46), // ), reduce: Literal
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(46), // singleOperators, reduce: Literal
-			reduce(46), // operators, reduce: Literal
-			reduce(46), // relOp, reduce: Literal
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S286
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(47), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(47), // (, reduce: BasicLit
-			reduce(47), // ), reduce: BasicLit
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(47), // singleOperators, reduce: BasicLit
-			reduce(47), // operators, reduce: BasicLit
-			reduce(47), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S287
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(42),  // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(72), // ), reduce: RepeatTerminator
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S288
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(288), // terminator
+			shift(57),  // terminator
 			nil,        // kwdPackage
 			reduce(73), // identifier, reduce: RepeatTerminator
 			nil,        // kwdImport
@@ -11850,8 +6930,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -11860,121 +6941,40 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S289
+	actionRow{ // S165
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
+			reduce(20), // $, reduce: VarDecl
+			reduce(20), // terminator, reduce: VarDecl
 			nil,        // kwdPackage
 			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(414), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S290
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S291
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(35), // $, reduce: Expression
-			reduce(35), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(35), // kwdImport, reduce: Expression
+			reduce(20), // kwdImport, reduce: VarDecl
 			nil,        // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
-			reduce(35), // kwdVar, reduce: Expression
+			reduce(20), // kwdVar, reduce: VarDecl
 			nil,        // =
-			reduce(35), // kwdType, reduce: Expression
+			reduce(20), // kwdType, reduce: VarDecl
 			nil,        // kwdInline
-			reduce(35), // kwdConst, reduce: Expression
+			reduce(20), // kwdConst, reduce: VarDecl
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
-			reduce(35), // kwdFunc, reduce: Expression
+			reduce(20), // kwdFunc, reduce: VarDecl
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -11983,1360 +6983,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S292
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(37), // ), reduce: Expression
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S293
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(416), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(417), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(420), // *
-			shift(423), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S294
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(416), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(417), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(420), // *
-			shift(423), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S295
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(307), // identifier
-			nil,        // kwdImport
-			shift(308), // (
-			reduce(50), // ), reduce: Arguments
-			nil,        // .
-			shift(309), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			reduce(50), // operators, reduce: Arguments
-			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
-			reduce(50), // ,, reduce: Arguments
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S296
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(44), // (, reduce: Operand
-			reduce(44), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(44), // singleOperators, reduce: Operand
-			reduce(44), // operators, reduce: Operand
-			reduce(44), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S297
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(426), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S298
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(49), // $, reduce: OperandName
-			reduce(49), // terminator, reduce: OperandName
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(49), // kwdImport, reduce: OperandName
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(49), // kwdVar, reduce: OperandName
-			nil,        // =
-			reduce(49), // kwdType, reduce: OperandName
-			nil,        // kwdInline
-			reduce(49), // kwdConst, reduce: OperandName
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(49), // kwdFunc, reduce: OperandName
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S299
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(48), // $, reduce: BasicLit
-			reduce(48), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(48), // kwdImport, reduce: BasicLit
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(48), // kwdVar, reduce: BasicLit
-			nil,        // =
-			reduce(48), // kwdType, reduce: BasicLit
-			nil,        // kwdInline
-			reduce(48), // kwdConst, reduce: BasicLit
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(48), // kwdFunc, reduce: BasicLit
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S300
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(38), // $, reduce: Expression
-			reduce(38), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(38), // kwdImport, reduce: Expression
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(38), // kwdVar, reduce: Expression
-			nil,        // =
-			reduce(38), // kwdType, reduce: Expression
-			nil,        // kwdInline
-			reduce(38), // kwdConst, reduce: Expression
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(38), // kwdFunc, reduce: Expression
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S301
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(43), // $, reduce: Operand
-			reduce(43), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(43), // kwdImport, reduce: Operand
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(43), // kwdVar, reduce: Operand
-			nil,        // =
-			reduce(43), // kwdType, reduce: Operand
-			nil,        // kwdInline
-			reduce(43), // kwdConst, reduce: Operand
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(43), // kwdFunc, reduce: Operand
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S302
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(298), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S303
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(45), // $, reduce: Operand
-			reduce(45), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(45), // kwdImport, reduce: Operand
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(45), // kwdVar, reduce: Operand
-			nil,        // =
-			reduce(45), // kwdType, reduce: Operand
-			nil,        // kwdInline
-			reduce(45), // kwdConst, reduce: Operand
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(45), // kwdFunc, reduce: Operand
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S304
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(46), // $, reduce: Literal
-			reduce(46), // terminator, reduce: Literal
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(46), // kwdImport, reduce: Literal
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(46), // kwdVar, reduce: Literal
-			nil,        // =
-			reduce(46), // kwdType, reduce: Literal
-			nil,        // kwdInline
-			reduce(46), // kwdConst, reduce: Literal
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(46), // kwdFunc, reduce: Literal
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S305
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(47), // $, reduce: BasicLit
-			reduce(47), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(47), // kwdImport, reduce: BasicLit
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(47), // kwdVar, reduce: BasicLit
-			nil,        // =
-			reduce(47), // kwdType, reduce: BasicLit
-			nil,        // kwdInline
-			reduce(47), // kwdConst, reduce: BasicLit
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(47), // kwdFunc, reduce: BasicLit
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S306
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			reduce(39), // $, reduce: Expression
-			reduce(39), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			reduce(39), // kwdImport, reduce: Expression
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			reduce(39), // kwdVar, reduce: Expression
-			nil,        // =
-			reduce(39), // kwdType, reduce: Expression
-			nil,        // kwdInline
-			reduce(39), // kwdConst, reduce: Expression
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			reduce(39), // kwdFunc, reduce: Expression
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S307
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			reduce(49), // ), reduce: OperandName
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			reduce(49), // ,, reduce: OperandName
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S308
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S309
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(48), // (, reduce: BasicLit
-			reduce(48), // ), reduce: BasicLit
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(48), // singleOperators, reduce: BasicLit
-			reduce(48), // operators, reduce: BasicLit
-			reduce(48), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			reduce(48), // ,, reduce: BasicLit
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S310
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(429), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S311
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(51), // ), reduce: Arguments
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			reduce(51), // operators, reduce: Arguments
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(51), // ,, reduce: Arguments
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S312
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			reduce(41), // ), reduce: PrimaryExpr
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(430), // singleOperators
-			shift(431), // operators
-			shift(432), // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(41), // ,, reduce: PrimaryExpr
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S313
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(433), // (
-			reduce(40), // ), reduce: Expression
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			reduce(40), // operators, reduce: Expression
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			reduce(40), // ,, reduce: Expression
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S314
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(434), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			shift(435), // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			shift(436), // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S315
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(43), // (, reduce: Operand
-			reduce(43), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(43), // singleOperators, reduce: Operand
-			reduce(43), // operators, reduce: Operand
-			reduce(43), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			reduce(43), // ,, reduce: Operand
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S316
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(307), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(198), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S317
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(45), // (, reduce: Operand
-			reduce(45), // ), reduce: Operand
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(45), // singleOperators, reduce: Operand
-			reduce(45), // operators, reduce: Operand
-			reduce(45), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			reduce(45), // ,, reduce: Operand
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S318
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(46), // (, reduce: Literal
-			reduce(46), // ), reduce: Literal
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(46), // singleOperators, reduce: Literal
-			reduce(46), // operators, reduce: Literal
-			reduce(46), // relOp, reduce: Literal
-			nil,        // *
-			nil,        // intLit
-			reduce(46), // ,, reduce: Literal
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S319
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(47), // (, reduce: BasicLit
-			reduce(47), // ), reduce: BasicLit
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(47), // singleOperators, reduce: BasicLit
-			reduce(47), // operators, reduce: BasicLit
-			reduce(47), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			reduce(47), // ,, reduce: BasicLit
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S320
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			reduce(9), // terminator, reduce: ImportSpec
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			nil,       // )
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			reduce(9), // }, reduce: ImportSpec
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S321
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // terminator
-			nil,       // kwdPackage
-			shift(76), // identifier
-			nil,       // kwdImport
-			nil,       // (
-			nil,       // )
-			shift(79), // .
-			shift(80), // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			nil,       // }
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S322
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			reduce(8), // terminator, reduce: ImportSpec
-			nil,       // kwdPackage
-			nil,       // identifier
-			nil,       // kwdImport
-			nil,       // (
-			nil,       // )
-			nil,       // .
-			nil,       // stringLit
-			nil,       // empty
-			nil,       // kwdVar
-			nil,       // =
-			nil,       // kwdType
-			nil,       // kwdInline
-			nil,       // kwdConst
-			nil,       // singleOperators
-			nil,       // operators
-			nil,       // relOp
-			nil,       // *
-			nil,       // intLit
-			nil,       // ,
-			nil,       // kwdFunc
-			nil,       // kwdVariadic
-			nil,       // type
-			nil,       // kwdInterface
-			nil,       // typeConstructor
-			nil,       // :
-			nil,       // kwdBreak
-			nil,       // kwdRet
-			nil,       // kwdGoto
-			nil,       // {
-			reduce(8), // }, reduce: ImportSpec
-			nil,       // kwdIf
-			nil,       // not
-			nil,       // kwdFor
-		},
-	},
-	actionRow{ // S323
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(35), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(35), // =, reduce: Expression
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(35), // }, reduce: Expression
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S324
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(26), // terminator, reduce: VarSpec
-			nil,        // kwdPackage
-			shift(35),  // identifier
-			nil,        // kwdImport
-			nil,        // (
-			reduce(26), // ), reduce: VarSpec
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S325
+	actionRow{ // S166
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -13346,12 +6993,12 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			nil,        // )
+			reduce(23), // ), reduce: VarSpec
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			shift(440), // =
+			shift(268), // =
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -13367,17 +7014,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(23), // }, reduce: VarSpec
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S326
+	actionRow{ // S167
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       // INVALID
@@ -13408,8 +7056,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			shift(89), // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -13418,7 +7067,7 @@ var actionTab = actionTable{
 			nil,       // kwdFor
 		},
 	},
-	actionRow{ // S327
+	actionRow{ // S168
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -13445,12 +7094,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(442), // type
+			shift(270), // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -13459,22 +7109,22 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S328
+	actionRow{ // S169
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(65), // terminator, reduce: Type
+			reduce(67), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			nil,        // )
+			reduce(67), // ), reduce: Type
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			reduce(65), // =, reduce: Type
+			reduce(67), // =, reduce: Type
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -13490,32 +7140,33 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(65), // }, reduce: Type
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S329
+	actionRow{ // S170
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(66), // terminator, reduce: Type
+			reduce(68), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			nil,        // )
+			reduce(68), // ), reduce: Type
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			reduce(66), // =, reduce: Type
+			reduce(68), // =, reduce: Type
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -13531,17 +7182,144 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(66), // }, reduce: Type
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S330
+	actionRow{ // S171
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(24), // $, reduce: VarSpec
+			reduce(24), // terminator, reduce: VarSpec
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(24), // kwdImport, reduce: VarSpec
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(24), // kwdVar, reduce: VarSpec
+			nil,        // =
+			reduce(24), // kwdType, reduce: VarSpec
+			nil,        // kwdInline
+			reduce(24), // kwdConst, reduce: VarSpec
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(24), // kwdFunc, reduce: VarSpec
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S172
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S173
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(272), // identifier
+			nil,        // kwdImport
+			shift(273), // (
+			nil,        // )
+			nil,        // .
+			shift(274), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(280), // *
+			shift(283), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S174
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -13551,7 +7329,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(443), // )
+			reduce(33), // ), reduce: ConstList
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -13572,8 +7350,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -13582,17 +7361,101 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S331
+	actionRow{ // S175
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(49), // terminator, reduce: OperandName
+			shift(285), // terminator
+			nil,        // kwdPackage
+			reduce(73), // identifier, reduce: RepeatTerminator
+			nil,        // kwdImport
+			nil,        // (
+			reduce(73), // ), reduce: RepeatTerminator
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S176
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(31), // $, reduce: ConstDecl
+			reduce(31), // terminator, reduce: ConstDecl
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(31), // kwdImport, reduce: ConstDecl
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(31), // kwdVar, reduce: ConstDecl
+			nil,        // =
+			reduce(31), // kwdType, reduce: ConstDecl
+			nil,        // kwdInline
+			reduce(31), // kwdConst, reduce: ConstDecl
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(31), // kwdFunc, reduce: ConstDecl
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S177
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			reduce(49), // (, reduce: OperandName
-			nil,        // )
+			reduce(49), // ), reduce: OperandName
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -13613,29 +7476,30 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(49), // }, reduce: OperandName
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S332
+	actionRow{ // S178
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -13645,8 +7509,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -13654,8 +7518,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -13664,17 +7529,17 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S333
+	actionRow{ // S179
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(48), // terminator, reduce: BasicLit
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			reduce(48), // (, reduce: BasicLit
-			nil,        // )
+			reduce(48), // ), reduce: BasicLit
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -13695,49 +7560,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(48), // }, reduce: BasicLit
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S334
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(445), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
 			nil,        // kwdBreak
-			nil,        // kwdRet
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -13746,98 +7571,16 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S335
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,         // INVALID
-			nil,         // $
-			reduce(105), // terminator, reduce: Assignment
-			nil,         // kwdPackage
-			nil,         // identifier
-			nil,         // kwdImport
-			nil,         // (
-			nil,         // )
-			nil,         // .
-			nil,         // stringLit
-			nil,         // empty
-			nil,         // kwdVar
-			nil,         // =
-			nil,         // kwdType
-			nil,         // kwdInline
-			nil,         // kwdConst
-			nil,         // singleOperators
-			nil,         // operators
-			nil,         // relOp
-			nil,         // *
-			nil,         // intLit
-			nil,         // ,
-			nil,         // kwdFunc
-			nil,         // kwdVariadic
-			nil,         // type
-			nil,         // kwdInterface
-			nil,         // typeConstructor
-			nil,         // :
-			nil,         // kwdBreak
-			nil,         // kwdRet
-			nil,         // kwdGoto
-			nil,         // {
-			reduce(105), // }, reduce: Assignment
-			nil,         // kwdIf
-			nil,         // not
-			nil,         // kwdFor
-		},
-	},
-	actionRow{ // S336
+	actionRow{ // S180
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(41), // terminator, reduce: PrimaryExpr
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(446), // singleOperators
-			shift(447), // operators
-			shift(448), // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(41), // }, reduce: PrimaryExpr
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S337
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(40), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(449), // (
+			shift(287), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -13859,27 +7602,154 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(40), // }, reduce: Expression
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S338
+	actionRow{ // S181
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(43), // terminator, reduce: Operand
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(288), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S182
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			reduce(41), // ), reduce: PrimaryExpr
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(289), // singleOperators
+			shift(290), // operators
+			shift(291), // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S183
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(292), // (
+			reduce(40), // ), reduce: Expression
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S184
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			reduce(43), // (, reduce: Operand
-			nil,        // )
+			reduce(43), // ), reduce: Operand
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -13900,24 +7770,25 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(43), // }, reduce: Operand
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S339
+	actionRow{ // S185
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(331), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -13937,12 +7808,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(198), // type
+			shift(195), // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -13951,17 +7823,17 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S340
+	actionRow{ // S186
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(45), // terminator, reduce: Operand
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			reduce(45), // (, reduce: Operand
-			nil,        // )
+			reduce(45), // ), reduce: Operand
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -13982,27 +7854,28 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(45), // }, reduce: Operand
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S341
+	actionRow{ // S187
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(46), // terminator, reduce: Literal
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			reduce(46), // (, reduce: Literal
-			nil,        // )
+			reduce(46), // ), reduce: Literal
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -14023,27 +7896,28 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(46), // }, reduce: Literal
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S342
+	actionRow{ // S188
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(47), // terminator, reduce: BasicLit
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			reduce(47), // (, reduce: BasicLit
-			nil,        // )
+			reduce(47), // ), reduce: BasicLit
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -14064,26 +7938,279 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(47), // }, reduce: BasicLit
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S343
+	actionRow{ // S189
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(28), // terminator, reduce: TypeDef
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S190
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(37), // $, reduce: Expression
+			reduce(37), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(37), // kwdImport, reduce: Expression
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(37), // kwdVar, reduce: Expression
+			nil,        // =
+			reduce(37), // kwdType, reduce: Expression
+			nil,        // kwdInline
+			reduce(37), // kwdConst, reduce: Expression
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(37), // kwdFunc, reduce: Expression
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S191
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(295), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(296), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(299), // *
+			shift(302), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S192
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(295), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(296), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(299), // *
+			shift(302), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S193
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(304), // identifier
+			nil,        // kwdImport
+			shift(305), // (
+			reduce(50), // ), reduce: Arguments
+			nil,        // .
+			shift(306), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			reduce(50), // operators, reduce: Arguments
+			nil,        // relOp
+			shift(313), // *
+			shift(316), // intLit
+			reduce(50), // ,, reduce: Arguments
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S194
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(44), // $, reduce: Operand
+			reduce(44), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(44), // kwdImport, reduce: Operand
+			reduce(44), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(44), // kwdVar, reduce: Operand
+			nil,        // =
+			reduce(44), // kwdType, reduce: Operand
+			nil,        // kwdInline
+			reduce(44), // kwdConst, reduce: Operand
+			reduce(44), // singleOperators, reduce: Operand
+			reduce(44), // operators, reduce: Operand
+			reduce(44), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(44), // kwdFunc, reduce: Operand
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S195
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			nil,        // (
+			reduce(66), // (, reduce: Type
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -14105,17 +8232,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(28), // }, reduce: TypeDef
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S344
+	actionRow{ // S196
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -14127,7 +8255,7 @@ var actionTab = actionTable{
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			nil,        // stringLit
+			shift(317), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -14142,12 +8270,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(451), // type
+			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -14156,137 +8285,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S345
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(65), // terminator, reduce: Type
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(65), // }, reduce: Type
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S346
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(66), // terminator, reduce: Type
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(66), // }, reduce: Type
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S347
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(29), // terminator, reduce: TypeDef
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(29), // }, reduce: TypeDef
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S348
+	actionRow{ // S197
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
-			nil,       // terminator
+			reduce(4), // terminator, reduce: ImportDecl
 			nil,       // kwdPackage
-			shift(42), // identifier
+			nil,       // identifier
 			nil,       // kwdImport
 			nil,       // (
 			nil,       // )
@@ -14310,29 +8316,30 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
-			nil,       // }
+			reduce(4), // }, reduce: ImportDecl
 			nil,       // kwdIf
 			nil,       // not
 			nil,       // kwdFor
 		},
 	},
-	actionRow{ // S349
+	actionRow{ // S198
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // terminator
+			shift(53),  // terminator
 			nil,        // kwdPackage
-			shift(331), // identifier
+			reduce(73), // identifier, reduce: RepeatTerminator
 			nil,        // kwdImport
-			shift(332), // (
+			nil,        // (
 			nil,        // )
-			nil,        // .
-			shift(333), // stringLit
+			reduce(73), // ., reduce: RepeatTerminator
+			reduce(73), // stringLit, reduce: RepeatTerminator
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -14342,8 +8349,302 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(339), // *
-			shift(342), // intLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S199
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(319), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S200
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(10), // terminator, reduce: ImportSpec
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(10), // }, reduce: ImportSpec
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S201
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(320), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S202
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(57),  // terminator
+			nil,        // kwdPackage
+			reduce(73), // identifier, reduce: RepeatTerminator
+			nil,        // kwdImport
+			nil,        // (
+			reduce(73), // ), reduce: RepeatTerminator
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S203
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(19), // terminator, reduce: VarDecl
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(19), // }, reduce: VarDecl
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S204
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			shift(323), // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(324), // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(325), // type
+			shift(326), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S205
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -14351,8 +8652,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -14361,183 +8663,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S350
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(49), // terminator, reduce: OperandName
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(49), // =, reduce: OperandName
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(49), // }, reduce: OperandName
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S351
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(48), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(48), // =, reduce: BasicLit
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(48), // }, reduce: BasicLit
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S352
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(38), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(38), // =, reduce: Expression
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(38), // }, reduce: Expression
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S353
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(43), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(43), // =, reduce: Operand
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(43), // }, reduce: Operand
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S354
+	actionRow{ // S206
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(350), // identifier
+			shift(328), // identifier
 			nil,        // kwdImport
-			nil,        // (
+			shift(329), // (
 			nil,        // )
 			nil,        // .
-			nil,        // stringLit
+			shift(330), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -14547,254 +8685,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S355
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(45), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(45), // =, reduce: Operand
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(45), // }, reduce: Operand
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S356
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(46), // terminator, reduce: Literal
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(46), // =, reduce: Literal
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(46), // }, reduce: Literal
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S357
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(47), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(47), // =, reduce: BasicLit
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(47), // }, reduce: BasicLit
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S358
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(39), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(39), // =, reduce: Expression
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(39), // }, reduce: Expression
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S359
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(455), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			shift(435), // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			shift(436), // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S360
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(86), // terminator, reduce: SimpleStmt
-			nil,        // kwdPackage
-			shift(111), // identifier
-			shift(113), // kwdImport
-			shift(114), // (
-			nil,        // )
-			nil,        // .
-			shift(115), // stringLit
-			nil,        // empty
-			shift(120), // kwdVar
-			nil,        // =
-			shift(123), // kwdType
-			nil,        // kwdInline
-			shift(124), // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(128), // *
-			shift(131), // intLit
+			shift(336), // *
+			shift(339), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -14802,63 +8694,65 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			shift(144), // kwdBreak
-			shift(145), // kwdRet
-			shift(146), // kwdGoto
-			shift(147), // {
-			reduce(72), // }, reduce: RepeatTerminator
-			shift(148), // kwdIf
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
 			nil,        // not
-			shift(149), // kwdFor
+			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S361
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(86), // terminator, reduce: SimpleStmt
-			nil,        // kwdPackage
-			shift(111), // identifier
-			shift(113), // kwdImport
-			shift(114), // (
-			nil,        // )
-			nil,        // .
-			shift(115), // stringLit
-			nil,        // empty
-			shift(120), // kwdVar
-			nil,        // =
-			shift(123), // kwdType
-			nil,        // kwdInline
-			shift(124), // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(128), // *
-			shift(131), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			shift(144), // kwdBreak
-			shift(145), // kwdRet
-			shift(146), // kwdGoto
-			shift(147), // {
-			reduce(86), // }, reduce: SimpleStmt
-			shift(148), // kwdIf
-			nil,        // not
-			shift(149), // kwdFor
-		},
-	},
-	actionRow{ // S362
+	actionRow{ // S207
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(341), // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(342), // type
+			shift(343), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S208
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(27), // terminator, reduce: TypeDecl
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -14884,17 +8778,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			shift(458), // }
+			reduce(27), // }, reduce: TypeDecl
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S363
+	actionRow{ // S209
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -14904,7 +8799,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(459), // )
+			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -14916,17 +8811,18 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			nil,        // *
+			shift(341), // *
 			nil,        // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
+			shift(342), // type
+			shift(343), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -14935,55 +8831,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S364
+	actionRow{ // S210
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // terminator
+			shift(70),  // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S365
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(94), // terminator, reduce: IfStmt
-			nil,        // kwdPackage
-			nil,        // identifier
+			reduce(73), // identifier, reduce: RepeatTerminator
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -15007,17 +8862,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(94), // }, reduce: IfStmt
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S366
+	actionRow{ // S211
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -15032,7 +8888,7 @@ var actionTab = actionTable{
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			nil,        // =
+			shift(346), // =
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -15048,49 +8904,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(37), // {, reduce: Expression
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S367
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(461), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(462), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(465), // *
-			shift(468), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
 			nil,        // kwdBreak
-			nil,        // kwdRet
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -15099,135 +8915,12 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S368
+	actionRow{ // S212
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(461), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			shift(462), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(465), // *
-			shift(468), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S369
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(307), // identifier
-			nil,        // kwdImport
-			shift(308), // (
-			reduce(50), // ), reduce: Arguments
-			nil,        // .
-			shift(309), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			reduce(50), // operators, reduce: Arguments
-			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
-			reduce(50), // ,, reduce: Arguments
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S370
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(44), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(44), // singleOperators, reduce: Operand
-			reduce(44), // operators, reduce: Operand
-			reduce(44), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(44), // {, reduce: Operand
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S371
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
+			reduce(30), // terminator, reduce: ConstDecl
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -15253,673 +8946,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
-			nil,        // kwdGoto
-			shift(147), // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S372
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(229), // identifier
-			nil,        // kwdImport
-			shift(230), // (
-			nil,        // )
-			nil,        // .
-			shift(231), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(237), // *
-			shift(240), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
 			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(97), // {, reduce: ForClause
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S373
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(49), // terminator, reduce: OperandName
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(49), // (, reduce: OperandName
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(49), // singleOperators, reduce: OperandName
-			reduce(49), // operators, reduce: OperandName
-			reduce(49), // relOp, reduce: OperandName
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			nil,        // }
+			reduce(30), // }, reduce: ConstDecl
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S374
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S375
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(48), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(48), // (, reduce: BasicLit
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(48), // singleOperators, reduce: BasicLit
-			reduce(48), // operators, reduce: BasicLit
-			reduce(48), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S376
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(474), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S377
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(475), // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S378
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(41), // terminator, reduce: PrimaryExpr
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(41), // (, reduce: PrimaryExpr
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			shift(476), // singleOperators
-			shift(477), // operators
-			shift(478), // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S379
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(40), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(479), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S380
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(43), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(43), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(43), // singleOperators, reduce: Operand
-			reduce(43), // operators, reduce: Operand
-			reduce(43), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S381
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(373), // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(198), // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S382
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(45), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(45), // (, reduce: Operand
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(45), // singleOperators, reduce: Operand
-			reduce(45), // operators, reduce: Operand
-			reduce(45), // relOp, reduce: Operand
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S383
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(46), // terminator, reduce: Literal
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(46), // (, reduce: Literal
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(46), // singleOperators, reduce: Literal
-			reduce(46), // operators, reduce: Literal
-			reduce(46), // relOp, reduce: Literal
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S384
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(47), // terminator, reduce: BasicLit
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(47), // (, reduce: BasicLit
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			reduce(47), // singleOperators, reduce: BasicLit
-			reduce(47), // operators, reduce: BasicLit
-			reduce(47), // relOp, reduce: BasicLit
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S385
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(481), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S386
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S387
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(483), // identifier
-			nil,        // kwdImport
-			shift(484), // (
-			nil,        // )
-			nil,        // .
-			shift(485), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(491), // *
-			shift(494), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S388
+	actionRow{ // S213
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -15950,29 +8988,30 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(37), // {, reduce: Expression
-			nil,        // }
+			nil,        // {
+			reduce(37), // }, reduce: Expression
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S389
+	actionRow{ // S214
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(495), // identifier
+			shift(347), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(496), // stringLit
+			shift(348), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -15982,8 +9021,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(499), // *
-			shift(502), // intLit
+			shift(351), // *
+			shift(354), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -15991,8 +9030,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16001,19 +9041,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S390
+	actionRow{ // S215
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(495), // identifier
+			shift(347), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(496), // stringLit
+			shift(348), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16023,8 +9063,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(499), // *
-			shift(502), // intLit
+			shift(351), // *
+			shift(354), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16032,8 +9072,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16042,19 +9083,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S391
+	actionRow{ // S216
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			reduce(50), // ), reduce: Arguments
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16064,8 +9105,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			reduce(50), // operators, reduce: Arguments
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			reduce(50), // ,, reduce: Arguments
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16073,8 +9114,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16083,7 +9125,49 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S392
+	actionRow{ // S217
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(49), // =, reduce: OperandName
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(49), // }, reduce: OperandName
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S218
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16114,29 +9198,72 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(44), // {, reduce: Operand
+			nil,        // {
+			reduce(44), // }, reduce: Operand
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S219
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(89), // $, reduce: Block
+			reduce(89), // terminator, reduce: Block
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(89), // kwdImport, reduce: Block
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(89), // kwdVar, reduce: Block
+			nil,        // =
+			reduce(89), // kwdType, reduce: Block
+			nil,        // kwdInline
+			reduce(89), // kwdConst, reduce: Block
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(89), // kwdFunc, reduce: Block
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S393
+	actionRow{ // S220
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			shift(505), // terminator
+			nil,        // terminator
 			nil,        // kwdPackage
-			shift(373), // identifier
+			nil,        // identifier
 			nil,        // kwdImport
-			shift(374), // (
+			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(375), // stringLit
+			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16146,8 +9273,218 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(381), // *
-			shift(384), // intLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(75), // }, reduce: StatementList
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S221
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(73),  // terminator
+			nil,        // kwdPackage
+			reduce(73), // identifier, reduce: RepeatTerminator
+			reduce(73), // kwdImport, reduce: RepeatTerminator
+			reduce(73), // (, reduce: RepeatTerminator
+			nil,        // )
+			nil,        // .
+			reduce(73), // stringLit, reduce: RepeatTerminator
+			nil,        // empty
+			reduce(73), // kwdVar, reduce: RepeatTerminator
+			nil,        // =
+			reduce(73), // kwdType, reduce: RepeatTerminator
+			nil,        // kwdInline
+			reduce(73), // kwdConst, reduce: RepeatTerminator
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			reduce(73), // *, reduce: RepeatTerminator
+			reduce(73), // intLit, reduce: RepeatTerminator
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			reduce(73), // type, reduce: RepeatTerminator
+			reduce(73), // kwdInterface, reduce: RepeatTerminator
+			nil,        // typeConstructor
+			nil,        // :
+			reduce(73), // kwdRet, reduce: RepeatTerminator
+			reduce(73), // kwdBreak, reduce: RepeatTerminator
+			reduce(73), // kwdContinue, reduce: RepeatTerminator
+			reduce(73), // kwdGoto, reduce: RepeatTerminator
+			reduce(73), // {, reduce: RepeatTerminator
+			reduce(73), // }, reduce: RepeatTerminator
+			reduce(73), // kwdIf, reduce: RepeatTerminator
+			nil,        // not
+			reduce(73), // kwdFor, reduce: RepeatTerminator
+		},
+	},
+	actionRow{ // S222
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(73),  // terminator
+			nil,        // kwdPackage
+			reduce(73), // identifier, reduce: RepeatTerminator
+			reduce(73), // kwdImport, reduce: RepeatTerminator
+			reduce(73), // (, reduce: RepeatTerminator
+			nil,        // )
+			nil,        // .
+			reduce(73), // stringLit, reduce: RepeatTerminator
+			nil,        // empty
+			reduce(73), // kwdVar, reduce: RepeatTerminator
+			nil,        // =
+			reduce(73), // kwdType, reduce: RepeatTerminator
+			nil,        // kwdInline
+			reduce(73), // kwdConst, reduce: RepeatTerminator
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			reduce(73), // *, reduce: RepeatTerminator
+			reduce(73), // intLit, reduce: RepeatTerminator
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			reduce(73), // type, reduce: RepeatTerminator
+			reduce(73), // kwdInterface, reduce: RepeatTerminator
+			nil,        // typeConstructor
+			nil,        // :
+			reduce(73), // kwdRet, reduce: RepeatTerminator
+			reduce(73), // kwdBreak, reduce: RepeatTerminator
+			reduce(73), // kwdContinue, reduce: RepeatTerminator
+			reduce(73), // kwdGoto, reduce: RepeatTerminator
+			reduce(73), // {, reduce: RepeatTerminator
+			reduce(73), // }, reduce: RepeatTerminator
+			reduce(73), // kwdIf, reduce: RepeatTerminator
+			nil,        // not
+			reduce(73), // kwdFor, reduce: RepeatTerminator
+		},
+	},
+	actionRow{ // S223
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,         // INVALID
+			nil,         // $
+			reduce(103), // terminator, reduce: Label
+			nil,         // kwdPackage
+			nil,         // identifier
+			nil,         // kwdImport
+			nil,         // (
+			nil,         // )
+			nil,         // .
+			nil,         // stringLit
+			nil,         // empty
+			nil,         // kwdVar
+			nil,         // =
+			nil,         // kwdType
+			nil,         // kwdInline
+			nil,         // kwdConst
+			nil,         // singleOperators
+			nil,         // operators
+			nil,         // relOp
+			nil,         // *
+			nil,         // intLit
+			nil,         // ,
+			nil,         // kwdFunc
+			nil,         // kwdVariadic
+			nil,         // type
+			nil,         // kwdInterface
+			nil,         // typeConstructor
+			nil,         // :
+			nil,         // kwdRet
+			nil,         // kwdBreak
+			nil,         // kwdContinue
+			nil,         // kwdGoto
+			nil,         // {
+			reduce(103), // }, reduce: Label
+			nil,         // kwdIf
+			nil,         // not
+			nil,         // kwdFor
+		},
+	},
+	actionRow{ // S224
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(82), // terminator, reduce: Statement
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(82), // }, reduce: Statement
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S225
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(86), // terminator, reduce: SimpleStmt
+			nil,        // kwdPackage
+			shift(111), // identifier
+			shift(113), // kwdImport
+			shift(114), // (
+			nil,        // )
+			nil,        // .
+			shift(115), // stringLit
+			nil,        // empty
+			shift(120), // kwdVar
+			nil,        // =
+			shift(123), // kwdType
+			nil,        // kwdInline
+			shift(124), // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(128), // *
+			shift(131), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16155,8 +9492,93 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
+			shift(137), // kwdRet
+			shift(138), // kwdBreak
+			shift(139), // kwdContinue
+			shift(140), // kwdGoto
+			shift(144), // {
+			reduce(86), // }, reduce: SimpleStmt
+			shift(145), // kwdIf
+			nil,        // not
+			shift(146), // kwdFor
+		},
+	},
+	actionRow{ // S226
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(49), // {, reduce: OperandName
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S227
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16165,12 +9587,96 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S394
+	actionRow{ // S228
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(96), // terminator, reduce: ForStmt
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(48), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(48), // singleOperators, reduce: BasicLit
+			reduce(48), // operators, reduce: BasicLit
+			reduce(48), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(48), // {, reduce: BasicLit
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S229
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(361), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S230
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -16196,17 +9702,1026 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			nil,        // {
-			reduce(96), // }, reduce: ForStmt
+			shift(144), // {
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S395
+	actionRow{ // S231
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(363), // singleOperators
+			shift(364), // operators
+			shift(365), // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(41), // {, reduce: PrimaryExpr
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S232
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(366), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(40), // {, reduce: Expression
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S233
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(43), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(43), // singleOperators, reduce: Operand
+			reduce(43), // operators, reduce: Operand
+			reduce(43), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(43), // {, reduce: Operand
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S234
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(226), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(195), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S235
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(45), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(45), // singleOperators, reduce: Operand
+			reduce(45), // operators, reduce: Operand
+			reduce(45), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(45), // {, reduce: Operand
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S236
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(46), // (, reduce: Literal
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(46), // singleOperators, reduce: Literal
+			reduce(46), // operators, reduce: Literal
+			reduce(46), // relOp, reduce: Literal
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(46), // {, reduce: Literal
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S237
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(47), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(47), // singleOperators, reduce: BasicLit
+			reduce(47), // operators, reduce: BasicLit
+			reduce(47), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(47), // {, reduce: BasicLit
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S238
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(226), // identifier
+			nil,        // kwdImport
+			shift(227), // (
+			nil,        // )
+			nil,        // .
+			shift(228), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(234), // *
+			shift(237), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S239
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(369), // terminator
+			nil,        // kwdPackage
+			shift(370), // identifier
+			nil,        // kwdImport
+			shift(371), // (
+			nil,        // )
+			nil,        // .
+			shift(372), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(378), // *
+			shift(381), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S240
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(49), // =, reduce: OperandName
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(49), // {, reduce: OperandName
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S241
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S242
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(48), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(48), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(48), // =, reduce: BasicLit
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(48), // singleOperators, reduce: BasicLit
+			reduce(48), // operators, reduce: BasicLit
+			reduce(48), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(48), // {, reduce: BasicLit
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S243
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(383), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S244
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(88), // terminator, reduce: SimpleStmt
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			shift(384), // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(88), // {, reduce: SimpleStmt
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S245
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(41), // terminator, reduce: PrimaryExpr
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(41), // =, reduce: PrimaryExpr
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(385), // singleOperators
+			shift(386), // operators
+			shift(387), // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(41), // {, reduce: PrimaryExpr
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S246
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(40), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(388), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(40), // =, reduce: Expression
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(40), // {, reduce: Expression
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S247
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(43), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(43), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(43), // =, reduce: Operand
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(43), // singleOperators, reduce: Operand
+			reduce(43), // operators, reduce: Operand
+			reduce(43), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(43), // {, reduce: Operand
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S248
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(240), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(195), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S249
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(45), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(45), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(45), // =, reduce: Operand
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(45), // singleOperators, reduce: Operand
+			reduce(45), // operators, reduce: Operand
+			reduce(45), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(45), // {, reduce: Operand
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S250
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(46), // terminator, reduce: Literal
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(46), // (, reduce: Literal
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(46), // =, reduce: Literal
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(46), // singleOperators, reduce: Literal
+			reduce(46), // operators, reduce: Literal
+			reduce(46), // relOp, reduce: Literal
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(46), // {, reduce: Literal
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S251
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(47), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(47), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(47), // =, reduce: BasicLit
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(47), // singleOperators, reduce: BasicLit
+			reduce(47), // operators, reduce: BasicLit
+			reduce(47), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(47), // {, reduce: BasicLit
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S252
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(92), // terminator, reduce: ForStmt
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(92), // }, reduce: ForStmt
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S253
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,         // INVALID
+			nil,         // $
+			shift(390),  // terminator
+			nil,         // kwdPackage
+			nil,         // identifier
+			nil,         // kwdImport
+			nil,         // (
+			nil,         // )
+			nil,         // .
+			nil,         // stringLit
+			nil,         // empty
+			nil,         // kwdVar
+			nil,         // =
+			nil,         // kwdType
+			nil,         // kwdInline
+			nil,         // kwdConst
+			nil,         // singleOperators
+			nil,         // operators
+			nil,         // relOp
+			nil,         // *
+			nil,         // intLit
+			nil,         // ,
+			nil,         // kwdFunc
+			nil,         // kwdVariadic
+			nil,         // type
+			nil,         // kwdInterface
+			nil,         // typeConstructor
+			nil,         // :
+			nil,         // kwdRet
+			nil,         // kwdBreak
+			nil,         // kwdContinue
+			nil,         // kwdGoto
+			reduce(101), // {, reduce: ForClause
+			nil,         // }
+			nil,         // kwdIf
+			nil,         // not
+			nil,         // kwdFor
+		},
+	},
+	actionRow{ // S254
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(87), // terminator, reduce: SimpleStmt
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(87), // {, reduce: SimpleStmt
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S255
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16228,26 +10743,27 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(156), // *
+			nil,        // *
 			nil,        // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(159), // type
-			shift(160), // kwdInterface
+			nil,        // type
+			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			nil,        // {
+			shift(144), // {
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S396
+	actionRow{ // S256
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16257,7 +10773,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			reduce(63), // ), reduce: ParameterDecl
+			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -16271,15 +10787,58 @@ var actionTab = actionTable{
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(266), // ,
+			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(58), // {, reduce: Parameters
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S257
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(72), // ), reduce: RepeatTerminator
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16288,7 +10847,91 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S397
+	actionRow{ // S258
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(150), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(153), // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			shift(155), // kwdVariadic
+			shift(156), // type
+			shift(157), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S259
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			shift(394), // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S260
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16319,8 +10962,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16329,7 +10973,5593 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S398
+	actionRow{ // S261
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(66), // ), reduce: Type
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(66), // ,, reduce: Type
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S262
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(59), // {, reduce: Parameters
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S263
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(150), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(153), // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			shift(155), // kwdVariadic
+			shift(156), // type
+			shift(157), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S264
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(63), // ), reduce: ParameterDecl
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(63), // ,, reduce: ParameterDecl
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S265
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(76),  // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(72), // ), reduce: RepeatTerminator
+			shift(79),  // .
+			shift(80),  // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S266
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(266), // terminator
+			nil,        // kwdPackage
+			reduce(73), // identifier, reduce: RepeatTerminator
+			nil,        // kwdImport
+			nil,        // (
+			reduce(73), // ), reduce: RepeatTerminator
+			reduce(73), // ., reduce: RepeatTerminator
+			reduce(73), // stringLit, reduce: RepeatTerminator
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S267
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(26), // terminator, reduce: VarSpec
+			nil,        // kwdPackage
+			shift(35),  // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(26), // ), reduce: VarSpec
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S268
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(272), // identifier
+			nil,        // kwdImport
+			shift(273), // (
+			nil,        // )
+			nil,        // .
+			shift(274), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(280), // *
+			shift(283), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S269
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(400), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S270
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(66), // terminator, reduce: Type
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(66), // ), reduce: Type
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(66), // =, reduce: Type
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S271
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(401), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S272
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			reduce(49), // ), reduce: OperandName
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S273
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S274
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(48), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(48), // (, reduce: BasicLit
+			reduce(48), // ), reduce: BasicLit
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(48), // singleOperators, reduce: BasicLit
+			reduce(48), // operators, reduce: BasicLit
+			reduce(48), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S275
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(403), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S276
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(34), // terminator, reduce: ConstSpec
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(34), // ), reduce: ConstSpec
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S277
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(41), // terminator, reduce: PrimaryExpr
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			reduce(41), // ), reduce: PrimaryExpr
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(404), // singleOperators
+			shift(405), // operators
+			shift(406), // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S278
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(40), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(407), // (
+			reduce(40), // ), reduce: Expression
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S279
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(43), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(43), // (, reduce: Operand
+			reduce(43), // ), reduce: Operand
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(43), // singleOperators, reduce: Operand
+			reduce(43), // operators, reduce: Operand
+			reduce(43), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S280
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(272), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(195), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S281
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(45), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(45), // (, reduce: Operand
+			reduce(45), // ), reduce: Operand
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(45), // singleOperators, reduce: Operand
+			reduce(45), // operators, reduce: Operand
+			reduce(45), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S282
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(46), // terminator, reduce: Literal
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(46), // (, reduce: Literal
+			reduce(46), // ), reduce: Literal
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(46), // singleOperators, reduce: Literal
+			reduce(46), // operators, reduce: Literal
+			reduce(46), // relOp, reduce: Literal
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S283
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(47), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(47), // (, reduce: BasicLit
+			reduce(47), // ), reduce: BasicLit
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(47), // singleOperators, reduce: BasicLit
+			reduce(47), // operators, reduce: BasicLit
+			reduce(47), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S284
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(42),  // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(72), // ), reduce: RepeatTerminator
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S285
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(285), // terminator
+			nil,        // kwdPackage
+			reduce(73), // identifier, reduce: RepeatTerminator
+			nil,        // kwdImport
+			nil,        // (
+			reduce(73), // ), reduce: RepeatTerminator
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S286
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(411), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S287
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S288
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(35), // $, reduce: Expression
+			reduce(35), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(35), // kwdImport, reduce: Expression
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(35), // kwdVar, reduce: Expression
+			nil,        // =
+			reduce(35), // kwdType, reduce: Expression
+			nil,        // kwdInline
+			reduce(35), // kwdConst, reduce: Expression
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(35), // kwdFunc, reduce: Expression
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S289
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(37), // ), reduce: Expression
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S290
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(413), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(414), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(417), // *
+			shift(420), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S291
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(413), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(414), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(417), // *
+			shift(420), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S292
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(304), // identifier
+			nil,        // kwdImport
+			shift(305), // (
+			reduce(50), // ), reduce: Arguments
+			nil,        // .
+			shift(306), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			reduce(50), // operators, reduce: Arguments
+			nil,        // relOp
+			shift(313), // *
+			shift(316), // intLit
+			reduce(50), // ,, reduce: Arguments
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S293
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(44), // (, reduce: Operand
+			reduce(44), // ), reduce: Operand
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(44), // singleOperators, reduce: Operand
+			reduce(44), // operators, reduce: Operand
+			reduce(44), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S294
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(423), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S295
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(49), // $, reduce: OperandName
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(49), // kwdImport, reduce: OperandName
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(49), // kwdVar, reduce: OperandName
+			nil,        // =
+			reduce(49), // kwdType, reduce: OperandName
+			nil,        // kwdInline
+			reduce(49), // kwdConst, reduce: OperandName
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(49), // kwdFunc, reduce: OperandName
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S296
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(48), // $, reduce: BasicLit
+			reduce(48), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(48), // kwdImport, reduce: BasicLit
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(48), // kwdVar, reduce: BasicLit
+			nil,        // =
+			reduce(48), // kwdType, reduce: BasicLit
+			nil,        // kwdInline
+			reduce(48), // kwdConst, reduce: BasicLit
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(48), // kwdFunc, reduce: BasicLit
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S297
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(38), // $, reduce: Expression
+			reduce(38), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(38), // kwdImport, reduce: Expression
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(38), // kwdVar, reduce: Expression
+			nil,        // =
+			reduce(38), // kwdType, reduce: Expression
+			nil,        // kwdInline
+			reduce(38), // kwdConst, reduce: Expression
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(38), // kwdFunc, reduce: Expression
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S298
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(43), // $, reduce: Operand
+			reduce(43), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(43), // kwdImport, reduce: Operand
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(43), // kwdVar, reduce: Operand
+			nil,        // =
+			reduce(43), // kwdType, reduce: Operand
+			nil,        // kwdInline
+			reduce(43), // kwdConst, reduce: Operand
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(43), // kwdFunc, reduce: Operand
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S299
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(295), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S300
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(45), // $, reduce: Operand
+			reduce(45), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(45), // kwdImport, reduce: Operand
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(45), // kwdVar, reduce: Operand
+			nil,        // =
+			reduce(45), // kwdType, reduce: Operand
+			nil,        // kwdInline
+			reduce(45), // kwdConst, reduce: Operand
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(45), // kwdFunc, reduce: Operand
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S301
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(46), // $, reduce: Literal
+			reduce(46), // terminator, reduce: Literal
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(46), // kwdImport, reduce: Literal
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(46), // kwdVar, reduce: Literal
+			nil,        // =
+			reduce(46), // kwdType, reduce: Literal
+			nil,        // kwdInline
+			reduce(46), // kwdConst, reduce: Literal
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(46), // kwdFunc, reduce: Literal
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S302
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(47), // $, reduce: BasicLit
+			reduce(47), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(47), // kwdImport, reduce: BasicLit
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(47), // kwdVar, reduce: BasicLit
+			nil,        // =
+			reduce(47), // kwdType, reduce: BasicLit
+			nil,        // kwdInline
+			reduce(47), // kwdConst, reduce: BasicLit
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(47), // kwdFunc, reduce: BasicLit
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S303
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			reduce(39), // $, reduce: Expression
+			reduce(39), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			reduce(39), // kwdImport, reduce: Expression
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			reduce(39), // kwdVar, reduce: Expression
+			nil,        // =
+			reduce(39), // kwdType, reduce: Expression
+			nil,        // kwdInline
+			reduce(39), // kwdConst, reduce: Expression
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			reduce(39), // kwdFunc, reduce: Expression
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S304
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			reduce(49), // ), reduce: OperandName
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			reduce(49), // ,, reduce: OperandName
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S305
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S306
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(48), // (, reduce: BasicLit
+			reduce(48), // ), reduce: BasicLit
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(48), // singleOperators, reduce: BasicLit
+			reduce(48), // operators, reduce: BasicLit
+			reduce(48), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			reduce(48), // ,, reduce: BasicLit
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S307
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(426), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S308
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(51), // ), reduce: Arguments
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			reduce(51), // operators, reduce: Arguments
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(51), // ,, reduce: Arguments
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S309
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			reduce(41), // ), reduce: PrimaryExpr
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(427), // singleOperators
+			shift(428), // operators
+			shift(429), // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(41), // ,, reduce: PrimaryExpr
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S310
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(430), // (
+			reduce(40), // ), reduce: Expression
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			reduce(40), // operators, reduce: Expression
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			reduce(40), // ,, reduce: Expression
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S311
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(431), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			shift(432), // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			shift(433), // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S312
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(43), // (, reduce: Operand
+			reduce(43), // ), reduce: Operand
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(43), // singleOperators, reduce: Operand
+			reduce(43), // operators, reduce: Operand
+			reduce(43), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			reduce(43), // ,, reduce: Operand
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S313
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(304), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(195), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S314
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(45), // (, reduce: Operand
+			reduce(45), // ), reduce: Operand
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(45), // singleOperators, reduce: Operand
+			reduce(45), // operators, reduce: Operand
+			reduce(45), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			reduce(45), // ,, reduce: Operand
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S315
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(46), // (, reduce: Literal
+			reduce(46), // ), reduce: Literal
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(46), // singleOperators, reduce: Literal
+			reduce(46), // operators, reduce: Literal
+			reduce(46), // relOp, reduce: Literal
+			nil,        // *
+			nil,        // intLit
+			reduce(46), // ,, reduce: Literal
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S316
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(47), // (, reduce: BasicLit
+			reduce(47), // ), reduce: BasicLit
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(47), // singleOperators, reduce: BasicLit
+			reduce(47), // operators, reduce: BasicLit
+			reduce(47), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			reduce(47), // ,, reduce: BasicLit
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S317
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			reduce(9), // terminator, reduce: ImportSpec
+			nil,       // kwdPackage
+			nil,       // identifier
+			nil,       // kwdImport
+			nil,       // (
+			nil,       // )
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			reduce(9), // }, reduce: ImportSpec
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S318
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // terminator
+			nil,       // kwdPackage
+			shift(76), // identifier
+			nil,       // kwdImport
+			nil,       // (
+			nil,       // )
+			shift(79), // .
+			shift(80), // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S319
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			reduce(8), // terminator, reduce: ImportSpec
+			nil,       // kwdPackage
+			nil,       // identifier
+			nil,       // kwdImport
+			nil,       // (
+			nil,       // )
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			reduce(8), // }, reduce: ImportSpec
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S320
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(35), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(35), // =, reduce: Expression
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(35), // }, reduce: Expression
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S321
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(26), // terminator, reduce: VarSpec
+			nil,        // kwdPackage
+			shift(35),  // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(26), // ), reduce: VarSpec
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S322
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(23), // terminator, reduce: VarSpec
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			shift(437), // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(23), // }, reduce: VarSpec
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S323
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // terminator
+			nil,       // kwdPackage
+			nil,       // identifier
+			nil,       // kwdImport
+			nil,       // (
+			nil,       // )
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			shift(89), // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S324
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(439), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S325
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(67), // terminator, reduce: Type
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(67), // =, reduce: Type
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(67), // }, reduce: Type
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S326
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(68), // terminator, reduce: Type
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(68), // =, reduce: Type
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(68), // }, reduce: Type
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S327
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(440), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S328
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(49), // }, reduce: OperandName
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S329
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S330
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(48), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(48), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(48), // singleOperators, reduce: BasicLit
+			reduce(48), // operators, reduce: BasicLit
+			reduce(48), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(48), // }, reduce: BasicLit
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S331
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(442), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S332
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,         // INVALID
+			nil,         // $
+			reduce(102), // terminator, reduce: Assignment
+			nil,         // kwdPackage
+			nil,         // identifier
+			nil,         // kwdImport
+			nil,         // (
+			nil,         // )
+			nil,         // .
+			nil,         // stringLit
+			nil,         // empty
+			nil,         // kwdVar
+			nil,         // =
+			nil,         // kwdType
+			nil,         // kwdInline
+			nil,         // kwdConst
+			nil,         // singleOperators
+			nil,         // operators
+			nil,         // relOp
+			nil,         // *
+			nil,         // intLit
+			nil,         // ,
+			nil,         // kwdFunc
+			nil,         // kwdVariadic
+			nil,         // type
+			nil,         // kwdInterface
+			nil,         // typeConstructor
+			nil,         // :
+			nil,         // kwdRet
+			nil,         // kwdBreak
+			nil,         // kwdContinue
+			nil,         // kwdGoto
+			nil,         // {
+			reduce(102), // }, reduce: Assignment
+			nil,         // kwdIf
+			nil,         // not
+			nil,         // kwdFor
+		},
+	},
+	actionRow{ // S333
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(41), // terminator, reduce: PrimaryExpr
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(443), // singleOperators
+			shift(444), // operators
+			shift(445), // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(41), // }, reduce: PrimaryExpr
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S334
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(40), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(446), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(40), // }, reduce: Expression
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S335
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(43), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(43), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(43), // singleOperators, reduce: Operand
+			reduce(43), // operators, reduce: Operand
+			reduce(43), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(43), // }, reduce: Operand
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S336
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(328), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(195), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S337
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(45), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(45), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(45), // singleOperators, reduce: Operand
+			reduce(45), // operators, reduce: Operand
+			reduce(45), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(45), // }, reduce: Operand
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S338
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(46), // terminator, reduce: Literal
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(46), // (, reduce: Literal
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(46), // singleOperators, reduce: Literal
+			reduce(46), // operators, reduce: Literal
+			reduce(46), // relOp, reduce: Literal
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(46), // }, reduce: Literal
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S339
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(47), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(47), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(47), // singleOperators, reduce: BasicLit
+			reduce(47), // operators, reduce: BasicLit
+			reduce(47), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(47), // }, reduce: BasicLit
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S340
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(28), // terminator, reduce: TypeDef
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(28), // }, reduce: TypeDef
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S341
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(448), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S342
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(67), // terminator, reduce: Type
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(67), // }, reduce: Type
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S343
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(68), // terminator, reduce: Type
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(68), // }, reduce: Type
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S344
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(29), // terminator, reduce: TypeDef
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(29), // }, reduce: TypeDef
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S345
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // terminator
+			nil,       // kwdPackage
+			shift(42), // identifier
+			nil,       // kwdImport
+			nil,       // (
+			nil,       // )
+			nil,       // .
+			nil,       // stringLit
+			nil,       // empty
+			nil,       // kwdVar
+			nil,       // =
+			nil,       // kwdType
+			nil,       // kwdInline
+			nil,       // kwdConst
+			nil,       // singleOperators
+			nil,       // operators
+			nil,       // relOp
+			nil,       // *
+			nil,       // intLit
+			nil,       // ,
+			nil,       // kwdFunc
+			nil,       // kwdVariadic
+			nil,       // type
+			nil,       // kwdInterface
+			nil,       // typeConstructor
+			nil,       // :
+			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
+			nil,       // kwdGoto
+			nil,       // {
+			nil,       // }
+			nil,       // kwdIf
+			nil,       // not
+			nil,       // kwdFor
+		},
+	},
+	actionRow{ // S346
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(328), // identifier
+			nil,        // kwdImport
+			shift(329), // (
+			nil,        // )
+			nil,        // .
+			shift(330), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(336), // *
+			shift(339), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S347
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(49), // =, reduce: OperandName
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(49), // }, reduce: OperandName
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S348
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(48), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(48), // =, reduce: BasicLit
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(48), // }, reduce: BasicLit
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S349
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(38), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(38), // =, reduce: Expression
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(38), // }, reduce: Expression
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S350
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(43), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(43), // =, reduce: Operand
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(43), // }, reduce: Operand
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S351
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(347), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S352
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(45), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(45), // =, reduce: Operand
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(45), // }, reduce: Operand
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S353
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(46), // terminator, reduce: Literal
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(46), // =, reduce: Literal
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(46), // }, reduce: Literal
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S354
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(47), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(47), // =, reduce: BasicLit
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(47), // }, reduce: BasicLit
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S355
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(39), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(39), // =, reduce: Expression
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(39), // }, reduce: Expression
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S356
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(452), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			shift(432), // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			shift(433), // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S357
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(86), // terminator, reduce: SimpleStmt
+			nil,        // kwdPackage
+			shift(111), // identifier
+			shift(113), // kwdImport
+			shift(114), // (
+			nil,        // )
+			nil,        // .
+			shift(115), // stringLit
+			nil,        // empty
+			shift(120), // kwdVar
+			nil,        // =
+			shift(123), // kwdType
+			nil,        // kwdInline
+			shift(124), // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(128), // *
+			shift(131), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			shift(137), // kwdRet
+			shift(138), // kwdBreak
+			shift(139), // kwdContinue
+			shift(140), // kwdGoto
+			shift(144), // {
+			reduce(72), // }, reduce: RepeatTerminator
+			shift(145), // kwdIf
+			nil,        // not
+			shift(146), // kwdFor
+		},
+	},
+	actionRow{ // S358
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(86), // terminator, reduce: SimpleStmt
+			nil,        // kwdPackage
+			shift(111), // identifier
+			shift(113), // kwdImport
+			shift(114), // (
+			nil,        // )
+			nil,        // .
+			shift(115), // stringLit
+			nil,        // empty
+			shift(120), // kwdVar
+			nil,        // =
+			shift(123), // kwdType
+			nil,        // kwdInline
+			shift(124), // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(128), // *
+			shift(131), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			shift(137), // kwdRet
+			shift(138), // kwdBreak
+			shift(139), // kwdContinue
+			shift(140), // kwdGoto
+			shift(144), // {
+			reduce(86), // }, reduce: SimpleStmt
+			shift(145), // kwdIf
+			nil,        // not
+			shift(146), // kwdFor
+		},
+	},
+	actionRow{ // S359
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			shift(455), // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S360
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(456), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S361
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S362
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(91), // terminator, reduce: IfStmt
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(91), // }, reduce: IfStmt
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S363
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(37), // {, reduce: Expression
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S364
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(458), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(459), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(462), // *
+			shift(465), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S365
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(458), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(459), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(462), // *
+			shift(465), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S366
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(304), // identifier
+			nil,        // kwdImport
+			shift(305), // (
+			reduce(50), // ), reduce: Arguments
+			nil,        // .
+			shift(306), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			reduce(50), // operators, reduce: Arguments
+			nil,        // relOp
+			shift(313), // *
+			shift(316), // intLit
+			reduce(50), // ,, reduce: Arguments
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S367
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(44), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(44), // singleOperators, reduce: Operand
+			reduce(44), // operators, reduce: Operand
+			reduce(44), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(44), // {, reduce: Operand
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S368
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			shift(144), // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S369
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(226), // identifier
+			nil,        // kwdImport
+			shift(227), // (
+			nil,        // )
+			nil,        // .
+			shift(228), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(234), // *
+			shift(237), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(94), // {, reduce: ForClause
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S370
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(49), // terminator, reduce: OperandName
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(49), // (, reduce: OperandName
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(49), // singleOperators, reduce: OperandName
+			reduce(49), // operators, reduce: OperandName
+			reduce(49), // relOp, reduce: OperandName
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S371
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S372
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(48), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(48), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(48), // singleOperators, reduce: BasicLit
+			reduce(48), // operators, reduce: BasicLit
+			reduce(48), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S373
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(471), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S374
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(472), // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S375
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(41), // terminator, reduce: PrimaryExpr
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(41), // (, reduce: PrimaryExpr
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			shift(473), // singleOperators
+			shift(474), // operators
+			shift(475), // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S376
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(40), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			shift(476), // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S377
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(43), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(43), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(43), // singleOperators, reduce: Operand
+			reduce(43), // operators, reduce: Operand
+			reduce(43), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S378
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(370), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(195), // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S379
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(45), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(45), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(45), // singleOperators, reduce: Operand
+			reduce(45), // operators, reduce: Operand
+			reduce(45), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S380
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(46), // terminator, reduce: Literal
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(46), // (, reduce: Literal
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(46), // singleOperators, reduce: Literal
+			reduce(46), // operators, reduce: Literal
+			reduce(46), // relOp, reduce: Literal
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S381
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(47), // terminator, reduce: BasicLit
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(47), // (, reduce: BasicLit
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(47), // singleOperators, reduce: BasicLit
+			reduce(47), // operators, reduce: BasicLit
+			reduce(47), // relOp, reduce: BasicLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S382
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(478), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S383
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(177), // identifier
+			nil,        // kwdImport
+			shift(178), // (
+			nil,        // )
+			nil,        // .
+			shift(179), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(185), // *
+			shift(188), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S384
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(480), // identifier
+			nil,        // kwdImport
+			shift(481), // (
+			nil,        // )
+			nil,        // .
+			shift(482), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(488), // *
+			shift(491), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S385
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(37), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(37), // =, reduce: Expression
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(37), // {, reduce: Expression
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S386
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(492), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(493), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(496), // *
+			shift(499), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S387
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(492), // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			shift(493), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(496), // *
+			shift(499), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S388
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(304), // identifier
+			nil,        // kwdImport
+			shift(305), // (
+			reduce(50), // ), reduce: Arguments
+			nil,        // .
+			shift(306), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			reduce(50), // operators, reduce: Arguments
+			nil,        // relOp
+			shift(313), // *
+			shift(316), // intLit
+			reduce(50), // ,, reduce: Arguments
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S389
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(44), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(44), // (, reduce: Operand
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			reduce(44), // =, reduce: Operand
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			reduce(44), // singleOperators, reduce: Operand
+			reduce(44), // operators, reduce: Operand
+			reduce(44), // relOp, reduce: Operand
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(44), // {, reduce: Operand
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S390
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(502), // terminator
+			nil,        // kwdPackage
+			shift(370), // identifier
+			nil,        // kwdImport
+			shift(371), // (
+			nil,        // )
+			nil,        // .
+			shift(372), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(378), // *
+			shift(381), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S391
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(93), // terminator, reduce: ForStmt
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(93), // }, reduce: ForStmt
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S392
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(153), // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(156), // type
+			shift(157), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S393
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(65), // ), reduce: ParameterDecl
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			shift(263), // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S394
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16353,15 +16583,16 @@ var actionTab = actionTable{
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(266), // ,
+			reduce(62), // ,, reduce: ParameterDecl
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16370,7 +16601,49 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S399
+	actionRow{ // S395
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			reduce(64), // ), reduce: ParameterDecl
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			shift(263), // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S396
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       // INVALID
@@ -16401,8 +16674,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			nil,       // }
@@ -16411,7 +16685,7 @@ var actionTab = actionTable{
 			nil,       // kwdFor
 		},
 	},
-	actionRow{ // S400
+	actionRow{ // S397
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16442,8 +16716,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16452,7 +16727,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S401
+	actionRow{ // S398
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16483,8 +16758,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16493,7 +16769,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S402
+	actionRow{ // S399
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16524,8 +16800,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16534,19 +16811,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S403
+	actionRow{ // S400
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16556,8 +16833,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16565,8 +16842,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16575,7 +16853,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S404
+	actionRow{ // S401
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16606,8 +16884,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16616,7 +16895,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S405
+	actionRow{ // S402
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16626,7 +16905,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(508), // )
+			shift(505), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -16647,8 +16926,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16657,19 +16937,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S406
+	actionRow{ // S403
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16679,8 +16959,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16688,8 +16968,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16698,7 +16979,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S407
+	actionRow{ // S404
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16729,8 +17010,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16739,19 +17021,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S408
+	actionRow{ // S405
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(510), // identifier
+			shift(507), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(511), // stringLit
+			shift(508), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16761,8 +17043,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(514), // *
-			shift(517), // intLit
+			shift(511), // *
+			shift(514), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16770,8 +17052,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16780,19 +17063,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S409
+	actionRow{ // S406
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(510), // identifier
+			shift(507), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(511), // stringLit
+			shift(508), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16802,8 +17085,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(514), // *
-			shift(517), // intLit
+			shift(511), // *
+			shift(514), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16811,8 +17094,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16821,19 +17105,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S410
+	actionRow{ // S407
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			reduce(50), // ), reduce: Arguments
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -16843,8 +17127,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			reduce(50), // operators, reduce: Arguments
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			reduce(50), // ,, reduce: Arguments
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -16852,8 +17136,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16862,7 +17147,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S411
+	actionRow{ // S408
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16893,8 +17178,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16903,7 +17189,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S412
+	actionRow{ // S409
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16934,8 +17220,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16944,7 +17231,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S413
+	actionRow{ // S410
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -16975,8 +17262,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -16985,7 +17273,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S414
+	actionRow{ // S411
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17016,8 +17304,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17026,7 +17315,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S415
+	actionRow{ // S412
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17036,7 +17325,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(520), // )
+			shift(517), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -17057,8 +17346,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17067,7 +17357,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S416
+	actionRow{ // S413
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17098,8 +17388,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17108,7 +17399,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S417
+	actionRow{ // S414
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17139,8 +17430,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17149,7 +17441,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S418
+	actionRow{ // S415
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17180,8 +17472,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17190,7 +17483,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S419
+	actionRow{ // S416
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17221,8 +17514,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17231,14 +17525,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S420
+	actionRow{ // S417
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(416), // identifier
+			shift(413), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -17262,8 +17556,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17272,7 +17567,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S421
+	actionRow{ // S418
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17303,8 +17598,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17313,7 +17609,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S422
+	actionRow{ // S419
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17344,8 +17640,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17354,7 +17651,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S423
+	actionRow{ // S420
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17385,8 +17682,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17395,7 +17693,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S424
+	actionRow{ // S421
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17426,8 +17724,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17436,7 +17735,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S425
+	actionRow{ // S422
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17446,7 +17745,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(522), // )
+			shift(519), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -17456,19 +17755,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17477,7 +17777,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S426
+	actionRow{ // S423
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17508,8 +17808,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17518,7 +17819,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S427
+	actionRow{ // S424
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17549,8 +17850,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17559,7 +17861,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S428
+	actionRow{ // S425
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17569,7 +17871,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(523), // )
+			shift(520), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -17590,8 +17892,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17600,19 +17903,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S429
+	actionRow{ // S426
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -17622,8 +17925,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -17631,8 +17934,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17641,7 +17945,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S430
+	actionRow{ // S427
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17672,8 +17976,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17682,19 +17987,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S431
+	actionRow{ // S428
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(525), // identifier
+			shift(522), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(526), // stringLit
+			shift(523), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -17704,8 +18009,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(529), // *
-			shift(532), // intLit
+			shift(526), // *
+			shift(529), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -17713,8 +18018,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17723,19 +18029,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S432
+	actionRow{ // S429
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(525), // identifier
+			shift(522), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(526), // stringLit
+			shift(523), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -17745,8 +18051,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(529), // *
-			shift(532), // intLit
+			shift(526), // *
+			shift(529), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -17754,8 +18060,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17764,19 +18071,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S433
+	actionRow{ // S430
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			reduce(50), // ), reduce: Arguments
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -17786,8 +18093,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			reduce(50), // operators, reduce: Arguments
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			reduce(50), // ,, reduce: Arguments
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -17795,8 +18102,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17805,7 +18113,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S434
+	actionRow{ // S431
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17836,8 +18144,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17846,19 +18155,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S435
+	actionRow{ // S432
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			nil,        // )
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -17868,8 +18177,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -17877,8 +18186,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17887,19 +18197,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S436
+	actionRow{ // S433
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			nil,        // )
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -17909,8 +18219,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -17918,8 +18228,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17928,7 +18239,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S437
+	actionRow{ // S434
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -17959,8 +18270,135 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S435
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(534), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S436
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(535), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S437
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(328), // identifier
+			nil,        // kwdImport
+			shift(329), // (
+			nil,        // )
+			nil,        // .
+			shift(330), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(336), // *
+			shift(339), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -17978,8 +18416,8 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			nil,        // (
-			shift(537), // )
+			shift(537), // (
+			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -18000,8 +18438,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18015,17 +18454,17 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // terminator
+			reduce(66), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(538), // )
+			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
-			nil,        // =
+			reduce(66), // =, reduce: Type
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
@@ -18041,140 +18480,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			nil,        // }
+			reduce(66), // }, reduce: Type
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
 	actionRow{ // S440
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(331), // identifier
-			nil,        // kwdImport
-			shift(332), // (
-			nil,        // )
-			nil,        // .
-			shift(333), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(339), // *
-			shift(342), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S441
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			shift(540), // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S442
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(64), // terminator, reduce: Type
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			reduce(64), // =, reduce: Type
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			reduce(64), // }, reduce: Type
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S443
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18205,8 +18522,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(36), // }, reduce: Expression
@@ -18215,7 +18533,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S444
+	actionRow{ // S441
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18225,7 +18543,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(541), // )
+			shift(538), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -18246,8 +18564,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18256,19 +18575,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S445
+	actionRow{ // S442
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -18278,8 +18597,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -18287,8 +18606,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18297,7 +18617,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S446
+	actionRow{ // S443
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18328,8 +18648,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(37), // }, reduce: Expression
@@ -18338,19 +18659,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S447
+	actionRow{ // S444
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(543), // identifier
+			shift(540), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(544), // stringLit
+			shift(541), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -18360,8 +18681,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(547), // *
-			shift(550), // intLit
+			shift(544), // *
+			shift(547), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -18369,8 +18690,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18379,19 +18701,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S448
+	actionRow{ // S445
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(543), // identifier
+			shift(540), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(544), // stringLit
+			shift(541), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -18401,8 +18723,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(547), // *
-			shift(550), // intLit
+			shift(544), // *
+			shift(547), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -18410,8 +18732,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18420,19 +18743,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S449
+	actionRow{ // S446
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			reduce(50), // ), reduce: Arguments
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -18442,8 +18765,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			reduce(50), // operators, reduce: Arguments
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			reduce(50), // ,, reduce: Arguments
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -18451,8 +18774,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18461,7 +18785,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S450
+	actionRow{ // S447
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18492,8 +18816,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(44), // }, reduce: Operand
@@ -18502,12 +18827,12 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S451
+	actionRow{ // S448
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(64), // terminator, reduce: Type
+			reduce(66), // terminator, reduce: Type
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -18533,17 +18858,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(64), // }, reduce: Type
+			reduce(66), // }, reduce: Type
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S452
+	actionRow{ // S449
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18553,7 +18879,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(553), // )
+			shift(550), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -18574,8 +18900,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -18584,7 +18911,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S453
+	actionRow{ // S450
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18615,8 +18942,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(34), // }, reduce: ConstSpec
@@ -18625,7 +18953,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S454
+	actionRow{ // S451
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18656,8 +18984,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(44), // }, reduce: Operand
@@ -18666,7 +18995,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S455
+	actionRow{ // S452
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -18697,11 +19026,138 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(42), // }, reduce: PrimaryExpr
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S453
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(74), // }, reduce: StatementList
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S454
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(77), // terminator, reduce: Statement
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(77), // }, reduce: Statement
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S455
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(89), // terminator, reduce: Block
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(89), // }, reduce: Block
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -18738,11 +19194,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			nil,        // {
-			reduce(74), // }, reduce: StatementList
+			reduce(35), // {, reduce: Expression
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -18753,12 +19210,12 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(85), // terminator, reduce: LabeledStmt
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			nil,        // )
+			shift(551), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -18779,11 +19236,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(85), // }, reduce: LabeledStmt
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -18794,7 +19252,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(92), // terminator, reduce: Block
+			nil,        // terminator
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -18820,11 +19278,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			nil,        // {
-			reduce(92), // }, reduce: Block
+			reduce(49), // {, reduce: OperandName
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -18861,10 +19320,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(35), // {, reduce: Expression
+			reduce(48), // {, reduce: BasicLit
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -18881,7 +19341,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(554), // )
+			nil,        // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -18902,10 +19362,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			nil,        // {
+			reduce(38), // {, reduce: Expression
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -18943,10 +19404,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(49), // {, reduce: OperandName
+			reduce(43), // {, reduce: Operand
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -18960,7 +19422,7 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			nil,        // identifier
+			shift(458), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -18984,10 +19446,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(48), // {, reduce: BasicLit
+			nil,        // {
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19025,10 +19488,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(38), // {, reduce: Expression
+			reduce(45), // {, reduce: Operand
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19066,10 +19530,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(43), // {, reduce: Operand
+			reduce(46), // {, reduce: Literal
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19083,7 +19548,7 @@ var actionTab = actionTable{
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(461), // identifier
+			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -19107,10 +19572,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			nil,        // {
+			reduce(47), // {, reduce: BasicLit
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19148,10 +19614,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(45), // {, reduce: Operand
+			reduce(39), // {, reduce: Expression
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19168,7 +19635,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			nil,        // )
+			shift(553), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -19178,21 +19645,22 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			nil,        // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			nil,        // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(46), // {, reduce: Literal
+			nil,        // {
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19204,7 +19672,7 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // terminator
+			reduce(90), // terminator, reduce: IfStmt
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
@@ -19230,11 +19698,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(47), // {, reduce: BasicLit
-			nil,        // }
+			nil,        // {
+			reduce(90), // }, reduce: IfStmt
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -19271,10 +19740,11 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(39), // {, reduce: Expression
+			reduce(99), // {, reduce: ForClause
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -19291,7 +19761,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(556), // )
+			shift(554), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -19301,19 +19771,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19327,14 +19798,14 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			reduce(93), // terminator, reduce: IfStmt
+			nil,        // terminator
 			nil,        // kwdPackage
-			nil,        // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			nil,        // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			nil,        // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -19344,20 +19815,21 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
+			shift(109), // type
+			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(93), // }, reduce: IfStmt
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -19366,168 +19838,46 @@ var actionTab = actionTable{
 	actionRow{ // S472
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,         // INVALID
-			nil,         // $
-			nil,         // terminator
-			nil,         // kwdPackage
-			nil,         // identifier
-			nil,         // kwdImport
-			nil,         // (
-			nil,         // )
-			nil,         // .
-			nil,         // stringLit
-			nil,         // empty
-			nil,         // kwdVar
-			nil,         // =
-			nil,         // kwdType
-			nil,         // kwdInline
-			nil,         // kwdConst
-			nil,         // singleOperators
-			nil,         // operators
-			nil,         // relOp
-			nil,         // *
-			nil,         // intLit
-			nil,         // ,
-			nil,         // kwdFunc
-			nil,         // kwdVariadic
-			nil,         // type
-			nil,         // kwdInterface
-			nil,         // typeConstructor
-			nil,         // :
-			nil,         // kwdBreak
-			nil,         // kwdRet
-			nil,         // kwdGoto
-			reduce(102), // {, reduce: ForClause
-			nil,         // }
-			nil,         // kwdIf
-			nil,         // not
-			nil,         // kwdFor
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(226), // identifier
+			nil,        // kwdImport
+			shift(227), // (
+			nil,        // )
+			nil,        // .
+			shift(228), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(234), // *
+			shift(237), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
 		},
 	},
 	actionRow{ // S473
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(557), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S474
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(180), // identifier
-			nil,        // kwdImport
-			shift(181), // (
-			nil,        // )
-			nil,        // .
-			shift(182), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S475
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(229), // identifier
-			nil,        // kwdImport
-			shift(230), // (
-			nil,        // )
-			nil,        // .
-			shift(231), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(237), // *
-			shift(240), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S476
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19558,8 +19908,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19568,19 +19919,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S477
+	actionRow{ // S474
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(560), // identifier
+			shift(557), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(561), // stringLit
+			shift(558), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -19590,8 +19941,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(564), // *
-			shift(567), // intLit
+			shift(561), // *
+			shift(564), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -19599,8 +19950,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19609,19 +19961,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S478
+	actionRow{ // S475
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(560), // identifier
+			shift(557), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(561), // stringLit
+			shift(558), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -19631,8 +19983,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(564), // *
-			shift(567), // intLit
+			shift(561), // *
+			shift(564), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -19640,8 +19992,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19650,19 +20003,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S479
+	actionRow{ // S476
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			reduce(50), // ), reduce: Arguments
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -19672,8 +20025,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			reduce(50), // operators, reduce: Arguments
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			reduce(50), // ,, reduce: Arguments
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -19681,8 +20034,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19691,7 +20045,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S480
+	actionRow{ // S477
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19722,8 +20076,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19732,7 +20087,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S481
+	actionRow{ // S478
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19763,8 +20118,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(35), // {, reduce: Expression
 			nil,        // }
@@ -19773,7 +20129,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S482
+	actionRow{ // S479
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19783,7 +20139,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(570), // )
+			shift(567), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -19804,8 +20160,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19814,7 +20171,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S483
+	actionRow{ // S480
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19845,8 +20202,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(49), // {, reduce: OperandName
 			nil,        // }
@@ -19855,19 +20213,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S484
+	actionRow{ // S481
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -19877,8 +20235,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -19886,8 +20244,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19896,7 +20255,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S485
+	actionRow{ // S482
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19927,8 +20286,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(48), // {, reduce: BasicLit
 			nil,        // }
@@ -19937,7 +20297,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S486
+	actionRow{ // S483
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -19946,7 +20306,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			shift(572), // (
+			shift(569), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -19968,8 +20328,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -19978,12 +20339,12 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S487
+	actionRow{ // S484
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,         // INVALID
 			nil,         // $
-			reduce(105), // terminator, reduce: Assignment
+			reduce(102), // terminator, reduce: Assignment
 			nil,         // kwdPackage
 			nil,         // identifier
 			nil,         // kwdImport
@@ -20009,17 +20370,18 @@ var actionTab = actionTable{
 			nil,         // kwdInterface
 			nil,         // typeConstructor
 			nil,         // :
-			nil,         // kwdBreak
 			nil,         // kwdRet
+			nil,         // kwdBreak
+			nil,         // kwdContinue
 			nil,         // kwdGoto
-			reduce(105), // {, reduce: Assignment
+			reduce(102), // {, reduce: Assignment
 			nil,         // }
 			nil,         // kwdIf
 			nil,         // not
 			nil,         // kwdFor
 		},
 	},
-	actionRow{ // S488
+	actionRow{ // S485
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20038,9 +20400,9 @@ var actionTab = actionTable{
 			nil,        // kwdType
 			nil,        // kwdInline
 			nil,        // kwdConst
-			shift(573), // singleOperators
-			shift(574), // operators
-			shift(575), // relOp
+			shift(570), // singleOperators
+			shift(571), // operators
+			shift(572), // relOp
 			nil,        // *
 			nil,        // intLit
 			nil,        // ,
@@ -20050,8 +20412,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(41), // {, reduce: PrimaryExpr
 			nil,        // }
@@ -20060,7 +20423,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S489
+	actionRow{ // S486
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20069,7 +20432,7 @@ var actionTab = actionTable{
 			nil,        // kwdPackage
 			nil,        // identifier
 			nil,        // kwdImport
-			shift(576), // (
+			shift(573), // (
 			nil,        // )
 			nil,        // .
 			nil,        // stringLit
@@ -20091,8 +20454,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(40), // {, reduce: Expression
 			nil,        // }
@@ -20101,7 +20465,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S490
+	actionRow{ // S487
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20132,8 +20496,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(43), // {, reduce: Operand
 			nil,        // }
@@ -20142,14 +20507,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S491
+	actionRow{ // S488
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(483), // identifier
+			shift(480), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -20169,12 +20534,13 @@ var actionTab = actionTable{
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
-			shift(198), // type
+			shift(195), // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -20183,7 +20549,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S492
+	actionRow{ // S489
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20214,8 +20580,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(45), // {, reduce: Operand
 			nil,        // }
@@ -20224,7 +20591,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S493
+	actionRow{ // S490
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20255,8 +20622,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(46), // {, reduce: Literal
 			nil,        // }
@@ -20265,7 +20633,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S494
+	actionRow{ // S491
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20296,8 +20664,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(47), // {, reduce: BasicLit
 			nil,        // }
@@ -20306,7 +20675,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S495
+	actionRow{ // S492
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20337,8 +20706,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(49), // {, reduce: OperandName
 			nil,        // }
@@ -20347,7 +20717,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S496
+	actionRow{ // S493
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20378,8 +20748,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(48), // {, reduce: BasicLit
 			nil,        // }
@@ -20388,7 +20759,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S497
+	actionRow{ // S494
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20419,8 +20790,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(38), // {, reduce: Expression
 			nil,        // }
@@ -20429,7 +20801,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S498
+	actionRow{ // S495
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20460,8 +20832,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(43), // {, reduce: Operand
 			nil,        // }
@@ -20470,14 +20843,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S499
+	actionRow{ // S496
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(495), // identifier
+			shift(492), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -20501,8 +20874,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -20511,7 +20885,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S500
+	actionRow{ // S497
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20542,8 +20916,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(45), // {, reduce: Operand
 			nil,        // }
@@ -20552,7 +20927,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S501
+	actionRow{ // S498
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20583,8 +20958,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(46), // {, reduce: Literal
 			nil,        // }
@@ -20593,7 +20969,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S502
+	actionRow{ // S499
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20624,8 +21000,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(47), // {, reduce: BasicLit
 			nil,        // }
@@ -20634,7 +21011,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S503
+	actionRow{ // S500
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20665,10 +21042,137 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(39), // {, reduce: Expression
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S501
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			shift(576), // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			shift(432), // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			shift(433), // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S502
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(226), // identifier
+			nil,        // kwdImport
+			shift(227), // (
+			nil,        // )
+			nil,        // .
+			shift(228), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(234), // *
+			shift(237), // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			shift(109), // type
+			shift(110), // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(95), // {, reduce: ForClause
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S503
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			shift(578), // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
@@ -20695,19 +21199,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			nil,        // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -20717,129 +21222,6 @@ var actionTab = actionTable{
 		},
 	},
 	actionRow{ // S505
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			shift(229), // identifier
-			nil,        // kwdImport
-			shift(230), // (
-			nil,        // )
-			nil,        // .
-			shift(231), // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			shift(237), // *
-			shift(240), // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			shift(109), // type
-			shift(110), // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			reduce(98), // {, reduce: ForClause
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S506
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			shift(581), // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S507
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // terminator
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			shift(582), // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S508
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20870,8 +21252,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -20880,7 +21263,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S509
+	actionRow{ // S506
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20890,7 +21273,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(583), // )
+			shift(580), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -20911,8 +21294,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -20921,7 +21305,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S510
+	actionRow{ // S507
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20952,8 +21336,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -20962,7 +21347,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S511
+	actionRow{ // S508
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -20993,8 +21378,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21003,7 +21389,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S512
+	actionRow{ // S509
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21034,8 +21420,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21044,7 +21431,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S513
+	actionRow{ // S510
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21075,8 +21462,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21085,14 +21473,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S514
+	actionRow{ // S511
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(510), // identifier
+			shift(507), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -21116,8 +21504,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21126,7 +21515,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S515
+	actionRow{ // S512
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21157,8 +21546,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21167,7 +21557,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S516
+	actionRow{ // S513
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21198,8 +21588,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21208,7 +21599,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S517
+	actionRow{ // S514
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21239,8 +21630,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21249,7 +21641,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S518
+	actionRow{ // S515
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21280,8 +21672,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21290,7 +21683,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S519
+	actionRow{ // S516
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21300,7 +21693,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(585), // )
+			shift(582), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -21310,19 +21703,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21331,7 +21725,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S520
+	actionRow{ // S517
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21362,8 +21756,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21372,7 +21767,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S521
+	actionRow{ // S518
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21403,8 +21798,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21413,7 +21809,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S522
+	actionRow{ // S519
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21444,8 +21840,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21454,7 +21851,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S523
+	actionRow{ // S520
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21485,8 +21882,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21495,7 +21893,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S524
+	actionRow{ // S521
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21505,7 +21903,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(586), // )
+			shift(583), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -21526,8 +21924,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21536,7 +21935,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S525
+	actionRow{ // S522
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21567,8 +21966,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21577,7 +21977,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S526
+	actionRow{ // S523
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21608,8 +22008,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21618,7 +22019,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S527
+	actionRow{ // S524
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21649,8 +22050,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21659,7 +22061,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S528
+	actionRow{ // S525
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21690,8 +22092,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21700,14 +22103,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S529
+	actionRow{ // S526
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(525), // identifier
+			shift(522), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -21731,8 +22134,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21741,7 +22145,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S530
+	actionRow{ // S527
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21772,8 +22176,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21782,7 +22187,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S531
+	actionRow{ // S528
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21813,8 +22218,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21823,7 +22229,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S532
+	actionRow{ // S529
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21854,8 +22260,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21864,7 +22271,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S533
+	actionRow{ // S530
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21895,8 +22302,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21905,7 +22313,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S534
+	actionRow{ // S531
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21915,7 +22323,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(588), // )
+			shift(585), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -21925,19 +22333,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21946,7 +22355,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S535
+	actionRow{ // S532
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -21977,8 +22386,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -21987,7 +22397,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S536
+	actionRow{ // S533
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22018,8 +22428,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22028,7 +22439,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S537
+	actionRow{ // S534
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       // INVALID
@@ -22059,8 +22470,9 @@ var actionTab = actionTable{
 			nil,       // kwdInterface
 			nil,       // typeConstructor
 			nil,       // :
-			nil,       // kwdBreak
 			nil,       // kwdRet
+			nil,       // kwdBreak
+			nil,       // kwdContinue
 			nil,       // kwdGoto
 			nil,       // {
 			reduce(5), // }, reduce: ImportDecl
@@ -22069,7 +22481,7 @@ var actionTab = actionTable{
 			nil,       // kwdFor
 		},
 	},
-	actionRow{ // S538
+	actionRow{ // S535
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22100,8 +22512,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(20), // }, reduce: VarDecl
@@ -22110,7 +22523,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S539
+	actionRow{ // S536
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22141,8 +22554,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(24), // }, reduce: VarSpec
@@ -22151,19 +22565,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S540
+	actionRow{ // S537
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -22173,8 +22587,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -22182,8 +22596,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22192,7 +22607,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S541
+	actionRow{ // S538
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22223,8 +22638,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(35), // }, reduce: Expression
@@ -22233,7 +22649,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S542
+	actionRow{ // S539
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22243,7 +22659,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(590), // )
+			shift(587), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -22264,8 +22680,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22274,7 +22691,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S543
+	actionRow{ // S540
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22305,8 +22722,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(49), // }, reduce: OperandName
@@ -22315,7 +22733,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S544
+	actionRow{ // S541
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22346,8 +22764,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(48), // }, reduce: BasicLit
@@ -22356,7 +22775,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S545
+	actionRow{ // S542
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22387,8 +22806,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(38), // }, reduce: Expression
@@ -22397,7 +22817,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S546
+	actionRow{ // S543
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22428,8 +22848,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(43), // }, reduce: Operand
@@ -22438,14 +22859,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S547
+	actionRow{ // S544
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(543), // identifier
+			shift(540), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -22469,8 +22890,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22479,7 +22901,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S548
+	actionRow{ // S545
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22510,8 +22932,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(45), // }, reduce: Operand
@@ -22520,7 +22943,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S549
+	actionRow{ // S546
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22551,8 +22974,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(46), // }, reduce: Literal
@@ -22561,7 +22985,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S550
+	actionRow{ // S547
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22592,8 +23016,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(47), // }, reduce: BasicLit
@@ -22602,7 +23027,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S551
+	actionRow{ // S548
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22633,8 +23058,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(39), // }, reduce: Expression
@@ -22643,7 +23069,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S552
+	actionRow{ // S549
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22653,7 +23079,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(592), // )
+			shift(589), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -22663,19 +23089,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22684,7 +23111,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S553
+	actionRow{ // S550
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22715,8 +23142,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(31), // }, reduce: ConstDecl
@@ -22725,7 +23153,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S554
+	actionRow{ // S551
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22756,8 +23184,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(36), // {, reduce: Expression
 			nil,        // }
@@ -22766,7 +23195,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S555
+	actionRow{ // S552
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22797,8 +23226,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(44), // {, reduce: Operand
 			nil,        // }
@@ -22807,7 +23237,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S556
+	actionRow{ // S553
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22838,8 +23268,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(42), // {, reduce: PrimaryExpr
 			nil,        // }
@@ -22848,7 +23279,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S557
+	actionRow{ // S554
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22879,8 +23310,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22889,7 +23321,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S558
+	actionRow{ // S555
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -22899,7 +23331,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(593), // )
+			shift(590), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -22920,8 +23352,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -22930,7 +23363,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S559
+	actionRow{ // S556
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,         // INVALID
@@ -22961,17 +23394,18 @@ var actionTab = actionTable{
 			nil,         // kwdInterface
 			nil,         // typeConstructor
 			nil,         // :
-			nil,         // kwdBreak
 			nil,         // kwdRet
+			nil,         // kwdBreak
+			nil,         // kwdContinue
 			nil,         // kwdGoto
-			reduce(103), // {, reduce: ForClause
+			reduce(100), // {, reduce: ForClause
 			nil,         // }
 			nil,         // kwdIf
 			nil,         // not
 			nil,         // kwdFor
 		},
 	},
-	actionRow{ // S560
+	actionRow{ // S557
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23002,8 +23436,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23012,7 +23447,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S561
+	actionRow{ // S558
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23043,8 +23478,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23053,7 +23489,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S562
+	actionRow{ // S559
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23084,8 +23520,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23094,7 +23531,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S563
+	actionRow{ // S560
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23125,8 +23562,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23135,14 +23573,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S564
+	actionRow{ // S561
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(560), // identifier
+			shift(557), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -23166,8 +23604,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23176,7 +23615,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S565
+	actionRow{ // S562
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23207,8 +23646,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23217,7 +23657,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S566
+	actionRow{ // S563
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23248,8 +23688,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23258,7 +23699,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S567
+	actionRow{ // S564
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23289,8 +23730,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23299,7 +23741,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S568
+	actionRow{ // S565
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23330,8 +23772,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23340,7 +23783,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S569
+	actionRow{ // S566
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23350,7 +23793,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(595), // )
+			shift(592), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -23360,19 +23803,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23381,7 +23825,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S570
+	actionRow{ // S567
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23412,8 +23856,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(36), // {, reduce: Expression
 			nil,        // }
@@ -23422,7 +23867,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S571
+	actionRow{ // S568
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23432,7 +23877,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(596), // )
+			shift(593), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -23453,8 +23898,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23463,19 +23909,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S572
+	actionRow{ // S569
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(180), // identifier
+			shift(177), // identifier
 			nil,        // kwdImport
-			shift(181), // (
+			shift(178), // (
 			nil,        // )
 			nil,        // .
-			shift(182), // stringLit
+			shift(179), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -23485,8 +23931,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(188), // *
-			shift(191), // intLit
+			shift(185), // *
+			shift(188), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -23494,8 +23940,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23504,7 +23951,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S573
+	actionRow{ // S570
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23535,8 +23982,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(37), // {, reduce: Expression
 			nil,        // }
@@ -23545,19 +23993,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S574
+	actionRow{ // S571
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(598), // identifier
+			shift(595), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(599), // stringLit
+			shift(596), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -23567,8 +24015,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(602), // *
-			shift(605), // intLit
+			shift(599), // *
+			shift(602), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -23576,8 +24024,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23586,19 +24035,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S575
+	actionRow{ // S572
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(598), // identifier
+			shift(595), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(599), // stringLit
+			shift(596), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -23608,8 +24057,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(602), // *
-			shift(605), // intLit
+			shift(599), // *
+			shift(602), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -23617,8 +24066,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23627,19 +24077,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S576
+	actionRow{ // S573
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(307), // identifier
+			shift(304), // identifier
 			nil,        // kwdImport
-			shift(308), // (
+			shift(305), // (
 			reduce(50), // ), reduce: Arguments
 			nil,        // .
-			shift(309), // stringLit
+			shift(306), // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -23649,8 +24099,8 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			reduce(50), // operators, reduce: Arguments
 			nil,        // relOp
-			shift(316), // *
-			shift(319), // intLit
+			shift(313), // *
+			shift(316), // intLit
 			reduce(50), // ,, reduce: Arguments
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -23658,8 +24108,9 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23668,7 +24119,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S577
+	actionRow{ // S574
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23699,8 +24150,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(44), // {, reduce: Operand
 			nil,        // }
@@ -23709,7 +24161,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S578
+	actionRow{ // S575
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23740,8 +24192,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(44), // {, reduce: Operand
 			nil,        // }
@@ -23750,7 +24203,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S579
+	actionRow{ // S576
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23781,8 +24234,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(42), // {, reduce: PrimaryExpr
 			nil,        // }
@@ -23791,60 +24245,19 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S580
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,         // INVALID
-			nil,         // $
-			nil,         // terminator
-			nil,         // kwdPackage
-			nil,         // identifier
-			nil,         // kwdImport
-			nil,         // (
-			nil,         // )
-			nil,         // .
-			nil,         // stringLit
-			nil,         // empty
-			nil,         // kwdVar
-			nil,         // =
-			nil,         // kwdType
-			nil,         // kwdInline
-			nil,         // kwdConst
-			nil,         // singleOperators
-			nil,         // operators
-			nil,         // relOp
-			nil,         // *
-			nil,         // intLit
-			nil,         // ,
-			nil,         // kwdFunc
-			nil,         // kwdVariadic
-			nil,         // type
-			nil,         // kwdInterface
-			nil,         // typeConstructor
-			nil,         // :
-			nil,         // kwdBreak
-			nil,         // kwdRet
-			nil,         // kwdGoto
-			reduce(101), // {, reduce: ForClause
-			nil,         // }
-			nil,         // kwdIf
-			nil,         // not
-			nil,         // kwdFor
-		},
-	},
-	actionRow{ // S581
+	actionRow{ // S577
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(229), // identifier
+			nil,        // identifier
 			nil,        // kwdImport
-			shift(230), // (
+			nil,        // (
 			nil,        // )
 			nil,        // .
-			shift(231), // stringLit
+			nil,        // stringLit
 			nil,        // empty
 			nil,        // kwdVar
 			nil,        // =
@@ -23854,8 +24267,50 @@ var actionTab = actionTable{
 			nil,        // singleOperators
 			nil,        // operators
 			nil,        // relOp
-			shift(237), // *
-			shift(240), // intLit
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(98), // {, reduce: ForClause
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S578
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			shift(226), // identifier
+			nil,        // kwdImport
+			shift(227), // (
+			nil,        // )
+			nil,        // .
+			shift(228), // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			shift(234), // *
+			shift(237), // intLit
 			nil,        // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
@@ -23863,17 +24318,18 @@ var actionTab = actionTable{
 			shift(110), // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
-			reduce(99), // {, reduce: ForClause
+			reduce(96), // {, reduce: ForClause
 			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S582
+	actionRow{ // S579
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23904,8 +24360,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23914,7 +24371,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S583
+	actionRow{ // S580
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23945,8 +24402,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23955,7 +24413,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S584
+	actionRow{ // S581
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -23986,8 +24444,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -23996,7 +24455,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S585
+	actionRow{ // S582
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24027,8 +24486,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24037,7 +24497,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S586
+	actionRow{ // S583
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24068,8 +24528,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24078,7 +24539,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S587
+	actionRow{ // S584
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24109,8 +24570,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24119,7 +24581,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S588
+	actionRow{ // S585
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24150,8 +24612,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24160,7 +24623,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S589
+	actionRow{ // S586
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24170,7 +24633,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(609), // )
+			shift(606), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -24191,11 +24654,138 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S587
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(36), // terminator, reduce: Expression
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(36), // }, reduce: Expression
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S588
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(44), // terminator, reduce: Operand
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(44), // }, reduce: Operand
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
+		},
+	},
+	actionRow{ // S589
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(42), // terminator, reduce: PrimaryExpr
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			reduce(42), // (, reduce: PrimaryExpr
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			nil,        // {
+			reduce(42), // }, reduce: PrimaryExpr
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -24232,11 +24822,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(36), // }, reduce: Expression
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -24273,11 +24864,12 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(44), // }, reduce: Operand
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
@@ -24314,140 +24906,18 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
-			reduce(42), // }, reduce: PrimaryExpr
+			nil,        // }
 			nil,        // kwdIf
 			nil,        // not
 			nil,        // kwdFor
 		},
 	},
 	actionRow{ // S593
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(36), // terminator, reduce: Expression
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S594
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(44), // terminator, reduce: Operand
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			nil,        // (
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S595
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			reduce(42), // terminator, reduce: PrimaryExpr
-			nil,        // kwdPackage
-			nil,        // identifier
-			nil,        // kwdImport
-			reduce(42), // (, reduce: PrimaryExpr
-			nil,        // )
-			nil,        // .
-			nil,        // stringLit
-			nil,        // empty
-			nil,        // kwdVar
-			nil,        // =
-			nil,        // kwdType
-			nil,        // kwdInline
-			nil,        // kwdConst
-			nil,        // singleOperators
-			nil,        // operators
-			nil,        // relOp
-			nil,        // *
-			nil,        // intLit
-			nil,        // ,
-			nil,        // kwdFunc
-			nil,        // kwdVariadic
-			nil,        // type
-			nil,        // kwdInterface
-			nil,        // typeConstructor
-			nil,        // :
-			nil,        // kwdBreak
-			nil,        // kwdRet
-			nil,        // kwdGoto
-			nil,        // {
-			nil,        // }
-			nil,        // kwdIf
-			nil,        // not
-			nil,        // kwdFor
-		},
-	},
-	actionRow{ // S596
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24478,8 +24948,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(35), // {, reduce: Expression
 			nil,        // }
@@ -24488,7 +24959,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S597
+	actionRow{ // S594
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24498,7 +24969,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(610), // )
+			shift(607), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -24519,8 +24990,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24529,7 +25001,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S598
+	actionRow{ // S595
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24560,8 +25032,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(49), // {, reduce: OperandName
 			nil,        // }
@@ -24570,7 +25043,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S599
+	actionRow{ // S596
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24601,8 +25074,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(48), // {, reduce: BasicLit
 			nil,        // }
@@ -24611,7 +25085,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S600
+	actionRow{ // S597
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24642,8 +25116,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(38), // {, reduce: Expression
 			nil,        // }
@@ -24652,7 +25127,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S601
+	actionRow{ // S598
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24683,8 +25158,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(43), // {, reduce: Operand
 			nil,        // }
@@ -24693,14 +25169,14 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S602
+	actionRow{ // S599
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
 			nil,        // terminator
 			nil,        // kwdPackage
-			shift(598), // identifier
+			shift(595), // identifier
 			nil,        // kwdImport
 			nil,        // (
 			nil,        // )
@@ -24724,8 +25200,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24734,7 +25211,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S603
+	actionRow{ // S600
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24765,8 +25242,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(45), // {, reduce: Operand
 			nil,        // }
@@ -24775,7 +25253,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S604
+	actionRow{ // S601
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24806,8 +25284,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(46), // {, reduce: Literal
 			nil,        // }
@@ -24816,7 +25295,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S605
+	actionRow{ // S602
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24847,8 +25326,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(47), // {, reduce: BasicLit
 			nil,        // }
@@ -24857,7 +25337,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S606
+	actionRow{ // S603
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24888,8 +25368,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(39), // {, reduce: Expression
 			nil,        // }
@@ -24898,7 +25379,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S607
+	actionRow{ // S604
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -24908,7 +25389,7 @@ var actionTab = actionTable{
 			nil,        // identifier
 			nil,        // kwdImport
 			nil,        // (
-			shift(612), // )
+			shift(609), // )
 			nil,        // .
 			nil,        // stringLit
 			nil,        // empty
@@ -24918,19 +25399,20 @@ var actionTab = actionTable{
 			nil,        // kwdInline
 			nil,        // kwdConst
 			nil,        // singleOperators
-			shift(435), // operators
+			shift(432), // operators
 			nil,        // relOp
 			nil,        // *
 			nil,        // intLit
-			shift(436), // ,
+			shift(433), // ,
 			nil,        // kwdFunc
 			nil,        // kwdVariadic
 			nil,        // type
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			nil,        // }
@@ -24939,48 +25421,49 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S608
+	actionRow{ // S605
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,         // INVALID
-			nil,         // $
-			nil,         // terminator
-			nil,         // kwdPackage
-			nil,         // identifier
-			nil,         // kwdImport
-			nil,         // (
-			nil,         // )
-			nil,         // .
-			nil,         // stringLit
-			nil,         // empty
-			nil,         // kwdVar
-			nil,         // =
-			nil,         // kwdType
-			nil,         // kwdInline
-			nil,         // kwdConst
-			nil,         // singleOperators
-			nil,         // operators
-			nil,         // relOp
-			nil,         // *
-			nil,         // intLit
-			nil,         // ,
-			nil,         // kwdFunc
-			nil,         // kwdVariadic
-			nil,         // type
-			nil,         // kwdInterface
-			nil,         // typeConstructor
-			nil,         // :
-			nil,         // kwdBreak
-			nil,         // kwdRet
-			nil,         // kwdGoto
-			reduce(100), // {, reduce: ForClause
-			nil,         // }
-			nil,         // kwdIf
-			nil,         // not
-			nil,         // kwdFor
+			nil,        // INVALID
+			nil,        // $
+			nil,        // terminator
+			nil,        // kwdPackage
+			nil,        // identifier
+			nil,        // kwdImport
+			nil,        // (
+			nil,        // )
+			nil,        // .
+			nil,        // stringLit
+			nil,        // empty
+			nil,        // kwdVar
+			nil,        // =
+			nil,        // kwdType
+			nil,        // kwdInline
+			nil,        // kwdConst
+			nil,        // singleOperators
+			nil,        // operators
+			nil,        // relOp
+			nil,        // *
+			nil,        // intLit
+			nil,        // ,
+			nil,        // kwdFunc
+			nil,        // kwdVariadic
+			nil,        // type
+			nil,        // kwdInterface
+			nil,        // typeConstructor
+			nil,        // :
+			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
+			nil,        // kwdGoto
+			reduce(97), // {, reduce: ForClause
+			nil,        // }
+			nil,        // kwdIf
+			nil,        // not
+			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S609
+	actionRow{ // S606
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -25011,8 +25494,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			nil,        // {
 			reduce(25), // }, reduce: VarSpec
@@ -25021,7 +25505,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S610
+	actionRow{ // S607
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -25052,8 +25536,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(36), // {, reduce: Expression
 			nil,        // }
@@ -25062,7 +25547,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S611
+	actionRow{ // S608
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -25093,8 +25578,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(44), // {, reduce: Operand
 			nil,        // }
@@ -25103,7 +25589,7 @@ var actionTab = actionTable{
 			nil,        // kwdFor
 		},
 	},
-	actionRow{ // S612
+	actionRow{ // S609
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
@@ -25134,8 +25620,9 @@ var actionTab = actionTable{
 			nil,        // kwdInterface
 			nil,        // typeConstructor
 			nil,        // :
-			nil,        // kwdBreak
 			nil,        // kwdRet
+			nil,        // kwdBreak
+			nil,        // kwdContinue
 			nil,        // kwdGoto
 			reduce(42), // {, reduce: PrimaryExpr
 			nil,        // }
