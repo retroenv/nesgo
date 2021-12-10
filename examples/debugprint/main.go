@@ -4,14 +4,22 @@ import (
 	"fmt"
 
 	. "github.com/retroenv/nesgo/pkg/nes"
+	. "github.com/retroenv/nesgo/pkg/neslib"
 )
+
+var keyState = NewUint8(0)
 
 func main() {
 	Start(resetHandler)
 }
 
 func resetHandler() {
-	fmt.Println(*X) // print the content of the X CPU register on start, 0
-	Ldx(0x34)       // set X to 0x34
-	fmt.Println(*X) // print the content of the X CPU register, now 0x34
+	for {
+		ReadJoypad0()
+		Cmp(keyState)
+		if Bne() {
+			fmt.Printf("key state changed: %d\n", *A)
+			Sta(keyState)
+		}
+	}
 }
