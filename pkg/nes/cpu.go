@@ -5,8 +5,6 @@ package nes
 
 import "math"
 
-var notImplemented = "instruction is not implemented yet"
-
 // Adc - Add with Carry.
 func (c *CPU) Adc(params ...interface{}) {
 	timeInstructionExecution()
@@ -97,7 +95,9 @@ func (c *CPU) Bpl() bool {
 // Brk - Force Interrupt.
 func (c *CPU) Brk() {
 	timeInstructionExecution()
-	panic(notImplemented) // TODO: implement
+	if irqHandler != nil {
+		irqHandler()
+	}
 }
 
 // Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.

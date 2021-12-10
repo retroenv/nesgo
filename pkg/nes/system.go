@@ -23,10 +23,8 @@ func newSystem() *System {
 // nolint: unused
 var nmiHandler func()
 
-// nolint: unused
 var irqHandler func()
 
-// nolint: unused
 var resetHandler func()
 
 // Start is the main entrypoint for a NES program that starts the execution.
