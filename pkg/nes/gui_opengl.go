@@ -24,16 +24,16 @@ var openGLKeyMapping = map[glfw.Key]button{
 	glfw.KeyBackspace: buttonSelect,
 }
 
-func setupOpenGLGui(ppu *PPU) (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupOpenGLGui(system *System) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	// GLFW event handling must run on the main OS thread
 	runtime.LockOSThread()
 
-	window, texture, err := setupOpenGL(ppu)
+	window, texture, err := setupOpenGL(system)
 	if err != nil {
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		renderOpenGL(ppu, window, texture)
+		renderOpenGL(system.ppu, window, texture)
 		return !window.ShouldClose(), nil
 	}
 	cleanup := func() {
@@ -43,7 +43,7 @@ func setupOpenGLGui(ppu *PPU) (guiRender func() (bool, error), guiCleanup func()
 	return render, cleanup, nil
 }
 
-func setupOpenGL(ppu *PPU) (*glfw.Window, uint32, error) {
+func setupOpenGL(system *System) (*glfw.Window, uint32, error) {
 	// setup GLFW
 	if err := glfw.Init(); err != nil {
 		return nil, 0, fmt.Errorf("initializing GLFW: %w", err)
@@ -59,7 +59,7 @@ func setupOpenGL(ppu *PPU) (*glfw.Window, uint32, error) {
 		return nil, 0, fmt.Errorf("creating GLFW window: %w", err)
 	}
 
-	window.SetKeyCallback(onGLFWKey)
+	window.SetKeyCallback(onGLFWKey(system))
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)
 
@@ -72,7 +72,7 @@ func setupOpenGL(ppu *PPU) (*glfw.Window, uint32, error) {
 	gl.GenTextures(1, &texture)
 	gl.BindTexture(gl.TEXTURE_2D, texture)
 	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height,
-		0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&ppu.image.Pix[0]))
+		0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&system.ppu.image.Pix[0]))
 
 	return window, texture, nil
 }
@@ -109,19 +109,21 @@ func renderOpenGL(ppu *PPU, window *glfw.Window, texture uint32) {
 	glfw.PollEvents()
 }
 
-func onGLFWKey(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
-	if action == glfw.Press && key == glfw.KeyEscape {
-		window.SetShouldClose(true)
-	}
+func onGLFWKey(system *System) func(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
+	return func(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
+		if action == glfw.Press && key == glfw.KeyEscape {
+			window.SetShouldClose(true)
+		}
 
-	controllerKey, ok := openGLKeyMapping[key]
-	if !ok {
-		return
-	}
-	switch action {
-	case glfw.Press:
-		system.memory.controller1.setButtonState(controllerKey, true)
-	case glfw.Release:
-		system.memory.controller1.setButtonState(controllerKey, false)
+		controllerKey, ok := openGLKeyMapping[key]
+		if !ok {
+			return
+		}
+		switch action {
+		case glfw.Press:
+			system.memory.controller1.setButtonState(controllerKey, true)
+		case glfw.Release:
+			system.memory.controller1.setButtonState(controllerKey, false)
+		}
 	}
 }
