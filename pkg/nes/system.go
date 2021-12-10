@@ -20,6 +20,18 @@ func newSystem() *System {
 	}
 }
 
+// InitializeSystem initializes the NES system.
+// This needs to be called for any unit code that does not use the Start()
+// function, for example in unit tests.
+func InitializeSystem() *System {
+	system := newSystem()
+	setAliases(system.CPU)
+	A = &system.CPU.A
+	X = &system.CPU.X
+	Y = &system.CPU.Y
+	return system
+}
+
 // nolint: unused
 var nmiHandler func()
 
@@ -36,11 +48,7 @@ var resetHandler func()
 // irqHandler:   can be triggered by the NES sound processor or from
 //               certain types of cartridge hardware.
 func Start(resetHandlerParam func(), nmiIrqHandlers ...func()) {
-	system := newSystem()
-	setAliases(system.CPU)
-	A = &system.CPU.A
-	X = &system.CPU.X
-	Y = &system.CPU.Y
+	system := InitializeSystem()
 
 	nmiHandler = nil
 	irqHandler = nil
