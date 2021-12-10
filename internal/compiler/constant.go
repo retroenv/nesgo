@@ -34,6 +34,9 @@ func (p *Package) findConstant(packages map[string]*Package,
 	imports := p.functionFile[caller].Imports
 	for _, imp := range imports {
 		impPack := packages[imp.Path]
+		if impPack == nil {
+			continue
+		}
 		if c, ok := impPack.constants[constant]; ok {
 			return c, nil
 		}
