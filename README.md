@@ -25,6 +25,8 @@ can be used to build a larger project for NES!**
 
 ## Installation
 
+Your system needs to have a recent [Golang](https://go.dev/) version installed.
+
 Install nesgo using `go install github.com/retroenv/nesgo/cmd/nesgo@latest`
 
 Install [cc65](https://github.com/cc65/cc65), it is used for generating 
