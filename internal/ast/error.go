@@ -11,5 +11,4 @@ var (
 	ErrForOnlySimplePostExpressions = errors.New("only simple statements are supported in for loop post expressions")
 	ErrInvalidInitializer           = errors.New("variable initialization has to use constructors like NewUint8()")
 	ErrInvalidVariableName          = errors.New("variable can not use reserved name")
-	ErrFunctionsWithParamsNoInline  = errors.New("functions with parameters without inlining are currently not supported")
 )

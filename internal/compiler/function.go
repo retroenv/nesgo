@@ -55,7 +55,7 @@ func (c *Compiler) resolveFunctionNodes(f *Function) error {
 	}
 
 	f.Body.Nodes = newNodes
-	addFunctionReturn(f)
+	f.addFunctionReturn()
 	return nil
 }
 
@@ -281,7 +281,7 @@ func (c *Compiler) inlineFunctionCall(functionContext *Function,
 				continue
 			}
 
-			val, err := getArgument(functionContext, c.packages, call.Parameter[param.Index])
+			val, err := functionContext.getArgument(c.packages, call.Parameter[param.Index])
 			if err != nil {
 				return nil, err
 			}
@@ -294,15 +294,15 @@ func (c *Compiler) inlineFunctionCall(functionContext *Function,
 
 // getArgument returns the evaluated function call argument to use it for
 // inlining the function.
-func getArgument(functionContext *Function, packages map[string]*Package,
+func (f *Function) getArgument(packages map[string]*Package,
 	item interface{}) (string, error) {
 	switch n := item.(type) {
 	case *ast.Value:
 		return n.Value, nil
 
 	case *ast.Identifier:
-		p := functionContext.Package
-		caller := functionContext.Definition.Name
+		p := f.Package
+		caller := f.Definition.Name
 		con, err := p.findConstant(packages, caller, n.Name)
 		if err == nil {
 			return fmt.Sprint(con.Value), nil
@@ -315,7 +315,7 @@ func getArgument(functionContext *Function, packages map[string]*Package,
 		return "", fmt.Errorf("identifier '%s' not found", n.Name)
 
 	case *ast.ExpressionList:
-		return evaluateExpressionList(functionContext, nil, packages, n)
+		return evaluateExpressionList(f, nil, packages, n)
 
 	default:
 		return "", fmt.Errorf("type %T is not supported as inlining call parameter", n)
@@ -325,7 +325,7 @@ func getArgument(functionContext *Function, packages map[string]*Package,
 // addFunctionReturn adds a return at the end of functions unless the
 // function is inlined or there is already a branching instruction as
 // last node.
-func addFunctionReturn(f *Function) {
+func (f *Function) addFunctionReturn() {
 	if f.Definition.Inline || f.Definition.Name == VarInitFunctionName {
 		return
 	}

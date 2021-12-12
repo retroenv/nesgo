@@ -65,6 +65,13 @@ func NewFunction(def *FunctionDefinition, body interface{}) (Node, error) {
 		}
 		f.Body = l
 	}
+
+	if len(f.Definition.Params) > 0 && !f.Definition.Inline {
+		if err := f.processParams(); err != nil {
+			return nil, err
+		}
+	}
+
 	return f, nil
 }
 
@@ -97,11 +104,16 @@ func NewFunctionHeader(id *Identifier, signature interface{}) (interface{}, erro
 		}
 	}
 
-	if len(f.Params) > 0 && !f.Inline {
-		return nil, ErrFunctionsWithParamsNoInline
+	return f, nil
+}
+
+func (f *Function) processParams() error {
+	if f.Body == nil {
+		return fmt.Errorf("missing function body")
 	}
 
-	return f, nil
+	// TODO continue
+	return nil
 }
 
 // Inline is an inline declaration.

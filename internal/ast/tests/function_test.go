@@ -2,8 +2,6 @@ package tests
 
 import (
 	"testing"
-
-	"github.com/retroenv/nesgo/internal/ast"
 )
 
 var emptyFunction = []byte(`
@@ -82,7 +80,7 @@ var functionTestCases = []testCase{
 		"not inlined function with single param",
 		functionSingleParam,
 		"",
-		ast.ErrFunctionsWithParamsNoInline.Error(),
+		"",
 	},
 	{
 		"function with return in body",
