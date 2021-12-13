@@ -60,11 +60,11 @@ func New(cfg *Config) (*Compiler, error) {
 	}, nil
 }
 
-// Parse parses a new file and it's imports.
-func (c *Compiler) Parse(fileName string) error {
-	file, err := parseFile(fileName)
+// Parse parses a file content and it's imports.
+func (c *Compiler) Parse(fileName string, data []byte) error {
+	file, err := parseFile(fileName, data)
 	if err != nil {
-		return fmt.Errorf("parsing file '%s': %w", fileName, err)
+		return fmt.Errorf("parsing file: %w", err)
 	}
 	if file.IsIgnored {
 		return fmt.Errorf("file '%s' has ignore header set", fileName)

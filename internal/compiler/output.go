@@ -99,7 +99,7 @@ func (c *Compiler) outputLine(format string, a ...interface{}) {
 }
 
 func (c *Compiler) outputLineWithComment(comment, format string, a ...interface{}) {
-	if comment == "" {
+	if comment == "" || c.cfg.DisableComments {
 		c.outputLine(format, a...)
 		return
 	}

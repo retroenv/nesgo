@@ -3,7 +3,7 @@ package compiler
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path"
 	"strings"
 
@@ -41,7 +41,7 @@ func parsePackage(name string) (*Package, error) {
 	}
 
 	dir := path.Join(directory, strings.TrimPrefix(name, packName))
-	files, err := ioutil.ReadDir(dir)
+	files, err := os.ReadDir(dir)
 	if err != nil {
 		return nil, fmt.Errorf("reading package '%s' directory: %w", name, err)
 	}
@@ -54,7 +54,11 @@ func parsePackage(name string) (*Package, error) {
 		}
 
 		fullPath := path.Join(dir, fileName)
-		file, err := parseFile(fullPath)
+		data, err := os.ReadFile(fullPath)
+		if err != nil {
+			return nil, fmt.Errorf("reading file: %w", err)
+		}
+		file, err := parseFile(fullPath, data)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file '%s': %w", fullPath, err)
 		}
