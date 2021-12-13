@@ -48,7 +48,11 @@ func compileFile(input, output string) error {
 		return fmt.Errorf("creating compiler: %w", err)
 	}
 
-	if err = c.Parse(input); err != nil {
+	data, err := os.ReadFile(input)
+	if err != nil {
+		return fmt.Errorf("reading file: %w", err)
+	}
+	if err = c.Parse(input, data); err != nil {
 		return fmt.Errorf("parsing file '%s': %w", input, err)
 	}
 

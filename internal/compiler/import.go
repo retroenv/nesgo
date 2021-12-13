@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path"
 	"path/filepath"
@@ -38,7 +37,7 @@ func currentPackage() (pack string, directory string, err error) {
 	}
 
 	full := path.Join(parent, info.Name())
-	data, err := ioutil.ReadFile(full)
+	data, err := os.ReadFile(full)
 	if err != nil {
 		return "", "", fmt.Errorf("reading file '%s': %w", full, err)
 	}

@@ -5,7 +5,6 @@ import (
 	"bytes"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"strings"
 
 	"github.com/retroenv/nesgo/internal/ast"
@@ -26,18 +25,13 @@ type File struct {
 
 // parseFile parses the file using the lexer and parser and returns an AST
 // presentation of the file.
-func parseFile(file string) (*File, error) {
-	data, err := ioutil.ReadFile(file)
-	if err != nil {
-		return nil, fmt.Errorf("reading file: %w", err)
-	}
-
+func parseFile(fileName string, data []byte) (*File, error) {
 	ignored, err := isFileIgnored(data)
 	if err != nil {
 		return nil, err
 	}
 	f := &File{
-		Path: file,
+		Path: fileName,
 	}
 	if ignored {
 		f.IsIgnored = true
