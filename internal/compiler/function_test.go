@@ -27,7 +27,24 @@ var functionRegisterParamAssembly = `
 .endproc
 `
 
+var instructionRegisterParam = []byte(`
+func test() {
+  Sta(0x200, X)
+}
+`)
+var instructionRegisterParamAssembly = `
+.proc test
+  sta $0200, X
+  rts
+.endproc
+`
+
 var functionTestCases = []testCase{
+	{
+		"instruction with register as index param",
+		instructionRegisterParam,
+		instructionRegisterParamAssembly,
+	},
 	{
 		"function with register as param",
 		functionRegisterParam,

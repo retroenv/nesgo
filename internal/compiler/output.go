@@ -122,8 +122,6 @@ func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
 
 	case 1:
 		return c.outputInstruction1Arg(ins, info)
-	case 2:
-		return c.outputInstruction2Args(ins, info)
 	}
 
 	return fmt.Errorf("instruction '%s' has unsupported parameters '%s'", ins.Name, ins.Arguments)
@@ -147,19 +145,22 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInst
 			return nil
 		}
 	}
-	if info.HasAddressing(ast.ZeroPageAddressing) {
+	if info.HasAddressing(ast.ZeroPageAddressing | ast.ZeroPageXAddressing | ast.ZeroPageYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 8); err == nil {
-			c.outputLineWithComment(ins.Comment, "  %s $%02x", ins.Name, val)
+			register := instructionIndexRegister(ins)
+			c.outputLineWithComment(ins.Comment, "  %s $%02x%s", ins.Name, val, register)
 			return nil
 		}
 	}
-	if info.HasAddressing(ast.AbsoluteAddressing) {
+	if info.HasAddressing(ast.AbsoluteAddressing | ast.AbsoluteXAddressing | ast.AbsoluteYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 16); err == nil {
-			c.outputLineWithComment(ins.Comment, "  %s $%04x", ins.Name, val)
+			register := instructionIndexRegister(ins)
+			c.outputLineWithComment(ins.Comment, "  %s $%04x%s", ins.Name, val, register)
 			return nil
 		}
 		if _, ok := c.variables[node.Value]; ok {
-			c.outputLineWithComment(ins.Comment, "  %s %s", ins.Name, node.Value)
+			register := instructionIndexRegister(ins)
+			c.outputLineWithComment(ins.Comment, "  %s %s%s", ins.Name, node.Value, register)
 			return nil
 		}
 	}
@@ -167,49 +168,15 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInst
 		"has an unexpected parameter '%s'", ins.Name, arg)
 }
 
-func (c *Compiler) outputInstruction2Args(ins *ast.Instruction, info *ast.CPUInstruction) error {
-	arg1 := ins.Arguments[0]
-	node1, ok := arg1.(*ast.ArgumentValue)
-	if !ok {
-		return fmt.Errorf("wrong argument type %T for instruction", arg1)
+func instructionIndexRegister(ins *ast.Instruction) string {
+	switch ins.Addressing {
+	case ast.AbsoluteXAddressing, ast.ZeroPageXAddressing:
+		return ", X"
+	case ast.AbsoluteYAddressing, ast.ZeroPageYAddressing:
+		return ", Y"
+	default:
+		return ""
 	}
-	arg2 := ins.Arguments[1]
-	node2, ok := arg2.(*ast.ArgumentValue)
-	if !ok {
-		return fmt.Errorf("wrong argument type %T for instruction", arg2)
-	}
-
-	if node2.Value == "X" {
-		if info.HasAddressing(ast.ZeroPageXAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 8); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%02x, %s", ins.Name, val, arg2)
-				return nil
-			}
-		}
-		if info.HasAddressing(ast.AbsoluteXAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 16); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%04x, %s", ins.Name, val, arg2)
-				return nil
-			}
-		}
-	}
-	if node2.Value == "Y" {
-		if info.HasAddressing(ast.ZeroPageYAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 8); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%02x, %s", ins.Name, val, arg2)
-				return nil
-			}
-		}
-		if info.HasAddressing(ast.AbsoluteYAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 16); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%04x, %s", ins.Name, val, arg2)
-				return nil
-			}
-		}
-	}
-
-	return fmt.Errorf("instruction '%s' with 2 arguments "+
-		"has an unexpected parameters '%s' and '%s'", ins.Name, arg1, arg2)
 }
 
 func (c *Compiler) outputVariables() error {
