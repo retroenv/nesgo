@@ -15,7 +15,7 @@ func main() {
 
 func resetHandler() {
 	for {
-		ReadJoypad0()
+		ReadJoypad(0)
 		Cmp(keyState)
 		if Bne() {
 			fmt.Printf("key state changed: %d\n", *A)
