@@ -1,6 +1,7 @@
 package ast
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
@@ -45,10 +46,11 @@ func (f Function) String() string {
 
 // FunctionDefinition is a function definition.
 type FunctionDefinition struct {
-	Inline     bool
-	Name       string
-	Params     []*Variable
-	ParamIndex map[string]int
+	Inline           bool
+	Name             string
+	Params           []*Variable
+	ParamInitializer map[string]*Instruction
+	ParamIndex       map[string]int // maps parameter name to index
 }
 
 // NewFunction returns a function declaration.
@@ -78,8 +80,9 @@ func NewFunction(def *FunctionDefinition, body interface{}) (Node, error) {
 // NewFunctionHeader returns a function header.
 func NewFunctionHeader(id *Identifier, signature interface{}) (interface{}, error) {
 	f := &FunctionDefinition{
-		Name:       id.Name,
-		ParamIndex: map[string]int{},
+		Name:             id.Name,
+		ParamInitializer: map[string]*Instruction{},
+		ParamIndex:       map[string]int{},
 	}
 
 	switch s := signature.(type) {
@@ -109,10 +112,35 @@ func NewFunctionHeader(id *Identifier, signature interface{}) (interface{}, erro
 
 func (f *Function) processParams() error {
 	if f.Body == nil {
-		return fmt.Errorf("missing function body")
+		return errors.New("missing function body")
+	}
+	body := f.Body.Nodes[:0] // filter initializer nodes without allocation
+
+	// look for instructions that use the function parameters
+	for _, n := range f.Body.Nodes {
+		ins, ok := n.(*Instruction)
+		if !ok || len(ins.Arguments) == 0 {
+			body = append(body, n)
+			continue // not an instruction or no arguments
+		}
+
+		arg, ok := ins.Arguments[0].(*ArgumentValue)
+		if !ok {
+			body = append(body, n)
+			continue // wrong type
+		}
+		if _, ok = f.Definition.ParamIndex[arg.Value]; !ok {
+			body = append(body, n)
+			continue // not a param of the function
+		}
+
+		if _, ok = f.Definition.ParamInitializer[arg.Value]; ok {
+			return fmt.Errorf("parameter %s can only be referenced once", arg.Value)
+		}
+		f.Definition.ParamInitializer[arg.Value] = ins
 	}
 
-	// TODO continue
+	f.Body.Nodes = body
 	return nil
 }
 
