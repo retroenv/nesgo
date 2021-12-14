@@ -3,7 +3,7 @@ package neslib
 import . "github.com/retroenv/nesgo/pkg/nes"
 
 // ReadJoypad returns all joypad bits in the A register.
-// y defines the joypad, must be set to 0 or 1.
+// index defines the joypad, must be set to 0 or 1.
 func ReadJoypad(index uint8) {
 	Ldy(index)
 	Lda(1)
