@@ -18,7 +18,7 @@ var functionRegisterParamAssembly = `
   dex
   ldy #$00
   jsr testParam
-  rts
+  rti
 .endproc
 
 .proc testParam
@@ -35,7 +35,7 @@ func test() {
 var instructionRegisterParamAssembly = `
 .proc test
   sta $0200, X
-  rts
+  rti
 .endproc
 `
 

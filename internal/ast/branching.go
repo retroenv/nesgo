@@ -6,12 +6,13 @@ import (
 )
 
 const (
-	breakStatement    = "break"
-	continueStatement = "continue"
-	GotoInstruction   = "goto"
-	JmpInstruction    = "jmp"
-	NotOperator       = "!"
-	ReturnInstruction = "rts"
+	breakStatement             = "break"
+	continueStatement          = "continue"
+	GotoInstruction            = "goto"
+	JmpInstruction             = "jmp"
+	NotOperator                = "!"
+	ReturnInstruction          = "rts"
+	ReturnInterruptInstruction = "rti"
 )
 
 // Branching is a branching declaration.
