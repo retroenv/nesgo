@@ -18,8 +18,12 @@ type Function struct {
 	Definition *ast.FunctionDefinition
 	Body       *ast.NodeList
 
-	Package *Package              // package that this function belongs to
-	Labels  map[string]*ast.Label // map of all labels in this function
+	// package that this function belongs to
+	Package *Package
+	// map of all labels in this function
+	Labels map[string]*ast.Label
+	// function is an IRQ handler and has to return with rti instruction
+	IrqHandler bool
 }
 
 // resolveFunctionNodes parses all nodes of a function and resolves
@@ -114,6 +118,24 @@ func (c *Compiler) handleStartCall(n *ast.Call) error {
 	}
 
 	return nil
+}
+
+// processIrqHandlers sets the IRQ handler flag of functions referenced as
+// parameter to the Start() call to true.
+func (c *Compiler) processIrqHandlers() {
+	if c.resetHandler != "" {
+		resetHandler := c.functionsAdded[mainContextPrefix+c.resetHandler]
+		resetHandler.IrqHandler = true
+	}
+
+	if c.nmiHandler != "" {
+		nmiHandler := c.functionsAdded[mainContextPrefix+c.nmiHandler]
+		nmiHandler.IrqHandler = true
+	}
+	if c.irqHandler != "" {
+		irqHandler := c.functionsAdded[mainContextPrefix+c.irqHandler]
+		irqHandler.IrqHandler = true
+	}
 }
 
 // resolveInstruction replaces all constant references of instruction
@@ -375,14 +397,21 @@ func (f *Function) addFunctionReturn() {
 			return
 
 		case *ast.Instruction:
-			if n.Name == ast.ReturnInstruction {
+			if n.Name == ast.ReturnInstruction ||
+				n.Name == ast.ReturnInterruptInstruction {
 				return
 			}
 		}
 	}
 
-	f.Body.Nodes = append(f.Body.Nodes, &ast.Instruction{
-		Name:    ast.ReturnInstruction,
-		Comment: "automatically added by nesgo",
-	})
+	i := &ast.Instruction{
+		Comment: "automatically added",
+	}
+	if f.IrqHandler {
+		i.Name = ast.ReturnInterruptInstruction
+	} else {
+		i.Name = ast.ReturnInstruction
+	}
+
+	f.Body.Nodes = append(f.Body.Nodes, i)
 }

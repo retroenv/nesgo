@@ -14,10 +14,11 @@ import (
 const cpuRegisterSize = 16
 
 var (
-	buildHeader1   = []byte("// +build ")
-	buildHeader2   = []byte("//go:build ")
-	nesGoIgnoreTag = "!nesgo"
-	testFileSuffix = "_test.go"
+	buildHeader1      = []byte("// +build ")
+	buildHeader2      = []byte("//go:build ")
+	mainContextPrefix = "main."
+	nesGoIgnoreTag    = "!nesgo"
+	testFileSuffix    = "_test.go"
 )
 
 // Compiler defines a new compiler.
@@ -137,6 +138,7 @@ func (c *Compiler) optimize() error {
 			}
 		}
 	}
+	c.processIrqHandlers()
 
 	if len(c.variablesInitialized) > 0 {
 		if err := c.createVariableInitializations(mainPackage); err != nil {
@@ -165,21 +167,21 @@ func (c *Compiler) addHandlersToParse(mainPackage *Package) error {
 	if resetHandler == nil {
 		return fmt.Errorf("reset handler function '%s' not found", c.resetHandler)
 	}
-	c.functionsToParse["main."+resetHandler.Definition.Name] = resetHandler
+	c.functionsToParse[mainContextPrefix+resetHandler.Definition.Name] = resetHandler
 
 	if c.nmiHandler != "" {
 		nmiHandler := mainPackage.functions[c.nmiHandler]
 		if nmiHandler == nil {
 			return fmt.Errorf("nmi handler function '%s' not found", c.nmiHandler)
 		}
-		c.functionsToParse["main."+nmiHandler.Definition.Name] = nmiHandler
+		c.functionsToParse[mainContextPrefix+nmiHandler.Definition.Name] = nmiHandler
 	}
 	if c.irqHandler != "" {
 		irqHandler := mainPackage.functions[c.irqHandler]
 		if irqHandler == nil {
 			return fmt.Errorf("irq handler function '%s' not found", c.irqHandler)
 		}
-		c.functionsToParse["main."+irqHandler.Definition.Name] = irqHandler
+		c.functionsToParse[mainContextPrefix+irqHandler.Definition.Name] = irqHandler
 	}
 	return nil
 }
