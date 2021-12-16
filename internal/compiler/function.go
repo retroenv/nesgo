@@ -59,7 +59,6 @@ func (c *Compiler) resolveFunctionNodes(f *Function) error {
 	}
 
 	f.Body.Nodes = newNodes
-	f.addFunctionReturn()
 	return nil
 }
 
@@ -394,7 +393,9 @@ func (f *Function) addFunctionReturn() {
 		last := f.Body.Nodes[len(f.Body.Nodes)-1]
 		switch n := last.(type) {
 		case *ast.Branching:
-			return
+			if n.Instruction == ast.JmpInstruction {
+				return
+			}
 
 		case *ast.Instruction:
 			if n.Name == ast.ReturnInstruction ||

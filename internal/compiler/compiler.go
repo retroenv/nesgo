@@ -138,7 +138,11 @@ func (c *Compiler) optimize() error {
 			}
 		}
 	}
+
 	c.processIrqHandlers()
+	for _, fun := range c.functionsAdded {
+		fun.addFunctionReturn()
+	}
 
 	if len(c.variablesInitialized) > 0 {
 		if err := c.createVariableInitializations(mainPackage); err != nil {
