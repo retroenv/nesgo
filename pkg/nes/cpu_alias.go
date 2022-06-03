@@ -6,9 +6,10 @@ package nes
 // CPU registers that can be used as parameter for instructions that support
 // absolute or indirect indexing using X or Y register.
 var (
-	A *uint8 // x register
-	X *uint8 // x register
-	Y *uint8 // y register
+	A  *uint8  // accumulator
+	X  *uint8  // x register
+	Y  *uint8  // y register
+	PC *uint16 // program counter
 )
 
 // cpu instructions, linked to the uninitialized cpu type functions to allow
@@ -25,24 +26,40 @@ var (
 	// Bcc - Branch if Carry Clear - returns whether the
 	// carry flag is clear.
 	Bcc = docCPU.Bcc
+	// bcc - Branch if Carry Clear.
+	bcc = docCPU.bcc
 	// Bcs - Branch if Carry Set - returns whether the carry flag is set.
 	Bcs = docCPU.Bcs
+	// bcs - Branch if Carry Set.
+	bcs = docCPU.bcs
 	// Beq - Branch if Equal - returns whether the zero flag is set.
 	Beq = docCPU.Beq
+	// beq - Branch if Equal.
+	beq = docCPU.beq
 	// Bit - Bit Test - set the Z flag by ANDing A with given address content.
 	Bit = docCPU.Bit
 	// Bmi - Branch if Minus - returns whether the negative flag is set.
 	Bmi = docCPU.Bmi
+	// bmi - Branch if Minus.
+	bmi = docCPU.bmi
 	// Bne - Branch if Not Equal - returns whether the zero flag is clear.
 	Bne = docCPU.Bne
+	// bne - Branch if Not Equal.
+	bne = docCPU.bne
 	// Bpl - Branch if Positive - returns whether the negative flag is clear.
 	Bpl = docCPU.Bpl
+	// bpl - Branch if Positive.
+	bpl = docCPU.bpl
 	// Brk - Force Interrupt.
 	Brk = docCPU.Brk
 	// Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
 	Bvc = docCPU.Bvc
+	// bvc - Branch if Overflow Clear.
+	bvc = docCPU.bvc
 	// Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
 	Bvs = docCPU.Bvs
+	// bvs - Branch if Overflow Set.
+	bvs = docCPU.bvs
 	// Clc - Clear Carry Flag.
 	Clc = docCPU.Clc
 	// Cld - Clear Decimal Mode.
@@ -57,16 +74,24 @@ var (
 	Cpx = docCPU.Cpx
 	// Cpy - Compare Y Register - compares the contents of Y.
 	Cpy = docCPU.Cpy
+	// Dec - Decrement memory.
+	Dec = docCPU.Dec
 	// Dex - Decrement X Register.
 	Dex = docCPU.Dex
 	// Dey - Decrement Y Register.
 	Dey = docCPU.Dey
 	// Eor - Exclusive OR - XOR.
 	Eor = docCPU.Eor
+	// Inc - Increments memory.
+	Inc = docCPU.Inc
 	// Inx - Increment X Register.
 	Inx = docCPU.Inx
 	// Iny - Increment Y Register.
 	Iny = docCPU.Iny
+	// jump - jump to address.
+	jmp = docCPU.jmp
+	// jsr - jump to subroutine.
+	jsr = docCPU.jsr
 	// Lda - Load Accumulator - load a byte into A.
 	Lda = docCPU.Lda
 	// Ldx - Load X Register - load a byte into X.
@@ -93,6 +118,10 @@ var (
 	Ror = docCPU.Ror
 	// Rti - Return from Interrupt.
 	Rti = docCPU.Rti
+	// rti - Return from Interrupt.
+	rti = docCPU.rti
+	// rts - return from subroutine.
+	rts = docCPU.rts
 	// Sbc - subtract with Carry.
 	Sbc = docCPU.Sbc
 	// Sec - Set Carry Flag.
@@ -130,15 +159,22 @@ func setAliases(cpu *CPU) {
 	And = cpu.And
 	Asl = cpu.Asl
 	Bcc = cpu.Bcc
+	bcc = cpu.bcc
 	Bcs = cpu.Bcs
+	bcs = cpu.bcs
 	Beq = cpu.Beq
+	beq = cpu.beq
 	Bit = cpu.Bit
 	Bmi = cpu.Bmi
 	Bne = cpu.Bne
+	bne = cpu.bne
 	Bpl = cpu.Bpl
+	bpl = cpu.bpl
 	Brk = cpu.Brk
 	Bvc = cpu.Bvc
+	bvc = cpu.bvc
 	Bvs = cpu.Bvs
+	bvs = cpu.bvs
 	Clc = cpu.Clc
 	Cld = cpu.Cld
 	Cli = cpu.Cli
@@ -146,11 +182,15 @@ func setAliases(cpu *CPU) {
 	Cmp = cpu.Cmp
 	Cpx = cpu.Cpx
 	Cpy = cpu.Cpy
+	Dec = cpu.Dec
 	Dex = cpu.Dex
 	Dey = cpu.Dey
 	Eor = cpu.Eor
+	Inc = cpu.Inc
 	Inx = cpu.Inx
 	Iny = cpu.Iny
+	jmp = cpu.jmp
+	jsr = cpu.jsr
 	Lda = cpu.Lda
 	Ldx = cpu.Ldx
 	Ldy = cpu.Ldy
@@ -164,6 +204,8 @@ func setAliases(cpu *CPU) {
 	Rol = cpu.Rol
 	Ror = cpu.Ror
 	Rti = cpu.Rti
+	rti = cpu.rti
+	rts = cpu.rts
 	Sbc = cpu.Sbc
 	Sec = cpu.Sec
 	Sed = cpu.Sed

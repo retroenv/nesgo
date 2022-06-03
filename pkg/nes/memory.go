@@ -6,6 +6,8 @@ package nes
 import (
 	"fmt"
 	"math"
+
+	"github.com/retroenv/nesgo/pkg/ines"
 )
 
 // Memory implements the memory controller.
@@ -14,6 +16,7 @@ type Memory struct {
 	ppu         *PPU
 	controller1 *controller
 	controller2 *controller
+	cartridge   *ines.Cartridge
 
 	// point to X/Y for comparison of indirect register
 	// parameters in unit tests.
@@ -224,6 +227,8 @@ func (m *Memory) readMemory(address uint16) byte {
 		return m.controller2.read()
 	case address == APU_CHAN_CTRL:
 		return 0 // TODO
+	case address >= 0x8000: // TODO implement mapper
+		return m.cartridge.PRG[address-0x8000]
 	default:
 		panic(fmt.Sprintf("unhandled memory read at address: 0x%04X", address))
 	}
