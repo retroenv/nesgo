@@ -5,23 +5,26 @@ package nes
 
 import (
 	"fmt"
+	"image"
 	"runtime"
 
 	"github.com/go-gl/gl/v2.1/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
+	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/ppu"
 )
 
 var guiStarter = setupOpenGLGui
 
-var openGLKeyMapping = map[glfw.Key]button{
-	glfw.KeyUp:        buttonUp,
-	glfw.KeyDown:      buttonDown,
-	glfw.KeyLeft:      buttonLeft,
-	glfw.KeyRight:     buttonRight,
-	glfw.KeyZ:         buttonA,
-	glfw.KeyX:         buttonB,
-	glfw.KeyEnter:     buttonStart,
-	glfw.KeyBackspace: buttonSelect,
+var openGLKeyMapping = map[glfw.Key]controller.Button{
+	glfw.KeyUp:        controller.ButtonUp,
+	glfw.KeyDown:      controller.ButtonDown,
+	glfw.KeyLeft:      controller.ButtonLeft,
+	glfw.KeyRight:     controller.ButtonRight,
+	glfw.KeyZ:         controller.ButtonA,
+	glfw.KeyX:         controller.ButtonB,
+	glfw.KeyEnter:     controller.ButtonStart,
+	glfw.KeyBackspace: controller.ButtonSelect,
 }
 
 func setupOpenGLGui(system *System) (guiRender func() (bool, error), guiCleanup func(), err error) {
@@ -33,7 +36,8 @@ func setupOpenGLGui(system *System) (guiRender func() (bool, error), guiCleanup 
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		renderOpenGL(system.ppu, window, texture)
+		img := system.ppu.Image()
+		renderOpenGL(img, window, texture)
 		return !window.ShouldClose(), nil
 	}
 	cleanup := func() {
@@ -53,7 +57,7 @@ func setupOpenGL(system *System) (*glfw.Window, uint32, error) {
 	glfw.WindowHint(glfw.ContextVersionMajor, 2)
 	glfw.WindowHint(glfw.ContextVersionMinor, 1)
 
-	window, err := glfw.CreateWindow(width*scaleFactor, height*scaleFactor,
+	window, err := glfw.CreateWindow(ppu.Width*scaleFactor, ppu.Height*scaleFactor,
 		windowTitle, nil, nil)
 	if err != nil {
 		return nil, 0, fmt.Errorf("creating GLFW window: %w", err)
@@ -71,16 +75,17 @@ func setupOpenGL(system *System) (*glfw.Window, uint32, error) {
 	var texture uint32
 	gl.GenTextures(1, &texture)
 	gl.BindTexture(gl.TEXTURE_2D, texture)
-	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height,
-		0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&system.ppu.image.Pix[0]))
+	img := system.ppu.Image()
+	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, ppu.Width, ppu.Height,
+		0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&img.Pix[0]))
 
 	return window, texture, nil
 }
 
-func renderOpenGL(ppu *PPU, window *glfw.Window, texture uint32) {
+func renderOpenGL(img *image.RGBA, window *glfw.Window, texture uint32) {
 	gl.BindTexture(gl.TEXTURE_2D, texture)
-	gl.TexSubImage2D(gl.TEXTURE_2D, 0, 0, 0, width, height,
-		gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&ppu.image.Pix[0]))
+	gl.TexSubImage2D(gl.TEXTURE_2D, 0, 0, 0, ppu.Width, ppu.Height,
+		gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&img.Pix[0]))
 
 	// disable any filtering to avoid blurring the texture
 	gl.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST)
@@ -89,7 +94,7 @@ func renderOpenGL(ppu *PPU, window *glfw.Window, texture uint32) {
 	// set an orthogonal projection (2D) with the size of the screen
 	gl.MatrixMode(gl.PROJECTION)
 	gl.LoadIdentity()
-	gl.Ortho(0.0, width, 0.0, height, -1.0, 1.0)
+	gl.Ortho(0.0, ppu.Width, 0.0, ppu.Height, -1.0, 1.0)
 	gl.MatrixMode(gl.MODELVIEW)
 
 	// render a single quad with the size of the screen and with the
@@ -98,11 +103,11 @@ func renderOpenGL(ppu *PPU, window *glfw.Window, texture uint32) {
 	gl.TexCoord2d(0.0, 1.0)
 	gl.Vertex2d(0.0, 0.0)
 	gl.TexCoord2d(1.0, 1.0)
-	gl.Vertex2d(width, 0.0)
+	gl.Vertex2d(ppu.Width, 0.0)
 	gl.TexCoord2d(1.0, 0.0)
-	gl.Vertex2d(width, height)
+	gl.Vertex2d(ppu.Width, ppu.Height)
 	gl.TexCoord2d(0.0, 0.0)
-	gl.Vertex2d(0.0, height)
+	gl.Vertex2d(0.0, ppu.Height)
 	gl.End()
 
 	window.SwapBuffers()
@@ -121,9 +126,9 @@ func onGLFWKey(system *System) func(window *glfw.Window, key glfw.Key, _ int, ac
 		}
 		switch action {
 		case glfw.Press:
-			system.memory.controller1.setButtonState(controllerKey, true)
+			system.controller1.SetButtonState(controllerKey, true)
 		case glfw.Release:
-			system.memory.controller1.setButtonState(controllerKey, false)
+			system.controller1.SetButtonState(controllerKey, false)
 		}
 	}
 }

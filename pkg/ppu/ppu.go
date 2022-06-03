@@ -1,7 +1,7 @@
 //go:build !nesgo
 // +build !nesgo
 
-package nes
+package ppu
 
 import (
 	"fmt"
@@ -10,22 +10,22 @@ import (
 )
 
 const (
-	width  = 256
-	height = 240
+	Width  = 256
+	Height = 240
 	fps    = 60
 )
 
 // PPU implements the Picture Processing Unit.
 type PPU struct {
 	ptr uint16
-	ram *RAM
+	ram ram
 
 	image *image.RGBA
 }
 
-func newPPU() *PPU {
+func New(ram ram) *PPU {
 	p := &PPU{
-		ram: newRAM(0x2000),
+		ram: ram,
 	}
 	p.reset()
 	return p
@@ -33,14 +33,18 @@ func newPPU() *PPU {
 
 func (p *PPU) reset() {
 	p.ptr = 0
-	p.ram.reset()
-	p.image = image.NewRGBA(image.Rect(0, 0, width, height))
+	p.ram.Reset()
+	p.image = image.NewRGBA(image.Rect(0, 0, Width, Height))
 }
 
-func (p *PPU) readRegister(address uint16) byte {
+func (p *PPU) Image() *image.RGBA {
+	return p.image
+}
+
+func (p *PPU) ReadRegister(address uint16) byte {
 	switch address {
 	case PPU_STATUS:
-		b := p.ram.readMemory(address)
+		b := p.ram.ReadMemory(address)
 		p.ptr = 0
 		p.clearVBlank()
 		return b
@@ -50,10 +54,10 @@ func (p *PPU) readRegister(address uint16) byte {
 	}
 }
 
-func (p *PPU) writeRegister(address uint16, value byte) {
+func (p *PPU) WriteRegister(address uint16, value byte) {
 	switch address {
 	case PPU_CTRL, PPU_MASK:
-		p.ram.writeMemory(address, value)
+		p.ram.WriteMemory(address, value)
 
 	case PPU_ADDR:
 		p.ptr = p.ptr<<8 | uint16(value)
@@ -63,7 +67,7 @@ func (p *PPU) writeRegister(address uint16, value byte) {
 			panic(fmt.Sprintf("ppu data address 0x%04X is out of range", p.ptr))
 		}
 
-		p.ram.writeMemory(p.ptr, value)
+		p.ram.WriteMemory(p.ptr, value)
 
 		// TODO handle special addresses
 		// TODO handle vram delta
@@ -76,44 +80,44 @@ func (p *PPU) writeRegister(address uint16, value byte) {
 
 // nolint: unused
 func (p *PPU) setVBlank() {
-	status := p.ram.readMemory(PPU_STATUS)
+	status := p.ram.ReadMemory(PPU_STATUS)
 	status |= 0x80
-	p.ram.writeMemory(PPU_STATUS, status)
+	p.ram.WriteMemory(PPU_STATUS, status)
 	// TODO handle NMI
 }
 
 func (p *PPU) clearVBlank() {
-	status := p.ram.readMemory(PPU_STATUS)
+	status := p.ram.ReadMemory(PPU_STATUS)
 	status &= 0x7f
-	p.ram.writeMemory(PPU_STATUS, status)
+	p.ram.WriteMemory(PPU_STATUS, status)
 }
 
-func (p *PPU) startRender() {
+func (p *PPU) StartRender() {
 	p.setVBlank()
 	time.Sleep(time.Second / fps)
 }
 
-func (p *PPU) finishRender() {
-	status := p.ram.readMemory(PPU_STATUS)
+func (p *PPU) FinishRender() {
+	status := p.ram.ReadMemory(PPU_STATUS)
 	status &= 0xbf
-	p.ram.writeMemory(PPU_STATUS, status)
+	p.ram.WriteMemory(PPU_STATUS, status)
 	p.clearVBlank()
 }
 
-func (p *PPU) renderScreen() {
-	mask := p.ram.readMemory(PPU_MASK)
+func (p *PPU) RenderScreen() {
+	mask := p.ram.ReadMemory(PPU_MASK)
 	if mask&MASK_BG != 0 {
 		p.renderBackground()
 	}
 }
 
 func (p *PPU) renderBackground() {
-	idx := int(p.ram.readMemory(PALETTE_START))
+	idx := int(p.ram.ReadMemory(PALETTE_START))
 	idx %= len(colors)
 	c := colors[idx]
 
-	for y := 0; y < height; y++ {
-		for x := 0; x < width; x++ {
+	for y := 0; y < Height; y++ {
+		for x := 0; x < Width; x++ {
 			p.image.SetRGBA(x, y, c)
 		}
 	}

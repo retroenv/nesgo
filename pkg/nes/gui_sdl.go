@@ -6,20 +6,22 @@ package nes
 import (
 	"fmt"
 
+	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
 var guiStarter = setupSDLGui
 
-var sdlKeyMapping = map[sdl.Keycode]button{
-	sdl.K_UP:        buttonUp,
-	sdl.K_DOWN:      buttonDown,
-	sdl.K_LEFT:      buttonLeft,
-	sdl.K_RIGHT:     buttonRight,
-	sdl.K_z:         buttonA,
-	sdl.K_x:         buttonB,
-	sdl.K_RETURN:    buttonStart,
-	sdl.K_BACKSPACE: buttonSelect,
+var sdlKeyMapping = map[sdl.Keycode]controller.button{
+	sdl.K_UP:        controller.buttonUp,
+	sdl.K_DOWN:      controller.buttonDown,
+	sdl.K_LEFT:      controller.buttonLeft,
+	sdl.K_RIGHT:     controller.buttonRight,
+	sdl.K_z:         controller.buttonA,
+	sdl.K_x:         controller.buttonB,
+	sdl.K_RETURN:    controller.buttonStart,
+	sdl.K_BACKSPACE: controller.buttonSelect,
 }
 
 func setupSDLGui(system *System) (guiRender func() (bool, error), guiCleanup func(), err error) {
@@ -45,7 +47,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	}
 
 	window, err := sdl.CreateWindow(windowTitle, sdl.WINDOWPOS_CENTERED,
-		sdl.WINDOWPOS_CENTERED, width*scaleFactor, height*scaleFactor,
+		sdl.WINDOWPOS_CENTERED, ppu.width*scaleFactor, ppu.height*scaleFactor,
 		sdl.WINDOW_SHOWN)
 	if err != nil {
 		return nil, nil, nil, fmt.Errorf("creating SDL window: %w", err)
@@ -57,7 +59,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	}
 
 	tex, err := renderer.CreateTexture(sdl.PIXELFORMAT_ABGR8888,
-		sdl.TEXTUREACCESS_STREAMING, int32(width), int32(height))
+		sdl.TEXTUREACCESS_STREAMING, int32(ppu.width), int32(ppu.height))
 	if err != nil {
 		return nil, nil, nil, fmt.Errorf("creating SDL texture: %w", err)
 	}
@@ -82,7 +84,7 @@ func renderSDL(system *System, renderer *sdl.Renderer, tex *sdl.Texture) (bool, 
 		}
 	}
 
-	if err := tex.Update(nil, system.ppu.image.Pix, width); err != nil {
+	if err := tex.Update(nil, system.ppu.image.Pix, ppu.width); err != nil {
 		return false, err
 	}
 	if err := renderer.Copy(tex, nil, nil); err != nil {

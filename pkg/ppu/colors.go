@@ -1,7 +1,7 @@
 //go:build !nesgo
 // +build !nesgo
 
-package nes
+package ppu
 
 import "image/color"
 

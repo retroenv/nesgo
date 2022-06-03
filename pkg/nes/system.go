@@ -3,37 +3,54 @@
 
 package nes
 
+import (
+	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/nesgo/pkg/ines"
+	"github.com/retroenv/nesgo/pkg/memory"
+	"github.com/retroenv/nesgo/pkg/ppu"
+)
+
 // System implements a NES system.
 type System struct {
-	*CPU
-	*Memory
+	*cpu.CPU
+	*memory.Memory
+
+	ppu         *ppu.PPU
+	controller1 *controller.Controller
+	controller2 *controller.Controller
 
 	nmiHandler   func()
 	irqHandler   func()
 	resetHandler func()
 }
 
-func newSystem() *System {
-	memory := newMemory()
-	cpu := newCPU(memory)
-	memory.x = &cpu.X
-	memory.y = &cpu.Y
-	return &System{
-		CPU:    cpu,
-		Memory: memory,
+func newSystem(cartridge *ines.Cartridge) *System {
+	sys := &System{
+		ppu:         ppu.New(memory.NewRAM(0x2000)),
+		controller1: controller.New(),
+		controller2: controller.New(),
 	}
+
+	sys.Memory = memory.New(cartridge, sys.ppu, sys.controller1, sys.controller2)
+	sys.CPU = cpu.New(sys.Memory, &irqHandler)
+	return sys
 }
 
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem() *System {
-	system := newSystem()
+func InitializeSystem(cartridge *ines.Cartridge) *System {
+	system := newSystem(cartridge)
+
 	setAliases(system.CPU)
 	A = &system.CPU.A
 	X = &system.CPU.X
 	Y = &system.CPU.Y
 	PC = &system.CPU.PC
+
+	system.Memory.LinkRegisters(&system.CPU.X, &system.CPU.Y, X, Y)
+
 	*PC = 0x8000
 	return system
 }
@@ -54,7 +71,7 @@ var resetHandler func()
 // irqHandler:   can be triggered by the NES sound processor or from
 //               certain types of cartridge hardware.
 func Start(resetHandlerParam func(), nmiIrqHandlers ...func()) {
-	system := InitializeSystem()
+	system := InitializeSystem(nil)
 	system.resetHandler = resetHandlerParam
 
 	if len(nmiIrqHandlers) > 1 {

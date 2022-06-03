@@ -23,16 +23,16 @@ func runRenderer(system *System) error {
 
 	running := true
 	for running {
-		system.ppu.startRender()
+		system.ppu.StartRender()
 
-		system.ppu.renderScreen()
+		system.ppu.RenderScreen()
 
 		running, err = render()
 		if err != nil {
 			return err
 		}
 
-		system.ppu.finishRender()
+		system.ppu.FinishRender()
 	}
 	return nil
 }

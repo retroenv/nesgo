@@ -1,51 +1,16 @@
 //go:build !nesgo
 // +build !nesgo
 
-package nes
+package cpu
 
-const stackBase = 0x100
-
-// CPU implements a MOS Technology 650 CPU.
-type CPU struct {
-	A     uint8  // accumulator
-	X     uint8  // x register
-	Y     uint8  // y register
-	PC    uint16 // program counter
-	SP    uint8  // stack pointer
-	Flags flags
-
-	memory *Memory
-}
-
-type flags struct {
-	C uint8 // carry flag
-	Z uint8 // zero flag
-	I uint8 // interrupt disable flag
-	D uint8 // decimal mode flag
-	B uint8 // break command flag
-	U uint8 // unused flag
-	V uint8 // overflow flag
-	N uint8 // negative flag
-}
-
-const (
-	initialFlags = 0x24 // I and U flags are 1, the rest 0
-	initialStack = 0xFD
+import (
+	"github.com/retroenv/nesgo/pkg/addressing"
 )
-
-func newCPU(memory *Memory) *CPU {
-	c := &CPU{
-		SP:     initialStack,
-		memory: memory,
-	}
-	c.setFlags(initialFlags)
-	return c
-}
 
 // execute branch jump if the branching op result is true.
 func (c *CPU) branch(branchFunc func() bool, param interface{}) {
 	if branchFunc() {
-		addr := param.(Absolute)
+		addr := param.(addressing.Absolute)
 		c.PC = uint16(addr)
 	}
 }
@@ -61,7 +26,7 @@ func (c *CPU) setFlags(flags uint8) {
 	c.Flags.N = (flags >> 7) & 1
 }
 
-func (c *CPU) flags() uint8 {
+func (c *CPU) GetFlags() uint8 {
 	var f byte
 	f |= c.Flags.C << 0
 	f |= c.Flags.Z << 1
@@ -108,7 +73,7 @@ func (c *CPU) compare(a, b byte) {
 
 // push a value to the stack and update the stack pointer.
 func (c *CPU) push(value byte) {
-	c.memory.writeMemory(uint16(stackBase+int(c.SP)), value)
+	c.memory.WriteMemory(uint16(StackBase+int(c.SP)), value)
 	c.SP--
 }
 
@@ -123,7 +88,7 @@ func (c *CPU) push16(value uint16) {
 // pop a value from the stack and update the stack pointer.
 func (c *CPU) pop() byte {
 	c.SP++
-	return c.memory.readMemory(uint16(stackBase + int(c.SP)))
+	return c.memory.ReadMemory(uint16(StackBase + int(c.SP)))
 }
 
 // pop a value from the stack and update the stack pointer.
