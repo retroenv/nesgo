@@ -7,6 +7,10 @@ package nes
 type System struct {
 	*CPU
 	*Memory
+
+	nmiHandler   func()
+	irqHandler   func()
+	resetHandler func()
 }
 
 func newSystem() *System {
@@ -29,6 +33,8 @@ func InitializeSystem() *System {
 	A = &system.CPU.A
 	X = &system.CPU.X
 	Y = &system.CPU.Y
+	PC = &system.CPU.PC
+	*PC = 0x8000
 	return system
 }
 
@@ -49,18 +55,23 @@ var resetHandler func()
 //               certain types of cartridge hardware.
 func Start(resetHandlerParam func(), nmiIrqHandlers ...func()) {
 	system := InitializeSystem()
-
-	nmiHandler = nil
-	irqHandler = nil
+	system.resetHandler = resetHandlerParam
 
 	if len(nmiIrqHandlers) > 1 {
-		irqHandler = nmiIrqHandlers[1]
+		system.irqHandler = nmiIrqHandlers[1]
 	}
 	if len(nmiIrqHandlers) > 0 {
-		nmiHandler = nmiIrqHandlers[0]
+		system.nmiHandler = nmiIrqHandlers[0]
 	}
 
-	resetHandler = resetHandlerParam
+	start(system)
+}
+
+func start(system *System) {
+	nmiHandler = system.nmiHandler
+	irqHandler = system.irqHandler
+	resetHandler = system.resetHandler
+
 	if err := runRenderer(system); err != nil {
 		panic(err)
 	}
