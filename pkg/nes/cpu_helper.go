@@ -7,10 +7,11 @@ const stackBase = 0x100
 
 // CPU implements a MOS Technology 650 CPU.
 type CPU struct {
-	A     uint8 // accumulator
-	X     uint8 // x register
-	Y     uint8 // y register
-	SP    uint8 // stack pointer
+	A     uint8  // accumulator
+	X     uint8  // x register
+	Y     uint8  // y register
+	PC    uint16 // program counter
+	SP    uint8  // stack pointer
 	Flags flags
 
 	memory *Memory
@@ -39,6 +40,14 @@ func newCPU(memory *Memory) *CPU {
 	}
 	c.setFlags(initialFlags)
 	return c
+}
+
+// execute branch jump if the branching op result is true.
+func (c *CPU) branch(branchFunc func() bool, param interface{}) {
+	if branchFunc() {
+		addr := param.(Absolute)
+		c.PC = uint16(addr)
+	}
 }
 
 func (c *CPU) setFlags(flags uint8) {
@@ -103,8 +112,23 @@ func (c *CPU) push(value byte) {
 	c.SP--
 }
 
+// push a value to the stack and update the stack pointer.
+func (c *CPU) push16(value uint16) {
+	high := byte(value >> 8)
+	low := byte(value & 0xFF)
+	c.push(high)
+	c.push(low)
+}
+
 // pop a value from the stack and update the stack pointer.
 func (c *CPU) pop() byte {
 	c.SP++
 	return c.memory.readMemory(uint16(stackBase + int(c.SP)))
+}
+
+// pop a value from the stack and update the stack pointer.
+func (c *CPU) pop16() uint16 {
+	low := uint16(c.pop())
+	high := uint16(c.pop())
+	return high<<8 | low
 }

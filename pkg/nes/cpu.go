@@ -53,10 +53,22 @@ func (c *CPU) Bcc() bool {
 	return c.Flags.C == 0
 }
 
+// bcc - Branch if Carry Clear.
+func (c *CPU) bcc(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bcc, params[0])
+}
+
 // Bcs - Branch if Carry Set - returns whether the carry flag is set.
 func (c *CPU) Bcs() bool {
 	timeInstructionExecution()
 	return c.Flags.C != 0
+}
+
+// bcs - Branch if Carry Set.
+func (c *CPU) bcs(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bcs, params[0])
 }
 
 // Beq - Branch if Equal - returns whether the zero flag is set.
@@ -65,10 +77,16 @@ func (c *CPU) Beq() bool {
 	return c.Flags.Z != 0
 }
 
-// Bit - Bit Test - set the Z flag by ANDing A with given address content.
-func (c *CPU) Bit(address uint16) {
+// beq - Branch if Equal.
+func (c *CPU) beq(params ...interface{}) {
 	timeInstructionExecution()
-	value := c.memory.readMemoryAbsolute(address, nil)
+	c.branch(c.Beq, params[0])
+}
+
+// Bit - Bit Test - set the Z flag by ANDing A with given address content.
+func (c *CPU) Bit(params ...interface{}) {
+	timeInstructionExecution()
+	value := c.memory.readMemoryAbsolute(params[0], nil)
 	c.Flags.V = (value >> 6) & 1
 	c.setZ(value & c.A)
 	c.setN(value)
@@ -80,16 +98,34 @@ func (c *CPU) Bmi() bool {
 	return c.Flags.N != 0
 }
 
+// bmi - Branch if Minus.
+func (c *CPU) bmi(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bmi, params[0])
+}
+
 // Bne - Branch if Not Equal - returns whether the zero flag is clear.
 func (c *CPU) Bne() bool {
 	timeInstructionExecution()
 	return c.Flags.Z == 0
 }
 
+// Bne - Branch if Not Equal.
+func (c *CPU) bne(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bne, params[0])
+}
+
 // Bpl - Branch if Positive - returns whether the negative flag is clear.
 func (c *CPU) Bpl() bool {
 	timeInstructionExecution()
 	return c.Flags.N == 0
+}
+
+// bpl - Branch if Positive.
+func (c *CPU) bpl(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bpl, params[0])
 }
 
 // Brk - Force Interrupt.
@@ -106,10 +142,22 @@ func (c *CPU) Bvc() bool {
 	return c.Flags.V == 0
 }
 
+// bvc - Branch if Overflow Clear.
+func (c *CPU) bvc(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bvc, params[0])
+}
+
 // Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
 func (c *CPU) Bvs() bool {
 	timeInstructionExecution()
 	return c.Flags.V != 0
+}
+
+// Bvs - Branch if Overflow Set.
+func (c *CPU) bvs(params ...interface{}) {
+	timeInstructionExecution()
+	c.branch(c.Bvs, params[0])
 }
 
 // Clc - Clear Carry Flag.
@@ -137,24 +185,32 @@ func (c *CPU) Clv() {
 }
 
 // Cmp - Compare - compares the contents of A.
-func (c *CPU) Cmp(param interface{}) {
+func (c *CPU) Cmp(params ...interface{}) {
 	timeInstructionExecution()
-	val := c.memory.readMemoryAddressModes(true, param)
+	val := c.memory.readMemoryAddressModes(true, params[0])
 	c.compare(c.A, val)
 }
 
 // Cpx - Compare X Register - compares the contents of X.
-func (c *CPU) Cpx(param interface{}) {
+func (c *CPU) Cpx(params ...interface{}) {
 	timeInstructionExecution()
-	val := c.memory.readMemoryAddressModes(true, param)
+	val := c.memory.readMemoryAddressModes(true, params[0])
 	c.compare(c.X, val)
 }
 
 // Cpy - Compare Y Register - compares the contents of Y.
-func (c *CPU) Cpy(param interface{}) {
+func (c *CPU) Cpy(params ...interface{}) {
 	timeInstructionExecution()
-	val := c.memory.readMemoryAddressModes(true, param)
+	val := c.memory.readMemoryAddressModes(true, params[0])
 	c.compare(c.Y, val)
+}
+
+// Dec - Decrement memory.
+func (c *CPU) Dec(params ...interface{}) {
+	timeInstructionExecution()
+	val := c.memory.readMemoryAddressModes(false, params...)
+	val--
+	c.memory.writeMemoryAddressModes(val, params...)
 }
 
 // Dex - Decrement X Register.
@@ -179,6 +235,14 @@ func (c *CPU) Eor(params ...interface{}) {
 	c.setZN(c.A)
 }
 
+// Inc - Increments memory.
+func (c *CPU) Inc(params ...interface{}) {
+	timeInstructionExecution()
+	val := c.memory.readMemoryAddressModes(false, params...)
+	val++
+	c.memory.writeMemoryAddressModes(val, params...)
+}
+
 // Inx - Increment X Register.
 func (c *CPU) Inx() {
 	timeInstructionExecution()
@@ -191,6 +255,22 @@ func (c *CPU) Iny() {
 	timeInstructionExecution()
 	c.Y++
 	c.setZN(c.Y)
+}
+
+// jmp - jump to address.
+func (c *CPU) jmp(params ...interface{}) {
+	timeInstructionExecution()
+	// TODO implement
+}
+
+// jsr - jump to subroutine.
+func (c *CPU) jsr(params ...interface{}) {
+	timeInstructionExecution()
+
+	c.push16(c.PC - 1)
+
+	addr := params[0].(Absolute)
+	c.PC = uint16(addr)
 }
 
 // Lda - Load Accumulator - load a byte into A.
@@ -315,6 +395,20 @@ func (c *CPU) Ror(params ...interface{}) {
 // Rti - Return from Interrupt.
 func (c *CPU) Rti() {
 	timeInstructionExecution()
+}
+
+// rti - Return from Interrupt.
+func (c *CPU) rti() {
+	timeInstructionExecution()
+
+	c.PC = c.pop16()
+}
+
+// rts - return from subroutine.
+func (c *CPU) rts() {
+	timeInstructionExecution()
+
+	c.PC = c.pop16() + 1
 }
 
 // Sbc - subtract with Carry.
