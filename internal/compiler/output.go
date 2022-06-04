@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/retroenv/nesgo/internal/ast"
+	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
 var header = `.segment "HEADER"
@@ -114,7 +115,7 @@ func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
 
 	switch len(ins.Arguments) {
 	case 0:
-		if !info.HasAddressing(ast.ImpliedAddressing | ast.AccumulatorAddressing) {
+		if !info.HasAddressing(ImpliedAddressing | AccumulatorAddressing) {
 			return fmt.Errorf("instruction '%s' is missing a parameter", ins.Name)
 		}
 		c.outputLineWithComment(ins.Comment, "  %s", ins.Name)
@@ -134,25 +135,25 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInst
 		return fmt.Errorf("wrong argument type %T for instruction with 1 arg", arg)
 	}
 
-	if info.HasAddressing(ast.RelativeAddressing) {
+	if info.HasAddressing(RelativeAddressing) {
 		c.outputLineWithComment(ins.Comment, "  %s %s", ins.Name, arg)
 		return nil
 	}
-	if info.HasAddressing(ast.ImmediateAddressing) {
+	if info.HasAddressing(ImmediateAddressing) {
 		val, err := strconv.ParseUint(node.Value, 0, 8)
 		if err == nil {
 			c.outputLineWithComment(ins.Comment, "  %s #$%02x", ins.Name, val)
 			return nil
 		}
 	}
-	if info.HasAddressing(ast.ZeroPageAddressing | ast.ZeroPageXAddressing | ast.ZeroPageYAddressing) {
+	if info.HasAddressing(ZeroPageAddressing | ZeroPageXAddressing | ZeroPageYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 8); err == nil {
 			register := instructionIndexRegister(ins)
 			c.outputLineWithComment(ins.Comment, "  %s $%02x%s", ins.Name, val, register)
 			return nil
 		}
 	}
-	if info.HasAddressing(ast.AbsoluteAddressing | ast.AbsoluteXAddressing | ast.AbsoluteYAddressing) {
+	if info.HasAddressing(AbsoluteAddressing | AbsoluteXAddressing | AbsoluteYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 16); err == nil {
 			register := instructionIndexRegister(ins)
 			c.outputLineWithComment(ins.Comment, "  %s $%04x%s", ins.Name, val, register)
@@ -170,9 +171,9 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInst
 
 func instructionIndexRegister(ins *ast.Instruction) string {
 	switch ins.Addressing {
-	case ast.AbsoluteXAddressing, ast.ZeroPageXAddressing:
+	case AbsoluteXAddressing, ZeroPageXAddressing:
 		return ", X"
-	case ast.AbsoluteYAddressing, ast.ZeroPageYAddressing:
+	case AbsoluteYAddressing, ZeroPageYAddressing:
 		return ", Y"
 	default:
 		return ""

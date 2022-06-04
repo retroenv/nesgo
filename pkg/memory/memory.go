@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/apu"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
@@ -72,16 +72,16 @@ func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 		m.writeMemoryAbsolute(address, value, register)
 	case *uint8: // variable
 		*address = value
-	case addressing.Absolute:
+	case Absolute:
 		m.writeMemoryAbsolute(address, value, register)
-	case addressing.Indirect:
+	case Indirect:
 		m.writeMemoryIndirect(address, value, register)
 	default:
 		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
 }
 
-func (m *Memory) writeMemoryIndirect(address addressing.Indirect, value byte, register interface{}) {
+func (m *Memory) writeMemoryIndirect(address Indirect, value byte, register interface{}) {
 	pointer := m.indirectMemoryPointer(address, register)
 	m.WriteMemory(pointer, value)
 }
@@ -119,7 +119,7 @@ func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offs
 		*addr = uint16(value)
 	case int:
 		m.WriteMemory(uint16(addr)+offset, value)
-	case addressing.Absolute:
+	case Absolute:
 		m.WriteMemory(uint16(addr)+offset, value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
@@ -175,9 +175,9 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 		return address // immediate, not an address
 	case *uint8: // variable
 		return *address
-	case addressing.Absolute:
+	case Absolute:
 		return m.ReadMemoryAbsolute(address, register)
-	case addressing.Indirect:
+	case Indirect:
 		return m.readMemoryIndirect(address, register)
 	default:
 		panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
@@ -213,14 +213,14 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 		return m.ReadMemory(addr + offset)
 	case int:
 		return m.ReadMemory(uint16(addr) + offset)
-	case addressing.Absolute:
+	case Absolute:
 		return m.ReadMemory(uint16(addr) + offset)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
 	}
 }
 
-func (m *Memory) readMemoryIndirect(address addressing.Indirect, register interface{}) byte {
+func (m *Memory) readMemoryIndirect(address Indirect, register interface{}) byte {
 	pointer := m.indirectMemoryPointer(address, register)
 	return m.ReadMemory(pointer)
 }
@@ -252,7 +252,7 @@ func (m *Memory) ReadMemory(address uint16) byte {
 	}
 }
 
-func (m *Memory) indirectMemoryPointer(address addressing.Indirect, register interface{}) uint16 {
+func (m *Memory) indirectMemoryPointer(address Indirect, register interface{}) uint16 {
 	if register == nil {
 		panic("register parameter missing for indirect memory addressing")
 	}

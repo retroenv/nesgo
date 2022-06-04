@@ -4,13 +4,13 @@
 package cpu
 
 import (
-	"github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
 // execute branch jump if the branching op result is true.
 func (c *CPU) branch(branchFunc func() bool, param interface{}) {
 	if branchFunc() {
-		addr := param.(addressing.Absolute)
+		addr := param.(Absolute)
 		c.PC = uint16(addr)
 	}
 }
