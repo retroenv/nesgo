@@ -1,11 +1,13 @@
 //go:build !nesgo && nogui
 // +build !nesgo,nogui
 
-package nes
+package gui
+
+import "github.com/retroenv/nesgo/pkg/system"
 
 var guiStarter = setupNoGui
 
-func setupNoGui(_ *System) (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupNoGui(_ *system.System) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	render := func() (bool, error) {
 		return true, nil
 	}

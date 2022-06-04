@@ -5,65 +5,30 @@ package nes
 
 import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
-	"github.com/retroenv/nesgo/pkg/controller"
-	"github.com/retroenv/nesgo/pkg/cpu"
-	"github.com/retroenv/nesgo/pkg/memory"
-	"github.com/retroenv/nesgo/pkg/ppu"
+	"github.com/retroenv/nesgo/pkg/gui"
+	"github.com/retroenv/nesgo/pkg/system"
 )
-
-// System implements a NES system.
-type System struct {
-	*cpu.CPU
-	*memory.Memory
-
-	ppu         *ppu.PPU
-	controller1 *controller.Controller
-	controller2 *controller.Controller
-
-	nmiHandler   func()
-	irqHandler   func()
-	resetHandler func()
-}
-
-func newSystem(cartridge *cartridge.Cartridge) *System {
-	sys := &System{
-		ppu:         ppu.New(memory.NewRAM(0x2000)),
-		controller1: controller.New(),
-		controller2: controller.New(),
-	}
-
-	sys.Memory = memory.New(cartridge, sys.ppu, sys.controller1, sys.controller2)
-	sys.CPU = cpu.New(sys.Memory, &irqHandler)
-	return sys
-}
 
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem(cart *cartridge.Cartridge) *System {
+func InitializeSystem(cart *cartridge.Cartridge) *system.System {
 	if cart == nil {
 		cart = cartridge.New()
 	}
 
-	system := newSystem(cart)
+	sys := system.New(cart)
 
-	setAliases(system.CPU)
-	A = &system.CPU.A
-	X = &system.CPU.X
-	Y = &system.CPU.Y
-	PC = &system.CPU.PC
+	setAliases(sys.CPU)
+	A = &sys.CPU.A
+	X = &sys.CPU.X
+	Y = &sys.CPU.Y
+	PC = &sys.CPU.PC
 
-	system.Memory.LinkRegisters(&system.CPU.X, &system.CPU.Y, X, Y)
+	sys.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
 
-	return system
+	return sys
 }
-
-// nolint: unused
-var nmiHandler func()
-
-var irqHandler func()
-
-var resetHandler func()
 
 // Start is the main entrypoint for a NES program that starts the execution.
 // It expects 1 to 3 parameters for callback function that will be called
@@ -74,25 +39,21 @@ var resetHandler func()
 // irqHandler:   can be triggered by the NES sound processor or from
 //               certain types of cartridge hardware.
 func Start(resetHandlerParam func(), nmiIrqHandlers ...func()) {
-	system := InitializeSystem(nil)
-	system.resetHandler = resetHandlerParam
+	sys := InitializeSystem(nil)
+	sys.ResetHandler = resetHandlerParam
 
 	if len(nmiIrqHandlers) > 1 {
-		system.irqHandler = nmiIrqHandlers[1]
+		sys.IrqHandler = nmiIrqHandlers[1]
 	}
 	if len(nmiIrqHandlers) > 0 {
-		system.nmiHandler = nmiIrqHandlers[0]
+		sys.NmiHandler = nmiIrqHandlers[0]
 	}
 
-	start(system)
+	start(sys)
 }
 
-func start(system *System) {
-	nmiHandler = system.nmiHandler
-	irqHandler = system.irqHandler
-	resetHandler = system.resetHandler
-
-	if err := runRenderer(system); err != nil {
+func start(sys *system.System) {
+	if err := gui.RunRenderer(sys); err != nil {
 		panic(err)
 	}
 }

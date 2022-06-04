@@ -1,36 +1,37 @@
 //go:build !nesgo && !nogui && sdl
 // +build !nesgo,!nogui,sdl
 
-package nes
+package gui
 
 import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/ppu"
+	"github.com/retroenv/nesgo/pkg/system"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
 var guiStarter = setupSDLGui
 
-var sdlKeyMapping = map[sdl.Keycode]controller.button{
-	sdl.K_UP:        controller.buttonUp,
-	sdl.K_DOWN:      controller.buttonDown,
-	sdl.K_LEFT:      controller.buttonLeft,
-	sdl.K_RIGHT:     controller.buttonRight,
-	sdl.K_z:         controller.buttonA,
-	sdl.K_x:         controller.buttonB,
-	sdl.K_RETURN:    controller.buttonStart,
-	sdl.K_BACKSPACE: controller.buttonSelect,
+var sdlKeyMapping = map[sdl.Keycode]controller.Button{
+	sdl.K_UP:        controller.ButtonUp,
+	sdl.K_DOWN:      controller.ButtonDown,
+	sdl.K_LEFT:      controller.ButtonLeft,
+	sdl.K_RIGHT:     controller.ButtonRight,
+	sdl.K_z:         controller.ButtonA,
+	sdl.K_x:         controller.ButtonB,
+	sdl.K_RETURN:    controller.ButtonStart,
+	sdl.K_BACKSPACE: controller.ButtonSelect,
 }
 
-func setupSDLGui(system *System) (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupSDLGui(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	window, renderer, tex, err := setupSDL()
 	if err != nil {
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		return renderSDL(system, renderer, tex)
+		return renderSDL(sys, renderer, tex)
 	}
 	cleanup := func() {
 		_ = tex.Destroy()
@@ -47,7 +48,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	}
 
 	window, err := sdl.CreateWindow(windowTitle, sdl.WINDOWPOS_CENTERED,
-		sdl.WINDOWPOS_CENTERED, ppu.width*scaleFactor, ppu.height*scaleFactor,
+		sdl.WINDOWPOS_CENTERED, ppu.Width*scaleFactor, ppu.Height*scaleFactor,
 		sdl.WINDOW_SHOWN)
 	if err != nil {
 		return nil, nil, nil, fmt.Errorf("creating SDL window: %w", err)
@@ -59,7 +60,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	}
 
 	tex, err := renderer.CreateTexture(sdl.PIXELFORMAT_ABGR8888,
-		sdl.TEXTUREACCESS_STREAMING, int32(ppu.width), int32(ppu.height))
+		sdl.TEXTUREACCESS_STREAMING, int32(ppu.Width), int32(ppu.Height))
 	if err != nil {
 		return nil, nil, nil, fmt.Errorf("creating SDL texture: %w", err)
 	}
@@ -67,7 +68,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	return window, renderer, tex, nil
 }
 
-func renderSDL(system *System, renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
+func renderSDL(sys *system.System, renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
 	running := true
 	for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
 		switch et := event.(type) {
@@ -80,11 +81,11 @@ func renderSDL(system *System, renderer *sdl.Renderer, tex *sdl.Texture) (bool, 
 				running = false
 				break
 			}
-			onSDLKey(system, et)
+			onSDLKey(sys, et)
 		}
 	}
 
-	if err := tex.Update(nil, system.ppu.image.Pix, ppu.width); err != nil {
+	if err := tex.Update(nil, sys.PPU.Image().Pix, ppu.Width); err != nil {
 		return false, err
 	}
 	if err := renderer.Copy(tex, nil, nil); err != nil {
@@ -94,15 +95,15 @@ func renderSDL(system *System, renderer *sdl.Renderer, tex *sdl.Texture) (bool, 
 	return running, nil
 }
 
-func onSDLKey(system *System, event *sdl.KeyboardEvent) {
+func onSDLKey(sys *system.System, event *sdl.KeyboardEvent) {
 	controllerKey, ok := sdlKeyMapping[event.Keysym.Sym]
 	if !ok {
 		return
 	}
 	switch event.Type {
 	case sdl.KEYDOWN:
-		system.memory.controller1.setButtonState(controllerKey, true)
+		sys.Controller1.SetButtonState(controllerKey, true)
 	case sdl.KEYUP:
-		system.memory.controller1.setButtonState(controllerKey, false)
+		sys.Controller1.SetButtonState(controllerKey, false)
 	}
 }
