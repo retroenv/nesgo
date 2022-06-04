@@ -7,6 +7,7 @@ import (
 
 	"github.com/retroenv/nesgo/internal/ast"
 	. "github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
 var header = `.segment "HEADER"
@@ -111,7 +112,7 @@ func (c *Compiler) outputLineWithComment(comment, format string, a ...interface{
 }
 
 func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
-	info := ast.CPUInstructions[ins.Name]
+	info := cpu.Instructions[ins.Name]
 
 	switch len(ins.Arguments) {
 	case 0:
@@ -128,7 +129,7 @@ func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
 	return fmt.Errorf("instruction '%s' has unsupported parameters '%s'", ins.Name, ins.Arguments)
 }
 
-func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInstruction) error {
+func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *cpu.Instruction) error {
 	arg := ins.Arguments[0]
 	node, ok := arg.(*ast.ArgumentValue)
 	if !ok {

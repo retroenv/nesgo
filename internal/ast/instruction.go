@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
 // Instruction is an instruction declaration.
@@ -24,7 +25,7 @@ func newInstruction(name string, arg interface{}) (*Instruction, error) {
 		Name: name,
 	}
 	if arg != nil {
-		info := CPUInstructions[name]
+		info := cpu.Instructions[name]
 		if info == nil {
 			return nil, fmt.Errorf("missing instruction info for '%s'", name)
 		}
@@ -35,7 +36,7 @@ func newInstruction(name string, arg interface{}) (*Instruction, error) {
 	return i, nil
 }
 
-func (i *Instruction) addArgument(info *CPUInstruction, arg interface{}) error {
+func (i *Instruction) addArgument(info *cpu.Instruction, arg interface{}) error {
 	switch val := arg.(type) {
 	case *Identifier:
 		if err := i.addIdentifierArgument(val); err != nil {
@@ -104,7 +105,7 @@ func (i *Instruction) addIdentifierArgument(arg *Identifier) error {
 	return nil
 }
 
-func (i *Instruction) addCallArgument(info *CPUInstruction, val *Call) error {
+func (i *Instruction) addCallArgument(info *cpu.Instruction, val *Call) error {
 	switch val.Function {
 	case "ZeroPage":
 		i.Addressing = ZeroPageAddressing
@@ -122,7 +123,7 @@ func (i *Instruction) addCallArgument(info *CPUInstruction, val *Call) error {
 	return nil
 }
 
-func (i *Instruction) addValueArgument(info *CPUInstruction, val *Value) {
+func (i *Instruction) addValueArgument(info *cpu.Instruction, val *Value) {
 	i.Arguments = append(i.Arguments, &ArgumentValue{Value: val.Value})
 	if i.Addressing != NoAddressing {
 		return

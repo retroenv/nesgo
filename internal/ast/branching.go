@@ -3,6 +3,8 @@ package ast
 import (
 	"fmt"
 	"strings"
+
+	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
 const (
@@ -76,7 +78,7 @@ func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 		return NewBranching(name, destination)
 	}
 
-	if _, isInst := CPUInstructions[name]; isInst {
+	if _, isInst := cpu.Instructions[name]; isInst {
 		i, err := newInstruction(name, arg)
 		if err != nil {
 			return nil, err
