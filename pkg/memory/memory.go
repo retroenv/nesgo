@@ -184,7 +184,7 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 	}
 }
 
-// ReadMemoryAbsolute reads a byte from an address using absolute
+// ReadMemoryAbsolute reads a byte from an address using absolute addressing.
 func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) byte {
 	if register == nil {
 		return m.readMemoryAbsoluteOffset(address, 0)
