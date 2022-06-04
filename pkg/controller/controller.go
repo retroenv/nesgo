@@ -1,13 +1,14 @@
 //go:build !nesgo
 // +build !nesgo
 
+// Package controller provides hardware controller functionality.
 package controller
 
 import "sync/atomic"
 
+// Button defines a button on the controller.
 type Button uint64
 
-// nolint: deadcode,varcheck
 const (
 	ButtonRight  Button = 0b10000000
 	ButtonLeft   Button = 0b01000000
@@ -19,6 +20,7 @@ const (
 	ButtonA      Button = 0b00000001
 )
 
+// Controller represents a hardware controller.
 type Controller struct {
 	// if strobeMode is set, it resets the pointer to the state to read
 	// to the A button. The pointer is not advanced on every state read
@@ -32,6 +34,7 @@ type Controller struct {
 	index uint8
 }
 
+// New returns a new Controller.
 func New() *Controller {
 	c := &Controller{}
 	c.reset()
@@ -44,6 +47,7 @@ func (c *Controller) reset() {
 	c.index = 1
 }
 
+// SetStrobeMode sets the strobe mode flag of the controller.
 func (c *Controller) SetStrobeMode(mode uint8) {
 	if mode&1 == 1 {
 		c.strobeMode = true
@@ -53,6 +57,7 @@ func (c *Controller) SetStrobeMode(mode uint8) {
 	}
 }
 
+// Read returns the current button state.
 func (c *Controller) Read() uint8 {
 	state := atomic.LoadUint64(&c.buttons)
 	if c.strobeMode {
@@ -67,7 +72,7 @@ func (c *Controller) Read() uint8 {
 	return 0
 }
 
-// nolint: unused
+// SetButtonState sets the current button state.
 func (c *Controller) SetButtonState(key Button, pressed bool) {
 	state := atomic.LoadUint64(&c.buttons)
 	if pressed {

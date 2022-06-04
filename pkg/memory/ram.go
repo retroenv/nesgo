@@ -14,6 +14,7 @@ type RAM struct {
 	data   []byte
 }
 
+// NewRAM returns a new ram.
 func NewRAM(offset uint16) *RAM {
 	r := &RAM{
 		offset: offset,
@@ -22,12 +23,14 @@ func NewRAM(offset uint16) *RAM {
 	return r
 }
 
+// Reset resets the RAM content.
 func (r *RAM) Reset() {
 	r.mu.Lock()
 	r.data = make([]byte, 0x2000)
 	r.mu.Unlock()
 }
 
+// ReadMemory reads a byte from a memory address.
 func (r *RAM) ReadMemory(address uint16) byte {
 	r.mu.RLock()
 	b := r.data[address-r.offset]
@@ -35,6 +38,7 @@ func (r *RAM) ReadMemory(address uint16) byte {
 	return b
 }
 
+// WriteMemory writes a byte to a memory address.
 func (r *RAM) WriteMemory(address uint16, value byte) {
 	r.mu.Lock()
 	r.data[address-r.offset] = value

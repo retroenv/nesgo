@@ -1,3 +1,4 @@
+// Package addressing provides addressing helpers.
 package addressing
 
 // ZeroPage indicates that the parameter for the instruction is addressing

@@ -1,3 +1,4 @@
+// Package cpu provides CPU (Central  Processing Unit) functionality.
 package cpu
 
 const (

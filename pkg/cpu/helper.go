@@ -26,6 +26,7 @@ func (c *CPU) setFlags(flags uint8) {
 	c.Flags.N = (flags >> 7) & 1
 }
 
+// GetFlags returns the current state of flags as byte.
 func (c *CPU) GetFlags() uint8 {
 	var f byte
 	f |= c.Flags.C << 0

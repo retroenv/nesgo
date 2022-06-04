@@ -1,6 +1,7 @@
 //go:build !nesgo
 // +build !nesgo
 
+// Package memory provides Memory functionality.
 package memory
 
 import (
@@ -125,6 +126,7 @@ func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offs
 	}
 }
 
+// WriteMemory writes a byte to a memory address.
 func (m *Memory) WriteMemory(address uint16, value byte) {
 	switch {
 	case address < 0x2000:
@@ -182,6 +184,7 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 	}
 }
 
+// ReadMemoryAbsolute reads a byte from an address using absolute addressing.
 func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) byte {
 	if register == nil {
 		return m.readMemoryAbsoluteOffset(address, 0)
@@ -229,6 +232,7 @@ func (m *Memory) readPointer(address uint16) uint16 {
 	return ptr
 }
 
+// ReadMemory reads a byte from a memory address.
 func (m *Memory) ReadMemory(address uint16) byte {
 	switch {
 	case address < 0x2000:

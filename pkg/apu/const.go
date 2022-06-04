@@ -1,3 +1,4 @@
+// Package apu provides APU (Audio Processing Unit) functionality.
 package apu
 
 const (
