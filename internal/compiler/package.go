@@ -93,7 +93,7 @@ func (p *Package) addFile(fileName string, file *File) error {
 		}
 	}
 
-	if err := p.addConstants(file.Constants); err != nil {
+	if err := p.addConstants(file); err != nil {
 		return fmt.Errorf("adding constants: %w", err)
 	}
 	if err := p.addVariables(file.Variables); err != nil {
