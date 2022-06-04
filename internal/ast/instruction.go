@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
 // Instruction is an instruction declaration.
@@ -13,7 +15,7 @@ type Instruction struct {
 	Arguments Arguments
 	Comment   string
 
-	Addressing AddressingMode
+	Addressing Mode
 }
 
 // newInstruction creates an instruction specification.

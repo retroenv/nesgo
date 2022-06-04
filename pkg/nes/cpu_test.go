@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/retroenv/nesgo/internal/assert"
-	"github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/system"
@@ -45,12 +45,12 @@ func TestAsl(t *testing.T) {
 	assert.Equal(t, 1, sys.Flags.C)
 
 	sys.WriteMemory(1, 0b00000010)
-	sys.Asl(addressing.Absolute(1))
+	sys.Asl(Absolute(1))
 	assert.Equal(t, 0b00000100, sys.ReadMemory(1))
 
 	sys.WriteMemory(4, 0b00000010)
 	sys.X = 3
-	sys.Asl(addressing.Absolute(1), sys.X)
+	sys.Asl(Absolute(1), sys.X)
 	assert.Equal(t, 0b00000100, sys.ReadMemory(4))
 }
 
@@ -368,7 +368,7 @@ func TestSta(t *testing.T) {
 	assert.Equal(t, sys.A, b)
 
 	sys.X = 0x22
-	sys.Sta(addressing.Absolute(0), sys.X)
+	sys.Sta(Absolute(0), sys.X)
 	b = sys.ReadMemory(0x22)
 	assert.Equal(t, sys.A, b)
 }
@@ -382,7 +382,7 @@ func TestStx(t *testing.T) {
 	assert.Equal(t, sys.X, b)
 
 	sys.Y = 0x22
-	sys.Stx(addressing.Absolute(0), sys.Y)
+	sys.Stx(Absolute(0), sys.Y)
 	b = sys.ReadMemory(0x22)
 	assert.Equal(t, sys.X, b)
 }
@@ -396,7 +396,7 @@ func TestSty(t *testing.T) {
 	assert.Equal(t, sys.Y, b)
 
 	sys.X = 0x22
-	sys.Sty(addressing.Absolute(0), sys.X)
+	sys.Sty(Absolute(0), sys.X)
 	b = sys.ReadMemory(0x22)
 	assert.Equal(t, sys.Y, b)
 }

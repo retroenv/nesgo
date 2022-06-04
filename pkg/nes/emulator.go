@@ -6,8 +6,7 @@ package nes
 import (
 	"fmt"
 
-	"github.com/retroenv/nesgo/internal/ast"
-	"github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/system"
 )
@@ -51,25 +50,25 @@ func readParams(sys *system.System, ins instruction) []interface{} {
 	var params []interface{}
 
 	switch ins.addressing {
-	case ast.ImmediateAddressing:
+	case ImmediateAddressing:
 		b := sys.ReadMemory(*PC)
 		*PC++
 		params = append(params, int(b))
 
-	case ast.AbsoluteAddressing, ast.AbsoluteXAddressing, ast.AbsoluteYAddressing:
+	case AbsoluteAddressing, AbsoluteXAddressing, AbsoluteYAddressing:
 		b1 := uint16(sys.ReadMemory(*PC))
 		*PC++
 		b2 := uint16(sys.ReadMemory(*PC))
 		*PC++
 
-		params = append(params, addressing.Absolute(b2<<8|b1))
+		params = append(params, Absolute(b2<<8|b1))
 
-	case ast.ZeroPageAddressing, ast.ZeroPageXAddressing:
+	case ZeroPageAddressing, ZeroPageXAddressing:
 		b := sys.ReadMemory(*PC)
 		*PC++
-		params = append(params, addressing.Absolute(b))
+		params = append(params, Absolute(b))
 
-	case ast.RelativeAddressing:
+	case RelativeAddressing:
 		offset := uint16(sys.ReadMemory(*PC))
 		*PC++
 
@@ -80,7 +79,7 @@ func readParams(sys *system.System, ins instruction) []interface{} {
 			address = *PC + offset - 0x100
 		}
 
-		params = append(params, addressing.Absolute(address))
+		params = append(params, Absolute(address))
 
 	default:
 		err := fmt.Errorf("unsupported addressing %00x", ins.addressing)
@@ -88,9 +87,9 @@ func readParams(sys *system.System, ins instruction) []interface{} {
 	}
 
 	switch ins.addressing {
-	case ast.AbsoluteXAddressing, ast.ZeroPageXAddressing:
+	case AbsoluteXAddressing, ZeroPageXAddressing:
 		params = append(params, *X)
-	case ast.AbsoluteYAddressing:
+	case AbsoluteYAddressing:
 		params = append(params, *Y)
 	}
 

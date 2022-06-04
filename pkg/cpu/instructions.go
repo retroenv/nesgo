@@ -6,7 +6,7 @@ package cpu
 import (
 	"math"
 
-	"github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
 // Adc - Add with Carry.
@@ -274,7 +274,7 @@ func (c *CPU) Jsr(params ...interface{}) {
 
 	c.push16(c.PC - 1)
 
-	addr := params[0].(addressing.Absolute)
+	addr := params[0].(Absolute)
 	c.PC = uint16(addr)
 }
 

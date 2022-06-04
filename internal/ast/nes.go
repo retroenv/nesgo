@@ -1,29 +1,12 @@
 package ast
 
-// AddressingMode defines an address mode.
-type AddressingMode int
-
-// addressing modes.
-const (
-	NoAddressing      AddressingMode = 0
-	ImpliedAddressing AddressingMode = 1 << iota
-	AccumulatorAddressing
-	ImmediateAddressing
-	AbsoluteAddressing
-	ZeroPageAddressing
-	AbsoluteXAddressing
-	ZeroPageXAddressing
-	AbsoluteYAddressing
-	ZeroPageYAddressing
-	IndirectAddressing
-	IndirectXAddressing
-	IndirectYAddressing
-	RelativeAddressing
+import (
+	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
 // CPUInstruction contains information about a NES CPU instruction.
 type CPUInstruction struct {
-	Addressing AddressingMode
+	Addressing Mode
 }
 
 // CPUInstructions maps to NES CPU instruction information.
@@ -202,6 +185,6 @@ var CPURegisters = map[string]struct{}{
 }
 
 // HasAddressing ...
-func (c CPUInstruction) HasAddressing(flags AddressingMode) bool {
+func (c CPUInstruction) HasAddressing(flags Mode) bool {
 	return c.Addressing&flags != 0
 }
