@@ -1,42 +1,57 @@
 //go:build !nesgo
 // +build !nesgo
 
-package nes
+// Package memory provides Memory functionality.
+package memory
 
 import (
 	"fmt"
 	"math"
 
+	"github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/nesgo/pkg/apu"
+	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/ines"
+	"github.com/retroenv/nesgo/pkg/ppu"
 )
 
 // Memory implements the memory controller.
 type Memory struct {
 	ram         *RAM
-	ppu         *PPU
-	controller1 *controller
-	controller2 *controller
+	ppu         *ppu.PPU
+	controller1 *controller.Controller
+	controller2 *controller.Controller
 	cartridge   *ines.Cartridge
 
 	// point to X/Y for comparison of indirect register
 	// parameters in unit tests.
-	x *uint8
-	y *uint8
+	x, globalX *uint8
+	y, globalY *uint8
 }
 
-// newMemory returns a new memory instance, embedded it has
+// New returns a new memory instance, embedded it has
 // new instances for PPU and the Controllers.
-func newMemory() *Memory {
+func New(cartridge *ines.Cartridge, ppu *ppu.PPU, controller1, controller2 *controller.Controller) *Memory {
 	r := &Memory{
-		ram:         newRAM(0),
-		ppu:         newPPU(),
-		controller1: newController(),
-		controller2: newController(),
+		ram:         NewRAM(0),
+		ppu:         ppu,
+		controller1: controller1,
+		controller2: controller2,
+		cartridge:   cartridge,
 	}
 	return r
 }
 
-// writeMemoryAddressModes writes to memory using different address modes:
+// LinkRegisters points the internal x/y registers for unit test usage
+// to the actual processor registers.
+func (m *Memory) LinkRegisters(x *uint8, y *uint8, globalX *uint8, globalY *uint8) {
+	m.x = x
+	m.globalX = globalX
+	m.y = y
+	m.globalY = globalY
+}
+
+// WriteMemoryAddressModes writes to memory using different address modes:
 // Absolute: the absolut memory address is used to write the value
 // Absolute, X: the absolut memory address with offset from X is used
 // Absolute, Y: the absolut memory address with offset from Y is used
@@ -45,7 +60,7 @@ func newMemory() *Memory {
 // (Indirect), Y: the pointer to the memory address is read from the
 //                indirect parameter and adjusted after reading it
 //                by adding Y. The value is read from this pointer
-func (m *Memory) writeMemoryAddressModes(value byte, params ...interface{}) {
+func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 	param := params[0]
 	var register interface{}
 	if len(params) > 1 {
@@ -57,18 +72,18 @@ func (m *Memory) writeMemoryAddressModes(value byte, params ...interface{}) {
 		m.writeMemoryAbsolute(address, value, register)
 	case *uint8: // variable
 		*address = value
-	case Absolute:
+	case addressing.Absolute:
 		m.writeMemoryAbsolute(address, value, register)
-	case Indirect:
+	case addressing.Indirect:
 		m.writeMemoryIndirect(address, value, register)
 	default:
 		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
 }
 
-func (m *Memory) writeMemoryIndirect(address Indirect, value byte, register interface{}) {
+func (m *Memory) writeMemoryIndirect(address addressing.Indirect, value byte, register interface{}) {
 	pointer := m.indirectMemoryPointer(address, register)
-	m.writeMemory(pointer, value)
+	m.WriteMemory(pointer, value)
 }
 
 func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register interface{}) {
@@ -93,45 +108,46 @@ func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register i
 func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offset uint16) {
 	switch addr := address.(type) {
 	case int8:
-		m.writeMemory(uint16(addr)+offset, value)
+		m.WriteMemory(uint16(addr)+offset, value)
 	case uint8:
-		m.writeMemory(uint16(addr)+offset, value)
+		m.WriteMemory(uint16(addr)+offset, value)
 	case *uint8:
 		*addr = value
 	case uint16:
-		m.writeMemory(addr+offset, value)
+		m.WriteMemory(addr+offset, value)
 	case *uint16:
 		*addr = uint16(value)
 	case int:
-		m.writeMemory(uint16(addr)+offset, value)
-	case Absolute:
-		m.writeMemory(uint16(addr)+offset, value)
+		m.WriteMemory(uint16(addr)+offset, value)
+	case addressing.Absolute:
+		m.WriteMemory(uint16(addr)+offset, value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
 	}
 }
 
-func (m *Memory) writeMemory(address uint16, value byte) {
+// WriteMemory writes a byte to a memory address.
+func (m *Memory) WriteMemory(address uint16, value byte) {
 	switch {
 	case address < 0x2000:
-		m.ram.writeMemory(address&0x07FF, value)
+		m.ram.WriteMemory(address&0x07FF, value)
 	case address < 0x4000:
-		m.ppu.writeRegister(address, value)
-	case address == JOYPAD1:
-		m.controller1.setStrobeMode(value)
-		m.controller2.setStrobeMode(value)
-	case address == DMC_FREQ:
+		m.ppu.WriteRegister(address, value)
+	case address == controller.JOYPAD1:
+		m.controller1.SetStrobeMode(value)
+		m.controller2.SetStrobeMode(value)
+	case address == apu.DMC_FREQ:
 		return // TODO
-	case address == APU_CHAN_CTRL:
+	case address == apu.APU_CHAN_CTRL:
 		return // TODO
-	case address == APU_FRAME:
+	case address == apu.APU_FRAME:
 		return // TODO
 	default:
 		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
 	}
 }
 
-// readMemoryAddressModes reads memory using different address modes:
+// ReadMemoryAddressModes reads memory using different address modes:
 // Immediate: if immediate is true and the passed first param fits into
 //            a byte, it's immediate value is returned
 // Absolute: the absolut memory address is used to read the value
@@ -142,7 +158,7 @@ func (m *Memory) writeMemory(address uint16, value byte) {
 // (Indirect), Y: the pointer to the memory address is read from the
 //                indirect parameter and adjusted after reading it
 //                by adding Y. The value is written to this pointer
-func (m *Memory) readMemoryAddressModes(immediate bool, params ...interface{}) byte {
+func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) byte {
 	param := params[0]
 	var register interface{}
 	if len(params) > 1 {
@@ -154,21 +170,22 @@ func (m *Memory) readMemoryAddressModes(immediate bool, params ...interface{}) b
 		if immediate && register == nil && address <= math.MaxUint8 {
 			return uint8(address) // immediate, not an address
 		}
-		return m.readMemoryAbsolute(address, register)
+		return m.ReadMemoryAbsolute(address, register)
 	case uint8:
 		return address // immediate, not an address
 	case *uint8: // variable
 		return *address
-	case Absolute:
-		return m.readMemoryAbsolute(address, register)
-	case Indirect:
+	case addressing.Absolute:
+		return m.ReadMemoryAbsolute(address, register)
+	case addressing.Indirect:
 		return m.readMemoryIndirect(address, register)
 	default:
 		panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
 	}
 }
 
-func (m *Memory) readMemoryAbsolute(address interface{}, register interface{}) byte {
+// ReadMemoryAbsolute reads a byte from an address using absolute addressing.
+func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) byte {
 	if register == nil {
 		return m.readMemoryAbsoluteOffset(address, 0)
 	}
@@ -193,39 +210,40 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 		}
 		return *addr
 	case uint16:
-		return m.readMemory(addr + offset)
+		return m.ReadMemory(addr + offset)
 	case int:
-		return m.readMemory(uint16(addr) + offset)
-	case Absolute:
-		return m.readMemory(uint16(addr) + offset)
+		return m.ReadMemory(uint16(addr) + offset)
+	case addressing.Absolute:
+		return m.ReadMemory(uint16(addr) + offset)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
 	}
 }
 
-func (m *Memory) readMemoryIndirect(address Indirect, register interface{}) byte {
+func (m *Memory) readMemoryIndirect(address addressing.Indirect, register interface{}) byte {
 	pointer := m.indirectMemoryPointer(address, register)
-	return m.readMemory(pointer)
+	return m.ReadMemory(pointer)
 }
 
 func (m *Memory) readPointer(address uint16) uint16 {
-	b1 := m.readMemory(address)
-	b2 := m.readMemory(address + 1)
+	b1 := m.ReadMemory(address)
+	b2 := m.ReadMemory(address + 1)
 	ptr := uint16(b1)<<8 + uint16(b2)
 	return ptr
 }
 
-func (m *Memory) readMemory(address uint16) byte {
+// ReadMemory reads a byte from a memory address.
+func (m *Memory) ReadMemory(address uint16) byte {
 	switch {
 	case address < 0x2000:
-		return m.ram.readMemory(address & 0x07FF)
+		return m.ram.ReadMemory(address & 0x07FF)
 	case address < 0x4000:
-		return m.ppu.readRegister(address)
-	case address == JOYPAD1:
-		return m.controller1.read()
-	case address == JOYPAD2:
-		return m.controller2.read()
-	case address == APU_CHAN_CTRL:
+		return m.ppu.ReadRegister(address)
+	case address == controller.JOYPAD1:
+		return m.controller1.Read()
+	case address == controller.JOYPAD2:
+		return m.controller2.Read()
+	case address == apu.APU_CHAN_CTRL:
 		return 0 // TODO
 	case address >= 0x8000: // TODO implement mapper
 		return m.cartridge.PRG[address-0x8000]
@@ -234,7 +252,7 @@ func (m *Memory) readMemory(address uint16) byte {
 	}
 }
 
-func (m *Memory) indirectMemoryPointer(address Indirect, register interface{}) uint16 {
+func (m *Memory) indirectMemoryPointer(address addressing.Indirect, register interface{}) uint16 {
 	if register == nil {
 		panic("register parameter missing for indirect memory addressing")
 	}
@@ -246,9 +264,9 @@ func (m *Memory) indirectMemoryPointer(address Indirect, register interface{}) u
 
 	var pointer uint16
 	switch {
-	case p == X, p == m.x:
+	case p == m.globalX, p == m.x:
 		pointer = m.readPointer(uint16(address) + uint16(*p))
-	case p == Y, p == m.y:
+	case p == m.globalY, p == m.y:
 		pointer = m.readPointer(uint16(address))
 		pointer += uint16(*p)
 	default:

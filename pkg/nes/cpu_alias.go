@@ -3,6 +3,8 @@
 
 package nes
 
+import "github.com/retroenv/nesgo/pkg/cpu"
+
 // CPU registers that can be used as parameter for instructions that support
 // absolute or indirect indexing using X or Y register.
 var (
@@ -15,7 +17,7 @@ var (
 // cpu instructions, linked to the uninitialized cpu type functions to allow
 // easier code browsing.
 var (
-	docCPU *CPU
+	docCPU *cpu.CPU
 
 	// Adc - Add with Carry.
 	Adc = docCPU.Adc
@@ -27,39 +29,39 @@ var (
 	// carry flag is clear.
 	Bcc = docCPU.Bcc
 	// bcc - Branch if Carry Clear.
-	bcc = docCPU.bcc
+	bcc = docCPU.BccInternal
 	// Bcs - Branch if Carry Set - returns whether the carry flag is set.
 	Bcs = docCPU.Bcs
 	// bcs - Branch if Carry Set.
-	bcs = docCPU.bcs
+	bcs = docCPU.BcsInternal
 	// Beq - Branch if Equal - returns whether the zero flag is set.
 	Beq = docCPU.Beq
 	// beq - Branch if Equal.
-	beq = docCPU.beq
+	beq = docCPU.BeqInternal
 	// Bit - Bit Test - set the Z flag by ANDing A with given address content.
 	Bit = docCPU.Bit
 	// Bmi - Branch if Minus - returns whether the negative flag is set.
 	Bmi = docCPU.Bmi
 	// bmi - Branch if Minus.
-	bmi = docCPU.bmi
+	bmi = docCPU.BmiInternal
 	// Bne - Branch if Not Equal - returns whether the zero flag is clear.
 	Bne = docCPU.Bne
 	// bne - Branch if Not Equal.
-	bne = docCPU.bne
+	bne = docCPU.BneInternal
 	// Bpl - Branch if Positive - returns whether the negative flag is clear.
 	Bpl = docCPU.Bpl
 	// bpl - Branch if Positive.
-	bpl = docCPU.bpl
+	bpl = docCPU.BplInternal
 	// Brk - Force Interrupt.
 	Brk = docCPU.Brk
 	// Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
 	Bvc = docCPU.Bvc
 	// bvc - Branch if Overflow Clear.
-	bvc = docCPU.bvc
+	bvc = docCPU.BplInternal
 	// Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
 	Bvs = docCPU.Bvs
 	// bvs - Branch if Overflow Set.
-	bvs = docCPU.bvs
+	bvs = docCPU.BvsInternal
 	// Clc - Clear Carry Flag.
 	Clc = docCPU.Clc
 	// Cld - Clear Decimal Mode.
@@ -89,9 +91,9 @@ var (
 	// Iny - Increment Y Register.
 	Iny = docCPU.Iny
 	// jump - jump to address.
-	jmp = docCPU.jmp
+	jmp = docCPU.Jmp
 	// jsr - jump to subroutine.
-	jsr = docCPU.jsr
+	jsr = docCPU.Jsr
 	// Lda - Load Accumulator - load a byte into A.
 	Lda = docCPU.Lda
 	// Ldx - Load X Register - load a byte into X.
@@ -119,9 +121,9 @@ var (
 	// Rti - Return from Interrupt.
 	Rti = docCPU.Rti
 	// rti - Return from Interrupt.
-	rti = docCPU.rti
+	rti = docCPU.RtiInternal
 	// rts - return from subroutine.
-	rts = docCPU.rts
+	rts = docCPU.Rts
 	// Sbc - subtract with Carry.
 	Sbc = docCPU.Sbc
 	// Sec - Set Carry Flag.
@@ -154,27 +156,27 @@ var (
 )
 
 // nolint: funlen
-func setAliases(cpu *CPU) {
+func setAliases(cpu *cpu.CPU) {
 	Adc = cpu.Adc
 	And = cpu.And
 	Asl = cpu.Asl
 	Bcc = cpu.Bcc
-	bcc = cpu.bcc
+	bcc = cpu.BccInternal
 	Bcs = cpu.Bcs
-	bcs = cpu.bcs
+	bcs = cpu.BcsInternal
 	Beq = cpu.Beq
-	beq = cpu.beq
+	beq = cpu.BeqInternal
 	Bit = cpu.Bit
 	Bmi = cpu.Bmi
 	Bne = cpu.Bne
-	bne = cpu.bne
+	bne = cpu.BneInternal
 	Bpl = cpu.Bpl
-	bpl = cpu.bpl
+	bpl = cpu.BplInternal
 	Brk = cpu.Brk
 	Bvc = cpu.Bvc
-	bvc = cpu.bvc
+	bvc = cpu.BvcInternal
 	Bvs = cpu.Bvs
-	bvs = cpu.bvs
+	bvs = cpu.BvsInternal
 	Clc = cpu.Clc
 	Cld = cpu.Cld
 	Cli = cpu.Cli
@@ -189,8 +191,8 @@ func setAliases(cpu *CPU) {
 	Inc = cpu.Inc
 	Inx = cpu.Inx
 	Iny = cpu.Iny
-	jmp = cpu.jmp
-	jsr = cpu.jsr
+	jmp = cpu.Jmp
+	jsr = cpu.Jsr
 	Lda = cpu.Lda
 	Ldx = cpu.Ldx
 	Ldy = cpu.Ldy
@@ -204,8 +206,8 @@ func setAliases(cpu *CPU) {
 	Rol = cpu.Rol
 	Ror = cpu.Ror
 	Rti = cpu.Rti
-	rti = cpu.rti
-	rts = cpu.rts
+	rti = cpu.RtiInternal
+	rts = cpu.Rts
 	Sbc = cpu.Sbc
 	Sec = cpu.Sec
 	Sed = cpu.Sed

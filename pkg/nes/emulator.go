@@ -7,13 +7,13 @@ import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/internal/ast"
+	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/ines"
 )
 
 // StartEmulator starts emulating the cartridge.
 func StartEmulator(cartridge *ines.Cartridge) {
-	system := InitializeSystem()
-	system.cartridge = cartridge
+	system := InitializeSystem(cartridge)
 	system.resetHandler = func() {
 		runStep(system)
 	}
@@ -23,7 +23,7 @@ func StartEmulator(cartridge *ines.Cartridge) {
 
 func runStep(system *System) {
 	for {
-		b := system.readMemory(*PC)
+		b := system.ReadMemory(*PC)
 		*PC++
 
 		// TODO add debug tracing
@@ -51,25 +51,25 @@ func readParams(system *System, ins instruction) []interface{} {
 
 	switch ins.addressing {
 	case ast.ImmediateAddressing:
-		b := system.readMemory(*PC)
+		b := system.ReadMemory(*PC)
 		*PC++
 		params = append(params, int(b))
 
 	case ast.AbsoluteAddressing, ast.AbsoluteXAddressing, ast.AbsoluteYAddressing:
-		b1 := uint16(system.readMemory(*PC))
+		b1 := uint16(system.ReadMemory(*PC))
 		*PC++
-		b2 := uint16(system.readMemory(*PC))
+		b2 := uint16(system.ReadMemory(*PC))
 		*PC++
 
-		params = append(params, Absolute(b2<<8|b1))
+		params = append(params, addressing.Absolute(b2<<8|b1))
 
 	case ast.ZeroPageAddressing, ast.ZeroPageXAddressing:
-		b := system.readMemory(*PC)
+		b := system.ReadMemory(*PC)
 		*PC++
-		params = append(params, Absolute(b))
+		params = append(params, addressing.Absolute(b))
 
 	case ast.RelativeAddressing:
-		offset := uint16(system.readMemory(*PC))
+		offset := uint16(system.ReadMemory(*PC))
 		*PC++
 
 		var address uint16
@@ -79,7 +79,7 @@ func readParams(system *System, ins instruction) []interface{} {
 			address = *PC + offset - 0x100
 		}
 
-		params = append(params, Absolute(address))
+		params = append(params, addressing.Absolute(address))
 
 	default:
 		err := fmt.Errorf("unsupported addressing %00x", ins.addressing)

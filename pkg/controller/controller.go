@@ -1,25 +1,27 @@
 //go:build !nesgo
 // +build !nesgo
 
-package nes
+// Package controller provides hardware controller functionality.
+package controller
 
 import "sync/atomic"
 
-type button uint64
+// Button defines a button on the controller.
+type Button uint64
 
-// nolint: deadcode,varcheck
 const (
-	buttonRight  button = 0b10000000
-	buttonLeft   button = 0b01000000
-	buttonDown   button = 0b00100000
-	buttonUp     button = 0b00010000
-	buttonStart  button = 0b00001000
-	buttonSelect button = 0b00000100
-	buttonB      button = 0b00000010
-	buttonA      button = 0b00000001
+	ButtonRight  Button = 0b10000000
+	ButtonLeft   Button = 0b01000000
+	ButtonDown   Button = 0b00100000
+	ButtonUp     Button = 0b00010000
+	ButtonStart  Button = 0b00001000
+	ButtonSelect Button = 0b00000100
+	ButtonB      Button = 0b00000010
+	ButtonA      Button = 0b00000001
 )
 
-type controller struct {
+// Controller represents a hardware controller.
+type Controller struct {
 	// if strobeMode is set, it resets the pointer to the state to read
 	// to the A button. The pointer is not advanced on every state read
 	// until it strobe mode is set off again.
@@ -32,19 +34,21 @@ type controller struct {
 	index uint8
 }
 
-func newController() *controller {
-	c := &controller{}
+// New returns a new Controller.
+func New() *Controller {
+	c := &Controller{}
 	c.reset()
 	return c
 }
 
-func (c *controller) reset() {
+func (c *Controller) reset() {
 	c.buttons = 0
 	c.strobeMode = false
 	c.index = 1
 }
 
-func (c *controller) setStrobeMode(mode uint8) {
+// SetStrobeMode sets the strobe mode flag of the controller.
+func (c *Controller) SetStrobeMode(mode uint8) {
 	if mode&1 == 1 {
 		c.strobeMode = true
 		c.index = 1
@@ -53,10 +57,11 @@ func (c *controller) setStrobeMode(mode uint8) {
 	}
 }
 
-func (c *controller) read() uint8 {
+// Read returns the current button state.
+func (c *Controller) Read() uint8 {
 	state := atomic.LoadUint64(&c.buttons)
 	if c.strobeMode {
-		return uint8(state & uint64(buttonA))
+		return uint8(state & uint64(ButtonA))
 	}
 
 	val := state & uint64(c.index) // nolint:ifshort
@@ -67,8 +72,8 @@ func (c *controller) read() uint8 {
 	return 0
 }
 
-// nolint: unused
-func (c *controller) setButtonState(key button, pressed bool) {
+// SetButtonState sets the current button state.
+func (c *Controller) SetButtonState(key Button, pressed bool) {
 	state := atomic.LoadUint64(&c.buttons)
 	if pressed {
 		state |= uint64(key)
