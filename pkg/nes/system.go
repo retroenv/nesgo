@@ -5,6 +5,7 @@ package nes
 
 import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/system"
 )
@@ -25,6 +26,7 @@ func InitializeSystem(cart *cartridge.Cartridge) *system.System {
 	Y = &sys.CPU.Y
 	PC = &sys.CPU.PC
 
+	cpu.LinkInstructionFuncs(sys.CPU)
 	sys.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
 
 	return sys

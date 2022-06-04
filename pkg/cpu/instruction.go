@@ -6,13 +6,80 @@ import (
 
 // Instruction contains information about a NES CPU instruction.
 type Instruction struct {
-	Name       string
+	Name string
+
+	// instruction has no parameters
+	NoParamFunc func()
+	// instruction has parameters
+	ParamFunc func(params ...interface{})
+
 	Addressing Mode // TODO change to map[Mode] byte for opcode + timing
 }
 
 // HasAddressing ...
 func (c Instruction) HasAddressing(flags Mode) bool {
 	return c.Addressing&flags != 0
+}
+
+// LinkInstructionFuncs links cpu instruction emulation functions
+// to the CPU instance.
+func LinkInstructionFuncs(cpu *CPU) {
+	adc.ParamFunc = cpu.Adc
+	and.ParamFunc = cpu.And
+	asl.ParamFunc = cpu.Asl
+	bcc.ParamFunc = cpu.BccInternal
+	bcs.ParamFunc = cpu.BcsInternal
+	beq.ParamFunc = cpu.BeqInternal
+	bit.ParamFunc = cpu.Bit
+	bmi.ParamFunc = cpu.BmiInternal
+	bne.ParamFunc = cpu.BneInternal
+	bpl.ParamFunc = cpu.BplInternal
+	brk.NoParamFunc = cpu.Brk
+	bvc.ParamFunc = cpu.BvcInternal
+	bvs.ParamFunc = cpu.BvsInternal
+	clc.NoParamFunc = cpu.Clc
+	cld.NoParamFunc = cpu.Cld
+	cli.NoParamFunc = cpu.Cli
+	clv.NoParamFunc = cpu.Clv
+	cmp.ParamFunc = cpu.Cmp
+	cpx.ParamFunc = cpu.Cpx
+	cpy.ParamFunc = cpu.Cpy
+	dec.ParamFunc = cpu.Dec
+	dex.NoParamFunc = cpu.Dex
+	dey.NoParamFunc = cpu.Dey
+	eor.ParamFunc = cpu.Eor
+	inc.ParamFunc = cpu.Inc
+	inx.NoParamFunc = cpu.Inx
+	iny.NoParamFunc = cpu.Iny
+	jmp.ParamFunc = cpu.Jmp
+	jsr.ParamFunc = cpu.Jsr
+	lda.ParamFunc = cpu.Lda
+	ldx.ParamFunc = cpu.Ldx
+	ldy.ParamFunc = cpu.Ldy
+	lsr.ParamFunc = cpu.Lsr
+	nop.NoParamFunc = cpu.Nop
+	ora.ParamFunc = cpu.Ora
+	pha.NoParamFunc = cpu.Pha
+	php.NoParamFunc = cpu.Php
+	pla.NoParamFunc = cpu.Pla
+	plp.NoParamFunc = cpu.Plp
+	rol.ParamFunc = cpu.Rol
+	ror.ParamFunc = cpu.Ror
+	rti.NoParamFunc = cpu.Rti
+	rts.NoParamFunc = cpu.Rts
+	sbc.ParamFunc = cpu.Sbc
+	sec.NoParamFunc = cpu.Sec
+	sed.NoParamFunc = cpu.Sed
+	sei.NoParamFunc = cpu.Sei
+	sta.ParamFunc = cpu.Sta
+	stx.ParamFunc = cpu.Stx
+	sty.ParamFunc = cpu.Sty
+	tax.NoParamFunc = cpu.Tax
+	tay.NoParamFunc = cpu.Tax
+	tsx.NoParamFunc = cpu.Tsx
+	txa.NoParamFunc = cpu.Txa
+	txs.NoParamFunc = cpu.Txs
+	tya.NoParamFunc = cpu.Tya
 }
 
 var adc = &Instruction{
