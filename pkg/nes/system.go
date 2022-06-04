@@ -40,8 +40,12 @@ func newSystem(cartridge *cartridge.Cartridge) *System {
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem(cartridge *cartridge.Cartridge) *System {
-	system := newSystem(cartridge)
+func InitializeSystem(cart *cartridge.Cartridge) *System {
+	if cart == nil {
+		cart = cartridge.New()
+	}
+
+	system := newSystem(cart)
 
 	setAliases(system.CPU)
 	A = &system.CPU.A
