@@ -17,10 +17,13 @@ type File struct {
 	Path      string
 	IsIgnored bool
 	Package   string
+
 	Imports   []*ast.Import
 	Constants []*ast.Constant
 	Variables []*ast.Variable
 	Functions []*ast.Function
+
+	importLookup map[string]*ast.Import
 }
 
 // parseFile parses the file using the lexer and parser and returns an AST
@@ -31,7 +34,8 @@ func parseFile(fileName string, data []byte) (*File, error) {
 		return nil, err
 	}
 	f := &File{
-		Path: fileName,
+		Path:         fileName,
+		importLookup: map[string]*ast.Import{},
 	}
 	if ignored {
 		f.IsIgnored = true
@@ -55,6 +59,10 @@ func parseFile(fileName string, data []byte) (*File, error) {
 	f.Constants = astFile.Constants
 	f.Variables = astFile.Variables
 	f.Functions = astFile.Functions
+
+	for _, imp := range astFile.Imports {
+		f.importLookup[imp.Alias] = imp
+	}
 
 	return f, nil
 }
