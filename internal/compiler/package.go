@@ -32,10 +32,11 @@ func parsePackage(name string) (*Package, error) {
 		return nil, fmt.Errorf("getting current package: %w", err)
 	}
 
+	pack := newPackage(packName)
 	// TODO support external packages
 	if !strings.HasPrefix(name, packName) {
 		if name == "fmt" {
-			return nil, nil // nolint: nilnil
+			return pack, nil
 		}
 		return nil, errors.New("external packages are not support yet")
 	}
@@ -46,7 +47,6 @@ func parsePackage(name string) (*Package, error) {
 		return nil, fmt.Errorf("reading package '%s' directory: %w", name, err)
 	}
 
-	pack := newPackage(packName)
 	for _, entry := range files {
 		fileName := entry.Name()
 		if strings.HasSuffix(strings.ToLower(fileName), testFileSuffix) {
