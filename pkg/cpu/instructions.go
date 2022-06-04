@@ -135,7 +135,7 @@ func (c *CPU) BplInternal(params ...interface{}) {
 // Brk - Force Interrupt.
 func (c *CPU) Brk() {
 	timeInstructionExecution()
-	if c.irqHandler != nil {
+	if *c.irqHandler != nil {
 		f := *c.irqHandler
 		f()
 	}
