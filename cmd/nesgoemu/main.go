@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/retroenv/nesgo/pkg/ines"
+	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
@@ -35,7 +35,7 @@ func emulateFile(input string) error {
 		_ = file.Close()
 	}()
 
-	cart, err := ines.LoadFile(file)
+	cart, err := cartridge.LoadFile(file)
 	if err != nil {
 		return fmt.Errorf("reading file: %w", err)
 	}

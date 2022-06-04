@@ -8,11 +8,11 @@ import (
 
 	"github.com/retroenv/nesgo/internal/ast"
 	"github.com/retroenv/nesgo/pkg/addressing"
-	"github.com/retroenv/nesgo/pkg/ines"
+	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
 // StartEmulator starts emulating the cartridge.
-func StartEmulator(cartridge *ines.Cartridge) {
+func StartEmulator(cartridge *cartridge.Cartridge) {
 	system := InitializeSystem(cartridge)
 	system.resetHandler = func() {
 		runStep(system)

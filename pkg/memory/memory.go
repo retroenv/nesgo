@@ -10,8 +10,8 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/apu"
+	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
-	"github.com/retroenv/nesgo/pkg/ines"
 	"github.com/retroenv/nesgo/pkg/ppu"
 )
 
@@ -21,7 +21,7 @@ type Memory struct {
 	ppu         *ppu.PPU
 	controller1 *controller.Controller
 	controller2 *controller.Controller
-	cartridge   *ines.Cartridge
+	cartridge   *cartridge.Cartridge
 
 	// point to X/Y for comparison of indirect register
 	// parameters in unit tests.
@@ -31,7 +31,7 @@ type Memory struct {
 
 // New returns a new memory instance, embedded it has
 // new instances for PPU and the Controllers.
-func New(cartridge *ines.Cartridge, ppu *ppu.PPU, controller1, controller2 *controller.Controller) *Memory {
+func New(cartridge *cartridge.Cartridge, ppu *ppu.PPU, controller1, controller2 *controller.Controller) *Memory {
 	r := &Memory{
 		ram:         NewRAM(0),
 		ppu:         ppu,

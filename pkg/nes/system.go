@@ -4,9 +4,9 @@
 package nes
 
 import (
+	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/cpu"
-	"github.com/retroenv/nesgo/pkg/ines"
 	"github.com/retroenv/nesgo/pkg/memory"
 	"github.com/retroenv/nesgo/pkg/ppu"
 )
@@ -25,7 +25,7 @@ type System struct {
 	resetHandler func()
 }
 
-func newSystem(cartridge *ines.Cartridge) *System {
+func newSystem(cartridge *cartridge.Cartridge) *System {
 	sys := &System{
 		ppu:         ppu.New(memory.NewRAM(0x2000)),
 		controller1: controller.New(),
@@ -40,7 +40,7 @@ func newSystem(cartridge *ines.Cartridge) *System {
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem(cartridge *ines.Cartridge) *System {
+func InitializeSystem(cartridge *cartridge.Cartridge) *System {
 	system := newSystem(cartridge)
 
 	setAliases(system.CPU)
@@ -51,7 +51,6 @@ func InitializeSystem(cartridge *ines.Cartridge) *System {
 
 	system.Memory.LinkRegisters(&system.CPU.X, &system.CPU.Y, X, Y)
 
-	*PC = 0x8000
 	return system
 }
 

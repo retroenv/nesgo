@@ -1,4 +1,4 @@
-package ines
+package cartridge
 
 import (
 	"bytes"
@@ -38,13 +38,7 @@ func TestLoadFile(t *testing.T) {
 }
 
 func TestCartridgeSave(t *testing.T) {
-	c := &Cartridge{
-		PRG:     make([]byte, 2*16384),
-		CHR:     make([]byte, 8192),
-		Mapper:  0,
-		Mirror:  1,
-		Battery: 0,
-	}
+	c := New()
 	c.PRG[0] = 0x80 // marker
 	c.CHR[0] = 0x81 // marker
 

@@ -1,4 +1,5 @@
-package ines
+// Package cartridge provides .nes ROM loading and saving.
+package cartridge
 
 import (
 	"encoding/binary"
@@ -14,6 +15,17 @@ type Cartridge struct {
 	Mapper  byte // mapper type
 	Mirror  byte // mirroring mode
 	Battery byte // battery present
+}
+
+// New returns a new cartridge.
+func New() *Cartridge {
+	return &Cartridge{
+		PRG:     make([]byte, 2*16384),
+		CHR:     make([]byte, 8192),
+		Mapper:  0,
+		Mirror:  1,
+		Battery: 0,
+	}
 }
 
 // Save the cartridge content in iNES format.

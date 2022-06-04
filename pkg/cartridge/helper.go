@@ -1,4 +1,4 @@
-package ines
+package cartridge
 
 func highNibble(b byte) byte {
 	return b >> 4

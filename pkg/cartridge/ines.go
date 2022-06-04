@@ -1,5 +1,4 @@
-// Package ines provides .nes ROM loading and saving.
-package ines
+package cartridge
 
 import (
 	"encoding/binary"
