@@ -363,13 +363,13 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ConstSpec : IdentifierList "=" Expression	<< ast.NewConstant(X[0].(*ast.Identifier), X[2].(*ast.Value)) >>`,
+		String: `ConstSpec : IdentifierList "=" Expression	<< ast.NewConstant(X[0].(*ast.Identifier), X[2]) >>`,
 		Id:         "ConstSpec",
 		NTType:     17,
 		Index:      34,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
-			return ast.NewConstant(X[0].(*ast.Identifier), X[2].(*ast.Value))
+			return ast.NewConstant(X[0].(*ast.Identifier), X[2])
 		},
 	},
 	ProdTabEntry{

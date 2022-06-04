@@ -85,6 +85,30 @@ func (c *Compiler) Parse(fileName string, data []byte) error {
 			}
 			c.packages[packageName] = pack
 			delete(c.packagesToLoad, packageName)
+
+			for _, file = range pack.files {
+				c.updatePackagesToLoad(file.Imports)
+			}
+		}
+	}
+
+	if err := c.resolveTypeAliases(); err != nil {
+		return fmt.Errorf("resolving type aliases': %w", err)
+	}
+
+	return nil
+}
+
+func (c *Compiler) resolveTypeAliases() error {
+	for _, pack := range c.packages {
+		for _, con := range pack.constants {
+			if con.AliasName == "" {
+				continue
+			}
+
+			if err := pack.resolveConstantAlias(c.packages, con); err != nil {
+				return err
+			}
 		}
 	}
 	return nil

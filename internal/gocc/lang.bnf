@@ -173,7 +173,7 @@ ConstList
         ;
 
 ConstSpec
-        : IdentifierList "=" Expression  << ast.NewConstant($0.(*ast.Identifier), $2.(*ast.Value)) >>
+        : IdentifierList "=" Expression  << ast.NewConstant($0.(*ast.Identifier), $2) >>
         ;
 
 // --- [ Expressions ] ---------------------------------------------------------
