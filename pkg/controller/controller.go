@@ -10,14 +10,14 @@ import "sync/atomic"
 type Button uint64
 
 const (
-	ButtonRight  Button = 0b10000000
-	ButtonLeft   Button = 0b01000000
-	ButtonDown   Button = 0b00100000
-	ButtonUp     Button = 0b00010000
-	ButtonStart  Button = 0b00001000
-	ButtonSelect Button = 0b00000100
-	ButtonB      Button = 0b00000010
-	ButtonA      Button = 0b00000001
+	A      Button = 0b00000001
+	B      Button = 0b00000010
+	Select Button = 0b00000100
+	Start  Button = 0b00001000
+	Up     Button = 0b00010000
+	Down   Button = 0b00100000
+	Left   Button = 0b01000000
+	Right  Button = 0b10000000
 )
 
 // Controller represents a hardware controller.
@@ -61,7 +61,7 @@ func (c *Controller) SetStrobeMode(mode uint8) {
 func (c *Controller) Read() uint8 {
 	state := atomic.LoadUint64(&c.buttons)
 	if c.strobeMode {
-		return uint8(state & uint64(ButtonA))
+		return uint8(state & uint64(A))
 	}
 
 	val := state & uint64(c.index) // nolint:ifshort

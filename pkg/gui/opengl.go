@@ -18,14 +18,14 @@ import (
 var guiStarter = setupOpenGLGui
 
 var openGLKeyMapping = map[glfw.Key]controller.Button{
-	glfw.KeyUp:        controller.ButtonUp,
-	glfw.KeyDown:      controller.ButtonDown,
-	glfw.KeyLeft:      controller.ButtonLeft,
-	glfw.KeyRight:     controller.ButtonRight,
-	glfw.KeyZ:         controller.ButtonA,
-	glfw.KeyX:         controller.ButtonB,
-	glfw.KeyEnter:     controller.ButtonStart,
-	glfw.KeyBackspace: controller.ButtonSelect,
+	glfw.KeyUp:        controller.Up,
+	glfw.KeyDown:      controller.Down,
+	glfw.KeyLeft:      controller.Left,
+	glfw.KeyRight:     controller.Right,
+	glfw.KeyZ:         controller.A,
+	glfw.KeyX:         controller.B,
+	glfw.KeyEnter:     controller.Start,
+	glfw.KeyBackspace: controller.Select,
 }
 
 func setupOpenGLGui(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error) {

@@ -15,14 +15,14 @@ import (
 var guiStarter = setupSDLGui
 
 var sdlKeyMapping = map[sdl.Keycode]controller.Button{
-	sdl.K_UP:        controller.ButtonUp,
-	sdl.K_DOWN:      controller.ButtonDown,
-	sdl.K_LEFT:      controller.ButtonLeft,
-	sdl.K_RIGHT:     controller.ButtonRight,
-	sdl.K_z:         controller.ButtonA,
-	sdl.K_x:         controller.ButtonB,
-	sdl.K_RETURN:    controller.ButtonStart,
-	sdl.K_BACKSPACE: controller.ButtonSelect,
+	sdl.K_UP:        controller.Up,
+	sdl.K_DOWN:      controller.Down,
+	sdl.K_LEFT:      controller.Left,
+	sdl.K_RIGHT:     controller.Right,
+	sdl.K_z:         controller.A,
+	sdl.K_x:         controller.B,
+	sdl.K_RETURN:    controller.Start,
+	sdl.K_BACKSPACE: controller.Select,
 }
 
 func setupSDLGui(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error) {
