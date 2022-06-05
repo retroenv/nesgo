@@ -11,6 +11,7 @@ import (
 
 func main() {
 	input := flag.String("f", "", "nes file to load")
+	tracing := flag.Bool("t", false, "print CPU tracing")
 
 	flag.Parse()
 
@@ -19,13 +20,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := emulateFile(*input); err != nil {
-		fmt.Println(fmt.Errorf("error: %w", err))
+	if err := emulateFile(*input, *tracing); err != nil {
+		fmt.Println(fmt.Errorf("emulation failed: %w", err))
 		os.Exit(1)
 	}
 }
 
-func emulateFile(input string) error {
+func emulateFile(input string, tracing bool) error {
 	file, err := os.Open(input)
 	if err != nil {
 		return fmt.Errorf("opening file '%s': %w", input, err)
@@ -40,6 +41,6 @@ func emulateFile(input string) error {
 		return fmt.Errorf("reading file: %w", err)
 	}
 
-	nes.StartEmulator(cart)
+	nes.StartEmulator(cart, tracing)
 	return nil
 }

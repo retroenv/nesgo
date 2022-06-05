@@ -14,11 +14,12 @@ var (
 	PC *uint16 // program counter
 )
 
-// cpu instructions, linked to the uninitialized cpu type functions to allow
-// easier code browsing.
-var (
-	docCPU *cpu.CPU
+var docCPU *cpu.CPU
 
+// All CPU instructions that can be used when writing NES programs in Golang.
+// They are aliased to the emulator implementation to allow an easy code
+// browsing.
+var (
 	// Adc - Add with Carry.
 	Adc = docCPU.Adc
 	// And - AND with accumulator.
@@ -131,6 +132,7 @@ var (
 	Tya = docCPU.Tya
 )
 
+// setAliases links the CPU instructions to the actual CPU instance.
 // nolint: funlen
 func setAliases(cpu *cpu.CPU) {
 	Adc = cpu.Adc

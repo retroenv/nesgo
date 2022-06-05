@@ -13,8 +13,9 @@ import (
 )
 
 // StartEmulator starts emulating the cartridge.
-func StartEmulator(cartridge *cartridge.Cartridge) {
+func StartEmulator(cartridge *cartridge.Cartridge, tracing bool) {
 	sys := InitializeSystem(cartridge)
+	sys.CPU.SetTracing(tracing)
 	sys.ResetHandler = func() {
 		runStep(sys)
 	}
@@ -26,8 +27,6 @@ func runStep(sys *system.System) {
 	for {
 		b := sys.ReadMemory(*PC)
 		*PC++
-
-		// TODO add debug tracing
 
 		ins, ok := cpu.Opcodes[b]
 		if !ok {
