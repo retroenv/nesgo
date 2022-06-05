@@ -19,6 +19,7 @@ type CPU struct {
 
 	irqHandler *func()
 	memory     memory
+	tracing    bool
 }
 
 type flags struct {
@@ -47,4 +48,9 @@ func New(memory memory, irqHandler *func()) *CPU {
 
 	c.setFlags(initialFlags)
 	return c
+}
+
+// SetTracing switches CPU tracing.
+func (c *CPU) SetTracing(tracing bool) {
+	c.tracing = tracing
 }
