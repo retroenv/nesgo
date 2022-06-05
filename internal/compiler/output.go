@@ -116,7 +116,7 @@ func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
 
 	switch len(ins.Arguments) {
 	case 0:
-		if !info.HasAddressing(ImpliedAddressing | AccumulatorAddressing) {
+		if !info.HasAddressing(ImpliedAddressing, AccumulatorAddressing) {
 			return fmt.Errorf("instruction '%s' is missing a parameter", ins.Name)
 		}
 		c.outputLineWithComment(ins.Comment, "  %s", ins.Name)
@@ -147,14 +147,14 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *cpu.Instruc
 			return nil
 		}
 	}
-	if info.HasAddressing(ZeroPageAddressing | ZeroPageXAddressing | ZeroPageYAddressing) {
+	if info.HasAddressing(ZeroPageAddressing, ZeroPageXAddressing, ZeroPageYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 8); err == nil {
 			register := instructionIndexRegister(ins)
 			c.outputLineWithComment(ins.Comment, "  %s $%02x%s", ins.Name, val, register)
 			return nil
 		}
 	}
-	if info.HasAddressing(AbsoluteAddressing | AbsoluteXAddressing | AbsoluteYAddressing) {
+	if info.HasAddressing(AbsoluteAddressing, AbsoluteXAddressing, AbsoluteYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 16); err == nil {
 			register := instructionIndexRegister(ins)
 			c.outputLineWithComment(ins.Comment, "  %s $%04x%s", ins.Name, val, register)

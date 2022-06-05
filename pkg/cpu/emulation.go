@@ -11,7 +11,8 @@ import (
 
 // Adc - Add with Carry.
 func (c *CPU) Adc(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(adc, params...)
+
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	sum := int(c.A) + int(c.Flags.C) + int(value)
 	c.A = uint8(sum)
@@ -26,7 +27,8 @@ func (c *CPU) Adc(params ...interface{}) {
 
 // And - AND with accumulator.
 func (c *CPU) And(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(and, params...)
+
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	c.A &= value
 	c.setZN(c.A)
@@ -34,7 +36,7 @@ func (c *CPU) And(params ...interface{}) {
 
 // Asl - Arithmetic Shift Left.
 func (c *CPU) Asl(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(asl, params...)
 
 	if params == nil { // A implied
 		c.Flags.C = (c.A >> 7) & 1
@@ -53,43 +55,44 @@ func (c *CPU) Asl(params ...interface{}) {
 // Bcc - Branch if Carry Clear - returns whether the
 // carry flag is clear.
 func (c *CPU) Bcc() bool {
-	timeInstructionExecution()
+	instructionHook(bcc)
 	return c.Flags.C == 0
 }
 
 // BccInternal - Branch if Carry Clear.
 func (c *CPU) BccInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bcc, params...)
 	c.branch(c.Bcc, params[0])
 }
 
 // Bcs - Branch if Carry Set - returns whether the carry flag is set.
 func (c *CPU) Bcs() bool {
-	timeInstructionExecution()
+	instructionHook(bcs)
 	return c.Flags.C != 0
 }
 
 // BcsInternal - Branch if Carry Set.
 func (c *CPU) BcsInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bcs, params...)
 	c.branch(c.Bcs, params[0])
 }
 
 // Beq - Branch if Equal - returns whether the zero flag is set.
 func (c *CPU) Beq() bool {
-	timeInstructionExecution()
+	instructionHook(beq)
 	return c.Flags.Z != 0
 }
 
 // BeqInternal - Branch if Equal.
 func (c *CPU) BeqInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(beq, params...)
 	c.branch(c.Beq, params[0])
 }
 
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
 func (c *CPU) Bit(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bit, params...)
+
 	value := c.memory.ReadMemoryAbsolute(params[0], nil)
 	c.Flags.V = (value >> 6) & 1
 	c.setZ(value & c.A)
@@ -98,43 +101,44 @@ func (c *CPU) Bit(params ...interface{}) {
 
 // Bmi - Branch if Minus - returns whether the negative flag is set.
 func (c *CPU) Bmi() bool {
-	timeInstructionExecution()
+	instructionHook(bmi)
 	return c.Flags.N != 0
 }
 
 // BmiInternal - Branch if Minus.
 func (c *CPU) BmiInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bmi, params...)
 	c.branch(c.Bmi, params[0])
 }
 
 // Bne - Branch if Not Equal - returns whether the zero flag is clear.
 func (c *CPU) Bne() bool {
-	timeInstructionExecution()
+	instructionHook(bne)
 	return c.Flags.Z == 0
 }
 
 // BneInternal - Branch if Not Equal.
 func (c *CPU) BneInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bne, params...)
 	c.branch(c.Bne, params[0])
 }
 
 // Bpl - Branch if Positive - returns whether the negative flag is clear.
 func (c *CPU) Bpl() bool {
-	timeInstructionExecution()
+	instructionHook(bpl)
 	return c.Flags.N == 0
 }
 
 // BplInternal - Branch if Positive.
 func (c *CPU) BplInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bpl, params...)
 	c.branch(c.Bpl, params[0])
 }
 
 // Brk - Force Interrupt.
 func (c *CPU) Brk() {
-	timeInstructionExecution()
+	instructionHook(brk)
+
 	if *c.irqHandler != nil {
 		f := *c.irqHandler
 		f()
@@ -143,76 +147,80 @@ func (c *CPU) Brk() {
 
 // Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
 func (c *CPU) Bvc() bool {
-	timeInstructionExecution()
+	instructionHook(bvc)
 	return c.Flags.V == 0
 }
 
 // BvcInternal - Branch if Overflow Clear.
 func (c *CPU) BvcInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bvc, params...)
 	c.branch(c.Bvc, params[0])
 }
 
 // Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
 func (c *CPU) Bvs() bool {
-	timeInstructionExecution()
+	instructionHook(bvs)
 	return c.Flags.V != 0
 }
 
 // BvsInternal - Branch if Overflow Set.
 func (c *CPU) BvsInternal(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(bvs, params...)
 	c.branch(c.Bvs, params[0])
 }
 
 // Clc - Clear Carry Flag.
 func (c *CPU) Clc() {
-	timeInstructionExecution()
+	instructionHook(clc)
 	c.Flags.C = 0
 }
 
 // Cld - Clear Decimal Mode.
 func (c *CPU) Cld() {
-	timeInstructionExecution()
+	instructionHook(cld)
 	c.Flags.D = 0
 }
 
 // Cli - Clear Interrupt Disable.
 func (c *CPU) Cli() {
-	timeInstructionExecution()
+	instructionHook(cli)
 	c.Flags.I = 0
 }
 
 // Clv - Clear Overflow Flag.
 func (c *CPU) Clv() {
-	timeInstructionExecution()
+	instructionHook(clv)
 	c.Flags.V = 0
 }
 
 // Cmp - Compare - compares the contents of A.
 func (c *CPU) Cmp(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(cmp, params...)
+
 	val := c.memory.ReadMemoryAddressModes(true, params[0])
 	c.compare(c.A, val)
 }
 
 // Cpx - Compare X Register - compares the contents of X.
 func (c *CPU) Cpx(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(cpx, params...)
+
 	val := c.memory.ReadMemoryAddressModes(true, params[0])
 	c.compare(c.X, val)
 }
 
 // Cpy - Compare Y Register - compares the contents of Y.
 func (c *CPU) Cpy(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(cpy, params...)
+
 	val := c.memory.ReadMemoryAddressModes(true, params[0])
 	c.compare(c.Y, val)
 }
 
 // Dec - Decrement memory.
 func (c *CPU) Dec(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(dec, params...)
+
 	val := c.memory.ReadMemoryAddressModes(false, params...)
 	val--
 	c.memory.WriteMemoryAddressModes(val, params...)
@@ -220,21 +228,24 @@ func (c *CPU) Dec(params ...interface{}) {
 
 // Dex - Decrement X Register.
 func (c *CPU) Dex() {
-	timeInstructionExecution()
+	instructionHook(dex)
+
 	c.X--
 	c.setZN(c.X)
 }
 
 // Dey - Decrement Y Register.
 func (c *CPU) Dey() {
-	timeInstructionExecution()
+	instructionHook(dey)
+
 	c.Y--
 	c.setZN(c.Y)
 }
 
 // Eor - Exclusive OR - XOR.
 func (c *CPU) Eor(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(eor, params...)
+
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	c.A ^= value
 	c.setZN(c.A)
@@ -242,7 +253,8 @@ func (c *CPU) Eor(params ...interface{}) {
 
 // Inc - Increments memory.
 func (c *CPU) Inc(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(inc, params...)
+
 	val := c.memory.ReadMemoryAddressModes(false, params...)
 	val++
 	c.memory.WriteMemoryAddressModes(val, params...)
@@ -250,27 +262,30 @@ func (c *CPU) Inc(params ...interface{}) {
 
 // Inx - Increment X Register.
 func (c *CPU) Inx() {
-	timeInstructionExecution()
+	instructionHook(inx)
+
 	c.X++
 	c.setZN(c.X)
 }
 
 // Iny - Increment Y Register.
 func (c *CPU) Iny() {
-	timeInstructionExecution()
+	instructionHook(iny)
+
 	c.Y++
 	c.setZN(c.Y)
 }
 
 // Jmp - jump to address.
 func (c *CPU) Jmp(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(jmp, params...)
+
 	// TODO implement
 }
 
 // Jsr - jump to subroutine.
 func (c *CPU) Jsr(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(jsr, params...)
 
 	c.push16(c.PC - 1)
 
@@ -280,28 +295,31 @@ func (c *CPU) Jsr(params ...interface{}) {
 
 // Lda - Load Accumulator - load a byte into A.
 func (c *CPU) Lda(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(lda, params...)
+
 	c.A = c.memory.ReadMemoryAddressModes(true, params...)
 	c.setZN(c.A)
 }
 
 // Ldx - Load X Register - load a byte into X.
 func (c *CPU) Ldx(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(ldx, params...)
+
 	c.X = c.memory.ReadMemoryAddressModes(true, params...)
 	c.setZN(c.X)
 }
 
 // Ldy - Load Y Register - load a byte into Y.
 func (c *CPU) Ldy(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(ldy, params...)
+
 	c.Y = c.memory.ReadMemoryAddressModes(true, params...)
 	c.setZN(c.Y)
 }
 
 // Lsr - Logical Shift Right.
 func (c *CPU) Lsr(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(lsr, params...)
 
 	if params == nil { // A implied
 		c.Flags.C = c.A & 1
@@ -319,12 +337,13 @@ func (c *CPU) Lsr(params ...interface{}) {
 
 // Nop - No Operation.
 func (c *CPU) Nop() {
-	timeInstructionExecution()
+	instructionHook(nop)
 }
 
 // Ora - OR with Accumulator.
 func (c *CPU) Ora(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(ora, params...)
+
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	c.A |= value
 	c.setZN(c.A)
@@ -332,13 +351,14 @@ func (c *CPU) Ora(params ...interface{}) {
 
 // Pha - Push Accumulator - push A content to stack.
 func (c *CPU) Pha() {
-	timeInstructionExecution()
+	instructionHook(pha)
 	c.push(c.A)
 }
 
 // Php - Push Processor Status - push status flags to stack.
 func (c *CPU) Php() {
-	timeInstructionExecution()
+	instructionHook(php)
+
 	f := c.GetFlags()
 	f |= 0b11000 // bit 4 and 5 are set to 1
 	c.push(f)
@@ -346,14 +366,16 @@ func (c *CPU) Php() {
 
 // Pla - Pull Accumulator - pull A content from stack.
 func (c *CPU) Pla() {
-	timeInstructionExecution()
+	instructionHook(pla)
+
 	c.A = c.pop()
 	c.setZN(c.A)
 }
 
 // Plp - Pull Processor Status - pull status flags from stack.
 func (c *CPU) Plp() {
-	timeInstructionExecution()
+	instructionHook(plp)
+
 	f := c.pop()
 	f &^= 0b11000 // bit 4 and 5 are cleared
 	c.setFlags(f)
@@ -361,7 +383,7 @@ func (c *CPU) Plp() {
 
 // Rol - Rotate Left.
 func (c *CPU) Rol(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(rol, params...)
 
 	cFlag := c.Flags.C
 	if params == nil { // A implied
@@ -380,7 +402,7 @@ func (c *CPU) Rol(params ...interface{}) {
 
 // Ror - Rotate Right.
 func (c *CPU) Ror(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(ror, params...)
 
 	cFlag := c.Flags.C
 	if params == nil { // A implied
@@ -399,26 +421,26 @@ func (c *CPU) Ror(params ...interface{}) {
 
 // Rti - Return from Interrupt.
 func (c *CPU) Rti() {
-	timeInstructionExecution()
+	instructionHook(rti)
 }
 
 // RtiInternal - Return from Interrupt.
 func (c *CPU) RtiInternal() {
-	timeInstructionExecution()
+	instructionHook(rti)
 
 	c.PC = c.pop16()
 }
 
 // Rts - return from subroutine.
 func (c *CPU) Rts() {
-	timeInstructionExecution()
+	instructionHook(rts)
 
 	c.PC = c.pop16() + 1
 }
 
 // Sbc - subtract with Carry.
 func (c *CPU) Sbc(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(sbc, params...)
 
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
@@ -434,80 +456,85 @@ func (c *CPU) Sbc(params ...interface{}) {
 
 // Sec - Set Carry Flag.
 func (c *CPU) Sec() {
-	timeInstructionExecution()
+	instructionHook(sec)
 	c.Flags.C = 1
 }
 
 // Sed - Set Decimal Flag.
 func (c *CPU) Sed() {
-	timeInstructionExecution()
+	instructionHook(sed)
 	c.Flags.D = 1
 }
 
 // Sei - Set Interrupt Disable.
 func (c *CPU) Sei() {
-	timeInstructionExecution()
+	instructionHook(sei)
 	c.Flags.I = 1
 }
 
 // Sta - Store Accumulator - store content of A at address Addr and
 // add an optional register to the address.
 func (c *CPU) Sta(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(sta, params...)
 	c.memory.WriteMemoryAddressModes(c.A, params...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
 func (c *CPU) Stx(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(stx, params...)
 	c.memory.WriteMemoryAddressModes(c.X, params...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
 func (c *CPU) Sty(params ...interface{}) {
-	timeInstructionExecution()
+	instructionHook(sty, params...)
 	c.memory.WriteMemoryAddressModes(c.Y, params...)
 }
 
 // Tax - Transfer Accumulator to X.
 func (c *CPU) Tax() {
-	timeInstructionExecution()
+	instructionHook(tax)
+
 	c.X = c.A
 	c.setZN(c.X)
 }
 
 // Tay - Transfer Accumulator to Y.
 func (c *CPU) Tay() {
-	timeInstructionExecution()
+	instructionHook(tay)
+
 	c.Y = c.A
 	c.setZN(c.Y)
 }
 
 // Tsx - Transfer Stack Pointer to X.
 func (c *CPU) Tsx() {
-	timeInstructionExecution()
+	instructionHook(tsx)
+
 	c.X = c.SP
 	c.setZN(c.X)
 }
 
 // Txa - Transfer X to Accumulator.
 func (c *CPU) Txa() {
-	timeInstructionExecution()
+	instructionHook(txa)
+
 	c.A = c.X
 	c.setZN(c.A)
 }
 
 // Txs - Transfer X to Stack Pointer.
 func (c *CPU) Txs() {
-	timeInstructionExecution()
+	instructionHook(txs)
 	c.SP = c.X
 }
 
 // Tya - Transfer Y to Accumulator.
 func (c *CPU) Tya() {
-	timeInstructionExecution()
+	instructionHook(tya)
+
 	c.A = c.Y
 	c.setZN(c.A)
 }

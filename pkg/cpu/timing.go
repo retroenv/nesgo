@@ -3,10 +3,19 @@
 
 package cpu
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 // TODO disable timing in unit tests
-// account for exact cycles
-func timeInstructionExecution() {
+func instructionHook(instruction *Instruction, params ...interface{}) {
+	// TODO get addressing mode based on passed params
+	// TODO account for exact cycles
+
+	if len(params) != 100 { // TODO add tracing
+		fmt.Println(instruction.Name)
+	}
+
 	time.Sleep(time.Microsecond)
 }

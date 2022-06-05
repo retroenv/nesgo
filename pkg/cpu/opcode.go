@@ -137,7 +137,7 @@ var Opcodes = map[byte]Opcode{
 	0xc8: {Instruction: iny, Addressing: ImpliedAddressing},
 	0xc9: {Instruction: cmp, Addressing: ImmediateAddressing},
 	0xca: {Instruction: dex, Addressing: ImpliedAddressing},
-	0xcc: {Instruction: cpy, Addressing: ImpliedAddressing},
+	0xcc: {Instruction: cpy, Addressing: AbsoluteAddressing},
 	0xcd: {Instruction: cmp, Addressing: AbsoluteAddressing},
 	0xce: {Instruction: dec, Addressing: AbsoluteAddressing},
 	0xd0: {Instruction: bne, Addressing: RelativeAddressing},
