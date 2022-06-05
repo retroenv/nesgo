@@ -23,6 +23,7 @@ func (c Instruction) HasAddressing(flags Mode) bool {
 
 // LinkInstructionFuncs links cpu instruction emulation functions
 // to the CPU instance.
+// nolint: funlen
 func LinkInstructionFuncs(cpu *CPU) {
 	adc.ParamFunc = cpu.Adc
 	and.ParamFunc = cpu.And
@@ -457,7 +458,7 @@ var tya = &Instruction{
 	Addressing: ImpliedAddressing,
 }
 
-// Instructions maps to NES CPU instruction information.
+// Instructions maps instruction names to NES CPU instruction information.
 var Instructions = map[string]*Instruction{
 	"adc": adc,
 	"and": and,

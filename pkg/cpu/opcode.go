@@ -7,11 +7,14 @@ import (
 	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
+// Opcode is a NES CPU opcode that contains the instruction info and used
+// addressing mode.
 type Opcode struct {
 	Instruction *Instruction
 	Addressing  Mode
 }
 
+// Opcodes maps first opcode bytes to NES CPU instruction information.
 var Opcodes = map[byte]Opcode{
 	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
 	0x01: {Instruction: ora, Addressing: IndirectXAddressing},
@@ -96,344 +99,72 @@ var Opcodes = map[byte]Opcode{
 	0x8e: {Instruction: stx, Addressing: AbsoluteAddressing},
 	0x90: {Instruction: bcc, Addressing: RelativeAddressing},
 	0x91: {Instruction: sta, Addressing: IndirectYAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-	0x00: {Instruction: brk, Addressing: ImpliedAddressing},
-
-	/*
-		0x94: {
-			name:       "sty",
-			paramFunc:  &Sty,
-			addressing: ZeroPageXAddressing,
-		},
-		0x95: {
-			name:       "sta",
-			paramFunc:  &Sta,
-			addressing: ZeroPageXAddressing,
-		},
-		0x96: {
-			name:       "stx",
-			paramFunc:  &Stx,
-			addressing: ZeroPageYAddressing,
-		},
-		0x98: {
-			name:        "tya",
-			noParamFunc: &Tya,
-		},
-		0x99: {
-			name:       "sta",
-			paramFunc:  &Sta,
-			addressing: AbsoluteYAddressing,
-		},
-		0x9a: {
-			name:        "txs",
-			noParamFunc: &Txs,
-		},
-		0x9d: {
-			name:       "sta",
-			paramFunc:  &Sta,
-			addressing: AbsoluteXAddressing,
-		},
-		0xa0: {
-			name:       "ldy",
-			paramFunc:  &Ldy,
-			addressing: ImmediateAddressing,
-		},
-		0xa1: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: IndirectXAddressing,
-		},
-		0xa2: {
-			name:       "ldx",
-			paramFunc:  &Ldx,
-			addressing: ImmediateAddressing,
-		},
-		0xa4: {
-			name:       "ldy",
-			paramFunc:  &Ldy,
-			addressing: ZeroPageAddressing,
-		},
-		0xa5: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: ZeroPageAddressing,
-		},
-		0xa6: {
-			name:       "ldx",
-			paramFunc:  &Ldx,
-			addressing: ZeroPageAddressing,
-		},
-		0xa8: {
-			name:        "tay",
-			noParamFunc: &Tay,
-		},
-		0xa9: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: ImmediateAddressing,
-		},
-		0xaa: {
-			name:        "tax",
-			noParamFunc: &Tax,
-		},
-		0xac: {
-			name:       "ldy",
-			paramFunc:  &Ldy,
-			addressing: AbsoluteAddressing,
-		},
-		0xad: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: AbsoluteAddressing,
-		},
-		0xae: {
-			name:       "ldx",
-			paramFunc:  &Ldx,
-			addressing: AbsoluteAddressing,
-		},
-		0xb0: {
-			name:       "bcs",
-			paramFunc:  &bcs,
-			addressing: RelativeAddressing,
-		},
-		0xb1: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: IndirectYAddressing,
-		},
-		0xb4: {
-			name:       "ldy",
-			paramFunc:  &Ldy,
-			addressing: ZeroPageXAddressing,
-		},
-		0xb5: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: ZeroPageXAddressing,
-		},
-		0xb6: {
-			name:       "ldx",
-			paramFunc:  &Ldx,
-			addressing: ZeroPageYAddressing,
-		},
-		0xb8: {
-			name:        "clv",
-			noParamFunc: &Clv,
-		},
-		0xb9: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: AbsoluteYAddressing,
-		},
-		0xba: {
-			name:        "tsx",
-			noParamFunc: &Tsx,
-		},
-		0xbc: {
-			name:       "ldy",
-			paramFunc:  &Ldy,
-			addressing: AbsoluteXAddressing,
-		},
-		0xbe: {
-			name:       "ldx",
-			paramFunc:  &Ldx,
-			addressing: AbsoluteYAddressing,
-		},
-		0xbd: {
-			name:       "lda",
-			paramFunc:  &Lda,
-			addressing: AbsoluteXAddressing,
-		},
-		0xc0: {
-			name:       "cpy",
-			paramFunc:  &Cpy,
-			addressing: ImmediateAddressing,
-		},
-		0xc1: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: IndirectXAddressing,
-		},
-		0xc4: {
-			name:       "cpy",
-			paramFunc:  &Cpy,
-			addressing: ZeroPageAddressing,
-		},
-		0xc5: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: ZeroPageAddressing,
-		},
-		0xc6: {
-			name:       "dec",
-			paramFunc:  &Dec,
-			addressing: ZeroPageAddressing,
-		},
-		0xc8: {
-			name:        "iny",
-			noParamFunc: &Iny,
-		},
-		0xc9: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: ImmediateAddressing,
-		},
-		0xca: {
-			name:        "dex",
-			noParamFunc: &Dex,
-		},
-		0xcc: {
-			name:       "cpy",
-			paramFunc:  &Cpy,
-			addressing: AbsoluteAddressing,
-		},
-		0xcd: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: AbsoluteAddressing,
-		},
-		0xce: {
-			name:       "dec",
-			paramFunc:  &Dec,
-			addressing: AbsoluteAddressing,
-		},
-		0xd0: {
-			name:       "bne",
-			paramFunc:  &bne,
-			addressing: RelativeAddressing,
-		},
-		0xd1: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: IndirectYAddressing,
-		},
-		0xd5: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: ZeroPageXAddressing,
-		},
-		0xd6: {
-			name:       "dec",
-			paramFunc:  &Dec,
-			addressing: ZeroPageXAddressing,
-		},
-		0xd8: {
-			name:        "cld",
-			noParamFunc: &Cld,
-		},
-		0xd9: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: AbsoluteYAddressing,
-		},
-		0xdd: {
-			name:       "cmp",
-			paramFunc:  &Cmp,
-			addressing: AbsoluteXAddressing,
-		},
-		0xde: {
-			name:       "dec",
-			paramFunc:  &Dec,
-			addressing: AbsoluteXAddressing,
-		},
-		0xe0: {
-			name:       "cpx",
-			paramFunc:  &Cpx,
-			addressing: ImmediateAddressing,
-		},
-		0xe1: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: IndirectXAddressing,
-		},
-		0xe4: {
-			name:       "cpx",
-			paramFunc:  &Cpx,
-			addressing: ZeroPageAddressing,
-		},
-		0xe5: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: ZeroPageAddressing,
-		},
-		0xe6: {
-			name:       "inc",
-			paramFunc:  &Inc,
-			addressing: ZeroPageAddressing,
-		},
-		0xe8: {
-			name:        "inx",
-			noParamFunc: &Inx,
-		},
-		0xe9: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: ImmediateAddressing,
-		},
-		0xea: {
-			name:        "nop",
-			noParamFunc: &Nop,
-		},
-		0xec: {
-			name:       "cpx",
-			paramFunc:  &Cpx,
-			addressing: AbsoluteAddressing,
-		},
-		0xed: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: AbsoluteAddressing,
-		},
-		0xee: {
-			name:       "inc",
-			paramFunc:  &Inc,
-			addressing: AbsoluteAddressing,
-		},
-		0xf0: {
-			name:       "beq",
-			paramFunc:  &beq,
-			addressing: RelativeAddressing,
-		},
-		0xf1: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: IndirectYAddressing,
-		},
-		0xf5: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: ZeroPageXAddressing,
-		},
-		0xf6: {
-			name:       "inc",
-			paramFunc:  &Inc,
-			addressing: ZeroPageXAddressing,
-		},
-		0xf8: {
-			name:        "sed",
-			noParamFunc: &Sed,
-		},
-		0xf9: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: AbsoluteYAddressing,
-		},
-		0xfd: {
-			name:       "sbc",
-			paramFunc:  &Sbc,
-			addressing: AbsoluteXAddressing,
-		},
-		0xfe: {
-			name:       "inc",
-			paramFunc:  &Inc,
-			addressing: AbsoluteXAddressing,
-		},
-	*/
+	0x94: {Instruction: sty, Addressing: ZeroPageXAddressing},
+	0x95: {Instruction: sta, Addressing: ZeroPageXAddressing},
+	0x96: {Instruction: stx, Addressing: ZeroPageYAddressing},
+	0x98: {Instruction: tya, Addressing: ImpliedAddressing},
+	0x99: {Instruction: sta, Addressing: AbsoluteYAddressing},
+	0x9a: {Instruction: txs, Addressing: ImpliedAddressing},
+	0x9d: {Instruction: sta, Addressing: AbsoluteXAddressing},
+	0xa0: {Instruction: ldy, Addressing: ImmediateAddressing},
+	0xa1: {Instruction: lda, Addressing: IndirectXAddressing},
+	0xa2: {Instruction: ldx, Addressing: ImmediateAddressing},
+	0xa4: {Instruction: ldy, Addressing: ZeroPageAddressing},
+	0xa5: {Instruction: lda, Addressing: ZeroPageAddressing},
+	0xa6: {Instruction: ldx, Addressing: ZeroPageAddressing},
+	0xa8: {Instruction: tay, Addressing: ImpliedAddressing},
+	0xa9: {Instruction: lda, Addressing: ImmediateAddressing},
+	0xaa: {Instruction: tax, Addressing: ImpliedAddressing},
+	0xac: {Instruction: ldy, Addressing: AbsoluteAddressing},
+	0xad: {Instruction: lda, Addressing: AbsoluteAddressing},
+	0xae: {Instruction: ldx, Addressing: AbsoluteAddressing},
+	0xb0: {Instruction: bcs, Addressing: RelativeAddressing},
+	0xb1: {Instruction: lda, Addressing: IndirectYAddressing},
+	0xb4: {Instruction: ldy, Addressing: ZeroPageXAddressing},
+	0xb5: {Instruction: lda, Addressing: ZeroPageXAddressing},
+	0xb6: {Instruction: ldx, Addressing: ZeroPageYAddressing},
+	0xb8: {Instruction: clv, Addressing: ImpliedAddressing},
+	0xb9: {Instruction: lda, Addressing: AbsoluteYAddressing},
+	0xba: {Instruction: tsx, Addressing: ImpliedAddressing},
+	0xbc: {Instruction: ldy, Addressing: AbsoluteXAddressing},
+	0xbd: {Instruction: lda, Addressing: AbsoluteXAddressing},
+	0xbe: {Instruction: ldx, Addressing: AbsoluteYAddressing},
+	0xc0: {Instruction: cpy, Addressing: ImmediateAddressing},
+	0xc1: {Instruction: cmp, Addressing: IndirectXAddressing},
+	0xc4: {Instruction: cpy, Addressing: ZeroPageAddressing},
+	0xc5: {Instruction: cmp, Addressing: ZeroPageAddressing},
+	0xc6: {Instruction: dec, Addressing: ZeroPageAddressing},
+	0xc8: {Instruction: iny, Addressing: ImpliedAddressing},
+	0xc9: {Instruction: cmp, Addressing: ImmediateAddressing},
+	0xca: {Instruction: dex, Addressing: ImpliedAddressing},
+	0xcc: {Instruction: cpy, Addressing: ImpliedAddressing},
+	0xcd: {Instruction: cmp, Addressing: AbsoluteAddressing},
+	0xce: {Instruction: dec, Addressing: AbsoluteAddressing},
+	0xd0: {Instruction: bne, Addressing: RelativeAddressing},
+	0xd1: {Instruction: cmp, Addressing: IndirectYAddressing},
+	0xd5: {Instruction: cmp, Addressing: ZeroPageXAddressing},
+	0xd6: {Instruction: dec, Addressing: ZeroPageXAddressing},
+	0xd8: {Instruction: cld, Addressing: ImpliedAddressing},
+	0xd9: {Instruction: cmp, Addressing: AbsoluteYAddressing},
+	0xdd: {Instruction: cmp, Addressing: AbsoluteXAddressing},
+	0xde: {Instruction: dec, Addressing: AbsoluteXAddressing},
+	0xe0: {Instruction: cpx, Addressing: ImmediateAddressing},
+	0xe1: {Instruction: sbc, Addressing: IndirectXAddressing},
+	0xe4: {Instruction: cpx, Addressing: ZeroPageAddressing},
+	0xe5: {Instruction: sbc, Addressing: ZeroPageAddressing},
+	0xe6: {Instruction: inc, Addressing: ZeroPageAddressing},
+	0xe8: {Instruction: inx, Addressing: ImpliedAddressing},
+	0xe9: {Instruction: sbc, Addressing: ImmediateAddressing},
+	0xea: {Instruction: nop, Addressing: ImpliedAddressing},
+	0xec: {Instruction: cpx, Addressing: AbsoluteAddressing},
+	0xed: {Instruction: sbc, Addressing: AbsoluteAddressing},
+	0xee: {Instruction: inc, Addressing: AbsoluteAddressing},
+	0xf0: {Instruction: beq, Addressing: RelativeAddressing},
+	0xf1: {Instruction: sbc, Addressing: IndirectYAddressing},
+	0xf5: {Instruction: sbc, Addressing: ZeroPageXAddressing},
+	0xf6: {Instruction: inc, Addressing: ZeroPageXAddressing},
+	0xf8: {Instruction: sed, Addressing: ImpliedAddressing},
+	0xf9: {Instruction: sbc, Addressing: AbsoluteYAddressing},
+	0xfd: {Instruction: sbc, Addressing: AbsoluteXAddressing},
+	0xfe: {Instruction: inc, Addressing: AbsoluteXAddressing},
 }
