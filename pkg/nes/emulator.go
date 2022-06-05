@@ -8,6 +8,7 @@ import (
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
@@ -28,28 +29,26 @@ func runStep(sys *system.System) {
 
 		// TODO add debug tracing
 
-		ins, ok := instructions[b]
+		ins, ok := cpu.Opcodes[b]
 		if !ok {
 			err := fmt.Errorf("unsupported opcode %00x", b)
 			panic(err)
 		}
 
-		if ins.noParamFunc != nil {
-			f := *ins.noParamFunc
-			f()
+		if ins.Instruction.NoParamFunc != nil {
+			ins.Instruction.NoParamFunc()
 			continue
 		}
 
-		params := readParams(sys, ins)
-		f := *ins.paramFunc
-		f(params...)
+		params := readParams(sys, ins.Addressing)
+		ins.Instruction.ParamFunc(params...)
 	}
 }
 
-func readParams(sys *system.System, ins instruction) []interface{} {
+func readParams(sys *system.System, addressing Mode) []interface{} {
 	var params []interface{}
 
-	switch ins.addressing {
+	switch addressing {
 	case ImmediateAddressing:
 		b := sys.ReadMemory(*PC)
 		*PC++
@@ -82,11 +81,11 @@ func readParams(sys *system.System, ins instruction) []interface{} {
 		params = append(params, Absolute(address))
 
 	default:
-		err := fmt.Errorf("unsupported addressing %00x", ins.addressing)
+		err := fmt.Errorf("unsupported addressing %00x", addressing)
 		panic(err)
 	}
 
-	switch ins.addressing {
+	switch addressing {
 	case AbsoluteXAddressing, ZeroPageXAddressing:
 		params = append(params, *X)
 	case AbsoluteYAddressing:
