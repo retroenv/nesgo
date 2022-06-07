@@ -42,9 +42,7 @@ func New(memory memory, irqHandler *func()) *CPU {
 	}
 
 	// read reset interrupt handler address
-	b1 := uint16(memory.ReadMemory(0xFFFC))
-	b2 := uint16(memory.ReadMemory(0xFFFD))
-	c.PC = (b2 << 8) | b1
+	c.PC = memory.ReadMemory16(0xFFFC)
 
 	c.setFlags(initialFlags)
 	return c

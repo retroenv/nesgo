@@ -4,6 +4,7 @@
 package cpu
 
 import (
+	"fmt"
 	"math"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
@@ -280,7 +281,15 @@ func (c *CPU) Iny() {
 func (c *CPU) Jmp(params ...interface{}) {
 	c.instructionHook(jmp, params...)
 
-	// TODO implement
+	param := params[0]
+	switch address := param.(type) {
+	case Absolute:
+		c.PC = uint16(address)
+	case Indirect:
+		c.PC = c.memory.ReadMemory16(uint16(address))
+	default:
+		panic(fmt.Sprintf("unsupported jmp mode type %T", param))
+	}
 }
 
 // Jsr - jump to subroutine.
