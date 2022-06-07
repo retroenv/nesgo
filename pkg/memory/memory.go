@@ -74,6 +74,8 @@ func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 		*address = value
 	case Absolute:
 		m.writeMemoryAbsolute(address, value, register)
+	case ZeroPage:
+		m.writeMemoryAbsolute(address, value, register)
 	case Indirect:
 		m.writeMemoryIndirect(address, value, register)
 	default:
@@ -120,6 +122,8 @@ func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offs
 	case int:
 		m.WriteMemory(uint16(addr)+offset, value)
 	case Absolute:
+		m.WriteMemory(uint16(addr)+offset, value)
+	case ZeroPage:
 		m.WriteMemory(uint16(addr)+offset, value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
@@ -177,6 +181,8 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 		return *address
 	case Absolute:
 		return m.ReadMemoryAbsolute(address, register)
+	case ZeroPage:
+		return m.ReadMemoryAbsolute(address, register)
 	case Indirect:
 		return m.readMemoryIndirect(address, register)
 	default:
@@ -215,6 +221,8 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 		return m.ReadMemory(uint16(addr) + offset)
 	case Absolute:
 		return m.ReadMemory(uint16(addr) + offset)
+	case ZeroPage:
+		return m.ReadMemory(uint16(addr) + offset)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
 	}
@@ -223,13 +231,6 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 func (m *Memory) readMemoryIndirect(address Indirect, register interface{}) byte {
 	pointer := m.indirectMemoryPointer(address, register)
 	return m.ReadMemory(pointer)
-}
-
-func (m *Memory) readPointer(address uint16) uint16 {
-	b1 := m.ReadMemory(address)
-	b2 := m.ReadMemory(address + 1)
-	ptr := uint16(b1)<<8 + uint16(b2)
-	return ptr
 }
 
 // ReadMemory reads a byte from a memory address.
@@ -261,16 +262,33 @@ func (m *Memory) indirectMemoryPointer(address Indirect, register interface{}) u
 	if !ok {
 		panic(fmt.Sprintf("unsupported extra parameter type %T for indirect memory addressing", register))
 	}
+	if address > 0xff {
+		panic(fmt.Sprintf("indirect address parameter 0x%04X exceeds byte", address))
+	}
 
 	var pointer uint16
 	switch {
 	case p == m.globalX, p == m.x:
-		pointer = m.readPointer(uint16(address) + uint16(*p))
+		pointer = m.ReadMemory16(uint16(address) + uint16(*p))
 	case p == m.globalY, p == m.y:
-		pointer = m.readPointer(uint16(address))
+		pointer = m.ReadMemory16(uint16(address))
 		pointer += uint16(*p)
 	default:
 		panic("only X and Y registers are supported for indirect addressing")
 	}
 	return pointer
+}
+
+// ReadMemory16 reads a word from a memory address.
+func (m *Memory) ReadMemory16(address uint16) uint16 {
+	low := uint16(m.ReadMemory(address))
+	high := uint16(m.ReadMemory(address + 1))
+	w := (high << 8) | low
+	return w
+}
+
+// WriteMemory16 writes a word to a memory address.
+func (m *Memory) WriteMemory16(address, value uint16) {
+	m.WriteMemory(address, byte(value))
+	m.WriteMemory(address+1, byte(value>>8))
 }

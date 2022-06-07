@@ -43,11 +43,24 @@ func TestMemoryAbsoluteIndirect(t *testing.T) {
 	m.WriteMemory(4, 0x10)
 	*x = 1
 	m.WriteMemoryAddressModes(1, Indirect(2), x)
-	assert.Equal(t, 1, m.ReadMemory(0x10))
+	assert.Equal(t, 1, m.ReadMemory(0x1000))
 
 	m.WriteMemory(8, 0x00)
 	m.WriteMemory(9, 0x18)
 	*y = 1
 	m.WriteMemoryAddressModes(1, Indirect(8), y)
-	assert.Equal(t, 1, m.ReadMemory(0x19))
+	assert.Equal(t, 1, m.ReadMemory(0x1800))
+}
+
+func TestReadMemory16(t *testing.T) {
+	m := New(nil, nil, nil, nil)
+	m.WriteMemory(0, 1)
+	m.WriteMemory(1, 2)
+	assert.Equal(t, 0x201, m.ReadMemory16(0))
+}
+
+func TestWriteMemory16(t *testing.T) {
+	m := New(nil, nil, nil, nil)
+	m.WriteMemory16(0, 0x201)
+	assert.Equal(t, 0x201, m.ReadMemory16(0))
 }
