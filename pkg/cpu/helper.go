@@ -78,23 +78,23 @@ func (c *CPU) push(value byte) {
 	c.SP--
 }
 
-// push a value to the stack and update the stack pointer.
-func (c *CPU) push16(value uint16) {
+// Push16 a word to the stack and update the stack pointer.
+func (c *CPU) Push16(value uint16) {
 	high := byte(value >> 8)
-	low := byte(value & 0xFF)
+	low := byte(value)
 	c.push(high)
 	c.push(low)
 }
 
-// pop a value from the stack and update the stack pointer.
-func (c *CPU) pop() byte {
+// Pop pops a byte from the stack and update the stack pointer.
+func (c *CPU) Pop() byte {
 	c.SP++
 	return c.memory.ReadMemory(uint16(StackBase + int(c.SP)))
 }
 
-// pop a value from the stack and update the stack pointer.
-func (c *CPU) pop16() uint16 {
-	low := uint16(c.pop())
-	high := uint16(c.pop())
+// Pop16 pops a word from the stack and updates the stack pointer.
+func (c *CPU) Pop16() uint16 {
+	low := uint16(c.Pop())
+	high := uint16(c.Pop())
 	return high<<8 | low
 }

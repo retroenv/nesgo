@@ -296,7 +296,7 @@ func (c *CPU) Jmp(params ...interface{}) {
 func (c *CPU) Jsr(params ...interface{}) {
 	c.instructionHook(jsr, params...)
 
-	c.push16(c.PC - 1)
+	c.Push16(c.PC + 1)
 
 	addr := params[0].(Absolute)
 	c.PC = uint16(addr)
@@ -377,7 +377,7 @@ func (c *CPU) Php() {
 func (c *CPU) Pla() {
 	c.instructionHook(pla)
 
-	c.A = c.pop()
+	c.A = c.Pop()
 	c.setZN(c.A)
 }
 
@@ -385,8 +385,8 @@ func (c *CPU) Pla() {
 func (c *CPU) Plp() {
 	c.instructionHook(plp)
 
-	f := c.pop()
-	f &^= 0b11000 // bit 4 and 5 are cleared
+	f := c.Pop()
+	f &^= 0b00011000 // bit 4 and 5 are cleared
 	c.setFlags(f)
 }
 
@@ -437,14 +437,17 @@ func (c *CPU) Rti() {
 func (c *CPU) RtiInternal() {
 	c.instructionHook(rti)
 
-	c.PC = c.pop16()
+	b := c.Pop()
+	b &= 0b11001111 // clear unused and break bit
+	c.setFlags(b)
+	c.PC = c.Pop16()
 }
 
 // Rts - return from subroutine.
 func (c *CPU) Rts() {
 	c.instructionHook(rts)
 
-	c.PC = c.pop16() + 1
+	c.PC = c.Pop16() + 1
 }
 
 // Sbc - subtract with Carry.
