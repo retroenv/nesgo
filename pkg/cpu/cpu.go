@@ -4,7 +4,7 @@ package cpu
 const (
 	StackBase = 0x100
 
-	initialFlags = 0x24 // I and U flags are 1, the rest 0
+	initialFlags = 0b00100100 // I and U flags are 1, the rest 0
 	InitialStack = 0xFD
 )
 
@@ -22,6 +22,8 @@ type CPU struct {
 	tracing    bool
 }
 
+// Bit No.   7   6   5   4   3   2   1   0
+// Flag      S   V       B   D   I   Z   C
 type flags struct {
 	C uint8 // carry flag
 	Z uint8 // zero flag
