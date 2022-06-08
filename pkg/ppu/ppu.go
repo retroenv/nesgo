@@ -8,6 +8,8 @@ import (
 	"fmt"
 	"image"
 	"time"
+
+	"github.com/retroenv/nesgo/pkg/mapper"
 )
 
 const (
@@ -18,16 +20,18 @@ const (
 
 // PPU implements the Picture Processing Unit.
 type PPU struct {
-	ptr uint16
-	ram ram
+	ptr    uint16
+	ram    ram
+	mapper mapper.Mapper
 
 	image *image.RGBA
 }
 
 // New returns a new PPU.
-func New(ram ram) *PPU {
+func New(ram ram, mapper mapper.Mapper) *PPU {
 	p := &PPU{
-		ram: ram,
+		ram:    ram,
+		mapper: mapper,
 	}
 	p.reset()
 	return p
@@ -46,8 +50,11 @@ func (p *PPU) Image() *image.RGBA {
 
 // ReadRegister reads from a PPU memory address.
 func (p *PPU) ReadRegister(address uint16) byte {
-	switch address {
-	case PPU_STATUS:
+	switch {
+	case address < 0x2000:
+		return p.mapper.ReadMemory(address)
+
+	case address == PPU_STATUS:
 		b := p.ram.ReadMemory(address)
 		p.ptr = 0
 		p.clearVBlank()
@@ -60,14 +67,17 @@ func (p *PPU) ReadRegister(address uint16) byte {
 
 // WriteRegister writes to a PPU memory address.
 func (p *PPU) WriteRegister(address uint16, value byte) {
-	switch address {
-	case PPU_CTRL, PPU_MASK:
+	switch {
+	case address < 0x2000:
+		p.mapper.WriteMemory(address, value)
+
+	case address == PPU_CTRL, address == PPU_MASK:
 		p.ram.WriteMemory(address, value)
 
-	case PPU_ADDR:
+	case address == PPU_ADDR:
 		p.ptr = p.ptr<<8 | uint16(value)
 
-	case PPU_DATA:
+	case address == PPU_DATA:
 		if p.ptr > 0x4000 {
 			panic(fmt.Sprintf("ppu data address 0x%04X is out of range", p.ptr))
 		}
