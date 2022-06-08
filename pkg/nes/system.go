@@ -32,23 +32,44 @@ func InitializeSystem(cart *cartridge.Cartridge) *system.System {
 	return sys
 }
 
+// Option defines a Start parameter.
+type Option func(*system.System)
+
+// WithIrqHandler sets an Irq Handler for the program.
+func WithIrqHandler(f func()) func(*system.System) {
+	return func(sys *system.System) {
+		sys.IrqHandler = f
+	}
+}
+
+// WithNmiHandler sets a Nmi Handler for the program.
+func WithNmiHandler(f func()) func(*system.System) {
+	return func(sys *system.System) {
+		sys.NmiHandler = f
+	}
+}
+
+// WithTracing enables tracing for the program.
+func WithTracing() func(*system.System) {
+	return func(sys *system.System) {
+		sys.SetTracing(true)
+	}
+}
+
 // Start is the main entrypoint for a NES program that starts the execution.
-// It expects 1 to 3 parameters for callback function that will be called
-// by NES when different events occur:
+// Different options can be passed.
+// Following callback function that will be called by NES when different events occur:
 // resetHandler: called when the system gets turned on or reset
 // nmiHandler:   occurs when the PPU starts preparing the next frame of
 //               graphics, 60 times per second
 // irqHandler:   can be triggered by the NES sound processor or from
 //               certain types of cartridge hardware.
-func Start(resetHandlerParam func(), nmiIrqHandlers ...func()) {
+func Start(resetHandlerParam func(), options ...Option) {
 	sys := InitializeSystem(nil)
 	sys.ResetHandler = resetHandlerParam
 
-	if len(nmiIrqHandlers) > 1 {
-		sys.IrqHandler = nmiIrqHandlers[1]
-	}
-	if len(nmiIrqHandlers) > 0 {
-		sys.NmiHandler = nmiIrqHandlers[0]
+	for _, option := range options {
+		option(sys)
 	}
 
 	start(sys)

@@ -129,6 +129,10 @@ func newCall(name string, arg interface{}) (Node, error) {
 			switch n := node.(type) {
 			case *Value:
 				c.Parameter = append(c.Parameter, n)
+			case *Identifier:
+				c.Parameter = append(c.Parameter, n)
+			case *Call:
+				c.Parameter = append(c.Parameter, n)
 			default:
 				return nil, fmt.Errorf("type %T is not supported as call parameter in node list", node)
 			}

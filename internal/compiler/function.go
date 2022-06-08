@@ -98,24 +98,30 @@ func (c *Compiler) handleStartCall(n *ast.Call) error {
 	}
 	c.resetHandler = identifier.Name
 
-	if len(n.Parameter) > 2 {
-		arg = n.Parameter[2]
-		identifier, ok = arg.(*ast.Identifier)
+	for _, param := range n.Parameter[1:] {
+		call, ok := param.(*ast.Call)
 		if !ok {
 			return fmt.Errorf("type %T is not supported as Start call parameter", arg)
 		}
-		c.irqHandler = identifier.Name
-	}
-
-	if len(n.Parameter) > 1 {
-		arg = n.Parameter[1]
-		identifier, ok = arg.(*ast.Identifier)
-		if !ok {
-			return fmt.Errorf("type %T is not supported as Start call parameter", arg)
+		if len(call.Parameter) == 0 {
+			continue
 		}
-		c.nmiHandler = identifier.Name
-	}
 
+		param := call.Parameter[0]
+		identifier, ok := param.(*ast.Identifier)
+		if !ok {
+			return fmt.Errorf("parameter type %T is not supported as Start call parameter", param)
+		}
+
+		switch call.Function {
+		case "WithTracing":
+			continue
+		case "WithIrqHandler":
+			c.irqHandler = identifier.Name
+		case "WithNmiHandler":
+			c.nmiHandler = identifier.Name
+		}
+	}
 	return nil
 }
 
