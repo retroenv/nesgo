@@ -19,7 +19,8 @@ type CPU struct {
 
 	irqHandler *func()
 	memory     memory
-	tracing    bool
+	tracing    TracingMode
+	TraceStep  TraceStep
 }
 
 // Bit No.   7   6   5   4   3   2   1   0
@@ -51,6 +52,6 @@ func New(memory memory, irqHandler *func()) *CPU {
 }
 
 // SetTracing switches CPU tracing.
-func (c *CPU) SetTracing(tracing bool) {
+func (c *CPU) SetTracing(tracing TracingMode) {
 	c.tracing = tracing
 }

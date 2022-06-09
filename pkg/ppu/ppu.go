@@ -74,6 +74,9 @@ func (p *PPU) WriteRegister(address uint16, value byte) {
 	case address == PPU_CTRL, address == PPU_MASK:
 		p.ram.WriteMemory(address, value)
 
+	case address == PPU_SCROLL:
+		// TODO support
+
 	case address == PPU_ADDR:
 		p.ptr = p.ptr<<8 | uint16(value)
 

@@ -52,7 +52,7 @@ func WithNmiHandler(f func()) func(*system.System) {
 // WithTracing enables tracing for the program.
 func WithTracing() func(*system.System) {
 	return func(sys *system.System) {
-		sys.SetTracing(true)
+		sys.SetTracing(cpu.GoTracing)
 	}
 }
 
