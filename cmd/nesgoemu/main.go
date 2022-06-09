@@ -9,10 +9,12 @@ import (
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
-func main() {
-	input := flag.String("f", "", "nes file to load")
-	tracing := flag.Bool("t", false, "print CPU tracing")
+var (
+	input   = flag.String("f", "", "nes file to load")
+	tracing = flag.Bool("t", false, "print CPU tracing")
+)
 
+func main() {
 	flag.Parse()
 
 	if *input == "" {
@@ -20,18 +22,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := emulateFile(*input, *tracing); err != nil {
+	if err := emulateFile(*input); err != nil {
 		fmt.Println(fmt.Errorf("emulation failed: %w", err))
 		os.Exit(1)
 	}
 }
 
-func emulateFile(input string, tracing bool) error {
+func emulateFile(input string) error {
 	file, err := os.Open(input)
 	if err != nil {
 		return fmt.Errorf("opening file '%s': %w", input, err)
 	}
-
 	defer func() {
 		_ = file.Close()
 	}()
@@ -41,6 +42,15 @@ func emulateFile(input string, tracing bool) error {
 		return fmt.Errorf("reading file: %w", err)
 	}
 
-	nes.StartEmulator(cart, tracing)
+	opts := []nes.Option{
+		nes.WithEmulator(),
+		nes.WithCartridge(cart),
+	}
+
+	if *tracing {
+		opts = append(opts, nes.WithTracing())
+	}
+
+	nes.Start(nil, opts...)
 	return nil
 }

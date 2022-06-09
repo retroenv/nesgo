@@ -4,21 +4,46 @@
 package nes
 
 import (
+	"fmt"
+
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
+// Start is the main entrypoint for a NES program that starts the execution.
+// Different options can be passed.
+// Following callback function that will be called by NES when different events occur:
+// resetHandler: called when the system gets turned on or reset
+// nmiHandler:   occurs when the PPU starts preparing the next frame of
+//               graphics, 60 times per second
+// irqHandler:   can be triggered by the NES sound processor or from
+//               certain types of cartridge hardware.
+func Start(resetHandlerParam func(), options ...Option) {
+	opts := NewOptions(options...)
+	sys := InitializeSystem(opts)
+
+	if opts.emulator {
+		sys.ResetHandler = func() {
+			runEmulatorStep(sys)
+		}
+	} else {
+		sys.ResetHandler = resetHandlerParam
+	}
+
+	start(sys)
+}
+
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem(cart *cartridge.Cartridge) *system.System {
-	if cart == nil {
-		cart = cartridge.New()
+func InitializeSystem(opts *Options) *system.System {
+	if opts.cartridge == nil {
+		opts.cartridge = cartridge.New()
 	}
 
-	sys := system.New(cart)
+	sys := system.New(opts.cartridge)
 
 	setAliases(sys.CPU)
 	A = &sys.CPU.A
@@ -32,47 +57,33 @@ func InitializeSystem(cart *cartridge.Cartridge) *system.System {
 	return sys
 }
 
-// Option defines a Start parameter.
-type Option func(*system.System)
+func runEmulatorStep(sys *system.System) {
+	for {
+		sys.TraceStep = cpu.TraceStep{
+			PC: *PC,
+		}
 
-// WithIrqHandler sets an Irq Handler for the program.
-func WithIrqHandler(f func()) func(*system.System) {
-	return func(sys *system.System) {
-		sys.IrqHandler = f
+		b := sys.ReadMemory(*PC)
+		*PC++
+
+		ins, ok := cpu.Opcodes[b]
+		if !ok {
+			err := fmt.Errorf("unsupported opcode %00x", b)
+			panic(err)
+		}
+
+		if ins.Instruction.NoParamFunc != nil {
+			sys.TraceStep.Opcode = []byte{b}
+			ins.Instruction.NoParamFunc()
+			continue
+		}
+
+		params, opcodes := readParams(sys, ins.Addressing)
+
+		sys.TraceStep.Opcode = append([]byte{b}, opcodes...)
+
+		ins.Instruction.ParamFunc(params...)
 	}
-}
-
-// WithNmiHandler sets a Nmi Handler for the program.
-func WithNmiHandler(f func()) func(*system.System) {
-	return func(sys *system.System) {
-		sys.NmiHandler = f
-	}
-}
-
-// WithTracing enables tracing for the program.
-func WithTracing() func(*system.System) {
-	return func(sys *system.System) {
-		sys.SetTracing(cpu.GoTracing)
-	}
-}
-
-// Start is the main entrypoint for a NES program that starts the execution.
-// Different options can be passed.
-// Following callback function that will be called by NES when different events occur:
-// resetHandler: called when the system gets turned on or reset
-// nmiHandler:   occurs when the PPU starts preparing the next frame of
-//               graphics, 60 times per second
-// irqHandler:   can be triggered by the NES sound processor or from
-//               certain types of cartridge hardware.
-func Start(resetHandlerParam func(), options ...Option) {
-	sys := InitializeSystem(nil)
-	sys.ResetHandler = resetHandlerParam
-
-	for _, option := range options {
-		option(sys)
-	}
-
-	start(sys)
 }
 
 func start(sys *system.System) {
