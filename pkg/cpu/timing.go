@@ -15,13 +15,8 @@ import (
 // It allows for accounting of the instruction timing and trace logging.
 // TODO add option to disable timing in unit tests
 func (c *CPU) instructionHook(instruction *Instruction, params ...interface{}) {
-	if c.tracing {
-		mode, s := addressModeFromCall(instruction, params...)
-		if !instruction.HasAddressing(mode) {
-			panic(fmt.Sprintf("unexpected addressing mode type %T", mode))
-		}
-
-		fmt.Printf("%s %s\n", instruction.Name, s)
+	if c.tracing != NoTracing {
+		c.trace(instruction, params...)
 	}
 
 	// TODO account for exact cycles
