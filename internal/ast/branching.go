@@ -70,7 +70,7 @@ func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 		return nil, nil // nolint: nilnil
 	}
 
-	if _, ok := CPUBranchingInstructions[name]; ok {
+	if _, ok := cpu.BranchingInstructions[name]; ok {
 		var destination string
 		if ins, ok := arg.(*Instruction); ok {
 			destination = ins.Name
