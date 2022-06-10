@@ -24,7 +24,6 @@ binary code. The compiler generates an .asm file that can be inspected.
 can be used to build a larger project for NES!**
 
 ## Installation
---------------
 
 Your system needs to have a recent [Golang](https://go.dev/) version installed.
 
@@ -60,7 +59,6 @@ depending on the operating system:
   * Add `c:\tools\msys64\mingw64\bin\` to user path environment variable
 
 ## Usage
---------------
 
 See one of the examples on how to write code for the NES using Golang!
 
@@ -80,18 +78,18 @@ nesgo can be used in different ways:
 4. Debug the program using your IDE of choice using the Delve debugger,
  set breakpoints, watch memory or CPU register, execute the code step by step etc
 
+5. Run the generated .nes file using the `go run ./cmd/nesgoemu -f examples/blue/main.nes`
+
 ## Project layout
---------------
 
     ├─ cmd/nesgo        Golang to NES compiler
     ├─ cmd/nesgoemu     NES emulator
     ├─ example/         Program examples in Golang
     ├─ internal/        internal compiler code
-    ├─ pkg/             libraries used by different packkages
+    ├─ pkg/             libraries used by different packages
     ├─ pkg/neslib       helper useful for writing NES programs
 
 ## Differences / Limitations
---------------
 
 * `return` has to be used instead of `rts` - it will get automatically
   added at the end of functions that are not inlined
