@@ -200,7 +200,7 @@ func (c *CPU) Clv() {
 func (c *CPU) Cmp(params ...interface{}) {
 	c.instructionHook(cmp, params...)
 
-	val := c.memory.ReadMemoryAddressModes(true, params[0])
+	val := c.memory.ReadMemoryAddressModes(true, params...)
 	c.compare(c.A, val)
 }
 

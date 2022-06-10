@@ -190,16 +190,16 @@ func paramConverterZeroPage(c *CPU, instruction *Instruction, params ...interfac
 }
 
 func paramConverterZeroPageX(c *CPU, instruction *Instruction, params ...interface{}) string {
-	address := params[0].(Absolute)
-	offset := byte(address) + c.X
-	b := c.memory.ReadMemory(uint16(address))
+	address := params[0].(ZeroPage)
+	offset := uint16(byte(address) + c.X)
+	b := c.memory.ReadMemory(offset)
 	return fmt.Sprintf("$%02X,X @ %02X = %02X", address, offset, b)
 }
 
 func paramConverterZeroPageY(c *CPU, instruction *Instruction, params ...interface{}) string {
-	address := params[0].(Absolute)
-	offset := byte(address) + c.Y
-	b := c.memory.ReadMemory(uint16(address))
+	address := params[0].(ZeroPage)
+	offset := uint16(byte(address) + c.Y)
+	b := c.memory.ReadMemory(offset)
 	return fmt.Sprintf("$%02X,Y @ %02X = %02X", address, offset, b)
 }
 

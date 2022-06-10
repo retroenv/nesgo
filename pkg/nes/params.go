@@ -19,8 +19,8 @@ var paramReader = map[Mode]paramReaderFunc{
 	AbsoluteXAddressing:   paramReaderAbsoluteX,
 	AbsoluteYAddressing:   paramReaderAbsoluteY,
 	ZeroPageAddressing:    paramReaderZeroPage,
-	ZeroPageXAddressing:   paramReaderZeroPage,
-	ZeroPageYAddressing:   paramReaderZeroPage,
+	ZeroPageXAddressing:   paramReaderZeroPageX,
+	ZeroPageYAddressing:   paramReaderZeroPageY,
 	RelativeAddressing:    paramReaderRelative,
 	IndirectAddressing:    paramReaderIndirect,
 	IndirectXAddressing:   paramReaderIndirectX,
@@ -38,13 +38,6 @@ func readParams(sys *system.System, addressing Mode) ([]interface{}, []byte) {
 	}
 
 	params, opcodes := fun(sys)
-	if addressing == ZeroPageXAddressing {
-		params = append(params, *X)
-	}
-	if addressing == ZeroPageXAddressing {
-		params = append(params, *Y)
-	}
-
 	return params, opcodes
 }
 
@@ -100,6 +93,24 @@ func paramReaderZeroPage(sys *system.System) ([]interface{}, []byte) {
 	*PC++
 
 	params := []interface{}{Absolute(b)}
+	opcodes := []byte{b}
+	return params, opcodes
+}
+
+func paramReaderZeroPageX(sys *system.System) ([]interface{}, []byte) {
+	b := sys.ReadMemory(*PC)
+	*PC++
+
+	params := []interface{}{ZeroPage(b), *X}
+	opcodes := []byte{b}
+	return params, opcodes
+}
+
+func paramReaderZeroPageY(sys *system.System) ([]interface{}, []byte) {
+	b := sys.ReadMemory(*PC)
+	*PC++
+
+	params := []interface{}{ZeroPage(b), *Y}
 	opcodes := []byte{b}
 	return params, opcodes
 }

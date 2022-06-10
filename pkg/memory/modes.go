@@ -34,7 +34,7 @@ func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 	case Absolute, AbsoluteX, AbsoluteY:
 		m.writeMemoryAbsolute(address, value, register)
 	case ZeroPage:
-		m.writeMemoryAbsolute(address, value, register)
+		m.writeMemoryZeroPage(address, value, register)
 	case Indirect:
 		m.writeMemoryIndirect(address, value, register)
 	default:
@@ -64,6 +64,26 @@ func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register i
 	}
 
 	m.writeMemoryAbsoluteOffset(address, value, offset)
+}
+
+func (m *Memory) writeMemoryZeroPage(address ZeroPage, value byte, register interface{}) {
+	if register == nil {
+		m.writeMemoryAbsoluteOffset(address, value, 0)
+		return
+	}
+
+	var offset byte
+	switch val := register.(type) {
+	case *uint8: // X/Y register referenced in normal code
+		offset = *val
+	case uint8: // X/Y register referenced in unit test as system.X
+		offset = val
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter type %T for zero page memory write", register))
+	}
+
+	addr := uint16(byte(address) + offset)
+	m.writeMemoryAbsoluteOffset(addr, value, 0)
 }
 
 func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offset uint16) {
@@ -124,7 +144,7 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 	case Absolute, AbsoluteX, AbsoluteY:
 		return m.ReadMemoryAbsolute(address, register)
 	case ZeroPage:
-		return m.ReadMemoryAbsolute(address, register)
+		return m.ReadMemoryZeroPage(address, register)
 	case Indirect:
 		return m.readMemoryIndirect(address, register)
 	default:
@@ -148,6 +168,25 @@ func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) b
 		panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", register))
 	}
 	return m.readMemoryAbsoluteOffset(address, offset)
+}
+
+// ReadMemoryZeroPage reads a byte from an address in zeropage using absolute addressing.
+func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register interface{}) byte {
+	if register == nil {
+		return m.readMemoryAbsoluteOffset(address, 0)
+	}
+
+	var offset byte
+	switch val := register.(type) {
+	case *uint8: // X/Y register referenced in normal code
+		offset = *val
+	case uint8: // X/Y register referenced in unit test as system.X
+		offset = val
+	default:
+		panic(fmt.Sprintf("unsupported extra parameter type %T for zero page memory read", register))
+	}
+	addr := uint16(byte(address) + offset)
+	return m.readMemoryAbsoluteOffset(addr, 0)
 }
 
 func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) byte {
