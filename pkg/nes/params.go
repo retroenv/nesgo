@@ -16,8 +16,8 @@ var paramReader = map[Mode]paramReaderFunc{
 	ImmediateAddressing:   paramReaderImmediate,
 	AccumulatorAddressing: paramReaderAccumulator,
 	AbsoluteAddressing:    paramReaderAbsolute,
-	AbsoluteXAddressing:   paramReaderAbsolute,
-	AbsoluteYAddressing:   paramReaderAbsolute,
+	AbsoluteXAddressing:   paramReaderAbsoluteX,
+	AbsoluteYAddressing:   paramReaderAbsoluteY,
 	ZeroPageAddressing:    paramReaderZeroPage,
 	ZeroPageXAddressing:   paramReaderZeroPage,
 	ZeroPageYAddressing:   paramReaderZeroPage,
@@ -38,11 +38,10 @@ func readParams(sys *system.System, addressing Mode) ([]interface{}, []byte) {
 	}
 
 	params, opcodes := fun(sys)
-
-	switch addressing {
-	case AbsoluteXAddressing, ZeroPageXAddressing:
+	if addressing == ZeroPageXAddressing {
 		params = append(params, *X)
-	case AbsoluteYAddressing:
+	}
+	if addressing == ZeroPageXAddressing {
 		params = append(params, *Y)
 	}
 
@@ -70,6 +69,28 @@ func paramReaderAbsolute(sys *system.System) ([]interface{}, []byte) {
 	*PC++
 
 	params := []interface{}{Absolute(b2<<8 | b1)}
+	opcodes := []byte{byte(b1), byte(b2)}
+	return params, opcodes
+}
+
+func paramReaderAbsoluteX(sys *system.System) ([]interface{}, []byte) {
+	b1 := uint16(sys.ReadMemory(*PC))
+	*PC++
+	b2 := uint16(sys.ReadMemory(*PC))
+	*PC++
+
+	params := []interface{}{Absolute(b2<<8 | b1), *X}
+	opcodes := []byte{byte(b1), byte(b2)}
+	return params, opcodes
+}
+
+func paramReaderAbsoluteY(sys *system.System) ([]interface{}, []byte) {
+	b1 := uint16(sys.ReadMemory(*PC))
+	*PC++
+	b2 := uint16(sys.ReadMemory(*PC))
+	*PC++
+
+	params := []interface{}{Absolute(b2<<8 | b1), *Y}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes
 }

@@ -31,7 +31,7 @@ func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 		m.writeMemoryAbsolute(address, value, register)
 	case *uint8: // variable
 		*address = value
-	case Absolute:
+	case Absolute, AbsoluteX, AbsoluteY:
 		m.writeMemoryAbsolute(address, value, register)
 	case ZeroPage:
 		m.writeMemoryAbsolute(address, value, register)
@@ -82,6 +82,10 @@ func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offs
 		m.WriteMemory(uint16(addr)+offset, value)
 	case Absolute:
 		m.WriteMemory(uint16(addr)+offset, value)
+	case AbsoluteX:
+		m.WriteMemory(uint16(addr)+offset, value)
+	case AbsoluteY:
+		m.WriteMemory(uint16(addr)+offset, value)
 	case ZeroPage:
 		m.WriteMemory(uint16(addr)+offset, value)
 	default:
@@ -117,7 +121,7 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 		return address // immediate, not an address
 	case *uint8: // variable
 		return *address
-	case Absolute:
+	case Absolute, AbsoluteX, AbsoluteY:
 		return m.ReadMemoryAbsolute(address, register)
 	case ZeroPage:
 		return m.ReadMemoryAbsolute(address, register)
@@ -159,6 +163,14 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 		return m.ReadMemory(uint16(addr) + offset)
 	case Absolute:
 		return m.ReadMemory(uint16(addr) + offset)
+	case AbsoluteX:
+		val := m.ReadMemory(uint16(addr))
+		val += byte(offset)
+		return val
+	case AbsoluteY:
+		val := m.ReadMemory(uint16(addr))
+		val += byte(offset)
+		return val
 	case ZeroPage:
 		return m.ReadMemory(uint16(addr) + offset)
 	default:
