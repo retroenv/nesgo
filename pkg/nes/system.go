@@ -44,6 +44,9 @@ func InitializeSystem(opts *Options) *system.System {
 	}
 
 	sys := system.New(opts.cartridge)
+	if opts.entrypoint >= 0 {
+		sys.PC = uint16(opts.entrypoint)
+	}
 
 	setAliases(sys.CPU)
 	A = &sys.CPU.A

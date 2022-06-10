@@ -10,9 +10,10 @@ import (
 
 // Options contains options for the nesgo system.
 type Options struct {
-	emulator  bool
-	cartridge *cartridge.Cartridge
-	tracing   cpu.TracingMode
+	entrypoint int
+	emulator   bool
+	cartridge  *cartridge.Cartridge
+	tracing    cpu.TracingMode
 
 	nmiHandler func()
 	irqHandler func()
@@ -23,7 +24,9 @@ type Option func(*Options)
 
 // NewOptions creates a new options instance from the passed options.
 func NewOptions(options ...Option) *Options {
-	opts := &Options{}
+	opts := &Options{
+		entrypoint: -1,
+	}
 	for _, option := range options {
 		option(opts)
 	}
@@ -62,5 +65,12 @@ func WithNmiHandler(f func()) func(*Options) {
 func WithTracing() func(*Options) {
 	return func(options *Options) {
 		options.tracing = cpu.GoTracing
+	}
+}
+
+// WithEntrypoint enables tracing for the program.
+func WithEntrypoint(entrypoint int) func(*Options) {
+	return func(options *Options) {
+		options.entrypoint = entrypoint
 	}
 }

@@ -10,8 +10,9 @@ import (
 )
 
 var (
-	input   = flag.String("f", "", "nes file to load")
-	tracing = flag.Bool("t", false, "print CPU tracing")
+	input      = flag.String("f", "", "nes file to load")
+	entrypoint = flag.Int("e", -1, "entrypoint to start the CPU")
+	tracing    = flag.Bool("t", false, "print CPU tracing")
 )
 
 func main() {
@@ -49,6 +50,9 @@ func emulateFile(input string) error {
 
 	if *tracing {
 		opts = append(opts, nes.WithTracing())
+	}
+	if *entrypoint >= 0 {
+		opts = append(opts, nes.WithEntrypoint(*entrypoint))
 	}
 
 	nes.Start(nil, opts...)
