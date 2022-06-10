@@ -11,9 +11,9 @@ nesgo allows you to write programs for the Nintendo Entertainment System
 The benefits over other tooling options:
 
 - Code autocompletion in any IDE that supports Golang
-- You can debug code directly from an IDE, it will be executed in the
-  built-in Emulator (currently in a rather simple state) 
-- Easy unit testing for your code
+- The code can be debugged directly from an IDE, it will be executed in the
+  built-in Emulator
+- Easy unit testing of code
 - Simple code documentation generation
 
 The code for NES programs is written using Aliases for 6502 assembly
@@ -24,6 +24,7 @@ binary code. The compiler generates an .asm file that can be inspected.
 can be used to build a larger project for NES!**
 
 ## Installation
+--------------
 
 Your system needs to have a recent [Golang](https://go.dev/) version installed.
 
@@ -59,8 +60,9 @@ depending on the operating system:
   * Add `c:\tools\msys64\mingw64\bin\` to user path environment variable
 
 ## Usage
+--------------
 
-See one of the examples on how to write code for the NES!
+See one of the examples on how to write code for the NES using Golang!
 
 The first compilation can take a few minutes depending on the system,
 this is due to Golang compiling the CGO GUI dependencies.
@@ -71,23 +73,31 @@ nesgo can be used in different ways:
  `nesgo -f ./examples/blue/main.go -o ./examples/blue/main.nes`
 
 2. Use `go build ./examples/blue/main.go` to compile the program as a
- binary that will execute in the Emulator that gets linked into the
- static binary
+ static binary including the Emulator
 
 3. Run the code in the Emulator using `go run ./examples/blue/main.go`
 
 4. Debug the program using your IDE of choice using the Delve debugger,
- set breakpoints, watch memory or CPU register, execute step by step etc
+ set breakpoints, watch memory or CPU register, execute the code step by step etc
+
+## Project layout
+--------------
+
+    ├─ cmd/nesgo        Golang to NES compiler
+    ├─ cmd/nesgoemu     NES emulator
+    ├─ example/         Program examples in Golang
+    ├─ internal/        internal compiler code
+    ├─ pkg/             libraries used by different packkages
+    ├─ pkg/neslib       helper useful for writing NES programs
 
 ## Differences / Limitations
+--------------
 
 * `return` has to be used instead of `rts` - it will get automatically
   added at the end of functions that are not inlined
 * `goto` has to be used instead of `jump` - it is limited to the labels in the
   current function as jump destination
-* instructions that have the A register or an address as operand do not
-  need to specify A, it is used if no address is passed, for example `Rol()`
-* instructions that accept multiple addressing modes, the parameters can be
+* for instructions that accept multiple addressing modes, the parameters can be
   cast into a helper type to set the mode, using the identifiers
   `ZeroPage`, `Absolute` or `Indirect`. If the instruction supports
   an immediate parameter, it will be set by default
