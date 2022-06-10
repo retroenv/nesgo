@@ -139,7 +139,7 @@ func (c *CPU) paramString(instruction *Instruction, params ...interface{}) strin
 		panic(err)
 	}
 
-	s := fun(c, instruction, params)
+	s := fun(c, instruction, params...)
 	return s
 }
 
@@ -161,6 +161,10 @@ func paramConverterAbsolute(c *CPU, instruction *Instruction, params ...interfac
 	if _, ok := BranchingInstructions[instruction.Name]; ok {
 		return fmt.Sprintf("$%04X", address)
 	}
+	if !outputMemoryContent(uint16(address)) {
+		return fmt.Sprintf("$%04X", address)
+	}
+
 	b := c.memory.ReadMemory(uint16(address))
 	return fmt.Sprintf("$%04X = %02X", address, b)
 }
@@ -222,6 +226,15 @@ func paramConverterIndirectY(c *CPU, instruction *Instruction, params ...interfa
 	offset := address - Absolute(c.Y)
 	b := c.memory.ReadMemory(uint16(address))
 	return fmt.Sprintf("($%02X),Y = %04X @ %04X = %02X", c.TraceStep.Opcode[1], offset, address, b)
+}
+
+func outputMemoryContent(address uint16) bool {
+	switch {
+	case address >= 0x8000:
+		return true
+	default:
+		return false
+	}
 }
 
 func addressModeFromCallNoParam(instruction *Instruction) (Mode, string) {
