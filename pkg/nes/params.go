@@ -13,15 +13,18 @@ import (
 type paramReaderFunc func(sys *system.System) ([]interface{}, []byte)
 
 var paramReader = map[Mode]paramReaderFunc{
-	ImmediateAddressing: paramReaderImmediate,
-	AbsoluteAddressing:  paramReaderAbsolute,
-	AbsoluteXAddressing: paramReaderAbsolute,
-	AbsoluteYAddressing: paramReaderAbsolute,
-	ZeroPageAddressing:  paramReaderZeroPage,
-	ZeroPageXAddressing: paramReaderZeroPage,
-	RelativeAddressing:  paramReaderRelative,
-	IndirectXAddressing: paramReaderIndirectX,
-	IndirectYAddressing: paramReaderIndirectY,
+	ImmediateAddressing:   paramReaderImmediate,
+	AccumulatorAddressing: paramReaderAccumulator,
+	AbsoluteAddressing:    paramReaderAbsolute,
+	AbsoluteXAddressing:   paramReaderAbsolute,
+	AbsoluteYAddressing:   paramReaderAbsolute,
+	ZeroPageAddressing:    paramReaderZeroPage,
+	ZeroPageXAddressing:   paramReaderZeroPage,
+	ZeroPageYAddressing:   paramReaderZeroPage,
+	RelativeAddressing:    paramReaderRelative,
+	IndirectAddressing:    paramReaderIndirect,
+	IndirectXAddressing:   paramReaderIndirectX,
+	IndirectYAddressing:   paramReaderIndirectY,
 }
 
 // readParams reads the opcode parameters after the first opcode byte
@@ -53,6 +56,11 @@ func paramReaderImmediate(sys *system.System) ([]interface{}, []byte) {
 	params := []interface{}{int(b)}
 	opcodes := []byte{b}
 	return params, opcodes
+}
+
+func paramReaderAccumulator(sys *system.System) ([]interface{}, []byte) {
+	params := []interface{}{Accumulator(0)}
+	return params, nil
 }
 
 func paramReaderAbsolute(sys *system.System) ([]interface{}, []byte) {
@@ -91,13 +99,25 @@ func paramReaderRelative(sys *system.System) ([]interface{}, []byte) {
 	return params, opcodes
 }
 
+func paramReaderIndirect(sys *system.System) ([]interface{}, []byte) {
+	address := sys.ReadMemory16Bug(*PC)
+	b1 := uint16(sys.ReadMemory(*PC))
+	*PC++
+	b2 := uint16(sys.ReadMemory(*PC))
+	*PC++
+
+	params := []interface{}{Indirect(address)}
+	opcodes := []byte{byte(b1), byte(b2)}
+	return params, opcodes
+}
+
 func paramReaderIndirectX(sys *system.System) ([]interface{}, []byte) {
 	b := sys.ReadMemory(*PC)
 	*PC++
 	offset := uint16(b + *X)
-	addr := sys.ReadMemory16(offset)
+	address := sys.ReadMemory16Bug(offset)
 
-	params := []interface{}{Absolute(addr)}
+	params := []interface{}{Absolute(address)}
 	opcodes := []byte{b}
 	return params, opcodes
 }
@@ -105,10 +125,10 @@ func paramReaderIndirectX(sys *system.System) ([]interface{}, []byte) {
 func paramReaderIndirectY(sys *system.System) ([]interface{}, []byte) {
 	b := sys.ReadMemory(*PC)
 	*PC++
-	addr := sys.ReadMemory16(uint16(b))
-	addr += uint16(*Y)
+	address := sys.ReadMemory16Bug(uint16(b))
+	address += uint16(*Y)
 
-	params := []interface{}{Absolute(addr)}
+	params := []interface{}{Absolute(address)}
 	opcodes := []byte{b}
 	return params, opcodes
 }

@@ -14,3 +14,7 @@ type Absolute uint16
 // For usage with a register, the indirect address is a byte and refers
 // to the zero page.
 type Indirect uint16
+
+// Accumulator indicates that the parameter for the instruction is the
+// accumulator.
+type Accumulator int

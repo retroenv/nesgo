@@ -104,6 +104,17 @@ func (m *Memory) ReadMemory16(address uint16) uint16 {
 	return w
 }
 
+// ReadMemory16Bug reads a word from a memory address
+// and emulates a 6502 bug that caused the low byte to wrap
+// without incrementing the high byte.
+func (m *Memory) ReadMemory16Bug(address uint16) uint16 {
+	low := uint16(m.ReadMemory(address))
+	offset := (address & 0xFF00) | uint16(byte(address)+1)
+	high := uint16(m.ReadMemory(offset))
+	w := (high << 8) | low
+	return w
+}
+
 // WriteMemory16 writes a word to a memory address.
 func (m *Memory) WriteMemory16(address, value uint16) {
 	m.WriteMemory(address, byte(value))

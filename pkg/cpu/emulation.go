@@ -14,6 +14,7 @@ import (
 func (c *CPU) Adc(params ...interface{}) {
 	c.instructionHook(adc, params...)
 
+	a := c.A
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	sum := int(c.A) + int(c.Flags.C) + int(value)
 	c.A = uint8(sum)
@@ -24,6 +25,7 @@ func (c *CPU) Adc(params ...interface{}) {
 	} else {
 		c.Flags.C = 0
 	}
+	c.setV((a^value)&0x80 == 0 && (a^c.A)&0x80 != 0)
 }
 
 // And - AND with accumulator.
@@ -39,7 +41,7 @@ func (c *CPU) And(params ...interface{}) {
 func (c *CPU) Asl(params ...interface{}) {
 	c.instructionHook(asl, params...)
 
-	if params == nil { // A implied
+	if hasAccumulatorParam(params...) {
 		c.Flags.C = (c.A >> 7) & 1
 		c.A <<= 1
 		c.setZN(c.A)
@@ -95,7 +97,7 @@ func (c *CPU) Bit(params ...interface{}) {
 	c.instructionHook(bit, params...)
 
 	value := c.memory.ReadMemoryAbsolute(params[0], nil)
-	c.Flags.V = (value >> 6) & 1
+	c.setV((value>>6)&1 == 1)
 	c.setZ(value & c.A)
 	c.setN(value)
 }
@@ -225,6 +227,7 @@ func (c *CPU) Dec(params ...interface{}) {
 	val := c.memory.ReadMemoryAddressModes(false, params...)
 	val--
 	c.memory.WriteMemoryAddressModes(val, params...)
+	c.setZN(val)
 }
 
 // Dex - Decrement X Register.
@@ -259,6 +262,7 @@ func (c *CPU) Inc(params ...interface{}) {
 	val := c.memory.ReadMemoryAddressModes(false, params...)
 	val++
 	c.memory.WriteMemoryAddressModes(val, params...)
+	c.setZN(val)
 }
 
 // Inx - Increment X Register.
@@ -286,7 +290,8 @@ func (c *CPU) Jmp(params ...interface{}) {
 	case Absolute:
 		c.PC = uint16(address)
 	case Indirect:
-		c.PC = c.memory.ReadMemory16(uint16(address))
+		c.PC = c.memory.ReadMemory16Bug(uint16(address))
+
 	default:
 		panic(fmt.Sprintf("unsupported jmp mode type %T", param))
 	}
@@ -296,7 +301,7 @@ func (c *CPU) Jmp(params ...interface{}) {
 func (c *CPU) Jsr(params ...interface{}) {
 	c.instructionHook(jsr, params...)
 
-	c.Push16(c.PC + 1)
+	c.Push16(c.PC - 1)
 
 	addr := params[0].(Absolute)
 	c.PC = uint16(addr)
@@ -330,7 +335,7 @@ func (c *CPU) Ldy(params ...interface{}) {
 func (c *CPU) Lsr(params ...interface{}) {
 	c.instructionHook(lsr, params...)
 
-	if params == nil { // A implied
+	if hasAccumulatorParam(params...) {
 		c.Flags.C = c.A & 1
 		c.A >>= 1
 		c.setZN(c.A)
@@ -369,7 +374,7 @@ func (c *CPU) Php() {
 	c.instructionHook(php)
 
 	f := c.GetFlags()
-	f |= 0b11000 // bit 4 and 5 are set to 1
+	f |= 0b00010000 // break is set to 1
 	c.push(f)
 }
 
@@ -386,7 +391,8 @@ func (c *CPU) Plp() {
 	c.instructionHook(plp)
 
 	f := c.Pop()
-	f &^= 0b00011000 // bit 4 and 5 are cleared
+	f &= 0b11101111 // break flag is ignored
+	f |= 0b00100000 // unused flag is set
 	c.setFlags(f)
 }
 
@@ -395,7 +401,7 @@ func (c *CPU) Rol(params ...interface{}) {
 	c.instructionHook(rol, params...)
 
 	cFlag := c.Flags.C
-	if params == nil { // A implied
+	if hasAccumulatorParam(params...) {
 		c.Flags.C = (c.A >> 7) & 1
 		c.A = (c.A << 1) | cFlag
 		c.setZN(c.A)
@@ -414,7 +420,7 @@ func (c *CPU) Ror(params ...interface{}) {
 	c.instructionHook(ror, params...)
 
 	cFlag := c.Flags.C
-	if params == nil { // A implied
+	if hasAccumulatorParam(params...) {
 		c.Flags.C = c.A & 1
 		c.A = (c.A >> 1) | (cFlag << 7)
 		c.setZN(c.A)
@@ -438,7 +444,8 @@ func (c *CPU) RtiInternal() {
 	c.instructionHook(rti)
 
 	b := c.Pop()
-	b &= 0b11001111 // clear unused and break bit
+	b &= 0b11101111 // break flag is ignored
+	b |= 0b00100000 // unused flag is set
 	c.setFlags(b)
 	c.PC = c.Pop16()
 }
@@ -454,6 +461,7 @@ func (c *CPU) Rts() {
 func (c *CPU) Sbc(params ...interface{}) {
 	c.instructionHook(sbc, params...)
 
+	a := c.A
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
 	c.A = uint8(sub)
@@ -464,6 +472,7 @@ func (c *CPU) Sbc(params ...interface{}) {
 	} else {
 		c.Flags.C = 0
 	}
+	c.setV((a^value)&0x80 != 0 && (a^c.A)&0x80 != 0)
 }
 
 // Sec - Set Carry Flag.

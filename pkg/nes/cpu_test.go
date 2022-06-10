@@ -556,7 +556,7 @@ func TestJsr(t *testing.T) {
 	assert.Equal(t, cpu.InitialStack-2, sys.SP)
 	assert.Equal(t, 0x101, sys.PC)
 	w := sys.Pop16()
-	assert.Equal(t, 0x8001, w)
+	assert.Equal(t, 0x7FFF, w)
 }
 
 func TestLda(t *testing.T) {
@@ -726,8 +726,7 @@ func TestPhp(t *testing.T) {
 	sys.Php()
 
 	b := sys.ReadMemory(cpu.StackBase + cpu.InitialStack)
-	// I + U are set by default, bit 4 and 5 are set from PHP
-	assert.Equal(t, 0b111100, b)
+	assert.Equal(t, 0b00110100, b)
 }
 
 func TestPla(t *testing.T) {
@@ -750,7 +749,7 @@ func TestPlp(t *testing.T) {
 	sys.WriteMemory(cpu.StackBase+2, 1)
 	sys.Plp()
 
-	assert.Equal(t, 1, sys.GetFlags())
+	assert.Equal(t, 0b00100001, sys.GetFlags())
 	assert.Equal(t, 2, sys.SP)
 }
 

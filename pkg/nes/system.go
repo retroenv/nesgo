@@ -75,6 +75,8 @@ func runEmulatorStep(sys *system.System) {
 			panic(err)
 		}
 
+		sys.TraceStep.Addressing = ins.Addressing
+
 		if ins.Instruction.NoParamFunc != nil {
 			sys.TraceStep.Opcode = []byte{b}
 			ins.Instruction.NoParamFunc()

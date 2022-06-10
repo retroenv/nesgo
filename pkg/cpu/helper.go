@@ -22,6 +22,17 @@ func (c *CPU) branch(branchFunc func() bool, param interface{}) {
 	c.tracing = trace
 }
 
+// hasAccumulatorParam returns whether the passed or missing parameter
+// indicates usage of the accumulator register.
+func hasAccumulatorParam(params ...interface{}) bool {
+	if params == nil {
+		return true
+	}
+	param := params[0]
+	_, ok := param.(Accumulator)
+	return ok
+}
+
 func (c *CPU) setFlags(flags uint8) {
 	c.Flags.C = (flags >> 0) & 1
 	c.Flags.Z = (flags >> 1) & 1
@@ -62,6 +73,15 @@ func (c *CPU) setN(value uint8) {
 		c.Flags.N = 1
 	} else {
 		c.Flags.N = 0
+	}
+}
+
+// setV - set the overflow flag.
+func (c *CPU) setV(set bool) {
+	if set {
+		c.Flags.V = 1
+	} else {
+		c.Flags.V = 0
 	}
 }
 

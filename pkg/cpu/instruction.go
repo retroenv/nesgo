@@ -79,7 +79,7 @@ func LinkInstructionFuncs(cpu *CPU) {
 	plp.NoParamFunc = cpu.Plp
 	rol.ParamFunc = cpu.Rol
 	ror.ParamFunc = cpu.Ror
-	rti.NoParamFunc = cpu.Rti
+	rti.NoParamFunc = cpu.RtiInternal
 	rts.NoParamFunc = cpu.Rts
 	sbc.ParamFunc = cpu.Sbc
 	sec.NoParamFunc = cpu.Sec
@@ -89,7 +89,7 @@ func LinkInstructionFuncs(cpu *CPU) {
 	stx.ParamFunc = cpu.Stx
 	sty.ParamFunc = cpu.Sty
 	tax.NoParamFunc = cpu.Tax
-	tay.NoParamFunc = cpu.Tax
+	tay.NoParamFunc = cpu.Tay
 	tsx.NoParamFunc = cpu.Tsx
 	txa.NoParamFunc = cpu.Txa
 	txs.NoParamFunc = cpu.Txs
