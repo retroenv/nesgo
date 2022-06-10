@@ -53,7 +53,7 @@ func InitializeSystem(opts *Options) *system.System {
 	X = &sys.CPU.X
 	Y = &sys.CPU.Y
 	PC = &sys.CPU.PC
-
+	sys.CPU.SetTracing(opts.tracing)
 	cpu.LinkInstructionFuncs(sys.CPU)
 	sys.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
 

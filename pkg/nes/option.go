@@ -30,6 +30,11 @@ func NewOptions(options ...Option) *Options {
 	for _, option := range options {
 		option(opts)
 	}
+
+	if opts.emulator && opts.tracing != cpu.NoTracing {
+		opts.tracing = cpu.EmulatorTracing
+	}
+
 	return opts
 }
 
