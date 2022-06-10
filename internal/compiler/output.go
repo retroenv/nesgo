@@ -136,6 +136,12 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *cpu.Instruc
 		return fmt.Errorf("wrong argument type %T for instruction with 1 arg", arg)
 	}
 
+	if info.HasAddressing(AccumulatorAddressing) {
+		if node.Value == "A" {
+			c.outputLineWithComment(ins.Comment, "  %s a", ins.Name)
+			return nil
+		}
+	}
 	if info.HasAddressing(RelativeAddressing) {
 		c.outputLineWithComment(ins.Comment, "  %s %s", ins.Name, arg)
 		return nil
