@@ -42,9 +42,7 @@ func readParams(sys *system.System, addressing Mode) ([]interface{}, []byte) {
 }
 
 func paramReaderImmediate(sys *system.System) ([]interface{}, []byte) {
-	b := sys.ReadMemory(*PC)
-	*PC++
-
+	b := sys.ReadMemory(*PC + 1)
 	params := []interface{}{int(b)}
 	opcodes := []byte{b}
 	return params, opcodes
@@ -56,10 +54,8 @@ func paramReaderAccumulator(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderAbsolute(sys *system.System) ([]interface{}, []byte) {
-	b1 := uint16(sys.ReadMemory(*PC))
-	*PC++
-	b2 := uint16(sys.ReadMemory(*PC))
-	*PC++
+	b1 := uint16(sys.ReadMemory(*PC + 1))
+	b2 := uint16(sys.ReadMemory(*PC + 2))
 
 	params := []interface{}{Absolute(b2<<8 | b1)}
 	opcodes := []byte{byte(b1), byte(b2)}
@@ -67,10 +63,8 @@ func paramReaderAbsolute(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderAbsoluteX(sys *system.System) ([]interface{}, []byte) {
-	b1 := uint16(sys.ReadMemory(*PC))
-	*PC++
-	b2 := uint16(sys.ReadMemory(*PC))
-	*PC++
+	b1 := uint16(sys.ReadMemory(*PC + 1))
+	b2 := uint16(sys.ReadMemory(*PC + 2))
 
 	params := []interface{}{Absolute(b2<<8 | b1), *X}
 	opcodes := []byte{byte(b1), byte(b2)}
@@ -78,10 +72,8 @@ func paramReaderAbsoluteX(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderAbsoluteY(sys *system.System) ([]interface{}, []byte) {
-	b1 := uint16(sys.ReadMemory(*PC))
-	*PC++
-	b2 := uint16(sys.ReadMemory(*PC))
-	*PC++
+	b1 := uint16(sys.ReadMemory(*PC + 1))
+	b2 := uint16(sys.ReadMemory(*PC + 2))
 
 	params := []interface{}{Absolute(b2<<8 | b1), *Y}
 	opcodes := []byte{byte(b1), byte(b2)}
@@ -89,8 +81,7 @@ func paramReaderAbsoluteY(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderZeroPage(sys *system.System) ([]interface{}, []byte) {
-	b := sys.ReadMemory(*PC)
-	*PC++
+	b := sys.ReadMemory(*PC + 1)
 
 	params := []interface{}{Absolute(b)}
 	opcodes := []byte{b}
@@ -98,8 +89,7 @@ func paramReaderZeroPage(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderZeroPageX(sys *system.System) ([]interface{}, []byte) {
-	b := sys.ReadMemory(*PC)
-	*PC++
+	b := sys.ReadMemory(*PC + 1)
 
 	params := []interface{}{ZeroPage(b), *X}
 	opcodes := []byte{b}
@@ -107,8 +97,7 @@ func paramReaderZeroPageX(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderZeroPageY(sys *system.System) ([]interface{}, []byte) {
-	b := sys.ReadMemory(*PC)
-	*PC++
+	b := sys.ReadMemory(*PC + 1)
 
 	params := []interface{}{ZeroPage(b), *Y}
 	opcodes := []byte{b}
@@ -116,14 +105,13 @@ func paramReaderZeroPageY(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderRelative(sys *system.System) ([]interface{}, []byte) {
-	offset := uint16(sys.ReadMemory(*PC))
-	*PC++
+	offset := uint16(sys.ReadMemory(*PC + 1))
 
 	var address uint16
 	if offset < 0x80 {
-		address = *PC + offset
+		address = *PC + 2 + offset
 	} else {
-		address = *PC + offset - 0x100
+		address = *PC + 2 + offset - 0x100
 	}
 
 	params := []interface{}{Absolute(address)}
@@ -132,11 +120,9 @@ func paramReaderRelative(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderIndirect(sys *system.System) ([]interface{}, []byte) {
-	address := sys.ReadMemory16Bug(*PC)
-	b1 := uint16(sys.ReadMemory(*PC))
-	*PC++
-	b2 := uint16(sys.ReadMemory(*PC))
-	*PC++
+	address := sys.ReadMemory16Bug(*PC + 1)
+	b1 := uint16(sys.ReadMemory(*PC + 1))
+	b2 := uint16(sys.ReadMemory(*PC + 2))
 
 	params := []interface{}{Indirect(address)}
 	opcodes := []byte{byte(b1), byte(b2)}
@@ -144,8 +130,7 @@ func paramReaderIndirect(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderIndirectX(sys *system.System) ([]interface{}, []byte) {
-	b := sys.ReadMemory(*PC)
-	*PC++
+	b := sys.ReadMemory(*PC + 1)
 	offset := uint16(b + *X)
 	address := sys.ReadMemory16Bug(offset)
 
@@ -155,8 +140,7 @@ func paramReaderIndirectX(sys *system.System) ([]interface{}, []byte) {
 }
 
 func paramReaderIndirectY(sys *system.System) ([]interface{}, []byte) {
-	b := sys.ReadMemory(*PC)
-	*PC++
+	b := sys.ReadMemory(*PC + 1)
 	address := sys.ReadMemory16Bug(uint16(b))
 	address += uint16(*Y)
 

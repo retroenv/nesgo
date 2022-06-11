@@ -556,7 +556,7 @@ func TestJsr(t *testing.T) {
 	assert.Equal(t, cpu.InitialStack-2, sys.SP)
 	assert.Equal(t, 0x101, sys.PC)
 	w := sys.Pop16()
-	assert.Equal(t, 0x7FFF, w)
+	assert.Equal(t, 0x8002, w)
 }
 
 func TestLda(t *testing.T) {

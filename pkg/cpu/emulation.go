@@ -301,7 +301,7 @@ func (c *CPU) Jmp(params ...interface{}) {
 func (c *CPU) Jsr(params ...interface{}) {
 	c.instructionHook(jsr, params...)
 
-	c.Push16(c.PC - 1)
+	c.Push16(c.PC + 2)
 
 	addr := params[0].(Absolute)
 	c.PC = uint16(addr)
