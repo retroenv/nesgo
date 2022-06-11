@@ -1,6 +1,8 @@
 // Package cpu provides CPU (Central  Processing Unit) functionality.
 package cpu
 
+import "io"
+
 const (
 	StackBase = 0x100
 
@@ -17,10 +19,11 @@ type CPU struct {
 	SP    uint8  // stack pointer
 	Flags flags
 
-	irqHandler *func()
-	memory     memory
-	tracing    TracingMode
-	TraceStep  TraceStep
+	irqHandler    *func()
+	memory        memory
+	tracing       TracingMode
+	tracingTarget io.Writer
+	TraceStep     TraceStep
 }
 
 // Bit No.   7   6   5   4   3   2   1   0
@@ -52,6 +55,7 @@ func New(memory memory, irqHandler *func()) *CPU {
 }
 
 // SetTracing switches CPU tracing.
-func (c *CPU) SetTracing(tracing TracingMode) {
-	c.tracing = tracing
+func (c *CPU) SetTracing(mode TracingMode, target io.Writer) {
+	c.tracing = mode
+	c.tracingTarget = target
 }

@@ -13,6 +13,6 @@
 
 *.asm
 *.o
-*.nes
+examples/**/*.nes
 examples/colortest
 .testCoverage

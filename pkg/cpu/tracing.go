@@ -44,9 +44,14 @@ func (t TraceStep) print(cpu *CPU) {
 	}
 
 	// output the trace in a Nintendulator / nestest.log compatible format
-	fmt.Printf("%04X  %s %s %s %s%-31s A:%02X X:%02X Y:%02X P:%02X SP:%02X\n",
+	s := fmt.Sprintf("%04X  %s %s %s %s%-31s A:%02X X:%02X Y:%02X P:%02X SP:%02X\n",
 		t.PC, opcodes[0], opcodes[1], opcodes[2], unofficial, t.Instruction,
 		cpu.A, cpu.X, cpu.Y, cpu.GetFlags(), cpu.SP)
+	if cpu.tracingTarget != nil {
+		_, _ = fmt.Fprint(cpu.tracingTarget, s)
+	} else {
+		fmt.Print(s)
+	}
 }
 
 func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
@@ -168,7 +173,7 @@ func paramConverterAbsolute(c *CPU, instruction *Instruction, params ...interfac
 	if _, ok := BranchingInstructions[instruction.Name]; ok {
 		return fmt.Sprintf("$%04X", address)
 	}
-	if !outputMemoryContent(uint16(address)) {
+	if !shouldOutputMemoryContent(uint16(address)) {
 		return fmt.Sprintf("$%04X", address)
 	}
 
@@ -235,9 +240,11 @@ func paramConverterIndirectY(c *CPU, instruction *Instruction, params ...interfa
 	return fmt.Sprintf("($%02X),Y = %04X @ %04X = %02X", c.TraceStep.Opcode[1], offset, address, b)
 }
 
-func outputMemoryContent(address uint16) bool {
+func shouldOutputMemoryContent(address uint16) bool {
 	switch {
 	case address < 0x0800:
+		return true
+	case address >= 0x4000 && address <= 0x4020:
 		return true
 	case address >= 0x8000:
 		return true

@@ -7,7 +7,6 @@ package memory
 import (
 	"fmt"
 
-	"github.com/retroenv/nesgo/pkg/apu"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/mapper"
@@ -63,12 +62,8 @@ func (m *Memory) WriteMemory(address uint16, value byte) {
 	case address == controller.JOYPAD1:
 		m.controller1.SetStrobeMode(value)
 		m.controller2.SetStrobeMode(value)
-	case address == apu.DMC_FREQ:
-		return // TODO
-	case address == apu.APU_CHAN_CTRL:
-		return // TODO
-	case address == apu.APU_FRAME:
-		return // TODO
+	case address >= 0x4000 && address <= 0x4020:
+		return // TODO apu support
 	case address >= 0x8000:
 		m.mapper.WriteMemory(address, value)
 	default:
@@ -87,8 +82,8 @@ func (m *Memory) ReadMemory(address uint16) byte {
 		return m.controller1.Read()
 	case address == controller.JOYPAD2:
 		return m.controller2.Read()
-	case address == apu.APU_CHAN_CTRL:
-		return 0 // TODO
+	case address >= 0x4000 && address <= 0x4020:
+		return 0xff // TODO apu support
 	case address >= 0x8000:
 		return m.mapper.ReadMemory(address)
 	default:
