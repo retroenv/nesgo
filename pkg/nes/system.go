@@ -62,24 +62,24 @@ func InitializeSystem(opts *Options) *system.System {
 
 func runEmulatorStep(sys *system.System) {
 	for {
-		sys.TraceStep = cpu.TraceStep{
-			PC: *PC,
-		}
-
 		b := sys.ReadMemory(*PC)
-		*PC++
-
 		ins, ok := cpu.Opcodes[b]
 		if !ok {
 			err := fmt.Errorf("unsupported opcode %00x", b)
 			panic(err)
 		}
 
-		sys.TraceStep.Addressing = ins.Addressing
+		sys.TraceStep = cpu.TraceStep{
+			PC:         *PC,
+			Addressing: ins.Addressing,
+		}
+		oldPC := *PC
+
 
 		if ins.Instruction.NoParamFunc != nil {
 			sys.TraceStep.Opcode = []byte{b}
 			ins.Instruction.NoParamFunc()
+			updatePC(oldPC, 1)
 			continue
 		}
 
@@ -88,6 +88,14 @@ func runEmulatorStep(sys *system.System) {
 		sys.TraceStep.Opcode = append([]byte{b}, opcodes...)
 
 		ins.Instruction.ParamFunc(params...)
+		updatePC(oldPC, len(sys.TraceStep.Opcode))
+	}
+}
+
+func updatePC(oldPC uint16, amount int) {
+	// update PC only if the instruction execution did not change it
+	if oldPC == *PC {
+		*PC += uint16(amount)
 	}
 }
 
