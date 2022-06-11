@@ -26,7 +26,7 @@ func Start(resetHandlerParam func(), options ...Option) {
 
 	if opts.emulator {
 		sys.ResetHandler = func() {
-			runEmulatorStep(sys)
+			RunEmulatorSteps(sys)
 		}
 	} else {
 		sys.ResetHandler = resetHandlerParam
@@ -53,43 +53,57 @@ func InitializeSystem(opts *Options) *system.System {
 	X = &sys.CPU.X
 	Y = &sys.CPU.Y
 	PC = &sys.CPU.PC
-	sys.CPU.SetTracing(opts.tracing)
+	sys.CPU.SetTracing(opts.tracing, opts.tracingTarget)
 	cpu.LinkInstructionFuncs(sys.CPU)
 	sys.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
 
 	return sys
 }
 
-func runEmulatorStep(sys *system.System) {
+// RunEmulatorSteps runs the emulator until it is quit.
+func RunEmulatorSteps(sys *system.System) {
 	for {
-		b := sys.ReadMemory(*PC)
-		ins, ok := cpu.Opcodes[b]
-		if !ok {
-			err := fmt.Errorf("unsupported opcode %00x", b)
-			panic(err)
-		}
-
-		sys.TraceStep = cpu.TraceStep{
-			PC:         *PC,
-			Addressing: ins.Addressing,
-		}
-		oldPC := *PC
-
-
-		if ins.Instruction.NoParamFunc != nil {
-			sys.TraceStep.Opcode = []byte{b}
-			ins.Instruction.NoParamFunc()
-			updatePC(oldPC, 1)
-			continue
-		}
-
-		params, opcodes := readParams(sys, ins.Addressing)
-
-		sys.TraceStep.Opcode = append([]byte{b}, opcodes...)
-
-		ins.Instruction.ParamFunc(params...)
-		updatePC(oldPC, len(sys.TraceStep.Opcode))
+		runEmulatorStep(sys)
 	}
+}
+
+// RunEmulatorUntil runs the emulator until the given address.
+func RunEmulatorUntil(sys *system.System, address uint16) {
+	for {
+		if sys.PC == address {
+			return
+		}
+		runEmulatorStep(sys)
+	}
+}
+
+func runEmulatorStep(sys *system.System) {
+	b := sys.ReadMemory(*PC)
+	ins, ok := cpu.Opcodes[b]
+	if !ok {
+		err := fmt.Errorf("unsupported opcode %00x", b)
+		panic(err)
+	}
+
+	sys.TraceStep = cpu.TraceStep{
+		PC:         *PC,
+		Addressing: ins.Addressing,
+	}
+	oldPC := *PC
+
+	if ins.Instruction.NoParamFunc != nil {
+		sys.TraceStep.Opcode = []byte{b}
+		ins.Instruction.NoParamFunc()
+		updatePC(oldPC, 1)
+		return
+	}
+
+	params, opcodes := readParams(sys, ins.Addressing)
+
+	sys.TraceStep.Opcode = append([]byte{b}, opcodes...)
+
+	ins.Instruction.ParamFunc(params...)
+	updatePC(oldPC, len(sys.TraceStep.Opcode))
 }
 
 func updatePC(oldPC uint16, amount int) {

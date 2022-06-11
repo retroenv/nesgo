@@ -13,7 +13,10 @@ import (
 // Adc - Add with Carry.
 func (c *CPU) Adc(params ...interface{}) {
 	c.instructionHook(adc, params...)
+	c.adcInternal(params...)
+}
 
+func (c *CPU) adcInternal(params ...interface{}) {
 	a := c.A
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	sum := int(c.A) + int(c.Flags.C) + int(value)
@@ -31,7 +34,10 @@ func (c *CPU) Adc(params ...interface{}) {
 // And - AND with accumulator.
 func (c *CPU) And(params ...interface{}) {
 	c.instructionHook(and, params...)
+	c.andInternal(params...)
+}
 
+func (c *CPU) andInternal(params ...interface{}) {
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	c.A &= value
 	c.setZN(c.A)
@@ -40,7 +46,10 @@ func (c *CPU) And(params ...interface{}) {
 // Asl - Arithmetic Shift Left.
 func (c *CPU) Asl(params ...interface{}) {
 	c.instructionHook(asl, params...)
+	c.aslInternal(params...)
+}
 
+func (c *CPU) aslInternal(params ...interface{}) {
 	if hasAccumulatorParam(params...) {
 		c.Flags.C = (c.A >> 7) & 1
 		c.A <<= 1
@@ -223,7 +232,10 @@ func (c *CPU) Cpy(params ...interface{}) {
 // Dec - Decrement memory.
 func (c *CPU) Dec(params ...interface{}) {
 	c.instructionHook(dec, params...)
+	c.decInternal(params...)
+}
 
+func (c *CPU) decInternal(params ...interface{}) {
 	val := c.memory.ReadMemoryAddressModes(false, params...)
 	val--
 	c.memory.WriteMemoryAddressModes(val, params...)
@@ -249,7 +261,10 @@ func (c *CPU) Dey() {
 // Eor - Exclusive OR - XOR.
 func (c *CPU) Eor(params ...interface{}) {
 	c.instructionHook(eor, params...)
+	c.eorInternal(params...)
+}
 
+func (c *CPU) eorInternal(params ...interface{}) {
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	c.A ^= value
 	c.setZN(c.A)
@@ -258,7 +273,10 @@ func (c *CPU) Eor(params ...interface{}) {
 // Inc - Increments memory.
 func (c *CPU) Inc(params ...interface{}) {
 	c.instructionHook(inc, params...)
+	c.incInternal(params...)
+}
 
+func (c *CPU) incInternal(params ...interface{}) {
 	val := c.memory.ReadMemoryAddressModes(false, params...)
 	val++
 	c.memory.WriteMemoryAddressModes(val, params...)
@@ -334,7 +352,10 @@ func (c *CPU) Ldy(params ...interface{}) {
 // Lsr - Logical Shift Right.
 func (c *CPU) Lsr(params ...interface{}) {
 	c.instructionHook(lsr, params...)
+	c.lsrInternal(params...)
+}
 
+func (c *CPU) lsrInternal(params ...interface{}) {
 	if hasAccumulatorParam(params...) {
 		c.Flags.C = c.A & 1
 		c.A >>= 1
@@ -357,7 +378,10 @@ func (c *CPU) Nop() {
 // Ora - OR with Accumulator.
 func (c *CPU) Ora(params ...interface{}) {
 	c.instructionHook(ora, params...)
+	c.oraInternal(params...)
+}
 
+func (c *CPU) oraInternal(params ...interface{}) {
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	c.A |= value
 	c.setZN(c.A)
@@ -399,7 +423,10 @@ func (c *CPU) Plp() {
 // Rol - Rotate Left.
 func (c *CPU) Rol(params ...interface{}) {
 	c.instructionHook(rol, params...)
+	c.rolInternal(params...)
+}
 
+func (c *CPU) rolInternal(params ...interface{}) {
 	cFlag := c.Flags.C
 	if hasAccumulatorParam(params...) {
 		c.Flags.C = (c.A >> 7) & 1
@@ -418,7 +445,10 @@ func (c *CPU) Rol(params ...interface{}) {
 // Ror - Rotate Right.
 func (c *CPU) Ror(params ...interface{}) {
 	c.instructionHook(ror, params...)
+	c.rorInternal(params...)
+}
 
+func (c *CPU) rorInternal(params ...interface{}) {
 	cFlag := c.Flags.C
 	if hasAccumulatorParam(params...) {
 		c.Flags.C = c.A & 1
@@ -563,30 +593,19 @@ func (c *CPU) Tya() {
 	c.setZN(c.A)
 }
 
-func (c *CPU) unofficialAso(params ...interface{}) {
-	c.instructionHook(unofficialAso, params...)
-	// TODO implement/verify
-	c.memory.ReadMemoryAddressModes(false, params...)
-}
-
 func (c *CPU) unofficialDcp(params ...interface{}) {
 	c.instructionHook(unofficialDcp, params...)
-	// TODO implement/verify
-	c.memory.ReadMemoryAddressModes(false, params...)
+
+	c.decInternal(params...)
+	val := c.memory.ReadMemoryAddressModes(false, params...)
+	c.compare(c.A, val)
 }
 
-func (c *CPU) unofficialIns(params ...interface{}) {
-	c.instructionHook(unofficialIns, params...)
-	// TODO implement/verify
-	c.memory.WriteMemoryAddressModes(c.A, params...)
-}
+func (c *CPU) unofficialIsb(params ...interface{}) {
+	c.instructionHook(unofficialIsb, params...)
 
-func (c *CPU) unofficialNop(params ...interface{}) {
-	c.instructionHook(unofficialNop, params...)
-
-	if len(params) > 0 {
-		c.memory.ReadMemoryAddressModes(false, params...)
-	}
+	c.incInternal(params...)
+	c.sbcInternal(params...)
 }
 
 func (c *CPU) unofficialLax(params ...interface{}) {
@@ -597,32 +616,50 @@ func (c *CPU) unofficialLax(params ...interface{}) {
 	c.setZN(c.A)
 }
 
-func (c *CPU) unofficialLse(params ...interface{}) {
-	c.instructionHook(unofficialLse, params...)
-	// TODO implement/verify
-	c.memory.WriteMemoryAddressModes(c.A, params...)
+func (c *CPU) unofficialNop(params ...interface{}) {
+	c.instructionHook(unofficialNop, params...)
+
+	if len(params) > 0 {
+		c.memory.ReadMemoryAddressModes(false, params...)
+	}
 }
 
 func (c *CPU) unofficialRla(params ...interface{}) {
 	c.instructionHook(unofficialRla, params...)
-	// TODO implement/verify
-	c.memory.WriteMemoryAddressModes(c.A, params...)
+
+	c.rolInternal(params...)
+	c.andInternal(params...)
 }
 
 func (c *CPU) unofficialRra(params ...interface{}) {
 	c.instructionHook(unofficialRra, params...)
-	// TODO implement/verify
-	c.memory.WriteMemoryAddressModes(c.A, params...)
+
+	c.rorInternal(params...)
+	c.adcInternal(params...)
 }
 
 func (c *CPU) unofficialSax(params ...interface{}) {
 	c.instructionHook(unofficialSax, params...)
-	// TODO implement/verify
-	c.memory.WriteMemoryAddressModes(c.A, params...)
+
+	val := c.A & c.X
+	c.memory.WriteMemoryAddressModes(val, params...)
 }
 
 func (c *CPU) unofficialSbc(params ...interface{}) {
 	c.instructionHook(unofficialSbc, params...)
-	// TODO implement/verify
 	c.sbcInternal(params...)
+}
+
+func (c *CPU) unofficialSlo(params ...interface{}) {
+	c.instructionHook(unofficialSlo, params...)
+
+	c.aslInternal(params...)
+	c.oraInternal(params...)
+}
+
+func (c *CPU) unofficialSre(params ...interface{}) {
+	c.instructionHook(unofficialSre, params...)
+
+	c.lsrInternal(params...)
+	c.eorInternal(params...)
 }

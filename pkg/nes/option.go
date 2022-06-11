@@ -4,6 +4,8 @@
 package nes
 
 import (
+	"io"
+
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 )
@@ -13,7 +15,9 @@ type Options struct {
 	entrypoint int
 	emulator   bool
 	cartridge  *cartridge.Cartridge
-	tracing    cpu.TracingMode
+
+	tracing       cpu.TracingMode
+	tracingTarget io.Writer
 
 	nmiHandler func()
 	irqHandler func()
@@ -73,9 +77,16 @@ func WithTracing() func(*Options) {
 	}
 }
 
-// WithEntrypoint enables tracing for the program.
-func WithEntrypoint(entrypoint int) func(*Options) {
+// WithTracingTarget set the tracing target io writer.
+func WithTracingTarget(target io.Writer) func(*Options) {
 	return func(options *Options) {
-		options.entrypoint = entrypoint
+		options.tracingTarget = target
+	}
+}
+
+// WithEntrypoint enables tracing for the program.
+func WithEntrypoint(address int) func(*Options) {
+	return func(options *Options) {
+		options.entrypoint = address
 	}
 }

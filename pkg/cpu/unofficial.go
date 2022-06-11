@@ -2,7 +2,6 @@
 // +build !nesgo
 
 // This file contains support for unofficial CPU instructions.
-// https://www.nesdev.com/undocumented_opcodes.txt
 // https://www.nesdev.org/wiki/Programming_with_unofficial_opcodes
 
 package cpu
@@ -12,30 +11,16 @@ import (
 )
 
 func linkUnofficialInstructionFuncs(cpu *CPU) {
-	unofficialAso.ParamFunc = cpu.unofficialAso
 	unofficialDcp.ParamFunc = cpu.unofficialDcp
-	unofficialIns.ParamFunc = cpu.unofficialIns
+	unofficialIsb.ParamFunc = cpu.unofficialIsb
 	unofficialLax.ParamFunc = cpu.unofficialLax
-	unofficialLse.ParamFunc = cpu.unofficialLse
 	unofficialNop.ParamFunc = cpu.unofficialNop
 	unofficialRla.ParamFunc = cpu.unofficialRla
 	unofficialRra.ParamFunc = cpu.unofficialRra
 	unofficialSax.ParamFunc = cpu.unofficialSax
 	unofficialSbc.ParamFunc = cpu.unofficialSbc
-}
-
-var unofficialAso = &Instruction{
-	Name:       "aso",
-	unofficial: true,
-	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x07, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0x17, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0x0f, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0x1f, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0x1b, Timing: 7},
-		IndirectXAddressing: {Opcode: 0x03, Timing: 8},
-		IndirectYAddressing: {Opcode: 0x13, Timing: 8},
-	},
+	unofficialSlo.ParamFunc = cpu.unofficialSlo
+	unofficialSre.ParamFunc = cpu.unofficialSre
 }
 
 var unofficialDcp = &Instruction{
@@ -52,8 +37,8 @@ var unofficialDcp = &Instruction{
 	},
 }
 
-var unofficialIns = &Instruction{
-	Name:       "ins",
+var unofficialIsb = &Instruction{
+	Name:       "isb",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0xe7, Timing: 5},
@@ -79,20 +64,6 @@ var unofficialLax = &Instruction{
 	},
 }
 
-var unofficialLse = &Instruction{
-	Name:       "lse",
-	unofficial: true,
-	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x47, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0x57, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0x4f, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0x5f, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0x5b, Timing: 7},
-		IndirectXAddressing: {Opcode: 0x43, Timing: 8},
-		IndirectYAddressing: {Opcode: 0x53, Timing: 8},
-	},
-}
-
 var unofficialNop = &Instruction{
 	Name:       "nop",
 	unofficial: true,
@@ -113,7 +84,8 @@ var unofficialRla = &Instruction{
 }
 
 var unofficialRra = &Instruction{
-	Name: "rra",
+	Name:       "rra",
+	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0x67, Timing: 5},
 		ZeroPageXAddressing: {Opcode: 0x77, Timing: 6},
@@ -137,8 +109,37 @@ var unofficialSax = &Instruction{
 }
 
 var unofficialSbc = &Instruction{
-	Name: "sbc",
+	Name:       "sbc",
+	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ImmediateAddressing: {Opcode: 0xeb, Timing: 2},
+	},
+}
+
+var unofficialSlo = &Instruction{
+	Name:       "slo",
+	unofficial: true,
+	Addressing: map[Mode]AddressingInfo{
+		ZeroPageAddressing:  {Opcode: 0x07, Timing: 5},
+		ZeroPageXAddressing: {Opcode: 0x17, Timing: 6},
+		AbsoluteAddressing:  {Opcode: 0x0f, Timing: 6},
+		AbsoluteXAddressing: {Opcode: 0x1f, Timing: 7},
+		AbsoluteYAddressing: {Opcode: 0x1b, Timing: 7},
+		IndirectXAddressing: {Opcode: 0x03, Timing: 8},
+		IndirectYAddressing: {Opcode: 0x13, Timing: 8},
+	},
+}
+
+var unofficialSre = &Instruction{
+	Name:       "sre",
+	unofficial: true,
+	Addressing: map[Mode]AddressingInfo{
+		ZeroPageAddressing:  {Opcode: 0x47, Timing: 5},
+		ZeroPageXAddressing: {Opcode: 0x57, Timing: 6},
+		AbsoluteAddressing:  {Opcode: 0x4f, Timing: 6},
+		AbsoluteXAddressing: {Opcode: 0x5f, Timing: 7},
+		AbsoluteYAddressing: {Opcode: 0x5b, Timing: 7},
+		IndirectXAddressing: {Opcode: 0x43, Timing: 8},
+		IndirectYAddressing: {Opcode: 0x53, Timing: 8},
 	},
 }
