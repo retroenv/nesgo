@@ -4,6 +4,9 @@ import (
 	"bufio"
 	"bytes"
 	"os"
+	"path"
+	"path/filepath"
+	"runtime"
 	"testing"
 
 	"github.com/retroenv/nesgo/internal/assert"
@@ -12,7 +15,11 @@ import (
 )
 
 func TestNestest(t *testing.T) {
-	file, err := os.Open("./nestest.nes")
+	_, filename, _, ok := runtime.Caller(0)
+	assert.True(t, ok)
+	testDir := filepath.Dir(filename)
+
+	file, err := os.Open(path.Join(testDir, "nestest.nes"))
 	assert.NoError(t, err)
 
 	cart, err := cartridge.LoadFile(file)
@@ -34,7 +41,7 @@ func TestNestest(t *testing.T) {
 
 	assert.NoError(t, trace.Flush())
 
-	file, err = os.Open("./nestest_noclock.log")
+	file, err = os.Open(path.Join(testDir, "nestest_noclock.log"))
 	assert.NoError(t, err)
 
 	nestest := bufio.NewScanner(file)
