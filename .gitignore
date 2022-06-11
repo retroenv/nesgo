@@ -3,7 +3,7 @@
 .vscode
 *.iml
 *.local
-*.log
+/*.log
 *.out
 *.prof
 *.test
