@@ -460,7 +460,10 @@ func (c *CPU) Rts() {
 // Sbc - subtract with Carry.
 func (c *CPU) Sbc(params ...interface{}) {
 	c.instructionHook(sbc, params...)
+	c.sbcInternal(params...)
+}
 
+func (c *CPU) sbcInternal(params ...interface{}) {
 	a := c.A
 	value := c.memory.ReadMemoryAddressModes(true, params...)
 	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
@@ -558,4 +561,68 @@ func (c *CPU) Tya() {
 
 	c.A = c.Y
 	c.setZN(c.A)
+}
+
+func (c *CPU) unofficialAso(params ...interface{}) {
+	c.instructionHook(unofficialAso, params...)
+	// TODO implement/verify
+	c.memory.ReadMemoryAddressModes(false, params...)
+}
+
+func (c *CPU) unofficialDcp(params ...interface{}) {
+	c.instructionHook(unofficialDcp, params...)
+	// TODO implement/verify
+	c.memory.ReadMemoryAddressModes(false, params...)
+}
+
+func (c *CPU) unofficialIns(params ...interface{}) {
+	c.instructionHook(unofficialIns, params...)
+	// TODO implement/verify
+	c.memory.WriteMemoryAddressModes(c.A, params...)
+}
+
+func (c *CPU) unofficialNop(params ...interface{}) {
+	c.instructionHook(unofficialNop, params...)
+
+	if len(params) > 0 {
+		c.memory.ReadMemoryAddressModes(false, params...)
+	}
+}
+
+func (c *CPU) unofficialLax(params ...interface{}) {
+	c.instructionHook(unofficialLax, params...)
+
+	c.A = c.memory.ReadMemoryAddressModes(false, params...)
+	c.X = c.A
+	c.setZN(c.A)
+}
+
+func (c *CPU) unofficialLse(params ...interface{}) {
+	c.instructionHook(unofficialLse, params...)
+	// TODO implement/verify
+	c.memory.WriteMemoryAddressModes(c.A, params...)
+}
+
+func (c *CPU) unofficialRla(params ...interface{}) {
+	c.instructionHook(unofficialRla, params...)
+	// TODO implement/verify
+	c.memory.WriteMemoryAddressModes(c.A, params...)
+}
+
+func (c *CPU) unofficialRra(params ...interface{}) {
+	c.instructionHook(unofficialRra, params...)
+	// TODO implement/verify
+	c.memory.WriteMemoryAddressModes(c.A, params...)
+}
+
+func (c *CPU) unofficialSax(params ...interface{}) {
+	c.instructionHook(unofficialSax, params...)
+	// TODO implement/verify
+	c.memory.WriteMemoryAddressModes(c.A, params...)
+}
+
+func (c *CPU) unofficialSbc(params ...interface{}) {
+	c.instructionHook(unofficialSbc, params...)
+	// TODO implement/verify
+	c.sbcInternal(params...)
 }

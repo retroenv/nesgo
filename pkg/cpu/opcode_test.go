@@ -11,7 +11,14 @@ func TestVerifyOpcodes(t *testing.T) {
 	t.Parallel()
 
 	for b, op := range Opcodes {
-		info := op.Instruction.Addressing[op.Addressing]
+		ins := op.Instruction
+		if ins.unofficial && ins.Name == "nop" {
+			// unofficial nop has multiple opcodes for the
+			// same addressing mode
+			continue
+		}
+
+		info := ins.Addressing[op.Addressing]
 		assert.Equal(t, b, info.Opcode)
 	}
 }

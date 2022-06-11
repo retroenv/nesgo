@@ -13,6 +13,7 @@ import (
 type paramReaderFunc func(sys *system.System) ([]interface{}, []byte)
 
 var paramReader = map[Mode]paramReaderFunc{
+	ImpliedAddressing:     paramReaderImplied,
 	ImmediateAddressing:   paramReaderImmediate,
 	AccumulatorAddressing: paramReaderAccumulator,
 	AbsoluteAddressing:    paramReaderAbsolute,
@@ -39,6 +40,10 @@ func readParams(sys *system.System, addressing Mode) ([]interface{}, []byte) {
 
 	params, opcodes := fun(sys)
 	return params, opcodes
+}
+
+func paramReaderImplied(sys *system.System) ([]interface{}, []byte) {
+	return nil, nil
 }
 
 func paramReaderImmediate(sys *system.System) ([]interface{}, []byte) {

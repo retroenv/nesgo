@@ -12,7 +12,8 @@ type AddressingInfo struct {
 
 // Instruction contains information about a NES CPU instruction.
 type Instruction struct {
-	Name string
+	Name       string
+	unofficial bool
 
 	// instruction has no parameters
 	NoParamFunc func()
@@ -94,6 +95,8 @@ func LinkInstructionFuncs(cpu *CPU) {
 	txa.NoParamFunc = cpu.Txa
 	txs.NoParamFunc = cpu.Txs
 	tya.NoParamFunc = cpu.Tya
+
+	linkUnofficialInstructionFuncs(cpu)
 }
 
 var adc = &Instruction{
