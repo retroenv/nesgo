@@ -66,6 +66,7 @@ func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register i
 	m.writeMemoryAbsoluteOffset(address, value, offset)
 }
 
+// Support 6502 bug, index will not leave zeropage when page boundary is crossed.
 func (m *Memory) writeMemoryZeroPage(address ZeroPage, value byte, register interface{}) {
 	if register == nil {
 		m.writeMemoryAbsoluteOffset(address, value, 0)
@@ -171,6 +172,7 @@ func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) b
 }
 
 // ReadMemoryZeroPage reads a byte from an address in zeropage using absolute addressing.
+// Support 6502 bug, index will not leave zeropage when page boundary is crossed.
 func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register interface{}) byte {
 	if register == nil {
 		return m.readMemoryAbsoluteOffset(address, 0)
