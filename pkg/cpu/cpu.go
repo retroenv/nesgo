@@ -19,8 +19,9 @@ type CPU struct {
 	SP    uint8  // stack pointer
 	Flags flags
 
-	irqHandler    *func()
-	memory        memory
+	irqHandler *func()
+	memory     memory
+
 	tracing       TracingMode
 	tracingTarget io.Writer
 	TraceStep     TraceStep
@@ -54,7 +55,7 @@ func New(memory memory, irqHandler *func()) *CPU {
 	return c
 }
 
-// SetTracing switches CPU tracing.
+// SetTracing sets the CPU tracing options.
 func (c *CPU) SetTracing(mode TracingMode, target io.Writer) {
 	c.tracing = mode
 	c.tracingTarget = target
