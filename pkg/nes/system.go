@@ -85,16 +85,17 @@ func runEmulatorStep(sys *system.System) {
 		panic(err)
 	}
 
-	sys.TraceStep = cpu.TraceStep{
-		PC:         *PC,
-		Addressing: ins.Addressing,
-	}
+	sys.TraceStep.PageCrossCycle = ins.PageCrossCycle
+	sys.TraceStep.Timing = ins.Timing
+	sys.TraceStep.PC = *PC
+	sys.TraceStep.Addressing = ins.Addressing
+	sys.TraceStep.PageCrossed = false
 	oldPC := *PC
 
 	if ins.Instruction.NoParamFunc != nil {
 		sys.TraceStep.Opcode = []byte{b}
 		ins.Instruction.NoParamFunc()
-		updatePC(oldPC, 1)
+		updatePC(sys, ins.Instruction, oldPC, 1)
 		return
 	}
 
@@ -103,13 +104,21 @@ func runEmulatorStep(sys *system.System) {
 	sys.TraceStep.Opcode = append([]byte{b}, opcodes...)
 
 	ins.Instruction.ParamFunc(params...)
-	updatePC(oldPC, len(sys.TraceStep.Opcode))
+	updatePC(sys, ins.Instruction, oldPC, len(sys.TraceStep.Opcode))
 }
 
-func updatePC(oldPC uint16, amount int) {
+func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int) {
 	// update PC only if the instruction execution did not change it
 	if oldPC == *PC {
 		*PC += uint16(amount)
+	} else {
+		// page crossing is measured based on the start of the instruction that follows the
+		// current instruction
+		nextAddress := oldPC + uint16(len(sys.TraceStep.Opcode))
+		pageCrossed := *PC&0xff00 != nextAddress&0xff00
+		if pageCrossed {
+			sys.CPU.AccountBranchingPageCrossCycle(ins)
+		}
 	}
 }
 

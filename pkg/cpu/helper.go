@@ -8,15 +8,18 @@ import (
 )
 
 // execute branch jump if the branching op result is true.
-func (c *CPU) branch(branchFunc func() bool, param interface{}) {
+func (c *CPU) branch(branchTo bool, param interface{}) {
 	// disable trace while calling the go mode branch code
 	// TODO refactor to avoid this
 	trace := c.tracing
 	c.tracing = NoTracing
 
-	if branchFunc() {
+
+	if branchTo {
 		addr := param.(Absolute)
+
 		c.PC = uint16(addr)
+		c.cycles++
 	}
 
 	c.tracing = trace

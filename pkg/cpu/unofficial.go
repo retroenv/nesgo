@@ -27,13 +27,13 @@ var unofficialDcp = &Instruction{
 	Name:       "dcp",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0xc7, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0xd7, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0xcf, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0xdf, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0xdb, Timing: 7},
-		IndirectXAddressing: {Opcode: 0xc3, Timing: 8},
-		IndirectYAddressing: {Opcode: 0xd3, Timing: 8},
+		ZeroPageAddressing:  {Opcode: 0xc7},
+		ZeroPageXAddressing: {Opcode: 0xd7},
+		AbsoluteAddressing:  {Opcode: 0xcf},
+		AbsoluteXAddressing: {Opcode: 0xdf},
+		AbsoluteYAddressing: {Opcode: 0xdb},
+		IndirectXAddressing: {Opcode: 0xc3},
+		IndirectYAddressing: {Opcode: 0xd3},
 	},
 }
 
@@ -41,13 +41,13 @@ var unofficialIsb = &Instruction{
 	Name:       "isb",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0xe7, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0xf7, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0xef, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0xff, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0xfb, Timing: 7},
-		IndirectXAddressing: {Opcode: 0xe3, Timing: 8},
-		IndirectYAddressing: {Opcode: 0xf3, Timing: 8},
+		ZeroPageAddressing:  {Opcode: 0xe7},
+		ZeroPageXAddressing: {Opcode: 0xf7},
+		AbsoluteAddressing:  {Opcode: 0xef},
+		AbsoluteXAddressing: {Opcode: 0xff},
+		AbsoluteYAddressing: {Opcode: 0xfb},
+		IndirectXAddressing: {Opcode: 0xe3},
+		IndirectYAddressing: {Opcode: 0xf3},
 	},
 }
 
@@ -55,12 +55,12 @@ var unofficialLax = &Instruction{
 	Name:       "lax",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0xa7, Timing: 3},
-		ZeroPageYAddressing: {Opcode: 0xb7, Timing: 4},
-		AbsoluteAddressing:  {Opcode: 0xaf, Timing: 4},
-		AbsoluteYAddressing: {Opcode: 0xbf, Timing: 4},
-		IndirectXAddressing: {Opcode: 0xa3, Timing: 6},
-		IndirectYAddressing: {Opcode: 0xb3, Timing: 5},
+		ZeroPageAddressing:  {Opcode: 0xa7},
+		ZeroPageYAddressing: {Opcode: 0xb7},
+		AbsoluteAddressing:  {Opcode: 0xaf},
+		AbsoluteYAddressing: {Opcode: 0xbf},
+		IndirectXAddressing: {Opcode: 0xa3},
+		IndirectYAddressing: {Opcode: 0xb3},
 	},
 }
 
@@ -73,13 +73,13 @@ var unofficialRla = &Instruction{
 	Name:       "rla",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x27, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0x37, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0x2f, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0x3f, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0x3b, Timing: 7},
-		IndirectXAddressing: {Opcode: 0x23, Timing: 8},
-		IndirectYAddressing: {Opcode: 0x33, Timing: 8},
+		ZeroPageAddressing:  {Opcode: 0x27},
+		ZeroPageXAddressing: {Opcode: 0x37},
+		AbsoluteAddressing:  {Opcode: 0x2f},
+		AbsoluteXAddressing: {Opcode: 0x3f},
+		AbsoluteYAddressing: {Opcode: 0x3b},
+		IndirectXAddressing: {Opcode: 0x23},
+		IndirectYAddressing: {Opcode: 0x33},
 	},
 }
 
@@ -87,13 +87,13 @@ var unofficialRra = &Instruction{
 	Name:       "rra",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x67, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0x77, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0x6f, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0x7f, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0x7b, Timing: 7},
-		IndirectXAddressing: {Opcode: 0x63, Timing: 8},
-		IndirectYAddressing: {Opcode: 0x73, Timing: 8},
+		ZeroPageAddressing:  {Opcode: 0x67},
+		ZeroPageXAddressing: {Opcode: 0x77},
+		AbsoluteAddressing:  {Opcode: 0x6f},
+		AbsoluteXAddressing: {Opcode: 0x7f},
+		AbsoluteYAddressing: {Opcode: 0x7b},
+		IndirectXAddressing: {Opcode: 0x63},
+		IndirectYAddressing: {Opcode: 0x73},
 	},
 }
 
@@ -101,10 +101,10 @@ var unofficialSax = &Instruction{
 	Name:       "sax",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x87, Timing: 3},
-		ZeroPageYAddressing: {Opcode: 0x97, Timing: 4},
-		AbsoluteAddressing:  {Opcode: 0x8f, Timing: 4},
-		IndirectXAddressing: {Opcode: 0x83, Timing: 6},
+		ZeroPageAddressing:  {Opcode: 0x87},
+		ZeroPageYAddressing: {Opcode: 0x97},
+		AbsoluteAddressing:  {Opcode: 0x8f},
+		IndirectXAddressing: {Opcode: 0x83},
 	},
 }
 
@@ -112,7 +112,7 @@ var unofficialSbc = &Instruction{
 	Name:       "sbc",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ImmediateAddressing: {Opcode: 0xeb, Timing: 2},
+		ImmediateAddressing: {Opcode: 0xeb},
 	},
 }
 
@@ -120,13 +120,13 @@ var unofficialSlo = &Instruction{
 	Name:       "slo",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x07, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0x17, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0x0f, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0x1f, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0x1b, Timing: 7},
-		IndirectXAddressing: {Opcode: 0x03, Timing: 8},
-		IndirectYAddressing: {Opcode: 0x13, Timing: 8},
+		ZeroPageAddressing:  {Opcode: 0x07},
+		ZeroPageXAddressing: {Opcode: 0x17},
+		AbsoluteAddressing:  {Opcode: 0x0f},
+		AbsoluteXAddressing: {Opcode: 0x1f},
+		AbsoluteYAddressing: {Opcode: 0x1b},
+		IndirectXAddressing: {Opcode: 0x03},
+		IndirectYAddressing: {Opcode: 0x13},
 	},
 }
 
@@ -134,12 +134,12 @@ var unofficialSre = &Instruction{
 	Name:       "sre",
 	unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
-		ZeroPageAddressing:  {Opcode: 0x47, Timing: 5},
-		ZeroPageXAddressing: {Opcode: 0x57, Timing: 6},
-		AbsoluteAddressing:  {Opcode: 0x4f, Timing: 6},
-		AbsoluteXAddressing: {Opcode: 0x5f, Timing: 7},
-		AbsoluteYAddressing: {Opcode: 0x5b, Timing: 7},
-		IndirectXAddressing: {Opcode: 0x43, Timing: 8},
-		IndirectYAddressing: {Opcode: 0x53, Timing: 8},
+		ZeroPageAddressing:  {Opcode: 0x47},
+		ZeroPageXAddressing: {Opcode: 0x57},
+		AbsoluteAddressing:  {Opcode: 0x4f},
+		AbsoluteXAddressing: {Opcode: 0x5f},
+		AbsoluteYAddressing: {Opcode: 0x5b},
+		IndirectXAddressing: {Opcode: 0x43},
+		IndirectYAddressing: {Opcode: 0x53},
 	},
 }

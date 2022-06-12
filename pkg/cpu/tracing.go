@@ -20,11 +20,14 @@ const (
 
 // TraceStep contains all info needed to print a trace step.
 type TraceStep struct {
-	PC          uint16
-	Opcode      []byte
-	Addressing  Mode
-	Unofficial  bool
-	Instruction string
+	PC             uint16
+	Opcode         []byte
+	Addressing     Mode
+	Timing         byte
+	PageCrossCycle bool
+	PageCrossed    bool
+	Unofficial     bool
+	Instruction    string
 }
 
 func (t TraceStep) print(cpu *CPU) {
@@ -44,9 +47,9 @@ func (t TraceStep) print(cpu *CPU) {
 	}
 
 	// output the trace in a Nintendulator / nestest.log compatible format
-	s := fmt.Sprintf("%04X  %s %s %s %s%-31s A:%02X X:%02X Y:%02X P:%02X SP:%02X\n",
+	s := fmt.Sprintf("%04X  %s %s %s %s%-31s A:%02X X:%02X Y:%02X P:%02X SP:%02X CYC:%d\n",
 		t.PC, opcodes[0], opcodes[1], opcodes[2], unofficial, t.Instruction,
-		cpu.A, cpu.X, cpu.Y, cpu.GetFlags(), cpu.SP)
+		cpu.A, cpu.X, cpu.Y, cpu.GetFlags(), cpu.SP, cpu.cycles)
 	if cpu.tracingTarget != nil {
 		_, _ = fmt.Fprint(cpu.tracingTarget, s)
 	} else {

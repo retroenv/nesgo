@@ -74,7 +74,7 @@ func (c *CPU) Bcc() bool {
 // BccInternal - Branch if Carry Clear.
 func (c *CPU) BccInternal(params ...interface{}) {
 	c.instructionHook(bcc, params...)
-	c.branch(c.Bcc, params[0])
+	c.branch(c.Flags.C == 0, params[0])
 }
 
 // Bcs - Branch if Carry Set - returns whether the carry flag is set.
@@ -86,7 +86,7 @@ func (c *CPU) Bcs() bool {
 // BcsInternal - Branch if Carry Set.
 func (c *CPU) BcsInternal(params ...interface{}) {
 	c.instructionHook(bcs, params...)
-	c.branch(c.Bcs, params[0])
+	c.branch(c.Flags.C != 0, params[0])
 }
 
 // Beq - Branch if Equal - returns whether the zero flag is set.
@@ -98,7 +98,7 @@ func (c *CPU) Beq() bool {
 // BeqInternal - Branch if Equal.
 func (c *CPU) BeqInternal(params ...interface{}) {
 	c.instructionHook(beq, params...)
-	c.branch(c.Beq, params[0])
+	c.branch(c.Flags.Z != 0, params[0])
 }
 
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
@@ -120,7 +120,7 @@ func (c *CPU) Bmi() bool {
 // BmiInternal - Branch if Minus.
 func (c *CPU) BmiInternal(params ...interface{}) {
 	c.instructionHook(bmi, params...)
-	c.branch(c.Bmi, params[0])
+	c.branch(c.Flags.N != 0, params[0])
 }
 
 // Bne - Branch if Not Equal - returns whether the zero flag is clear.
@@ -132,7 +132,7 @@ func (c *CPU) Bne() bool {
 // BneInternal - Branch if Not Equal.
 func (c *CPU) BneInternal(params ...interface{}) {
 	c.instructionHook(bne, params...)
-	c.branch(c.Bne, params[0])
+	c.branch(c.Flags.Z == 0, params[0])
 }
 
 // Bpl - Branch if Positive - returns whether the negative flag is clear.
@@ -144,7 +144,7 @@ func (c *CPU) Bpl() bool {
 // BplInternal - Branch if Positive.
 func (c *CPU) BplInternal(params ...interface{}) {
 	c.instructionHook(bpl, params...)
-	c.branch(c.Bpl, params[0])
+	c.branch(c.Flags.N == 0, params[0])
 }
 
 // Brk - Force Interrupt.
@@ -166,7 +166,7 @@ func (c *CPU) Bvc() bool {
 // BvcInternal - Branch if Overflow Clear.
 func (c *CPU) BvcInternal(params ...interface{}) {
 	c.instructionHook(bvc, params...)
-	c.branch(c.Bvc, params[0])
+	c.branch(c.Flags.V == 0, params[0])
 }
 
 // Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
@@ -178,7 +178,7 @@ func (c *CPU) Bvs() bool {
 // BvsInternal - Branch if Overflow Set.
 func (c *CPU) BvsInternal(params ...interface{}) {
 	c.instructionHook(bvs, params...)
-	c.branch(c.Bvs, params[0])
+	c.branch(c.Flags.V != 0, params[0])
 }
 
 // Clc - Clear Carry Flag.
