@@ -41,7 +41,7 @@ func TestNestest(t *testing.T) {
 
 	assert.NoError(t, trace.Flush())
 
-	file, err = os.Open(path.Join(testDir, "nestest_noclock.log"))
+	file, err = os.Open(path.Join(testDir, "nestest_no_ppu.log"))
 	assert.NoError(t, err)
 
 	nestest := bufio.NewScanner(file)

@@ -15,6 +15,21 @@ func (c *CPU) instructionHook(instruction *Instruction, params ...interface{}) {
 		c.trace(instruction, params...)
 	}
 
-	// TODO account for exact cycles
+	c.cycles += uint64(c.TraceStep.Timing)
+	if c.TraceStep.PageCrossed && c.TraceStep.PageCrossCycle {
+		c.cycles++
+	}
+
+	// TODO slow down emulation and add option to disable it
 	time.Sleep(time.Microsecond)
+}
+
+// AccountBranchingPageCrossCycle accounts for a branch page crossing extra CPU cycle.
+func (c *CPU) AccountBranchingPageCrossCycle(ins *Instruction) {
+	if _, ok := BranchingInstructions[ins.Name]; !ok {
+		return
+	}
+	if ins.Name != jmp.Name && ins.Name != jsr.Name {
+		c.cycles++
+	}
 }

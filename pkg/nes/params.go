@@ -70,8 +70,10 @@ func paramReaderAbsolute(sys *system.System) ([]interface{}, []byte) {
 func paramReaderAbsoluteX(sys *system.System) ([]interface{}, []byte) {
 	b1 := uint16(sys.ReadMemory(*PC + 1))
 	b2 := uint16(sys.ReadMemory(*PC + 2))
+	w := b2<<8 | b1
+	offsetAddress(sys, w, *X)
 
-	params := []interface{}{Absolute(b2<<8 | b1), *X}
+	params := []interface{}{Absolute(w), *X}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes
 }
@@ -79,8 +81,10 @@ func paramReaderAbsoluteX(sys *system.System) ([]interface{}, []byte) {
 func paramReaderAbsoluteY(sys *system.System) ([]interface{}, []byte) {
 	b1 := uint16(sys.ReadMemory(*PC + 1))
 	b2 := uint16(sys.ReadMemory(*PC + 2))
+	w := b2<<8 | b1
+	offsetAddress(sys, w, *Y)
 
-	params := []interface{}{Absolute(b2<<8 | b1), *Y}
+	params := []interface{}{Absolute(w), *Y}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes
 }
@@ -147,9 +151,17 @@ func paramReaderIndirectX(sys *system.System) ([]interface{}, []byte) {
 func paramReaderIndirectY(sys *system.System) ([]interface{}, []byte) {
 	b := sys.ReadMemory(*PC + 1)
 	address := sys.ReadMemory16Bug(uint16(b))
-	address += uint16(*Y)
+	address = offsetAddress(sys, address, *Y)
 
 	params := []interface{}{Absolute(address)}
 	opcodes := []byte{b}
 	return params, opcodes
+}
+
+// offsetAddress returns the offset address and accounts for the resulting
+// address crossing a page boundary.
+func offsetAddress(sys *system.System, address uint16, offset byte) uint16 {
+	newAddress := address + uint16(offset)
+	sys.TraceStep.PageCrossed = newAddress&0xff00 != address&0xff00
+	return newAddress
 }

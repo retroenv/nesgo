@@ -22,6 +22,7 @@ type CPU struct {
 	irqHandler *func()
 	memory     memory
 
+	cycles        uint64
 	tracing       TracingMode
 	tracingTarget io.Writer
 	TraceStep     TraceStep
@@ -46,6 +47,7 @@ func New(memory memory, irqHandler *func()) *CPU {
 		SP:         InitialStack,
 		memory:     memory,
 		irqHandler: irqHandler,
+		cycles:     7,
 	}
 
 	// read reset interrupt handler address
