@@ -69,7 +69,7 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 		c.TraceStep.Opcode = []byte{instruction.Addressing[c.TraceStep.Addressing].Opcode}
 		// TODO add parameter opcodes
 	} else {
-		paramsAsString = c.paramString(instruction, params...)
+		paramsAsString = c.ParamString(instruction, params...)
 	}
 
 	c.TraceStep.Unofficial = instruction.unofficial
@@ -146,8 +146,8 @@ var paramConverter = map[Mode]paramConverterFunc{
 	IndirectYAddressing:   paramConverterIndirectY,
 }
 
-// paramString returns the params formatted as string.
-func (c *CPU) paramString(instruction *Instruction, params ...interface{}) string {
+// ParamString returns the instruction parameters formatted as string.
+func (c *CPU) ParamString(instruction *Instruction, params ...interface{}) string {
 	fun, ok := paramConverter[c.TraceStep.Addressing]
 	if !ok {
 		err := fmt.Errorf("unsupported addressing mode %00x", c.TraceStep.Addressing)

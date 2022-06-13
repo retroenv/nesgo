@@ -79,32 +79,35 @@ func RunEmulatorUntil(sys *system.System, address uint16) {
 
 func runEmulatorStep(sys *system.System) {
 	b := sys.ReadMemory(*PC)
-	ins, ok := cpu.Opcodes[b]
+	opcode, ok := cpu.Opcodes[b]
 	if !ok {
 		err := fmt.Errorf("unsupported opcode %00x", b)
 		panic(err)
 	}
 
-	sys.TraceStep.PageCrossCycle = ins.PageCrossCycle
-	sys.TraceStep.Timing = ins.Timing
-	sys.TraceStep.PC = *PC
-	sys.TraceStep.Addressing = ins.Addressing
-	sys.TraceStep.PageCrossed = false
 	oldPC := *PC
+	sys.TraceStep = cpu.TraceStep{
+		PC:             *PC,
+		Opcode:         []byte{b},
+		Addressing:     opcode.Addressing,
+		Timing:         opcode.Timing,
+		PageCrossCycle: opcode.PageCrossCycle,
+		PageCrossed:    false,
+	}
 
-	if ins.Instruction.NoParamFunc != nil {
-		sys.TraceStep.Opcode = []byte{b}
-		ins.Instruction.NoParamFunc()
-		updatePC(sys, ins.Instruction, oldPC, 1)
+	ins := opcode.Instruction
+	if ins.NoParamFunc != nil {
+		ins.NoParamFunc()
+		updatePC(sys, ins, oldPC, 1)
 		return
 	}
 
-	params, opcodes := readParams(sys, ins.Addressing)
+	params, opcodes, pageCrossed := ReadOpParams(sys.Memory, opcode.Addressing)
+	sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
+	sys.TraceStep.PageCrossed = pageCrossed
 
-	sys.TraceStep.Opcode = append([]byte{b}, opcodes...)
-
-	ins.Instruction.ParamFunc(params...)
-	updatePC(sys, ins.Instruction, oldPC, len(sys.TraceStep.Opcode))
+	ins.ParamFunc(params...)
+	updatePC(sys, ins, oldPC, len(sys.TraceStep.Opcode))
 }
 
 func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int) {

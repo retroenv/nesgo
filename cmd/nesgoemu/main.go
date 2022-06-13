@@ -34,14 +34,12 @@ func emulateFile(input string) error {
 	if err != nil {
 		return fmt.Errorf("opening file '%s': %w", input, err)
 	}
-	defer func() {
-		_ = file.Close()
-	}()
 
 	cart, err := cartridge.LoadFile(file)
 	if err != nil {
 		return fmt.Errorf("reading file: %w", err)
 	}
+	_ = file.Close()
 
 	opts := []nes.Option{
 		nes.WithEmulator(),
