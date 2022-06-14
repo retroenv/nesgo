@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/retroenv/nesgo/branch/main/graph/badge.svg?token=NS5UY28V3A)](https://codecov.io/gh/retroenv/nesgo)
 
 nesgo allows you to write programs for the Nintendo Entertainment System
-(NES) in Golang.
+(NES) in Golang. It offers additional tooling like a disassembler.
 
 The benefits over other tooling options:
 
@@ -15,6 +15,7 @@ The benefits over other tooling options:
   built-in Emulator
 - Easy unit testing of code
 - Simple code documentation generation
+- Easy to install of the non-GUI tools
 
 The code for NES programs is written using Aliases for 6502 assembly
 instructions, this allows to have full control over the outputted
@@ -83,6 +84,7 @@ nesgo can be used in different ways:
 ## Project layout
 
     ├─ cmd/nesgo        Golang to NES compiler
+    ├─ cmd/nesgodisasm  NES disassembler
     ├─ cmd/nesgoemu     NES emulator
     ├─ example/         Program examples in Golang
     ├─ internal/        internal compiler code

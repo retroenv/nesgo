@@ -78,22 +78,8 @@ func RunEmulatorUntil(sys *system.System, address uint16) {
 }
 
 func runEmulatorStep(sys *system.System) {
-	b := sys.ReadMemory(*PC)
-	opcode, ok := cpu.Opcodes[b]
-	if !ok {
-		err := fmt.Errorf("unsupported opcode %00x", b)
-		panic(err)
-	}
-
 	oldPC := *PC
-	sys.TraceStep = cpu.TraceStep{
-		PC:             *PC,
-		Opcode:         []byte{b},
-		Addressing:     opcode.Addressing,
-		Timing:         opcode.Timing,
-		PageCrossCycle: opcode.PageCrossCycle,
-		PageCrossed:    false,
-	}
+	opcode := DecodePCInstruction(sys)
 
 	ins := opcode.Instruction
 	if ins.NoParamFunc != nil {
@@ -108,6 +94,27 @@ func runEmulatorStep(sys *system.System) {
 
 	ins.ParamFunc(params...)
 	updatePC(sys, ins, oldPC, len(sys.TraceStep.Opcode))
+}
+
+// DecodePCInstruction decodes the current instruction that
+// the program counter points to.
+func DecodePCInstruction(sys *system.System) cpu.Opcode {
+	b := sys.ReadMemory(*PC)
+	opcode, ok := cpu.Opcodes[b]
+	if !ok {
+		err := fmt.Errorf("unsupported opcode %00x", b)
+		panic(err)
+	}
+
+	sys.TraceStep = cpu.TraceStep{
+		PC:             *PC,
+		Opcode:         []byte{b},
+		Addressing:     opcode.Addressing,
+		Timing:         opcode.Timing,
+		PageCrossCycle: opcode.PageCrossCycle,
+		PageCrossed:    false,
+	}
+	return opcode
 }
 
 func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int) {
