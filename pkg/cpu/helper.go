@@ -14,7 +14,6 @@ func (c *CPU) branch(branchTo bool, param interface{}) {
 	trace := c.tracing
 	c.tracing = NoTracing
 
-
 	if branchTo {
 		addr := param.(Absolute)
 
