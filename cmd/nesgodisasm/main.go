@@ -9,11 +9,9 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm"
 )
 
-var (
-	input = flag.String("f", "", "nes file to load")
-)
-
 func main() {
+	input := flag.String("f", "", "nes file to load")
+
 	flag.Parse()
 
 	if *input == "" {
@@ -22,7 +20,7 @@ func main() {
 	}
 
 	if err := disasmFile(*input); err != nil {
-		fmt.Println(fmt.Errorf("emulation failed: %w", err))
+		fmt.Println(fmt.Errorf("disassembling failed: %w", err))
 		os.Exit(1)
 	}
 }
