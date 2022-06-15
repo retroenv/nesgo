@@ -15,7 +15,7 @@ The benefits over other tooling options:
   built-in Emulator
 - Easy unit testing of code
 - Simple code documentation generation
-- Easy to install of the non-GUI tools
+- Easy to installation of the command line tools
 
 The code for NES programs is written using Aliases for 6502 assembly
 instructions, this allows to have full control over the outputted
