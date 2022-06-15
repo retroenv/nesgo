@@ -3,6 +3,7 @@ package disasm
 
 import (
 	"fmt"
+	"io"
 	"strings"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
@@ -16,7 +17,7 @@ import (
 const codeBaseAddress = 0x8000
 
 type fileWriter interface {
-	Write(app *program.Program)
+	Write(app *program.Program, writer io.Writer) error
 }
 
 // result contains the processing result that represents a single byte
@@ -85,7 +86,7 @@ func (dis *Disasm) initializeIrqHandlers() {
 }
 
 // Process disassembles the cartridge.
-func (dis *Disasm) Process() error {
+func (dis *Disasm) Process(writer io.Writer) error {
 	if err := dis.followExecutionFlow(); err != nil {
 		return err
 	}
@@ -93,8 +94,7 @@ func (dis *Disasm) Process() error {
 	dis.processJumpTargets()
 
 	app := dis.convertToProgram()
-	dis.fileWriter.Write(app)
-	return nil
+	return dis.fileWriter.Write(app, writer)
 }
 
 // popTarget pops the next target to disassemble and sets it into PC.

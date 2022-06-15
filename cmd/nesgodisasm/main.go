@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"os"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
@@ -11,6 +12,7 @@ import (
 
 func main() {
 	input := flag.String("f", "", "nes file to load")
+	output := flag.String("o", "", "name of the output .asm file, printed on stdout if no name given")
 
 	flag.Parse()
 
@@ -19,13 +21,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := disasmFile(*input); err != nil {
+	if err := disasmFile(*input, *output); err != nil {
 		fmt.Println(fmt.Errorf("disassembling failed: %w", err))
 		os.Exit(1)
 	}
 }
 
-func disasmFile(input string) error {
+func disasmFile(input, output string) error {
 	file, err := os.Open(input)
 	if err != nil {
 		return fmt.Errorf("opening file '%s': %w", input, err)
@@ -42,5 +44,17 @@ func disasmFile(input string) error {
 		return fmt.Errorf("initializing disassembler: %w", err)
 	}
 
-	return dis.Process()
+	var outputFile io.WriteCloser
+	if output == "" {
+		outputFile = os.Stdout
+	} else {
+		outputFile, err = os.Create(output)
+		if err != nil {
+			return fmt.Errorf("creating file '%s': %w", output, err)
+		}
+	}
+	if err := dis.Process(outputFile); err != nil {
+		return fmt.Errorf("processing file: %w", err)
+	}
+	return outputFile.Close()
 }

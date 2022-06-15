@@ -2,6 +2,7 @@ package ca65
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
@@ -34,8 +35,10 @@ type FileWriter struct {
 
 // Write writes the assembly file content including header,
 // footer, code and data.
-func (f FileWriter) Write(app *program.Program) {
-	fmt.Print(header)
+func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
+	if _, err := fmt.Fprint(writer, header); err != nil {
+		return err
+	}
 
 	for i := 0; i < len(app.Offsets); i++ {
 		res := app.Offsets[i]
@@ -45,12 +48,21 @@ func (f FileWriter) Write(app *program.Program) {
 
 		if res.Label != "" {
 			if res.IsCallTarget {
-				fmt.Println()
+				if _, err := fmt.Fprintln(writer); err != nil {
+					return err
+				}
 			}
-			fmt.Printf("%s:\n", res.Label)
+			if _, err := fmt.Fprintf(writer, "%s:\n", res.Label); err != nil {
+				return err
+			}
 		}
-		fmt.Printf("  %s\n", res.Output)
+		if _, err := fmt.Fprintf(writer, "  %s:\n", res.Output); err != nil {
+			return err
+		}
 	}
 
-	fmt.Printf(footer, "0", "resetHandler", "0")
+	if _, err := fmt.Fprintf(writer, footer, "0", "resetHandler", "0"); err != nil {
+		return err
+	}
+	return nil
 }
