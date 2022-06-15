@@ -3,9 +3,11 @@ package disasm
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	. "github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/system"
 )
@@ -22,7 +24,7 @@ type result struct {
 	IsCallTarget bool
 	JumpFrom     []uint16
 
-	Label     string // name of label or subroutine if identified as jump target
+	Label     string // name of label or subroutine if identified as a jump target
 	Output    string
 	JumpingTo string // label to jump to if instruction branches
 }
@@ -39,21 +41,38 @@ type Disasm struct {
 	targets []uint16
 }
 
-// New creates a new NES disassembler.
-func New(cart *cartridge.Cartridge) *Disasm {
+// New creates a new NES disassembler that creates output compatible with the
+// chose assembler.
+func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 	opts := NewOptions(WithCartridge(cart))
 	dis := &Disasm{
 		sys:         InitializeSystem(opts),
-		converter:   paramConverterCa65{},
 		results:     make([]result, len(cart.PRG)),
 		jumpTargets: map[uint16]struct{}{},
 	}
+	if err := dis.initializeCompatibleMode(assembler); err != nil {
+		return nil, fmt.Errorf("initializing compatible mode: %w", err)
+	}
 
+	dis.initializeIrqHandlers()
+	return dis, nil
+}
+
+func (dis *Disasm) initializeCompatibleMode(assembler string) error {
+	switch strings.ToLower(assembler) {
+	case ca65.Name:
+		dis.converter = ca65.ParamConverter{}
+	default:
+		return fmt.Errorf("unsupported assembler '%s'", assembler)
+	}
+	return nil
+}
+
+func (dis *Disasm) initializeIrqHandlers() {
 	resetHandler := dis.sys.ReadMemory16(0xFFFC)
 	dis.targets = []uint16{resetHandler}
 	offset := resetHandler - codeBaseAddress
 	dis.results[offset].Label = "resetHandler"
-	return dis
 }
 
 // Process disassembles the cartridge.
@@ -67,7 +86,7 @@ func (dis *Disasm) Process() error {
 	return nil
 }
 
-// popTarget pops the next target to diassemble and sets it into PC.
+// popTarget pops the next target to disassemble and sets it into PC.
 func (dis *Disasm) popTarget() {
 	dis.sys.PC = dis.targets[0]
 	dis.targets = dis.targets[1:]

@@ -37,6 +37,10 @@ func disasmFile(input string) error {
 	}
 	_ = file.Close()
 
-	dis := disasm.New(cart)
+	dis, err := disasm.New(cart, "ca65")
+	if err != nil {
+		return fmt.Errorf("initializing disassembler: %w", err)
+	}
+
 	return dis.Process()
 }
