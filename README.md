@@ -11,8 +11,8 @@ nesgo allows you to write programs for the Nintendo Entertainment System
 The benefits over other tooling options:
 
 - Code autocompletion in any IDE that supports Golang
-- The code can be debugged directly from an IDE, it will be executed in the
-  built-in Emulator
+- The code can be debugged directly from an IDE at source level,
+  it will be executed in the built-in Emulator
 - Easy unit testing of code
 - Simple code documentation generation
 - Easy to installation of the command line tools
