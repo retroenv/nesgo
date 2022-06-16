@@ -56,7 +56,7 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 				return err
 			}
 		}
-		if _, err := fmt.Fprintf(writer, "  %s:\n", res.Output); err != nil {
+		if _, err := fmt.Fprintf(writer, "  %s\n", res.Output); err != nil {
 			return err
 		}
 	}
