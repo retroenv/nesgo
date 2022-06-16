@@ -1,6 +1,8 @@
 // Package program represents an NES program.
 package program
 
+import "github.com/retroenv/nesgo/pkg/cartridge"
+
 // Offset defines the content of an offset in a program that can represent data or code.
 type Offset struct {
 	IsCallTarget bool // opcode is target of a jsr call, indicating a subroutine
@@ -18,13 +20,17 @@ type Handlers struct {
 
 // Program defines an NES program that contains code or data.
 type Program struct {
-	Offsets  []Offset
+	PRG      []Offset // PRG-ROM banks
+	CHR      []byte   // CHR-ROM banks
 	Handlers Handlers
+	Mapper   byte
 }
 
 // New creates a new program initialize with a program code size.
-func New(size int) *Program {
+func New(cart *cartridge.Cartridge) *Program {
 	return &Program{
-		Offsets: make([]Offset, size),
+		PRG:    make([]Offset, len(cart.PRG)),
+		CHR:    cart.CHR,
+		Mapper: cart.Mapper,
 	}
 }

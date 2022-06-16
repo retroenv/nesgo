@@ -39,6 +39,7 @@ type Disasm struct {
 	sys        *system.System
 	converter  paramConverter
 	fileWriter fileWriter
+	cart       *cartridge.Cartridge
 
 	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
 	offsets     []offset
@@ -52,6 +53,7 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 	opts := NewOptions(WithCartridge(cart))
 	dis := &Disasm{
 		sys:         InitializeSystem(opts),
+		cart:        cart,
 		offsets:     make([]offset, len(cart.PRG)),
 		jumpTargets: map[uint16]struct{}{},
 		handlers: program.Handlers{
@@ -132,7 +134,7 @@ func (dis *Disasm) popTarget() {
 // converts the internal disasm type representation to a program type that will be used by
 // the chosen assembler output instance to generate the asm file.
 func (dis *Disasm) convertToProgram() *program.Program {
-	app := program.New(len(dis.offsets))
+	app := program.New(dis.cart)
 	app.Handlers = dis.handlers
 
 	for i := 0; i < len(dis.offsets); i++ {
@@ -141,14 +143,14 @@ func (dis *Disasm) convertToProgram() *program.Program {
 			continue
 		}
 
-		app.Offsets[i] = program.Offset{
+		app.PRG[i] = program.Offset{
 			IsCallTarget: res.IsCallTarget,
 			Label:        res.Label,
 			Output:       res.Output,
 		}
 
 		if res.JumpingTo != "" {
-			app.Offsets[i].Output = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
+			app.PRG[i].Output = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
 		}
 	}
 

@@ -9,15 +9,16 @@ import (
 
 var header = `.segment "HEADER"
 .byte "NES", $1a ; Magic string that always begins an iNES header
-.byte $02        ; Number of 16KB PRG-ROM banks
-.byte $01        ; Number of 8KB CHR-ROM banks
-.byte %00000001  ; Vertical mirroring, no save RAM, no mapper
+`
+
+var headerByte = ".byte $%02x        ; %s\n"
+
+var headerRemainder = `.byte %00000001  ; Vertical mirroring, no save RAM, no mapper
 .byte %00000000  ; No special-case flags set, no mapper
 .byte $00        ; No PRG-RAM present
 .byte $00        ; NTSC format
 
 .segment "CODE"
-
 `
 
 var footer = `
@@ -38,9 +39,18 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	if _, err := fmt.Fprint(writer, header); err != nil {
 		return err
 	}
+	if _, err := fmt.Fprintf(writer, headerByte, len(app.PRG)/16384, "Number of 16KB PRG-ROM banks"); err != nil {
+		return err
+	}
+	if _, err := fmt.Fprintf(writer, headerByte, len(app.CHR)/8192, "Number of 8KB CHR-ROM banks"); err != nil {
+		return err
+	}
+	if _, err := fmt.Fprint(writer, headerRemainder); err != nil {
+		return err
+	}
 
-	for i := 0; i < len(app.Offsets); i++ {
-		res := app.Offsets[i]
+	for i := 0; i < len(app.PRG); i++ {
+		res := app.PRG[i]
 		if res.Output == "" {
 			continue
 		}
