@@ -20,42 +20,39 @@ type fileWriter interface {
 	Write(app *program.Program, writer io.Writer) error
 }
 
-// result contains the processing result that represents a single byte
-// in the program.
-type result struct {
-	opcode cpu.Opcode
-	params []interface{}
+// offset defines the content of an offset in a program that can represent data or code.
+type offset struct {
+	opcode cpu.Opcode    // opcode that the byte at this offset represents
+	params []interface{} // internal representation of the instruction parameters
 
-	IsProcessed  bool
-	IsCallTarget bool // opcode is target of a jsr call, indicating a subroutine
-	JumpFrom     []uint16
+	IsProcessed  bool     // flag whether current offset and following opcode bytes have been processed
+	IsCallTarget bool     // opcode is target of a jsr call, indicating a subroutine
+	JumpFrom     []uint16 // list of all addresses that jump to this offset
 
 	Label     string // name of label or subroutine if identified as a jump target
-	Output    string
+	Output    string // asm output of this instruction
 	JumpingTo string // label to jump to if instruction branches
 }
 
 // Disasm implements a NES disassembler.
 type Disasm struct {
 	sys        *system.System
-	converter  ParamConverter
+	converter  paramConverter
 	fileWriter fileWriter
 
-	// jumpTargets is a set of all addresses that branched to
-	jumpTargets map[uint16]struct{}
-	results     []result
+	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
+	offsets     []offset
 
 	targets  []uint16
 	handlers program.Handlers
 }
 
-// New creates a new NES disassembler that creates output compatible with the
-// chose assembler.
+// New creates a new NES disassembler that creates output compatible with the chosen assembler.
 func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 	opts := NewOptions(WithCartridge(cart))
 	dis := &Disasm{
 		sys:         InitializeSystem(opts),
-		results:     make([]result, len(cart.PRG)),
+		offsets:     make([]offset, len(cart.PRG)),
 		jumpTargets: map[uint16]struct{}{},
 		handlers: program.Handlers{
 			NMI:   "0",
@@ -63,51 +60,13 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 			IRQ:   "0",
 		},
 	}
+
 	if err := dis.initializeCompatibleMode(assembler); err != nil {
 		return nil, fmt.Errorf("initializing compatible mode: %w", err)
 	}
 
 	dis.initializeIrqHandlers()
 	return dis, nil
-}
-
-// initializeCompatibleMode sets the chosen assembler specific instances
-// to be used to output compatible code.
-func (dis *Disasm) initializeCompatibleMode(assembler string) error {
-	switch strings.ToLower(assembler) {
-	case ca65.Name:
-		dis.converter = ca65.ParamConverter{}
-		dis.fileWriter = ca65.FileWriter{}
-	default:
-		return fmt.Errorf("unsupported assembler '%s'", assembler)
-	}
-	return nil
-}
-
-func (dis *Disasm) initializeIrqHandlers() {
-	nmi := dis.sys.ReadMemory16(0xFFFA)
-	if nmi != 0 {
-		dis.addTarget(nmi, nil, false)
-		offset := nmi - codeBaseAddress
-		dis.results[offset].Label = "NMI"
-		dis.results[offset].IsCallTarget = true
-		dis.handlers.NMI = "NMI"
-	}
-
-	reset := dis.sys.ReadMemory16(0xFFFC)
-	dis.addTarget(reset, nil, false)
-	offset := reset - codeBaseAddress
-	dis.results[offset].Label = "Reset"
-	dis.results[offset].IsCallTarget = true
-
-	irq := dis.sys.ReadMemory16(0xFFFE)
-	if irq != 0 {
-		dis.addTarget(irq, nil, false)
-		offset = irq - codeBaseAddress
-		dis.results[offset].Label = "IRQ"
-		dis.results[offset].IsCallTarget = true
-		dis.handlers.IRQ = "IRQ"
-	}
 }
 
 // Process disassembles the cartridge.
@@ -122,18 +81,62 @@ func (dis *Disasm) Process(writer io.Writer) error {
 	return dis.fileWriter.Write(app, writer)
 }
 
-// popTarget pops the next target to disassemble and sets it into PC.
+// initializeCompatibleMode sets the chosen assembler specific instances to be used to output
+// compatible code.
+func (dis *Disasm) initializeCompatibleMode(assembler string) error {
+	switch strings.ToLower(assembler) {
+	case ca65.Name:
+		dis.converter = ca65.ParamConverter{}
+		dis.fileWriter = ca65.FileWriter{}
+
+	default:
+		return fmt.Errorf("unsupported assembler '%s'", assembler)
+	}
+	return nil
+}
+
+// initializeIrqHandlers reads the 3 handler addresses and adds them to the addresses to be
+// followed for execution flow.
+func (dis *Disasm) initializeIrqHandlers() {
+	nmi := dis.sys.ReadMemory16(0xFFFA)
+	if nmi != 0 {
+		dis.addTarget(nmi, nil, false)
+		offset := nmi - codeBaseAddress
+		dis.offsets[offset].Label = "NMI"
+		dis.offsets[offset].IsCallTarget = true
+		dis.handlers.NMI = "NMI"
+	}
+
+	reset := dis.sys.ReadMemory16(0xFFFC)
+	dis.addTarget(reset, nil, false)
+	offset := reset - codeBaseAddress
+	dis.offsets[offset].Label = "Reset"
+	dis.offsets[offset].IsCallTarget = true
+
+	irq := dis.sys.ReadMemory16(0xFFFE)
+	if irq != 0 {
+		dis.addTarget(irq, nil, false)
+		offset = irq - codeBaseAddress
+		dis.offsets[offset].Label = "IRQ"
+		dis.offsets[offset].IsCallTarget = true
+		dis.handlers.IRQ = "IRQ"
+	}
+}
+
+// popTarget pops the next target to disassemble and sets it into the program counter.
 func (dis *Disasm) popTarget() {
 	dis.sys.PC = dis.targets[0]
 	dis.targets = dis.targets[1:]
 }
 
+// converts the internal disasm type representation to a program type that will be used by
+// the chosen assembler output instance to generate the asm file.
 func (dis *Disasm) convertToProgram() *program.Program {
-	app := program.New(len(dis.results))
+	app := program.New(len(dis.offsets))
 	app.Handlers = dis.handlers
 
-	for i := 0; i < len(dis.results); i++ {
-		res := dis.results[i]
+	for i := 0; i < len(dis.offsets); i++ {
+		res := dis.offsets[i]
 		if !res.IsProcessed || res.Output == "" {
 			continue
 		}

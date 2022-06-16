@@ -33,8 +33,7 @@ var footer = `
 type FileWriter struct {
 }
 
-// Write writes the assembly file content including header,
-// footer, code and data.
+// Write writes the assembly file content including header, footer, code and data.
 func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	if _, err := fmt.Fprint(writer, header); err != nil {
 		return err

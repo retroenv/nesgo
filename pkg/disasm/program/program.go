@@ -1,8 +1,7 @@
 // Package program represents an NES program.
 package program
 
-// Offset defines the content of an offset in a program that
-// can represent data or code.
+// Offset defines the content of an offset in a program that can represent data or code.
 type Offset struct {
 	IsCallTarget bool // opcode is target of a jsr call, indicating a subroutine
 

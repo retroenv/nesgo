@@ -23,7 +23,7 @@ func (dis *Disasm) followExecutionFlow() error {
 
 		opcode := DecodePCInstruction(sys)
 		offset := *PC - codeBaseAddress
-		dis.results[offset].opcode = opcode
+		dis.offsets[offset].opcode = opcode
 		ins := opcode.Instruction
 
 		var paramsAsString string
@@ -32,8 +32,8 @@ func (dis *Disasm) followExecutionFlow() error {
 
 		if ins.NoParamFunc == nil {
 			params, opcodes, _ = ReadOpParams(sys, opcode.Addressing)
-			dis.results[offset].params = params
-			paramsAsString, err = ParamStrings(dis.converter, opcode, params...)
+			dis.offsets[offset].params = params
+			paramsAsString, err = paramStrings(dis.converter, opcode, params...)
 			if err != nil {
 				return err
 			}
@@ -59,20 +59,20 @@ func (dis *Disasm) followExecutionFlow() error {
 func (dis *Disasm) processJumpTargets() {
 	for target := range dis.jumpTargets {
 		offset := target - codeBaseAddress
-		name := dis.results[offset].Label
+		name := dis.offsets[offset].Label
 		if name == "" {
-			if dis.results[offset].IsCallTarget {
+			if dis.offsets[offset].IsCallTarget {
 				name = fmt.Sprintf("_func_%04x", target)
 			} else {
 				name = fmt.Sprintf("_label_%04x", target)
 			}
-			dis.results[offset].Label = name
+			dis.offsets[offset].Label = name
 		}
 
-		for _, caller := range dis.results[offset].JumpFrom {
+		for _, caller := range dis.offsets[offset].JumpFrom {
 			offset = caller - codeBaseAddress
-			dis.results[offset].Output = dis.results[offset].opcode.Instruction.Name
-			dis.results[offset].JumpingTo = name
+			dis.offsets[offset].Output = dis.offsets[offset].opcode.Instruction.Name
+			dis.offsets[offset].JumpingTo = name
 		}
 	}
 }
@@ -83,14 +83,14 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 	offset := target - codeBaseAddress
 
 	if currentInstruction != nil && currentInstruction.Name == "jsr" {
-		dis.results[offset].IsCallTarget = true
+		dis.offsets[offset].IsCallTarget = true
 	}
 	if jumpTarget {
-		dis.results[offset].JumpFrom = append(dis.results[offset].JumpFrom, *PC)
+		dis.offsets[offset].JumpFrom = append(dis.offsets[offset].JumpFrom, *PC)
 		dis.jumpTargets[target] = struct{}{}
 	}
 
-	if dis.results[offset].IsProcessed {
+	if dis.offsets[offset].IsProcessed {
 		return // already disassembled
 	}
 	dis.targets = append(dis.targets, target)
@@ -98,11 +98,11 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 
 func (dis *Disasm) completeInstructionProcessing(offset uint16, ins *cpu.Instruction, opcodes []byte, params string) {
 	if params == "" {
-		dis.results[offset].Output = ins.Name
+		dis.offsets[offset].Output = ins.Name
 	} else {
-		dis.results[offset].Output = fmt.Sprintf("%s %s", ins.Name, params)
+		dis.offsets[offset].Output = fmt.Sprintf("%s %s", ins.Name, params)
 	}
 	for i := 0; i < len(opcodes)+1; i++ {
-		dis.results[offset+uint16(i)].IsProcessed = true
+		dis.offsets[offset+uint16(i)].IsProcessed = true
 	}
 }
