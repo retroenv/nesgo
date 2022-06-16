@@ -22,7 +22,9 @@ func main() {
 	flag.Parse()
 
 	if *input == "" || *output == "" {
-		flag.Usage()
+		fmt.Printf("nesgo is a tool for compiling Go programs to a NES file.\n\n")
+		fmt.Printf("usage: nesgo [options]\n\n")
+		flag.CommandLine.PrintDefaults()
 		os.Exit(1)
 	}
 

@@ -17,7 +17,9 @@ func main() {
 	flag.Parse()
 
 	if *input == "" {
-		flag.Usage()
+		fmt.Printf("nesgodisasm is a tool for deassembling NES programs.\n\n")
+		fmt.Printf("usage: nesgodisasm [options]\n\n")
+		flag.CommandLine.PrintDefaults()
 		os.Exit(1)
 	}
 

@@ -19,7 +19,9 @@ func main() {
 	flag.Parse()
 
 	if *input == "" {
-		flag.Usage()
+		fmt.Printf("nesgoemu is a tool for emulating NES programs.\n\n")
+		fmt.Printf("usage: nesgoemu [options]\n\n")
+		flag.CommandLine.PrintDefaults()
 		os.Exit(1)
 	}
 
