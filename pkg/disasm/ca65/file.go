@@ -61,7 +61,7 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 		}
 	}
 
-	if _, err := fmt.Fprintf(writer, footer, "0", "resetHandler", "0"); err != nil {
+	if _, err := fmt.Fprintf(writer, footer, app.Handlers.NMI, app.Handlers.Reset, app.Handlers.IRQ); err != nil {
 		return err
 	}
 	return nil

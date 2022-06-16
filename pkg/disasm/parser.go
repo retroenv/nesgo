@@ -82,7 +82,7 @@ func (dis *Disasm) processJumpTargets() {
 func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction, jumpTarget bool) {
 	offset := target - codeBaseAddress
 
-	if currentInstruction.Name == "jsr" {
+	if currentInstruction != nil && currentInstruction.Name == "jsr" {
 		dis.results[offset].IsCallTarget = true
 	}
 	if jumpTarget {

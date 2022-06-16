@@ -41,11 +41,12 @@ type Disasm struct {
 	converter  ParamConverter
 	fileWriter fileWriter
 
-	// jumpTargets is a set of all addresses that
+	// jumpTargets is a set of all addresses that branched to
 	jumpTargets map[uint16]struct{}
 	results     []result
 
-	targets []uint16
+	targets  []uint16
+	handlers program.Handlers
 }
 
 // New creates a new NES disassembler that creates output compatible with the
@@ -56,6 +57,11 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 		sys:         InitializeSystem(opts),
 		results:     make([]result, len(cart.PRG)),
 		jumpTargets: map[uint16]struct{}{},
+		handlers: program.Handlers{
+			NMI:   "0",
+			Reset: "Reset",
+			IRQ:   "0",
+		},
 	}
 	if err := dis.initializeCompatibleMode(assembler); err != nil {
 		return nil, fmt.Errorf("initializing compatible mode: %w", err)
@@ -79,10 +85,29 @@ func (dis *Disasm) initializeCompatibleMode(assembler string) error {
 }
 
 func (dis *Disasm) initializeIrqHandlers() {
-	resetHandler := dis.sys.ReadMemory16(0xFFFC)
-	dis.targets = []uint16{resetHandler}
-	offset := resetHandler - codeBaseAddress
-	dis.results[offset].Label = "resetHandler"
+	nmi := dis.sys.ReadMemory16(0xFFFA)
+	if nmi != 0 {
+		dis.addTarget(nmi, nil, false)
+		offset := nmi - codeBaseAddress
+		dis.results[offset].Label = "NMI"
+		dis.results[offset].IsCallTarget = true
+		dis.handlers.NMI = "NMI"
+	}
+
+	reset := dis.sys.ReadMemory16(0xFFFC)
+	dis.addTarget(reset, nil, false)
+	offset := reset - codeBaseAddress
+	dis.results[offset].Label = "Reset"
+	dis.results[offset].IsCallTarget = true
+
+	irq := dis.sys.ReadMemory16(0xFFFE)
+	if irq != 0 {
+		dis.addTarget(irq, nil, false)
+		offset = irq - codeBaseAddress
+		dis.results[offset].Label = "IRQ"
+		dis.results[offset].IsCallTarget = true
+		dis.handlers.IRQ = "IRQ"
+	}
 }
 
 // Process disassembles the cartridge.
@@ -105,6 +130,7 @@ func (dis *Disasm) popTarget() {
 
 func (dis *Disasm) convertToProgram() *program.Program {
 	app := program.New(len(dis.results))
+	app.Handlers = dis.handlers
 
 	for i := 0; i < len(dis.results); i++ {
 		res := dis.results[i]

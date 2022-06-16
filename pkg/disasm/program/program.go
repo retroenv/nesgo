@@ -10,9 +10,17 @@ type Offset struct {
 	Output string
 }
 
+// Handlers defines the handlers that the NES can jump to.
+type Handlers struct {
+	NMI   string
+	Reset string
+	IRQ   string
+}
+
 // Program defines an NES program that contains code or data.
 type Program struct {
-	Offsets []Offset
+	Offsets  []Offset
+	Handlers Handlers
 }
 
 // New creates a new program initialize with a program code size.
