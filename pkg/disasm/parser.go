@@ -13,7 +13,7 @@ func (dis *Disasm) followExecutionFlow() error {
 	sys := dis.sys
 	var err error
 
-	for len(dis.targets) > 0 {
+	for len(dis.targetsToParse) > 0 {
 		dis.popTarget()
 		if *PC == 0 {
 			break
@@ -26,6 +26,7 @@ func (dis *Disasm) followExecutionFlow() error {
 
 		if opcode.Instruction.ParamFunc != nil { // instruction has parameters
 			opcodeLength, params, err = dis.processParamInstruction(opcode)
+			// TODO test for consts (absolute params)
 			if err != nil {
 				return err
 			}
@@ -65,6 +66,8 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 		return 0, "", err
 	}
 
+	paramAsString = dis.replaceParamByConstant(params[0], paramAsString)
+
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
 		addr := params[0].(Absolute)
 		dis.addTarget(uint16(addr), opcode.Instruction, true)
@@ -72,7 +75,24 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 	return uint16(len(opcodes) + 1), paramAsString, nil
 }
 
-// processJumpTargets processes all jump targets and updates the callers with
+func (dis *Disasm) replaceParamByConstant(param interface{}, paramAsString string) string {
+	// TODO handle read/write as 0x4017 has a different meaning depending on the access
+
+	addr, ok := param.(Absolute)
+	if !ok { // not the addressing type found that accesses known addresses
+		return paramAsString
+	}
+
+	constant, ok := dis.constants[uint16(addr)]
+	if !ok { // not accessing a known address
+		return paramAsString
+	}
+
+	dis.usedConstants[uint16(addr)] = struct{}{}
+	return constant
+}
+
+// processJumpTargets processes all jump targetsToParse and updates the callers with
 // the generated jump target label name.
 func (dis *Disasm) processJumpTargets() {
 	for target := range dis.jumpTargets {
@@ -97,10 +117,6 @@ func (dis *Disasm) processJumpTargets() {
 
 // addTarget adds a target to the list to be processed if the address has not been processed yet.
 func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction, jumpTarget bool) {
-	if target == 0 {
-		return
-	}
-
 	offset := target - codeBaseAddress
 
 	if currentInstruction != nil && currentInstruction.Name == "jsr" {
@@ -114,5 +130,5 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 	if dis.offsets[offset].IsProcessed {
 		return // already disassembled
 	}
-	dis.targets = append(dis.targets, target)
+	dis.targetsToParse = append(dis.targetsToParse, target)
 }

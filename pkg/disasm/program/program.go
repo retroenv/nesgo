@@ -20,17 +20,19 @@ type Handlers struct {
 
 // Program defines an NES program that contains code or data.
 type Program struct {
-	PRG      []Offset // PRG-ROM banks
-	CHR      []byte   // CHR-ROM banks
-	Handlers Handlers
-	Mapper   byte
+	PRG       []Offset // PRG-ROM banks
+	CHR       []byte   // CHR-ROM banks
+	Handlers  Handlers
+	Mapper    byte
+	Constants map[uint16]string
 }
 
 // New creates a new program initialize with a program code size.
 func New(cart *cartridge.Cartridge) *Program {
 	return &Program{
-		PRG:    make([]Offset, len(cart.PRG)),
-		CHR:    cart.CHR,
-		Mapper: cart.Mapper,
+		PRG:       make([]Offset, len(cart.PRG)),
+		CHR:       cart.CHR,
+		Mapper:    cart.Mapper,
+		Constants: map[uint16]string{},
 	}
 }

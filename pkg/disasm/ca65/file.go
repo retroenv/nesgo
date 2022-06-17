@@ -49,6 +49,8 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 		return err
 	}
 
+	// TODO output constants
+
 	for i := 0; i < len(app.PRG); i++ {
 		res := app.PRG[i]
 		if res.Output == "" {
