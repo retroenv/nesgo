@@ -31,7 +31,7 @@ func (dis *Disasm) followExecutionFlow() error {
 				return err
 			}
 		}
-		nextTarget := sys.PC + 1 + opcodeLength
+		nextTarget := sys.PC + opcodeLength
 
 		if _, ok := cpu.NotExecutingFollowingOpcodeInstructions[opcode.Instruction.Name]; !ok {
 			dis.addTarget(nextTarget, opcode.Instruction, false)
