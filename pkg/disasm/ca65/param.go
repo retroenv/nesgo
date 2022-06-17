@@ -15,72 +15,70 @@ type ParamConverter struct {
 }
 
 // Immediate converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Immediate(params ...interface{}) string {
-	imm := params[0]
-	return fmt.Sprintf("#$%02X", imm)
+func (c ParamConverter) Immediate(param interface{}) string {
+	return fmt.Sprintf("#$%02X", param)
 }
 
 // Accumulator converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Accumulator(params ...interface{}) string {
+func (c ParamConverter) Accumulator() string {
 	return "a"
 }
 
 // Absolute converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Absolute(params ...interface{}) string {
-	address := params[0].(Absolute)
+func (c ParamConverter) Absolute(param interface{}) string {
+	address := param.(Absolute)
 	return fmt.Sprintf("$%04X", address)
 }
 
 // AbsoluteX converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) AbsoluteX(params ...interface{}) string {
-	address := params[0].(Absolute)
+func (c ParamConverter) AbsoluteX(param interface{}) string {
+	address := param.(Absolute)
 	return fmt.Sprintf("$%04X,X", address)
 }
 
 // AbsoluteY converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) AbsoluteY(params ...interface{}) string {
-	address := params[0].(Absolute)
+func (c ParamConverter) AbsoluteY(param interface{}) string {
+	address := param.(Absolute)
 	return fmt.Sprintf("$%04X,Y", address)
 }
 
 // ZeroPage converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) ZeroPage(params ...interface{}) string {
-	address := params[0].(Absolute)
+func (c ParamConverter) ZeroPage(param interface{}) string {
+	address := param.(Absolute)
 	return fmt.Sprintf("$%02X", address)
 }
 
 // ZeroPageX converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) ZeroPageX(params ...interface{}) string {
-	address := params[0].(ZeroPage)
+func (c ParamConverter) ZeroPageX(param interface{}) string {
+	address := param.(ZeroPage)
 	return fmt.Sprintf("$%02X,X", address)
 }
 
 // ZeroPageY converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) ZeroPageY(params ...interface{}) string {
-	address := params[0].(ZeroPage)
+func (c ParamConverter) ZeroPageY(param interface{}) string {
+	address := param.(ZeroPage)
 	return fmt.Sprintf("$%02X,Y", address)
 }
 
 // Relative converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Relative(params ...interface{}) string {
-	address := params[0]
-	return fmt.Sprintf("$%04X", address)
+func (c ParamConverter) Relative(param interface{}) string {
+	return fmt.Sprintf("$%04X", param)
 }
 
 // Indirect converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Indirect(params ...interface{}) string {
-	address := params[0].(Indirect)
+func (c ParamConverter) Indirect(param interface{}) string {
+	address := param.(Indirect)
 	return fmt.Sprintf("($%04X)", address)
 }
 
 // IndirectX converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) IndirectX(params ...interface{}) string {
-	address := params[0].(Absolute)
+func (c ParamConverter) IndirectX(param interface{}) string {
+	address := param.(Absolute)
 	return fmt.Sprintf("($%04X,X)", address)
 }
 
 // IndirectY converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) IndirectY(params ...interface{}) string {
-	address := params[0].(Absolute)
+func (c ParamConverter) IndirectY(param interface{}) string {
+	address := param.(Absolute)
 	return fmt.Sprintf("($%04X),Y", address)
 }

@@ -10,18 +10,18 @@ import (
 // paramConverter is an interface for the conversion of opcode parameters to
 // specific assembler implementations.
 type paramConverter interface {
-	Absolute(params ...interface{}) string
-	AbsoluteX(params ...interface{}) string
-	AbsoluteY(params ...interface{}) string
-	Accumulator(params ...interface{}) string
-	Immediate(params ...interface{}) string
-	Indirect(params ...interface{}) string
-	IndirectX(params ...interface{}) string
-	IndirectY(params ...interface{}) string
-	Relative(params ...interface{}) string
-	ZeroPage(params ...interface{}) string
-	ZeroPageX(params ...interface{}) string
-	ZeroPageY(params ...interface{}) string
+	Absolute(param interface{}) string
+	AbsoluteX(param interface{}) string
+	AbsoluteY(param interface{}) string
+	Accumulator() string
+	Immediate(param interface{}) string
+	Indirect(param interface{}) string
+	IndirectX(param interface{}) string
+	IndirectY(param interface{}) string
+	Relative(param interface{}) string
+	ZeroPage(param interface{}) string
+	ZeroPageX(param interface{}) string
+	ZeroPageY(param interface{}) string
 }
 
 // paramStrings returns the parameters as a string that is compatible to the
@@ -31,29 +31,29 @@ func paramStrings(converter paramConverter, opcode cpu.Opcode, params ...interfa
 	case ImpliedAddressing:
 		return "", nil
 	case ImmediateAddressing:
-		return converter.Immediate(params...), nil
+		return converter.Immediate(params[0]), nil
 	case AccumulatorAddressing:
-		return converter.Accumulator(params...), nil
+		return converter.Accumulator(), nil
 	case AbsoluteAddressing:
-		return converter.Absolute(params...), nil
+		return converter.Absolute(params[0]), nil
 	case AbsoluteXAddressing:
-		return converter.AbsoluteX(params...), nil
+		return converter.AbsoluteX(params[0]), nil
 	case AbsoluteYAddressing:
-		return converter.AbsoluteY(params...), nil
+		return converter.AbsoluteY(params[0]), nil
 	case ZeroPageAddressing:
-		return converter.ZeroPage(params...), nil
+		return converter.ZeroPage(params[0]), nil
 	case ZeroPageXAddressing:
-		return converter.ZeroPageX(params...), nil
+		return converter.ZeroPageX(params[0]), nil
 	case ZeroPageYAddressing:
-		return converter.ZeroPageY(params...), nil
+		return converter.ZeroPageY(params[0]), nil
 	case RelativeAddressing:
-		return converter.Relative(params...), nil
+		return converter.Relative(params[0]), nil
 	case IndirectAddressing:
-		return converter.Indirect(params...), nil
+		return converter.Indirect(params[0]), nil
 	case IndirectXAddressing:
-		return converter.IndirectX(params...), nil
+		return converter.IndirectX(params[0]), nil
 	case IndirectYAddressing:
-		return converter.IndirectY(params...), nil
+		return converter.IndirectY(params[0]), nil
 	default:
 		return "", fmt.Errorf("unsupported addressing mode %d", opcode.Addressing)
 	}
