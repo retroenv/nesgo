@@ -30,7 +30,7 @@ const (
 	PALETTE_START = ppu.PALETTE_START
 
 	// PPU_OAM_DMA = Sprite Page DMA Transfer.
-	PPU_OAM_DMA = 0x4014
+	PPU_OAM_DMA = ppu.OAM_DMA
 
 	APU_SQ1_VOL    = apu.SQ1_VOL
 	APU_SQ1_SWEEP  = apu.SQ1_SWEEP

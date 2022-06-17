@@ -12,6 +12,8 @@ const (
 
 	PALETTE_START = 0x3f00
 
+	OAM_DMA = 0x4014
+
 	// PPU_MASK flags
 	MASK_TINT_RED   = 0b00100000 // Red Background
 	MASK_TINT_BLUE  = 0b01000000 // Blue Background
@@ -23,17 +25,3 @@ const (
 	MASK_COLOR      = 0b00000000 // Display in Color
 	MASK_MONO       = 0b00000001 // Display in Monochrome
 )
-
-// AddressToName maps address constants from address to name.
-var AddressToName = map[uint16]string{
-	PPU_CTRL:   "PPU_CTRL",
-	PPU_MASK:   "PPU_MASK",
-	PPU_STATUS: "PPU_STATUS",
-	OAM_ADDR:   "OAM_ADDR",
-	OAM_DATA:   "OAM_DATA",
-	PPU_SCROLL: "PPU_SCROLL",
-	PPU_ADDR:   "PPU_ADDR",
-	PPU_DATA:   "PPU_DATA",
-
-	PALETTE_START: "PALETTE_START",
-}

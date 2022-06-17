@@ -23,8 +23,6 @@ type fileWriter interface {
 // offset defines the content of an offset in a program that can represent data or code.
 type offset struct {
 	opcode cpu.Opcode // opcode that the byte at this offset represents
-	// TODO obsolete?
-	params []interface{} // internal representation of the instruction parameters
 
 	IsProcessed  bool     // flag whether current offset and following opcode bytes have been processed
 	IsCallTarget bool     // opcode is target of a jsr call, indicating a subroutine
@@ -43,8 +41,8 @@ type Disasm struct {
 	cart       *cartridge.Cartridge
 	handlers   program.Handlers
 
-	constants     map[uint16]string
-	usedConstants map[uint16]struct{}
+	constants     map[uint16]constTranslation
+	usedConstants map[uint16]constTranslation
 
 	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
 	offsets     []offset
@@ -58,8 +56,7 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 	dis := &Disasm{
 		sys:           InitializeSystem(opts),
 		cart:          cart,
-		constants:     buildConstMap(),
-		usedConstants: map[uint16]struct{}{},
+		usedConstants: map[uint16]constTranslation{},
 		offsets:       make([]offset, len(cart.PRG)),
 		jumpTargets:   map[uint16]struct{}{},
 		handlers: program.Handlers{
@@ -69,7 +66,13 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 		},
 	}
 
-	if err := dis.initializeCompatibleMode(assembler); err != nil {
+	var err error
+	dis.constants, err = buildConstMap()
+	if err != nil {
+		return nil, err
+	}
+
+	if err = dis.initializeCompatibleMode(assembler); err != nil {
 		return nil, fmt.Errorf("initializing compatible mode: %w", err)
 	}
 
@@ -160,9 +163,14 @@ func (dis *Disasm) convertToProgram() *program.Program {
 		}
 	}
 
-	for addr := range dis.usedConstants {
-		constant := dis.constants[addr]
-		app.Constants[addr] = constant
+	for address := range dis.usedConstants {
+		constantInfo := dis.constants[address]
+		if constantInfo.Read != "" {
+			app.Constants[constantInfo.Read] = address
+		}
+		if constantInfo.Write != "" {
+			app.Constants[constantInfo.Write] = address
+		}
 	}
 
 	return app

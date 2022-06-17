@@ -26,7 +26,6 @@ func (dis *Disasm) followExecutionFlow() error {
 
 		if opcode.Instruction.ParamFunc != nil { // instruction has parameters
 			opcodeLength, params, err = dis.processParamInstruction(opcode)
-			// TODO test for consts (absolute params)
 			if err != nil {
 				return err
 			}
@@ -58,15 +57,12 @@ func (dis *Disasm) followExecutionFlow() error {
 func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, error) {
 	params, opcodes, _ := ReadOpParams(dis.sys, opcode.Addressing)
 
-	offset := *PC - codeBaseAddress
-	dis.offsets[offset].params = params
-
 	paramAsString, err := paramString(dis.converter, opcode, params...)
 	if err != nil {
 		return 0, "", err
 	}
 
-	paramAsString = dis.replaceParamByConstant(params[0], paramAsString)
+	paramAsString = dis.replaceParamByConstant(opcode.Instruction, params[0], paramAsString)
 
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
 		addr := params[0].(Absolute)
@@ -75,21 +71,33 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 	return uint16(len(opcodes) + 1), paramAsString, nil
 }
 
-func (dis *Disasm) replaceParamByConstant(param interface{}, paramAsString string) string {
-	// TODO handle read/write as 0x4017 has a different meaning depending on the access
-
+// replaceParamByConstant replaces the absolute address with a constant name if it has a known
+// translation for the access mode.
+func (dis *Disasm) replaceParamByConstant(instruction *cpu.Instruction, param interface{}, paramAsString string) string {
 	addr, ok := param.(Absolute)
 	if !ok { // not the addressing type found that accesses known addresses
 		return paramAsString
 	}
 
-	constant, ok := dis.constants[uint16(addr)]
+	constantInfo, ok := dis.constants[uint16(addr)]
 	if !ok { // not accessing a known address
 		return paramAsString
 	}
 
-	dis.usedConstants[uint16(addr)] = struct{}{}
-	return constant
+	if constantInfo.Read != "" {
+		if _, ok := cpu.MemoryReadInstructions[instruction.Name]; ok {
+			dis.usedConstants[uint16(addr)] = constantInfo
+			return constantInfo.Read
+		}
+	}
+	if constantInfo.Write != "" {
+		if _, ok := cpu.MemoryWriteInstructions[instruction.Name]; ok {
+			dis.usedConstants[uint16(addr)] = constantInfo
+			return constantInfo.Write
+		}
+	}
+
+	return paramAsString
 }
 
 // processJumpTargets processes all jump targetsToParse and updates the callers with

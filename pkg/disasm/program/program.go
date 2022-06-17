@@ -24,7 +24,7 @@ type Program struct {
 	CHR       []byte   // CHR-ROM banks
 	Handlers  Handlers
 	Mapper    byte
-	Constants map[uint16]string
+	Constants map[string]uint16
 }
 
 // New creates a new program initialize with a program code size.
@@ -33,6 +33,6 @@ func New(cart *cartridge.Cartridge) *Program {
 		PRG:       make([]Offset, len(cart.PRG)),
 		CHR:       cart.CHR,
 		Mapper:    cart.Mapper,
-		Constants: map[uint16]string{},
+		Constants: map[string]uint16{},
 	}
 }
