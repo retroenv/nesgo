@@ -23,3 +23,17 @@ const (
 	MASK_COLOR      = 0b00000000 // Display in Color
 	MASK_MONO       = 0b00000001 // Display in Monochrome
 )
+
+// AddressToName maps address constants from address to name.
+var AddressToName = map[uint16]string{
+	PPU_CTRL:   "PPU_CTRL",
+	PPU_MASK:   "PPU_MASK",
+	PPU_STATUS: "PPU_STATUS",
+	OAM_ADDR:   "OAM_ADDR",
+	OAM_DATA:   "OAM_DATA",
+	PPU_SCROLL: "PPU_SCROLL",
+	PPU_ADDR:   "PPU_ADDR",
+	PPU_DATA:   "PPU_DATA",
+
+	PALETTE_START: "PALETTE_START",
+}
