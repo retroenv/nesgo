@@ -7,8 +7,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
-// paramConverter is an interface for the conversion of opcode parameters to
-// specific assembler implementations.
+// paramConverter is an interface for the conversion of the instruction parameters to
+// specific assembler implementation outputs.
 type paramConverter interface {
 	Absolute(param interface{}) string
 	AbsoluteX(param interface{}) string

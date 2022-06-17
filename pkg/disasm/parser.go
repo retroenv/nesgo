@@ -8,8 +8,7 @@ import (
 	. "github.com/retroenv/nesgo/pkg/nes"
 )
 
-// followExecutionFlow parses opcodes and follows the execution flow
-// to parse all code.
+// followExecutionFlow parses opcodes and follows the execution flow to parse all code.
 func (dis *Disasm) followExecutionFlow() error {
 	sys := dis.sys
 	var err error
@@ -26,7 +25,7 @@ func (dis *Disasm) followExecutionFlow() error {
 		opcodeLength := uint16(1)
 
 		if opcode.Instruction.ParamFunc != nil { // instruction has parameters
-			opcodeLength, params, err = dis.processParamFunction(opcode)
+			opcodeLength, params, err = dis.processParamInstruction(opcode)
 			if err != nil {
 				return err
 			}
@@ -37,12 +36,25 @@ func (dis *Disasm) followExecutionFlow() error {
 			dis.addTarget(nextTarget, opcode.Instruction, false)
 		}
 
-		dis.completeInstructionProcessing(opcodeLength, opcode, params)
+		offset := *PC - codeBaseAddress
+		dis.offsets[offset].opcode = opcode
+
+		if params == "" {
+			dis.offsets[offset].Output = opcode.Instruction.Name
+		} else {
+			dis.offsets[offset].Output = fmt.Sprintf("%s %s", opcode.Instruction.Name, params)
+		}
+
+		for i := uint16(0); i < opcodeLength; i++ {
+			dis.offsets[offset+i].IsProcessed = true
+		}
 	}
 	return nil
 }
 
-func (dis *Disasm) processParamFunction(opcode cpu.Opcode) (uint16, string, error) {
+// processParamInstruction processes an instruction with parameters.
+// Special handling is required as this instruction could branch to a different location.
+func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, error) {
 	params, opcodes, _ := ReadOpParams(dis.sys, opcode.Addressing)
 
 	offset := *PC - codeBaseAddress
@@ -83,8 +95,7 @@ func (dis *Disasm) processJumpTargets() {
 	}
 }
 
-// addTarget adds a target to the list to be processed if the address
-// has not been processed yet.
+// addTarget adds a target to the list to be processed if the address has not been processed yet.
 func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction, jumpTarget bool) {
 	if target == 0 {
 		return
@@ -104,19 +115,4 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 		return // already disassembled
 	}
 	dis.targets = append(dis.targets, target)
-}
-
-func (dis *Disasm) completeInstructionProcessing(opcodeLength uint16, opcode cpu.Opcode, params string) {
-	offset := *PC - codeBaseAddress
-	dis.offsets[offset].opcode = opcode
-
-	if params == "" {
-		dis.offsets[offset].Output = opcode.Instruction.Name
-	} else {
-		dis.offsets[offset].Output = fmt.Sprintf("%s %s", opcode.Instruction.Name, params)
-	}
-
-	for i := uint16(0); i < opcodeLength; i++ {
-		dis.offsets[offset+i].IsProcessed = true
-	}
 }
