@@ -40,6 +40,7 @@ type Disasm struct {
 	converter  paramConverter
 	fileWriter fileWriter
 	cart       *cartridge.Cartridge
+	constants  map[uint16]string
 
 	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
 	offsets     []offset
@@ -54,6 +55,7 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 	dis := &Disasm{
 		sys:         InitializeSystem(opts),
 		cart:        cart,
+		constants:   buildConstMap(),
 		offsets:     make([]offset, len(cart.PRG)),
 		jumpTargets: map[uint16]struct{}{},
 		handlers: program.Handlers{

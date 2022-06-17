@@ -24,9 +24,9 @@ type paramConverter interface {
 	ZeroPageY(param interface{}) string
 }
 
-// paramStrings returns the parameters as a string that is compatible to the
+// paramString returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
-func paramStrings(converter paramConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
+func paramString(converter paramConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
 	switch opcode.Addressing {
 	case ImpliedAddressing:
 		return "", nil
