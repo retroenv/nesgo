@@ -7,8 +7,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
-// paramConverter is an interface for the conversion of opcode parameters to
-// specific assembler implementations.
+// paramConverter is an interface for the conversion of the instruction parameters to
+// specific assembler implementation outputs.
 type paramConverter interface {
 	Absolute(param interface{}) string
 	AbsoluteX(param interface{}) string
@@ -24,9 +24,9 @@ type paramConverter interface {
 	ZeroPageY(param interface{}) string
 }
 
-// paramStrings returns the parameters as a string that is compatible to the
+// paramString returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
-func paramStrings(converter paramConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
+func paramString(converter paramConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
 	switch opcode.Addressing {
 	case ImpliedAddressing:
 		return "", nil

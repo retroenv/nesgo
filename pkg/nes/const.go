@@ -19,9 +19,9 @@ const (
 	OAM_ADDR = ppu.OAM_ADDR
 	// OAM_DATA = OAM Data.
 	OAM_DATA = ppu.OAM_DATA
-	// PPU_SCROLL = Background Scroll Position \newline (write X then Y).
+	// PPU_SCROLL = Background Scroll Position (write X then Y).
 	PPU_SCROLL = ppu.PPU_SCROLL
-	// PPU_ADDR = PPU Address \newline (write upper then lower).
+	// PPU_ADDR = PPU Address (write upper then lower).
 	PPU_ADDR = ppu.PPU_ADDR
 	// PPU_DATA = PPU Data.
 	PPU_DATA = ppu.PPU_DATA
@@ -30,22 +30,28 @@ const (
 	PALETTE_START = ppu.PALETTE_START
 
 	// PPU_OAM_DMA = Sprite Page DMA Transfer.
-	PPU_OAM_DMA = 0x4014
+	PPU_OAM_DMA = ppu.OAM_DMA
 
-	DMC_FREQ        = apu.DMC_FREQ
-	APU_STATUS      = apu.APU_STATUS
-	APU_NOISE_VOL   = apu.APU_NOISE_VOL
-	APU_NOISE_FREQ  = apu.APU_NOISE_FREQ
-	APU_NOISE_TIMER = apu.APU_NOISE_TIMER
-	APU_DMC_CTRL    = apu.APU_DMC_CTRL
-	APU_CHAN_CTRL   = apu.APU_CHAN_CTRL
-	APU_FRAME       = apu.APU_FRAME
+	APU_SQ1_VOL    = apu.SQ1_VOL
+	APU_SQ1_SWEEP  = apu.SQ1_SWEEP
+	APU_SQ1_LO     = apu.SQ1_LO
+	APU_SQ1_HI     = apu.SQ1_HI
+	APU_SQ2_VOL    = apu.SQ2_VOL
+	APU_SQ2_SWEEP  = apu.SQ2_SWEEP
+	APU_SQ2_LO     = apu.SQ2_LO
+	APU_SQ2_HI     = apu.SQ2_HI
+	APU_TRI_LINEAR = apu.TRI_LINEAR
+	APU_TRI_LO     = apu.TRI_LO
+	APU_TRI_HI     = apu.TRI_HI
+	APU_NOISE_VOL  = apu.NOISE_VOL
+	APU_NOISE_LO   = apu.NOISE_LO
+	APU_NOISE_HI   = apu.NOISE_HI
+	APU_DMC_CTRL   = apu.APU_DMC_CTRL
+	APU_CHAN_CTRL  = apu.APU_CHAN_CTRL
+	APU_FRAME      = apu.APU_FRAME
 
 	JOYPAD1 = controller.JOYPAD1
 	JOYPAD2 = controller.JOYPAD2
-
-	OAM_DMA = 0x4014
-	OAM_RAM = 0x0200
 
 	// PPU_CTRL flags
 	CTRL_NMI      = 0b10000000 // Execute Non-Maskable Interrupt on VBlank

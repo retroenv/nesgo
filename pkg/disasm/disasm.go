@@ -22,8 +22,7 @@ type fileWriter interface {
 
 // offset defines the content of an offset in a program that can represent data or code.
 type offset struct {
-	opcode cpu.Opcode    // opcode that the byte at this offset represents
-	params []interface{} // internal representation of the instruction parameters
+	opcode cpu.Opcode // opcode that the byte at this offset represents
 
 	IsProcessed  bool     // flag whether current offset and following opcode bytes have been processed
 	IsCallTarget bool     // opcode is target of a jsr call, indicating a subroutine
@@ -40,22 +39,26 @@ type Disasm struct {
 	converter  paramConverter
 	fileWriter fileWriter
 	cart       *cartridge.Cartridge
+	handlers   program.Handlers
+
+	constants     map[uint16]constTranslation
+	usedConstants map[uint16]constTranslation
 
 	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
 	offsets     []offset
 
-	targets  []uint16
-	handlers program.Handlers
+	targetsToParse []uint16
 }
 
 // New creates a new NES disassembler that creates output compatible with the chosen assembler.
 func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 	opts := NewOptions(WithCartridge(cart))
 	dis := &Disasm{
-		sys:         InitializeSystem(opts),
-		cart:        cart,
-		offsets:     make([]offset, len(cart.PRG)),
-		jumpTargets: map[uint16]struct{}{},
+		sys:           InitializeSystem(opts),
+		cart:          cart,
+		usedConstants: map[uint16]constTranslation{},
+		offsets:       make([]offset, len(cart.PRG)),
+		jumpTargets:   map[uint16]struct{}{},
 		handlers: program.Handlers{
 			NMI:   "0",
 			Reset: "Reset",
@@ -63,7 +66,13 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 		},
 	}
 
-	if err := dis.initializeCompatibleMode(assembler); err != nil {
+	var err error
+	dis.constants, err = buildConstMap()
+	if err != nil {
+		return nil, err
+	}
+
+	if err = dis.initializeCompatibleMode(assembler); err != nil {
 		return nil, fmt.Errorf("initializing compatible mode: %w", err)
 	}
 
@@ -127,8 +136,8 @@ func (dis *Disasm) initializeIrqHandlers() {
 
 // popTarget pops the next target to disassemble and sets it into the program counter.
 func (dis *Disasm) popTarget() {
-	dis.sys.PC = dis.targets[0]
-	dis.targets = dis.targets[1:]
+	dis.sys.PC = dis.targetsToParse[0]
+	dis.targetsToParse = dis.targetsToParse[1:]
 }
 
 // converts the internal disasm type representation to a program type that will be used by
@@ -151,6 +160,16 @@ func (dis *Disasm) convertToProgram() *program.Program {
 
 		if res.JumpingTo != "" {
 			app.PRG[i].Output = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
+		}
+	}
+
+	for address := range dis.usedConstants {
+		constantInfo := dis.constants[address]
+		if constantInfo.Read != "" {
+			app.Constants[constantInfo.Read] = address
+		}
+		if constantInfo.Write != "" {
+			app.Constants[constantInfo.Write] = address
 		}
 	}
 

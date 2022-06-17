@@ -12,6 +12,8 @@ const (
 
 	PALETTE_START = 0x3f00
 
+	OAM_DMA = 0x4014
+
 	// PPU_MASK flags
 	MASK_TINT_RED   = 0b00100000 // Red Background
 	MASK_TINT_BLUE  = 0b01000000 // Blue Background
