@@ -8,7 +8,7 @@ import (
 )
 
 func TestDivSigned16(t *testing.T) {
-	InitializeSystem(NewOptions())
+	InitializeSystem()
 
 	*A = 0b10000001 // -127
 	DivSigned16()
@@ -20,7 +20,7 @@ func TestDivSigned16(t *testing.T) {
 }
 
 func TestDivSigned8(t *testing.T) {
-	InitializeSystem(NewOptions())
+	InitializeSystem()
 
 	*A = 0b10000001 // -127
 	DivSigned8()

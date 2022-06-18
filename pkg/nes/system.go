@@ -21,9 +21,9 @@ import (
 // irqHandler:   can be triggered by the NES sound processor or from
 //               certain types of cartridge hardware.
 func Start(resetHandlerParam func(), options ...Option) {
-	opts := NewOptions(options...)
-	sys := InitializeSystem(opts)
+	sys := InitializeSystem(options...)
 
+	opts := NewOptions(options...)
 	if opts.emulator {
 		sys.ResetHandler = func() {
 			RunEmulatorSteps(sys)
@@ -38,7 +38,8 @@ func Start(resetHandlerParam func(), options ...Option) {
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem(opts *Options) *system.System {
+func InitializeSystem(options ...Option) *system.System {
+	opts := NewOptions(options...)
 	if opts.cartridge == nil {
 		opts.cartridge = cartridge.New()
 	}
