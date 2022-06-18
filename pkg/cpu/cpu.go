@@ -6,8 +6,9 @@ import "io"
 const (
 	StackBase = 0x100
 
-	initialFlags = 0b00100100 // I and U flags are 1, the rest 0
-	InitialStack = 0xFD
+	initialCycles = 7
+	initialFlags  = 0b00100100 // I and U flags are 1, the rest 0
+	InitialStack  = 0xFD
 )
 
 // CPU implements a MOS Technology 650 CPU.
@@ -47,7 +48,7 @@ func New(memory memory, irqHandler *func()) *CPU {
 		SP:         InitialStack,
 		memory:     memory,
 		irqHandler: irqHandler,
-		cycles:     7,
+		cycles:     initialCycles,
 	}
 
 	// read reset interrupt handler address
@@ -61,4 +62,15 @@ func New(memory memory, irqHandler *func()) *CPU {
 func (c *CPU) SetTracing(mode TracingMode, target io.Writer) {
 	c.tracing = mode
 	c.tracingTarget = target
+}
+
+// ResetCycles sets the cycle counter to 0.
+// This is useful for counting used CPU cycles for a function.
+func (c *CPU) ResetCycles() {
+	c.cycles = 0
+}
+
+// Cycles returns the amount of CPU cycles executed since system start.
+func (c *CPU) Cycles() uint64 {
+	return c.cycles
 }

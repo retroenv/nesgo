@@ -8,11 +8,13 @@ import (
 )
 
 func TestDivSigned16(t *testing.T) {
-	InitializeSystem()
+	sys := InitializeSystem()
+	sys.ResetCycles()
 
 	*A = 0b10000001 // -127
 	DivSigned16()
-	assert.Equal(t, 0b11111000, *A) // -8
+	assert.Equal(t, 0b11111000, *A)   // -8
+	assert.Equal(t, 14, sys.Cycles()) // -16
 
 	*A = 0b00101010 // 42
 	DivSigned16()
@@ -20,11 +22,13 @@ func TestDivSigned16(t *testing.T) {
 }
 
 func TestDivSigned8(t *testing.T) {
-	InitializeSystem()
+	sys := InitializeSystem()
+	sys.ResetCycles()
 
 	*A = 0b10000001 // -127
 	DivSigned8()
-	assert.Equal(t, 0b11110000, *A) // -16
+	assert.Equal(t, 0b11110000, *A)   // -16
+	assert.Equal(t, 12, sys.Cycles()) // -16
 
 	*A = 0b00101010 // 42
 	DivSigned8()
