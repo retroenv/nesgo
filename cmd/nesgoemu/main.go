@@ -9,32 +9,36 @@ import (
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
-var (
-	input      = flag.String("f", "", "nes file to load")
-	entrypoint = flag.Int("e", -1, "entrypoint to start the CPU")
-	tracing    = flag.Bool("t", false, "print CPU tracing")
-)
+type optionFlags struct {
+	input      *string
+	entrypoint *int
+	tracing    *bool
+}
 
 func main() {
-	flag.Parse()
-
-	if *input == "" {
-		fmt.Printf("nesgoemu is a tool for emulating NES programs.\n\n")
+	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	options := optionFlags{
+		input:      flags.String("f", "", "nes file to load"),
+		entrypoint: flags.Int("e", -1, "entrypoint to start the CPU"),
+		tracing:    flags.Bool("t", false, "print CPU tracing"),
+	}
+	if err := flags.Parse(os.Args[1:]); err != nil || *options.input == "" {
+		fmt.Printf("[ nesgoemu - NES program emulator ]\n\n")
 		fmt.Printf("usage: nesgoemu [options]\n\n")
-		flag.CommandLine.PrintDefaults()
+		flags.PrintDefaults()
 		os.Exit(1)
 	}
 
-	if err := emulateFile(*input); err != nil {
+	if err := emulateFile(options); err != nil {
 		fmt.Println(fmt.Errorf("emulation failed: %w", err))
 		os.Exit(1)
 	}
 }
 
-func emulateFile(input string) error {
-	file, err := os.Open(input)
+func emulateFile(options optionFlags) error {
+	file, err := os.Open(*options.input)
 	if err != nil {
-		return fmt.Errorf("opening file '%s': %w", input, err)
+		return fmt.Errorf("opening file '%s': %w", *options.input, err)
 	}
 
 	cart, err := cartridge.LoadFile(file)
@@ -48,11 +52,11 @@ func emulateFile(input string) error {
 		nes.WithCartridge(cart),
 	}
 
-	if *tracing {
+	if *options.tracing {
 		opts = append(opts, nes.WithTracing())
 	}
-	if *entrypoint >= 0 {
-		opts = append(opts, nes.WithEntrypoint(*entrypoint))
+	if *options.entrypoint >= 0 {
+		opts = append(opts, nes.WithEntrypoint(*options.entrypoint))
 	}
 
 	nes.Start(nil, opts...)
