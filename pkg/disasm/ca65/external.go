@@ -27,7 +27,7 @@ func AssembleUsingExternalApp(asmFile, objectFile, outputFile string) error {
 
 	cmd = exec.Command(linker, objectFile, "-t", "nes", "-o", outputFile)
 	if out, err := cmd.CombinedOutput(); err != nil {
-		return fmt.Errorf("assembling file: %s: %w", string(out), err)
+		return fmt.Errorf("linking file: %s: %w", string(out), err)
 	}
 
 	return nil

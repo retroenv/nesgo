@@ -114,10 +114,10 @@ func verifyOutput(options optionFlags) error {
 		return fmt.Errorf("reading file for comparison: %w", err)
 	}
 
-	return checkEqual(source, destination)
+	return checkBufferEqual(source, destination)
 }
 
-func checkEqual(bs1, bs2 []byte) error {
+func checkBufferEqual(bs1, bs2 []byte) error {
 	if len(bs1) != len(bs2) {
 		return fmt.Errorf("mismatched lengths, %d != %d", len(bs1), len(bs2))
 	}
