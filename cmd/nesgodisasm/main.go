@@ -24,12 +24,12 @@ func main() {
 	options := optionFlags{
 		input:  flags.String("f", "", "nes file to load"),
 		output: flags.String("o", "", "name of the output .asm file, printed on console if no name given"),
-		verify: flag.Bool("v", false, "verify using ca65 that the generated output matches the input"),
+		verify: flags.Bool("v", false, "verify using ca65 that the generated output matches the input"),
 	}
+	fmt.Printf("[ nesgodisasm - NES program disassembler ]\n\n")
 	if err := flags.Parse(os.Args[1:]); err != nil || *options.input == "" {
-		fmt.Printf("nesgodisasm is a tool for deassembling NES programs.\n\n")
 		fmt.Printf("usage: nesgodisasm [options]\n\n")
-		flag.CommandLine.PrintDefaults()
+		flags.PrintDefaults()
 		os.Exit(1)
 	}
 

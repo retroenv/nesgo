@@ -18,14 +18,14 @@ type optionFlags struct {
 func main() {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{
-		input:      flag.String("f", "", "nes file to load"),
-		entrypoint: flag.Int("e", -1, "entrypoint to start the CPU"),
-		tracing:    flag.Bool("t", false, "print CPU tracing"),
+		input:      flags.String("f", "", "nes file to load"),
+		entrypoint: flags.Int("e", -1, "entrypoint to start the CPU"),
+		tracing:    flags.Bool("t", false, "print CPU tracing"),
 	}
 	if err := flags.Parse(os.Args[1:]); err != nil || *options.input == "" {
-		fmt.Printf("nesgoemu is a tool for emulating NES programs.\n\n")
+		fmt.Printf("[ nesgoemu - NES program emulator ]\n\n")
 		fmt.Printf("usage: nesgoemu [options]\n\n")
-		flag.CommandLine.PrintDefaults()
+		flags.PrintDefaults()
 		os.Exit(1)
 	}
 
