@@ -18,21 +18,30 @@ type optionFlags struct {
 func main() {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{
-		input:      flags.String("f", "", "nes file to load"),
 		entrypoint: flags.Int("e", -1, "entrypoint to start the CPU"),
 		tracing:    flags.Bool("t", false, "print CPU tracing"),
 	}
-	if err := flags.Parse(os.Args[1:]); err != nil || *options.input == "" {
-		fmt.Printf("[ nesgoemu - NES program emulator ]\n\n")
-		fmt.Printf("usage: nesgoemu [options]\n\n")
+
+	err := flags.Parse(os.Args[1:])
+	args := flags.Args()
+	if err != nil || len(args) == 0 {
+		printBanner()
+		fmt.Printf("usage: nesgoemu [options] <file to emulate>\n\n")
 		flags.PrintDefaults()
 		os.Exit(1)
 	}
+	options.input = &args[0]
 
 	if err := emulateFile(options); err != nil {
 		fmt.Println(fmt.Errorf("emulation failed: %w", err))
 		os.Exit(1)
 	}
+}
+
+func printBanner() {
+	fmt.Println("[---------------------------------]")
+	fmt.Println("[ nesgoemu - NES program emulator ]")
+	fmt.Printf("[---------------------------------]\n\n")
 }
 
 func emulateFile(options optionFlags) error {

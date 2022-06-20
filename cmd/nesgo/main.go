@@ -18,19 +18,22 @@ type optionFlags struct {
 func main() {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{
-		input:  flags.String("f", "", "go file to parse"),
 		output: flags.String("o", "", "name of the output .nes file"),
 		quiet:  flags.Bool("q", false, "perform operations quietly"),
 	}
-	if err := flags.Parse(os.Args[1:]); err != nil || *options.input == "" || *options.output == "" {
-		fmt.Println("[ nesgo - Golang for NES Compiler ]")
-		fmt.Printf("usage: nesgo [options]\n\n")
+
+	err := flags.Parse(os.Args[1:])
+	args := flags.Args()
+	if err != nil || len(args) == 0 || *options.output == "" {
+		printBanner(options)
+		fmt.Printf("usage: nesgo [options] <file to compile>\n\n")
 		flags.PrintDefaults()
 		os.Exit(1)
 	}
+	options.input = &args[0]
 
 	if !*options.quiet {
-		fmt.Println("[ nesgo - Golang to NES Compiler ]")
+		printBanner(options)
 		fmt.Printf("Compiling %s\n", *options.input)
 	}
 
@@ -41,6 +44,14 @@ func main() {
 
 	if !*options.quiet {
 		fmt.Printf("Output file %s created successfully\n", *options.output)
+	}
+}
+
+func printBanner(options optionFlags) {
+	if !*options.quiet {
+		fmt.Println("[---------------------------------]")
+		fmt.Println("[ nesgo - Golang for NES Compiler ]")
+		fmt.Printf("[---------------------------------]\n\n")
 	}
 }
 

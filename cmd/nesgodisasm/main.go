@@ -17,26 +17,40 @@ import (
 type optionFlags struct {
 	input  *string
 	output *string
+	quiet  *bool
 	verify *bool
 }
 
 func main() {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{
-		input:  flags.String("f", "", "nes file to load"),
 		output: flags.String("o", "", "name of the output .asm file, printed on console if no name given"),
+		quiet:  flags.Bool("q", false, "perform operations quietly"),
 		verify: flags.Bool("v", false, "verify using ca65 that the generated output matches the input"),
 	}
-	fmt.Printf("[ nesgodisasm - NES program disassembler ]\n\n")
-	if err := flags.Parse(os.Args[1:]); err != nil || *options.input == "" {
-		fmt.Printf("usage: nesgodisasm [options]\n\n")
+
+	err := flags.Parse(os.Args[1:])
+	args := flags.Args()
+	if err != nil || len(args) == 0 {
+		printBanner(options)
+		fmt.Printf("usage: nesgodisasm [options] <file to disassemble>\n\n")
 		flags.PrintDefaults()
 		os.Exit(1)
 	}
+	options.input = &args[0]
 
+	printBanner(options)
 	if err := disasmFile(options); err != nil {
 		fmt.Println(fmt.Errorf("disassembling failed: %w", err))
 		os.Exit(1)
+	}
+}
+
+func printBanner(options optionFlags) {
+	if !*options.quiet {
+		fmt.Println("[----------------------------------------]")
+		fmt.Println("[ nesgodisasm - NES program disassembler ]")
+		fmt.Printf("[----------------------------------------]\n\n")
 	}
 }
 
@@ -77,7 +91,9 @@ func disasmFile(options optionFlags) error {
 		if err = verifyOutput(options); err != nil {
 			return err
 		}
-		fmt.Println("Output file matched input file.")
+		if !*options.quiet {
+			fmt.Println("Output file matched input file.")
+		}
 	}
 	return nil
 }
