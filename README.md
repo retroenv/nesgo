@@ -7,7 +7,7 @@
 
 nesgo offers tooling for the Nintendo Entertainment System (NES), written in Golang.
 
-## Included tools
+## Available tools
 
 * [nesgo](https://github.com/retroenv/nesgo/tree/main/cmd/nesgo) Golang to NES compiler
 
@@ -19,8 +19,8 @@ check the README of each tool for a more detailed description and instructions o
 
 ## Project layout
 
-    ├─ cmd              Tools main directories
-    ├─ example/         Program examples in Golang
+    ├─ cmd              tools main directories
+    ├─ example/         NES Program examples in Golang
     ├─ internal/        internal compiler code
-    ├─ pkg/             libraries used by different packages
+    ├─ pkg/             libraries used by different packages and tools
     ├─ pkg/neslib       helper useful for writing NES programs in Golang

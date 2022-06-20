@@ -15,6 +15,8 @@ Check the [issue tracker](https://github.com/retroenv/nesgo/labels/emulator) for
 
 Your system needs to have a recent [Golang](https://go.dev/) version installed.
 
+Check [GUI installation](https://github.com/retroenv/nesgo/blob/main/docs/gui.md) to set up the GUI dependencies. 
+
 Install the latest stable version by running:
 
 ```
