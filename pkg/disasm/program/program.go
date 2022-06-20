@@ -5,10 +5,12 @@ import "github.com/retroenv/nesgo/pkg/cartridge"
 
 // Offset defines the content of an offset in a program that can represent data or code.
 type Offset struct {
-	IsCallTarget bool // opcode is target of a jsr call, indicating a subroutine
+	IsCallTarget bool   // opcode is target of a jsr call, indicating a subroutine
+	Label        string // name of label or subroutine
 
-	Label  string // name of label or subroutine if identified as a jump target
-	Output string
+	CodeOutput string // set if identified as code
+	Data       byte   // set if identified as data
+	HasData    bool
 }
 
 // Handlers defines the handlers that the NES can jump to.

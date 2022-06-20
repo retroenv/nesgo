@@ -30,6 +30,7 @@ type offset struct {
 
 	Label     string // name of label or subroutine if identified as a jump target
 	Output    string // asm output of this instruction
+	Data      byte   // data byte if not an instruction
 	JumpingTo string // label to jump to if instruction branches
 }
 
@@ -85,6 +86,7 @@ func (dis *Disasm) Process(writer io.Writer) error {
 		return err
 	}
 
+	dis.processData()
 	dis.processJumpTargets()
 
 	app := dis.convertToProgram()
@@ -147,19 +149,21 @@ func (dis *Disasm) convertToProgram() *program.Program {
 
 	for i := 0; i < len(dis.offsets); i++ {
 		res := dis.offsets[i]
-		if !res.IsProcessed || res.Output == "" {
-			continue
-		}
 
-		app.PRG[i] = program.Offset{
+		offset := program.Offset{
 			IsCallTarget: res.IsCallTarget,
 			Label:        res.Label,
-			Output:       res.Output,
+			CodeOutput:   res.Output,
+		}
+		if !res.IsProcessed {
+			offset.Data = res.Data
+			offset.HasData = true
 		}
 
 		if res.JumpingTo != "" {
-			app.PRG[i].Output = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
+			offset.CodeOutput = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
 		}
+		app.PRG[i] = offset
 	}
 
 	for address := range dis.usedConstants {
