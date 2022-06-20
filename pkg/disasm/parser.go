@@ -81,7 +81,9 @@ func (dis *Disasm) replaceParamByConstant(instruction *cpu.Instruction, param in
 
 	constantInfo, ok := dis.constants[uint16(addr)]
 	if !ok { // not accessing a known address
-		return paramAsString
+		// force using absolute address to not generate a different opcode by using zeropage access mode
+		// TODO check if other assemblers use the same prefix
+		return "a:" + paramAsString
 	}
 
 	if constantInfo.Read != "" {
