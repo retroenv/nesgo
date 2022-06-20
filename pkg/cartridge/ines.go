@@ -14,13 +14,14 @@ const (
 )
 
 type header struct {
-	Magic    [4]byte // iNES magic number
-	NumPRG   byte    // number of PRG-ROM banks (16KB each)
-	NumCHR   byte    // number of CHR-ROM banks (8KB each)
-	Control1 byte    // control bits
-	Control2 byte    // control bits
-	NumRAM   byte    // PRG-RAM size (x 8KB)
-	Reserved [7]byte // unused padding
+	Magic       [4]byte // iNES magic number
+	NumPRG      byte    // number of PRG-ROM banks (16KB each)
+	NumCHR      byte    // number of CHR-ROM banks (8KB each)
+	Control1    byte    // control bits
+	Control2    byte    // control bits
+	NumRAM      byte    // PRG-RAM size (x 8KB)
+	VideoFormat byte    // 0 NTSC, 1 PAL
+	Reserved    [6]byte // unused padding
 }
 
 // LoadFile loads an .nes file in iNES format.
@@ -64,11 +65,13 @@ func LoadFile(reader io.Reader) (*Cartridge, error) {
 	}
 
 	return &Cartridge{
-		PRG:     prg,
-		CHR:     chr,
-		Trainer: trainer,
-		Mapper:  mapper,
-		Mirror:  mirror,
-		Battery: battery,
+		PRG:         prg,
+		CHR:         chr,
+		RAM:         header.NumRAM,
+		Trainer:     trainer,
+		Mapper:      mapper,
+		Mirror:      mirror,
+		Battery:     battery,
+		VideoFormat: header.VideoFormat,
 	}, nil
 }

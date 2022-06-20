@@ -11,10 +11,13 @@ import (
 type Cartridge struct {
 	PRG     []byte // PRG-ROM banks
 	CHR     []byte // CHR-ROM banks
+	RAM     byte   // PRG-RAM banks
 	Trainer []byte
-	Mapper  byte // mapper type
-	Mirror  byte // mirroring mode
-	Battery byte // battery present
+
+	Mapper      byte // mapper type
+	Mirror      byte // mirroring mode
+	Battery     byte // battery present
+	VideoFormat byte // 0 NTSC, 1 PAL
 }
 
 // New returns a new cartridge.
@@ -31,9 +34,11 @@ func New() *Cartridge {
 // Save the cartridge content in iNES format.
 func (c *Cartridge) Save(writer io.Writer) error {
 	header := header{
-		Magic:  iNESFileMagic,
-		NumPRG: byte(len(c.PRG) / 16384),
-		NumCHR: byte(len(c.CHR) / 8192),
+		Magic:       iNESFileMagic,
+		NumPRG:      byte(len(c.PRG) / 16384),
+		NumCHR:      byte(len(c.CHR) / 8192),
+		NumRAM:      c.RAM,
+		VideoFormat: c.VideoFormat,
 	}
 
 	header.Control1, header.Control2 = ControlBytes(c.Battery, c.Mirror, c.Mapper, len(c.Trainer) > 0)

@@ -10,15 +10,9 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
-var header = `.byte "NES", $1a ; Magic string that always begins an iNES header
-`
+var header = `.byte "NES", $1a ; Magic string that always begins an iNES header`
 
 var headerByte = ".byte $%02x        ; %s\n"
-
-var headerRemainder = `.byte $00        ; No PRG-RAM present
-.byte $00        ; NTSC format
-
-`
 
 var footer = `
 .segment "VECTORS"
@@ -34,7 +28,7 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "HEADER"); err != nil {
 		return err
 	}
-	if _, err := fmt.Fprint(writer, header); err != nil {
+	if _, err := fmt.Fprintln(writer, header); err != nil {
 		return err
 	}
 	if _, err := fmt.Fprintf(writer, headerByte, len(app.PRG)/16384, "Number of 16KB PRG-ROM banks"); err != nil {
@@ -45,14 +39,16 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	}
 
 	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
-	if _, err := fmt.Fprintf(writer, headerByte, control1, "control bits"); err != nil {
+	if _, err := fmt.Fprintf(writer, headerByte, control1, "Control bits 1"); err != nil {
 		return err
 	}
-	if _, err := fmt.Fprintf(writer, headerByte, control2, "control bits"); err != nil {
+	if _, err := fmt.Fprintf(writer, headerByte, control2, "Control bits 2"); err != nil {
 		return err
 	}
-
-	if _, err := fmt.Fprint(writer, headerRemainder); err != nil {
+	if _, err := fmt.Fprintf(writer, headerByte, app.RAM, "Number of 8KB PRG-RAM banks"); err != nil {
+		return err
+	}
+	if _, err := fmt.Fprintf(writer, headerByte, app.VideoFormat, "Video format NTSC/PAL"); err != nil {
 		return err
 	}
 
@@ -77,11 +73,21 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 }
 
 func (f FileWriter) writeSegment(writer io.Writer, name string) error {
-	_, err := fmt.Fprintf(writer, ".segment \"%s\"\n", name)
+	if name != "HEADER" {
+		if _, err := fmt.Fprintln(writer); err != nil {
+			return err
+		}
+	}
+
+	_, err := fmt.Fprintf(writer, ".segment \"%s\"\n\n", name)
 	return err
 }
 
 func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error {
+	if _, err := fmt.Fprintln(writer); err != nil {
+		return err
+	}
+
 	names := make([]string, 0, len(app.Constants))
 	for constant := range app.Constants {
 		names = append(names, constant)
@@ -94,8 +100,7 @@ func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error
 			return err
 		}
 	}
-	_, err := fmt.Fprint(writer, "\n")
-	return err
+	return nil
 }
 
 func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
@@ -112,9 +117,6 @@ func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
 		}
 	}
 
-	if _, err := fmt.Fprintln(writer); err != nil {
-		return err
-	}
 	return nil
 }
 func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
@@ -140,7 +142,7 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		}
 
 		if res.Label != "" {
-			if res.IsCallTarget {
+			if res.IsCallTarget && i > 0 {
 				if _, err := fmt.Fprintln(writer); err != nil {
 					return err
 				}
@@ -154,9 +156,6 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		}
 	}
 
-	if _, err := fmt.Fprintln(writer); err != nil {
-		return err
-	}
 	return nil
 }
 
