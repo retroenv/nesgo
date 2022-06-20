@@ -2,13 +2,14 @@
 
 nesgodisasm allows you to disassemble programs for the Nintendo Entertainment System (NES).
 
-
 ## Features
 
 * Outputs ca65 compatible .asm files that can be used to reproduce the original NES ROM
 * Translates known RAM addresses to aliases 
-* Follows the program execution flow to differentiate between code and data
-* Supports undocumented 6502 opcodes
+* Traces the program execution flow to differentiate between code and data
+* Supports undocumented 6502 CPU opcodes
+
+Check the [issue tracker](https://github.com/retroenv/nesgo/issues?q=is%3Aissue+is%3Aopen+label%3Adisassembler) for planned features or known bugs.
 
 ## Installation
 
@@ -17,7 +18,7 @@ Your system needs to have a recent [Golang](https://go.dev/) version installed.
 Install the latest stable version by running:
 
 ```
-go install github.com/retroenv/nesgo/cmd/nesgo@latest
+go install github.com/retroenv/nesgo/cmd/nesgodisasm@latest
 ```
 
 The latest development version can be installed using:
