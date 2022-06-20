@@ -36,17 +36,7 @@ func (c *Cartridge) Save(writer io.Writer) error {
 		NumCHR: byte(len(c.CHR) / 8192),
 	}
 
-	header.Control1 |= (c.Battery & 1) << 1
-
-	header.Control1 |= c.Mirror & 1
-	header.Control1 |= ((c.Mirror >> 1) & 1) << 3
-
-	header.Control1 |= mergeNibbles(c.Mapper, header.Control1)
-	header.Control2 |= mergeNibbles(highNibble(c.Mapper), header.Control2)
-
-	if len(c.Trainer) > 0 {
-		header.Control1 |= trainerFlag
-	}
+	header.Control1, header.Control2 = ControlBytes(c.Battery, c.Mirror, c.Mapper, len(c.Trainer) > 0)
 
 	if err := binary.Write(writer, binary.LittleEndian, header); err != nil {
 		return fmt.Errorf("writing header: %w", err)

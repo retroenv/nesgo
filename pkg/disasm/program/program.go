@@ -25,7 +25,10 @@ type Program struct {
 	PRG       []Offset // PRG-ROM banks
 	CHR       []byte   // CHR-ROM banks
 	Handlers  Handlers
+	Battery   byte
+	Mirror    byte
 	Mapper    byte
+	Trainer   []byte
 	Constants map[string]uint16
 }
 
@@ -34,7 +37,10 @@ func New(cart *cartridge.Cartridge) *Program {
 	return &Program{
 		PRG:       make([]Offset, len(cart.PRG)),
 		CHR:       cart.CHR,
+		Battery:   cart.Battery,
 		Mapper:    cart.Mapper,
+		Mirror:    cart.Mirror,
+		Trainer:   cart.Trainer,
 		Constants: map[string]uint16{},
 	}
 }

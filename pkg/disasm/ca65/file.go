@@ -6,6 +6,7 @@ import (
 	"io"
 	"sort"
 
+	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
@@ -14,9 +15,7 @@ var header = `.byte "NES", $1a ; Magic string that always begins an iNES header
 
 var headerByte = ".byte $%02x        ; %s\n"
 
-var headerRemainder = `.byte %00000001  ; Vertical mirroring, no save RAM, no mapper
-.byte %00000000  ; No special-case flags set, no mapper
-.byte $00        ; No PRG-RAM present
+var headerRemainder = `.byte $00        ; No PRG-RAM present
 .byte $00        ; NTSC format
 
 `
@@ -24,10 +23,6 @@ var headerRemainder = `.byte %00000001  ; Vertical mirroring, no save RAM, no ma
 var footer = `
 .segment "VECTORS"
 .addr %s, %s, %s
-
-.segment "CHARS"
-.res 8192
-.segment "STARTUP"
 `
 
 // FileWriter writes the assembly file content.
@@ -48,6 +43,15 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	if _, err := fmt.Fprintf(writer, headerByte, len(app.CHR)/8192, "Number of 8KB CHR-ROM banks"); err != nil {
 		return err
 	}
+
+	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
+	if _, err := fmt.Fprintf(writer, headerByte, control1, "control bits"); err != nil {
+		return err
+	}
+	if _, err := fmt.Fprintf(writer, headerByte, control2, "control bits"); err != nil {
+		return err
+	}
+
 	if _, err := fmt.Fprint(writer, headerRemainder); err != nil {
 		return err
 	}
@@ -59,6 +63,10 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	}
 
 	if err := f.writeCode(app, writer); err != nil {
+		return err
+	}
+
+	if err := f.writeCHR(app, writer); err != nil {
 		return err
 	}
 
@@ -90,12 +98,31 @@ func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error
 	return err
 }
 
+func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
+	if err := f.writeSegment(writer, "TILES"); err != nil {
+		return err
+	}
+
+	lastNonZeroByte := getLastNonZeroCHRByte(app)
+	for i := 0; i < lastNonZeroByte; i++ {
+		b := app.CHR[i]
+		// TODO bundle data outputs
+		if _, err := fmt.Fprintf(writer, ".byte $%02x\n", b); err != nil {
+			return err
+		}
+	}
+
+	if _, err := fmt.Fprintln(writer); err != nil {
+		return err
+	}
+	return nil
+}
 func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "CODE"); err != nil {
 		return err
 	}
 
-	lastNonZeroByte, err := getLastNonZeroByte(app)
+	lastNonZeroByte, err := getLastNonZeroPRGByte(app)
 	if err != nil {
 		return err
 	}
@@ -126,14 +153,18 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 			return err
 		}
 	}
+
+	if _, err := fmt.Fprintln(writer); err != nil {
+		return err
+	}
 	return nil
 }
 
-// getLastNonZeroByte searches for the last byte in PRG that is not zero
-func getLastNonZeroByte(app *program.Program) (int, error) {
+// getLastNonZeroPRGByte searches for the last byte in PRG that is not zero
+func getLastNonZeroPRGByte(app *program.Program) (int, error) {
 	start := len(app.PRG) - 1 - 6 // skip irq pointers
 
-	for i := start; i > 0; i-- {
+	for i := start; i >= 0; i-- {
 		res := app.PRG[i]
 		if res.CodeOutput == "" && res.Data == 0 {
 			continue
@@ -141,4 +172,16 @@ func getLastNonZeroByte(app *program.Program) (int, error) {
 		return i + 1, nil
 	}
 	return 0, errors.New("could not find last zero byte")
+}
+
+// getLastNonZeroCHRByte searches for the last byte in CHR that is not zero
+func getLastNonZeroCHRByte(app *program.Program) int {
+	for i := len(app.CHR) - 1; i >= 0; i-- {
+		b := app.CHR[i]
+		if b == 0 {
+			continue
+		}
+		return i + 1
+	}
+	return 0
 }
