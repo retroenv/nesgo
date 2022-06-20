@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"errors"
 	"flag"
 	"fmt"
@@ -117,22 +118,67 @@ func verifyOutput(options optionFlags) error {
 		return fmt.Errorf("reading file for comparison: %w", err)
 	}
 
-	return checkBufferEqual(source, destination)
+	if err := checkBufferEqual(source, destination); err != nil {
+		if detailsErr := compareCartridgeDetails(source, destination); detailsErr != nil {
+			return fmt.Errorf("comparing cartridge details: %w", detailsErr)
+		}
+		return err
+	}
+	return nil
 }
 
-func checkBufferEqual(bs1, bs2 []byte) error {
-	if len(bs1) != len(bs2) {
-		return fmt.Errorf("mismatched lengths, %d != %d", len(bs1), len(bs2))
+func checkBufferEqual(input, output []byte) error {
+	if len(input) != len(output) {
+		return fmt.Errorf("mismatched lengths, %d != %d", len(input), len(output))
 	}
 
-	var byteDiffs uint64
-	for i := range bs1 {
-		if bs1[i] != bs2[i] {
-			byteDiffs++
+	var diffs uint64
+	firstDiff := -1
+	for i := range input {
+		if input[i] == output[i] {
+			continue
+		}
+		diffs++
+		if firstDiff == -1 {
+			firstDiff = i
 		}
 	}
-	if byteDiffs == 0 {
+	if diffs == 0 {
 		return nil
 	}
-	return fmt.Errorf("%d offset mismatches", byteDiffs)
+	return fmt.Errorf("%d offset mismatches, first at offset %d", diffs, firstDiff)
+}
+
+func compareCartridgeDetails(input, output []byte) error {
+	inputReader := bytes.NewReader(input)
+	outputReader := bytes.NewReader(output)
+
+	cart1, err := cartridge.LoadFile(inputReader)
+	if err != nil {
+		return err
+	}
+	cart2, err := cartridge.LoadFile(outputReader)
+	if err != nil {
+		return err
+	}
+
+	if err := checkBufferEqual(cart1.PRG, cart2.PRG); err != nil {
+		fmt.Printf("PRG difference: %s\n", err)
+	}
+	if err := checkBufferEqual(cart1.CHR, cart2.CHR); err != nil {
+		fmt.Printf("CHR difference: %s\n", err)
+	}
+	if err := checkBufferEqual(cart1.Trainer, cart2.Trainer); err != nil {
+		fmt.Printf("Trainer difference: %s\n", err)
+	}
+	if cart1.Mapper != cart2.Mapper {
+		fmt.Println("Mapper header does not match")
+	}
+	if cart1.Mirror != cart2.Mirror {
+		fmt.Println("Mirror header does not match")
+	}
+	if cart1.Battery != cart2.Battery {
+		fmt.Println("Battery header does not match")
+	}
+	return nil
 }

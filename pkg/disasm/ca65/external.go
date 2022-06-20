@@ -25,7 +25,8 @@ func AssembleUsingExternalApp(asmFile, objectFile, outputFile string) error {
 		return fmt.Errorf("assembling file: %s: %w", string(out), err)
 	}
 
-	cmd = exec.Command(linker, objectFile, "-t", "nes", "-o", outputFile)
+	// TODO: use a temp file
+	cmd = exec.Command(linker, "-C", "pkg/disasm/ca65/cfg/nrom.cfg", "-o", outputFile, objectFile)
 	if out, err := cmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("linking file: %s: %w", string(out), err)
 	}

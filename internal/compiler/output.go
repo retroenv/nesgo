@@ -29,7 +29,7 @@ var variableHeader = `.segment "HEADER"`
 var footer = `.segment "VECTORS"
 .addr %s, %s, %s
 
-.segment "CHARS"
+.segment "TILES"
 .res 8192
 .segment "STARTUP"`
 
