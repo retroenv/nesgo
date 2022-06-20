@@ -2,6 +2,7 @@ package disasm
 
 import (
 	"fmt"
+	"strings"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
@@ -79,6 +80,9 @@ func (dis *Disasm) replaceParamByConstant(instruction *cpu.Instruction, param in
 		return paramAsString
 	}
 
+	// split parameter string in case of x/y indexing, only the first part will be replaced by a const name
+	paramParts := strings.Split(paramAsString, ",")
+
 	constantInfo, ok := dis.constants[uint16(addr)]
 	if !ok { // not accessing a known address
 		// force using absolute address to not generate a different opcode by using zeropage access mode
@@ -89,13 +93,15 @@ func (dis *Disasm) replaceParamByConstant(instruction *cpu.Instruction, param in
 	if constantInfo.Read != "" {
 		if _, ok := cpu.MemoryReadInstructions[instruction.Name]; ok {
 			dis.usedConstants[uint16(addr)] = constantInfo
-			return constantInfo.Read
+			paramParts[0] = constantInfo.Read
+			return strings.Join(paramParts, ",")
 		}
 	}
 	if constantInfo.Write != "" {
 		if _, ok := cpu.MemoryWriteInstructions[instruction.Name]; ok {
 			dis.usedConstants[uint16(addr)] = constantInfo
-			return constantInfo.Write
+			paramParts[0] = constantInfo.Write
+			return strings.Join(paramParts, ",")
 		}
 	}
 
