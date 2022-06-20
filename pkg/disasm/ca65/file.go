@@ -10,63 +10,73 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
-var header = `.byte "NES", $1a ; Magic string that always begins an iNES header`
+var iNESHeader = `.byte "NES", $1a ; Magic string that always begins an iNES header`
 
 var headerByte = ".byte $%02x        ; %s\n"
 
-var footer = `
-.segment "VECTORS"
-.addr %s, %s, %s
-`
+var vectors = ".addr %s, %s, %s\n"
 
 // FileWriter writes the assembly file content.
 type FileWriter struct {
 }
 
+type headerByteWrite struct {
+	value   byte
+	comment string
+}
+
+type segmentWrite struct {
+	name string
+}
+
+type customWrite func(app *program.Program, writer io.Writer) error
+
+type lineWrite string
+
 // Write writes the assembly file content including header, footer, code and data.
 func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
-	if err := f.writeSegment(writer, "HEADER"); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintln(writer, header); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintf(writer, headerByte, len(app.PRG)/16384, "Number of 16KB PRG-ROM banks"); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintf(writer, headerByte, len(app.CHR)/8192, "Number of 8KB CHR-ROM banks"); err != nil {
-		return err
-	}
-
 	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
-	if _, err := fmt.Fprintf(writer, headerByte, control1, "Control bits 1"); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintf(writer, headerByte, control2, "Control bits 2"); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintf(writer, headerByte, app.RAM, "Number of 8KB PRG-RAM banks"); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintf(writer, headerByte, app.VideoFormat, "Video format NTSC/PAL"); err != nil {
-		return err
+
+	writes := []interface{}{
+		segmentWrite{name: "HEADER"},
+		lineWrite(iNESHeader),
+		headerByteWrite{value: byte(len(app.PRG) / 16384), comment: "Number of 16KB PRG-ROM banks"},
+		headerByteWrite{value: byte(len(app.CHR) / 8192), comment: "Number of 8KB CHR-ROM banks"},
+		headerByteWrite{value: control1, comment: "Control bits 1"},
+		headerByteWrite{value: control2, comment: "Control bits 1"},
+		headerByteWrite{value: app.RAM, comment: "Number of 8KB PRG-RAM banks"},
+		headerByteWrite{value: app.VideoFormat, comment: "Video format NTSC/PAL"},
+		customWrite(f.writeConstants),
+		customWrite(f.writeCode),
+		customWrite(f.writeCHR),
+		segmentWrite{name: "VECTORS"},
 	}
 
-	if len(app.Constants) > 0 {
-		if err := f.writeConstants(app, writer); err != nil {
-			return err
+	for _, write := range writes {
+		switch t := write.(type) {
+		case headerByteWrite:
+			if _, err := fmt.Fprintf(writer, headerByte, t.value, t.comment); err != nil {
+				return err
+			}
+
+		case segmentWrite:
+			if err := f.writeSegment(writer, t.name); err != nil {
+				return err
+			}
+
+		case lineWrite:
+			if _, err := fmt.Fprintln(writer, t); err != nil {
+				return err
+			}
+
+		case customWrite:
+			if err := t(app, writer); err != nil {
+				return err
+			}
 		}
 	}
 
-	if err := f.writeCode(app, writer); err != nil {
-		return err
-	}
-
-	if err := f.writeCHR(app, writer); err != nil {
-		return err
-	}
-
-	if _, err := fmt.Fprintf(writer, footer, app.Handlers.NMI, app.Handlers.Reset, app.Handlers.IRQ); err != nil {
+	if _, err := fmt.Fprintf(writer, vectors, app.Handlers.NMI, app.Handlers.Reset, app.Handlers.IRQ); err != nil {
 		return err
 	}
 	return nil
@@ -84,6 +94,10 @@ func (f FileWriter) writeSegment(writer io.Writer, name string) error {
 }
 
 func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error {
+	if len(app.Constants) == 0 {
+		return nil
+	}
+
 	if _, err := fmt.Fprintln(writer); err != nil {
 		return err
 	}
