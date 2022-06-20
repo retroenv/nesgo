@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	_ "github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
