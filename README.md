@@ -1,4 +1,4 @@
-# nesgo - Golang for the NES
+# nesgo - Golang tooling for the NES
 
 [![Build status](https://github.com/retroenv/nesgo/actions/workflows/go.yaml/badge.svg?branch=main)](https://github.com/retroenv/nesgo/actions)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/retroenv/nesgo)
@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/retroenv/nesgo/branch/main/graph/badge.svg?token=NS5UY28V3A)](https://codecov.io/gh/retroenv/nesgo)
 
 nesgo allows you to write programs for the Nintendo Entertainment System
-(NES) in Golang. It offers additional tooling like a disassembler.
+(NES) in Golang. It offers additional tooling like a disassembler and emulator.
 
 The benefits over other tooling options:
 
