@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	_ "github.com/retroenv/nesgo/pkg/gui"
 	. "github.com/retroenv/nesgo/pkg/nes"
 	. "github.com/retroenv/nesgo/pkg/neslib"
 )

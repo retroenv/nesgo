@@ -8,9 +8,11 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
-	"github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/system"
 )
+
+// GuiStarter will be set by the chosen and imported GUI renderer.
+var GuiStarter func(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error)
 
 // Start is the main entrypoint for a NES program that starts the execution.
 // Different options can be passed.
@@ -21,9 +23,9 @@ import (
 // irqHandler:   can be triggered by the NES sound processor or from
 //               certain types of cartridge hardware.
 func Start(resetHandlerParam func(), options ...Option) {
-	opts := NewOptions(options...)
-	sys := InitializeSystem(opts)
+	sys := InitializeSystem(options...)
 
+	opts := NewOptions(options...)
 	if opts.emulator {
 		sys.ResetHandler = func() {
 			RunEmulatorSteps(sys)
@@ -32,13 +34,19 @@ func Start(resetHandlerParam func(), options ...Option) {
 		sys.ResetHandler = resetHandlerParam
 	}
 
-	start(sys)
+	if GuiStarter == nil {
+		GuiStarter = setupNoGui
+	}
+	if err := runRenderer(sys); err != nil {
+		panic(err)
+	}
 }
 
 // InitializeSystem initializes the NES system.
 // This needs to be called for any unit code that does not use the Start()
 // function, for example in unit tests.
-func InitializeSystem(opts *Options) *system.System {
+func InitializeSystem(options ...Option) *system.System {
+	opts := NewOptions(options...)
 	if opts.cartridge == nil {
 		opts.cartridge = cartridge.New()
 	}
@@ -132,8 +140,32 @@ func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int
 	}
 }
 
-func start(sys *system.System) {
-	if err := gui.RunRenderer(sys); err != nil {
-		panic(err)
+// runRenderer starts the chosen GUI renderer.
+func runRenderer(sys *system.System) error {
+	render, cleanup, err := GuiStarter(sys)
+	if err != nil {
+		return err
 	}
+	defer cleanup()
+
+	go func() {
+		sys.ResetHandler()
+		for { // forever loop in case reset handler returns
+		}
+	}()
+
+	running := true
+	for running {
+		sys.PPU.StartRender()
+
+		sys.PPU.RenderScreen()
+
+		running, err = render()
+		if err != nil {
+			return err
+		}
+
+		sys.PPU.FinishRender()
+	}
+	return nil
 }

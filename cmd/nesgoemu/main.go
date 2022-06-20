@@ -6,33 +6,49 @@ import (
 	"os"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	_ "github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
-var (
-	input      = flag.String("f", "", "nes file to load")
-	entrypoint = flag.Int("e", -1, "entrypoint to start the CPU")
-	tracing    = flag.Bool("t", false, "print CPU tracing")
-)
+type optionFlags struct {
+	input      *string
+	entrypoint *int
+	tracing    *bool
+}
 
 func main() {
-	flag.Parse()
-
-	if *input == "" {
-		flag.Usage()
-		os.Exit(1)
+	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	options := optionFlags{
+		entrypoint: flags.Int("e", -1, "entrypoint to start the CPU"),
+		tracing:    flags.Bool("t", false, "print CPU tracing"),
 	}
 
-	if err := emulateFile(*input); err != nil {
+	err := flags.Parse(os.Args[1:])
+	args := flags.Args()
+	if err != nil || len(args) == 0 {
+		printBanner()
+		fmt.Printf("usage: nesgoemu [options] <file to emulate>\n\n")
+		flags.PrintDefaults()
+		os.Exit(1)
+	}
+	options.input = &args[0]
+
+	if err := emulateFile(options); err != nil {
 		fmt.Println(fmt.Errorf("emulation failed: %w", err))
 		os.Exit(1)
 	}
 }
 
-func emulateFile(input string) error {
-	file, err := os.Open(input)
+func printBanner() {
+	fmt.Println("[---------------------------------]")
+	fmt.Println("[ nesgoemu - NES program emulator ]")
+	fmt.Printf("[---------------------------------]\n\n")
+}
+
+func emulateFile(options optionFlags) error {
+	file, err := os.Open(*options.input)
 	if err != nil {
-		return fmt.Errorf("opening file '%s': %w", input, err)
+		return fmt.Errorf("opening file '%s': %w", *options.input, err)
 	}
 
 	cart, err := cartridge.LoadFile(file)
@@ -46,11 +62,11 @@ func emulateFile(input string) error {
 		nes.WithCartridge(cart),
 	}
 
-	if *tracing {
+	if *options.tracing {
 		opts = append(opts, nes.WithTracing())
 	}
-	if *entrypoint >= 0 {
-		opts = append(opts, nes.WithEntrypoint(*entrypoint))
+	if *options.entrypoint >= 0 {
+		opts = append(opts, nes.WithEntrypoint(*options.entrypoint))
 	}
 
 	nes.Start(nil, opts...)

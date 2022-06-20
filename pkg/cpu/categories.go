@@ -21,3 +21,24 @@ var NotExecutingFollowingOpcodeInstructions = map[string]struct{}{
 	rti.Name: {},
 	rts.Name: {},
 }
+
+// MemoryReadInstructions contains all instructions that can read from an
+// absolute memory address.
+var MemoryReadInstructions = map[string]struct{}{
+	and.Name: {},
+	bit.Name: {},
+	cmp.Name: {},
+	cpx.Name: {},
+	cpy.Name: {},
+	lda.Name: {},
+	ldx.Name: {},
+	ldy.Name: {},
+}
+
+// MemoryWriteInstructions contains all instructions that can write to a
+// absolute memory address.
+var MemoryWriteInstructions = map[string]struct{}{
+	sta.Name: {},
+	stx.Name: {},
+	sty.Name: {},
+}

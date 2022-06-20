@@ -22,14 +22,14 @@ func TestNestest(t *testing.T) {
 	var b bytes.Buffer
 	trace := bufio.NewWriter(&b)
 
-	opts := nes.NewOptions(
+	opts := []nes.Option{
 		nes.WithEmulator(),
 		nes.WithCartridge(cart),
 		nes.WithEntrypoint(0xc000),
 		nes.WithTracing(),
 		nes.WithTracingTarget(trace),
-	)
-	sys := nes.InitializeSystem(opts)
+	}
+	sys := nes.InitializeSystem(opts...)
 	nes.RunEmulatorUntil(sys, 0x0001)
 
 	assert.NoError(t, trace.Flush())

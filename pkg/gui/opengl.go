@@ -11,11 +11,14 @@ import (
 	"github.com/go-gl/gl/v2.1/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
 	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
-var guiStarter = setupOpenGLGui
+func init() {
+	nes.GuiStarter = setupOpenGLGui
+}
 
 var openGLKeyMapping = map[glfw.Key]controller.Button{
 	glfw.KeyUp:        controller.Up,

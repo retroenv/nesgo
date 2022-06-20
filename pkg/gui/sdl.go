@@ -7,12 +7,15 @@ import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/retroenv/nesgo/pkg/system"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-var guiStarter = setupSDLGui
+func init() {
+	nes.GuiStarter = setupSDLGui
+}
 
 var sdlKeyMapping = map[sdl.Keycode]controller.Button{
 	sdl.K_UP:        controller.Up,

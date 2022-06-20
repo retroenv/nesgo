@@ -1,7 +1,9 @@
 // === [ Lexical part] =========================================================
 
 terminator : ';' '\n'
-           | ';' | '\n'
+           | ',' '\n' // used in map declarations
+           | ';'
+           | '\n'
            | _lineComment
            | _blockComment ;
 
@@ -27,6 +29,7 @@ type
         : 'i' 'n' 't' '8'
         | 'u' 'i' 'n' 't' '8'
         | 'u' 'i' 'n' 't' '1' '6'
+        | 's' 't' 'r' 'i' 'n' 'g'
         ;
 
 typeConstructor
@@ -34,6 +37,9 @@ typeConstructor
         | 'N' 'e' 'w' 'U' 'i' 'n' 't' '8'
         | 'N' 'e' 'w' 'U' 'i' 'n' 't' '1' '6'
         ;
+
+mapConstructor
+        : 'm' 'a' 'p' ;
 
 // --- [ Operators ] -----------------------------------------------------------
 operators : '+' | '-' | '*' | '|' | '^' | '&' | '<' '<' | '>' '>' ;
@@ -143,9 +149,10 @@ VarList
         ;
 
 VarSpec
-        : IdentifierList Type                                    << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), nil) >>
-        | IdentifierList Type "=" Expression                     << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), $3) >>
-        | IdentifierList "=" TypeConstructor "(" Expression ")"  << ast.NewVariable($0.(ast.Node), $2.(*ast.Type), $4) >>
+        : IdentifierList Type                                        << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), nil) >>
+        | IdentifierList Type "=" Expression                         << ast.NewVariable($0.(ast.Node), $1.(*ast.Type), $3) >>
+        | IdentifierList "=" TypeConstructor "(" Expression ")"      << ast.NewVariable($0.(ast.Node), $2.(*ast.Type), $4) >>
+        | IdentifierList "=" MapConstructor "[" type "]" type Block  << nil, nil >>
         | empty
         ;
 
@@ -257,6 +264,9 @@ Type
 TypeConstructor
         : typeConstructor  << ast.NewType(string($0.(*token.Token).Lit)) >>
         ;
+
+MapConstructor
+        : mapConstructor ;
 
 IdentifierList
         : identifier                     << ast.NewIdentifier(string($0.(*token.Token).Lit)) >>

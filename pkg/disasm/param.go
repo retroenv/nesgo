@@ -7,53 +7,53 @@ import (
 	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
-// ParamConverter is an interface for the conversion of opcode parameters to
-// specific assembler implementations.
-type ParamConverter interface {
-	Absolute(opcode cpu.Opcode, params ...interface{}) string
-	AbsoluteX(opcode cpu.Opcode, params ...interface{}) string
-	AbsoluteY(opcode cpu.Opcode, params ...interface{}) string
-	Accumulator(opcode cpu.Opcode, params ...interface{}) string
-	Immediate(opcode cpu.Opcode, params ...interface{}) string
-	Indirect(opcode cpu.Opcode, params ...interface{}) string
-	IndirectX(opcode cpu.Opcode, params ...interface{}) string
-	IndirectY(opcode cpu.Opcode, params ...interface{}) string
-	Relative(opcode cpu.Opcode, params ...interface{}) string
-	ZeroPage(opcode cpu.Opcode, params ...interface{}) string
-	ZeroPageX(opcode cpu.Opcode, params ...interface{}) string
-	ZeroPageY(opcode cpu.Opcode, params ...interface{}) string
+// paramConverter is an interface for the conversion of the instruction parameters to
+// specific assembler implementation outputs.
+type paramConverter interface {
+	Absolute(param interface{}) string
+	AbsoluteX(param interface{}) string
+	AbsoluteY(param interface{}) string
+	Accumulator() string
+	Immediate(param interface{}) string
+	Indirect(param interface{}) string
+	IndirectX(param interface{}) string
+	IndirectY(param interface{}) string
+	Relative(param interface{}) string
+	ZeroPage(param interface{}) string
+	ZeroPageX(param interface{}) string
+	ZeroPageY(param interface{}) string
 }
 
-// ParamStrings returns the parameters as a string that is compatible to the
+// paramString returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
-func ParamStrings(converter ParamConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
+func paramString(converter paramConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
 	switch opcode.Addressing {
 	case ImpliedAddressing:
 		return "", nil
 	case ImmediateAddressing:
-		return converter.Immediate(opcode, params...), nil
+		return converter.Immediate(params[0]), nil
 	case AccumulatorAddressing:
-		return converter.Accumulator(opcode, params...), nil
+		return converter.Accumulator(), nil
 	case AbsoluteAddressing:
-		return converter.Absolute(opcode, params...), nil
+		return converter.Absolute(params[0]), nil
 	case AbsoluteXAddressing:
-		return converter.AbsoluteX(opcode, params...), nil
+		return converter.AbsoluteX(params[0]), nil
 	case AbsoluteYAddressing:
-		return converter.AbsoluteY(opcode, params...), nil
+		return converter.AbsoluteY(params[0]), nil
 	case ZeroPageAddressing:
-		return converter.ZeroPage(opcode, params...), nil
+		return converter.ZeroPage(params[0]), nil
 	case ZeroPageXAddressing:
-		return converter.ZeroPageX(opcode, params...), nil
+		return converter.ZeroPageX(params[0]), nil
 	case ZeroPageYAddressing:
-		return converter.ZeroPageY(opcode, params...), nil
+		return converter.ZeroPageY(params[0]), nil
 	case RelativeAddressing:
-		return converter.Relative(opcode, params...), nil
+		return converter.Relative(params[0]), nil
 	case IndirectAddressing:
-		return converter.Indirect(opcode, params...), nil
+		return converter.Indirect(params[0]), nil
 	case IndirectXAddressing:
-		return converter.IndirectX(opcode, params...), nil
+		return converter.IndirectX(params[0]), nil
 	case IndirectYAddressing:
-		return converter.IndirectY(opcode, params...), nil
+		return converter.IndirectY(params[0]), nil
 	default:
 		return "", fmt.Errorf("unsupported addressing mode %d", opcode.Addressing)
 	}
