@@ -73,7 +73,10 @@ func disasmFile(options optionFlags) error {
 	}
 
 	if *options.verify {
-		return verifyOutput(options)
+		if err = verifyOutput(options); err != nil {
+			return err
+		}
+		fmt.Println("Output file matched input file.")
 	}
 	return nil
 }
