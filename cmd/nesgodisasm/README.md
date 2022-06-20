@@ -8,6 +8,7 @@ nesgodisasm allows you to disassemble programs for the Nintendo Entertainment Sy
 * Translates known RAM addresses to aliases 
 * Traces the program execution flow to differentiate between code and data
 * Supports undocumented 6502 CPU opcodes
+* Flexible architecture that allows to create output modules for other assemblers 
 
 Check the [issue tracker](https://github.com/retroenv/nesgo/issues?q=is%3Aissue+is%3Aopen+label%3Adisassembler) for planned features or known bugs.
 
