@@ -1,6 +1,7 @@
 package ca65
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"sort"
@@ -94,9 +95,20 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		return err
 	}
 
-	for i := 0; i < len(app.PRG); i++ {
+	lastNonZeroByte, err := getLastNonZeroByte(app)
+	if err != nil {
+		return err
+	}
+
+	for i := 0; i < lastNonZeroByte; i++ {
 		res := app.PRG[i]
-		if res.Output == "" {
+		if res.CodeOutput == "" {
+			if res.HasData {
+				// TODO bundle data outputs
+				if _, err := fmt.Fprintf(writer, ".byte $%02x\n", res.Data); err != nil {
+					return err
+				}
+			}
 			continue
 		}
 
@@ -110,9 +122,23 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 				return err
 			}
 		}
-		if _, err := fmt.Fprintf(writer, "  %s\n", res.Output); err != nil {
+		if _, err := fmt.Fprintf(writer, "  %s\n", res.CodeOutput); err != nil {
 			return err
 		}
 	}
 	return nil
+}
+
+// getLastNonZeroByte searches for the last byte in PRG that is not zero
+func getLastNonZeroByte(app *program.Program) (int, error) {
+	start := len(app.PRG) - 1 - 6 // skip irq pointers
+
+	for i := start; i > 0; i-- {
+		res := app.PRG[i]
+		if res.CodeOutput == "" && res.Data == 0 {
+			continue
+		}
+		return i + 1, nil
+	}
+	return 0, errors.New("could not find last zero byte")
 }

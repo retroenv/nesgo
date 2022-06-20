@@ -63,7 +63,7 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 		return 0, "", err
 	}
 
-	paramAsString = dis.replaceParamByConstant(opcode.Instruction, params[0], paramAsString)
+	paramAsString = dis.replaceParamByConstant(opcode, params[0], paramAsString)
 
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
 		addr := params[0].(Absolute)
@@ -74,7 +74,7 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 
 // replaceParamByConstant replaces the absolute address with a constant name if it has a known
 // translation for the access mode.
-func (dis *Disasm) replaceParamByConstant(instruction *cpu.Instruction, param interface{}, paramAsString string) string {
+func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, param interface{}, paramAsString string) string {
 	addr, ok := param.(Absolute)
 	if !ok { // not the addressing type found that accesses known addresses
 		return paramAsString
@@ -87,18 +87,21 @@ func (dis *Disasm) replaceParamByConstant(instruction *cpu.Instruction, param in
 	if !ok { // not accessing a known address
 		// force using absolute address to not generate a different opcode by using zeropage access mode
 		// TODO check if other assemblers use the same prefix
+		if opcode.Addressing == ZeroPageAddressing {
+			return "z:" + paramAsString
+		}
 		return "a:" + paramAsString
 	}
 
 	if constantInfo.Read != "" {
-		if _, ok := cpu.MemoryReadInstructions[instruction.Name]; ok {
+		if _, ok := cpu.MemoryReadInstructions[opcode.Instruction.Name]; ok {
 			dis.usedConstants[uint16(addr)] = constantInfo
 			paramParts[0] = constantInfo.Read
 			return strings.Join(paramParts, ",")
 		}
 	}
 	if constantInfo.Write != "" {
-		if _, ok := cpu.MemoryWriteInstructions[instruction.Name]; ok {
+		if _, ok := cpu.MemoryWriteInstructions[opcode.Instruction.Name]; ok {
 			dis.usedConstants[uint16(addr)] = constantInfo
 			paramParts[0] = constantInfo.Write
 			return strings.Join(paramParts, ",")
@@ -147,4 +150,17 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 		return // already disassembled
 	}
 	dis.targetsToParse = append(dis.targetsToParse, target)
+}
+
+// processData sets all data bytes for offsets that have not being identified as code.
+func (dis *Disasm) processData() {
+	for i, offset := range dis.offsets {
+		if offset.Output != "" {
+			continue
+		}
+
+		address := uint16(i + codeBaseAddress)
+		b := dis.sys.ReadMemory(address)
+		dis.offsets[i].Data = b
+	}
 }
