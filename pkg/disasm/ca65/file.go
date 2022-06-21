@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"sort"
+	"strings"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
@@ -32,6 +33,8 @@ type segmentWrite struct {
 type customWrite func(app *program.Program, writer io.Writer) error
 
 type lineWrite string
+
+const dataBytesPerLine = 16
 
 // Write writes the assembly file content including header, footer, code and data.
 func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
@@ -123,16 +126,9 @@ func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
 	}
 
 	lastNonZeroByte := getLastNonZeroCHRByte(app)
-	for i := 0; i < lastNonZeroByte; i++ {
-		b := app.CHR[i]
-		// TODO bundle data outputs
-		if _, err := fmt.Fprintf(writer, ".byte $%02x\n", b); err != nil {
-			return err
-		}
-	}
-
-	return nil
+	return bundleDataWrites(writer, app.CHR[:lastNonZeroByte])
 }
+
 func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "CODE"); err != nil {
 		return err
@@ -147,10 +143,11 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		res := app.PRG[i]
 		if res.CodeOutput == "" {
 			if res.HasData {
-				// TODO bundle data outputs
-				if _, err := fmt.Fprintf(writer, ".byte $%02x\n", res.Data); err != nil {
+				count, err := bundlePRGDataWrites(app, writer, i, lastNonZeroByte)
+				if err != nil {
 					return err
 				}
+				i = i + count - 1
 			}
 			continue
 		}
@@ -168,6 +165,56 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		if _, err := fmt.Fprintf(writer, "  %s\n", res.CodeOutput); err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, endIndex int) (int, error) {
+	count := 0
+	var data []byte
+
+	for i := startIndex; i < endIndex; i++ {
+		res := app.PRG[i]
+		if res.CodeOutput != "" || res.Label != "" || !res.HasData {
+			break
+		}
+		data = append(data, res.Data)
+		count++
+	}
+
+	if err := bundleDataWrites(writer, data); err != nil {
+		return 0, err
+	}
+	return count, nil
+}
+
+func bundleDataWrites(writer io.Writer, data []byte) error {
+	remaining := len(data)
+	for i := 0; remaining > 0; {
+		toWrite := remaining
+		if toWrite > dataBytesPerLine {
+			toWrite = dataBytesPerLine
+		}
+
+		buf := &strings.Builder{}
+		if _, err := buf.WriteString(".byte "); err != nil {
+			return err
+		}
+
+		for j := 0; j < toWrite; j++ {
+			if _, err := fmt.Fprintf(buf, "$%02x, ", data[i+j]); err != nil {
+				return err
+			}
+		}
+
+		s := strings.TrimRight(buf.String(), ", ")
+		if _, err := fmt.Fprintf(writer, "%s\n", s); err != nil {
+			return err
+		}
+
+		i += toWrite
+		remaining -= toWrite
 	}
 
 	return nil
