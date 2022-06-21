@@ -113,7 +113,7 @@ func (dis *Disasm) initializeIrqHandlers() {
 	nmi := dis.sys.ReadMemory16(0xFFFA)
 	if nmi != 0 {
 		dis.addTarget(nmi, nil, false)
-		offset := nmi - codeBaseAddress
+		offset := dis.addressToOffset(nmi)
 		dis.offsets[offset].Label = "NMI"
 		dis.offsets[offset].IsCallTarget = true
 		dis.handlers.NMI = "NMI"
@@ -121,14 +121,14 @@ func (dis *Disasm) initializeIrqHandlers() {
 
 	reset := dis.sys.ReadMemory16(0xFFFC)
 	dis.addTarget(reset, nil, false)
-	offset := reset - codeBaseAddress
+	offset := dis.addressToOffset(reset)
 	dis.offsets[offset].Label = "Reset"
 	dis.offsets[offset].IsCallTarget = true
 
 	irq := dis.sys.ReadMemory16(0xFFFE)
 	if irq != 0 {
 		dis.addTarget(irq, nil, false)
-		offset = irq - codeBaseAddress
+		offset = dis.addressToOffset(irq)
 		dis.offsets[offset].Label = "IRQ"
 		dis.offsets[offset].IsCallTarget = true
 		dis.handlers.IRQ = "IRQ"
@@ -177,4 +177,10 @@ func (dis *Disasm) convertToProgram() *program.Program {
 	}
 
 	return app
+}
+
+func (dis *Disasm) addressToOffset(address uint16) uint16 {
+	offset := address - codeBaseAddress
+	offset %= uint16(len(dis.cart.PRG))
+	return offset
 }

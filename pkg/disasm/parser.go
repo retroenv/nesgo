@@ -37,7 +37,7 @@ func (dis *Disasm) followExecutionFlow() error {
 			dis.addTarget(nextTarget, opcode.Instruction, false)
 		}
 
-		offset := *PC - codeBaseAddress
+		offset := dis.addressToOffset(*PC)
 		dis.offsets[offset].opcode = opcode
 
 		if params == "" {
@@ -66,8 +66,10 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 	paramAsString = dis.replaceParamByConstant(opcode, params[0], paramAsString)
 
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
-		addr := params[0].(Absolute)
-		dis.addTarget(uint16(addr), opcode.Instruction, true)
+		addr, ok := params[0].(Absolute)
+		if ok {
+			dis.addTarget(uint16(addr), opcode.Instruction, true)
+		}
 	}
 	return uint16(len(opcodes) + 1), paramAsString, nil
 }
@@ -87,10 +89,14 @@ func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, param interface{}, 
 	if !ok { // not accessing a known address
 		// force using absolute address to not generate a different opcode by using zeropage access mode
 		// TODO check if other assemblers use the same prefix
-		if opcode.Addressing == ZeroPageAddressing {
+		switch opcode.Addressing {
+		case ZeroPageAddressing:
 			return "z:" + paramAsString
+		case AbsoluteAddressing:
+			return "a:" + paramAsString
+		default: // indirect x, ...
+			return paramAsString
 		}
-		return "a:" + paramAsString
 	}
 
 	if constantInfo.Read != "" {
@@ -115,7 +121,7 @@ func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, param interface{}, 
 // the generated jump target label name.
 func (dis *Disasm) processJumpTargets() {
 	for target := range dis.jumpTargets {
-		offset := target - codeBaseAddress
+		offset := dis.addressToOffset(target)
 		name := dis.offsets[offset].Label
 		if name == "" {
 			if dis.offsets[offset].IsCallTarget {
@@ -127,7 +133,7 @@ func (dis *Disasm) processJumpTargets() {
 		}
 
 		for _, caller := range dis.offsets[offset].JumpFrom {
-			offset = caller - codeBaseAddress
+			offset = dis.addressToOffset(caller)
 			dis.offsets[offset].Output = dis.offsets[offset].opcode.Instruction.Name
 			dis.offsets[offset].JumpingTo = name
 		}
@@ -136,7 +142,7 @@ func (dis *Disasm) processJumpTargets() {
 
 // addTarget adds a target to the list to be processed if the address has not been processed yet.
 func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction, jumpTarget bool) {
-	offset := target - codeBaseAddress
+	offset := dis.addressToOffset(target)
 
 	if currentInstruction != nil && currentInstruction.Name == "jsr" {
 		dis.offsets[offset].IsCallTarget = true
