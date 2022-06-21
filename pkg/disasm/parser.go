@@ -56,7 +56,7 @@ func (dis *Disasm) followExecutionFlow() error {
 // processParamInstruction processes an instruction with parameters.
 // Special handling is required as this instruction could branch to a different location.
 func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, error) {
-	params, opcodes, _ := ReadOpParams(dis.sys, opcode.Addressing)
+	params, opcodes, _ := ReadOpParams(dis.sys, opcode.Addressing, false)
 
 	paramAsString, err := paramString(dis.converter, opcode, params...)
 	if err != nil {
