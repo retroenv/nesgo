@@ -9,7 +9,8 @@ type Offset struct {
 	Label        string // name of label or subroutine
 
 	CodeOutput string // set if identified as code
-	Data       byte   // set if identified as data
+	Comment    string
+	Data       byte // set if identified as data
 	HasData    bool
 }
 

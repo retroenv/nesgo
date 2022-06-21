@@ -20,9 +20,9 @@ test: install ## run tests
 	go test -race ./...
 	nesgo -q -o ./examples/blue/main.nes ./examples/blue/main.go
 	nesgo -q -o ./examples/debugprint/main.nes ./examples/debugprint/main.go
-	nesgodisasm -o examples/blue/disasm.asm -v -q examples/blue/main.nes
-	nesgodisasm -o examples/debugprint/disasm.asm -v -q examples/debugprint/main.nes
-	nesgodisasm -o internal/testroms/nestest/nestest.asm -v -q internal/testroms/nestest/nestest.nes
+	nesgodisasm -o examples/blue/disasm.asm -a -q -h examples/blue/main.nes
+	nesgodisasm -o examples/debugprint/disasm.asm -a -q -h examples/debugprint/main.nes
+	nesgodisasm -o internal/testroms/nestest/disasm.asm -a -q -h internal/testroms/nestest/nestest.nes
 
 test-no-gui: ## run unit tests with gui disabled
 	go test -tags nogui ./... -v
