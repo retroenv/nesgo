@@ -85,6 +85,7 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 	return nil
 }
 
+// writeSegment writes a segment header to the output.
 func (f FileWriter) writeSegment(writer io.Writer, name string) error {
 	if name != "HEADER" {
 		if _, err := fmt.Fprintln(writer); err != nil {
@@ -96,6 +97,7 @@ func (f FileWriter) writeSegment(writer io.Writer, name string) error {
 	return err
 }
 
+// writeConstants will write constant aliases to the output.
 func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error {
 	if len(app.Constants) == 0 {
 		return nil
@@ -105,6 +107,7 @@ func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error
 		return err
 	}
 
+	// sort the aliases by name before outputting to avoid random map order
 	names := make([]string, 0, len(app.Constants))
 	for constant := range app.Constants {
 		names = append(names, constant)
@@ -120,6 +123,7 @@ func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error
 	return nil
 }
 
+// writeCHR writes the CHR content to the output.
 func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "TILES"); err != nil {
 		return err
@@ -129,6 +133,7 @@ func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
 	return bundleDataWrites(writer, app.CHR[:lastNonZeroByte])
 }
 
+// writeCode writes the code to the output.
 func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "CODE"); err != nil {
 		return err
@@ -153,7 +158,7 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		}
 
 		if res.Label != "" {
-			if res.IsCallTarget && i > 0 {
+			if i > 0 {
 				if _, err := fmt.Fprintln(writer); err != nil {
 					return err
 				}
@@ -170,6 +175,7 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 	return nil
 }
 
+// bundlePRGDataWrites parses PRG to create bundled writes of data bytes per line.
 func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, endIndex int) (int, error) {
 	count := 0
 	var data []byte
@@ -189,6 +195,7 @@ func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, end
 	return count, nil
 }
 
+// bundleDataWrites bundles writes of data bytes to print dataBytesPerLine bytes per line.
 func bundleDataWrites(writer io.Writer, data []byte) error {
 	remaining := len(data)
 	for i := 0; remaining > 0; {
