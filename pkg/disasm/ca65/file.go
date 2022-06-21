@@ -157,15 +157,8 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 			continue
 		}
 
-		if res.Label != "" {
-			if i > 0 {
-				if _, err := fmt.Fprintln(writer); err != nil {
-					return err
-				}
-			}
-			if _, err := fmt.Fprintf(writer, "%s:\n", res.Label); err != nil {
-				return err
-			}
+		if err := writeLabel(writer, i, res.Label); err != nil {
+			return err
 		}
 
 		if res.Comment == "" {
@@ -179,6 +172,23 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		}
 	}
 
+	return nil
+}
+
+func writeLabel(writer io.Writer, offset int, label string) error {
+	if label == "" {
+		return nil
+	}
+
+	if offset > 0 {
+		if _, err := fmt.Fprintln(writer); err != nil {
+			return err
+		}
+	}
+
+	if _, err := fmt.Fprintf(writer, "%s:\n", label); err != nil {
+		return err
+	}
 	return nil
 }
 
