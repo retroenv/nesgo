@@ -15,18 +15,20 @@ import (
 )
 
 type optionFlags struct {
-	input  *string
-	output *string
-	quiet  *bool
-	verify *bool
+	assembleTest *bool
+	hexComments  *bool
+	input        *string
+	output       *string
+	quiet        *bool
 }
 
 func main() {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{
-		output: flags.String("o", "", "name of the output .asm file, printed on console if no name given"),
-		quiet:  flags.Bool("q", false, "perform operations quietly"),
-		verify: flags.Bool("v", false, "verify using ca65 that the generated output matches the input"),
+		assembleTest: flags.Bool("a", false, "assemble the generated output using ca65 and check if it matches the input"),
+		hexComments:  flags.Bool("h", false, "output opcode bytes as hex values in comments"),
+		output:       flags.String("o", "", "name of the output .asm file, printed on console if no name given"),
+		quiet:        flags.Bool("q", false, "perform operations quietly"),
 	}
 
 	err := flags.Parse(os.Args[1:])
@@ -80,14 +82,14 @@ func disasmFile(options optionFlags) error {
 			return fmt.Errorf("creating file '%s': %w", *options.output, err)
 		}
 	}
-	if err = dis.Process(outputFile); err != nil {
+	if err = dis.Process(outputFile, *options.hexComments); err != nil {
 		return fmt.Errorf("processing file: %w", err)
 	}
 	if err = outputFile.Close(); err != nil {
 		return fmt.Errorf("closing file: %w", err)
 	}
 
-	if *options.verify {
+	if *options.assembleTest {
 		if err = verifyOutput(cart, options); err != nil {
 			return err
 		}

@@ -22,7 +22,8 @@ type fileWriter interface {
 
 // offset defines the content of an offset in a program that can represent data or code.
 type offset struct {
-	opcode cpu.Opcode // opcode that the byte at this offset represents
+	opcode      cpu.Opcode // opcode that the byte at this offset represents
+	opcodeBytes []byte     // all opcode bytes that are part of the instruction
 
 	IsProcessed  bool     // flag whether current offset and following opcode bytes have been processed
 	IsCallTarget bool     // opcode is target of a jsr call, indicating a subroutine
@@ -81,7 +82,7 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 }
 
 // Process disassembles the cartridge.
-func (dis *Disasm) Process(writer io.Writer) error {
+func (dis *Disasm) Process(writer io.Writer, hexComments bool) error {
 	if err := dis.followExecutionFlow(); err != nil {
 		return err
 	}
@@ -89,7 +90,7 @@ func (dis *Disasm) Process(writer io.Writer) error {
 	dis.processData()
 	dis.processJumpTargets()
 
-	app := dis.convertToProgram()
+	app := dis.convertToProgram(hexComments)
 	return dis.fileWriter.Write(app, writer)
 }
 
@@ -143,7 +144,7 @@ func (dis *Disasm) popTarget() {
 
 // converts the internal disasm type representation to a program type that will be used by
 // the chosen assembler output instance to generate the asm file.
-func (dis *Disasm) convertToProgram() *program.Program {
+func (dis *Disasm) convertToProgram(hexComments bool) *program.Program {
 	app := program.New(dis.cart)
 	app.Handlers = dis.handlers
 
@@ -163,6 +164,12 @@ func (dis *Disasm) convertToProgram() *program.Program {
 		if res.JumpingTo != "" {
 			offset.CodeOutput = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
 		}
+
+		if hexComments && res.Output != "" {
+			// TODO loop
+			offset.Comment = fmt.Sprintf("$%02X", res.opcodeBytes[0])
+		}
+
 		app.PRG[i] = offset
 	}
 

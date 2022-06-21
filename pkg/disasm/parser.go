@@ -21,23 +21,27 @@ func (dis *Disasm) followExecutionFlow() error {
 		}
 
 		opcode := DecodePCInstruction(sys)
+		offset := dis.addressToOffset(*PC)
+		dis.offsets[offset].opcodeBytes = []byte{sys.ReadMemory(*PC)}
 
 		var params string
-		opcodeLength := uint16(1)
 
 		if opcode.Instruction.ParamFunc != nil { // instruction has parameters
-			opcodeLength, params, err = dis.processParamInstruction(opcode)
+			var opcodes []byte
+			opcodes, params, err = dis.processParamInstruction(opcode)
 			if err != nil {
 				return err
 			}
+			dis.offsets[offset].opcodeBytes = append(dis.offsets[offset].opcodeBytes, opcodes...)
 		}
+
+		opcodeLength := uint16(len(dis.offsets[offset].opcodeBytes))
 		nextTarget := sys.PC + opcodeLength
 
 		if _, ok := cpu.NotExecutingFollowingOpcodeInstructions[opcode.Instruction.Name]; !ok {
 			dis.addTarget(nextTarget, opcode.Instruction, false)
 		}
 
-		offset := dis.addressToOffset(*PC)
 		dis.offsets[offset].opcode = opcode
 
 		if params == "" {
@@ -55,12 +59,12 @@ func (dis *Disasm) followExecutionFlow() error {
 
 // processParamInstruction processes an instruction with parameters.
 // Special handling is required as this instruction could branch to a different location.
-func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, error) {
+func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) ([]byte, string, error) {
 	params, opcodes, _ := ReadOpParams(dis.sys, opcode.Addressing, false)
 
 	paramAsString, err := paramString(dis.converter, opcode, params...)
 	if err != nil {
-		return 0, "", err
+		return nil, "", err
 	}
 
 	paramAsString = dis.replaceParamByConstant(opcode, params[0], paramAsString)
@@ -71,7 +75,7 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) (uint16, string, e
 			dis.addTarget(uint16(addr), opcode.Instruction, true)
 		}
 	}
-	return uint16(len(opcodes) + 1), paramAsString, nil
+	return opcodes, paramAsString, nil
 }
 
 // replaceParamByConstant replaces the absolute address with a constant name if it has a known

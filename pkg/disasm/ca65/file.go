@@ -167,8 +167,15 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 				return err
 			}
 		}
-		if _, err := fmt.Fprintf(writer, "  %s\n", res.CodeOutput); err != nil {
-			return err
+
+		if res.Comment == "" {
+			if _, err := fmt.Fprintf(writer, "  %s\n", res.CodeOutput); err != nil {
+				return err
+			}
+		} else {
+			if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.CodeOutput, res.Comment); err != nil {
+				return err
+			}
 		}
 	}
 
