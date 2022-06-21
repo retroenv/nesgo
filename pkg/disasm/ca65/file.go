@@ -148,6 +148,11 @@ func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
 		res := app.PRG[i]
 		if res.CodeOutput == "" {
 			if res.HasData {
+				if i > 0 {
+					if _, err := fmt.Fprintln(writer); err != nil {
+						return err
+					}
+				}
 				count, err := bundlePRGDataWrites(app, writer, i, lastNonZeroByte)
 				if err != nil {
 					return err
