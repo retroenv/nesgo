@@ -50,9 +50,9 @@ func main() {
 
 func printBanner(options optionFlags) {
 	if !*options.quiet {
-		fmt.Println("[----------------------------------------]")
-		fmt.Println("[ nesgodisasm - NES program disassembler ]")
-		fmt.Printf("[----------------------------------------]\n\n")
+		fmt.Println("[------------------------------------]")
+		fmt.Println("[ nesgodisasm - NES ROM disassembler ]")
+		fmt.Printf("[------------------------------------]\n\n")
 	}
 }
 

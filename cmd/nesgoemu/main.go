@@ -40,9 +40,9 @@ func main() {
 }
 
 func printBanner() {
-	fmt.Println("[---------------------------------]")
-	fmt.Println("[ nesgoemu - NES program emulator ]")
-	fmt.Printf("[---------------------------------]\n\n")
+	fmt.Println("[-----------------------------]")
+	fmt.Println("[ nesgoemu - NES ROM emulator ]")
+	fmt.Printf("[-----------------------------]\n\n")
 }
 
 func emulateFile(options optionFlags) error {
