@@ -75,7 +75,13 @@ func compileFile(options optionFlags) error {
 		return fmt.Errorf("compiling to file '%s' failed: %w", *options.output, err)
 	}
 
-	if err = ca65.AssembleUsingExternalApp(asmFile, objectFile, *options.output); err != nil {
+	// TODO pass real options
+	ca65Config := ca65.Config{
+		PRGSize: 0x8000,
+		CHRSize: 0x2000,
+	}
+
+	if err = ca65.AssembleUsingExternalApp(asmFile, objectFile, *options.output, ca65Config); err != nil {
 		return fmt.Errorf("creating .nes file '%s' failed: %w", *options.output, err)
 	}
 

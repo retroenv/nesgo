@@ -11,9 +11,15 @@ const (
 	linker    = "ld65"
 )
 
+// Config holds the ROM building configuration.
+type Config struct {
+	PRGSize int
+	CHRSize int
+}
+
 // AssembleUsingExternalApp calls the external assembler and linker to generate a .nes
 // ROM from the given asm file.
-func AssembleUsingExternalApp(asmFile, objectFile, outputFile string) error {
+func AssembleUsingExternalApp(asmFile, objectFile, outputFile string, conf Config) error {
 	if _, err := exec.LookPath(assembler); err != nil {
 		return fmt.Errorf("%s is not installed", assembler)
 	}
@@ -33,7 +39,10 @@ func AssembleUsingExternalApp(asmFile, objectFile, outputFile string) error {
 	defer func() {
 		_ = os.Remove(configFile.Name())
 	}()
-	if err := os.WriteFile(configFile.Name(), []byte(mapper0Config), 0444); err != nil {
+
+	mapperConfig := generateMapperConfig(conf)
+
+	if err := os.WriteFile(configFile.Name(), []byte(mapperConfig), 0444); err != nil {
 		return fmt.Errorf("writing linker config: %w", err)
 	}
 

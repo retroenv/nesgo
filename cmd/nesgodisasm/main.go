@@ -88,7 +88,7 @@ func disasmFile(options optionFlags) error {
 	}
 
 	if *options.verify {
-		if err = verifyOutput(options); err != nil {
+		if err = verifyOutput(cart, options); err != nil {
 			return err
 		}
 		if !*options.quiet {
@@ -98,7 +98,7 @@ func disasmFile(options optionFlags) error {
 	return nil
 }
 
-func verifyOutput(options optionFlags) error {
+func verifyOutput(cart *cartridge.Cartridge, options optionFlags) error {
 	if *options.output == "" {
 		return errors.New("can not verify console output")
 	}
@@ -120,7 +120,11 @@ func verifyOutput(options optionFlags) error {
 		_ = os.Remove(outputFile.Name())
 	}()
 
-	if err = ca65.AssembleUsingExternalApp(*options.output, objectFile.Name(), outputFile.Name()); err != nil {
+	ca65Config := ca65.Config{
+		PRGSize: len(cart.PRG),
+		CHRSize: len(cart.CHR),
+	}
+	if err = ca65.AssembleUsingExternalApp(*options.output, objectFile.Name(), outputFile.Name(), ca65Config); err != nil {
 		return fmt.Errorf("creating .nes file failed: %w", err)
 	}
 
