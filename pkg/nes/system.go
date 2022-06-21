@@ -96,7 +96,7 @@ func runEmulatorStep(sys *system.System) {
 		return
 	}
 
-	params, opcodes, pageCrossed := ReadOpParams(sys.Memory, opcode.Addressing)
+	params, opcodes, pageCrossed := ReadOpParams(sys.Memory, opcode.Addressing, true)
 	sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
 	sys.TraceStep.PageCrossed = pageCrossed
 

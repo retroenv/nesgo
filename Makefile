@@ -22,6 +22,7 @@ test: install ## run tests
 	nesgo -q -o ./examples/debugprint/main.nes ./examples/debugprint/main.go
 	nesgodisasm -o examples/blue/disasm.asm -v -q examples/blue/main.nes
 	nesgodisasm -o examples/debugprint/disasm.asm -v -q examples/debugprint/main.nes
+	nesgodisasm -o internal/testroms/nestest/nestest.asm -v -q internal/testroms/nestest/nestest.nes
 
 test-no-gui: ## run unit tests with gui disabled
 	go test -tags nogui ./... -v
