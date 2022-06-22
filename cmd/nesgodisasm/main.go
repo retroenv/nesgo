@@ -9,9 +9,16 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/retroenv/nesgo/internal/buildinfo"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+)
+
+var (
+	version = "dev"
+	commit  = ""
+	date    = ""
 )
 
 type optionFlags struct {
@@ -33,6 +40,7 @@ func main() {
 
 	err := flags.Parse(os.Args[1:])
 	args := flags.Args()
+
 	if err != nil || len(args) == 0 {
 		printBanner(options)
 		fmt.Printf("usage: nesgodisasm [options] <file to disassemble>\n\n")
@@ -53,6 +61,7 @@ func printBanner(options optionFlags) {
 		fmt.Println("[------------------------------------]")
 		fmt.Println("[ nesgodisasm - NES ROM disassembler ]")
 		fmt.Printf("[------------------------------------]\n\n")
+		fmt.Printf("version: %s\n", buildinfo.BuildVersion(version, commit, date))
 	}
 }
 

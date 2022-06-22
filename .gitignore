@@ -16,3 +16,4 @@
 examples/**/*.nes
 examples/colortest
 .testCoverage
+dist/
