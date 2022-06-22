@@ -6,7 +6,7 @@ import (
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
-	. "github.com/retroenv/nesgo/pkg/nes"
+	"github.com/retroenv/nesgo/pkg/nes"
 )
 
 // followExecutionFlow parses opcodes and follows the execution flow to parse all code.
@@ -16,13 +16,13 @@ func (dis *Disasm) followExecutionFlow() error {
 
 	for len(dis.targetsToParse) > 0 {
 		dis.popTarget()
-		if *PC == 0 {
+		if *nes.PC == 0 {
 			break
 		}
 
-		opcode := DecodePCInstruction(sys)
-		offset := dis.addressToOffset(*PC)
-		dis.offsets[offset].opcodeBytes = []byte{sys.ReadMemory(*PC)}
+		opcode := nes.DecodePCInstruction(sys)
+		offset := dis.addressToOffset(*nes.PC)
+		dis.offsets[offset].opcodeBytes = []byte{sys.ReadMemory(*nes.PC)}
 
 		var params string
 
@@ -60,7 +60,7 @@ func (dis *Disasm) followExecutionFlow() error {
 // processParamInstruction processes an instruction with parameters.
 // Special handling is required as this instruction could branch to a different location.
 func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) ([]byte, string, error) {
-	params, opcodes, _ := ReadOpParams(dis.sys, opcode.Addressing, false)
+	params, opcodes, _ := nes.ReadOpParams(dis.sys, opcode.Addressing, false)
 
 	paramAsString, err := paramString(dis.converter, opcode, params...)
 	if err != nil {
@@ -152,7 +152,7 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 		dis.offsets[offset].IsCallTarget = true
 	}
 	if jumpTarget {
-		dis.offsets[offset].JumpFrom = append(dis.offsets[offset].JumpFrom, *PC)
+		dis.offsets[offset].JumpFrom = append(dis.offsets[offset].JumpFrom, *nes.PC)
 		dis.jumpTargets[target] = struct{}{}
 	}
 
