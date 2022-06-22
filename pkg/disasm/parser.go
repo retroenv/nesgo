@@ -67,7 +67,7 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) ([]byte, string, e
 		return nil, "", err
 	}
 
-	paramAsString = dis.replaceParamByConstant(opcode, params[0], paramAsString)
+	paramAsString = dis.replaceParamByAlias(opcode, params[0], paramAsString)
 
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
 		addr, ok := params[0].(Absolute)
@@ -78,41 +78,45 @@ func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) ([]byte, string, e
 	return opcodes, paramAsString, nil
 }
 
-// replaceParamByConstant replaces the absolute address with a constant name if it has a known
-// translation for the access mode.
-func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, param interface{}, paramAsString string) string {
-	addr, ok := param.(Absolute)
+// replaceParamByAlias replaces the absolute address with an alias name if it can match it to
+// a constant, zero page variable or a code reference.
+func (dis *Disasm) replaceParamByAlias(opcode cpu.Opcode, param interface{}, paramAsString string) string {
+	address, ok := param.(Absolute)
 	if !ok { // not the addressing type found that accesses known addresses
 		return paramAsString
 	}
 
+	constantInfo, ok := dis.constants[uint16(address)]
+	if ok {
+		return dis.replaceParamByConstant(opcode, paramAsString, uint16(address), constantInfo)
+	}
+
+	// force using absolute address to not generate a different opcode by using zeropage access mode
+	// TODO check if other assemblers use the same prefix
+	switch opcode.Addressing {
+	case ZeroPageAddressing:
+		return "z:" + paramAsString
+	case AbsoluteAddressing:
+		return "a:" + paramAsString
+	default: // indirect x, ...
+		return paramAsString
+	}
+}
+
+func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, paramAsString string, address uint16, constantInfo constTranslation) string {
 	// split parameter string in case of x/y indexing, only the first part will be replaced by a const name
 	paramParts := strings.Split(paramAsString, ",")
 
-	constantInfo, ok := dis.constants[uint16(addr)]
-	if !ok { // not accessing a known address
-		// force using absolute address to not generate a different opcode by using zeropage access mode
-		// TODO check if other assemblers use the same prefix
-		switch opcode.Addressing {
-		case ZeroPageAddressing:
-			return "z:" + paramAsString
-		case AbsoluteAddressing:
-			return "a:" + paramAsString
-		default: // indirect x, ...
-			return paramAsString
-		}
-	}
-
 	if constantInfo.Read != "" {
 		if _, ok := cpu.MemoryReadInstructions[opcode.Instruction.Name]; ok {
-			dis.usedConstants[uint16(addr)] = constantInfo
+			dis.usedConstants[address] = constantInfo
 			paramParts[0] = constantInfo.Read
 			return strings.Join(paramParts, ",")
 		}
 	}
 	if constantInfo.Write != "" {
 		if _, ok := cpu.MemoryWriteInstructions[opcode.Instruction.Name]; ok {
-			dis.usedConstants[uint16(addr)] = constantInfo
+			dis.usedConstants[address] = constantInfo
 			paramParts[0] = constantInfo.Write
 			return strings.Join(paramParts, ",")
 		}
