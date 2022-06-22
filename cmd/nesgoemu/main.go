@@ -18,17 +18,27 @@ var (
 )
 
 type optionFlags struct {
-	input      *string
-	entrypoint *int
-	tracing    *bool
+	input string
+
+	entrypoint int
+	tracing    bool
 }
 
 func main() {
-	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
-	options := optionFlags{
-		entrypoint: flags.Int("e", -1, "entrypoint to start the CPU"),
-		tracing:    flags.Bool("t", false, "print CPU tracing"),
+	options := readArguments()
+
+	if err := emulateFile(options); err != nil {
+		fmt.Println(fmt.Errorf("emulation failed: %w", err))
+		os.Exit(1)
 	}
+}
+
+func readArguments() optionFlags {
+	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	options := optionFlags{}
+
+	flags.IntVar(&options.entrypoint, "e", -1, "entrypoint to start the CPU")
+	flags.BoolVar(&options.tracing, "t", false, "print CPU tracing")
 
 	err := flags.Parse(os.Args[1:])
 	args := flags.Args()
@@ -38,12 +48,9 @@ func main() {
 		flags.PrintDefaults()
 		os.Exit(1)
 	}
-	options.input = &args[0]
+	options.input = args[0]
 
-	if err := emulateFile(options); err != nil {
-		fmt.Println(fmt.Errorf("emulation failed: %w", err))
-		os.Exit(1)
-	}
+	return options
 }
 
 func printBanner() {
@@ -54,9 +61,9 @@ func printBanner() {
 }
 
 func emulateFile(options optionFlags) error {
-	file, err := os.Open(*options.input)
+	file, err := os.Open(options.input)
 	if err != nil {
-		return fmt.Errorf("opening file '%s': %w", *options.input, err)
+		return fmt.Errorf("opening file '%s': %w", options.input, err)
 	}
 
 	cart, err := cartridge.LoadFile(file)
@@ -70,11 +77,11 @@ func emulateFile(options optionFlags) error {
 		nes.WithCartridge(cart),
 	}
 
-	if *options.tracing {
+	if options.tracing {
 		opts = append(opts, nes.WithTracing())
 	}
-	if *options.entrypoint >= 0 {
-		opts = append(opts, nes.WithEntrypoint(*options.entrypoint))
+	if options.entrypoint >= 0 {
+		opts = append(opts, nes.WithEntrypoint(options.entrypoint))
 	}
 
 	nes.Start(nil, opts...)

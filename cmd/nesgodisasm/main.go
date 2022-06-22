@@ -22,21 +22,35 @@ var (
 )
 
 type optionFlags struct {
-	assembleTest *bool
-	hexComments  *bool
-	input        *string
-	output       *string
-	quiet        *bool
+	input  string
+	output string
+
+	assembleTest bool
+	hexComments  bool
+	quiet        bool
 }
 
 func main() {
-	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
-	options := optionFlags{
-		assembleTest: flags.Bool("a", false, "assemble the generated output using ca65 and check if it matches the input"),
-		hexComments:  flags.Bool("h", false, "output opcode bytes as hex values in comments"),
-		output:       flags.String("o", "", "name of the output .asm file, printed on console if no name given"),
-		quiet:        flags.Bool("q", false, "perform operations quietly"),
+	options := readArguments()
+
+	if !options.quiet {
+		printBanner(options)
 	}
+
+	if err := disasmFile(options); err != nil {
+		fmt.Println(fmt.Errorf("disassembling failed: %w", err))
+		os.Exit(1)
+	}
+}
+
+func readArguments() optionFlags {
+	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	options := optionFlags{}
+
+	flags.BoolVar(&options.assembleTest, "a", false, "assemble the generated output using ca65 and check if it matches the input")
+	flags.BoolVar(&options.hexComments, "h", false, "output opcode bytes as hex values in comments")
+	flags.StringVar(&options.output, "o", "", "name of the output .asm file, printed on console if no name given")
+	flags.BoolVar(&options.quiet, "q", false, "perform operations quietly")
 
 	err := flags.Parse(os.Args[1:])
 	args := flags.Args()
@@ -47,17 +61,13 @@ func main() {
 		flags.PrintDefaults()
 		os.Exit(1)
 	}
-	options.input = &args[0]
+	options.input = args[0]
 
-	printBanner(options)
-	if err := disasmFile(options); err != nil {
-		fmt.Println(fmt.Errorf("disassembling failed: %w", err))
-		os.Exit(1)
-	}
+	return options
 }
 
 func printBanner(options optionFlags) {
-	if !*options.quiet {
+	if !options.quiet {
 		fmt.Println("[------------------------------------]")
 		fmt.Println("[ nesgodisasm - NES ROM disassembler ]")
 		fmt.Printf("[------------------------------------]\n\n")
@@ -66,9 +76,9 @@ func printBanner(options optionFlags) {
 }
 
 func disasmFile(options optionFlags) error {
-	file, err := os.Open(*options.input)
+	file, err := os.Open(options.input)
 	if err != nil {
-		return fmt.Errorf("opening file '%s': %w", *options.input, err)
+		return fmt.Errorf("opening file '%s': %w", options.input, err)
 	}
 
 	cart, err := cartridge.LoadFile(file)
@@ -83,26 +93,26 @@ func disasmFile(options optionFlags) error {
 	}
 
 	var outputFile io.WriteCloser
-	if *options.output == "" {
+	if options.output == "" {
 		outputFile = os.Stdout
 	} else {
-		outputFile, err = os.Create(*options.output)
+		outputFile, err = os.Create(options.output)
 		if err != nil {
-			return fmt.Errorf("creating file '%s': %w", *options.output, err)
+			return fmt.Errorf("creating file '%s': %w", options.output, err)
 		}
 	}
-	if err = dis.Process(outputFile, *options.hexComments); err != nil {
+	if err = dis.Process(outputFile, options.hexComments); err != nil {
 		return fmt.Errorf("processing file: %w", err)
 	}
 	if err = outputFile.Close(); err != nil {
 		return fmt.Errorf("closing file: %w", err)
 	}
 
-	if *options.assembleTest {
+	if options.assembleTest {
 		if err = verifyOutput(cart, options); err != nil {
 			return err
 		}
-		if !*options.quiet {
+		if !options.quiet {
 			fmt.Println("Output file matched input file.")
 		}
 	}
@@ -110,11 +120,11 @@ func disasmFile(options optionFlags) error {
 }
 
 func verifyOutput(cart *cartridge.Cartridge, options optionFlags) error {
-	if *options.output == "" {
+	if options.output == "" {
 		return errors.New("can not verify console output")
 	}
 
-	filePart := filepath.Ext(*options.output)
+	filePart := filepath.Ext(options.output)
 	objectFile, err := os.CreateTemp("", filePart+".*.o")
 	if err != nil {
 		return err
@@ -135,11 +145,11 @@ func verifyOutput(cart *cartridge.Cartridge, options optionFlags) error {
 		PRGSize: len(cart.PRG),
 		CHRSize: len(cart.CHR),
 	}
-	if err = ca65.AssembleUsingExternalApp(*options.output, objectFile.Name(), outputFile.Name(), ca65Config); err != nil {
+	if err = ca65.AssembleUsingExternalApp(options.output, objectFile.Name(), outputFile.Name(), ca65Config); err != nil {
 		return fmt.Errorf("creating .nes file failed: %w", err)
 	}
 
-	source, err := os.ReadFile(*options.input)
+	source, err := os.ReadFile(options.input)
 	if err != nil {
 		return fmt.Errorf("reading file for comparison: %w", err)
 	}

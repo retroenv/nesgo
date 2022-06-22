@@ -17,31 +17,18 @@ var (
 )
 
 type optionFlags struct {
-	input  *string
-	output *string
-	quiet  *bool
+	input  string
+	output string
+
+	quiet bool
 }
 
 func main() {
-	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
-	options := optionFlags{
-		output: flags.String("o", "", "name of the output .nes file"),
-		quiet:  flags.Bool("q", false, "perform operations quietly"),
-	}
+	options := readArguments()
 
-	err := flags.Parse(os.Args[1:])
-	args := flags.Args()
-	if err != nil || len(args) == 0 || *options.output == "" {
+	if !options.quiet {
 		printBanner(options)
-		fmt.Printf("usage: nesgo [options] <file to compile>\n\n")
-		flags.PrintDefaults()
-		os.Exit(1)
-	}
-	options.input = &args[0]
-
-	if !*options.quiet {
-		printBanner(options)
-		fmt.Printf("Compiling %s\n", *options.input)
+		fmt.Printf("Compiling %s\n", options.input)
 	}
 
 	if err := compileFile(options); err != nil {
@@ -49,13 +36,33 @@ func main() {
 		os.Exit(1)
 	}
 
-	if !*options.quiet {
-		fmt.Printf("Output file %s created successfully\n", *options.output)
+	if !options.quiet {
+		fmt.Printf("Output file %s created successfully\n", options.output)
 	}
 }
 
+func readArguments() optionFlags {
+	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	options := optionFlags{}
+
+	flags.StringVar(&options.output, "o", "", "name of the output .nes file")
+	flags.BoolVar(&options.quiet, "q", false, "perform operations quietly")
+
+	err := flags.Parse(os.Args[1:])
+	args := flags.Args()
+	if err != nil || len(args) == 0 || options.output == "" {
+		printBanner(options)
+		fmt.Printf("usage: nesgo [options] <file to compile>\n\n")
+		flags.PrintDefaults()
+		os.Exit(1)
+	}
+
+	options.input = args[0]
+	return options
+}
+
 func printBanner(options optionFlags) {
-	if !*options.quiet {
+	if !options.quiet {
 		fmt.Println("[---------------------------------]")
 		fmt.Println("[ nesgo - Golang for NES Compiler ]")
 		fmt.Printf("[---------------------------------]\n\n")
@@ -70,17 +77,17 @@ func compileFile(options optionFlags) error {
 		return fmt.Errorf("creating compiler: %w", err)
 	}
 
-	data, err := os.ReadFile(*options.input)
+	data, err := os.ReadFile(options.input)
 	if err != nil {
 		return fmt.Errorf("reading file: %w", err)
 	}
-	if err = c.Parse(*options.input, data); err != nil {
-		return fmt.Errorf("parsing file '%s': %w", *options.input, err)
+	if err = c.Parse(options.input, data); err != nil {
+		return fmt.Errorf("parsing file '%s': %w", options.input, err)
 	}
 
-	asmFile, objectFile, err := c.OutputAsmFile(*options.output)
+	asmFile, objectFile, err := c.OutputAsmFile(options.output)
 	if err != nil {
-		return fmt.Errorf("compiling to file '%s' failed: %w", *options.output, err)
+		return fmt.Errorf("compiling to file '%s' failed: %w", options.output, err)
 	}
 
 	// TODO pass real options
@@ -89,8 +96,8 @@ func compileFile(options optionFlags) error {
 		CHRSize: 0x2000,
 	}
 
-	if err = ca65.AssembleUsingExternalApp(asmFile, objectFile, *options.output, ca65Config); err != nil {
-		return fmt.Errorf("creating .nes file '%s' failed: %w", *options.output, err)
+	if err = ca65.AssembleUsingExternalApp(asmFile, objectFile, options.output, ca65Config); err != nil {
+		return fmt.Errorf("creating .nes file '%s' failed: %w", options.output, err)
 	}
 
 	return nil
