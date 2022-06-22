@@ -51,9 +51,12 @@ ld65 example.o -t nes -o example.nes
 ## Options
 
 ```
+usage: nesgodisasm [options] <file to disassemble>
+
   -a	assemble the generated output using ca65 and check if it matches the input
   -h	output opcode bytes as hex values in comments
   -o string
     	name of the output .asm file, printed on console if no name given
   -q	perform operations quietly
+  -z	output the trailing zero bytes of banks
 ```
