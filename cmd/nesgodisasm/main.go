@@ -13,6 +13,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 )
 
 var (
@@ -26,31 +27,34 @@ type optionFlags struct {
 	output string
 
 	assembleTest bool
-	hexComments  bool
 	quiet        bool
 }
 
 func main() {
-	options := readArguments()
+	options, disasmOptions := readArguments()
 
 	if !options.quiet {
 		printBanner(options)
 	}
 
-	if err := disasmFile(options); err != nil {
+	if err := disasmFile(options, disasmOptions); err != nil {
 		fmt.Println(fmt.Errorf("disassembling failed: %w", err))
 		os.Exit(1)
 	}
 }
 
-func readArguments() optionFlags {
+func readArguments() (optionFlags, *disasmoptions.Options) {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{}
+	disasmOptions := &disasmoptions.Options{
+		Assembler: "ca65",
+	}
 
 	flags.BoolVar(&options.assembleTest, "a", false, "assemble the generated output using ca65 and check if it matches the input")
-	flags.BoolVar(&options.hexComments, "h", false, "output opcode bytes as hex values in comments")
+	flags.BoolVar(&disasmOptions.HexComments, "h", false, "output opcode bytes as hex values in comments")
 	flags.StringVar(&options.output, "o", "", "name of the output .asm file, printed on console if no name given")
 	flags.BoolVar(&options.quiet, "q", false, "perform operations quietly")
+	flags.BoolVar(&disasmOptions.ZeroBytes, "z", false, "output the trailing zero bytes of banks")
 
 	err := flags.Parse(os.Args[1:])
 	args := flags.Args()
@@ -63,7 +67,7 @@ func readArguments() optionFlags {
 	}
 	options.input = args[0]
 
-	return options
+	return options, disasmOptions
 }
 
 func printBanner(options optionFlags) {
@@ -75,7 +79,7 @@ func printBanner(options optionFlags) {
 	}
 }
 
-func disasmFile(options optionFlags) error {
+func disasmFile(options optionFlags, disasmOptions *disasmoptions.Options) error {
 	file, err := os.Open(options.input)
 	if err != nil {
 		return fmt.Errorf("opening file '%s': %w", options.input, err)
@@ -87,7 +91,7 @@ func disasmFile(options optionFlags) error {
 	}
 	_ = file.Close()
 
-	dis, err := disasm.New(cart, "ca65")
+	dis, err := disasm.New(cart, disasmOptions)
 	if err != nil {
 		return fmt.Errorf("initializing disassembler: %w", err)
 	}
@@ -101,7 +105,7 @@ func disasmFile(options optionFlags) error {
 			return fmt.Errorf("creating file '%s': %w", options.output, err)
 		}
 	}
-	if err = dis.Process(outputFile, options.hexComments); err != nil {
+	if err = dis.Process(outputFile); err != nil {
 		return fmt.Errorf("processing file: %w", err)
 	}
 	if err = outputFile.Close(); err != nil {

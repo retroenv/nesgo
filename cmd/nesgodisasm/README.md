@@ -5,9 +5,10 @@ nesgodisasm allows you to disassemble programs for the Nintendo Entertainment Sy
 ## Features
 
 * Outputs ca65 compatible .asm files that can be used to reproduce the original NES ROM
-* Translates known RAM addresses to aliases 
+* Translates known RAM addresses to aliases
 * Traces the program execution flow to differentiate between code and data
 * Supports undocumented 6502 CPU opcodes
+* Does not output trailing zero bytes of banks by default
 * Flexible architecture that allows it to create output modules for other assemblers 
 
 Check the [issue tracker](https://github.com/retroenv/nesgo/issues?q=is%3Aissue+is%3Aopen+label%3Adisassembler) for planned features or known bugs.
@@ -50,9 +51,12 @@ ld65 example.o -t nes -o example.nes
 ## Options
 
 ```
+usage: nesgodisasm [options] <file to disassemble>
+
   -a	assemble the generated output using ca65 and check if it matches the input
   -h	output opcode bytes as hex values in comments
   -o string
     	name of the output .asm file, printed on console if no name given
   -q	perform operations quietly
+  -z	output the trailing zero bytes of banks
 ```

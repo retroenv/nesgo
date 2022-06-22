@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
@@ -30,14 +31,14 @@ type segmentWrite struct {
 	name string
 }
 
-type customWrite func(app *program.Program, writer io.Writer) error
+type customWrite func(options *disasmoptions.Options, app *program.Program, writer io.Writer) error
 
 type lineWrite string
 
 const dataBytesPerLine = 16
 
 // Write writes the assembly file content including header, footer, code and data.
-func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
+func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
 
 	writes := []interface{}{
@@ -73,7 +74,7 @@ func (f FileWriter) Write(app *program.Program, writer io.Writer) error {
 			}
 
 		case customWrite:
-			if err := t(app, writer); err != nil {
+			if err := t(options, app, writer); err != nil {
 				return err
 			}
 		}
@@ -98,7 +99,7 @@ func (f FileWriter) writeSegment(writer io.Writer, name string) error {
 }
 
 // writeConstants will write constant aliases to the output.
-func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error {
+func (f FileWriter) writeConstants(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	if len(app.Constants) == 0 {
 		return nil
 	}
@@ -124,9 +125,13 @@ func (f FileWriter) writeConstants(app *program.Program, writer io.Writer) error
 }
 
 // writeCHR writes the CHR content to the output.
-func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
+func (f FileWriter) writeCHR(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "TILES"); err != nil {
 		return err
+	}
+
+	if options.ZeroBytes {
+		return bundleDataWrites(writer, app.CHR)
 	}
 
 	lastNonZeroByte := getLastNonZeroCHRByte(app)
@@ -134,21 +139,25 @@ func (f FileWriter) writeCHR(app *program.Program, writer io.Writer) error {
 }
 
 // writeCode writes the code to the output.
-func (f FileWriter) writeCode(app *program.Program, writer io.Writer) error {
+func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	if err := f.writeSegment(writer, "CODE"); err != nil {
 		return err
 	}
 
-	lastNonZeroByte, err := getLastNonZeroPRGByte(app)
-	if err != nil {
-		return err
+	endIndex := len(app.PRG) - 6 // leave space for vectors
+	if !options.ZeroBytes {
+		var err error
+		endIndex, err = getLastNonZeroPRGByte(app)
+		if err != nil {
+			return err
+		}
 	}
 
-	for i := 0; i < lastNonZeroByte; i++ {
+	for i := 0; i < endIndex; i++ {
 		res := app.PRG[i]
 		if res.CodeOutput == "" {
 			if res.HasData {
-				count, err := bundlePRGDataWrites(app, writer, i, lastNonZeroByte)
+				count, err := bundlePRGDataWrites(app, writer, i, endIndex)
 				if err != nil {
 					return err
 				}

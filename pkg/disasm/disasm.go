@@ -9,15 +9,16 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
-	. "github.com/retroenv/nesgo/pkg/nes"
+	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
 const codeBaseAddress = 0x8000
 
 type fileWriter interface {
-	Write(app *program.Program, writer io.Writer) error
+	Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error
 }
 
 // offset defines the content of an offset in a program that can represent data or code.
@@ -37,6 +38,8 @@ type offset struct {
 
 // Disasm implements a NES disassembler.
 type Disasm struct {
+	options *disasmoptions.Options
+
 	sys        *system.System
 	converter  paramConverter
 	fileWriter fileWriter
@@ -53,9 +56,10 @@ type Disasm struct {
 }
 
 // New creates a new NES disassembler that creates output compatible with the chosen assembler.
-func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
+func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, error) {
 	dis := &Disasm{
-		sys:           InitializeSystem(WithCartridge(cart)),
+		options:       options,
+		sys:           nes.InitializeSystem(nes.WithCartridge(cart)),
 		cart:          cart,
 		usedConstants: map[uint16]constTranslation{},
 		offsets:       make([]offset, len(cart.PRG)),
@@ -73,7 +77,7 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 		return nil, err
 	}
 
-	if err = dis.initializeCompatibleMode(assembler); err != nil {
+	if err = dis.initializeCompatibleMode(options.Assembler); err != nil {
 		return nil, fmt.Errorf("initializing compatible mode: %w", err)
 	}
 
@@ -82,7 +86,7 @@ func New(cart *cartridge.Cartridge, assembler string) (*Disasm, error) {
 }
 
 // Process disassembles the cartridge.
-func (dis *Disasm) Process(writer io.Writer, hexComments bool) error {
+func (dis *Disasm) Process(writer io.Writer) error {
 	if err := dis.followExecutionFlow(); err != nil {
 		return err
 	}
@@ -90,11 +94,11 @@ func (dis *Disasm) Process(writer io.Writer, hexComments bool) error {
 	dis.processData()
 	dis.processJumpTargets()
 
-	app, err := dis.convertToProgram(hexComments)
+	app, err := dis.convertToProgram()
 	if err != nil {
 		return err
 	}
-	return dis.fileWriter.Write(app, writer)
+	return dis.fileWriter.Write(dis.options, app, writer)
 }
 
 // initializeCompatibleMode sets the chosen assembler specific instances to be used to output
@@ -147,7 +151,7 @@ func (dis *Disasm) popTarget() {
 
 // converts the internal disasm type representation to a program type that will be used by
 // the chosen assembler output instance to generate the asm file.
-func (dis *Disasm) convertToProgram(hexComments bool) (*program.Program, error) {
+func (dis *Disasm) convertToProgram() (*program.Program, error) {
 	app := program.New(dis.cart)
 	app.Handlers = dis.handlers
 
@@ -168,7 +172,7 @@ func (dis *Disasm) convertToProgram(hexComments bool) (*program.Program, error) 
 			offset.CodeOutput = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
 		}
 
-		if hexComments && res.Output != "" {
+		if dis.options.HexComments && res.Output != "" {
 			if err := setHexCodeComment(&offset, &res); err != nil {
 				return nil, err
 			}
