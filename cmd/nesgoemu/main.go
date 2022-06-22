@@ -5,9 +5,16 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/retroenv/nesgo/internal/buildinfo"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	_ "github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/nes"
+)
+
+var (
+	version = "dev"
+	commit  = ""
+	date    = ""
 )
 
 type optionFlags struct {
@@ -43,6 +50,7 @@ func printBanner() {
 	fmt.Println("[-----------------------------]")
 	fmt.Println("[ nesgoemu - NES ROM emulator ]")
 	fmt.Printf("[-----------------------------]\n\n")
+	fmt.Printf("version: %s\n", buildinfo.BuildVersion(version, commit, date))
 }
 
 func emulateFile(options optionFlags) error {

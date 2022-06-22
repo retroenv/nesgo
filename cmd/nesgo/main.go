@@ -5,8 +5,15 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/retroenv/nesgo/internal/buildinfo"
 	"github.com/retroenv/nesgo/internal/compiler"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+)
+
+var (
+	version = "dev"
+	commit  = ""
+	date    = ""
 )
 
 type optionFlags struct {
@@ -52,6 +59,7 @@ func printBanner(options optionFlags) {
 		fmt.Println("[---------------------------------]")
 		fmt.Println("[ nesgo - Golang for NES Compiler ]")
 		fmt.Printf("[---------------------------------]\n\n")
+		fmt.Printf("version: %s\n", buildinfo.BuildVersion(version, commit, date))
 	}
 }
 
