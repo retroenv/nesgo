@@ -9,6 +9,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/system"
@@ -17,7 +18,7 @@ import (
 const codeBaseAddress = 0x8000
 
 type fileWriter interface {
-	Write(app *program.Program, writer io.Writer) error
+	Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error
 }
 
 // offset defines the content of an offset in a program that can represent data or code.
@@ -37,7 +38,7 @@ type offset struct {
 
 // Disasm implements a NES disassembler.
 type Disasm struct {
-	options Options
+	options *disasmoptions.Options
 
 	sys        *system.System
 	converter  paramConverter
@@ -55,7 +56,7 @@ type Disasm struct {
 }
 
 // New creates a new NES disassembler that creates output compatible with the chosen assembler.
-func New(cart *cartridge.Cartridge, options Options) (*Disasm, error) {
+func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, error) {
 	dis := &Disasm{
 		options:       options,
 		sys:           nes.InitializeSystem(nes.WithCartridge(cart)),
@@ -97,7 +98,7 @@ func (dis *Disasm) Process(writer io.Writer) error {
 	if err != nil {
 		return err
 	}
-	return dis.fileWriter.Write(app, writer)
+	return dis.fileWriter.Write(dis.options, app, writer)
 }
 
 // initializeCompatibleMode sets the chosen assembler specific instances to be used to output

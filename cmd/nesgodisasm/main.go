@@ -13,6 +13,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 )
 
 var (
@@ -42,10 +43,10 @@ func main() {
 	}
 }
 
-func readArguments() (optionFlags, disasm.Options) {
+func readArguments() (optionFlags, *disasmoptions.Options) {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{}
-	disasmOptions := disasm.Options{
+	disasmOptions := &disasmoptions.Options{
 		Assembler: "ca65",
 	}
 
@@ -78,7 +79,7 @@ func printBanner(options optionFlags) {
 	}
 }
 
-func disasmFile(options optionFlags, disasmOptions disasm.Options) error {
+func disasmFile(options optionFlags, disasmOptions *disasmoptions.Options) error {
 	file, err := os.Open(options.input)
 	if err != nil {
 		return fmt.Errorf("opening file '%s': %w", options.input, err)
