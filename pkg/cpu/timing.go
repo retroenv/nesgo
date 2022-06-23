@@ -12,7 +12,7 @@ import (
 // It allows for accounting of the instruction timing and trace logging.
 func (c *CPU) instructionHook(instruction *Instruction, params ...interface{}) {
 	if c.tracing == NoTracing {
-		addressing, _ := addressModeFromCall(instruction, params...)
+		addressing := c.addressModeFromCall(instruction, params...)
 		if !instruction.HasAddressing(addressing) {
 			panic(fmt.Sprintf("unexpected addressing mode type %T", addressing))
 		}

@@ -1,15 +1,15 @@
-package disasm
+// Package param contains the parameter to string conversion interface for disassembling.
+package param
 
 import (
 	"fmt"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
-	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
-// paramConverter is an interface for the conversion of the instruction parameters to
+// Converter is an interface for the conversion of the instruction parameters to
 // specific assembler implementation outputs.
-type paramConverter interface {
+type Converter interface {
 	Absolute(param interface{}) string
 	AbsoluteX(param interface{}) string
 	AbsoluteY(param interface{}) string
@@ -24,10 +24,10 @@ type paramConverter interface {
 	ZeroPageY(param interface{}) string
 }
 
-// paramString returns the parameters as a string that is compatible to the
+// String returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
-func paramString(converter paramConverter, opcode cpu.Opcode, params ...interface{}) (string, error) {
-	switch opcode.Addressing {
+func String(converter Converter, addressing Mode, params ...interface{}) (string, error) {
+	switch addressing {
 	case ImpliedAddressing:
 		return "", nil
 	case ImmediateAddressing:
@@ -55,6 +55,6 @@ func paramString(converter paramConverter, opcode cpu.Opcode, params ...interfac
 	case IndirectYAddressing:
 		return converter.IndirectY(params[0]), nil
 	default:
-		return "", fmt.Errorf("unsupported addressing mode %d", opcode.Addressing)
+		return "", fmt.Errorf("unsupported addressing mode %d", addressing)
 	}
 }
