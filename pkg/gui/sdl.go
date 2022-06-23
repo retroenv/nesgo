@@ -62,7 +62,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 		return nil, nil, nil, fmt.Errorf("creating SDL renderer: %w", err)
 	}
 
-	tex, err := renderer.CreateTexture(sdl.PIXELFORMAT_ABGR8888,
+	tex, err := renderer.CreateTexture(uint32(sdl.PIXELFORMAT_ABGR8888),
 		sdl.TEXTUREACCESS_STREAMING, int32(ppu.Width), int32(ppu.Height))
 	if err != nil {
 		return nil, nil, nil, fmt.Errorf("creating SDL texture: %w", err)

@@ -6,6 +6,7 @@ import (
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
@@ -62,7 +63,7 @@ func (dis *Disasm) followExecutionFlow() error {
 func (dis *Disasm) processParamInstruction(opcode cpu.Opcode) ([]byte, string, error) {
 	params, opcodes, _ := nes.ReadOpParams(dis.sys, opcode.Addressing, false)
 
-	paramAsString, err := paramString(dis.converter, opcode, params...)
+	paramAsString, err := param.String(dis.converter, opcode.Addressing, params...)
 	if err != nil {
 		return nil, "", err
 	}

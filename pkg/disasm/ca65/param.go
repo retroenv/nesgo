@@ -73,12 +73,12 @@ func (c ParamConverter) Indirect(param interface{}) string {
 
 // IndirectX converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) IndirectX(param interface{}) string {
-	address := param.(Absolute)
+	address := param.(Indirect)
 	return fmt.Sprintf("($%04X,X)", address)
 }
 
 // IndirectY converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) IndirectY(param interface{}) string {
-	address := param.(Absolute)
+	address := param.(Indirect)
 	return fmt.Sprintf("($%04X),Y", address)
 }

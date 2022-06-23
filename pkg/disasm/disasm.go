@@ -10,6 +10,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
+	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/system"
@@ -41,7 +42,7 @@ type Disasm struct {
 	options *disasmoptions.Options
 
 	sys        *system.System
-	converter  paramConverter
+	converter  param.Converter
 	fileWriter fileWriter
 	cart       *cartridge.Cartridge
 	handlers   program.Handlers

@@ -105,7 +105,7 @@ func paramReaderZeroPage(mem paramMemReader, resolveIndirect bool) ([]interface{
 func paramReaderZeroPageX(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
 	b := mem.ReadMemory(*PC + 1)
 
-	params := []interface{}{ZeroPage(b), *X}
+	params := []interface{}{ZeroPage(b), X}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
@@ -113,7 +113,7 @@ func paramReaderZeroPageX(mem paramMemReader, resolveIndirect bool) ([]interface
 func paramReaderZeroPageY(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
 	b := mem.ReadMemory(*PC + 1)
 
-	params := []interface{}{ZeroPage(b), *Y}
+	params := []interface{}{ZeroPage(b), Y}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
@@ -148,11 +148,14 @@ func paramReaderIndirectX(mem paramMemReader, resolveIndirect bool) ([]interface
 	offset := uint16(b + *X)
 
 	address := uint16(b)
+	var params []interface{}
 	if resolveIndirect {
 		address = mem.ReadMemory16Bug(offset)
+		params = []interface{}{IndirectResolved(address), X}
+	} else {
+		params = []interface{}{Indirect(address), X}
 	}
 
-	params := []interface{}{Absolute(address)}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
@@ -162,12 +165,15 @@ func paramReaderIndirectY(mem paramMemReader, resolveIndirect bool) ([]interface
 
 	var pageCrossed bool
 	address := uint16(b)
+	var params []interface{}
 	if resolveIndirect {
 		address = mem.ReadMemory16Bug(uint16(b))
 		address, pageCrossed = offsetAddress(address, *Y)
+		params = []interface{}{IndirectResolved(address), Y}
+	} else {
+		params = []interface{}{Indirect(address), Y}
 	}
 
-	params := []interface{}{Absolute(address)}
 	opcodes := []byte{b}
 	return params, opcodes, pageCrossed
 }

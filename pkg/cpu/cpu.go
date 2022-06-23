@@ -1,7 +1,12 @@
 // Package cpu provides CPU (Central  Processing Unit) functionality.
 package cpu
 
-import "io"
+import (
+	"io"
+
+	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+	"github.com/retroenv/nesgo/pkg/disasm/param"
+)
 
 const (
 	StackBase = 0x100
@@ -23,10 +28,11 @@ type CPU struct {
 	irqHandler *func()
 	memory     memory
 
-	cycles        uint64
-	tracing       TracingMode
-	tracingTarget io.Writer
-	TraceStep     TraceStep
+	cycles         uint64
+	tracing        TracingMode
+	tracingTarget  io.Writer
+	TraceStep      TraceStep
+	paramConverter param.Converter
 }
 
 // Bit No.   7   6   5   4   3   2   1   0
@@ -45,10 +51,11 @@ type flags struct {
 // New creates a new CPU.
 func New(memory memory, irqHandler *func()) *CPU {
 	c := &CPU{
-		SP:         InitialStack,
-		memory:     memory,
-		irqHandler: irqHandler,
-		cycles:     initialCycles,
+		SP:             InitialStack,
+		memory:         memory,
+		irqHandler:     irqHandler,
+		cycles:         initialCycles,
+		paramConverter: ca65.ParamConverter{},
 	}
 
 	// read reset interrupt handler address
