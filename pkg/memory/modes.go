@@ -35,14 +35,14 @@ func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 		m.writeMemoryAbsolute(address, value, register)
 	case ZeroPage:
 		m.writeMemoryZeroPage(address, value, register)
-	case Indirect:
+	case Indirect, IndirectResolved:
 		m.writeMemoryIndirect(address, value, register)
 	default:
 		panic(fmt.Sprintf("unsupported memory write addressing mode type %T", param))
 	}
 }
 
-func (m *Memory) writeMemoryIndirect(address Indirect, value byte, register interface{}) {
+func (m *Memory) writeMemoryIndirect(address interface{}, value byte, register interface{}) {
 	pointer := m.indirectMemoryPointer(address, register)
 	m.WriteMemory(pointer, value)
 }
@@ -146,7 +146,7 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 		return m.ReadMemoryAbsolute(address, register)
 	case ZeroPage:
 		return m.ReadMemoryZeroPage(address, register)
-	case Indirect:
+	case Indirect, IndirectResolved:
 		return m.readMemoryIndirect(address, register)
 	default:
 		panic(fmt.Sprintf("unsupported memory read addressing mode type %T", param))
@@ -219,12 +219,12 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 	}
 }
 
-func (m *Memory) readMemoryIndirect(address Indirect, register interface{}) byte {
+func (m *Memory) readMemoryIndirect(address interface{}, register interface{}) byte {
 	pointer := m.indirectMemoryPointer(address, register)
 	return m.ReadMemory(pointer)
 }
 
-func (m *Memory) indirectMemoryPointer(address Indirect, register interface{}) uint16 {
+func (m *Memory) indirectMemoryPointer(addressParam interface{}, register interface{}) uint16 {
 	if register == nil {
 		panic("register parameter missing for indirect memory addressing")
 	}
@@ -233,16 +233,25 @@ func (m *Memory) indirectMemoryPointer(address Indirect, register interface{}) u
 	if !ok {
 		panic(fmt.Sprintf("unsupported extra parameter type %T for indirect memory addressing", register))
 	}
-	if address > 0xff {
-		panic(fmt.Sprintf("indirect address parameter 0x%04X exceeds byte", address))
+
+	var address uint16
+	indirectAddress, ok := addressParam.(Indirect)
+	if ok {
+		address = uint16(indirectAddress)
+		if address > 0xff {
+			panic(fmt.Sprintf("indirect address parameter 0x%04X exceeds byte", address))
+		}
+	} else {
+		address = uint16(addressParam.(IndirectResolved))
+		return address
 	}
 
 	var pointer uint16
 	switch {
 	case p == m.globalX, p == m.x:
-		pointer = m.ReadMemory16(uint16(address) + uint16(*p))
+		pointer = m.ReadMemory16(address + uint16(*p))
 	case p == m.globalY, p == m.y:
-		pointer = m.ReadMemory16(uint16(address))
+		pointer = m.ReadMemory16(address)
 		pointer += uint16(*p)
 	default:
 		panic("only X and Y registers are supported for indirect addressing")

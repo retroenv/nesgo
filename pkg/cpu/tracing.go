@@ -90,9 +90,10 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 }
 
 // addressModeFromCall gets the addressing mode from the passed params.
+// nolint: cyclop
 func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{}) Mode {
 	if len(params) == 0 {
-		mode, _ := addressModeFromCallNoParam(instruction)
+		mode := addressModeFromCallNoParam(instruction)
 		return mode
 	}
 
@@ -253,16 +254,30 @@ func paramConverterIndirect(c *CPU, instruction *Instruction, params ...interfac
 }
 
 func paramConverterIndirectX(c *CPU, instruction *Instruction, params ...interface{}) string {
+	var address uint16
+	indirectAddress, ok := params[0].(Indirect)
+	if ok {
+		address = uint16(indirectAddress)
+	} else {
+		address = uint16(params[0].(IndirectResolved))
+	}
+
+	b := c.memory.ReadMemory(address)
 	offset := c.X + c.TraceStep.Opcode[1]
-	address := params[0].(Absolute)
-	b := c.memory.ReadMemory(uint16(address))
 	return fmt.Sprintf("($%02X,X) @ %02X = %04X = %02X", c.TraceStep.Opcode[1], offset, address, b)
 }
 
 func paramConverterIndirectY(c *CPU, instruction *Instruction, params ...interface{}) string {
-	address := params[0].(Absolute)
-	offset := address - Absolute(c.Y)
-	b := c.memory.ReadMemory(uint16(address))
+	var address uint16
+	indirectAddress, ok := params[0].(Indirect)
+	if ok {
+		address = uint16(indirectAddress)
+	} else {
+		address = uint16(params[0].(IndirectResolved))
+	}
+
+	b := c.memory.ReadMemory(address)
+	offset := address - uint16(c.Y)
 	return fmt.Sprintf("($%02X),Y = %04X @ %04X = %02X", c.TraceStep.Opcode[1], offset, address, b)
 }
 
@@ -279,13 +294,13 @@ func shouldOutputMemoryContent(address uint16) bool {
 	}
 }
 
-func addressModeFromCallNoParam(instruction *Instruction) (Mode, string) {
+func addressModeFromCallNoParam(instruction *Instruction) Mode {
 	if instruction.HasAddressing(AccumulatorAddressing) {
-		return AccumulatorAddressing, ""
+		return AccumulatorAddressing
 	}
 	// branches have no target in go mode
 	if instruction.HasAddressing(RelativeAddressing) {
-		return RelativeAddressing, ""
+		return RelativeAddressing
 	}
-	return ImpliedAddressing, ""
+	return ImpliedAddressing
 }

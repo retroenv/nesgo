@@ -15,6 +15,11 @@ type Absolute uint16
 // to the zero page.
 type Indirect uint16
 
+// IndirectResolved indicates that the parameter for the instruction is using
+// indirect addressing using an address and an optional X or Y register.
+// The final address including the memory read bug has been resolved.
+type IndirectResolved uint16
+
 // Accumulator indicates that the parameter for the instruction is the
 // accumulator.
 type Accumulator int
