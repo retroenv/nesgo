@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/nesgo/pkg/disasm/param"
 )
 
 // TracingMode defines a tracing mode.
@@ -61,12 +62,20 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 	var paramsAsString string
 
 	if c.tracing == GoTracing {
-		c.TraceStep.Addressing, paramsAsString = addressModeFromCall(instruction, params...)
+		c.TraceStep.Addressing = c.addressModeFromCall(instruction, params...)
 		if !instruction.HasAddressing(c.TraceStep.Addressing) {
 			panic(fmt.Sprintf("unexpected addressing mode type %T", c.TraceStep.Addressing))
 		}
 
-		c.TraceStep.Opcode = []byte{instruction.Addressing[c.TraceStep.Addressing].Opcode}
+		opcodeByte := instruction.Addressing[c.TraceStep.Addressing].Opcode
+
+		var err error
+		paramsAsString, err = param.String(c.paramConverter, c.TraceStep.Addressing, params...)
+		if err != nil {
+			panic(err)
+		}
+
+		c.TraceStep.Opcode = []byte{opcodeByte}
 		// TODO add parameter opcodes
 	} else {
 		paramsAsString = c.ParamString(instruction, params...)
@@ -80,51 +89,65 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 	c.TraceStep.print(c)
 }
 
-// addressModeFromCall gets the addressing mode from the passed params
-// TODO format in other func
-func addressModeFromCall(instruction *Instruction, params ...interface{}) (Mode, string) {
+// addressModeFromCall gets the addressing mode from the passed params.
+func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{}) Mode {
 	if len(params) == 0 {
-		return addressModeFromCallNoParam(instruction)
+		mode, _ := addressModeFromCallNoParam(instruction)
+		return mode
 	}
 
-	param := params[0]
+	firstParam := params[0]
 	var register interface{}
 	if len(params) > 1 {
 		register = params[1]
 	}
 
-	switch address := param.(type) {
+	switch address := firstParam.(type) {
 	case int:
 		if instruction.HasAddressing(ImmediateAddressing) && register == nil && address <= math.MaxUint8 {
-			return ImmediateAddressing, fmt.Sprintf("#$%02X", address)
+			return ImmediateAddressing
 		}
 		if register == nil {
-			return AbsoluteAddressing, fmt.Sprintf("$%04X", address)
+			return AbsoluteAddressing
 		}
 		panic("X/Y support not implemented") // TODO
 
 	case uint8:
-		return ImmediateAddressing, fmt.Sprintf("#$%02X", address)
+		return ImmediateAddressing
 
 	case *uint8: // variable
-		return ImmediateAddressing, fmt.Sprintf("#$%02X", *address)
+		return ImmediateAddressing
 
 	case Absolute:
 		// branches in emulation mode
 		if instruction.HasAddressing(RelativeAddressing) {
-			return RelativeAddressing, fmt.Sprintf("$%04X", address)
+			return RelativeAddressing
 		}
 
-		return AbsoluteAddressing, fmt.Sprintf("$%04X", address)
+		return AbsoluteAddressing
 
 	case Indirect:
 		if register == nil {
-			return IndirectAddressing, fmt.Sprintf("$%04X", address)
+			return IndirectAddressing
 		}
 		panic("X/Y support not implemented") // TODO
 
+	case ZeroPage:
+		if register == 0 {
+			return ZeroPageAddressing
+		}
+		ptr := register.(*uint8)
+		switch ptr {
+		case &c.X:
+			return ZeroPageXAddressing
+		case &c.Y:
+			return ZeroPageYAddressing
+		default:
+			panic(fmt.Sprintf("unsupported zeropage parameter %v", register))
+		}
+
 	default:
-		panic(fmt.Sprintf("unsupported addressing mode type %T", param))
+		panic(fmt.Sprintf("unsupported addressing mode type %T", firstParam))
 	}
 }
 
