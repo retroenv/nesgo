@@ -13,7 +13,6 @@ import (
 // followExecutionFlow parses opcodes and follows the execution flow to parse all code.
 func (dis *Disasm) followExecutionFlow() error {
 	sys := dis.sys
-	var err error
 
 	for len(dis.targetsToParse) > 0 {
 		dis.popTarget()
@@ -21,13 +20,21 @@ func (dis *Disasm) followExecutionFlow() error {
 			break
 		}
 
-		opcode := nes.DecodePCInstruction(sys)
 		offset := dis.addressToOffset(*nes.PC)
+		opcode, err := nes.DecodePCInstruction(sys)
+		if err != nil {
+			// consider unknown instruction as start of data
+			dis.offsets[offset].IsProcessed = true
+			continue
+		}
+
 		dis.offsets[offset].opcodeBytes = []byte{sys.ReadMemory(*nes.PC)}
 
 		var params string
 
-		if opcode.Instruction.ParamFunc != nil { // instruction has parameters
+		// process instructions with parameters, ignore special case of unofficial nop
+		// that also has an implied addressing without parameters.
+		if opcode.Instruction.ParamFunc != nil && opcode.Addressing != ImpliedAddressing {
 			var opcodes []byte
 			opcodes, params, err = dis.processParamInstruction(opcode)
 			if err != nil {
@@ -51,7 +58,7 @@ func (dis *Disasm) followExecutionFlow() error {
 			dis.offsets[offset].Output = fmt.Sprintf("%s %s", opcode.Instruction.Name, params)
 		}
 
-		for i := uint16(0); i < opcodeLength; i++ {
+		for i := uint16(0); i < opcodeLength && int(offset)+int(i) < len(dis.offsets); i++ {
 			dis.offsets[offset+i].IsProcessed = true
 		}
 	}

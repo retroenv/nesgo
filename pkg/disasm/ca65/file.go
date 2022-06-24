@@ -12,6 +12,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
+var cpuSelector = `.setcpu "6502x"` // allow unofficial opcodes
+
 var iNESHeader = `.byte "NES", $1a ; Magic string that always begins an iNES header`
 
 var headerByte = ".byte $%02x        ; %s\n"
@@ -42,6 +44,7 @@ func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, 
 	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
 
 	writes := []interface{}{
+		lineWrite(cpuSelector),
 		segmentWrite{name: "HEADER"},
 		lineWrite(iNESHeader),
 		headerByteWrite{value: byte(len(app.PRG) / 16384), comment: "Number of 16KB PRG-ROM banks"},
@@ -155,6 +158,11 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 
 	for i := 0; i < endIndex; i++ {
 		res := app.PRG[i]
+
+		if err := writeLabel(writer, i, res.Label); err != nil {
+			return err
+		}
+
 		if res.CodeOutput == "" {
 			if res.HasData {
 				count, err := bundlePRGDataWrites(app, writer, i, endIndex)
@@ -164,10 +172,6 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 				i = i + count - 1
 			}
 			continue
-		}
-
-		if err := writeLabel(writer, i, res.Label); err != nil {
-			return err
 		}
 
 		if res.Comment == "" {
