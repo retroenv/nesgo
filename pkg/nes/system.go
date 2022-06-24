@@ -5,14 +5,17 @@ package nes
 
 import (
 	"fmt"
+	"sync/atomic"
 
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
+type guiInitializer func(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error)
+
 // GuiStarter will be set by the chosen and imported GUI renderer.
-var GuiStarter func(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error)
+var GuiStarter guiInitializer
 
 // Start is the main entrypoint for a NES program that starts the execution.
 // Different options can be passed.
@@ -28,16 +31,17 @@ func Start(resetHandlerParam func(), options ...Option) {
 	opts := NewOptions(options...)
 	if opts.emulator {
 		sys.ResetHandler = func() {
-			RunEmulatorSteps(sys)
+			runEmulatorSteps(sys, opts.stopAt)
 		}
 	} else {
 		sys.ResetHandler = resetHandlerParam
 	}
 
-	if GuiStarter == nil {
-		GuiStarter = setupNoGui
+	guiStarter := setupNoGui
+	if GuiStarter != nil && !opts.noGui {
+		guiStarter = GuiStarter
 	}
-	if err := runRenderer(sys); err != nil {
+	if err := runRenderer(sys, opts, guiStarter); err != nil {
 		panic(err)
 	}
 }
@@ -68,44 +72,33 @@ func InitializeSystem(options ...Option) *system.System {
 	return sys
 }
 
-// RunEmulatorSteps runs the emulator until it is quit.
-func RunEmulatorSteps(sys *system.System) {
+// runEmulatorSteps runs the emulator until it is quit or reaches the given stop address.
+func runEmulatorSteps(sys *system.System, stopAt int) {
 	for {
-		runEmulatorStep(sys)
-	}
-}
-
-// RunEmulatorUntil runs the emulator until the given address.
-func RunEmulatorUntil(sys *system.System, address uint16) {
-	for {
-		if sys.PC == address {
+		if stopAt >= 0 && sys.PC == uint16(stopAt) {
 			return
 		}
-		runEmulatorStep(sys)
+
+		oldPC := *PC
+		opcode := DecodePCInstruction(sys)
+
+		ins := opcode.Instruction
+		if ins.NoParamFunc != nil {
+			ins.NoParamFunc()
+			updatePC(sys, ins, oldPC, 1)
+			continue
+		}
+
+		params, opcodes, pageCrossed := ReadOpParams(sys.Memory, opcode.Addressing, true)
+		sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
+		sys.TraceStep.PageCrossed = pageCrossed
+
+		ins.ParamFunc(params...)
+		updatePC(sys, ins, oldPC, len(sys.TraceStep.Opcode))
 	}
 }
 
-func runEmulatorStep(sys *system.System) {
-	oldPC := *PC
-	opcode := DecodePCInstruction(sys)
-
-	ins := opcode.Instruction
-	if ins.NoParamFunc != nil {
-		ins.NoParamFunc()
-		updatePC(sys, ins, oldPC, 1)
-		return
-	}
-
-	params, opcodes, pageCrossed := ReadOpParams(sys.Memory, opcode.Addressing, true)
-	sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
-	sys.TraceStep.PageCrossed = pageCrossed
-
-	ins.ParamFunc(params...)
-	updatePC(sys, ins, oldPC, len(sys.TraceStep.Opcode))
-}
-
-// DecodePCInstruction decodes the current instruction that
-// the program counter points to.
+// DecodePCInstruction decodes the current instruction that the program counter points to.
 func DecodePCInstruction(sys *system.System) cpu.Opcode {
 	b := sys.ReadMemory(*PC)
 	opcode, ok := cpu.Opcodes[b]
@@ -141,28 +134,35 @@ func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int
 }
 
 // runRenderer starts the chosen GUI renderer.
-func runRenderer(sys *system.System) error {
-	render, cleanup, err := GuiStarter(sys)
+func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) error {
+	render, cleanup, err := guiStarter(sys)
 	if err != nil {
 		return err
 	}
 	defer cleanup()
 
+	running := uint64(1)
 	go func() {
 		sys.ResetHandler()
+		if opts.stopAt >= 0 {
+			atomic.StoreUint64(&running, 0)
+			return
+		}
 		for { // forever loop in case reset handler returns
 		}
 	}()
 
-	running := true
-	for running {
+	for atomic.LoadUint64(&running) == 1 {
 		sys.PPU.StartRender()
 
 		sys.PPU.RenderScreen()
 
-		running, err = render()
+		continueRunning, err := render()
 		if err != nil {
 			return err
+		}
+		if !continueRunning {
+			atomic.StoreUint64(&running, 0)
 		}
 
 		sys.PPU.FinishRender()

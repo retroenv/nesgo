@@ -13,8 +13,11 @@ import (
 // Options contains options for the nesgo system.
 type Options struct {
 	entrypoint int
-	emulator   bool
-	cartridge  *cartridge.Cartridge
+	stopAt     int
+
+	emulator  bool
+	noGui     bool
+	cartridge *cartridge.Cartridge
 
 	tracing       cpu.TracingMode
 	tracingTarget io.Writer
@@ -30,6 +33,7 @@ type Option func(*Options)
 func NewOptions(options ...Option) *Options {
 	opts := &Options{
 		entrypoint: -1,
+		stopAt:     -1,
 	}
 	for _, option := range options {
 		option(opts)
@@ -88,5 +92,19 @@ func WithTracingTarget(target io.Writer) func(*Options) {
 func WithEntrypoint(address int) func(*Options) {
 	return func(options *Options) {
 		options.entrypoint = address
+	}
+}
+
+// WithStopAt stops execution of the program at a specific address.
+func WithStopAt(address int) func(*Options) {
+	return func(options *Options) {
+		options.stopAt = address
+	}
+}
+
+// WithDisabledGUI disabled the GUI.
+func WithDisabledGUI() func(*Options) {
+	return func(options *Options) {
+		options.noGui = true
 	}
 }

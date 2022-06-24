@@ -26,11 +26,12 @@ func TestNestest(t *testing.T) {
 		nes.WithEmulator(),
 		nes.WithCartridge(cart),
 		nes.WithEntrypoint(0xc000),
+		nes.WithStopAt(0x0001),
+		nes.WithDisabledGUI(),
 		nes.WithTracing(),
 		nes.WithTracingTarget(trace),
 	}
-	sys := nes.InitializeSystem(opts...)
-	nes.RunEmulatorUntil(sys, 0x0001)
+	nes.Start(nil, opts...)
 
 	assert.NoError(t, trace.Flush())
 

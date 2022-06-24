@@ -15,7 +15,7 @@ import (
 const (
 	Width  = 256
 	Height = 240
-	fps    = 60
+	FPS    = 60
 )
 
 // PPU implements the Picture Processing Unit.
@@ -112,7 +112,7 @@ func (p *PPU) clearVBlank() {
 // StartRender starts the rendering process.
 func (p *PPU) StartRender() {
 	p.setVBlank()
-	time.Sleep(time.Second / fps)
+	time.Sleep(time.Second / FPS)
 }
 
 // FinishRender finishes the rendering process.
