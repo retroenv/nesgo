@@ -21,6 +21,8 @@ type optionFlags struct {
 	input string
 
 	entrypoint int
+	noGui      bool
+	stopAt     int
 	tracing    bool
 }
 
@@ -37,7 +39,9 @@ func readArguments() optionFlags {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{}
 
+	flags.BoolVar(&options.noGui, "c", false, "console mode, disable GUI")
 	flags.IntVar(&options.entrypoint, "e", -1, "entrypoint to start the CPU")
+	flags.IntVar(&options.stopAt, "s", -1, "stop execution at address")
 	flags.BoolVar(&options.tracing, "t", false, "print CPU tracing")
 
 	err := flags.Parse(os.Args[1:])
@@ -82,6 +86,12 @@ func emulateFile(options optionFlags) error {
 	}
 	if options.entrypoint >= 0 {
 		opts = append(opts, nes.WithEntrypoint(options.entrypoint))
+	}
+	if options.stopAt >= 0 {
+		opts = append(opts, nes.WithStopAt(options.stopAt))
+	}
+	if options.noGui {
+		opts = append(opts, nes.WithDisabledGUI())
 	}
 
 	nes.Start(nil, opts...)
