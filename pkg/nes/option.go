@@ -84,6 +84,7 @@ func WithTracing() func(*Options) {
 // WithTracingTarget set the tracing target io writer.
 func WithTracingTarget(target io.Writer) func(*Options) {
 	return func(options *Options) {
+		options.tracing = cpu.GoTracing
 		options.tracingTarget = target
 	}
 }
