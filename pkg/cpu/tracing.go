@@ -90,7 +90,7 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 }
 
 // addressModeFromCall gets the addressing mode from the passed params.
-// nolint: cyclop
+// nolint: cyclop,funlen
 func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{}) Mode {
 	if len(params) == 0 {
 		mode := addressModeFromCallNoParam(instruction)
@@ -111,7 +111,7 @@ func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{
 		if register == nil {
 			return AbsoluteAddressing
 		}
-		panic("X/Y support not implemented") // TODO
+		panic(fmt.Sprintf("unsupported int parameter %v", firstParam))
 
 	case uint8:
 		return ImmediateAddressing
@@ -127,16 +127,26 @@ func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{
 
 		return AbsoluteAddressing
 
-	case Indirect:
+	case Indirect, IndirectResolved:
 		if register == nil {
 			return IndirectAddressing
 		}
-		panic("X/Y support not implemented") // TODO
+
+		ptr := register.(*uint8)
+		switch ptr {
+		case &c.X:
+			return IndirectXAddressing
+		case &c.Y:
+			return IndirectYAddressing
+		default:
+			panic(fmt.Sprintf("unsupported indirect parameter %v", register))
+		}
 
 	case ZeroPage:
 		if register == 0 {
 			return ZeroPageAddressing
 		}
+
 		ptr := register.(*uint8)
 		switch ptr {
 		case &c.X:
@@ -146,6 +156,9 @@ func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{
 		default:
 			panic(fmt.Sprintf("unsupported zeropage parameter %v", register))
 		}
+
+	case Accumulator:
+		return AccumulatorAddressing
 
 	default:
 		panic(fmt.Sprintf("unsupported addressing mode type %T", firstParam))
