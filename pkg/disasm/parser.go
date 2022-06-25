@@ -129,7 +129,7 @@ func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, param interface{}, 
 	return paramAsString
 }
 
-// processJumpTargets processes all jump targetsToParse and updates the callers with
+// processJumpTargets processes all jump targets and updates the callers with
 // the generated jump target label name.
 func (dis *Disasm) processJumpTargets() {
 	for target := range dis.jumpTargets {
@@ -144,11 +144,39 @@ func (dis *Disasm) processJumpTargets() {
 			dis.offsets[offset].Label = name
 		}
 
+		// if the offset is marked as code but does not have opcode bytes, the jumping target
+		// is inside the second or third byte of an instruction.
+		if dis.offsets[offset].Type&program.CodeOffset != 0 && len(dis.offsets[offset].OpcodeBytes) == 0 {
+			dis.handleJumpIntoInstruction(offset)
+		}
+
 		for _, caller := range dis.offsets[offset].JumpFrom {
 			offset = dis.addressToOffset(caller)
 			dis.offsets[offset].Code = dis.offsets[offset].opcode.Instruction.Name
 			dis.offsets[offset].JumpingTo = name
 		}
+	}
+}
+
+// handleJumpIntoInstruction converts an instruction that has a jump destination label inside
+// its second or third opcode bytes into data.
+func (dis *Disasm) handleJumpIntoInstruction(offset uint16) {
+	instructionStart := offset - 1
+	for ; len(dis.offsets[instructionStart].OpcodeBytes) == 0; instructionStart-- {
+	}
+
+	ins := dis.offsets[instructionStart]
+	ins.Comment = fmt.Sprintf("jump into instruction detected: %s", ins.Code)
+	ins.Code = ""
+	dis.offsets[instructionStart] = ins
+	data := ins.OpcodeBytes
+
+	for i := 0; i < len(data); i++ {
+		ins := dis.offsets[instructionStart+uint16(i)]
+		ins.OpcodeBytes = []byte{data[i]}
+		ins.Type ^= program.CodeOffset
+		ins.Type |= program.DataOffset
+		dis.offsets[instructionStart+uint16(i)] = ins
 	}
 }
 

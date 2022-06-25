@@ -217,15 +217,26 @@ func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, end
 
 	for i := startIndex; i < endIndex; i++ {
 		res := app.PRG[i]
-		if res.Label != "" || res.Type&program.DataOffset == 0 {
+		if res.Type&program.DataOffset == 0 {
 			break
 		}
 		data = append(data, res.OpcodeBytes[0])
 		count++
+
+		// special case for data bytes that are part of a branch into an instruction
+		if res.Comment != "" {
+			break
+		}
 	}
 
-	if err := bundleDataWrites(writer, data); err != nil {
-		return 0, err
+	if len(data) == 1 {
+		if err := writeDataSingleByte(app, writer, startIndex); err != nil {
+			return 0, err
+		}
+	} else {
+		if err := bundleDataWrites(writer, data); err != nil {
+			return 0, err
+		}
 	}
 	return count, nil
 }
@@ -259,6 +270,20 @@ func bundleDataWrites(writer io.Writer, data []byte) error {
 		remaining -= toWrite
 	}
 
+	return nil
+}
+
+func writeDataSingleByte(app *program.Program, writer io.Writer, index int) error {
+	res := app.PRG[index]
+	if res.Comment == "" {
+		if _, err := fmt.Fprintf(writer, ".byte $%02x\n", res.OpcodeBytes[0]); err != nil {
+			return err
+		}
+	} else {
+		if _, err := fmt.Fprintf(writer, ".byte $%02x %-22s ; %s\n", res.OpcodeBytes[0], "", res.Comment); err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
