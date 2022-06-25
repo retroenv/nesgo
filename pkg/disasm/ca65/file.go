@@ -163,26 +163,25 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 			return err
 		}
 
-		if res.CodeOutput == "" {
-			if res.HasData {
-				count, err := bundlePRGDataWrites(app, writer, i, endIndex)
-				if err != nil {
-					return err
-				}
-				i = i + count - 1
+		if res.Type&program.DataOffset != 0 {
+			count, err := bundlePRGDataWrites(app, writer, i, endIndex)
+			if err != nil {
+				return err
 			}
+			i = i + count - 1
 			continue
 		}
 
 		if res.Comment == "" {
-			if _, err := fmt.Fprintf(writer, "  %s\n", res.CodeOutput); err != nil {
+			if _, err := fmt.Fprintf(writer, "  %s\n", res.Code); err != nil {
 				return err
 			}
 		} else {
-			if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.CodeOutput, res.Comment); err != nil {
+			if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.Code, res.Comment); err != nil {
 				return err
 			}
 		}
+		i += len(res.OpcodeBytes) - 1
 	}
 
 	return nil
@@ -218,10 +217,10 @@ func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, end
 
 	for i := startIndex; i < endIndex; i++ {
 		res := app.PRG[i]
-		if res.CodeOutput != "" || res.Label != "" || !res.HasData {
+		if res.Label != "" || res.Type&program.DataOffset == 0 {
 			break
 		}
-		data = append(data, res.Data)
+		data = append(data, res.OpcodeBytes[0])
 		count++
 	}
 
@@ -269,7 +268,7 @@ func getLastNonZeroPRGByte(app *program.Program) (int, error) {
 
 	for i := start; i >= 0; i-- {
 		res := app.PRG[i]
-		if res.CodeOutput == "" && res.Data == 0 {
+		if len(res.OpcodeBytes) == 0 || res.OpcodeBytes[0] == 0 {
 			continue
 		}
 		return i + 1, nil
