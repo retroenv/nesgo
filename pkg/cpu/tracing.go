@@ -81,7 +81,7 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 		paramsAsString = c.ParamString(instruction, params...)
 	}
 
-	c.TraceStep.Unofficial = instruction.unofficial
+	c.TraceStep.Unofficial = instruction.Unofficial
 	c.TraceStep.Instruction = strings.ToUpper(instruction.Name)
 	if paramsAsString != "" {
 		c.TraceStep.Instruction += " " + paramsAsString

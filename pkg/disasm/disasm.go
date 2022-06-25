@@ -161,7 +161,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 
 		if res.Type&program.CodeOffset == 0 {
 			offset.Type |= program.DataOffset
-		} else if dis.options.HexComments {
+		} else if dis.options.HexComments && res.Comment == "" {
 			if err := setHexCodeComment(&offset); err != nil {
 				return nil, err
 			}
