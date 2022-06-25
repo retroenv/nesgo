@@ -29,6 +29,7 @@ type offset struct {
 
 	IsProcessed  bool     // flag whether current offset and following opcode bytes have been processed
 	IsCallTarget bool     // opcode is target of a jsr call, indicating a subroutine
+	IsData       bool     // flag whether current offset is data
 	JumpFrom     []uint16 // list of all addresses that jump to this offset
 
 	Label     string // name of label or subroutine if identified as a jump target
@@ -164,7 +165,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 			Label:        res.Label,
 			CodeOutput:   res.Output,
 		}
-		if !res.IsProcessed {
+		if !res.IsProcessed || res.IsData {
 			offset.Data = res.Data
 			offset.HasData = true
 		}

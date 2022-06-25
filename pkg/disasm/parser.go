@@ -24,7 +24,9 @@ func (dis *Disasm) followExecutionFlow() error {
 		opcode, err := nes.DecodePCInstruction(sys)
 		if err != nil {
 			// consider unknown instruction as start of data
+			dis.offsets[offset].Data = sys.ReadMemory(*nes.PC)
 			dis.offsets[offset].IsProcessed = true
+			dis.offsets[offset].IsData = true
 			continue
 		}
 
