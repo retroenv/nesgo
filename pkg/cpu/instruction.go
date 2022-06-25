@@ -12,7 +12,7 @@ type AddressingInfo struct {
 // Instruction contains information about a NES CPU instruction.
 type Instruction struct {
 	Name       string
-	unofficial bool
+	Unofficial bool
 
 	// instruction has no parameters
 	NoParamFunc func()

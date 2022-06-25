@@ -25,7 +25,7 @@ func linkUnofficialInstructionFuncs(cpu *CPU) {
 
 var unofficialDcp = &Instruction{
 	Name:       "dcp",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0xc7},
 		ZeroPageXAddressing: {Opcode: 0xd7},
@@ -39,7 +39,7 @@ var unofficialDcp = &Instruction{
 
 var unofficialIsb = &Instruction{
 	Name:       "isb",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0xe7},
 		ZeroPageXAddressing: {Opcode: 0xf7},
@@ -53,7 +53,7 @@ var unofficialIsb = &Instruction{
 
 var unofficialLax = &Instruction{
 	Name:       "lax",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0xa7},
 		ZeroPageYAddressing: {Opcode: 0xb7},
@@ -66,12 +66,12 @@ var unofficialLax = &Instruction{
 
 var unofficialNop = &Instruction{
 	Name:       "nop",
-	unofficial: true,
+	Unofficial: true,
 }
 
 var unofficialRla = &Instruction{
 	Name:       "rla",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0x27},
 		ZeroPageXAddressing: {Opcode: 0x37},
@@ -85,7 +85,7 @@ var unofficialRla = &Instruction{
 
 var unofficialRra = &Instruction{
 	Name:       "rra",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0x67},
 		ZeroPageXAddressing: {Opcode: 0x77},
@@ -99,7 +99,7 @@ var unofficialRra = &Instruction{
 
 var unofficialSax = &Instruction{
 	Name:       "sax",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0x87},
 		ZeroPageYAddressing: {Opcode: 0x97},
@@ -110,7 +110,7 @@ var unofficialSax = &Instruction{
 
 var unofficialSbc = &Instruction{
 	Name:       "sbc",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ImmediateAddressing: {Opcode: 0xeb},
 	},
@@ -118,7 +118,7 @@ var unofficialSbc = &Instruction{
 
 var unofficialSlo = &Instruction{
 	Name:       "slo",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0x07},
 		ZeroPageXAddressing: {Opcode: 0x17},
@@ -132,7 +132,7 @@ var unofficialSlo = &Instruction{
 
 var unofficialSre = &Instruction{
 	Name:       "sre",
-	unofficial: true,
+	Unofficial: true,
 	Addressing: map[Mode]AddressingInfo{
 		ZeroPageAddressing:  {Opcode: 0x47},
 		ZeroPageXAddressing: {Opcode: 0x57},
