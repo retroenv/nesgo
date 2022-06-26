@@ -28,6 +28,9 @@ type optionFlags struct {
 
 	assembleTest bool
 	quiet        bool
+
+	noHexComments bool
+	noOffsets     bool
 }
 
 func main() {
@@ -46,12 +49,11 @@ func main() {
 func readArguments() (optionFlags, *disasmoptions.Options) {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{}
-	disasmOptions := &disasmoptions.Options{
-		Assembler: "ca65",
-	}
+	disasmOptions := disasmoptions.New()
 
-	flags.BoolVar(&options.assembleTest, "a", false, "assemble the generated output using ca65 and check if it matches the input")
-	flags.BoolVar(&disasmOptions.HexComments, "h", false, "output opcode bytes as hex values in comments")
+	flags.BoolVar(&options.assembleTest, "verify", false, "verify the generated output by assembling with ca65 and check if it matches the input")
+	flags.BoolVar(&options.noHexComments, "nohexcomments", false, "do not output opcode bytes as hex values in comments")
+	flags.BoolVar(&options.noOffsets, "nooffsets", false, "do not output offsets in comments")
 	flags.StringVar(&options.output, "o", "", "name of the output .asm file, printed on console if no name given")
 	flags.BoolVar(&options.quiet, "q", false, "perform operations quietly")
 	flags.BoolVar(&disasmOptions.ZeroBytes, "z", false, "output the trailing zero bytes of banks")
@@ -67,7 +69,7 @@ func readArguments() (optionFlags, *disasmoptions.Options) {
 	}
 	options.input = args[0]
 
-	return options, disasmOptions
+	return options, &disasmOptions
 }
 
 func printBanner(options optionFlags) {
@@ -90,6 +92,9 @@ func disasmFile(options optionFlags, disasmOptions *disasmoptions.Options) error
 		return fmt.Errorf("reading file: %w", err)
 	}
 	_ = file.Close()
+
+	disasmOptions.HexComments = !options.noHexComments
+	disasmOptions.OffsetComments = !options.noOffsets
 
 	dis, err := disasm.New(cart, disasmOptions)
 	if err != nil {
