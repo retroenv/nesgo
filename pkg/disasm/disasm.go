@@ -161,9 +161,14 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 
 		if res.Type&program.CodeOffset == 0 {
 			offset.Type |= program.DataOffset
-		} else if dis.options.HexComments && res.Comment == "" {
-			if err := setHexCodeComment(&offset); err != nil {
-				return nil, err
+		} else {
+			if dis.options.OffsetComments {
+				setOffsetComment(&offset, codeBaseAddress+uint16(i))
+			}
+			if dis.options.HexComments && res.Comment == "" {
+				if err := setHexCodeComment(&offset); err != nil {
+					return nil, err
+				}
 			}
 		}
 
@@ -197,6 +202,21 @@ func setHexCodeComment(offset *program.Offset) error {
 			return err
 		}
 	}
-	offset.Comment = strings.TrimRight(buf.String(), " ")
+
+	comment := strings.TrimRight(buf.String(), " ")
+	if offset.Comment == "" {
+		offset.Comment = comment
+	} else {
+		offset.Comment = fmt.Sprintf("%s %s", offset.Comment, comment)
+	}
+
 	return nil
+}
+
+func setOffsetComment(offset *program.Offset, address uint16) {
+	if offset.Comment == "" {
+		offset.Comment = fmt.Sprintf("$%04X", address)
+	} else {
+		offset.Comment = fmt.Sprintf("$%04X %s", address, offset.Comment)
+	}
 }
