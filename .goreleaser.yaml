@@ -40,10 +40,3 @@ checksum:
 
 snapshot:
   name_template: "{{ .Tag }}-snapshot"
-
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^docs:'
-      - '^test:'
