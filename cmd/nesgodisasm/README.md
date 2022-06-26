@@ -20,6 +20,7 @@ Currently, only ROMs that use mapper 0 are supported.
 
 There are different options to install nesgodisasm, the binary releases do not have any dependencies, 
 compiling the tool from source code needs to have a recent version of [Golang](https://go.dev/) installed.
+To use the `-verify` option, [cc65](https://github.com/cc65/cc65) needs to be installed.
 
 1. Download and unpack a binary release from [Releases](https://github.com/retroenv/nesgo/releases)
 
@@ -47,7 +48,29 @@ Disassemble a ROM:
 nesgodisasm -o example.asm example.nes
 ```
 
-Assemble a changed .asm file back to a ROM:
+The generated assembly file content will look like:
+
+```
+...
+Reset:
+  sei                            ; $8000 78
+  cld                            ; $8001 D8
+  lda #$10                       ; $8002 A9 10
+  sta PPU_CTRL                   ; $8004 8D 00 20
+  ldx #$FF                       ; $8007 A2 FF
+  txs                            ; $8009 9A
+
+_label_800a:
+  lda PPU_STATUS                 ; $800A AD 02 20
+  bpl _label_800a                ; $800D 10 FB
+
+...
+.segment "VECTORS"
+
+.addr NMI, Reset, IRQ
+```
+
+Assemble an .asm file back to a ROM:
 
 ```
 ca65 example.asm -o example.o
