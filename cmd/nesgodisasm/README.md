@@ -8,22 +8,28 @@ nesgodisasm allows you to disassemble programs for the Nintendo Entertainment Sy
 * Translates known RAM addresses to aliases
 * Traces the program execution flow to differentiate between code and data
 * Supports undocumented 6502 CPU opcodes
+* Supports branching into opcode parts of an instruction
 * Does not output trailing zero bytes of banks by default
 * Flexible architecture that allows it to create output modules for other assemblers 
 
 Check the [issue tracker](https://github.com/retroenv/nesgo/issues?q=is%3Aissue+is%3Aopen+label%3Adisassembler) for planned features or known bugs.
 
+Currently, only ROMs that use mapper 0 are supported.
+
 ## Installation
 
-Your system needs to have a recent [Golang](https://go.dev/) version installed.
+There are different options to install nesgodisasm, the binary releases do not have any dependencies, 
+compiling the tool from source code needs to have a recent version of [Golang](https://go.dev/) installed.
 
-Install the latest stable version by running:
+1. Download and unpack a binary release from [Releases](https://github.com/retroenv/nesgo/releases)
+
+2. Install the latest release from source: 
 
 ```
 go install github.com/retroenv/nesgo/cmd/nesgodisasm@latest
 ```
 
-The latest development version can be installed using:
+3. Build the current development version:
 
 ```
 git clone https://github.com/retroenv/nesgo.git
@@ -51,12 +57,14 @@ ld65 example.o -t nes -o example.nes
 ## Options
 
 ```
-usage: nesgodisasm [options] <file to disassemble>
-
-  -a	assemble the generated output using ca65 and check if it matches the input
-  -h	output opcode bytes as hex values in comments
+  -nohexcomments
+    	do not output opcode bytes as hex values in comments
+  -nooffsets
+    	do not output offsets in comments
   -o string
     	name of the output .asm file, printed on console if no name given
   -q	perform operations quietly
+  -verify
+    	verify the generated output by assembling with ca65 and check if it matches the input
   -z	output the trailing zero bytes of banks
 ```
