@@ -30,6 +30,9 @@ jobs:
       - name: Install linters
         run: make install-linters
 
+      - name: Install ca65
+        run: sudo apt-get install -y cc65
+
       - name: Get dependencies
         run: go mod download
 
