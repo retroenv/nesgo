@@ -5,7 +5,6 @@ import (
 	"bytes"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"strings"
 
 	"github.com/retroenv/nesgo/internal/ast"
@@ -18,26 +17,25 @@ type File struct {
 	Path      string
 	IsIgnored bool
 	Package   string
+
 	Imports   []*ast.Import
 	Constants []*ast.Constant
 	Variables []*ast.Variable
 	Functions []*ast.Function
+
+	importLookup map[string]*ast.Import
 }
 
 // parseFile parses the file using the lexer and parser and returns an AST
 // presentation of the file.
-func parseFile(file string) (*File, error) {
-	data, err := ioutil.ReadFile(file)
-	if err != nil {
-		return nil, fmt.Errorf("reading file: %w", err)
-	}
-
+func parseFile(fileName string, data []byte) (*File, error) {
 	ignored, err := isFileIgnored(data)
 	if err != nil {
 		return nil, err
 	}
 	f := &File{
-		Path: file,
+		Path:         fileName,
+		importLookup: map[string]*ast.Import{},
 	}
 	if ignored {
 		f.IsIgnored = true
@@ -61,6 +59,10 @@ func parseFile(file string) (*File, error) {
 	f.Constants = astFile.Constants
 	f.Variables = astFile.Variables
 	f.Functions = astFile.Functions
+
+	for _, imp := range astFile.Imports {
+		f.importLookup[imp.Alias] = imp
+	}
 
 	return f, nil
 }

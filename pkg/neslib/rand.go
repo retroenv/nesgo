@@ -4,7 +4,7 @@ import . "github.com/retroenv/nesgo/pkg/nes"
 
 // NextRandom returns a random number in A register.
 func NextRandom() {
-	Lsr()
+	Lsr(A)
 	if Bcc() {
 		goto NoEor
 	}
@@ -14,7 +14,7 @@ NoEor:
 
 // PrevRandom returns a random number in A register.
 func PrevRandom() {
-	Asl()
+	Asl(A)
 	if Bcc() {
 		goto NoEor
 	}

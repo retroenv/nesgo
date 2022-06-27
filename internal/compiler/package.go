@@ -3,7 +3,7 @@ package compiler
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path"
 	"strings"
 
@@ -32,21 +32,21 @@ func parsePackage(name string) (*Package, error) {
 		return nil, fmt.Errorf("getting current package: %w", err)
 	}
 
+	pack := newPackage(packName)
 	// TODO support external packages
 	if !strings.HasPrefix(name, packName) {
 		if name == "fmt" {
-			return nil, nil // nolint: nilnil
+			return pack, nil
 		}
 		return nil, errors.New("external packages are not support yet")
 	}
 
 	dir := path.Join(directory, strings.TrimPrefix(name, packName))
-	files, err := ioutil.ReadDir(dir)
+	files, err := os.ReadDir(dir)
 	if err != nil {
 		return nil, fmt.Errorf("reading package '%s' directory: %w", name, err)
 	}
 
-	pack := newPackage(packName)
 	for _, entry := range files {
 		fileName := entry.Name()
 		if strings.HasSuffix(strings.ToLower(fileName), testFileSuffix) {
@@ -54,7 +54,11 @@ func parsePackage(name string) (*Package, error) {
 		}
 
 		fullPath := path.Join(dir, fileName)
-		file, err := parseFile(fullPath)
+		data, err := os.ReadFile(fullPath)
+		if err != nil {
+			return nil, fmt.Errorf("reading file: %w", err)
+		}
+		file, err := parseFile(fullPath, data)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file '%s': %w", fullPath, err)
 		}
@@ -89,7 +93,7 @@ func (p *Package) addFile(fileName string, file *File) error {
 		}
 	}
 
-	if err := p.addConstants(file.Constants); err != nil {
+	if err := p.addConstants(file); err != nil {
 		return fmt.Errorf("adding constants: %w", err)
 	}
 	if err := p.addVariables(file.Variables); err != nil {

@@ -28,8 +28,8 @@ linters:
     - govet # reports suspicious constructs, such as Printf calls with wrong arguments
     - ifshort # Checks that code uses short syntax for if-statements whenever possible
     - ineffassign # Detects when assignments to existing variables are not used
-    - lll # Reports long lines
     - makezero # Finds slice declarations with non-zero initial length
+    - maintidx # measures the maintainability index of each function
     - misspell # Finds commonly misspelled English words in comments
     - nakedret # Finds naked returns in functions
     - nestif # Reports deeply nested if statements
@@ -41,6 +41,7 @@ linters:
     - staticcheck # drop-in replacement of go vet
     - structcheck # Finds unused struct fields
     - stylecheck # Stylecheck is a replacement for golint
+    - tenv # detects using os.Setenv instead of t.Setenv
     - thelper # checks the consistency of test helpers
     - tparallel # detects inappropriate usage of t.Parallel()
     - typecheck # parses and type-checks Go code

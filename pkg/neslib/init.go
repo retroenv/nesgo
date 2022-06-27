@@ -10,7 +10,7 @@ func Init(_ ...Inline) {
 	Txs()
 	Inx()
 	Stx(PPU_MASK)      // disable rendering
-	Stx(DMC_FREQ)      // disable DMC interrupts
+	Stx(APU_DMC_CTRL)  // disable DMC interrupts
 	Stx(PPU_CTRL)      // disable NMI interrupts
 	Bit(PPU_STATUS)    // clear VBL flag
 	Bit(APU_CHAN_CTRL) // ack DMC IRQ bit 7

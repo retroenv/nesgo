@@ -8,7 +8,8 @@ import (
 )
 
 func TestParser(t *testing.T) {
+	InitializeSystem()
 	ClearRAM()
 	// TODO add test
-	assert.Equal(t, 0, *A)
+	assert.Equal(t, 0, *X)
 }

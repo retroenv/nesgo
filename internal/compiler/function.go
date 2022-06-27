@@ -18,8 +18,12 @@ type Function struct {
 	Definition *ast.FunctionDefinition
 	Body       *ast.NodeList
 
-	Package *Package              // package that this function belongs to
-	Labels  map[string]*ast.Label // map of all labels in this function
+	// package that this function belongs to
+	Package *Package
+	// map of all labels in this function
+	Labels map[string]*ast.Label
+	// function is an IRQ handler and has to return with rti instruction
+	IrqHandler bool
 }
 
 // resolveFunctionNodes parses all nodes of a function and resolves
@@ -55,12 +59,11 @@ func (c *Compiler) resolveFunctionNodes(f *Function) error {
 	}
 
 	f.Body.Nodes = newNodes
-	addFunctionReturn(f)
 	return nil
 }
 
 func (c *Compiler) resolveCall(f *Function, n *ast.Call, caller string) error {
-	fullName, fun, err := f.Package.findFunction(c.packages, caller, n.Function)
+	fullName, calledFun, err := f.Package.findFunction(c.packages, caller, n.Function)
 	if err != nil {
 		if caller == "main" && n.Function == "Start" {
 			return c.handleStartCall(n)
@@ -82,7 +85,7 @@ func (c *Compiler) resolveCall(f *Function, n *ast.Call, caller string) error {
 	n.Function = fullName
 
 	if _, ok := c.functionsAdded[fullName]; !ok {
-		c.functionsToParse[fullName] = fun
+		c.functionsToParse[fullName] = calledFun
 	}
 	return nil
 }
@@ -95,25 +98,49 @@ func (c *Compiler) handleStartCall(n *ast.Call) error {
 	}
 	c.resetHandler = identifier.Name
 
-	if len(n.Parameter) > 2 {
-		arg = n.Parameter[2]
-		identifier, ok = arg.(*ast.Identifier)
+	for _, param := range n.Parameter[1:] {
+		call, ok := param.(*ast.Call)
 		if !ok {
 			return fmt.Errorf("type %T is not supported as Start call parameter", arg)
 		}
-		c.irqHandler = identifier.Name
-	}
-
-	if len(n.Parameter) > 1 {
-		arg = n.Parameter[1]
-		identifier, ok = arg.(*ast.Identifier)
-		if !ok {
-			return fmt.Errorf("type %T is not supported as Start call parameter", arg)
+		if len(call.Parameter) == 0 {
+			continue
 		}
-		c.nmiHandler = identifier.Name
-	}
 
+		param := call.Parameter[0]
+		identifier, ok := param.(*ast.Identifier)
+		if !ok {
+			return fmt.Errorf("parameter type %T is not supported as Start call parameter", param)
+		}
+
+		switch call.Function {
+		case "WithTracing":
+			continue
+		case "WithIrqHandler":
+			c.irqHandler = identifier.Name
+		case "WithNmiHandler":
+			c.nmiHandler = identifier.Name
+		}
+	}
 	return nil
+}
+
+// processIrqHandlers sets the IRQ handler flag of functions referenced as
+// parameter to the Start() call to true.
+func (c *Compiler) processIrqHandlers() {
+	if c.resetHandler != "" {
+		resetHandler := c.functionsAdded[mainContextPrefix+c.resetHandler]
+		resetHandler.IrqHandler = true
+	}
+
+	if c.nmiHandler != "" {
+		nmiHandler := c.functionsAdded[mainContextPrefix+c.nmiHandler]
+		nmiHandler.IrqHandler = true
+	}
+	if c.irqHandler != "" {
+		irqHandler := c.functionsAdded[mainContextPrefix+c.irqHandler]
+		irqHandler.IrqHandler = true
+	}
 }
 
 // resolveInstruction replaces all constant references of instruction
@@ -208,7 +235,9 @@ func (c *Compiler) addFunction(fullName string, f *Function) error {
 
 // inlineFunctions checks all functions for calls to a function
 // that is marked as inline and replaces the calls by inlining
-// the call destination function code.
+// the call destination function code. If the called function
+// is not inlined and has parameters, instructions are added
+// to pass them in registers.
 func (c *Compiler) inlineFunctions() error {
 	nonInline := make([]*Function, 0, len(c.functions))
 
@@ -245,31 +274,33 @@ func (c *Compiler) inlineFunctions() error {
 // is marked as inline.
 func (c *Compiler) inlineFunctionCall(functionContext *Function,
 	call *ast.Call, body []ast.Node) ([]ast.Node, error) {
-	f := c.functionsAdded[call.Function]
-	if !f.Definition.Inline {
-		body = append(body, call)
-		return body, nil
+	calledFun := c.functionsAdded[call.Function]
+	if !calledFun.Definition.Inline {
+		return c.inlineFunctionCallParameters(calledFun, call, body)
 	}
 
-	nodes := fixLabelNameCollisions(functionContext, f.Body.Nodes)
+	nodes := fixLabelNameCollisions(functionContext, calledFun.Body.Nodes)
 
-	for _, node := range nodes {
+	for i, node := range nodes {
 		ins, ok := node.(*ast.Instruction)
 		if !ok {
 			continue
 		}
+		if i == 0 {
+			ins.Comment = "inlined " + call.Function
+		}
 
-		for i, arg := range ins.Arguments {
+		for j, arg := range ins.Arguments {
 			if _, ok := arg.(*ast.ArgumentValue); ok {
 				continue
 			}
 			if list, ok := arg.(*ast.ExpressionList); ok {
-				val, err := evaluateExpressionList(f, call, c.packages, list)
+				val, err := evaluateExpressionList(calledFun, call, c.packages, list)
 				if err != nil {
 					return nil, err
 				}
 				ins.Comment = formatNodeListComment(list.Nodes)
-				ins.Arguments[i] = &ast.ArgumentValue{Value: val}
+				ins.Arguments[j] = &ast.ArgumentValue{Value: val}
 				continue
 			}
 
@@ -278,28 +309,65 @@ func (c *Compiler) inlineFunctionCall(functionContext *Function,
 				continue
 			}
 
-			val, err := getArgument(functionContext, c.packages, call.Parameter[param.Index])
+			val, err := functionContext.getArgument(c.packages, call.Parameter[param.Index])
 			if err != nil {
 				return nil, err
 			}
-			ins.Arguments[i] = &ast.ArgumentValue{Value: val}
+			ins.Arguments[j] = &ast.ArgumentValue{Value: val}
 		}
 		body = append(body, node)
 	}
 	return body, nil
 }
 
+func (c *Compiler) inlineFunctionCallParameters(calledFun *Function,
+	call *ast.Call, body []ast.Node) ([]ast.Node, error) {
+	def := calledFun.Definition
+	if len(call.Parameter) != len(def.Params) {
+		return nil, fmt.Errorf("test")
+	}
+
+	for i, variable := range def.Params {
+		ins, ok := def.ParamInitializer[variable.Name]
+		if !ok {
+			return nil, fmt.Errorf("function parameter initializer not found for param '%s'", variable.Name)
+		}
+
+		p := call.Parameter[i]
+		param, ok := p.(*ast.Value)
+		if !ok {
+			return nil, fmt.Errorf("function parameter initializer type %T for param '%s'", p, variable.Name)
+		}
+
+		node := &ast.Instruction{
+			Name:       ins.Name,
+			Addressing: ins.Addressing,
+			Arguments: ast.Arguments{
+				&ast.ArgumentValue{
+					Value: param.Value,
+				},
+			},
+			Comment: "passing of parameter " + variable.Name,
+		}
+		body = append(body, node)
+	}
+
+	call.Parameter = nil
+	body = append(body, call)
+	return body, nil
+}
+
 // getArgument returns the evaluated function call argument to use it for
 // inlining the function.
-func getArgument(functionContext *Function, packages map[string]*Package,
+func (f *Function) getArgument(packages map[string]*Package,
 	item interface{}) (string, error) {
 	switch n := item.(type) {
 	case *ast.Value:
 		return n.Value, nil
 
 	case *ast.Identifier:
-		p := functionContext.Package
-		caller := functionContext.Definition.Name
+		p := f.Package
+		caller := f.Definition.Name
 		con, err := p.findConstant(packages, caller, n.Name)
 		if err == nil {
 			return fmt.Sprint(con.Value), nil
@@ -312,7 +380,7 @@ func getArgument(functionContext *Function, packages map[string]*Package,
 		return "", fmt.Errorf("identifier '%s' not found", n.Name)
 
 	case *ast.ExpressionList:
-		return evaluateExpressionList(functionContext, nil, packages, n)
+		return evaluateExpressionList(f, nil, packages, n)
 
 	default:
 		return "", fmt.Errorf("type %T is not supported as inlining call parameter", n)
@@ -322,7 +390,7 @@ func getArgument(functionContext *Function, packages map[string]*Package,
 // addFunctionReturn adds a return at the end of functions unless the
 // function is inlined or there is already a branching instruction as
 // last node.
-func addFunctionReturn(f *Function) {
+func (f *Function) addFunctionReturn() {
 	if f.Definition.Inline || f.Definition.Name == VarInitFunctionName {
 		return
 	}
@@ -331,17 +399,26 @@ func addFunctionReturn(f *Function) {
 		last := f.Body.Nodes[len(f.Body.Nodes)-1]
 		switch n := last.(type) {
 		case *ast.Branching:
-			return
+			if n.Instruction == ast.JmpInstruction {
+				return
+			}
 
 		case *ast.Instruction:
-			if n.Name == ast.ReturnInstruction {
+			if n.Name == ast.ReturnInstruction ||
+				n.Name == ast.ReturnInterruptInstruction {
 				return
 			}
 		}
 	}
 
-	f.Body.Nodes = append(f.Body.Nodes, &ast.Instruction{
-		Name:    ast.ReturnInstruction,
-		Comment: "automatically added by nesgo",
-	})
+	i := &ast.Instruction{
+		Comment: "automatically added",
+	}
+	if f.IrqHandler {
+		i.Name = ast.ReturnInterruptInstruction
+	} else {
+		i.Name = ast.ReturnInstruction
+	}
+
+	f.Body.Nodes = append(f.Body.Nodes, i)
 }

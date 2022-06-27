@@ -6,7 +6,11 @@ import (
 	"strings"
 
 	"github.com/retroenv/nesgo/internal/ast"
+	. "github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/nesgo/pkg/cpu"
 )
+
+// TODO refactor to use asmoutput pkg
 
 var header = `.segment "HEADER"
 .byte "NES", $1a ; Magic string that always begins an iNES header
@@ -25,7 +29,7 @@ var variableHeader = `.segment "HEADER"`
 var footer = `.segment "VECTORS"
 .addr %s, %s, %s
 
-.segment "CHARS"
+.segment "TILES"
 .res 8192
 .segment "STARTUP"`
 
@@ -99,7 +103,7 @@ func (c *Compiler) outputLine(format string, a ...interface{}) {
 }
 
 func (c *Compiler) outputLineWithComment(comment, format string, a ...interface{}) {
-	if comment == "" {
+	if comment == "" || c.cfg.DisableComments {
 		c.outputLine(format, a...)
 		return
 	}
@@ -110,56 +114,63 @@ func (c *Compiler) outputLineWithComment(comment, format string, a ...interface{
 }
 
 func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
-	info := ast.CPUInstructions[ins.Name]
+	info := cpu.Instructions[ins.Name]
 
 	switch len(ins.Arguments) {
 	case 0:
-		if !info.HasAddressing(ast.ImpliedAddressing | ast.AccumulatorAddressing) {
+		if !info.HasAddressing(ImpliedAddressing, AccumulatorAddressing) {
 			return fmt.Errorf("instruction '%s' is missing a parameter", ins.Name)
 		}
-		c.outputLine("  %s", ins.Name)
+		c.outputLineWithComment(ins.Comment, "  %s", ins.Name)
 		return nil
 
 	case 1:
 		return c.outputInstruction1Arg(ins, info)
-	case 2:
-		return c.outputInstruction2Args(ins, info)
 	}
 
 	return fmt.Errorf("instruction '%s' has unsupported parameters '%s'", ins.Name, ins.Arguments)
 }
 
-func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInstruction) error {
+func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *cpu.Instruction) error {
 	arg := ins.Arguments[0]
 	node, ok := arg.(*ast.ArgumentValue)
 	if !ok {
 		return fmt.Errorf("wrong argument type %T for instruction with 1 arg", arg)
 	}
 
-	if info.HasAddressing(ast.RelativeAddressing) {
-		c.outputLineWithComment(ins.Comment, "  %s %s", info.Alias, arg)
+	if info.HasAddressing(AccumulatorAddressing) {
+		if node.Value == "A" {
+			c.outputLineWithComment(ins.Comment, "  %s a", ins.Name)
+			return nil
+		}
+	}
+	if info.HasAddressing(RelativeAddressing) {
+		c.outputLineWithComment(ins.Comment, "  %s %s", ins.Name, arg)
 		return nil
 	}
-	if info.HasAddressing(ast.ImmediateAddressing) {
+	if info.HasAddressing(ImmediateAddressing) {
 		val, err := strconv.ParseUint(node.Value, 0, 8)
 		if err == nil {
-			c.outputLineWithComment(ins.Comment, "  %s #$%02x", info.Alias, val)
+			c.outputLineWithComment(ins.Comment, "  %s #$%02x", ins.Name, val)
 			return nil
 		}
 	}
-	if info.HasAddressing(ast.ZeroPageAddressing) {
+	if info.HasAddressing(ZeroPageAddressing, ZeroPageXAddressing, ZeroPageYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 8); err == nil {
-			c.outputLineWithComment(ins.Comment, "  %s $%02x", info.Alias, val)
+			register := instructionIndexRegister(ins)
+			c.outputLineWithComment(ins.Comment, "  %s $%02x%s", ins.Name, val, register)
 			return nil
 		}
 	}
-	if info.HasAddressing(ast.AbsoluteAddressing) {
+	if info.HasAddressing(AbsoluteAddressing, AbsoluteXAddressing, AbsoluteYAddressing) {
 		if val, err := strconv.ParseUint(node.Value, 0, 16); err == nil {
-			c.outputLineWithComment(ins.Comment, "  %s $%04x", info.Alias, val)
+			register := instructionIndexRegister(ins)
+			c.outputLineWithComment(ins.Comment, "  %s $%04x%s", ins.Name, val, register)
 			return nil
 		}
 		if _, ok := c.variables[node.Value]; ok {
-			c.outputLineWithComment(ins.Comment, "  %s %s", info.Alias, node.Value)
+			register := instructionIndexRegister(ins)
+			c.outputLineWithComment(ins.Comment, "  %s %s%s", ins.Name, node.Value, register)
 			return nil
 		}
 	}
@@ -167,49 +178,15 @@ func (c *Compiler) outputInstruction1Arg(ins *ast.Instruction, info *ast.CPUInst
 		"has an unexpected parameter '%s'", ins.Name, arg)
 }
 
-func (c *Compiler) outputInstruction2Args(ins *ast.Instruction, info *ast.CPUInstruction) error {
-	arg1 := ins.Arguments[0]
-	node1, ok := arg1.(*ast.ArgumentValue)
-	if !ok {
-		return fmt.Errorf("wrong argument type %T for instruction", arg1)
+func instructionIndexRegister(ins *ast.Instruction) string {
+	switch ins.Addressing {
+	case AbsoluteXAddressing, ZeroPageXAddressing:
+		return ", X"
+	case AbsoluteYAddressing, ZeroPageYAddressing:
+		return ", Y"
+	default:
+		return ""
 	}
-	arg2 := ins.Arguments[1]
-	node2, ok := arg2.(*ast.ArgumentValue)
-	if !ok {
-		return fmt.Errorf("wrong argument type %T for instruction", arg2)
-	}
-
-	if node2.Value == "X" {
-		if info.HasAddressing(ast.ZeroPageXAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 8); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%02x, %s", info.Alias, val, arg2)
-				return nil
-			}
-		}
-		if info.HasAddressing(ast.AbsoluteXAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 16); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%04x, %s", info.Alias, val, arg2)
-				return nil
-			}
-		}
-	}
-	if node2.Value == "Y" {
-		if info.HasAddressing(ast.ZeroPageYAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 8); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%02x, %s", info.Alias, val, arg2)
-				return nil
-			}
-		}
-		if info.HasAddressing(ast.AbsoluteYAddressing) {
-			if val, err := strconv.ParseUint(node1.Value, 0, 16); err == nil {
-				c.outputLineWithComment(ins.Comment, "  %s $%04x, %s", info.Alias, val, arg2)
-				return nil
-			}
-		}
-	}
-
-	return fmt.Errorf("instruction '%s' with 2 arguments "+
-		"has an unexpected parameters '%s' and '%s'", ins.Name, arg1, arg2)
 }
 
 func (c *Compiler) outputVariables() error {

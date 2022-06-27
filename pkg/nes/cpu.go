@@ -3,358 +3,189 @@
 
 package nes
 
-// CPU register and flags
+import "github.com/retroenv/nesgo/pkg/cpu"
+
+// CPU registers that can be used as parameter for instructions that support
+// absolute or indirect indexing using X or Y register.
 var (
-	SP uint8 // stack pointer
-
-	A *uint8 // accumulator
-	X *uint8 // x register
-	Y *uint8 // y register
-
-	C uint8 // carry flag
-	Z uint8 // zero flag
-	I uint8 // interrupt disable flag
-	D uint8 // decimal mode flag
-	B uint8 // break command flag
-	U uint8 // unused flag
-	V uint8 // overflow flag
-	N uint8 // negative flag
+	A  *uint8  // accumulator
+	X  *uint8  // x register
+	Y  *uint8  // y register
+	PC *uint16 // program counter
 )
 
-var notImplemented = "instruction is not implemented yet"
+var docCPU *cpu.CPU
 
-// Adc - Add with Carry.
-func Adc() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
+// All CPU instructions that can be used when writing NES programs in Golang.
+// They are aliased to the emulator implementation to allow an easy code
+// browsing.
+var (
+	// Adc - Add with Carry.
+	Adc = docCPU.Adc
+	// And - AND with accumulator.
+	And = docCPU.And
+	// Asl - Arithmetic Shift Left.
+	Asl = docCPU.Asl
+	// Bcc - Branch if Carry Clear - returns whether the
+	// carry flag is clear.
+	Bcc = docCPU.Bcc
+	// Bcs - Branch if Carry Set - returns whether the carry flag is set.
+	Bcs = docCPU.Bcs
+	// Beq - Branch if Equal - returns whether the zero flag is set.
+	Beq = docCPU.Beq
+	// Bit - Bit Test - set the Z flag by ANDing A with given address content.
+	Bit = docCPU.Bit
+	// Bmi - Branch if Minus - returns whether the negative flag is set.
+	Bmi = docCPU.Bmi
+	// Bne - Branch if Not Equal - returns whether the zero flag is clear.
+	Bne = docCPU.Bne
+	// Bpl - Branch if Positive - returns whether the negative flag is clear.
+	Bpl = docCPU.Bpl
+	// Brk - Force Interrupt.
+	Brk = docCPU.Brk
+	// Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
+	Bvc = docCPU.Bvc
+	// Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
+	Bvs = docCPU.Bvs
+	// Clc - Clear Carry Flag.
+	Clc = docCPU.Clc
+	// Cld - Clear Decimal Mode.
+	Cld = docCPU.Cld
+	// Cli - Clear Interrupt Disable.
+	Cli = docCPU.Cli
+	// Clv - Clear Overflow Flag.
+	Clv = docCPU.Clv
+	// Cmp - Compare - compares the contents of A.
+	Cmp = docCPU.Cmp
+	// Cpx - Compare X Register - compares the contents of X.
+	Cpx = docCPU.Cpx
+	// Cpy - Compare Y Register - compares the contents of Y.
+	Cpy = docCPU.Cpy
+	// Dec - Decrement memory.
+	Dec = docCPU.Dec
+	// Dex - Decrement X Register.
+	Dex = docCPU.Dex
+	// Dey - Decrement Y Register.
+	Dey = docCPU.Dey
+	// Eor - Exclusive OR - XOR.
+	Eor = docCPU.Eor
+	// Inc - Increments memory.
+	Inc = docCPU.Inc
+	// Inx - Increment X Register.
+	Inx = docCPU.Inx
+	// Iny - Increment Y Register.
+	Iny = docCPU.Iny
+	// Lda - Load Accumulator - load a byte into A.
+	Lda = docCPU.Lda
+	// Ldx - Load X Register - load a byte into X.
+	Ldx = docCPU.Ldx
+	// Ldy - Load Y Register - load a byte into Y.
+	Ldy = docCPU.Ldy
+	// Lsr - Logical Shift Right.
+	Lsr = docCPU.Lsr
+	// Nop - No Operation.
+	Nop = docCPU.Nop
+	// Ora - OR with Accumulator.
+	Ora = docCPU.Ora
+	// Pha - Push Accumulator - push A content to stack.
+	Pha = docCPU.Pha
+	// Php - Push Processor Status - push status flags to stack.
+	Php = docCPU.Php
+	// Pla - Pull Accumulator - pull A content from stack.
+	Pla = docCPU.Pla
+	// Plp - Pull Processor Status - pull status flags from stack.
+	Plp = docCPU.Plp
+	// Rol - Rotate Left.
+	Rol = docCPU.Rol
+	// Ror - Rotate Right.
+	Ror = docCPU.Ror
+	// Rti - Return from Interrupt.
+	Rti = docCPU.Rti
+	// Sbc - subtract with Carry.
+	Sbc = docCPU.Sbc
+	// Sec - Set Carry Flag.
+	Sec = docCPU.Sec
+	// Sed - Set Decimal Flag.
+	Sed = docCPU.Sed
+	// Sei - Set Interrupt Disable.
+	Sei = docCPU.Sei
+	// Sta - Store Accumulator - store content of A at address Addr and
+	// add an optional register to the address.
+	Sta = docCPU.Sta
+	// Stx - Store X Register - store content of X at address Addr and
+	// add an optional register to the address.
+	Stx = docCPU.Stx
+	// Sty - Store Y Register - store content of Y at address Addr and
+	// add an optional register to the address.
+	Sty = docCPU.Sty
+	// Tax - Transfer Accumulator to X.
+	Tax = docCPU.Tax
+	// Tay - Transfer Accumulator to Y.
+	Tay = docCPU.Tay
+	// Tsx - Transfer Stack Pointer to X.
+	Tsx = docCPU.Tsx
+	// Txa - Transfer X to Accumulator.
+	Txa = docCPU.Txa
+	// Txs - Transfer X to Stack Pointer.
+	Txs = docCPU.Txs
+	// Tya - Transfer Y to Accumulator.
+	Tya = docCPU.Tya
+)
 
-// And - AND with accumulator.
-func And() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Asl - Arithmetic Shift Left - shift left Accumulator.
-func Asl() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Bcc - Branch if Carry Clear - returns whether the
-// carry flag is clear.
-func Bcc() bool {
-	timeInstructionExecution()
-	b := C == 0
-	return b
-}
-
-// Bcs - Branch if Carry Set - returns whether the carry flag is set.
-func Bcs() bool {
-	timeInstructionExecution()
-	b := C != 0
-	return b
-}
-
-// Beq - Branch if Equal - returns whether the zero flag is set.
-func Beq() bool {
-	timeInstructionExecution()
-	b := Z != 0
-	return b
-}
-
-// Bit - Bit Test - set the Z flag by ANDing A with given address content.
-func Bit(address uint16) {
-	timeInstructionExecution()
-	value := readMemoryAbsolute(address)
-	V = (value >> 6) & 1
-	setZ(value & cpu.A)
-	setN(value)
-}
-
-// Bmi - Branch if Minus - returns whether the negative flag is set.
-func Bmi() bool {
-	timeInstructionExecution()
-	b := N != 0
-	return b
-}
-
-// Bne - Branch if Not Equal - returns whether the zero flag is clear.
-func Bne() bool {
-	timeInstructionExecution()
-	b := Z == 0
-	return b
-}
-
-// Bpl - Branch if Positive - returns whether the negative flag is clear.
-func Bpl() bool {
-	timeInstructionExecution()
-	b := N == 0
-	return b
-}
-
-// Brk - Force Interrupt.
-func Brk() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
-func Bvc() bool {
-	timeInstructionExecution()
-	b := V == 0
-	return b
-}
-
-// Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
-func Bvs() bool {
-	timeInstructionExecution()
-	b := V != 0
-	return b
-}
-
-// Clc - Clear Carry Flag.
-func Clc() {
-	timeInstructionExecution()
-	C = 0
-}
-
-// Cld - Clear Decimal Mode.
-func Cld() {
-	timeInstructionExecution()
-	D = 0
-}
-
-// Cli - Clear Interrupt Disable.
-func Cli() {
-	timeInstructionExecution()
-	I = 0
-}
-
-// Clv - Clear Overflow Flag.
-func Clv() {
-	timeInstructionExecution()
-	V = 0
-}
-
-// Cmp - Compare - compares the contents of A with given address content.
-func Cmp(address uint16) {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Cpx - Compare X Register - compares the contents of X.
-func Cpx(param interface{}) {
-	timeInstructionExecution()
-	i := readMemoryAddressModes(param)
-	compare(cpu.X, i)
-}
-
-// Cpy - Compare Y Register - compares the contents of Y.
-func Cpy(param interface{}) {
-	timeInstructionExecution()
-	i := readMemoryAddressModes(param)
-	compare(cpu.Y, i)
-}
-
-// Dex - Decrement X Register.
-func Dex() {
-	timeInstructionExecution()
-	cpu.X--
-	setZN(cpu.X)
-}
-
-// Dey - Decrement Y Register.
-func Dey() {
-	timeInstructionExecution()
-	cpu.Y--
-	setZN(cpu.Y)
-}
-
-// Eor - Exclusive OR - XOR the Accumulator.
-func Eor(immediate byte) {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Inx - Increment X Register.
-func Inx() {
-	timeInstructionExecution()
-	cpu.X++
-	setZN(cpu.X)
-}
-
-// Iny - Increment Y Register.
-func Iny() {
-	timeInstructionExecution()
-	cpu.Y++
-	setZN(cpu.Y)
-}
-
-// Lda - Load Accumulator - load a byte into A.
-func Lda(param interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	cpu.A = readMemoryAddressModes(param, reg...)
-	setZN(cpu.A)
-}
-
-// Ldx - Load X Register - load a byte into X.
-func Ldx(param interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	cpu.X = readMemoryAddressModes(param, reg...)
-	setZN(cpu.X)
-}
-
-// Ldy - Load Y Register - load a byte into Y.
-func Ldy(param interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	cpu.Y = readMemoryAddressModes(param, reg...)
-	setZN(cpu.Y)
-}
-
-// Lsr - Logical Shift Right - shift right.
-func Lsr(reg ...interface{}) {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Nop - No Operation.
-func Nop() {
-	timeInstructionExecution()
-}
-
-// Ora - OR with Accumulator.
-func Ora() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Pha - Push Accumulator - push A content to stack.
-func Pha() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Php - Push Processor Status - push status flags to stack.
-func Php() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Pla - Pull Accumulator - pull A content from stack.
-func Pla() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Plp - Pull Processor Status - pull status flags from stack.
-func Plp() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Rol - Rotate Left - rotate Accumulator left.
-func Rol() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Ror - Rotate Right - rotate Accumulator right.
-func Ror() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Rti - Return from Interrupt.
-func Rti() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Sbc - subtract with Carry
-func Sbc() {
-	timeInstructionExecution()
-	panic(notImplemented)
-}
-
-// Sec - Set Carry Flag.
-func Sec() {
-	timeInstructionExecution()
-	C = 1
-}
-
-// Sed - Set Decimal Flag.
-func Sed() {
-	timeInstructionExecution()
-	D = 1
-}
-
-// Sei - Set Interrupt Disable.
-func Sei() {
-	timeInstructionExecution()
-	timeInstructionExecution()
-	I = 1
-}
-
-// Sta - Store Accumulator - store content of A at address Addr and
-// add an optional register to the address.
-// Zero Page/Absolute addressing.
-func Sta(address interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	writeMemoryAddressModes(address, cpu.A, reg...)
-}
-
-// Stx - Store X Register - store content of X at address Addr and
-// add an optional register to the address.
-func Stx(address interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	writeMemoryAddressModes(address, cpu.X, reg...)
-}
-
-// Sty - Store Y Register - store content of Y at address Addr and
-// add an optional register to the address.
-func Sty(address interface{}, reg ...interface{}) {
-	timeInstructionExecution()
-	writeMemoryAddressModes(address, cpu.Y, reg...)
-}
-
-// Tax - Transfer Accumulator to X.
-func Tax() {
-	timeInstructionExecution()
-	cpu.X = cpu.A
-	setZN(cpu.X)
-}
-
-// Tay - Transfer Accumulator to Y.
-func Tay() {
-	timeInstructionExecution()
-	cpu.Y = cpu.A
-	setZN(cpu.Y)
-}
-
-// Tsx - Transfer Stack Pointer to X.
-func Tsx() {
-	timeInstructionExecution()
-	cpu.X = SP
-	setZN(cpu.X)
-}
-
-// Txa - Transfer X to Accumulator.
-func Txa() {
-	timeInstructionExecution()
-	cpu.A = cpu.X
-	setZN(cpu.A)
-}
-
-// Txs - Transfer X to Stack Pointer.
-func Txs() {
-	timeInstructionExecution()
-	SP = cpu.X
-}
-
-// Tya - Transfer Y to Accumulator.
-func Tya() {
-	timeInstructionExecution()
-	cpu.A = cpu.Y
-	setZN(cpu.A)
+// setAliases links the CPU instructions to the actual CPU instance.
+// nolint: funlen
+func setAliases(cpu *cpu.CPU) {
+	Adc = cpu.Adc
+	And = cpu.And
+	Asl = cpu.Asl
+	Bcc = cpu.Bcc
+	Bcs = cpu.Bcs
+	Beq = cpu.Beq
+	Bit = cpu.Bit
+	Bmi = cpu.Bmi
+	Bne = cpu.Bne
+	Bpl = cpu.Bpl
+	Brk = cpu.Brk
+	Bvc = cpu.Bvc
+	Bvs = cpu.Bvs
+	Clc = cpu.Clc
+	Cld = cpu.Cld
+	Cli = cpu.Cli
+	Clv = cpu.Clv
+	Cmp = cpu.Cmp
+	Cpx = cpu.Cpx
+	Cpy = cpu.Cpy
+	Dec = cpu.Dec
+	Dex = cpu.Dex
+	Dey = cpu.Dey
+	Eor = cpu.Eor
+	Inc = cpu.Inc
+	Inx = cpu.Inx
+	Iny = cpu.Iny
+	Lda = cpu.Lda
+	Ldx = cpu.Ldx
+	Ldy = cpu.Ldy
+	Lsr = cpu.Lsr
+	Nop = cpu.Nop
+	Ora = cpu.Ora
+	Pha = cpu.Pha
+	Php = cpu.Php
+	Pla = cpu.Pla
+	Plp = cpu.Plp
+	Rol = cpu.Rol
+	Ror = cpu.Ror
+	Rti = cpu.Rti
+	Sbc = cpu.Sbc
+	Sec = cpu.Sec
+	Sed = cpu.Sed
+	Sei = cpu.Sei
+	Sta = cpu.Sta
+	Stx = cpu.Stx
+	Sty = cpu.Sty
+	Tax = cpu.Tax
+	Tay = cpu.Tay
+	Tsx = cpu.Tsx
+	Txa = cpu.Txa
+	Txs = cpu.Txs
+	Tya = cpu.Tya
 }

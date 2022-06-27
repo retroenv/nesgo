@@ -3,7 +3,7 @@
 .vscode
 *.iml
 *.local
-*.log
+/*.log
 *.out
 *.prof
 *.test
@@ -13,6 +13,8 @@
 
 *.asm
 *.o
-*.nes
+examples/**/*.nes
 examples/colortest
 .testCoverage
+dist/
+internal/testroms/commercial/

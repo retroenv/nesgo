@@ -2,8 +2,6 @@ package tests
 
 import (
 	"testing"
-
-	"github.com/retroenv/nesgo/internal/ast"
 )
 
 var emptyFunction = []byte(`
@@ -38,11 +36,6 @@ var inlineFunctionMultipleParamsIr = `
 func, inline, (data, value), test
 `
 
-var functionSingleParam = []byte(`
-func test(data *uint8) {
-}
-`)
-
 var functionWithBody = []byte(`
 func test() {
   Dex()
@@ -71,18 +64,29 @@ var functionInlineRegisterParamIr = `
 func, inline, test
 `
 
+var functionRegisterParam = []byte(`
+func test(index uint8) {
+  Ldy(index)
+  Dey()
+}
+`)
+var functionRegisterParamIr = `
+func, (index), test
+inst, dey
+`
+
 var functionTestCases = []testCase{
+	{
+		"function with register as param",
+		functionRegisterParam,
+		functionRegisterParamIr,
+		"",
+	},
 	{
 		"inline function with register as param",
 		functionInlineRegisterParam,
 		functionInlineRegisterParamIr,
 		"",
-	},
-	{
-		"not inlined function with single param",
-		functionSingleParam,
-		"",
-		ast.ErrFunctionsWithParamsNoInline.Error(),
 	},
 	{
 		"function with return in body",

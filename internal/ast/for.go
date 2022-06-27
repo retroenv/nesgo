@@ -4,140 +4,17 @@ import (
 	"fmt"
 )
 
-// NewForStatement returns a for statement resolved as instructions.
-func NewForStatement(clause, block Node) (Node, error) {
-	blockNodes, ok := block.(*NodeList)
-	if !ok {
-		return nil, fmt.Errorf("for statement blocks does not support type %T", block)
-	}
+type forStatement struct {
+	condition Node
 
-	label := &Label{Name: "loop"}
-	list := &NodeList{}
-	initializer, condition, post, err := extractForClauseItems(clause)
-	if err != nil {
-		return nil, err
-	}
-
-	if initializer != nil {
-		list.AddNodes(initializer)
-	}
-
-	list.AddNodes(label)
-
-	var finalLabel *Label
-	if len(blockNodes.Nodes) > 0 {
-		blockNodes.Nodes, finalLabel, err = processForBody(blockNodes.Nodes)
-		if err != nil {
-			return nil, err
-		}
-		list.AddNodes(blockNodes.Nodes...)
-	}
-
-	if post != nil {
-		ex, ok := post.(*ExpressionList)
-		if ok {
-			ins, err := resolveForPostExpressionList(ex)
-			if err != nil {
-				return nil, err
-			}
-			list.AddNodes(ins)
-		} else {
-			list.AddNodes(post)
-		}
-	}
-
-	conditionNodes, err := processForCondition(condition, label)
-	if err != nil {
-		return nil, err
-	}
-	list.AddNodes(conditionNodes...)
-	if finalLabel != nil {
-		list.AddNodes(finalLabel)
-	}
-
-	return list, nil
-}
-
-func processForCondition(condition Node, label *Label) ([]Node, error) {
-	var nodes []Node
-
-	if condition == nil {
-		condition = &Branching{
-			Instruction:     JmpInstruction,
-			DestinationName: label.Name,
-			Destination:     label,
-		}
-	} else {
-		if ex, ok := condition.(*ExpressionList); ok {
-			ins, branch, err := resolveForConditionExpressionList(ex)
-			if err != nil {
-				return nil, err
-			}
-			nodes = append(nodes, ins)
-
-			condition = &Branching{
-				Instruction:     branch,
-				DestinationName: label.Name,
-				Destination:     label,
-			}
-		}
-	}
-
-	switch n := condition.(type) {
-	case nil:
-		break
-
-	case *Branching:
-		if n.Instruction != JmpInstruction {
-			label.Name = n.Instruction + "_loop"
-		}
-		n.DestinationName = label.Name
-		n.Destination = label
-
-	case *Instruction:
-		return nil, fmt.Errorf("expected a branching instruction as for "+
-			"statement condition but found '%s'", n.Name)
-
-	default:
-		return nil, fmt.Errorf("for statement conditions do not support type %T", condition)
-	}
-
-	nodes = append(nodes, condition)
-	return nodes, nil
-}
-
-// processForBody processes a for body block and checks for break
-// instructions and returns a fixed up body and optional label for
-// the end of the for code to allow breaking to.
-func processForBody(body []Node) ([]Node, *Label, error) {
-	var finalLabel *Label
-
-	var newBody []Node
-	for i, node := range body {
-		branch, ok := node.(*Branching)
-		if !ok || branch.Instruction != breakOperator {
-			newBody = append(newBody, node)
-			continue
-		}
-		if i == 0 {
-			return nil, nil, ErrBreakNotAfterBranching
-		}
-
-		previousNode := body[i-1]
-		branch, ok = previousNode.(*Branching)
-		if !ok {
-			return nil, nil, fmt.Errorf("break statement has to be after a "+
-				"branching instruction but found type %T", previousNode)
-		}
-		if finalLabel == nil {
-			finalLabel = &Label{Name: "loop_end"}
-		}
-
-		branch.Destination = finalLabel
-		branch.DestinationName = finalLabel.Name
-	}
-
-	return newBody, finalLabel, nil
+	initializer    Node
+	bodyStart      *Label
+	body           []Node
+	postStart      *Label
+	post           Node
+	ConditionStart *Label
+	conditionNodes []Node
+	loopEnd        *Label
 }
 
 // NewForClause returns a clause list for a for statement.
@@ -147,21 +24,179 @@ func NewForClause(init, condition, post Node) (Node, error) {
 	}, nil
 }
 
-// extractForClauseItems returns the 3 for clause items from the node list
-// and returns them, each item can be nil.
-func extractForClauseItems(clause Node) (initializer, condition, post Node, err error) {
-	if clause != nil {
-		clauseList, ok := clause.(*NodeList)
+// NewForStatement returns a for statement resolved as instructions.
+func NewForStatement(clause, block Node) (Node, error) {
+	blockNodes, ok := block.(*NodeList)
+	if !ok {
+		return nil, fmt.Errorf("for statement blocks does not support type %T", block)
+	}
+
+	f := forStatement{
+		bodyStart: &Label{Name: "loop"},
+	}
+	if err := f.extractForClauseItems(clause); err != nil {
+		return nil, err
+	}
+	if err := f.processForCondition(); err != nil {
+		return nil, err
+	}
+	if err := f.processForBody(blockNodes.Nodes); err != nil {
+		return nil, err
+	}
+
+	if f.post != nil {
+		ex, ok := f.post.(*ExpressionList)
+		if ok {
+			ins, err := resolveForPostExpressionList(ex)
+			if err != nil {
+				return nil, err
+			}
+			f.post = ins
+		}
+	}
+
+	list := f.nodes()
+	return list, nil
+}
+
+func (f *forStatement) processForCondition() error {
+	if f.condition == nil {
+		f.condition = &Branching{
+			Instruction:     JmpInstruction,
+			DestinationName: f.bodyStart.Name,
+			Destination:     f.bodyStart,
+		}
+	} else {
+		if ex, ok := f.condition.(*ExpressionList); ok {
+			ins, branch, err := resolveForConditionExpressionList(ex)
+			if err != nil {
+				return err
+			}
+			f.conditionNodes = append(f.conditionNodes, ins)
+
+			f.condition = &Branching{
+				Instruction:     branch,
+				DestinationName: f.bodyStart.Name,
+				Destination:     f.bodyStart,
+			}
+		}
+	}
+
+	switch n := f.condition.(type) {
+	case nil:
+		break
+
+	case *Branching:
+		if n.Instruction != JmpInstruction {
+			f.bodyStart.Name = n.Instruction + "_loop"
+		}
+		n.DestinationName = f.bodyStart.Name
+		n.Destination = f.bodyStart
+
+	case *Instruction:
+		return fmt.Errorf("expected a branching instruction as for statement condition but found '%s'", n.Name)
+
+	default:
+		return fmt.Errorf("for statement conditions do not support type %T", f.condition)
+	}
+
+	f.conditionNodes = append(f.conditionNodes, f.condition)
+	return nil
+}
+
+// processForBody processes a for body block and checks for break
+// instructions and returns a fixed up body and optional label for
+// the end of the for condition and code to allow jumping to.
+func (f *forStatement) processForBody(body []Node) error {
+	if f.ConditionStart != nil {
+		f.body = []Node{&Branching{
+			Instruction:     JmpInstruction,
+			DestinationName: f.ConditionStart.Name,
+			Destination:     f.ConditionStart,
+		}}
+	}
+
+	for i, node := range body {
+		branch, ok := node.(*Branching)
 		if !ok {
-			return nil, nil, nil,
-				fmt.Errorf("for statement clause does not support type %T", clause)
+			f.body = append(f.body, node)
+			continue
 		}
 
-		initializer = clauseList.Nodes[0]
-		condition = clauseList.Nodes[1]
-		post = clauseList.Nodes[2]
+		switch branch.Instruction {
+		case breakStatement:
+			if i == 0 {
+				return ErrBreakNotAfterBranching // TODO: support
+			}
+
+			previousNode := body[i-1]
+			branch, ok = previousNode.(*Branching)
+			if !ok {
+				return fmt.Errorf("break statement has to be after a branching instruction but found type %T", previousNode)
+			}
+
+			if f.loopEnd == nil {
+				f.loopEnd = &Label{Name: "loop_end"}
+			}
+			branch.Destination = f.loopEnd
+			branch.DestinationName = f.loopEnd.Name
+
+		case continueStatement:
+			if i == 0 {
+				return ErrContinueNotAfterBranching // TODO: support
+			}
+
+			previousNode := body[i-1]
+			branch, ok = previousNode.(*Branching)
+			if !ok {
+				return fmt.Errorf("break statement has to be after a branching instruction but found type %T", previousNode)
+			}
+			if f.postStart == nil {
+				f.postStart = &Label{Name: "loop_post"}
+			}
+			branch.Destination = f.postStart
+			branch.DestinationName = f.postStart.Name
+
+		default:
+			f.body = append(f.body, node)
+		}
 	}
-	return
+	return nil
+}
+
+// extractForClauseItems extracts the 3 for clause items from the node list.
+func (f *forStatement) extractForClauseItems(clause Node) error {
+	if clause == nil {
+		return nil
+	}
+
+	clauseList, ok := clause.(*NodeList)
+	if !ok {
+		return fmt.Errorf("for statement clause does not support type %T", clause)
+	}
+
+	f.initializer = clauseList.Nodes[0]
+	f.condition = clauseList.Nodes[1]
+	f.post = clauseList.Nodes[2]
+	return nil
+}
+
+func (f *forStatement) nodes() Node {
+	list := &NodeList{}
+	list.AddNodes(f.initializer, f.bodyStart)
+	list.AddNodes(f.body...)
+	list.AddNodes(f.post)
+	if f.postStart != nil {
+		list.AddNodes(f.postStart)
+	}
+	if f.ConditionStart != nil {
+		list.AddNodes(f.ConditionStart)
+	}
+	list.AddNodes(f.conditionNodes...)
+	if f.loopEnd != nil {
+		list.AddNodes(f.loopEnd)
+	}
+	return list
 }
 
 // resolveForConditionExpressionList converts the for condition expression

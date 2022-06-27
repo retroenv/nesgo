@@ -3,14 +3,18 @@ package ast
 import (
 	"fmt"
 	"strings"
+
+	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
 const (
-	breakOperator     = "break"
-	GotoInstruction   = "goto"
-	JmpInstruction    = "jmp"
-	NotOperator       = "!"
-	ReturnInstruction = "rts"
+	breakStatement             = "break"
+	continueStatement          = "continue"
+	GotoInstruction            = "goto"
+	JmpInstruction             = "jmp"
+	NotOperator                = "!"
+	ReturnInstruction          = "rts"
+	ReturnInterruptInstruction = "rti"
 )
 
 // Branching is a branching declaration.
@@ -66,7 +70,7 @@ func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 		return nil, nil // nolint: nilnil
 	}
 
-	if _, ok := CPUBranchingInstructions[name]; ok {
+	if _, ok := cpu.BranchingInstructions[name]; ok {
 		var destination string
 		if ins, ok := arg.(*Instruction); ok {
 			destination = ins.Name
@@ -74,7 +78,7 @@ func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 		return NewBranching(name, destination)
 	}
 
-	if _, isInst := CPUInstructions[name]; isInst {
+	if _, isInst := cpu.Instructions[name]; isInst {
 		i, err := newInstruction(name, arg)
 		if err != nil {
 			return nil, err
@@ -124,6 +128,10 @@ func newCall(name string, arg interface{}) (Node, error) {
 		for _, node := range a.Nodes {
 			switch n := node.(type) {
 			case *Value:
+				c.Parameter = append(c.Parameter, n)
+			case *Identifier:
+				c.Parameter = append(c.Parameter, n)
+			case *Call:
 				c.Parameter = append(c.Parameter, n)
 			default:
 				return nil, fmt.Errorf("type %T is not supported as call parameter in node list", node)

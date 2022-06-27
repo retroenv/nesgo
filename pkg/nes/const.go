@@ -2,43 +2,56 @@
 // This package needs to be imported using the dot notation.
 package nes
 
+import (
+	"github.com/retroenv/nesgo/pkg/apu"
+	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/ppu"
+)
+
 const (
 	// PPU_CTRL = PPU Control 1.
-	PPU_CTRL = 0x2000
+	PPU_CTRL = ppu.PPU_CTRL
 	// PPU_MASK = PPU Control 2
-	PPU_MASK = 0x2001
+	PPU_MASK = ppu.PPU_MASK
 	// PPU_STATUS = PPU Status.
-	PPU_STATUS = 0x2002
+	PPU_STATUS = ppu.PPU_STATUS
 	// OAM_ADDR = OAM Address.
-	OAM_ADDR = 0x2003
+	OAM_ADDR = ppu.OAM_ADDR
 	// OAM_DATA = OAM Data.
-	OAM_DATA = 0x2004
-	// PPU_SCROLL = Background Scroll Position \newline (write X then Y).
-	PPU_SCROLL = 0x2005
-	// PPU_ADDR = PPU Address \newline (write upper then lower).
-	PPU_ADDR = 0x2006
+	OAM_DATA = ppu.OAM_DATA
+	// PPU_SCROLL = Background Scroll Position (write X then Y).
+	PPU_SCROLL = ppu.PPU_SCROLL
+	// PPU_ADDR = PPU Address (write upper then lower).
+	PPU_ADDR = ppu.PPU_ADDR
 	// PPU_DATA = PPU Data.
-	PPU_DATA = 0x2007
+	PPU_DATA = ppu.PPU_DATA
 
 	// PALETTE_START = Universal background color.
-	PALETTE_START = 0x3f00
+	PALETTE_START = ppu.PALETTE_START
 
 	// PPU_OAM_DMA = Sprite Page DMA Transfer.
-	PPU_OAM_DMA     = 0x4014
-	DMC_FREQ        = 0x4010
-	APU_STATUS      = 0x4015
-	APU_NOISE_VOL   = 0x400C
-	APU_NOISE_FREQ  = 0x400E
-	APU_NOISE_TIMER = 0x400F
-	APU_DMC_CTRL    = 0x4010
-	APU_CHAN_CTRL   = 0x4015
-	APU_FRAME       = 0x4017
+	PPU_OAM_DMA = ppu.OAM_DMA
 
-	JOYPAD1 = 0x4016
-	JOYPAD2 = 0x4017
+	APU_SQ1_VOL    = apu.SQ1_VOL
+	APU_SQ1_SWEEP  = apu.SQ1_SWEEP
+	APU_SQ1_LO     = apu.SQ1_LO
+	APU_SQ1_HI     = apu.SQ1_HI
+	APU_SQ2_VOL    = apu.SQ2_VOL
+	APU_SQ2_SWEEP  = apu.SQ2_SWEEP
+	APU_SQ2_LO     = apu.SQ2_LO
+	APU_SQ2_HI     = apu.SQ2_HI
+	APU_TRI_LINEAR = apu.TRI_LINEAR
+	APU_TRI_LO     = apu.TRI_LO
+	APU_TRI_HI     = apu.TRI_HI
+	APU_NOISE_VOL  = apu.NOISE_VOL
+	APU_NOISE_LO   = apu.NOISE_LO
+	APU_NOISE_HI   = apu.NOISE_HI
+	APU_DMC_CTRL   = apu.APU_DMC_CTRL
+	APU_CHAN_CTRL  = apu.APU_CHAN_CTRL
+	APU_FRAME      = apu.APU_FRAME
 
-	OAM_DMA = 0x4014
-	OAM_RAM = 0x0200
+	JOYPAD1 = controller.JOYPAD1
+	JOYPAD2 = controller.JOYPAD2
 
 	// PPU_CTRL flags
 	CTRL_NMI      = 0b10000000 // Execute Non-Maskable Interrupt on VBlank
@@ -56,15 +69,15 @@ const (
 	CTRL_NT_2C00  = 0b00000011 // Name Table Address at 0x2C00
 
 	// PPU_MASK flags
-	MASK_TINT_RED   = 0b00100000 // Red Background
-	MASK_TINT_BLUE  = 0b01000000 // Blue Background
-	MASK_TINT_GREEN = 0b10000000 // Green Background
-	MASK_SPR        = 0b00010000 // Sprites Visible
-	MASK_BG         = 0b00001000 // Backgrounds Visible
-	MASK_SPR_CLIP   = 0b00000100 // Sprites clipped on left column
-	MASK_BG_CLIP    = 0b00000010 // Background clipped on left column
-	MASK_COLOR      = 0b00000000 // Display in Color
-	MASK_MONO       = 0b00000001 // Display in Monochrome
+	MASK_TINT_RED   = ppu.MASK_TINT_RED   // Red Background
+	MASK_TINT_BLUE  = ppu.MASK_TINT_BLUE  // Blue Background
+	MASK_TINT_GREEN = ppu.MASK_TINT_GREEN // Green Background
+	MASK_SPR        = ppu.MASK_SPR        // Sprites Visible
+	MASK_BG         = ppu.MASK_BG         // Backgrounds Visible
+	MASK_SPR_CLIP   = ppu.MASK_SPR_CLIP   // Sprites clipped on left column
+	MASK_BG_CLIP    = ppu.MASK_BG_CLIP    // Background clipped on left column
+	MASK_COLOR      = ppu.MASK_COLOR      // Display in Color
+	MASK_MONO       = ppu.MASK_MONO       // Display in Monochrome
 
 	// read flags
 	F_BLANK   = 0b10000000 // VBlank Active
