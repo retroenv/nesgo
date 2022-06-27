@@ -16,18 +16,18 @@ build-all: ## build code with all 3 GUI mode settings
 	go build -tags noopengl,sdl ./...
 	go build -tags nogui ./...
 
-test: install ## run tests
+test: install run-tests ## run tests
 	go test -race ./...
+
+run-tests:
 	nesgo -q -o ./examples/blue/main.nes ./examples/blue/main.go
 	nesgo -q -o ./examples/debugprint/main.nes ./examples/debugprint/main.go
 	nesgodisasm -o examples/blue/disasm.asm -verify -q examples/blue/main.nes
 	nesgodisasm -o examples/debugprint/disasm.asm -verify -q examples/debugprint/main.nes
 	nesgodisasm -o internal/testroms/nestest/disasm.asm -verify -q internal/testroms/nestest/nestest.nes
 
-test-no-gui: install ## run unit tests with gui disabled
-	go test -tags nogui ./... -v
-	nesgo -f ./examples/blue/main.go -o ./examples/blue/main.nes
-	nesgo -f ./examples/debugprint/main.go -o ./examples/debugprint/main.nes
+test-no-gui: install-no-gui run-tests ## run unit tests with gui disabled
+	go test -tags nogui ./...
 
 test-coverage: ## run unit tests and create test coverage
 	go test -tags nogui ./... -coverprofile .testCoverage -covermode=atomic -coverpkg=./...
@@ -38,6 +38,9 @@ test-coverage-web: test-coverage ## run unit tests and show test coverage in bro
 
 install: ## install all binaries
 	go install ./cmd/...
+
+install-no-gui: ## install all binaries with gui disabled
+	go install -tags nogui ./cmd/...
 
 install-linters: ## install all used linters
 	go install github.com/fraugster/flint@v0.1.1
