@@ -12,6 +12,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
+var cpuSelector = `.setcpu "6502x"` // allow unofficial opcodes
+
 var iNESHeader = `.byte "NES", $1a ; Magic string that always begins an iNES header`
 
 var headerByte = ".byte $%02x        ; %s\n"
@@ -42,6 +44,7 @@ func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, 
 	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
 
 	writes := []interface{}{
+		lineWrite(cpuSelector),
 		segmentWrite{name: "HEADER"},
 		lineWrite(iNESHeader),
 		headerByteWrite{value: byte(len(app.PRG) / 16384), comment: "Number of 16KB PRG-ROM banks"},
@@ -155,30 +158,30 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 
 	for i := 0; i < endIndex; i++ {
 		res := app.PRG[i]
-		if res.CodeOutput == "" {
-			if res.HasData {
-				count, err := bundlePRGDataWrites(app, writer, i, endIndex)
-				if err != nil {
-					return err
-				}
-				i = i + count - 1
-			}
-			continue
-		}
 
 		if err := writeLabel(writer, i, res.Label); err != nil {
 			return err
 		}
 
+		if res.Type&program.DataOffset != 0 {
+			count, err := bundlePRGDataWrites(app, writer, i, endIndex)
+			if err != nil {
+				return err
+			}
+			i = i + count - 1
+			continue
+		}
+
 		if res.Comment == "" {
-			if _, err := fmt.Fprintf(writer, "  %s\n", res.CodeOutput); err != nil {
+			if _, err := fmt.Fprintf(writer, "  %s\n", res.Code); err != nil {
 				return err
 			}
 		} else {
-			if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.CodeOutput, res.Comment); err != nil {
+			if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.Code, res.Comment); err != nil {
 				return err
 			}
 		}
+		i += len(res.OpcodeBytes) - 1
 	}
 
 	return nil
@@ -214,15 +217,26 @@ func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, end
 
 	for i := startIndex; i < endIndex; i++ {
 		res := app.PRG[i]
-		if res.CodeOutput != "" || res.Label != "" || !res.HasData {
+		if res.Type&program.DataOffset == 0 {
 			break
 		}
-		data = append(data, res.Data)
+		data = append(data, res.OpcodeBytes[0])
 		count++
+
+		// special case for data bytes that are part of a branch into an instruction
+		if res.Comment != "" {
+			break
+		}
 	}
 
-	if err := bundleDataWrites(writer, data); err != nil {
-		return 0, err
+	if len(data) == 1 {
+		if err := writeDataSingleByte(app, writer, startIndex); err != nil {
+			return 0, err
+		}
+	} else {
+		if err := bundleDataWrites(writer, data); err != nil {
+			return 0, err
+		}
 	}
 	return count, nil
 }
@@ -259,13 +273,27 @@ func bundleDataWrites(writer io.Writer, data []byte) error {
 	return nil
 }
 
+func writeDataSingleByte(app *program.Program, writer io.Writer, index int) error {
+	res := app.PRG[index]
+	if res.Comment == "" {
+		if _, err := fmt.Fprintf(writer, ".byte $%02x\n", res.OpcodeBytes[0]); err != nil {
+			return err
+		}
+	} else {
+		if _, err := fmt.Fprintf(writer, ".byte $%02x %-22s ; %s\n", res.OpcodeBytes[0], "", res.Comment); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 // getLastNonZeroPRGByte searches for the last byte in PRG that is not zero
 func getLastNonZeroPRGByte(app *program.Program) (int, error) {
 	start := len(app.PRG) - 1 - 6 // skip irq pointers
 
 	for i := start; i >= 0; i-- {
 		res := app.PRG[i]
-		if res.CodeOutput == "" && res.Data == 0 {
+		if len(res.OpcodeBytes) == 0 || res.OpcodeBytes[0] == 0 {
 			continue
 		}
 		return i + 1, nil

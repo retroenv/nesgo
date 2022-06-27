@@ -7,52 +7,64 @@ import (
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/param"
+	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
 // followExecutionFlow parses opcodes and follows the execution flow to parse all code.
 func (dis *Disasm) followExecutionFlow() error {
-	sys := dis.sys
-	var err error
-
-	for len(dis.targetsToParse) > 0 {
-		dis.popTarget()
+	for ; len(dis.targetsToParse) > 0; dis.popTarget() {
 		if *nes.PC == 0 {
 			break
 		}
 
-		opcode := nes.DecodePCInstruction(sys)
 		offset := dis.addressToOffset(*nes.PC)
-		dis.offsets[offset].opcodeBytes = []byte{sys.ReadMemory(*nes.PC)}
+		dis.offsets[offset].OpcodeBytes = make([]byte, 1, 3)
+		dis.offsets[offset].OpcodeBytes[0] = dis.sys.ReadMemory(*nes.PC)
+
+		opcode, err := nes.DecodePCInstruction(dis.sys)
+		if err != nil {
+			// consider an unknown instruction as start of data
+			dis.offsets[offset].Type |= program.DataOffset
+			continue
+		}
 
 		var params string
+		instruction := opcode.Instruction
 
-		if opcode.Instruction.ParamFunc != nil { // instruction has parameters
+		// process instructions with parameters, ignore special case of unofficial nop
+		// that also has an implied addressing without parameters.
+		if instruction.ParamFunc != nil && opcode.Addressing != ImpliedAddressing {
 			var opcodes []byte
 			opcodes, params, err = dis.processParamInstruction(opcode)
 			if err != nil {
 				return err
 			}
-			dis.offsets[offset].opcodeBytes = append(dis.offsets[offset].opcodeBytes, opcodes...)
+			dis.offsets[offset].OpcodeBytes = append(dis.offsets[offset].OpcodeBytes, opcodes...)
 		}
 
-		opcodeLength := uint16(len(dis.offsets[offset].opcodeBytes))
-		nextTarget := sys.PC + opcodeLength
+		opcodeLength := uint16(len(dis.offsets[offset].OpcodeBytes))
+		nextTarget := dis.sys.PC + opcodeLength
 
-		if _, ok := cpu.NotExecutingFollowingOpcodeInstructions[opcode.Instruction.Name]; !ok {
-			dis.addTarget(nextTarget, opcode.Instruction, false)
+		if _, ok := cpu.NotExecutingFollowingOpcodeInstructions[instruction.Name]; !ok {
+			dis.addTarget(nextTarget, instruction, false)
 		}
 
 		dis.offsets[offset].opcode = opcode
 
 		if params == "" {
-			dis.offsets[offset].Output = opcode.Instruction.Name
+			dis.offsets[offset].Code = instruction.Name
 		} else {
-			dis.offsets[offset].Output = fmt.Sprintf("%s %s", opcode.Instruction.Name, params)
+			dis.offsets[offset].Code = fmt.Sprintf("%s %s", instruction.Name, params)
 		}
 
-		for i := uint16(0); i < opcodeLength; i++ {
-			dis.offsets[offset+i].IsProcessed = true
+		if instruction.Name == "nop" && instruction.Unofficial {
+			dis.handleUnofficialNop(offset)
+			continue
+		}
+
+		for i := uint16(0); i < opcodeLength && int(offset)+int(i) < len(dis.offsets); i++ {
+			dis.offsets[offset+i].Type |= program.CodeOffset
 		}
 	}
 	return nil
@@ -126,14 +138,14 @@ func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, paramAsString strin
 	return paramAsString
 }
 
-// processJumpTargets processes all jump targetsToParse and updates the callers with
+// processJumpTargets processes all jump targets and updates the callers with
 // the generated jump target label name.
 func (dis *Disasm) processJumpTargets() {
 	for target := range dis.jumpTargets {
 		offset := dis.addressToOffset(target)
 		name := dis.offsets[offset].Label
 		if name == "" {
-			if dis.offsets[offset].IsCallTarget {
+			if dis.offsets[offset].Type&program.CallTarget != 0 {
 				name = fmt.Sprintf("_func_%04x", target)
 			} else {
 				name = fmt.Sprintf("_label_%04x", target)
@@ -141,11 +153,55 @@ func (dis *Disasm) processJumpTargets() {
 			dis.offsets[offset].Label = name
 		}
 
+		// if the offset is marked as code but does not have opcode bytes, the jumping target
+		// is inside the second or third byte of an instruction.
+		if dis.offsets[offset].Type&program.CodeOffset != 0 && len(dis.offsets[offset].OpcodeBytes) == 0 {
+			dis.handleJumpIntoInstruction(offset)
+		}
+
 		for _, caller := range dis.offsets[offset].JumpFrom {
 			offset = dis.addressToOffset(caller)
-			dis.offsets[offset].Output = dis.offsets[offset].opcode.Instruction.Name
+			dis.offsets[offset].Code = dis.offsets[offset].opcode.Instruction.Name
 			dis.offsets[offset].JumpingTo = name
 		}
+	}
+}
+
+// handleJumpIntoInstruction converts an instruction that has a jump destination label inside
+// its second or third opcode bytes into data.
+func (dis *Disasm) handleJumpIntoInstruction(offset uint16) {
+	// look backwards for instruction start
+	instructionStart := offset - 1
+	for ; len(dis.offsets[instructionStart].OpcodeBytes) == 0; instructionStart-- {
+	}
+
+	ins := dis.offsets[instructionStart]
+	ins.Comment = fmt.Sprintf("branch into instruction detected: %s", ins.Code)
+	ins.Code = ""
+	dis.offsets[instructionStart] = ins
+	data := ins.OpcodeBytes
+	dis.changeOffsetRangeToData(data, instructionStart)
+}
+
+// handleUnofficialNop translates unofficial nop codes into data bytes as the instruction
+// has multiple opcodes for the same addressing mode which will result in a different
+// bytes being assembled.
+func (dis *Disasm) handleUnofficialNop(offset uint16) {
+	ins := dis.offsets[offset]
+	ins.Comment = fmt.Sprintf("unofficial nop instruction: %s", ins.Code)
+	ins.Code = ""
+	dis.offsets[offset] = ins
+	data := ins.OpcodeBytes
+	dis.changeOffsetRangeToData(data, offset)
+}
+
+func (dis *Disasm) changeOffsetRangeToData(data []byte, offset uint16) {
+	for i := 0; i < len(data); i++ {
+		ins := dis.offsets[offset+uint16(i)]
+		ins.OpcodeBytes = []byte{data[i]}
+		ins.Type ^= program.CodeOffset
+		ins.Type |= program.DataOffset
+		dis.offsets[offset+uint16(i)] = ins
 	}
 }
 
@@ -154,14 +210,15 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 	offset := dis.addressToOffset(target)
 
 	if currentInstruction != nil && currentInstruction.Name == "jsr" {
-		dis.offsets[offset].IsCallTarget = true
+		dis.offsets[offset].Type |= program.CallTarget
 	}
 	if jumpTarget {
 		dis.offsets[offset].JumpFrom = append(dis.offsets[offset].JumpFrom, *nes.PC)
 		dis.jumpTargets[target] = struct{}{}
 	}
 
-	if dis.offsets[offset].IsProcessed {
+	typ := dis.offsets[offset].Type
+	if typ&program.CodeOffset != 0 || typ&program.DataOffset != 0 {
 		return // already disassembled
 	}
 	dis.targetsToParse = append(dis.targetsToParse, target)
@@ -170,12 +227,12 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 // processData sets all data bytes for offsets that have not being identified as code.
 func (dis *Disasm) processData() {
 	for i, offset := range dis.offsets {
-		if offset.Output != "" {
+		if offset.Type&program.CodeOffset != 0 || offset.Type&program.DataOffset != 0 {
 			continue
 		}
 
 		address := uint16(i + codeBaseAddress)
 		b := dis.sys.ReadMemory(address)
-		dis.offsets[i].Data = b
+		dis.offsets[i].OpcodeBytes = []byte{b}
 	}
 }

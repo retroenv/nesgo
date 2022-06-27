@@ -20,6 +20,7 @@ check the README of each tool for a more detailed description and instructions o
 ## Project layout
 
     ├─ cmd              tools main directories
+    ├─ docs             documentation
     ├─ example/         NES Program examples in Golang
     ├─ internal/        internal compiler code
     ├─ pkg/             libraries used by different packages and tools

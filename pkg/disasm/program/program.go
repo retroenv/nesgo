@@ -1,17 +1,30 @@
 // Package program represents an NES program.
 package program
 
-import "github.com/retroenv/nesgo/pkg/cartridge"
+import (
+	"github.com/retroenv/nesgo/pkg/cartridge"
+)
+
+// OffsetType defines the type of a program offset.
+type OffsetType uint8
+
+// addressing modes.
+const (
+	UnknownOffset OffsetType = 0
+	CodeOffset    OffsetType = 1 << iota
+	DataOffset
+	CallTarget // opcode is target of a jsr call, indicating a subroutine
+)
 
 // Offset defines the content of an offset in a program that can represent data or code.
 type Offset struct {
-	IsCallTarget bool   // opcode is target of a jsr call, indicating a subroutine
-	Label        string // name of label or subroutine
+	OpcodeBytes []byte // data byte or all opcode bytes that are part of the instruction
 
-	CodeOutput string // set if identified as code
-	Comment    string
-	Data       byte // set if identified as data
-	HasData    bool
+	Type OffsetType
+
+	Label   string // name of label or subroutine if identified as a jump target
+	Code    string // asm output of this instruction
+	Comment string
 }
 
 // Handlers defines the handlers that the NES can jump to.

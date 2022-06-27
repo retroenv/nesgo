@@ -28,22 +28,8 @@ archives:
       - goos: windows
         format: zip
 
-# verifiable build settings
-gomod:
-  proxy: true
-  env:
-    - GOPROXY=https://proxy.golang.org,direct
-    - GOSUMDB=sum.golang.org
-
 checksum:
   name_template: 'checksums.txt'
 
 snapshot:
   name_template: "{{ .Tag }}-snapshot"
-
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^docs:'
-      - '^test:'

@@ -17,3 +17,4 @@ examples/**/*.nes
 examples/colortest
 .testCoverage
 dist/
+internal/testroms/commercial/

@@ -24,17 +24,12 @@ type fileWriter interface {
 
 // offset defines the content of an offset in a program that can represent data or code.
 type offset struct {
-	opcode      cpu.Opcode // opcode that the byte at this offset represents
-	opcodeBytes []byte     // all opcode bytes that are part of the instruction
+	program.Offset
 
-	IsProcessed  bool     // flag whether current offset and following opcode bytes have been processed
-	IsCallTarget bool     // opcode is target of a jsr call, indicating a subroutine
-	JumpFrom     []uint16 // list of all addresses that jump to this offset
+	opcode cpu.Opcode // opcode that the byte at this offset represents
 
-	Label     string // name of label or subroutine if identified as a jump target
-	Output    string // asm output of this instruction
-	Data      byte   // data byte if not an instruction
-	JumpingTo string // label to jump to if instruction branches
+	JumpFrom  []uint16 // list of all addresses that jump to this offset
+	JumpingTo string   // label to jump to if instruction branches
 }
 
 // Disasm implements a NES disassembler.
@@ -126,7 +121,7 @@ func (dis *Disasm) initializeIrqHandlers() {
 		dis.addTarget(nmi, nil, false)
 		offset := dis.addressToOffset(nmi)
 		dis.offsets[offset].Label = "NMI"
-		dis.offsets[offset].IsCallTarget = true
+		dis.offsets[offset].Type |= program.CallTarget
 		dis.handlers.NMI = "NMI"
 	}
 
@@ -134,14 +129,14 @@ func (dis *Disasm) initializeIrqHandlers() {
 	dis.addTarget(reset, nil, false)
 	offset := dis.addressToOffset(reset)
 	dis.offsets[offset].Label = "Reset"
-	dis.offsets[offset].IsCallTarget = true
+	dis.offsets[offset].Type |= program.CallTarget
 
 	irq := dis.sys.ReadMemory16(0xFFFE)
 	if irq != 0 {
 		dis.addTarget(irq, nil, false)
 		offset = dis.addressToOffset(irq)
 		dis.offsets[offset].Label = "IRQ"
-		dis.offsets[offset].IsCallTarget = true
+		dis.offsets[offset].Type |= program.CallTarget
 		dis.handlers.IRQ = "IRQ"
 	}
 }
@@ -160,24 +155,22 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 
 	for i := 0; i < len(dis.offsets); i++ {
 		res := dis.offsets[i]
-
-		offset := program.Offset{
-			IsCallTarget: res.IsCallTarget,
-			Label:        res.Label,
-			CodeOutput:   res.Output,
-		}
-		if !res.IsProcessed {
-			offset.Data = res.Data
-			offset.HasData = true
-		}
+		offset := res.Offset
 
 		if res.JumpingTo != "" {
-			offset.CodeOutput = fmt.Sprintf("%s %s", res.Output, res.JumpingTo)
+			offset.Code = fmt.Sprintf("%s %s", res.Code, res.JumpingTo)
 		}
 
-		if dis.options.HexComments && res.Output != "" {
-			if err := setHexCodeComment(&offset, &res); err != nil {
-				return nil, err
+		if res.Type&program.CodeOffset == 0 {
+			offset.Type |= program.DataOffset
+		} else {
+			if dis.options.OffsetComments {
+				setOffsetComment(&offset, codeBaseAddress+uint16(i))
+			}
+			if dis.options.HexComments && res.Comment == "" {
+				if err := setHexCodeComment(&offset); err != nil {
+					return nil, err
+				}
 			}
 		}
 
@@ -203,14 +196,29 @@ func (dis *Disasm) addressToOffset(address uint16) uint16 {
 	return offset
 }
 
-func setHexCodeComment(offset *program.Offset, code *offset) error {
+func setHexCodeComment(offset *program.Offset) error {
 	buf := &strings.Builder{}
 
-	for _, b := range code.opcodeBytes {
+	for _, b := range offset.OpcodeBytes {
 		if _, err := fmt.Fprintf(buf, "%02X ", b); err != nil {
 			return err
 		}
 	}
-	offset.Comment = strings.TrimRight(buf.String(), " ")
+
+	comment := strings.TrimRight(buf.String(), " ")
+	if offset.Comment == "" {
+		offset.Comment = comment
+	} else {
+		offset.Comment = fmt.Sprintf("%s %s", offset.Comment, comment)
+	}
+
 	return nil
+}
+
+func setOffsetComment(offset *program.Offset, address uint16) {
+	if offset.Comment == "" {
+		offset.Comment = fmt.Sprintf("$%04X", address)
+	} else {
+		offset.Comment = fmt.Sprintf("$%04X %s", address, offset.Comment)
+	}
 }
