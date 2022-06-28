@@ -50,6 +50,7 @@ func readArguments() (optionFlags, *disasmoptions.Options) {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{}
 	disasmOptions := disasmoptions.New()
+	disasmOptions.Assembler = ca65.Name
 
 	flags.BoolVar(&options.assembleTest, "verify", false, "verify the generated output by assembling with ca65 and check if it matches the input")
 	flags.BoolVar(&options.noHexComments, "nohexcomments", false, "do not output opcode bytes as hex values in comments")

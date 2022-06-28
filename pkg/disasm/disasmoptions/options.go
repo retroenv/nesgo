@@ -6,6 +6,7 @@ package disasmoptions
 type Options struct {
 	Assembler string // what assembler to use
 
+	CodeOnly       bool
 	HexComments    bool
 	OffsetComments bool
 	ZeroBytes      bool
@@ -14,8 +15,6 @@ type Options struct {
 // New returns a new options instance with default options.
 func New() Options {
 	return Options{
-		Assembler: "ca65",
-
 		HexComments:    true,
 		OffsetComments: true,
 	}

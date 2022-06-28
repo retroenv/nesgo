@@ -43,20 +43,26 @@ const dataBytesPerLine = 16
 func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
 
-	writes := []interface{}{
-		lineWrite(cpuSelector),
-		segmentWrite{name: "HEADER"},
-		lineWrite(iNESHeader),
-		headerByteWrite{value: byte(len(app.PRG) / 16384), comment: "Number of 16KB PRG-ROM banks"},
-		headerByteWrite{value: byte(len(app.CHR) / 8192), comment: "Number of 8KB CHR-ROM banks"},
-		headerByteWrite{value: control1, comment: "Control bits 1"},
-		headerByteWrite{value: control2, comment: "Control bits 1"},
-		headerByteWrite{value: app.RAM, comment: "Number of 8KB PRG-RAM banks"},
-		headerByteWrite{value: app.VideoFormat, comment: "Video format NTSC/PAL"},
-		customWrite(f.writeConstants),
-		customWrite(f.writeCode),
-		customWrite(f.writeCHR),
-		segmentWrite{name: "VECTORS"},
+	var writes []interface{}
+
+	if !options.CodeOnly {
+		writes = []interface{}{
+			lineWrite(cpuSelector),
+			segmentWrite{name: "HEADER"},
+			lineWrite(iNESHeader),
+			headerByteWrite{value: byte(len(app.PRG) / 16384), comment: "Number of 16KB PRG-ROM banks"},
+			headerByteWrite{value: byte(len(app.CHR) / 8192), comment: "Number of 8KB CHR-ROM banks"},
+			headerByteWrite{value: control1, comment: "Control bits 1"},
+			headerByteWrite{value: control2, comment: "Control bits 1"},
+			headerByteWrite{value: app.RAM, comment: "Number of 8KB PRG-RAM banks"},
+			headerByteWrite{value: app.VideoFormat, comment: "Video format NTSC/PAL"},
+		}
+	}
+
+	writes = append(writes, customWrite(f.writeConstants), customWrite(f.writeCode))
+
+	if !options.CodeOnly {
+		writes = append(writes, customWrite(f.writeCHR), segmentWrite{name: "VECTORS"})
 	}
 
 	for _, write := range writes {
@@ -83,8 +89,10 @@ func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, 
 		}
 	}
 
-	if _, err := fmt.Fprintf(writer, vectors, app.Handlers.NMI, app.Handlers.Reset, app.Handlers.IRQ); err != nil {
-		return err
+	if !options.CodeOnly {
+		if _, err := fmt.Fprintf(writer, vectors, app.Handlers.NMI, app.Handlers.Reset, app.Handlers.IRQ); err != nil {
+			return err
+		}
 	}
 	return nil
 }
@@ -143,8 +151,10 @@ func (f FileWriter) writeCHR(options *disasmoptions.Options, app *program.Progra
 
 // writeCode writes the code to the output.
 func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
-	if err := f.writeSegment(writer, "CODE"); err != nil {
-		return err
+	if !options.CodeOnly {
+		if err := f.writeSegment(writer, "CODE"); err != nil {
+			return err
+		}
 	}
 
 	endIndex := len(app.PRG) - 6 // leave space for vectors
