@@ -142,11 +142,13 @@ func (f FileWriter) writeCHR(options *disasmoptions.Options, app *program.Progra
 	}
 
 	if options.ZeroBytes {
-		return bundleDataWrites(writer, app.CHR)
+		_, err := bundleDataWrites(writer, app.CHR, false)
+		return err
 	}
 
 	lastNonZeroByte := getLastNonZeroCHRByte(app)
-	return bundleDataWrites(writer, app.CHR[:lastNonZeroByte])
+	_, err := bundleDataWrites(writer, app.CHR[:lastNonZeroByte], false)
+	return err
 }
 
 // writeCode writes the code to the output.
@@ -157,14 +159,12 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 		}
 	}
 
-	endIndex := len(app.PRG) - 6 // leave space for vectors
-	if !options.ZeroBytes {
-		var err error
-		endIndex, err = getLastNonZeroPRGByte(app)
-		if err != nil {
-			return err
-		}
+	endIndex, err := getLastNonZeroPRGByte(options, app)
+	if err != nil {
+		return err
 	}
+
+	var lastLineType program.OffsetType
 
 	for i := 0; i < endIndex; i++ {
 		res := app.PRG[i]
@@ -173,23 +173,27 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 			return err
 		}
 
+		// print an empty line in case of data after code and vice versa
+		if i > 0 && res.Label == "" && res.Type&program.CodeOffset != lastLineType&program.CodeOffset {
+			if _, err := fmt.Fprintln(writer); err != nil {
+				return err
+			}
+		}
+		lastLineType = res.Type
+
 		if res.Type&program.DataOffset != 0 {
 			count, err := bundlePRGDataWrites(app, writer, i, endIndex)
 			if err != nil {
 				return err
 			}
-			i = i + count - 1
+			if count > 0 {
+				i = i + count - 1
+			}
 			continue
 		}
 
-		if res.Comment == "" {
-			if _, err := fmt.Fprintf(writer, "  %s\n", res.Code); err != nil {
-				return err
-			}
-		} else {
-			if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.Code, res.Comment); err != nil {
-				return err
-			}
+		if err := writeCodeLine(writer, res); err != nil {
+			return err
 		}
 		i += len(res.OpcodeBytes) - 1
 	}
@@ -214,45 +218,69 @@ func writeLabel(writer io.Writer, offset int, label string) error {
 	return nil
 }
 
-// bundlePRGDataWrites parses PRG to create bundled writes of data bytes per line.
-func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, endIndex int) (int, error) {
-	count := 0
-	var data []byte
-
-	if startIndex > 0 {
-		if _, err := fmt.Fprintln(writer); err != nil {
-			return 0, err
+func writeCodeLine(writer io.Writer, res program.Offset) error {
+	if res.Comment == "" {
+		if _, err := fmt.Fprintf(writer, "  %s\n", res.Code); err != nil {
+			return err
+		}
+	} else {
+		if _, err := fmt.Fprintf(writer, "  %-30s ; %s\n", res.Code, res.Comment); err != nil {
+			return err
 		}
 	}
+	return nil
+}
+
+// bundlePRGDataWrites parses PRG to create bundled writes of data bytes per line.
+func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, endIndex int) (int, error) {
+	var data []byte
 
 	for i := startIndex; i < endIndex; i++ {
 		res := app.PRG[i]
-		if res.Type&program.DataOffset == 0 {
+		// opcode bytes can be nil if data bytes have been combined for an unofficial nop
+		if res.Type&program.DataOffset == 0 || len(res.OpcodeBytes) == 0 {
 			break
 		}
-		data = append(data, res.OpcodeBytes[0])
-		count++
-
-		// special case for data bytes that are part of a branch into an instruction
-		if res.Comment != "" {
+		// stop at first label or code after start index
+		if i > startIndex && (res.Type&program.CodeOffset != 0 || res.Label != "") {
 			break
+		}
+		data = append(data, res.OpcodeBytes...)
+	}
+
+	var err error
+	var line string
+	res := app.PRG[startIndex]
+
+	switch len(data) {
+	case 0:
+		return 0, nil
+
+	case 1:
+		line = fmt.Sprintf(".byte $%02x", data[0])
+
+	default:
+		line, err = bundleDataWrites(writer, data, res.Comment != "")
+		if err != nil {
+			return 0, err
 		}
 	}
 
-	if len(data) == 1 {
-		if err := writeDataSingleByte(app, writer, startIndex); err != nil {
-			return 0, err
+	if line != "" {
+		if res.Comment == "" {
+			_, err = fmt.Fprintf(writer, "%s\n", line)
+		} else {
+			_, err = fmt.Fprintf(writer, "%-32s ; %s\n", line, res.Comment)
 		}
-	} else {
-		if err := bundleDataWrites(writer, data); err != nil {
+		if err != nil {
 			return 0, err
 		}
 	}
-	return count, nil
+	return len(data), nil
 }
 
 // bundleDataWrites bundles writes of data bytes to print dataBytesPerLine bytes per line.
-func bundleDataWrites(writer io.Writer, data []byte) error {
+func bundleDataWrites(writer io.Writer, data []byte, returnLine bool) (string, error) {
 	remaining := len(data)
 	for i := 0; remaining > 0; {
 		toWrite := remaining
@@ -262,43 +290,38 @@ func bundleDataWrites(writer io.Writer, data []byte) error {
 
 		buf := &strings.Builder{}
 		if _, err := buf.WriteString(".byte "); err != nil {
-			return err
+			return "", err
 		}
 
 		for j := 0; j < toWrite; j++ {
 			if _, err := fmt.Fprintf(buf, "$%02x, ", data[i+j]); err != nil {
-				return err
+				return "", err
 			}
 		}
 
-		s := strings.TrimRight(buf.String(), ", ")
-		if _, err := fmt.Fprintf(writer, "%s\n", s); err != nil {
-			return err
+		line := strings.TrimRight(buf.String(), ", ")
+		if returnLine {
+			return line, nil
+		}
+
+		if _, err := fmt.Fprintf(writer, "%s\n", line); err != nil {
+			return "", err
 		}
 
 		i += toWrite
 		remaining -= toWrite
 	}
 
-	return nil
+	return "", nil
 }
 
-func writeDataSingleByte(app *program.Program, writer io.Writer, index int) error {
-	res := app.PRG[index]
-	if res.Comment == "" {
-		if _, err := fmt.Fprintf(writer, ".byte $%02x\n", res.OpcodeBytes[0]); err != nil {
-			return err
-		}
-	} else {
-		if _, err := fmt.Fprintf(writer, ".byte $%02x %-22s ; %s\n", res.OpcodeBytes[0], "", res.Comment); err != nil {
-			return err
-		}
+// getLastNonZeroPRGByte searches for the last byte in PRG that is not zero.
+func getLastNonZeroPRGByte(options *disasmoptions.Options, app *program.Program) (int, error) {
+	endIndex := len(app.PRG) - 6 // leave space for vectors
+	if options.ZeroBytes {
+		return endIndex, nil
 	}
-	return nil
-}
 
-// getLastNonZeroPRGByte searches for the last byte in PRG that is not zero
-func getLastNonZeroPRGByte(app *program.Program) (int, error) {
 	start := len(app.PRG) - 1 - 6 // skip irq pointers
 
 	for i := start; i >= 0; i-- {
@@ -311,7 +334,7 @@ func getLastNonZeroPRGByte(app *program.Program) (int, error) {
 	return 0, errors.New("could not find last zero byte")
 }
 
-// getLastNonZeroCHRByte searches for the last byte in CHR that is not zero
+// getLastNonZeroCHRByte searches for the last byte in CHR that is not zero.
 func getLastNonZeroCHRByte(app *program.Program) int {
 	for i := len(app.CHR) - 1; i >= 0; i-- {
 		b := app.CHR[i]
