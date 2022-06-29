@@ -13,6 +13,7 @@ import (
 
 var testCode = []byte{
 	0x78,             // $8000 sei
+	0x1a,             // $8001 nop
 	0xdc, 0xae, 0x8b, // $8001 nop $8BAE,X
 	// TODO jump into instruction
 	0x40, // $8004 rti
@@ -20,19 +21,15 @@ var testCode = []byte{
 
 var expectedDefault = `Reset:
   sei                            ; $8000 78
-
-.byte $dc                        ; unofficial nop instruction: nop $8BAE,X
-
-.byte $ae, $8b
-  rti                            ; $8004 40
+.byte $1a                        ; $8001 unofficial nop instruction: nop
+.byte $dc, $ae, $8b              ; $8002 unofficial nop instruction: nop $8BAE,X
+  rti                            ; $8005 40
 `
 
 var expectedNoOffsetNoHex = `Reset:
   sei
-
-.byte $dc                        ; unofficial nop instruction: nop $8BAE,X
-
-.byte $ae, $8b
+.byte $1a                        ; unofficial nop instruction: nop
+.byte $dc, $ae, $8b              ; unofficial nop instruction: nop $8BAE,X
   rti
 `
 
