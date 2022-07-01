@@ -22,11 +22,8 @@ func (dis *Disasm) addVariableReference(offset uint16, opcode cpu.Opcode, addres
 	if opcode.ReadWritesMemory() {
 		reads = true
 		writes = true
-	}
-	if !reads {
+	} else {
 		reads = opcode.ReadsMemory()
-	}
-	if !writes {
 		writes = opcode.WritesMemory()
 	}
 	if !reads && !writes {
