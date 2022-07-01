@@ -25,20 +25,44 @@ var NotExecutingFollowingOpcodeInstructions = map[string]struct{}{
 // MemoryReadInstructions contains all instructions that can read from an
 // absolute memory address.
 var MemoryReadInstructions = map[string]struct{}{
-	and.Name: {},
-	bit.Name: {},
-	cmp.Name: {},
-	cpx.Name: {},
-	cpy.Name: {},
-	lda.Name: {},
-	ldx.Name: {},
-	ldy.Name: {},
+	and.Name:           {},
+	bit.Name:           {},
+	cmp.Name:           {},
+	cpx.Name:           {},
+	cpy.Name:           {},
+	jmp.Name:           {},
+	lda.Name:           {},
+	ldx.Name:           {},
+	ldy.Name:           {},
+	unofficialLax.Name: {},
 }
 
 // MemoryWriteInstructions contains all instructions that can write to a
 // absolute memory address.
 var MemoryWriteInstructions = map[string]struct{}{
-	sta.Name: {},
-	stx.Name: {},
-	sty.Name: {},
+	sta.Name:           {},
+	stx.Name:           {},
+	sty.Name:           {},
+	unofficialSax.Name: {},
+}
+
+// MemoryReadWriteInstructions contains all instructions that can read and write
+// during instruction execution an absolute memory address.
+var MemoryReadWriteInstructions = map[string]struct{}{
+	adc.Name:           {},
+	asl.Name:           {},
+	dec.Name:           {},
+	eor.Name:           {},
+	inc.Name:           {},
+	lsr.Name:           {},
+	ora.Name:           {},
+	rol.Name:           {},
+	ror.Name:           {},
+	sbc.Name:           {},
+	unofficialDcp.Name: {},
+	unofficialIsb.Name: {},
+	unofficialRla.Name: {},
+	unofficialRra.Name: {},
+	unofficialSlo.Name: {},
+	unofficialSre.Name: {},
 }

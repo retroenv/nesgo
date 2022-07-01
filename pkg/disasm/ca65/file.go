@@ -59,7 +59,11 @@ func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, 
 		}
 	}
 
-	writes = append(writes, customWrite(f.writeConstants), customWrite(f.writeCode))
+	writes = append(writes,
+		customWrite(f.writeConstants),
+		customWrite(f.writeVariables),
+		customWrite(f.writeCode),
+	)
 
 	if !options.CodeOnly {
 		writes = append(writes, customWrite(f.writeCHR), segmentWrite{name: "VECTORS"})
@@ -110,24 +114,37 @@ func (f FileWriter) writeSegment(writer io.Writer, name string) error {
 }
 
 // writeConstants will write constant aliases to the output.
-func (f FileWriter) writeConstants(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
+func (f FileWriter) writeConstants(_ *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	if len(app.Constants) == 0 {
 		return nil
 	}
 
+	return outputAliasMap(app.Constants, writer)
+}
+
+// writeVariables will write variable aliases to the output.
+func (f FileWriter) writeVariables(_ *disasmoptions.Options, app *program.Program, writer io.Writer) error {
+	if len(app.Variables) == 0 {
+		return nil
+	}
+
+	return outputAliasMap(app.Variables, writer)
+}
+
+func outputAliasMap(aliases map[string]uint16, writer io.Writer) error {
 	if _, err := fmt.Fprintln(writer); err != nil {
 		return err
 	}
 
 	// sort the aliases by name before outputting to avoid random map order
-	names := make([]string, 0, len(app.Constants))
-	for constant := range app.Constants {
+	names := make([]string, 0, len(aliases))
+	for constant := range aliases {
 		names = append(names, constant)
 	}
 	sort.Strings(names)
 
 	for _, constant := range names {
-		address := app.Constants[constant]
+		address := aliases[constant]
 		if _, err := fmt.Fprintf(writer, "%s = $%04X\n", constant, address); err != nil {
 			return err
 		}

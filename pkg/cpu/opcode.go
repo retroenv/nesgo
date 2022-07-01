@@ -254,3 +254,36 @@ var Opcodes = map[byte]Opcode{
 	0xfc: {Instruction: unofficialNop, Addressing: AbsoluteXAddressing, Timing: 4, PageCrossCycle: true},
 	0xff: {Instruction: unofficialIsb, Addressing: AbsoluteXAddressing, Timing: 7},
 }
+
+// ReadsMemory returns whether the instruction accesses memory reading.
+func (opcode Opcode) ReadsMemory() bool {
+	switch opcode.Addressing {
+	case ImmediateAddressing, ImpliedAddressing, RelativeAddressing:
+		return false
+	}
+
+	_, ok := MemoryReadInstructions[opcode.Instruction.Name]
+	return ok
+}
+
+// WritesMemory returns whether the instruction accesses memory writing.
+func (opcode Opcode) WritesMemory() bool {
+	switch opcode.Addressing {
+	case ImmediateAddressing, ImpliedAddressing, RelativeAddressing:
+		return false
+	}
+
+	_, ok := MemoryWriteInstructions[opcode.Instruction.Name]
+	return ok
+}
+
+// ReadWritesMemory returns whether the instruction accesses memory reading and writing.
+func (opcode Opcode) ReadWritesMemory() bool {
+	switch opcode.Addressing {
+	case ImmediateAddressing, ImpliedAddressing, RelativeAddressing:
+		return false
+	}
+
+	_, ok := MemoryReadWriteInstructions[opcode.Instruction.Name]
+	return ok
+}
