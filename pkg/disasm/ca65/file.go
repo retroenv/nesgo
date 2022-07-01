@@ -14,9 +14,9 @@ import (
 
 var cpuSelector = `.setcpu "6502x"` // allow unofficial opcodes
 
-var iNESHeader = `.byte "NES", $1a ; Magic string that always begins an iNES header`
+var iNESHeader = `.byte "NES", $1a                 ; Magic string that always begins an iNES header`
 
-var headerByte = ".byte $%02x        ; %s\n"
+var headerByte = ".byte $%02x %-22s ; %s\n"
 
 var vectors = ".addr %s, %s, %s\n"
 
@@ -68,7 +68,7 @@ func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, 
 	for _, write := range writes {
 		switch t := write.(type) {
 		case headerByteWrite:
-			if _, err := fmt.Fprintf(writer, headerByte, t.value, t.comment); err != nil {
+			if _, err := fmt.Fprintf(writer, headerByte, t.value, "", t.comment); err != nil {
 				return err
 			}
 
