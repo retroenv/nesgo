@@ -1,12 +1,23 @@
 before:
   hooks:
     - go mod download
-    - go mod tidy
 
 builds:
   - id: nesgodisasm
     binary: nesgodisasm
     dir: cmd/nesgodisasm
+    env:
+      - CGO_ENABLED=0
+    targets:
+      - go_first_class
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{ .CommitDate }}
+
+  - id: nesgogg
+    binary: nesgogg
+    dir: cmd/nesgogg
     env:
       - CGO_ENABLED=0
     targets:
