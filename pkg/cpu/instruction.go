@@ -24,9 +24,9 @@ type Instruction struct {
 }
 
 // HasAddressing returns whether the instruction has any of the passed addressing modes.
-func (c Instruction) HasAddressing(flags ...Mode) bool {
+func (ins Instruction) HasAddressing(flags ...Mode) bool {
 	for _, flag := range flags {
-		_, ok := c.Addressing[flag]
+		_, ok := ins.Addressing[flag]
 		if ok {
 			return ok
 		}

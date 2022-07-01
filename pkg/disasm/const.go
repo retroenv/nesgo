@@ -2,16 +2,36 @@ package disasm
 
 import (
 	"fmt"
+	"strings"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/apu"
 	"github.com/retroenv/nesgo/pkg/controller"
+	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/ppu"
 )
 
 type constTranslation struct {
 	Read  string
 	Write string
+}
+
+func (dis *Disasm) replaceParamByConstant(opcode cpu.Opcode, paramAsString string, address uint16, constantInfo constTranslation) string {
+	// split parameter string in case of x/y indexing, only the first part will be replaced by a const name
+	paramParts := strings.Split(paramAsString, ",")
+
+	if constantInfo.Read != "" && opcode.ReadsMemory() {
+		dis.usedConstants[address] = constantInfo
+		paramParts[0] = constantInfo.Read
+		return strings.Join(paramParts, ",")
+	}
+	if constantInfo.Write != "" && opcode.WritesMemory() {
+		dis.usedConstants[address] = constantInfo
+		paramParts[0] = constantInfo.Write
+		return strings.Join(paramParts, ",")
+	}
+
+	return paramAsString
 }
 
 // buildConstMap builds the map of all known NES constants from all
