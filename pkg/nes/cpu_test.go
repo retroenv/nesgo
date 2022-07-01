@@ -550,7 +550,7 @@ func TestJsr(t *testing.T) {
 	t.Parallel()
 	sys := system.New(cartridge.New())
 
-	sys.PC = 0x8000
+	sys.PC = CodeBaseAddress
 	sys.Jsr(Absolute(0x101))
 
 	assert.Equal(t, cpu.InitialStack-2, sys.SP)

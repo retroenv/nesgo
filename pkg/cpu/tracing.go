@@ -94,7 +94,7 @@ func shouldOutputMemoryContent(address uint16) bool {
 		return true
 	case address >= 0x4000 && address <= 0x4020:
 		return true
-	case address >= 0x8000:
+	case address >= CodeBaseAddress:
 		return true
 	default:
 		return false
