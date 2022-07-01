@@ -48,6 +48,7 @@ type Program struct {
 	VideoFormat byte
 
 	Constants map[string]uint16
+	Variables map[string]uint16
 }
 
 // New creates a new program initialize with a program code size.
@@ -61,5 +62,6 @@ func New(cart *cartridge.Cartridge) *Program {
 		Mirror:    cart.Mirror,
 		Trainer:   cart.Trainer,
 		Constants: map[string]uint16{},
+		Variables: map[string]uint16{},
 	}
 }

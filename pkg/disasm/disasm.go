@@ -44,6 +44,7 @@ type Disasm struct {
 	constants     map[uint16]constTranslation
 	usedConstants map[uint16]constTranslation
 	variables     map[uint16]*variable
+	usedVariables map[uint16]struct{}
 
 	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
 	offsets     []offset
@@ -58,6 +59,7 @@ func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, er
 		sys:           nes.InitializeSystem(nes.WithCartridge(cart)),
 		cart:          cart,
 		variables:     map[uint16]*variable{},
+		usedVariables: map[uint16]struct{}{},
 		usedConstants: map[uint16]constTranslation{},
 		offsets:       make([]offset, len(cart.PRG)),
 		jumpTargets:   map[uint16]struct{}{},
@@ -89,7 +91,9 @@ func (dis *Disasm) Process(writer io.Writer) error {
 	}
 
 	dis.processData()
-	dis.processVariables()
+	if err := dis.processVariables(); err != nil {
+		return err
+	}
 	dis.processJumpTargets()
 
 	app, err := dis.convertToProgram()
@@ -185,6 +189,10 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 		if constantInfo.Write != "" {
 			app.Constants[constantInfo.Write] = address
 		}
+	}
+	for address := range dis.usedVariables {
+		name := fmt.Sprintf(variableNaming, address)
+		app.Variables[name] = address
 	}
 
 	return app, nil

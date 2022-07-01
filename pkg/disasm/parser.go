@@ -19,13 +19,14 @@ func (dis *Disasm) followExecutionFlow() error {
 		}
 
 		offset := dis.addressToOffset(*nes.PC)
-		dis.offsets[offset].OpcodeBytes = make([]byte, 1, 3)
-		dis.offsets[offset].OpcodeBytes[0] = dis.sys.ReadMemory(*nes.PC)
+		offsetInfo := &dis.offsets[offset]
+		offsetInfo.OpcodeBytes = make([]byte, 1, 3)
+		offsetInfo.OpcodeBytes[0] = dis.sys.ReadMemory(*nes.PC)
 
 		opcode, err := nes.DecodePCInstruction(dis.sys)
 		if err != nil {
 			// consider an unknown instruction as start of data
-			dis.offsets[offset].Type |= program.DataOffset
+			offsetInfo.Type |= program.DataOffset
 			continue
 		}
 
@@ -40,22 +41,22 @@ func (dis *Disasm) followExecutionFlow() error {
 			if err != nil {
 				return err
 			}
-			dis.offsets[offset].OpcodeBytes = append(dis.offsets[offset].OpcodeBytes, opcodes...)
+			offsetInfo.OpcodeBytes = append(offsetInfo.OpcodeBytes, opcodes...)
 		}
 
-		opcodeLength := uint16(len(dis.offsets[offset].OpcodeBytes))
+		opcodeLength := uint16(len(offsetInfo.OpcodeBytes))
 		nextTarget := dis.sys.PC + opcodeLength
 
 		if _, ok := cpu.NotExecutingFollowingOpcodeInstructions[instruction.Name]; !ok {
 			dis.addTarget(nextTarget, instruction, false)
 		}
 
-		dis.offsets[offset].opcode = opcode
+		offsetInfo.opcode = opcode
 
 		if params == "" {
-			dis.offsets[offset].Code = instruction.Name
+			offsetInfo.Code = instruction.Name
 		} else {
-			dis.offsets[offset].Code = fmt.Sprintf("%s %s", instruction.Name, params)
+			offsetInfo.Code = fmt.Sprintf("%s %s", instruction.Name, params)
 		}
 
 		if instruction.Name == "nop" && instruction.Unofficial {
@@ -94,28 +95,33 @@ func (dis *Disasm) processParamInstruction(offset uint16, opcode cpu.Opcode) ([]
 // replaceParamByAlias replaces the absolute address with an alias name if it can match it to
 // a constant, zero page variable or a code reference.
 func (dis *Disasm) replaceParamByAlias(offset uint16, opcode cpu.Opcode, param interface{}, paramAsString string) string {
-	address, ok := param.(Absolute)
-	if !ok { // not the addressing type found that accesses known addresses
-		return paramAsString
+	var address uint16
+	absolute, ok := param.(Absolute)
+	if ok { // not the addressing type found that accesses known addresses
+		address = uint16(absolute)
+	} else {
+		indirect, ok := param.(Indirect)
+		if !ok {
+			return paramAsString
+		}
+		address = uint16(indirect)
 	}
 
-	constantInfo, ok := dis.constants[uint16(address)]
+	constantInfo, ok := dis.constants[address]
 	if ok {
-		return dis.replaceParamByConstant(opcode, paramAsString, uint16(address), constantInfo)
+		return dis.replaceParamByConstant(opcode, paramAsString, address, constantInfo)
 	}
 
-	if !opcode.ReadsMemory() && !opcode.WritesMemory() {
+	if !dis.addVariableReference(offset, opcode, address) {
 		return paramAsString
 	}
-
-	dis.addVariableReference(offset, address)
 
 	// force using absolute address to not generate a different opcode by using zeropage access mode
 	// TODO check if other assemblers use the same prefix
 	switch opcode.Addressing {
-	case ZeroPageAddressing:
+	case ZeroPageAddressing, ZeroPageXAddressing, ZeroPageYAddressing:
 		return "z:" + paramAsString
-	case AbsoluteAddressing:
+	case AbsoluteAddressing, AbsoluteXAddressing, AbsoluteYAddressing:
 		return "a:" + paramAsString
 	default: // indirect x, ...
 		return paramAsString

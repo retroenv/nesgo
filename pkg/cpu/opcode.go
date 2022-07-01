@@ -276,3 +276,14 @@ func (opcode Opcode) WritesMemory() bool {
 	_, ok := MemoryWriteInstructions[opcode.Instruction.Name]
 	return ok
 }
+
+// ReadWritesMemory returns whether the instruction accesses memory reading and writing.
+func (opcode Opcode) ReadWritesMemory() bool {
+	switch opcode.Addressing {
+	case ImmediateAddressing, ImpliedAddressing, RelativeAddressing:
+		return false
+	}
+
+	_, ok := MemoryReadWriteInstructions[opcode.Instruction.Name]
+	return ok
+}
