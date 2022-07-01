@@ -13,7 +13,8 @@ import (
 
 // followExecutionFlow parses opcodes and follows the execution flow to parse all code.
 func (dis *Disasm) followExecutionFlow() error {
-	for ; len(dis.targetsToParse) > 0; dis.popTarget() {
+	for len(dis.targetsToParse) > 0 {
+		dis.popTarget()
 		if *nes.PC == 0 {
 			break
 		}
@@ -175,10 +176,9 @@ func (dis *Disasm) handleJumpIntoInstruction(offset uint16) {
 	for ; len(dis.offsets[instructionStart].OpcodeBytes) == 0; instructionStart-- {
 	}
 
-	ins := dis.offsets[instructionStart]
+	ins := &dis.offsets[instructionStart]
 	ins.Comment = fmt.Sprintf("branch into instruction detected: %s", ins.Code)
 	ins.Code = ""
-	dis.offsets[instructionStart] = ins
 	data := ins.OpcodeBytes
 	dis.changeOffsetRangeToData(data, instructionStart)
 }
@@ -187,21 +187,35 @@ func (dis *Disasm) handleJumpIntoInstruction(offset uint16) {
 // has multiple opcodes for the same addressing mode which will result in a different
 // bytes being assembled.
 func (dis *Disasm) handleUnofficialNop(offset uint16) {
-	ins := dis.offsets[offset]
+	ins := &dis.offsets[offset]
 	ins.Comment = fmt.Sprintf("unofficial nop instruction: %s", ins.Code)
 	ins.Code = ""
-	dis.offsets[offset] = ins
 	data := ins.OpcodeBytes
 	dis.changeOffsetRangeToData(data, offset)
 }
 
+// changeOffsetRangeToData sets a range of code offsets to data types.
+// It combines all data bytes that are not split by a label.
 func (dis *Disasm) changeOffsetRangeToData(data []byte, offset uint16) {
 	for i := 0; i < len(data); i++ {
-		ins := dis.offsets[offset+uint16(i)]
-		ins.OpcodeBytes = []byte{data[i]}
+		ins := &dis.offsets[offset+uint16(i)]
+
+		noLabelOffsets := 1
+		for j := i + 1; j < len(data); j++ {
+			insNext := &dis.offsets[offset+uint16(j)]
+			if insNext.Label == "" {
+				insNext.OpcodeBytes = nil
+				insNext.Type |= program.DataOffset
+				noLabelOffsets++
+				continue
+			}
+			break
+		}
+
+		ins.OpcodeBytes = data[i : i+noLabelOffsets]
 		ins.Type ^= program.CodeOffset
 		ins.Type |= program.DataOffset
-		dis.offsets[offset+uint16(i)] = ins
+		i += noLabelOffsets - 1
 	}
 }
 
