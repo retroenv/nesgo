@@ -80,6 +80,8 @@ ld65 example.o -t nes -o example.nes
 ## Options
 
 ```
+usage: nesgodisasm [options] <file to disassemble>
+
   -nohexcomments
     	do not output opcode bytes as hex values in comments
   -nooffsets

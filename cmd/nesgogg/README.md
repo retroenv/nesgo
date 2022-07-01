@@ -34,17 +34,21 @@ nesgogg <CODE>
 nesgogg PIGOAP
 ```
 
+Encode a Game Genie code:
+
+```
+nesgogg -a 0x94A7 -v 0x02
+```
+
 ## Options
 
 ```
-  -nohexcomments
-    	do not output opcode bytes as hex values in comments
-  -nooffsets
-    	do not output offsets in comments
-  -o string
-    	name of the output .asm file, printed on console if no name given
-  -q	perform operations quietly
-  -verify
-    	verify the generated output by assembling with ca65 and check if it matches the input
-  -z	output the trailing zero bytes of banks
+usage: nesgogg [options] <code>
+
+  -a string
+    	address to patch in decimal or hex with 0x prefix
+  -c string
+    	compare value in decimal or hex with 0x prefix
+  -v string
+    	value to write in decimal or hex with 0x prefix
 ```
