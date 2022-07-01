@@ -3,6 +3,7 @@ package mapper
 import (
 	"fmt"
 
+	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
@@ -15,8 +16,8 @@ func (m mapper0) ReadMemory(address uint16) uint8 {
 	switch {
 	case address < 0x2000:
 		return m.cart.CHR[address]
-	case address >= 0x8000:
-		offset := (address - 0x8000) % m.prgMod
+	case address >= addressing.CodeBaseAddress:
+		offset := (address - addressing.CodeBaseAddress) % m.prgMod
 		return m.cart.PRG[offset]
 	default:
 		panic(fmt.Sprintf("invalid read from address #%0000x", address))

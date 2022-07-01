@@ -7,6 +7,7 @@ package memory
 import (
 	"fmt"
 
+	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/mapper"
@@ -64,7 +65,7 @@ func (m *Memory) WriteMemory(address uint16, value byte) {
 		m.controller2.SetStrobeMode(value)
 	case address >= 0x4000 && address <= 0x4020:
 		return // TODO apu support
-	case address >= 0x8000:
+	case address >= addressing.CodeBaseAddress:
 		m.mapper.WriteMemory(address, value)
 	default:
 		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
@@ -84,7 +85,7 @@ func (m *Memory) ReadMemory(address uint16) byte {
 		return m.controller2.Read()
 	case address >= 0x4000 && address <= 0x4020:
 		return 0xff // TODO apu support
-	case address >= 0x8000:
+	case address >= addressing.CodeBaseAddress:
 		return m.mapper.ReadMemory(address)
 	default:
 		panic(fmt.Sprintf("unhandled memory read at address: 0x%04X", address))

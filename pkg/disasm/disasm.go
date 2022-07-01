@@ -6,6 +6,7 @@ import (
 	"io"
 	"strings"
 
+	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
@@ -15,8 +16,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/system"
 )
-
-const codeBaseAddress = 0x8000
 
 type fileWriter interface {
 	Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error
@@ -163,7 +162,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 			offset.Type |= program.DataOffset
 		} else {
 			if dis.options.OffsetComments {
-				setOffsetComment(&offset, codeBaseAddress+uint16(i))
+				setOffsetComment(&offset, addressing.CodeBaseAddress+uint16(i))
 			}
 			if dis.options.HexComments && res.Comment == "" {
 				if err := setHexCodeComment(&offset); err != nil {
@@ -189,7 +188,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 }
 
 func (dis *Disasm) addressToOffset(address uint16) uint16 {
-	offset := address - codeBaseAddress
+	offset := address - addressing.CodeBaseAddress
 	offset %= uint16(len(dis.cart.PRG))
 	return offset
 }
