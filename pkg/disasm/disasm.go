@@ -41,10 +41,11 @@ type Disasm struct {
 	cart       *cartridge.Cartridge
 	handlers   program.Handlers
 
-	constants     map[uint16]constTranslation
-	usedConstants map[uint16]constTranslation
-	variables     map[uint16]*variable
-	usedVariables map[uint16]struct{}
+	codeBaseAddress uint16
+	constants       map[uint16]constTranslation
+	usedConstants   map[uint16]constTranslation
+	variables       map[uint16]*variable
+	usedVariables   map[uint16]struct{}
 
 	jumpTargets map[uint16]struct{} // jumpTargets is a set of all addresses that branched to
 	offsets     []offset
@@ -55,14 +56,15 @@ type Disasm struct {
 // New creates a new NES disassembler that creates output compatible with the chosen assembler.
 func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, error) {
 	dis := &Disasm{
-		options:       options,
-		sys:           nes.InitializeSystem(nes.WithCartridge(cart)),
-		cart:          cart,
-		variables:     map[uint16]*variable{},
-		usedVariables: map[uint16]struct{}{},
-		usedConstants: map[uint16]constTranslation{},
-		offsets:       make([]offset, len(cart.PRG)),
-		jumpTargets:   map[uint16]struct{}{},
+		options:         options,
+		sys:             nes.InitializeSystem(nes.WithCartridge(cart)),
+		cart:            cart,
+		codeBaseAddress: uint16(0x10000 - len(cart.PRG)),
+		variables:       map[uint16]*variable{},
+		usedVariables:   map[uint16]struct{}{},
+		usedConstants:   map[uint16]constTranslation{},
+		offsets:         make([]offset, len(cart.PRG)),
+		jumpTargets:     map[uint16]struct{}{},
 		handlers: program.Handlers{
 			NMI:   "0",
 			Reset: "Reset",
@@ -169,7 +171,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 			offset.Type |= program.DataOffset
 		} else {
 			if dis.options.OffsetComments {
-				setOffsetComment(&offset, addressing.CodeBaseAddress+uint16(i))
+				setOffsetComment(&offset, dis.codeBaseAddress+uint16(i))
 			}
 			if dis.options.HexComments && res.Comment == "" {
 				if err := setHexCodeComment(&offset); err != nil {
