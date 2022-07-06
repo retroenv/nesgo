@@ -28,6 +28,10 @@ func (dis *Disasm) followExecutionFlow() error {
 		offsetInfo.OpcodeBytes = make([]byte, 1, 3)
 		offsetInfo.OpcodeBytes[0] = dis.sys.ReadMemory(*nes.PC)
 
+		if offsetInfo.Type&program.DataOffset != 0 {
+			continue // was set by CDL
+		}
+
 		var err error
 		offsetInfo.opcode, err = nes.DecodePCInstruction(dis.sys)
 		if err != nil {

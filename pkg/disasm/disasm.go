@@ -243,6 +243,7 @@ func (dis *Disasm) loadCodeDataLog() error {
 	for offset, flags := range prgFlags {
 		if flags&codedatalog.Data != 0 {
 			dis.offsets[offset].Type = program.DataOffset
+			dis.targetsToParse = append(dis.targetsToParse, dis.codeBaseAddress+uint16(offset))
 		}
 		if flags&codedatalog.Code != 0 {
 			dis.targetsToParse = append(dis.targetsToParse, dis.codeBaseAddress+uint16(offset))
