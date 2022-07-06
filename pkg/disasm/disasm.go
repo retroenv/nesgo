@@ -193,8 +193,8 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 		}
 	}
 	for address := range dis.usedVariables {
-		name := fmt.Sprintf(variableNaming, address)
-		app.Variables[name] = address
+		varInfo := dis.variables[address]
+		app.Variables[varInfo.name] = address
 	}
 
 	return app, nil

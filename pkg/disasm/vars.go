@@ -8,13 +8,20 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/param"
 )
 
-const variableNaming = "VAR_%04X"
+const (
+	dataNaming            = "_data_%04x"
+	dataNamingIndexed     = "_data_%04x_indexed"
+	variableNaming        = "_var_%04x"
+	variableNamingIndexed = "_var_%04x_indexed"
+)
 
 type variable struct {
 	reads  bool
 	writes bool
 
-	usageAt []uint16 // list of all addresses that use this offset
+	name         string
+	indexedUsage bool     // access with X/Y registers indicates table
+	usageAt      []uint16 // list of all addresses that use this offset
 }
 
 func (dis *Disasm) addVariableReference(offset uint16, opcode cpu.Opcode, address uint16) bool {
@@ -44,6 +51,17 @@ func (dis *Disasm) addVariableReference(offset uint16, opcode cpu.Opcode, addres
 		varInfo.writes = true
 	}
 
+	if address == 0xc135 {
+		fmt.Println("asdf")
+	}
+
+	switch opcode.Addressing {
+	case ZeroPageXAddressing, ZeroPageYAddressing,
+		AbsoluteXAddressing, AbsoluteYAddressing,
+		IndirectXAddressing, IndirectYAddressing:
+		varInfo.indexedUsage = true
+	}
+
 	return true
 }
 
@@ -51,20 +69,27 @@ func (dis *Disasm) addVariableReference(offset uint16, opcode cpu.Opcode, addres
 // with a generated alias name.
 func (dis *Disasm) processVariables() error {
 	for address, varInfo := range dis.variables {
-		if len(varInfo.usageAt) == 1 {
+		if len(varInfo.usageAt) == 1 && !varInfo.indexedUsage && address < CodeBaseAddress {
 			if !varInfo.reads || !varInfo.writes {
-				continue // ignore only once usages or ones that are now read and write
+				continue // ignore only once usages or ones that are not read and write
 			}
 		}
 
-		dis.usedVariables[address] = struct{}{}
-		name := fmt.Sprintf(variableNaming, address)
+		var offsetInfo *offset
+		if address >= CodeBaseAddress {
+			offset := dis.addressToOffset(address)
+			offsetInfo = &dis.offsets[offset]
+		} else {
+			dis.usedVariables[address] = struct{}{}
+		}
+
+		varInfo.name = dataName(offsetInfo, varInfo.indexedUsage, address)
 
 		for _, usedAddress := range varInfo.usageAt {
 			offset := dis.addressToOffset(usedAddress)
 			offsetInfo := &dis.offsets[offset]
 
-			converted, err := param.String(dis.converter, offsetInfo.opcode.Addressing, name)
+			converted, err := param.String(dis.converter, offsetInfo.opcode.Addressing, varInfo.name)
 			if err != nil {
 				return err
 			}
@@ -80,4 +105,29 @@ func (dis *Disasm) processVariables() error {
 		}
 	}
 	return nil
+}
+
+func dataName(offsetInfo *offset, indexedUsage bool, address uint16) string {
+	if offsetInfo != nil && offsetInfo.Label != "" {
+		return offsetInfo.Label
+	}
+
+	var name string
+	prgAccess := offsetInfo != nil
+
+	switch {
+	case prgAccess && indexedUsage:
+		name = fmt.Sprintf(dataNamingIndexed, address)
+	case prgAccess && !indexedUsage:
+		name = fmt.Sprintf(dataNaming, address)
+	case !prgAccess && indexedUsage:
+		name = fmt.Sprintf(variableNamingIndexed, address)
+	default:
+		name = fmt.Sprintf(variableNaming, address)
+	}
+
+	if offsetInfo != nil {
+		offsetInfo.Label = name
+	}
+	return name
 }
