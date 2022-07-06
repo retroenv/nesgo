@@ -6,6 +6,7 @@ import (
 	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/param"
+	"github.com/retroenv/nesgo/pkg/disasm/program"
 )
 
 const (
@@ -51,10 +52,6 @@ func (dis *Disasm) addVariableReference(offset uint16, opcode cpu.Opcode, addres
 		varInfo.writes = true
 	}
 
-	if address == 0xc135 {
-		fmt.Println("asdf")
-	}
-
 	switch opcode.Addressing {
 	case ZeroPageXAddressing, ZeroPageYAddressing,
 		AbsoluteXAddressing, AbsoluteYAddressing,
@@ -83,13 +80,14 @@ func (dis *Disasm) processVariables() error {
 			dis.usedVariables[address] = struct{}{}
 		}
 
-		varInfo.name = dataName(offsetInfo, varInfo.indexedUsage, address)
+		var reference string
+		varInfo.name, reference = dis.dataName(offsetInfo, varInfo.indexedUsage, address)
 
 		for _, usedAddress := range varInfo.usageAt {
 			offset := dis.addressToOffset(usedAddress)
 			offsetInfo := &dis.offsets[offset]
 
-			converted, err := param.String(dis.converter, offsetInfo.opcode.Addressing, varInfo.name)
+			converted, err := param.String(dis.converter, offsetInfo.opcode.Addressing, reference)
 			if err != nil {
 				return err
 			}
@@ -107,9 +105,18 @@ func (dis *Disasm) processVariables() error {
 	return nil
 }
 
-func dataName(offsetInfo *offset, indexedUsage bool, address uint16) string {
-	if offsetInfo != nil && offsetInfo.Label != "" {
-		return offsetInfo.Label
+// dataName calculates the name of a variable based on its address.
+// It returns the name of the variable and a string to reference it, it is possible that the reference
+// is using an adjuster like -1.
+func (dis *Disasm) dataName(offsetInfo *offset, indexedUsage bool, address uint16) (string, string) {
+	var reference string
+	if offsetInfo != nil {
+		offsetInfo, address, reference = dis.setNameOfNextOffset(address)
+
+		// if destination has an existing label, reuse it
+		if offsetInfo.Label != "" {
+			return offsetInfo.Label, reference
+		}
 	}
 
 	var name string
@@ -126,8 +133,31 @@ func dataName(offsetInfo *offset, indexedUsage bool, address uint16) string {
 		name = fmt.Sprintf(variableNaming, address)
 	}
 
+	reference = name + reference
 	if offsetInfo != nil {
 		offsetInfo.Label = name
 	}
-	return name
+	return name, reference
+}
+
+// setNameOfNextOffset checks whether the destination is inside the 2. or 3. byte of an instruction
+// and points the label to the offset after it.
+func (dis *Disasm) setNameOfNextOffset(address uint16) (*offset, uint16, string) {
+	for i := address; i < 0xFFFA; i++ {
+		offset := dis.addressToOffset(i)
+		offsetInfo := &dis.offsets[offset]
+
+		if offsetInfo.Type&program.CodeOffset != 0 && len(offsetInfo.OpcodeBytes) == 0 {
+			continue
+		}
+
+		var adjuster string
+		j := i - address
+		if j > 0 {
+			adjuster = fmt.Sprintf("-%d", j)
+		}
+
+		return offsetInfo, i, adjuster
+	}
+	panic("no offset for label found")
 }
