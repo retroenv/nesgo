@@ -11,12 +11,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/nes"
 )
 
-var (
-	version = "dev"
-	commit  = ""
-	date    = ""
-)
-
 type optionFlags struct {
 	input string
 
@@ -61,7 +55,7 @@ func printBanner() {
 	fmt.Println("[-----------------------------]")
 	fmt.Println("[ nesgoemu - NES ROM emulator ]")
 	fmt.Printf("[-----------------------------]\n\n")
-	fmt.Printf("version: %s\n", buildinfo.BuildVersion(version, commit, date))
+	fmt.Printf("version: %s\n\n", buildinfo.BuildVersion(version, commit, date))
 }
 
 func emulateFile(options optionFlags) error {

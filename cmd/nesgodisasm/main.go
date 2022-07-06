@@ -16,12 +16,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 )
 
-var (
-	version = "dev"
-	commit  = ""
-	date    = ""
-)
-
 type optionFlags struct {
 	input  string
 	output string
@@ -78,7 +72,7 @@ func printBanner(options optionFlags) {
 		fmt.Println("[------------------------------------]")
 		fmt.Println("[ nesgodisasm - NES ROM disassembler ]")
 		fmt.Printf("[------------------------------------]\n\n")
-		fmt.Printf("version: %s\n", buildinfo.BuildVersion(version, commit, date))
+		fmt.Printf("version: %s\n\n", buildinfo.BuildVersion(version, commit, date))
 	}
 }
 

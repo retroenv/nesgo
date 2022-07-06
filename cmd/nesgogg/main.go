@@ -10,12 +10,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/gamegenie"
 )
 
-var (
-	version = "dev"
-	commit  = ""
-	date    = ""
-)
-
 type optionFlags struct {
 	code    string
 	address string
@@ -69,7 +63,7 @@ func printBanner() {
 	fmt.Println("[------------------------------------------]")
 	fmt.Println("[ nesgogg - NES Game Genie decoder/encoder ]")
 	fmt.Printf("[------------------------------------------]\n\n")
-	fmt.Printf("version: %s\n", buildinfo.BuildVersion(version, commit, date))
+	fmt.Printf("version: %s\n\n", buildinfo.BuildVersion(version, commit, date))
 }
 
 func decode(options optionFlags) error {
