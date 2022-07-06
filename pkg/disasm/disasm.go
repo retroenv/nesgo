@@ -8,6 +8,7 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/codedatalog"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
@@ -78,6 +79,12 @@ func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, er
 		return nil, err
 	}
 
+	if options.CodeDataLog != nil {
+		if err := dis.loadCodeDataLog(); err != nil {
+			return nil, err
+		}
+	}
+
 	if err = dis.initializeCompatibleMode(options.Assembler); err != nil {
 		return nil, fmt.Errorf("initializing compatible mode: %w", err)
 	}
@@ -145,12 +152,6 @@ func (dis *Disasm) initializeIrqHandlers() {
 		dis.offsets[offset].Type |= program.CallTarget
 		dis.handlers.IRQ = "IRQ"
 	}
-}
-
-// popTarget pops the next target to disassemble and sets it into the program counter.
-func (dis *Disasm) popTarget() {
-	dis.sys.PC = dis.targetsToParse[0]
-	dis.targetsToParse = dis.targetsToParse[1:]
 }
 
 // converts the internal disasm type representation to a program type that will be used by
@@ -231,4 +232,25 @@ func setOffsetComment(offset *program.Offset, address uint16) {
 	} else {
 		offset.Comment = fmt.Sprintf("$%04X %s", address, offset.Comment)
 	}
+}
+
+func (dis *Disasm) loadCodeDataLog() error {
+	prgFlags, err := codedatalog.LoadFile(dis.cart, dis.options.CodeDataLog)
+	if err != nil {
+		return fmt.Errorf("loading code/data log file: %w", err)
+	}
+
+	for offset, flags := range prgFlags {
+		if flags&codedatalog.Data != 0 {
+			dis.offsets[offset].Type = program.DataOffset
+		}
+		if flags&codedatalog.Code != 0 {
+			dis.targetsToParse = append(dis.targetsToParse, dis.codeBaseAddress+uint16(offset))
+		}
+		if flags&codedatalog.SubEntryPoint != 0 {
+			dis.offsets[offset].Type |= program.CallTarget
+		}
+	}
+
+	return nil
 }
