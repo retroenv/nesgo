@@ -95,6 +95,10 @@ func (dis *Disasm) processParamInstruction(offset uint16, opcode cpu.Opcode) ([]
 // replaceParamByAlias replaces the absolute address with an alias name if it can match it to
 // a constant, zero page variable or a code reference.
 func (dis *Disasm) replaceParamByAlias(offset uint16, opcode cpu.Opcode, param interface{}, paramAsString string) string {
+	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
+		return paramAsString
+	}
+
 	var address uint16
 	absolute, ok := param.(Absolute)
 	if ok { // not the addressing type found that accesses known addresses
