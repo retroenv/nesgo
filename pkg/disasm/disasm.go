@@ -52,6 +52,7 @@ type Disasm struct {
 	offsets     []offset
 
 	targetsToParse []uint16
+	targetsAdded   map[uint16]struct{}
 }
 
 // New creates a new NES disassembler that creates output compatible with the chosen assembler.
@@ -66,6 +67,7 @@ func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, er
 		usedConstants:   map[uint16]constTranslation{},
 		offsets:         make([]offset, len(cart.PRG)),
 		jumpTargets:     map[uint16]struct{}{},
+		targetsAdded:    map[uint16]struct{}{},
 		handlers: program.Handlers{
 			NMI:   "0",
 			Reset: "Reset",
@@ -134,7 +136,7 @@ func (dis *Disasm) initializeIrqHandlers() {
 		dis.addTarget(nmi, nil, false)
 		offset := dis.addressToOffset(nmi)
 		dis.offsets[offset].Label = "NMI"
-		dis.offsets[offset].Type |= program.CallTarget
+		dis.offsets[offset].SetType(program.CallTarget)
 		dis.handlers.NMI = "NMI"
 	}
 
@@ -142,14 +144,14 @@ func (dis *Disasm) initializeIrqHandlers() {
 	dis.addTarget(reset, nil, false)
 	offset := dis.addressToOffset(reset)
 	dis.offsets[offset].Label = "Reset"
-	dis.offsets[offset].Type |= program.CallTarget
+	dis.offsets[offset].SetType(program.CallTarget)
 
 	irq := dis.sys.ReadMemory16(0xFFFE)
 	if irq != 0 {
 		dis.addTarget(irq, nil, false)
 		offset = dis.addressToOffset(irq)
 		dis.offsets[offset].Label = "IRQ"
-		dis.offsets[offset].Type |= program.CallTarget
+		dis.offsets[offset].SetType(program.CallTarget)
 		dis.handlers.IRQ = "IRQ"
 	}
 }
@@ -168,9 +170,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 			offset.Code = fmt.Sprintf("%s %s", res.Code, res.JumpingTo)
 		}
 
-		if res.Type&program.CodeOffset == 0 {
-			offset.Type |= program.DataOffset
-		} else {
+		if res.IsType(program.CodeOffset | program.CodeAsData) {
 			if dis.options.OffsetComments {
 				setOffsetComment(&offset, dis.codeBaseAddress+uint16(i))
 			}
@@ -179,6 +179,8 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 					return nil, err
 				}
 			}
+		} else {
+			offset.SetType(program.DataOffset)
 		}
 
 		app.PRG[i] = offset
@@ -241,15 +243,11 @@ func (dis *Disasm) loadCodeDataLog() error {
 	}
 
 	for offset, flags := range prgFlags {
-		if flags&codedatalog.Data != 0 {
-			dis.offsets[offset].Type = program.DataOffset
-			dis.targetsToParse = append(dis.targetsToParse, dis.codeBaseAddress+uint16(offset))
-		}
 		if flags&codedatalog.Code != 0 {
-			dis.targetsToParse = append(dis.targetsToParse, dis.codeBaseAddress+uint16(offset))
+			dis.addTarget(dis.codeBaseAddress+uint16(offset), nil, false)
 		}
 		if flags&codedatalog.SubEntryPoint != 0 {
-			dis.offsets[offset].Type |= program.CallTarget
+			dis.offsets[offset].SetType(program.CallTarget)
 		}
 	}
 

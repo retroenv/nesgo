@@ -16,7 +16,7 @@ func (dis *Disasm) changeOffsetRangeToData(data []byte, offset uint16) {
 			insNext := &dis.offsets[offset+uint16(j)]
 			if insNext.Label == "" {
 				insNext.OpcodeBytes = nil
-				insNext.Type |= program.DataOffset
+				insNext.SetType(program.DataOffset)
 				noLabelOffsets++
 				continue
 			}
@@ -24,8 +24,8 @@ func (dis *Disasm) changeOffsetRangeToData(data []byte, offset uint16) {
 		}
 
 		ins.OpcodeBytes = data[i : i+noLabelOffsets]
-		ins.Type ^= program.CodeOffset
-		ins.Type |= program.DataOffset
+		ins.ClearType(program.CodeOffset)
+		ins.SetType(program.DataOffset)
 		i += noLabelOffsets - 1
 	}
 }
@@ -33,7 +33,7 @@ func (dis *Disasm) changeOffsetRangeToData(data []byte, offset uint16) {
 // processData sets all data bytes for offsets that have not being identified as code.
 func (dis *Disasm) processData() {
 	for i, offset := range dis.offsets {
-		if offset.Type&program.CodeOffset != 0 || offset.Type&program.DataOffset != 0 {
+		if offset.IsType(program.CodeOffset) || offset.IsType(program.DataOffset) {
 			continue
 		}
 
