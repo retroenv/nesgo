@@ -198,6 +198,10 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 		}
 		previousLineWasCode = res.IsType(program.CodeOffset | program.CodeAsData)
 
+		if res.IsType(program.CodeOffset) && len(res.OpcodeBytes) == 0 {
+			continue
+		}
+
 		if res.IsType(program.DataOffset) {
 			count, err := bundlePRGDataWrites(app, writer, i, endIndex)
 			if err != nil {
