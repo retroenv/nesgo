@@ -8,6 +8,7 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/codedatalog"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
@@ -78,6 +79,12 @@ func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, er
 	dis.constants, err = buildConstMap()
 	if err != nil {
 		return nil, err
+	}
+
+	if options.CodeDataLog != nil {
+		if err := dis.loadCodeDataLog(); err != nil {
+			return nil, err
+		}
 	}
 
 	if err = dis.initializeCompatibleMode(options.Assembler); err != nil {
@@ -227,4 +234,22 @@ func setOffsetComment(offset *program.Offset, address uint16) {
 	} else {
 		offset.Comment = fmt.Sprintf("$%04X %s", address, offset.Comment)
 	}
+}
+
+func (dis *Disasm) loadCodeDataLog() error {
+	prgFlags, err := codedatalog.LoadFile(dis.cart, dis.options.CodeDataLog)
+	if err != nil {
+		return fmt.Errorf("loading code/data log file: %w", err)
+	}
+
+	for offset, flags := range prgFlags {
+		if flags&codedatalog.Code != 0 {
+			dis.addTarget(dis.codeBaseAddress+uint16(offset), nil, false)
+		}
+		if flags&codedatalog.SubEntryPoint != 0 {
+			dis.offsets[offset].SetType(program.CallTarget)
+		}
+	}
+
+	return nil
 }

@@ -17,8 +17,9 @@ import (
 )
 
 type optionFlags struct {
-	input  string
-	output string
+	input       string
+	output      string
+	codeDataLog string
 
 	assembleTest bool
 	quiet        bool
@@ -47,6 +48,7 @@ func readArguments() (optionFlags, *disasmoptions.Options) {
 	disasmOptions.Assembler = ca65.Name
 
 	flags.BoolVar(&options.assembleTest, "verify", false, "verify the generated output by assembling with ca65 and check if it matches the input")
+	flags.StringVar(&options.codeDataLog, "cdl", "", "name of the .cdl Code/Data log file to load")
 	flags.BoolVar(&options.noHexComments, "nohexcomments", false, "do not output opcode bytes as hex values in comments")
 	flags.BoolVar(&options.noOffsets, "nooffsets", false, "do not output offsets in comments")
 	flags.StringVar(&options.output, "o", "", "name of the output .asm file, printed on console if no name given")
@@ -88,12 +90,20 @@ func disasmFile(options optionFlags, disasmOptions *disasmoptions.Options) error
 	}
 	_ = file.Close()
 
+	if err := openCodeDataLog(options, disasmOptions); err != nil {
+		return err
+	}
+
 	disasmOptions.HexComments = !options.noHexComments
 	disasmOptions.OffsetComments = !options.noOffsets
 
 	dis, err := disasm.New(cart, disasmOptions)
 	if err != nil {
 		return fmt.Errorf("initializing disassembler: %w", err)
+	}
+
+	if disasmOptions.CodeDataLog != nil {
+		_ = disasmOptions.CodeDataLog.Close()
 	}
 
 	var outputFile io.WriteCloser
@@ -225,5 +235,18 @@ func compareCartridgeDetails(input, output []byte) error {
 	if cart1.Battery != cart2.Battery {
 		fmt.Println("Battery header does not match")
 	}
+	return nil
+}
+
+func openCodeDataLog(options optionFlags, disasmOptions *disasmoptions.Options) error {
+	if options.codeDataLog == "" {
+		return nil
+	}
+
+	log, err := os.Open(options.codeDataLog)
+	if err != nil {
+		return fmt.Errorf("opening file '%s': %w", options.codeDataLog, err)
+	}
+	disasmOptions.CodeDataLog = log
 	return nil
 }

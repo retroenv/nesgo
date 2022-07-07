@@ -2,9 +2,12 @@
 // assembly writer.
 package disasmoptions
 
+import "io"
+
 // Options defines options to control the disassembler.
 type Options struct {
-	Assembler string // what assembler to use
+	Assembler   string        // what assembler to use
+	CodeDataLog io.ReadCloser // Code/Data log file to parse
 
 	CodeOnly       bool
 	HexComments    bool
