@@ -13,7 +13,7 @@ func (dis *Disasm) processJumpTargets() {
 		offset := dis.addressToOffset(target)
 		name := dis.offsets[offset].Label
 		if name == "" {
-			if dis.offsets[offset].Type&program.CallTarget != 0 {
+			if dis.offsets[offset].IsType(program.CallTarget) {
 				name = fmt.Sprintf("_func_%04x", target)
 			} else {
 				name = fmt.Sprintf("_label_%04x", target)
@@ -23,7 +23,7 @@ func (dis *Disasm) processJumpTargets() {
 
 		// if the offset is marked as code but does not have opcode bytes, the jumping target
 		// is inside the second or third byte of an instruction.
-		if dis.offsets[offset].Type&program.CodeOffset != 0 && len(dis.offsets[offset].OpcodeBytes) == 0 {
+		if dis.offsets[offset].IsType(program.CodeOffset) && len(dis.offsets[offset].OpcodeBytes) == 0 {
 			dis.handleJumpIntoInstruction(offset)
 		}
 
@@ -46,6 +46,7 @@ func (dis *Disasm) handleJumpIntoInstruction(offset uint16) {
 	ins := &dis.offsets[instructionStart]
 	ins.Comment = fmt.Sprintf("branch into instruction detected: %s", ins.Code)
 	ins.Code = ""
+	ins.SetType(program.CodeAsData)
 	data := ins.OpcodeBytes
 	dis.changeOffsetRangeToData(data, instructionStart)
 }
@@ -57,6 +58,7 @@ func (dis *Disasm) handleUnofficialNop(offset uint16) {
 	ins := &dis.offsets[offset]
 	ins.Comment = fmt.Sprintf("unofficial nop instruction: %s", ins.Code)
 	ins.Code = ""
+	ins.SetType(program.CodeAsData)
 	data := ins.OpcodeBytes
 	dis.changeOffsetRangeToData(data, offset)
 }

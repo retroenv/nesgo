@@ -181,7 +181,7 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 		return err
 	}
 
-	var lastLineType program.OffsetType
+	var previousLineWasCode bool
 
 	for i := 0; i < endIndex; i++ {
 		res := app.PRG[i]
@@ -191,14 +191,14 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 		}
 
 		// print an empty line in case of data after code and vice versa
-		if i > 0 && res.Label == "" && res.Type&program.CodeOffset != lastLineType&program.CodeOffset {
+		if i > 0 && res.Label == "" && res.IsType(program.CodeOffset|program.CodeAsData) != previousLineWasCode {
 			if _, err := fmt.Fprintln(writer); err != nil {
 				return err
 			}
 		}
-		lastLineType = res.Type
+		previousLineWasCode = res.IsType(program.CodeOffset | program.CodeAsData)
 
-		if res.Type&program.DataOffset != 0 {
+		if res.IsType(program.DataOffset) {
 			count, err := bundlePRGDataWrites(app, writer, i, endIndex)
 			if err != nil {
 				return err
@@ -255,11 +255,11 @@ func bundlePRGDataWrites(app *program.Program, writer io.Writer, startIndex, end
 	for i := startIndex; i < endIndex; i++ {
 		res := app.PRG[i]
 		// opcode bytes can be nil if data bytes have been combined for an unofficial nop
-		if res.Type&program.DataOffset == 0 || len(res.OpcodeBytes) == 0 {
+		if !res.IsType(program.DataOffset) || len(res.OpcodeBytes) == 0 {
 			break
 		}
 		// stop at first label or code after start index
-		if i > startIndex && (res.Type&program.CodeOffset != 0 || res.Label != "") {
+		if i > startIndex && (res.IsType(program.CodeOffset|program.CodeAsData) || res.Label != "") {
 			break
 		}
 		data = append(data, res.OpcodeBytes...)

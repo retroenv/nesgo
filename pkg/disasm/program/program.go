@@ -5,17 +5,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
-// OffsetType defines the type of a program offset.
-type OffsetType uint8
-
-// addressing modes.
-const (
-	UnknownOffset OffsetType = 0
-	CodeOffset    OffsetType = 1 << iota
-	DataOffset
-	CallTarget // opcode is target of a jsr call, indicating a subroutine
-)
-
 // Offset defines the content of an offset in a program that can represent data or code.
 type Offset struct {
 	OpcodeBytes []byte // data byte or all opcode bytes that are part of the instruction

@@ -147,7 +147,7 @@ func (dis *Disasm) setNameOfNextOffset(address uint16) (*offset, uint16, string)
 		offset := dis.addressToOffset(i)
 		offsetInfo := &dis.offsets[offset]
 
-		if offsetInfo.Type&program.CodeOffset != 0 && len(offsetInfo.OpcodeBytes) == 0 {
+		if offsetInfo.IsType(program.CodeOffset) && len(offsetInfo.OpcodeBytes) == 0 {
 			continue
 		}
 
