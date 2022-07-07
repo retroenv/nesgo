@@ -181,6 +181,10 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 		return err
 	}
 
+	return processPRG(app, writer, endIndex)
+}
+
+func processPRG(app *program.Program, writer io.Writer, endIndex int) error {
 	var previousLineWasCode bool
 
 	for i := 0; i < endIndex; i++ {
@@ -218,7 +222,6 @@ func (f FileWriter) writeCode(options *disasmoptions.Options, app *program.Progr
 		}
 		i += len(res.OpcodeBytes) - 1
 	}
-
 	return nil
 }
 
