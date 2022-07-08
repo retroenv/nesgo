@@ -16,9 +16,10 @@ var testCodeDefault = []byte{
 	0x4C, 0x04, 0x80, // jmp + 3
 	0xAD, 0x30, 0x80, // lda a:$8030
 	0xBD, 0x20, 0x80, // lda a:$8020,X
-	0x1a,             // nop
+	0xea,       // nop
+	0x90, 0x01, // bcc +1
 	0xdc, 0xae, 0x8b, // nop $8BAE,X
-	// TODO jump into instruction
+	0x78, // sei
 	0x40, // rti
 }
 
@@ -29,12 +30,15 @@ var expectedDefault = `Reset:
 _label_8004:
   lda a:_data_8030               ; $8004 AD 30 80
   lda a:_data_8020_indexed,X     ; $8007 BD 20 80
-.byte $1a                        ; $800A unofficial nop instruction: nop
-.byte $dc, $ae, $8b              ; $800B unofficial nop instruction: nop $8BAE,X
-  rti                            ; $800E 40
+  nop                            ; $800A EA
+  bcc _label_800e                ; $800B 90 01
+.byte $dc                        ; $800D unofficial nop instruction: nop $8BAE,X DC
 
-.byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-.byte $00
+_label_800e:
+  ldx a:$788B                    ; $800E AE 8B 78
+  rti                            ; $8011 40
+
+.byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
 _data_8020_indexed:
 .byte $12, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
@@ -74,46 +78,54 @@ func testProgram(t *testing.T, options *disasmoptions.Options, cart *cartridge.C
 	return disasm
 }
 
-func TestDisasmDefault(t *testing.T) {
-	options := disasmoptions.New()
-	options.CodeOnly = true
-	options.Assembler = ca65.Name
+func TestDisasm(t *testing.T) {
+	tests := []struct {
+		Name     string
+		Setup    func(options *disasmoptions.Options, cart *cartridge.Cartridge)
+		Input    []byte
+		Expected string
+	}{
+		{
+			Name: "default",
+			Setup: func(options *disasmoptions.Options, cart *cartridge.Cartridge) {
+				cart.PRG[0x0020] = 0x12
+				cart.PRG[0x0030] = 0x34
+			},
+			Input:    testCodeDefault,
+			Expected: expectedDefault,
+		},
+		{
+			Name: "no hex no address",
+			Setup: func(options *disasmoptions.Options, cart *cartridge.Cartridge) {
+				options.OffsetComments = false
+				options.HexComments = false
+			},
+			Input:    testCodeNoHexNoAddress,
+			Expected: expectedNoOffsetNoHex,
+		},
+	}
 
-	cart := cartridge.New()
-	cart.PRG[0x0020] = 0x12
-	cart.PRG[0x0030] = 0x34
+	for _, test := range tests {
+		t.Run(test.Name, func(t *testing.T) {
+			options := disasmoptions.New()
+			options.CodeOnly = true
+			options.Assembler = ca65.Name
 
-	disasm := testProgram(t, &options, cart, testCodeDefault)
+			cart := cartridge.New()
+			test.Setup(&options, cart)
 
-	var buffer bytes.Buffer
-	writer := bufio.NewWriter(&buffer)
+			disasm := testProgram(t, &options, cart, test.Input)
 
-	err := disasm.Process(writer)
-	assert.NoError(t, err)
+			var buffer bytes.Buffer
+			writer := bufio.NewWriter(&buffer)
 
-	assert.NoError(t, writer.Flush())
+			err := disasm.Process(writer)
+			assert.NoError(t, err)
 
-	buf := buffer.String()
-	assert.Equal(t, expectedDefault, buf)
-}
+			assert.NoError(t, writer.Flush())
 
-func TestDisasmNoHexNoAddress(t *testing.T) {
-	options := disasmoptions.New()
-	options.CodeOnly = true
-	options.Assembler = ca65.Name
-	options.OffsetComments = false
-	options.HexComments = false
-	cart := cartridge.New()
-	disasm := testProgram(t, &options, cart, testCodeNoHexNoAddress)
-
-	var buffer bytes.Buffer
-	writer := bufio.NewWriter(&buffer)
-
-	err := disasm.Process(writer)
-	assert.NoError(t, err)
-
-	assert.NoError(t, writer.Flush())
-
-	buf := buffer.String()
-	assert.Equal(t, expectedNoOffsetNoHex, buf)
+			buf := buffer.String()
+			assert.Equal(t, test.Expected, buf)
+		})
+	}
 }

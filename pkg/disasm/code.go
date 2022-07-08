@@ -47,8 +47,7 @@ func (dis *Disasm) handleJumpIntoInstruction(offset uint16) {
 	ins.Comment = fmt.Sprintf("branch into instruction detected: %s", ins.Code)
 	ins.Code = ""
 	ins.SetType(program.CodeAsData)
-	data := ins.OpcodeBytes
-	dis.changeOffsetRangeToData(data, instructionStart)
+	dis.changeOffsetRangeToData(ins.OpcodeBytes, instructionStart)
 }
 
 // handleUnofficialNop translates unofficial nop codes into data bytes as the instruction
@@ -59,6 +58,13 @@ func (dis *Disasm) handleUnofficialNop(offset uint16) {
 	ins.Comment = fmt.Sprintf("unofficial nop instruction: %s", ins.Code)
 	ins.Code = ""
 	ins.SetType(program.CodeAsData)
-	data := ins.OpcodeBytes
-	dis.changeOffsetRangeToData(data, offset)
+	dis.changeOffsetRangeToData(ins.OpcodeBytes, offset)
+}
+
+// changeOffsetRangeToCode sets a range of code offsets to code types.
+func (dis *Disasm) changeOffsetRangeToCode(data []byte, offset uint16) {
+	for i := 0; i < len(data); i++ {
+		ins := &dis.offsets[offset+uint16(i)]
+		ins.SetType(program.CodeOffset)
+	}
 }

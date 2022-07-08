@@ -45,16 +45,28 @@ func (dis *Disasm) followExecutionFlow() error {
 			dis.addTarget(nextTarget, instruction, false)
 		}
 
+		dis.checkInstructionOverlap(offsetInfo, offset)
+
 		if instruction.Name == "nop" && instruction.Unofficial {
 			dis.handleUnofficialNop(offset)
 			continue
 		}
 
-		for i := uint16(0); i < opcodeLength && int(offset)+int(i) < len(dis.offsets); i++ {
-			dis.offsets[offset+i].SetType(program.CodeOffset)
-		}
+		dis.changeOffsetRangeToCode(offsetInfo.OpcodeBytes, offset)
 	}
 	return nil
+}
+
+// in case the current instruction overlaps with an already existing instruction,
+// cut the current one short.
+func (dis *Disasm) checkInstructionOverlap(offsetInfo *offset, offset uint16) {
+	for i := 1; i < len(offsetInfo.OpcodeBytes); i++ {
+		ins := &dis.offsets[offset+uint16(i)]
+		if ins.IsType(program.CodeOffset) {
+			offsetInfo.OpcodeBytes = offsetInfo.OpcodeBytes[:i]
+			return
+		}
+	}
 }
 
 // initializeOffsetInfo initializes the offset info for the given offset and returns

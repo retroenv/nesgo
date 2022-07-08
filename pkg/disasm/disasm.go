@@ -171,10 +171,13 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 		}
 
 		if res.IsType(program.CodeOffset | program.CodeAsData) {
+			if len(offset.OpcodeBytes) == 0 && offset.Label == "" {
+				continue
+			}
 			if dis.options.OffsetComments {
 				setOffsetComment(&offset, dis.codeBaseAddress+uint16(i))
 			}
-			if dis.options.HexComments && res.Comment == "" {
+			if dis.options.HexComments {
 				if err := setHexCodeComment(&offset); err != nil {
 					return nil, err
 				}
