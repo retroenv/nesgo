@@ -63,7 +63,7 @@ func (dis *Disasm) handleUnofficialNop(offset uint16) {
 
 // changeOffsetRangeToCode sets a range of code offsets to code types.
 func (dis *Disasm) changeOffsetRangeToCode(data []byte, offset uint16) {
-	for i := 0; i < len(data); i++ {
+	for i := 0; i < len(data) && int(offset)+i < len(dis.offsets); i++ {
 		ins := &dis.offsets[offset+uint16(i)]
 		ins.SetType(program.CodeOffset)
 	}

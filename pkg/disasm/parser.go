@@ -60,7 +60,7 @@ func (dis *Disasm) followExecutionFlow() error {
 // in case the current instruction overlaps with an already existing instruction,
 // cut the current one short.
 func (dis *Disasm) checkInstructionOverlap(offsetInfo *offset, offset uint16) {
-	for i := 1; i < len(offsetInfo.OpcodeBytes); i++ {
+	for i := 1; i < len(offsetInfo.OpcodeBytes) && int(offset)+i < len(dis.offsets); i++ {
 		ins := &dis.offsets[offset+uint16(i)]
 		if ins.IsType(program.CodeOffset) {
 			offsetInfo.OpcodeBytes = offsetInfo.OpcodeBytes[:i]
