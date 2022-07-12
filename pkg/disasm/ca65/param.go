@@ -26,62 +26,74 @@ func (c ParamConverter) Accumulator() string {
 
 // Absolute converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) Absolute(param interface{}) string {
-	address, ok := param.(Absolute)
-	if ok {
-		return fmt.Sprintf("$%04X", address)
+	switch val := param.(type) {
+	case int, Absolute:
+		return fmt.Sprintf("$%04X", val)
+	case string:
+		return val
+	default:
+		panic(fmt.Sprintf("unsupported param type %T", val))
 	}
-	alias := param.(string)
-	return alias
 }
 
 // AbsoluteX converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) AbsoluteX(param interface{}) string {
-	address, ok := param.(Absolute)
-	if ok {
-		return fmt.Sprintf("$%04X,X", address)
+	switch val := param.(type) {
+	case int, Absolute:
+		return fmt.Sprintf("$%04X,X", val)
+	case string:
+		return fmt.Sprintf("%s,X", val)
+	default:
+		panic(fmt.Sprintf("unsupported param type %T", val))
 	}
-	alias := param.(string)
-	return fmt.Sprintf("%s,X", alias)
 }
 
 // AbsoluteY converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) AbsoluteY(param interface{}) string {
-	address, ok := param.(Absolute)
-	if ok {
-		return fmt.Sprintf("$%04X,Y", address)
+	switch val := param.(type) {
+	case int, Absolute:
+		return fmt.Sprintf("$%04X,Y", val)
+	case string:
+		return fmt.Sprintf("%s,Y", val)
+	default:
+		panic(fmt.Sprintf("unsupported param type %T", val))
 	}
-	alias := param.(string)
-	return fmt.Sprintf("%s,Y", alias)
 }
 
 // ZeroPage converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) ZeroPage(param interface{}) string {
-	address, ok := param.(Absolute)
-	if ok {
-		return fmt.Sprintf("$%02X", address)
+	switch val := param.(type) {
+	case int, Absolute, ZeroPage:
+		return fmt.Sprintf("$%02X", val)
+	case string:
+		return val
+	default:
+		panic(fmt.Sprintf("unsupported param type %T", val))
 	}
-	alias := param.(string)
-	return alias
 }
 
 // ZeroPageX converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) ZeroPageX(param interface{}) string {
-	address, ok := param.(ZeroPage)
-	if ok {
-		return fmt.Sprintf("$%02X,X", address)
+	switch val := param.(type) {
+	case int, Absolute, ZeroPage:
+		return fmt.Sprintf("$%02X,X", val)
+	case string:
+		return fmt.Sprintf("%s,X", val)
+	default:
+		panic(fmt.Sprintf("unsupported param type %T", val))
 	}
-	alias := param.(string)
-	return fmt.Sprintf("%s,X", alias)
 }
 
 // ZeroPageY converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) ZeroPageY(param interface{}) string {
-	address, ok := param.(ZeroPage)
-	if ok {
-		return fmt.Sprintf("$%02X,Y", address)
+	switch val := param.(type) {
+	case int, Absolute, ZeroPage:
+		return fmt.Sprintf("$%02X,Y", val)
+	case string:
+		return fmt.Sprintf("%s,Y", val)
+	default:
+		panic(fmt.Sprintf("unsupported param type %T", val))
 	}
-	alias := param.(string)
-	return fmt.Sprintf("%s,Y", alias)
 }
 
 // Relative converts the parameters to the assembler implementation compatible string.

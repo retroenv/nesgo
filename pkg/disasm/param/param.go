@@ -26,6 +26,7 @@ type Converter interface {
 
 // String returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
+// nolint: cyclop
 func String(converter Converter, addressing Mode, params ...interface{}) (string, error) {
 	switch addressing {
 	case ImpliedAddressing:
@@ -47,6 +48,9 @@ func String(converter Converter, addressing Mode, params ...interface{}) (string
 	case ZeroPageYAddressing:
 		return converter.ZeroPageY(params[0]), nil
 	case RelativeAddressing:
+		if len(params) == 0 {
+			return "", nil
+		}
 		return converter.Relative(params[0]), nil
 	case IndirectAddressing:
 		return converter.Indirect(params[0]), nil
