@@ -25,7 +25,7 @@ func ClearRAM() {
 	Lda(0) // A = 0
 	Tax()  // X = 0
 
-	for Bne() { // loop 256 times
+	for { // loop 256 times
 		Sta(0, X) // clear 0x0-0xff
 
 		Cpx(0xfe)   // last 2 bytes of stack?
@@ -40,5 +40,9 @@ func ClearRAM() {
 		Sta(0x600, X) // clear 0x600-0x6ff
 		Sta(0x700, X) // clear 0x700-0x7ff
 		Inx()         // X = X + 1
+
+		if !Bne() {
+			break
+		}
 	}
 }
