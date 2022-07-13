@@ -54,7 +54,16 @@ func (c *CPU) addressModeInt(address int, instruction *Instruction, firstParam, 
 	if register == nil {
 		return AbsoluteAddressing
 	}
-	panic(fmt.Sprintf("unsupported int parameter %v", firstParam))
+
+	ptr := register.(*uint8)
+	switch ptr {
+	case &c.X:
+		return AbsoluteXAddressing
+	case &c.Y:
+		return AbsoluteYAddressing
+	default:
+		panic(fmt.Sprintf("unsupported int parameter %v", firstParam))
+	}
 }
 
 func (c *CPU) addressModeAbsolute(instruction *Instruction) Mode {
