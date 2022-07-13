@@ -2,6 +2,8 @@ package cpu
 
 import (
 	"fmt"
+	"reflect"
+	"runtime"
 	"strings"
 
 	. "github.com/retroenv/nesgo/pkg/addressing"
@@ -30,6 +32,7 @@ type TraceStep struct {
 	Instruction    string
 }
 
+// print outputs current trace step in Nintendulator / nestest.log compatible format.
 func (t TraceStep) print(cpu *CPU) {
 	var opcodes [3]string
 	for i := 0; i < 3; i++ {
@@ -46,7 +49,6 @@ func (t TraceStep) print(cpu *CPU) {
 		unofficial = "*"
 	}
 
-	// output the trace in a Nintendulator / nestest.log compatible format
 	s := fmt.Sprintf("%04X  %s %s %s %s%-31s A:%02X X:%02X Y:%02X P:%02X SP:%02X CYC:%d\n",
 		t.PC, opcodes[0], opcodes[1], opcodes[2], unofficial, t.Instruction,
 		cpu.A, cpu.X, cpu.Y, cpu.GetFlags(), cpu.SP, cpu.cycles)
@@ -59,29 +61,15 @@ func (t TraceStep) print(cpu *CPU) {
 
 // Trace logs the trace information of the passed instruction and its parameters.
 // Params can be of length 0 to 2.
-func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
+func (c *CPU) trace(instruction *Instruction, params ...interface{}) error {
 	var paramsAsString string
 
 	if c.tracing == GoTracing {
-		c.TraceStep.Addressing = c.addressModeFromCall(instruction, params...)
-		if !instruction.HasAddressing(c.TraceStep.Addressing) {
-			panic(fmt.Sprintf("unexpected addressing mode type %T", c.TraceStep.Addressing))
-		}
-
-		opcodeByte := instruction.Addressing[c.TraceStep.Addressing].Opcode
-
 		var err error
-		var firstParam interface{}
-		if len(params) > 0 {
-			firstParam = params[0]
-		}
-		paramsAsString, err = param.String(c.paramConverter, c.TraceStep.Addressing, firstParam)
+		paramsAsString, err = c.traceGoMode(instruction, params...)
 		if err != nil {
-			panic(err)
+			return err
 		}
-
-		c.TraceStep.Opcode = []byte{opcodeByte}
-		// TODO add parameter opcodes
 	} else {
 		paramsAsString = c.ParamString(instruction, params...)
 	}
@@ -92,6 +80,66 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 		c.TraceStep.Instruction += " " + paramsAsString
 	}
 	c.TraceStep.print(c)
+	return nil
+}
+
+func (c *CPU) traceGoMode(instruction *Instruction, params ...interface{}) (string, error) {
+	c.TraceStep.Addressing = c.addressModeFromCall(instruction, params...)
+	if !instruction.HasAddressing(c.TraceStep.Addressing) {
+		return "", fmt.Errorf("unexpected addressing mode type %T", c.TraceStep.Addressing)
+	}
+
+	opcodeByte := instruction.Addressing[c.TraceStep.Addressing].Opcode
+
+	var err error
+	var firstParam interface{}
+	if len(params) > 0 {
+		firstParam = params[0]
+	}
+	paramsAsString, err := param.String(c.paramConverter, c.TraceStep.Addressing, firstParam)
+	if err != nil {
+		return "", err
+	}
+
+	c.TraceStep.Opcode = []byte{opcodeByte}
+
+	// needs to skip instruction func, instructionHook(), trace() and traceGoMode()
+	pc, _, _, ok := runtime.Caller(4)
+	funcDetails := runtime.FuncForPC(pc)
+	if ok && funcDetails != nil {
+		c.checkCurrentFunc(funcDetails.Name())
+	}
+
+	// TODO add parameter opcodes
+	return paramsAsString, nil
+}
+
+const maxFuncLenToPrint = 23
+
+func (c *CPU) checkCurrentFunc(funcName string) {
+	if c.lastFunction == funcName {
+		return
+	}
+
+	c.lastFunction = funcName
+	step := TraceStep{
+		Instruction: strings.ToUpper(jsr.Name),
+		Opcode:      []byte{jsr.Addressing[AbsoluteAddressing].Opcode},
+	}
+	if len(funcName) > maxFuncLenToPrint {
+		step.Instruction += " ..." + funcName[len(funcName)-maxFuncLenToPrint:]
+	} else {
+		step.Instruction += " " + funcName
+	}
+
+	step.print(c)
+}
+
+// SetResetHandlerTraceInfo sets info about the reset handler function for Go mode execution.
+func (c *CPU) SetResetHandlerTraceInfo(resetHandlerParam func()) {
+	p := reflect.ValueOf(resetHandlerParam).Pointer()
+	funcDetails := runtime.FuncForPC(p)
+	c.lastFunction = funcDetails.Name()
 }
 
 func shouldOutputMemoryContent(address uint16) bool {

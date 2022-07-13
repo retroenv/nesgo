@@ -33,6 +33,7 @@ type CPU struct {
 	tracingTarget  io.Writer
 	TraceStep      TraceStep
 	paramConverter param.Converter
+	lastFunction   string
 }
 
 // Bit No.   7   6   5   4   3   2   1   0

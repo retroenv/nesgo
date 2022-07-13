@@ -35,6 +35,7 @@ func Start(resetHandlerParam func(), options ...Option) {
 		}
 	} else {
 		sys.ResetHandler = resetHandlerParam
+		sys.CPU.SetResetHandlerTraceInfo(resetHandlerParam)
 	}
 
 	guiStarter := setupNoGui
