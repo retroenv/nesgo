@@ -98,6 +98,9 @@ func (c ParamConverter) ZeroPageY(param interface{}) string {
 
 // Relative converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) Relative(param interface{}) string {
+	if param == nil {
+		return ""
+	}
 	return fmt.Sprintf("$%04X", param)
 }
 

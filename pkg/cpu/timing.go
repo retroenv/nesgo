@@ -10,6 +10,7 @@ import (
 
 // instructionHook is a hook that is executed before a CPU instruction is executed.
 // It allows for accounting of the instruction timing and trace logging.
+// Params can be of length 0 to 2.
 func (c *CPU) instructionHook(instruction *Instruction, params ...interface{}) {
 	if c.tracing == NoTracing {
 		addressing := c.addressModeFromCall(instruction, params...)

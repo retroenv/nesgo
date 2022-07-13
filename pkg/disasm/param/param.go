@@ -26,38 +26,34 @@ type Converter interface {
 
 // String returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
-// nolint: cyclop
-func String(converter Converter, addressing Mode, params ...interface{}) (string, error) {
+func String(converter Converter, addressing Mode, param interface{}) (string, error) {
 	switch addressing {
 	case ImpliedAddressing:
 		return "", nil
 	case ImmediateAddressing:
-		return converter.Immediate(params[0]), nil
+		return converter.Immediate(param), nil
 	case AccumulatorAddressing:
 		return converter.Accumulator(), nil
 	case AbsoluteAddressing:
-		return converter.Absolute(params[0]), nil
+		return converter.Absolute(param), nil
 	case AbsoluteXAddressing:
-		return converter.AbsoluteX(params[0]), nil
+		return converter.AbsoluteX(param), nil
 	case AbsoluteYAddressing:
-		return converter.AbsoluteY(params[0]), nil
+		return converter.AbsoluteY(param), nil
 	case ZeroPageAddressing:
-		return converter.ZeroPage(params[0]), nil
+		return converter.ZeroPage(param), nil
 	case ZeroPageXAddressing:
-		return converter.ZeroPageX(params[0]), nil
+		return converter.ZeroPageX(param), nil
 	case ZeroPageYAddressing:
-		return converter.ZeroPageY(params[0]), nil
+		return converter.ZeroPageY(param), nil
 	case RelativeAddressing:
-		if len(params) == 0 {
-			return "", nil
-		}
-		return converter.Relative(params[0]), nil
+		return converter.Relative(param), nil
 	case IndirectAddressing:
-		return converter.Indirect(params[0]), nil
+		return converter.Indirect(param), nil
 	case IndirectXAddressing:
-		return converter.IndirectX(params[0]), nil
+		return converter.IndirectX(param), nil
 	case IndirectYAddressing:
-		return converter.IndirectY(params[0]), nil
+		return converter.IndirectY(param), nil
 	default:
 		return "", fmt.Errorf("unsupported addressing mode %d", addressing)
 	}

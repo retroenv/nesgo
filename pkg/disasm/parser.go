@@ -102,12 +102,13 @@ func (dis *Disasm) processParamInstruction(offset uint16, offsetInfo *offset) (s
 	params, opcodes, _ := nes.ReadOpParams(dis.sys, opcode.Addressing, false)
 	offsetInfo.OpcodeBytes = append(offsetInfo.OpcodeBytes, opcodes...)
 
-	paramAsString, err := param.String(dis.converter, opcode.Addressing, params...)
+	firstParam := params[0]
+	paramAsString, err := param.String(dis.converter, opcode.Addressing, firstParam)
 	if err != nil {
 		return "", err
 	}
 
-	paramAsString = dis.replaceParamByAlias(offset, opcode, params[0], paramAsString)
+	paramAsString = dis.replaceParamByAlias(offset, opcode, firstParam, paramAsString)
 
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
 		addr, ok := params[0].(Absolute)

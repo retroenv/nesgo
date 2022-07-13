@@ -57,6 +57,8 @@ func (t TraceStep) print(cpu *CPU) {
 	}
 }
 
+// Trace logs the trace information of the passed instruction and its parameters.
+// Params can be of length 0 to 2.
 func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 	var paramsAsString string
 
@@ -69,7 +71,11 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) {
 		opcodeByte := instruction.Addressing[c.TraceStep.Addressing].Opcode
 
 		var err error
-		paramsAsString, err = param.String(c.paramConverter, c.TraceStep.Addressing, params...)
+		var firstParam interface{}
+		if len(params) > 0 {
+			firstParam = params[0]
+		}
+		paramsAsString, err = param.String(c.paramConverter, c.TraceStep.Addressing, firstParam)
 		if err != nil {
 			panic(err)
 		}
