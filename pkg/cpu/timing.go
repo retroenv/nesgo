@@ -22,7 +22,9 @@ func (c *CPU) instructionHook(instruction *Instruction, params ...interface{}) {
 		opcodeInfo := Opcodes[opcode]
 		c.cycles += uint64(opcodeInfo.Timing)
 	} else {
-		c.trace(instruction, params...)
+		if err := c.trace(instruction, params...); err != nil {
+			panic(err)
+		}
 		c.cycles += uint64(c.TraceStep.Timing)
 
 		if c.TraceStep.PageCrossed && c.TraceStep.PageCrossCycle {
