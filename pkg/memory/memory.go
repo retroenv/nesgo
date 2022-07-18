@@ -11,17 +11,22 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/mapper"
-	"github.com/retroenv/nesgo/pkg/ppu"
 )
 
-// Memory implements the memory controller.
-type Memory struct {
-	mapper mapper.Mapper
-	ram    *RAM
-	ppu    *ppu.PPU
+// Controller represents a hardware controller.
+type Controller interface {
+	Read() uint8
+	SetStrobeMode(mode uint8)
+}
 
-	controller1 *controller.Controller
-	controller2 *controller.Controller
+// Memory represents the memory controller.
+type Memory struct {
+	mapper mapper.Memory
+	ram    *RAM
+	ppu    mapper.Memory
+
+	controller1 Controller
+	controller2 Controller
 	cartridge   *cartridge.Cartridge
 
 	// point to X/Y for comparison of indirect register
@@ -32,7 +37,7 @@ type Memory struct {
 
 // New returns a new memory instance, embedded it has
 // new instances for PPU and the Controllers.
-func New(cartridge *cartridge.Cartridge, ppu *ppu.PPU, controller1, controller2 *controller.Controller, mapper mapper.Mapper) *Memory {
+func New(cartridge *cartridge.Cartridge, ppu mapper.Memory, controller1, controller2 Controller, mapper mapper.Memory) *Memory {
 	r := &Memory{
 		mapper:      mapper,
 		ram:         NewRAM(0),
@@ -59,7 +64,7 @@ func (m *Memory) WriteMemory(address uint16, value byte) {
 	case address < 0x2000:
 		m.ram.WriteMemory(address&0x07FF, value)
 	case address < 0x4000:
-		m.ppu.WriteRegister(address, value)
+		m.ppu.WriteMemory(address, value)
 	case address == controller.JOYPAD1:
 		m.controller1.SetStrobeMode(value)
 		m.controller2.SetStrobeMode(value)
@@ -78,7 +83,7 @@ func (m *Memory) ReadMemory(address uint16) byte {
 	case address < 0x2000:
 		return m.ram.ReadMemory(address & 0x07FF)
 	case address < 0x4000:
-		return m.ppu.ReadRegister(address)
+		return m.ppu.ReadMemory(address)
 	case address == controller.JOYPAD1:
 		return m.controller1.Read()
 	case address == controller.JOYPAD2:

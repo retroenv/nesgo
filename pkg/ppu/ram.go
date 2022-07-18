@@ -3,9 +3,10 @@
 
 package ppu
 
-type ram interface {
-	Reset()
+import "github.com/retroenv/nesgo/pkg/mapper"
 
-	ReadMemory(address uint16) byte
-	WriteMemory(address uint16, value byte)
+type ram interface {
+	mapper.Memory
+
+	Reset()
 }

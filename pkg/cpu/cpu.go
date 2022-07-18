@@ -28,7 +28,9 @@ type CPU struct {
 	irqHandler *func()
 	memory     memory
 
-	cycles         uint64
+	cycles      uint64
+	stallCycles uint16 // TODO stall cycles, use a Step() function
+
 	tracing        TracingMode
 	tracingTarget  io.Writer
 	TraceStep      TraceStep
@@ -81,4 +83,9 @@ func (c *CPU) ResetCycles() {
 // Cycles returns the amount of CPU cycles executed since system start.
 func (c *CPU) Cycles() uint64 {
 	return c.cycles
+}
+
+// StallCycles stalls the CPU for the given amount of cycles. This is used for DMA transfer in the PPU.
+func (c *CPU) StallCycles(cycles uint16) {
+	c.stallCycles = cycles
 }

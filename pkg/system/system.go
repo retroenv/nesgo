@@ -32,7 +32,7 @@ func New(cart *cartridge.Cartridge) *System {
 	}
 
 	sys := &System{
-		PPU:         ppu.New(memory.NewRAM(0x2000), mapp),
+		PPU:         ppu.New(memory.NewRAM(0x2000), mapp, nil), // TODO use bus
 		Controller1: controller.New(),
 		Controller2: controller.New(),
 	}

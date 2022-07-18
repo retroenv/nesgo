@@ -11,15 +11,15 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
-// Mapper offers a normal memory access interface to access the mapper
+// Memory offers a normal memory access interface to access the mapper
 // functionality.
-type Mapper interface {
+type Memory interface {
 	ReadMemory(address uint16) uint8
 	WriteMemory(address uint16, value uint8)
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
-func New(cart *cartridge.Cartridge) (Mapper, error) {
+func New(cart *cartridge.Cartridge) (Memory, error) {
 	switch cart.Mapper {
 	case 0:
 		return newMapper0(cart), nil

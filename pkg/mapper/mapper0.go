@@ -27,7 +27,7 @@ func (m mapper0) ReadMemory(address uint16) uint8 {
 func (m mapper0) WriteMemory(address uint16, value uint8) {
 }
 
-func newMapper0(cart *cartridge.Cartridge) Mapper {
+func newMapper0(cart *cartridge.Cartridge) mapper0 {
 	return mapper0{
 		cart:   cart,
 		prgMod: uint16(len(cart.PRG)),
