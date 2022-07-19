@@ -20,18 +20,36 @@ xcode-select --install
 
 ### **Ubuntu/Debian-like**
 
+For OpenGL support:
+
 ```
-build-essential libgl1-mesa-dev xorg-dev
+apt install build-essential libgl1-mesa-dev xorg-dev
+```
+
+For SDL support:
+
+```
+apt install libsdl2{,-image,-mixer,-ttf,-gfx}-dev
 ```
 
 ### **CentOS/Fedora-like**
 
+For OpenGL support:
 
 ```
-@development-tools libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel mesa-libGL-devel libXi-devel libXxf86vm-devel
+yum install @development-tools libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel mesa-libGL-devel libXi-devel libXxf86vm-devel
+```
+
+For SDL support:
+
+```
+yum install SDL2{,_image,_mixer,_ttf,_gfx}-devel
 ```
 
 ### Windows
+
+For SDL support:
+
 1. Install [msys2](http://www.msys2.org/)
 2. Start msys2 and execute:
 ```
