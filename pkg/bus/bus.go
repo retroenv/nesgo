@@ -33,6 +33,7 @@ type Controller interface {
 type CPU interface {
 	Cycles() uint64
 	StallCycles(cycles uint16)
+	TriggerNMI()
 }
 
 // BasicMemory represents a basic memory access interface.

@@ -37,6 +37,8 @@ type CPU struct {
 	TraceStep      TraceStep
 	paramConverter param.Converter
 	lastFunction   string
+
+	triggerNmi bool // TODO use
 }
 
 // Bit No.   7   6   5   4   3   2   1   0
@@ -89,4 +91,9 @@ func (c *CPU) Cycles() uint64 {
 // StallCycles stalls the CPU for the given amount of cycles. This is used for DMA transfer in the PPU.
 func (c *CPU) StallCycles(cycles uint16) {
 	c.stallCycles = cycles
+}
+
+// TriggerNMI causes a non-maskable interrupt to occur on the next cycle.
+func (c *CPU) TriggerNMI() {
+	c.triggerNmi = true
 }
