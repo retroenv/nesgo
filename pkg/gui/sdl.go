@@ -6,10 +6,10 @@ package gui
 import (
 	"fmt"
 
+	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/ppu"
-	"github.com/retroenv/nesgo/pkg/system"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -28,13 +28,13 @@ var sdlKeyMapping = map[sdl.Keycode]controller.Button{
 	sdl.K_BACKSPACE: controller.Select,
 }
 
-func setupSDLGui(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupSDLGui(bus *bus.Bus) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	window, renderer, tex, err := setupSDL()
 	if err != nil {
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		return renderSDL(sys, renderer, tex)
+		return renderSDL(bus, renderer, tex)
 	}
 	cleanup := func() {
 		_ = tex.Destroy()
@@ -71,7 +71,7 @@ func setupSDL() (*sdl.Window, *sdl.Renderer, *sdl.Texture, error) {
 	return window, renderer, tex, nil
 }
 
-func renderSDL(sys *system.System, renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
+func renderSDL(bus *bus.Bus, renderer *sdl.Renderer, tex *sdl.Texture) (bool, error) {
 	running := true
 	for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
 		switch et := event.(type) {
@@ -84,11 +84,11 @@ func renderSDL(sys *system.System, renderer *sdl.Renderer, tex *sdl.Texture) (bo
 				running = false
 				break
 			}
-			onSDLKey(sys, et)
+			onSDLKey(bus, et)
 		}
 	}
 
-	if err := tex.Update(nil, sys.PPU.Image().Pix, ppu.Width); err != nil {
+	if err := tex.Update(nil, bus.PPU.Image().Pix, ppu.Width); err != nil {
 		return false, err
 	}
 	if err := renderer.Copy(tex, nil, nil); err != nil {
@@ -98,15 +98,15 @@ func renderSDL(sys *system.System, renderer *sdl.Renderer, tex *sdl.Texture) (bo
 	return running, nil
 }
 
-func onSDLKey(sys *system.System, event *sdl.KeyboardEvent) {
+func onSDLKey(bus *bus.Bus, event *sdl.KeyboardEvent) {
 	controllerKey, ok := sdlKeyMapping[event.Keysym.Sym]
 	if !ok {
 		return
 	}
 	switch event.Type {
 	case sdl.KEYDOWN:
-		sys.Controller1.SetButtonState(controllerKey, true)
+		bus.Controller1.SetButtonState(controllerKey, true)
 	case sdl.KEYUP:
-		sys.Controller1.SetButtonState(controllerKey, false)
+		bus.Controller1.SetButtonState(controllerKey, false)
 	}
 }

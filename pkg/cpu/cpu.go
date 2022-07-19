@@ -1,4 +1,4 @@
-// Package cpu provides CPU (Central  Processing Unit) functionality.
+// Package cpu provides CPU (Central Processing Unit) functionality.
 package cpu
 
 import (

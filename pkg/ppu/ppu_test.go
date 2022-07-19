@@ -4,14 +4,13 @@ import (
 	"testing"
 
 	"github.com/retroenv/nesgo/internal/assert"
-	"github.com/retroenv/nesgo/pkg/memory"
 )
 
 // TestSetControl verifies that the control byte gets handled correctly.
 func TestSetControl(t *testing.T) {
 	t.Parallel()
 
-	p := New(memory.NewRAM(0x2000), nil, nil)
+	p := New(nil)
 	p.WriteMemory(PPU_CTRL, 0b11111111)
 
 	assert.Equal(t, 0x2C00, p.control.BaseNameTable)
@@ -27,7 +26,7 @@ func TestSetControl(t *testing.T) {
 func TestSetMask(t *testing.T) {
 	t.Parallel()
 
-	p := New(memory.NewRAM(0x2000), nil, nil)
+	p := New(nil)
 	p.WriteMemory(PPU_MASK, 0b11111111)
 
 	assert.True(t, p.mask.Grayscale)

@@ -7,12 +7,13 @@ import (
 	"fmt"
 	"sync/atomic"
 
+	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
-type guiInitializer func(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error)
+type guiInitializer func(bus *bus.Bus) (guiRender func() (bool, error), guiCleanup func(), err error)
 
 // GuiStarter will be set by the chosen and imported GUI renderer.
 var GuiStarter guiInitializer
@@ -138,7 +139,7 @@ func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int
 
 // runRenderer starts the chosen GUI renderer.
 func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) error {
-	render, cleanup, err := guiStarter(sys)
+	render, cleanup, err := guiStarter(sys.Bus)
 	if err != nil {
 		return err
 	}
@@ -156,9 +157,9 @@ func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) e
 	}()
 
 	for atomic.LoadUint64(&running) == 1 {
-		sys.PPU.StartRender()
+		sys.Bus.PPU.StartRender()
 
-		sys.PPU.RenderScreen()
+		sys.Bus.PPU.RenderScreen()
 
 		continueRunning, err := render()
 		if err != nil {
@@ -168,7 +169,7 @@ func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) e
 			atomic.StoreUint64(&running, 0)
 		}
 
-		sys.PPU.FinishRender()
+		sys.Bus.PPU.FinishRender()
 	}
 	return nil
 }

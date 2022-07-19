@@ -8,22 +8,23 @@ package mapper
 import (
 	"fmt"
 
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/bus"
 )
 
-// Memory offers a normal memory access interface to access the mapper
-// functionality.
-type Memory interface {
-	ReadMemory(address uint16) uint8
-	WriteMemory(address uint16, value uint8)
+type mapperInitializer func(*bus.Bus) bus.Memory
+
+var mappers = map[byte]mapperInitializer{
+	0: newMapper0,
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
-func New(cart *cartridge.Cartridge) (Memory, error) {
-	switch cart.Mapper {
-	case 0:
-		return newMapper0(cart), nil
-	default:
-		return nil, fmt.Errorf("mapper %d is not supported", cart.Mapper)
+func New(bus *bus.Bus) (bus.Memory, error) {
+	mapperNumber := bus.Cartridge.Mapper
+	initializer, ok := mappers[mapperNumber]
+	if !ok {
+		return nil, fmt.Errorf("mapper %d is not supported", mapperNumber)
 	}
+
+	mapper := initializer(bus)
+	return mapper, nil
 }
