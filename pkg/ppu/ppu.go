@@ -9,7 +9,6 @@ import (
 	"image"
 
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/memory"
 )
 
 const (
@@ -21,7 +20,6 @@ const (
 // PPU represents the Picture Processing Unit.
 type PPU struct {
 	bus *bus.Bus
-	ram ram
 
 	control control
 	mask    mask
@@ -34,113 +32,40 @@ type PPU struct {
 	fineX          uint16
 	dataReadBuffer byte
 
-	// Object Attribute Memory
-	oamData    [256]byte
-	oamAddress byte
+	palette     *palette
+	renderState *renderState
 
-	image *image.RGBA
+	back  *image.RGBA // rendering in progress image
+	front *image.RGBA // visible image
 }
 
 // New returns a new PPU.
 func New(bus *bus.Bus) *PPU {
 	p := &PPU{
-		bus: bus,
-		ram: memory.NewRAM(0x2000),
+		bus:     bus,
+		palette: &palette{},
 	}
 	p.reset()
 	return p
 }
 
 func (p *PPU) reset() {
+	p.addressLatch = false
 	p.vramAddress = register{}
 	p.tempAddress = register{}
-	p.addressLatch = false
 
 	p.fineX = 0
 	p.dataReadBuffer = 0
 
-	p.image = image.NewRGBA(image.Rect(0, 0, Width, Height))
-	p.oamData = [256]byte{}
-	p.ram.Reset()
+	p.back = image.NewRGBA(image.Rect(0, 0, Width, Height))
+	p.front = image.NewRGBA(image.Rect(0, 0, Width, Height))
 
-	p.status = status{}
+	p.palette.reset()
+	p.renderState = newRenderState()
+
 	p.setControl(0x00)
 	p.setMask(0x00)
-	p.setOamAddress(0x00)
-}
-
-// Read from a PPU memory address.
-func (p *PPU) Read(address uint16) uint8 {
-	if address < 0x2000 {
-		return p.bus.Mapper.Read(address)
-	}
-	if address > 0x3FFF {
-		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
-	}
-
-	base := mirroredAddressToBase(address)
-	switch base {
-	case PPU_CTRL:
-		return p.control.value
-	case PPU_MASK:
-		return p.mask.value
-	case PPU_STATUS:
-		return p.getStatus()
-	case OAM_DATA:
-		return p.readOamData()
-	case PPU_DATA:
-		return p.readData()
-
-	default:
-		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
-	}
-}
-
-// Write to a PPU memory address.
-func (p *PPU) Write(address uint16, value uint8) {
-	if address < 0x2000 {
-		p.bus.Mapper.Write(address, value)
-		return
-	}
-	if address > 0x3FFF {
-		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
-	}
-
-	base := mirroredAddressToBase(address)
-	switch base {
-	case PPU_CTRL:
-		p.setControl(value)
-	case PPU_MASK:
-		p.setMask(value)
-	case OAM_ADDR:
-		p.setOamAddress(value)
-	case OAM_DATA:
-		p.writeOamData(value)
-	case PPU_SCROLL:
-		p.setScroll(uint16(value))
-	case PPU_ADDR:
-		p.setAddress(uint16(value))
-	case PPU_DATA:
-		p.writeData(value)
-	case OAM_DMA:
-		p.writeOamDMA(value)
-
-	default:
-		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
-	}
-}
-
-func (p *PPU) setVBlank() {
-	status := p.ram.Read(PPU_STATUS)
-	status |= 0x80
-	p.ram.Write(PPU_STATUS, status)
-	// TODO handle NMI
-}
-
-func (p *PPU) clearVBlank() {
-	status := p.ram.Read(PPU_STATUS)
-	status &= 0x7f
-	p.ram.Write(PPU_STATUS, status)
+	p.status = status{}
 }
 
 func (p *PPU) readData() byte {
@@ -150,11 +75,16 @@ func (p *PPU) readData() byte {
 	// when reading data, the contents of an internal read buffer is returned and the buffer
 	// gets updated with the newly read data
 	data := p.dataReadBuffer
-	p.dataReadBuffer = p.ram.Read(address)
 
-	// palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
-	if address > 0x3EFF {
+	switch {
+	case address >= 0x2000 && address < 0x3F00:
+		p.dataReadBuffer = 0 // TODO
+	case address >= 0x3F00:
+		p.dataReadBuffer = p.palette.read(address)
+		// palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
 		data = p.dataReadBuffer
+	default:
+		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
 	}
 
 	// TODO handle special case of reading during rendering
@@ -166,7 +96,15 @@ func (p *PPU) writeData(value byte) {
 	address := p.vramAddress.address()
 	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
 
-	p.ram.Write(address, value)
+	switch {
+	case address >= 0x2000 && address < 0x3F00:
+		// TODO
+	case address >= 0x3F00:
+		p.palette.write(address, value)
+	default:
+		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
+	}
+
 	p.vramAddress.increment(p.control.VRAMIncrement)
 }
 

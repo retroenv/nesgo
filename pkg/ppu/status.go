@@ -12,7 +12,7 @@ type status struct {
 
 func (p *PPU) getStatus() byte {
 	p.addressLatch = false
-	p.clearVBlank()
+	// TODO p.clearVBlank()
 
 	value := p.status.value()
 	return value
