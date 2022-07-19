@@ -93,14 +93,14 @@ func TestAsl(t *testing.T) {
 	assert.Equal(t, 0b11111100, sys.A)
 	assert.Equal(t, 1, sys.Flags.C)
 
-	sys.WriteMemory(1, 0b00000010)
+	sys.Bus.Memory.WriteMemory(1, 0b00000010)
 	sys.Asl(Absolute(1))
-	assert.Equal(t, 0b00000100, sys.ReadMemory(1))
+	assert.Equal(t, 0b00000100, sys.Bus.Memory.ReadMemory(1))
 
-	sys.WriteMemory(4, 0b00000010)
+	sys.Bus.Memory.WriteMemory(4, 0b00000010)
 	sys.X = 3
 	sys.Asl(Absolute(1), sys.X)
-	assert.Equal(t, 0b00000100, sys.ReadMemory(4))
+	assert.Equal(t, 0b00000100, sys.Bus.Memory.ReadMemory(4))
 }
 
 func TestBcc(t *testing.T) {
@@ -139,7 +139,7 @@ func TestBit(t *testing.T) {
 		{
 			Name: "value 1",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 1)
+				sys.Bus.Memory.WriteMemory(0x100, 1)
 				sys.A = 1
 				sys.Bit(Absolute(0x100))
 			},
@@ -153,7 +153,7 @@ func TestBit(t *testing.T) {
 		{
 			Name: "value 0xff",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 0xff)
+				sys.Bus.Memory.WriteMemory(0x100, 0xff)
 				sys.A = 0xf0
 				sys.Bit(Absolute(0x100))
 			},
@@ -277,7 +277,7 @@ func TestCmp(t *testing.T) {
 		{
 			Name: "equal immediate",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 1)
+				sys.Bus.Memory.WriteMemory(0x100, 1)
 				sys.A = 1
 				sys.Cmp(1)
 			},
@@ -291,7 +291,7 @@ func TestCmp(t *testing.T) {
 		{
 			Name: "unequal absolute",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 0xff)
+				sys.Bus.Memory.WriteMemory(0x100, 0xff)
 				sys.A = 1
 				sys.Cmp(Absolute(0x100))
 			},
@@ -312,7 +312,7 @@ func TestCpx(t *testing.T) {
 		{
 			Name: "equal immediate",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 1)
+				sys.Bus.Memory.WriteMemory(0x100, 1)
 				sys.X = 1
 				sys.Cpx(1)
 			},
@@ -326,7 +326,7 @@ func TestCpx(t *testing.T) {
 		{
 			Name: "unequal absolute",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 0xff)
+				sys.Bus.Memory.WriteMemory(0x100, 0xff)
 				sys.X = 1
 				sys.Cpx(Absolute(0x100))
 			},
@@ -347,7 +347,7 @@ func TestCpy(t *testing.T) {
 		{
 			Name: "equal immediate",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 1)
+				sys.Bus.Memory.WriteMemory(0x100, 1)
 				sys.Y = 1
 				sys.Cpy(1)
 			},
@@ -361,7 +361,7 @@ func TestCpy(t *testing.T) {
 		{
 			Name: "unequal absolute",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x100, 0xff)
+				sys.Bus.Memory.WriteMemory(0x100, 0xff)
 				sys.Y = 1
 				sys.Cpy(Absolute(0x100))
 			},
@@ -382,43 +382,43 @@ func TestDec(t *testing.T) {
 		{
 			Name: "zeropage",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(1, 2)
+				sys.Bus.Memory.WriteMemory(1, 2)
 				sys.Dec(ZeroPage(1))
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 1, sys.ReadMemory(1))
+				assert.Equal(t, 1, sys.Bus.Memory.ReadMemory(1))
 			},
 		},
 		{
 			Name: "zeropage x",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(2, 2)
+				sys.Bus.Memory.WriteMemory(2, 2)
 				sys.X = 1
 				sys.Dec(ZeroPage(1), sys.X)
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 1, sys.ReadMemory(2))
+				assert.Equal(t, 1, sys.Bus.Memory.ReadMemory(2))
 			},
 		},
 		{
 			Name: "absolute",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x101, 2)
+				sys.Bus.Memory.WriteMemory(0x101, 2)
 				sys.Dec(Absolute(0x101))
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 1, sys.ReadMemory(0x101))
+				assert.Equal(t, 1, sys.Bus.Memory.ReadMemory(0x101))
 			},
 		},
 		{
 			Name: "absolute x",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x102, 2)
+				sys.Bus.Memory.WriteMemory(0x102, 2)
 				sys.X = 1
 				sys.Dec(Absolute(0x101), sys.X)
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 1, sys.ReadMemory(0x102))
+				assert.Equal(t, 1, sys.Bus.Memory.ReadMemory(0x102))
 			},
 		},
 	}
@@ -459,43 +459,43 @@ func TestInc(t *testing.T) {
 		{
 			Name: "zeropage",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(1, 1)
+				sys.Bus.Memory.WriteMemory(1, 1)
 				sys.Inc(ZeroPage(1))
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 2, sys.ReadMemory(1))
+				assert.Equal(t, 2, sys.Bus.Memory.ReadMemory(1))
 			},
 		},
 		{
 			Name: "zeropage x",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(2, 1)
+				sys.Bus.Memory.WriteMemory(2, 1)
 				sys.X = 1
 				sys.Inc(ZeroPage(1), sys.X)
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 2, sys.ReadMemory(2))
+				assert.Equal(t, 2, sys.Bus.Memory.ReadMemory(2))
 			},
 		},
 		{
 			Name: "absolute",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x101, 1)
+				sys.Bus.Memory.WriteMemory(0x101, 1)
 				sys.Inc(Absolute(0x101))
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 2, sys.ReadMemory(0x101))
+				assert.Equal(t, 2, sys.Bus.Memory.ReadMemory(0x101))
 			},
 		},
 		{
 			Name: "absolute x",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x102, 1)
+				sys.Bus.Memory.WriteMemory(0x102, 1)
 				sys.X = 1
 				sys.Inc(Absolute(0x101), sys.X)
 			},
 			Check: func(sys *system.System) {
-				assert.Equal(t, 2, sys.ReadMemory(0x102))
+				assert.Equal(t, 2, sys.Bus.Memory.ReadMemory(0x102))
 			},
 		},
 	}
@@ -535,7 +535,7 @@ func TestJmp(t *testing.T) {
 		{
 			Name: "indirect",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory16(0x100, 0x200)
+				sys.Bus.Memory.WriteMemory16(0x100, 0x200)
 				sys.Jmp(Indirect(0x100))
 			},
 			Check: func(sys *system.System) {
@@ -583,7 +583,7 @@ func TestLdx(t *testing.T) {
 		{
 			Name: "zeropage y",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(2, 8)
+				sys.Bus.Memory.WriteMemory(2, 8)
 				sys.Y = 1
 				sys.Ldx(ZeroPage(1), sys.Y)
 			},
@@ -594,7 +594,7 @@ func TestLdx(t *testing.T) {
 		{
 			Name: "absolute y",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x102, 8)
+				sys.Bus.Memory.WriteMemory(0x102, 8)
 				sys.Y = 1
 				sys.Ldx(Absolute(0x101), sys.Y)
 			},
@@ -621,7 +621,7 @@ func TestLdy(t *testing.T) {
 		{
 			Name: "zeropage x",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(2, 8)
+				sys.Bus.Memory.WriteMemory(2, 8)
 				sys.X = 1
 				sys.Ldy(ZeroPage(1), sys.X)
 			},
@@ -632,7 +632,7 @@ func TestLdy(t *testing.T) {
 		{
 			Name: "absolute x",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x102, 8)
+				sys.Bus.Memory.WriteMemory(0x102, 8)
 				sys.X = 1
 				sys.Ldy(Absolute(0x101), sys.X)
 			},
@@ -676,11 +676,11 @@ func TestLsr(t *testing.T) {
 		{
 			Name: "value 0b01111111 absolute",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x101, 0b01111111)
+				sys.Bus.Memory.WriteMemory(0x101, 0b01111111)
 				sys.Lsr(Absolute(0x101))
 			},
 			Check: func(sys *system.System) {
-				b := sys.ReadMemory(0x101)
+				b := sys.Bus.Memory.ReadMemory(0x101)
 				assert.Equal(t, 0b00111111, b)
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
@@ -714,7 +714,7 @@ func TestPha(t *testing.T) {
 	sys.A = 1
 	sys.Pha()
 
-	b := sys.ReadMemory(cpu.StackBase + cpu.InitialStack)
+	b := sys.Bus.Memory.ReadMemory(cpu.StackBase + cpu.InitialStack)
 	assert.Equal(t, sys.A, b)
 	assert.Equal(t, cpu.StackBase+cpu.InitialStack-1, sys.SP)
 }
@@ -725,7 +725,7 @@ func TestPhp(t *testing.T) {
 
 	sys.Php()
 
-	b := sys.ReadMemory(cpu.StackBase + cpu.InitialStack)
+	b := sys.Bus.Memory.ReadMemory(cpu.StackBase + cpu.InitialStack)
 	assert.Equal(t, 0b00110100, b)
 }
 
@@ -734,7 +734,7 @@ func TestPla(t *testing.T) {
 	sys := system.New(cartridge.New())
 
 	sys.SP = 1
-	sys.WriteMemory(cpu.StackBase+2, 1)
+	sys.Bus.Memory.WriteMemory(cpu.StackBase+2, 1)
 	sys.Pla()
 
 	assert.Equal(t, 1, sys.A)
@@ -746,7 +746,7 @@ func TestPlp(t *testing.T) {
 	sys := system.New(cartridge.New())
 
 	sys.SP = 1
-	sys.WriteMemory(cpu.StackBase+2, 1)
+	sys.Bus.Memory.WriteMemory(cpu.StackBase+2, 1)
 	sys.Plp()
 
 	assert.Equal(t, 0b00100001, sys.GetFlags())
@@ -785,12 +785,12 @@ func TestRol(t *testing.T) {
 		{
 			Name: "value 0b11111110 absolute C1",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x101, 0b11111110)
+				sys.Bus.Memory.WriteMemory(0x101, 0b11111110)
 				sys.Flags.C = 1
 				sys.Rol(Absolute(0x101))
 			},
 			Check: func(sys *system.System) {
-				b := sys.ReadMemory(0x101)
+				b := sys.Bus.Memory.ReadMemory(0x101)
 				assert.Equal(t, 0b11111101, b)
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
@@ -834,12 +834,12 @@ func TestRor(t *testing.T) {
 		{
 			Name: "value 0b01111111 absolute C1",
 			Setup: func(sys *system.System) {
-				sys.WriteMemory(0x101, 0b01111111)
+				sys.Bus.Memory.WriteMemory(0x101, 0b01111111)
 				sys.Flags.C = 1
 				sys.Ror(Absolute(0x101))
 			},
 			Check: func(sys *system.System) {
-				b := sys.ReadMemory(0x101)
+				b := sys.Bus.Memory.ReadMemory(0x101)
 				assert.Equal(t, 0b10111111, b)
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
@@ -940,13 +940,13 @@ func TestSta(t *testing.T) {
 	sys.A = 11
 	sys.Sta(0)
 
-	b := sys.ReadMemory(0)
+	b := sys.Bus.Memory.ReadMemory(0)
 	assert.Equal(t, sys.A, b)
 
 	sys.X = 0x22
 	sys.Sta(Absolute(0), sys.X)
 
-	b = sys.ReadMemory(0x22)
+	b = sys.Bus.Memory.ReadMemory(0x22)
 	assert.Equal(t, sys.A, b)
 }
 
@@ -957,13 +957,13 @@ func TestStx(t *testing.T) {
 	sys.X = 11
 	sys.Stx(0)
 
-	b := sys.ReadMemory(0)
+	b := sys.Bus.Memory.ReadMemory(0)
 	assert.Equal(t, sys.X, b)
 
 	sys.Y = 0x22
 	sys.Stx(Absolute(0), sys.Y)
 
-	b = sys.ReadMemory(0x22)
+	b = sys.Bus.Memory.ReadMemory(0x22)
 	assert.Equal(t, sys.X, b)
 }
 
@@ -974,13 +974,13 @@ func TestSty(t *testing.T) {
 	sys.Y = 11
 	sys.Sty(0)
 
-	b := sys.ReadMemory(0)
+	b := sys.Bus.Memory.ReadMemory(0)
 	assert.Equal(t, sys.Y, b)
 
 	sys.X = 0x22
 	sys.Sty(Absolute(0), sys.X)
 
-	b = sys.ReadMemory(0x22)
+	b = sys.Bus.Memory.ReadMemory(0x22)
 	assert.Equal(t, sys.Y, b)
 }
 

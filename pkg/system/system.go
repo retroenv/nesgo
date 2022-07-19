@@ -14,7 +14,6 @@ import (
 // System implements a NES system.
 type System struct {
 	*cpu.CPU
-	*memory.Memory
 
 	Bus *bus.Bus
 
@@ -30,6 +29,8 @@ func New(cart *cartridge.Cartridge) *System {
 		Controller1: controller.New(),
 		Controller2: controller.New(),
 	}
+	systemBus.Memory = memory.New(systemBus)
+	systemBus.PPU = ppu.New(systemBus)
 
 	var err error
 	systemBus.Mapper, err = mapper.New(systemBus)
@@ -38,12 +39,10 @@ func New(cart *cartridge.Cartridge) *System {
 	}
 
 	sys := &System{
-		Bus:    systemBus,
-		Memory: memory.New(systemBus),
+		Bus: systemBus,
 	}
 
-	sys.CPU = cpu.New(sys.Memory, &sys.IrqHandler)
+	sys.CPU = cpu.New(systemBus, &sys.IrqHandler)
 	systemBus.CPU = sys.CPU
-	systemBus.PPU = ppu.New(systemBus)
 	return sys
 }

@@ -4,6 +4,7 @@ package cpu
 import (
 	"io"
 
+	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	"github.com/retroenv/nesgo/pkg/disasm/param"
 )
@@ -25,8 +26,8 @@ type CPU struct {
 	SP    uint8  // stack pointer
 	Flags flags
 
+	bus        *bus.Bus
 	irqHandler *func()
-	memory     memory
 
 	cycles      uint64
 	stallCycles uint16 // TODO stall cycles, use a Step() function
@@ -52,17 +53,17 @@ type flags struct {
 }
 
 // New creates a new CPU.
-func New(memory memory, irqHandler *func()) *CPU {
+func New(bus *bus.Bus, irqHandler *func()) *CPU {
 	c := &CPU{
 		SP:             InitialStack,
-		memory:         memory,
+		bus:            bus,
 		irqHandler:     irqHandler,
 		cycles:         initialCycles,
 		paramConverter: ca65.ParamConverter{},
 	}
 
 	// read reset interrupt handler address
-	c.PC = memory.ReadMemory16(0xFFFC)
+	c.PC = bus.Memory.ReadMemory16(0xFFFC)
 
 	c.setFlags(initialFlags)
 	return c

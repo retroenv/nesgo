@@ -18,7 +18,7 @@ func (c *CPU) Adc(params ...interface{}) {
 
 func (c *CPU) adcInternal(params ...interface{}) {
 	a := c.A
-	value := c.memory.ReadMemoryAddressModes(true, params...)
+	value := c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	sum := int(c.A) + int(c.Flags.C) + int(value)
 	c.A = uint8(sum)
 	c.setZN(c.A)
@@ -38,7 +38,7 @@ func (c *CPU) And(params ...interface{}) {
 }
 
 func (c *CPU) andInternal(params ...interface{}) {
-	value := c.memory.ReadMemoryAddressModes(true, params...)
+	value := c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.A &= value
 	c.setZN(c.A)
 }
@@ -57,11 +57,11 @@ func (c *CPU) aslInternal(params ...interface{}) {
 		return
 	}
 
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	c.Flags.C = (val >> 7) & 1
 	val <<= 1
 	c.setZN(val)
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 }
 
 // Bcc - Branch if Carry Clear - returns whether the
@@ -105,7 +105,7 @@ func (c *CPU) BeqInternal(params ...interface{}) {
 func (c *CPU) Bit(params ...interface{}) {
 	c.instructionHook(bit, params...)
 
-	value := c.memory.ReadMemoryAbsolute(params[0], nil)
+	value := c.bus.Memory.ReadMemoryAbsolute(params[0], nil)
 	c.setV((value>>6)&1 == 1)
 	c.setZ(value & c.A)
 	c.setN(value)
@@ -209,7 +209,7 @@ func (c *CPU) Clv() {
 func (c *CPU) Cmp(params ...interface{}) {
 	c.instructionHook(cmp, params...)
 
-	val := c.memory.ReadMemoryAddressModes(true, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.compare(c.A, val)
 }
 
@@ -217,7 +217,7 @@ func (c *CPU) Cmp(params ...interface{}) {
 func (c *CPU) Cpx(params ...interface{}) {
 	c.instructionHook(cpx, params...)
 
-	val := c.memory.ReadMemoryAddressModes(true, params[0])
+	val := c.bus.Memory.ReadMemoryAddressModes(true, params[0])
 	c.compare(c.X, val)
 }
 
@@ -225,7 +225,7 @@ func (c *CPU) Cpx(params ...interface{}) {
 func (c *CPU) Cpy(params ...interface{}) {
 	c.instructionHook(cpy, params...)
 
-	val := c.memory.ReadMemoryAddressModes(true, params[0])
+	val := c.bus.Memory.ReadMemoryAddressModes(true, params[0])
 	c.compare(c.Y, val)
 }
 
@@ -236,9 +236,9 @@ func (c *CPU) Dec(params ...interface{}) {
 }
 
 func (c *CPU) decInternal(params ...interface{}) {
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	val--
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 	c.setZN(val)
 }
 
@@ -265,7 +265,7 @@ func (c *CPU) Eor(params ...interface{}) {
 }
 
 func (c *CPU) eorInternal(params ...interface{}) {
-	value := c.memory.ReadMemoryAddressModes(true, params...)
+	value := c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.A ^= value
 	c.setZN(c.A)
 }
@@ -277,9 +277,9 @@ func (c *CPU) Inc(params ...interface{}) {
 }
 
 func (c *CPU) incInternal(params ...interface{}) {
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	val++
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 	c.setZN(val)
 }
 
@@ -308,7 +308,7 @@ func (c *CPU) Jmp(params ...interface{}) {
 	case Absolute:
 		c.PC = uint16(address)
 	case Indirect:
-		c.PC = c.memory.ReadMemory16Bug(uint16(address))
+		c.PC = c.bus.Memory.ReadMemory16Bug(uint16(address))
 
 	default:
 		panic(fmt.Sprintf("unsupported jmp mode type %T", param))
@@ -329,7 +329,7 @@ func (c *CPU) Jsr(params ...interface{}) {
 func (c *CPU) Lda(params ...interface{}) {
 	c.instructionHook(lda, params...)
 
-	c.A = c.memory.ReadMemoryAddressModes(true, params...)
+	c.A = c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.setZN(c.A)
 }
 
@@ -337,7 +337,7 @@ func (c *CPU) Lda(params ...interface{}) {
 func (c *CPU) Ldx(params ...interface{}) {
 	c.instructionHook(ldx, params...)
 
-	c.X = c.memory.ReadMemoryAddressModes(true, params...)
+	c.X = c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.setZN(c.X)
 }
 
@@ -345,7 +345,7 @@ func (c *CPU) Ldx(params ...interface{}) {
 func (c *CPU) Ldy(params ...interface{}) {
 	c.instructionHook(ldy, params...)
 
-	c.Y = c.memory.ReadMemoryAddressModes(true, params...)
+	c.Y = c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.setZN(c.Y)
 }
 
@@ -363,11 +363,11 @@ func (c *CPU) lsrInternal(params ...interface{}) {
 		return
 	}
 
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	c.Flags.C = val & 1
 	val >>= 1
 	c.setZN(val)
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 }
 
 // Nop - No Operation.
@@ -382,7 +382,7 @@ func (c *CPU) Ora(params ...interface{}) {
 }
 
 func (c *CPU) oraInternal(params ...interface{}) {
-	value := c.memory.ReadMemoryAddressModes(true, params...)
+	value := c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	c.A |= value
 	c.setZN(c.A)
 }
@@ -435,11 +435,11 @@ func (c *CPU) rolInternal(params ...interface{}) {
 		return
 	}
 
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	c.Flags.C = (val >> 7) & 1
 	val = (val << 1) | cFlag
 	c.setZN(val)
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 }
 
 // Ror - Rotate Right.
@@ -457,11 +457,11 @@ func (c *CPU) rorInternal(params ...interface{}) {
 		return
 	}
 
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	c.Flags.C = val & 1
 	val = (val >> 1) | (cFlag << 7)
 	c.setZN(val)
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 }
 
 // Rti - Return from Interrupt.
@@ -495,7 +495,7 @@ func (c *CPU) Sbc(params ...interface{}) {
 
 func (c *CPU) sbcInternal(params ...interface{}) {
 	a := c.A
-	value := c.memory.ReadMemoryAddressModes(true, params...)
+	value := c.bus.Memory.ReadMemoryAddressModes(true, params...)
 	sub := int(c.A) - int(value) - (1 - int(c.Flags.C))
 	c.A = uint8(sub)
 	c.setZN(c.A)
@@ -530,21 +530,21 @@ func (c *CPU) Sei() {
 // add an optional register to the address.
 func (c *CPU) Sta(params ...interface{}) {
 	c.instructionHook(sta, params...)
-	c.memory.WriteMemoryAddressModes(c.A, params...)
+	c.bus.Memory.WriteMemoryAddressModes(c.A, params...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
 func (c *CPU) Stx(params ...interface{}) {
 	c.instructionHook(stx, params...)
-	c.memory.WriteMemoryAddressModes(c.X, params...)
+	c.bus.Memory.WriteMemoryAddressModes(c.X, params...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
 func (c *CPU) Sty(params ...interface{}) {
 	c.instructionHook(sty, params...)
-	c.memory.WriteMemoryAddressModes(c.Y, params...)
+	c.bus.Memory.WriteMemoryAddressModes(c.Y, params...)
 }
 
 // Tax - Transfer Accumulator to X.
@@ -597,7 +597,7 @@ func (c *CPU) unofficialDcp(params ...interface{}) {
 	c.instructionHook(unofficialDcp, params...)
 
 	c.decInternal(params...)
-	val := c.memory.ReadMemoryAddressModes(false, params...)
+	val := c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	c.compare(c.A, val)
 }
 
@@ -611,7 +611,7 @@ func (c *CPU) unofficialIsb(params ...interface{}) {
 func (c *CPU) unofficialLax(params ...interface{}) {
 	c.instructionHook(unofficialLax, params...)
 
-	c.A = c.memory.ReadMemoryAddressModes(false, params...)
+	c.A = c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	c.X = c.A
 	c.setZN(c.A)
 }
@@ -620,7 +620,7 @@ func (c *CPU) unofficialNop(params ...interface{}) {
 	c.instructionHook(unofficialNop, params...)
 
 	if len(params) > 0 {
-		c.memory.ReadMemoryAddressModes(false, params...)
+		c.bus.Memory.ReadMemoryAddressModes(false, params...)
 	}
 }
 
@@ -642,7 +642,7 @@ func (c *CPU) unofficialSax(params ...interface{}) {
 	c.instructionHook(unofficialSax, params...)
 
 	val := c.A & c.X
-	c.memory.WriteMemoryAddressModes(val, params...)
+	c.bus.Memory.WriteMemoryAddressModes(val, params...)
 }
 
 func (c *CPU) unofficialSbc(params ...interface{}) {

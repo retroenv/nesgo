@@ -17,7 +17,8 @@ type Bus struct {
 	Controller1 Controller
 	Controller2 Controller
 	CPU         CPU
-	Mapper      Memory
+	Mapper      BasicMemory
+	Memory      Memory
 	PPU         PPU
 }
 
@@ -34,15 +35,31 @@ type CPU interface {
 	StallCycles(cycles uint16)
 }
 
-// Memory represents a memory access interface.
-type Memory interface {
+// BasicMemory represents a basic memory access interface.
+type BasicMemory interface {
+	// TODO remove memory from function names
 	ReadMemory(address uint16) uint8
 	WriteMemory(address uint16, value uint8)
 }
 
+// Memory represents an advanced memory access interface.
+type Memory interface {
+	BasicMemory
+
+	// TODO remove memory from function names
+	ReadMemory16(address uint16) uint16
+	ReadMemory16Bug(address uint16) uint16
+	ReadMemoryAbsolute(address interface{}, register interface{}) byte
+	ReadMemoryAddressModes(immediate bool, params ...interface{}) byte
+	WriteMemory16(address, value uint16)
+	WriteMemoryAddressModes(value byte, params ...interface{})
+
+	LinkRegisters(x *uint8, y *uint8, globalX *uint8, globalY *uint8)
+}
+
 // PPU represents the Picture Processing Unit.
 type PPU interface {
-	Memory
+	BasicMemory
 
 	Image() *image.RGBA
 

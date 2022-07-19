@@ -8,7 +8,7 @@ import (
 )
 
 type ram interface {
-	bus.Memory
+	bus.BasicMemory
 
 	Reset()
 }

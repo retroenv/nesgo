@@ -11,14 +11,14 @@ import (
 	"github.com/retroenv/nesgo/pkg/bus"
 )
 
-type mapperInitializer func(*bus.Bus) bus.Memory
+type mapperInitializer func(*bus.Bus) bus.BasicMemory
 
 var mappers = map[byte]mapperInitializer{
 	0: newMapper0,
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
-func New(bus *bus.Bus) (bus.Memory, error) {
+func New(bus *bus.Bus) (bus.BasicMemory, error) {
 	mapperNumber := bus.Cartridge.Mapper
 	initializer, ok := mappers[mapperNumber]
 	if !ok {

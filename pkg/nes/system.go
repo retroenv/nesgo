@@ -69,7 +69,7 @@ func InitializeSystem(options ...Option) *system.System {
 	PC = &sys.CPU.PC
 	sys.CPU.SetTracing(opts.tracing, opts.tracingTarget)
 	cpu.LinkInstructionFuncs(sys.CPU)
-	sys.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
+	sys.Bus.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
 
 	return sys
 }
@@ -94,7 +94,7 @@ func runEmulatorSteps(sys *system.System, stopAt int) {
 			continue
 		}
 
-		params, opcodes, pageCrossed := ReadOpParams(sys.Memory, opcode.Addressing, true)
+		params, opcodes, pageCrossed := ReadOpParams(sys.Bus.Memory, opcode.Addressing, true)
 		sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
 		sys.TraceStep.PageCrossed = pageCrossed
 
@@ -105,7 +105,7 @@ func runEmulatorSteps(sys *system.System, stopAt int) {
 
 // DecodePCInstruction decodes the current instruction that the program counter points to.
 func DecodePCInstruction(sys *system.System) (cpu.Opcode, error) {
-	b := sys.ReadMemory(*PC)
+	b := sys.Bus.Memory.ReadMemory(*PC)
 	opcode, ok := cpu.Opcodes[b]
 	if !ok {
 		return cpu.Opcode{}, fmt.Errorf("unsupported opcode %00x", b)

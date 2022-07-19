@@ -79,7 +79,7 @@ func (dis *Disasm) initializeOffsetInfo(offset uint16) (*offset, bool) {
 	}
 
 	offsetInfo.OpcodeBytes = make([]byte, 1, 3)
-	offsetInfo.OpcodeBytes[0] = dis.sys.ReadMemory(*nes.PC)
+	offsetInfo.OpcodeBytes[0] = dis.sys.Bus.Memory.ReadMemory(*nes.PC)
 
 	if offsetInfo.IsType(program.DataOffset) {
 		return offsetInfo, false // was set by CDL
@@ -99,7 +99,7 @@ func (dis *Disasm) initializeOffsetInfo(offset uint16) (*offset, bool) {
 // Special handling is required as this instruction could branch to a different location.
 func (dis *Disasm) processParamInstruction(offset uint16, offsetInfo *offset) (string, error) {
 	opcode := offsetInfo.opcode
-	params, opcodes, _ := nes.ReadOpParams(dis.sys, opcode.Addressing, false)
+	params, opcodes, _ := nes.ReadOpParams(dis.sys.Bus.Memory, opcode.Addressing, false)
 	offsetInfo.OpcodeBytes = append(offsetInfo.OpcodeBytes, opcodes...)
 
 	firstParam := params[0]

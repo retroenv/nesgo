@@ -131,7 +131,7 @@ func (dis *Disasm) initializeCompatibleMode(assembler string) error {
 // initializeIrqHandlers reads the 3 handler addresses and adds them to the addresses to be
 // followed for execution flow.
 func (dis *Disasm) initializeIrqHandlers() {
-	nmi := dis.sys.ReadMemory16(0xFFFA)
+	nmi := dis.sys.Bus.Memory.ReadMemory16(0xFFFA)
 	if nmi != 0 {
 		dis.addTarget(nmi, nil, false)
 		offset := dis.addressToOffset(nmi)
@@ -140,13 +140,13 @@ func (dis *Disasm) initializeIrqHandlers() {
 		dis.handlers.NMI = "NMI"
 	}
 
-	reset := dis.sys.ReadMemory16(0xFFFC)
+	reset := dis.sys.Bus.Memory.ReadMemory16(0xFFFC)
 	dis.addTarget(reset, nil, false)
 	offset := dis.addressToOffset(reset)
 	dis.offsets[offset].Label = "Reset"
 	dis.offsets[offset].SetType(program.CallTarget)
 
-	irq := dis.sys.ReadMemory16(0xFFFE)
+	irq := dis.sys.Bus.Memory.ReadMemory16(0xFFFE)
 	if irq != 0 {
 		dis.addTarget(irq, nil, false)
 		offset = dis.addressToOffset(irq)

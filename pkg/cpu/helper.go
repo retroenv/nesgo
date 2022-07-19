@@ -103,7 +103,7 @@ func (c *CPU) compare(a, b byte) {
 
 // push a value to the stack and update the stack pointer.
 func (c *CPU) push(value byte) {
-	c.memory.WriteMemory(uint16(StackBase+int(c.SP)), value)
+	c.bus.Memory.WriteMemory(uint16(StackBase+int(c.SP)), value)
 	c.SP--
 }
 
@@ -118,7 +118,7 @@ func (c *CPU) Push16(value uint16) {
 // Pop pops a byte from the stack and update the stack pointer.
 func (c *CPU) Pop() byte {
 	c.SP++
-	return c.memory.ReadMemory(uint16(StackBase + int(c.SP)))
+	return c.bus.Memory.ReadMemory(uint16(StackBase + int(c.SP)))
 }
 
 // Pop16 pops a word from the stack and updates the stack pointer.
