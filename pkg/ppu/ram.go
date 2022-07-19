@@ -3,10 +3,12 @@
 
 package ppu
 
-import "github.com/retroenv/nesgo/pkg/mapper"
+import (
+	"github.com/retroenv/nesgo/pkg/bus"
+)
 
 type ram interface {
-	mapper.Memory
+	bus.Memory
 
 	Reset()
 }

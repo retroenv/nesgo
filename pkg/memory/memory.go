@@ -8,26 +8,14 @@ import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/pkg/addressing"
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/controller"
-	"github.com/retroenv/nesgo/pkg/mapper"
 )
-
-// Controller represents a hardware controller.
-type Controller interface {
-	Read() uint8
-	SetStrobeMode(mode uint8)
-}
 
 // Memory represents the memory controller.
 type Memory struct {
-	mapper mapper.Memory
-	ram    *RAM
-	ppu    mapper.Memory
-
-	controller1 Controller
-	controller2 Controller
-	cartridge   *cartridge.Cartridge
+	bus *bus.Bus
+	ram *RAM
 
 	// point to X/Y for comparison of indirect register
 	// parameters in unit tests.
@@ -37,16 +25,11 @@ type Memory struct {
 
 // New returns a new memory instance, embedded it has
 // new instances for PPU and the Controllers.
-func New(cartridge *cartridge.Cartridge, ppu mapper.Memory, controller1, controller2 Controller, mapper mapper.Memory) *Memory {
-	r := &Memory{
-		mapper:      mapper,
-		ram:         NewRAM(0),
-		ppu:         ppu,
-		controller1: controller1,
-		controller2: controller2,
-		cartridge:   cartridge,
+func New(bus *bus.Bus) *Memory {
+	return &Memory{
+		bus: bus,
+		ram: NewRAM(0),
 	}
-	return r
 }
 
 // LinkRegisters points the internal x/y registers for unit test usage
@@ -63,15 +46,20 @@ func (m *Memory) WriteMemory(address uint16, value byte) {
 	switch {
 	case address < 0x2000:
 		m.ram.WriteMemory(address&0x07FF, value)
+
 	case address < 0x4000:
-		m.ppu.WriteMemory(address, value)
+		m.bus.PPU.WriteMemory(address, value)
+
 	case address == controller.JOYPAD1:
-		m.controller1.SetStrobeMode(value)
-		m.controller2.SetStrobeMode(value)
+		m.bus.Controller1.SetStrobeMode(value)
+		m.bus.Controller2.SetStrobeMode(value)
+
 	case address >= 0x4000 && address <= 0x4020:
 		return // TODO apu support
+
 	case address >= addressing.CodeBaseAddress:
-		m.mapper.WriteMemory(address, value)
+		m.bus.Mapper.WriteMemory(address, value)
+
 	default:
 		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
 	}
@@ -82,16 +70,22 @@ func (m *Memory) ReadMemory(address uint16) byte {
 	switch {
 	case address < 0x2000:
 		return m.ram.ReadMemory(address & 0x07FF)
+
 	case address < 0x4000:
-		return m.ppu.ReadMemory(address)
+		return m.bus.PPU.ReadMemory(address)
+
 	case address == controller.JOYPAD1:
-		return m.controller1.Read()
+		return m.bus.Controller1.Read()
+
 	case address == controller.JOYPAD2:
-		return m.controller2.Read()
+		return m.bus.Controller2.Read()
+
 	case address >= 0x4000 && address <= 0x4020:
 		return 0xff // TODO apu support
+
 	case address >= addressing.CodeBaseAddress:
-		return m.mapper.ReadMemory(address)
+		return m.bus.Mapper.ReadMemory(address)
+
 	default:
 		panic(fmt.Sprintf("unhandled memory read at address: 0x%04X", address))
 	}

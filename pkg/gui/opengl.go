@@ -10,10 +10,10 @@ import (
 
 	"github.com/go-gl/gl/v2.1/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
+	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/nesgo/pkg/ppu"
-	"github.com/retroenv/nesgo/pkg/system"
 )
 
 func init() {
@@ -31,16 +31,16 @@ var openGLKeyMapping = map[glfw.Key]controller.Button{
 	glfw.KeyBackspace: controller.Select,
 }
 
-func setupOpenGLGui(sys *system.System) (guiRender func() (bool, error), guiCleanup func(), err error) {
+func setupOpenGLGui(bus *bus.Bus) (guiRender func() (bool, error), guiCleanup func(), err error) {
 	// GLFW event handling must run on the main OS thread
 	runtime.LockOSThread()
 
-	window, texture, err := setupOpenGL(sys)
+	window, texture, err := setupOpenGL(bus)
 	if err != nil {
 		return nil, nil, err
 	}
 	render := func() (bool, error) {
-		img := sys.PPU.Image()
+		img := bus.PPU.Image()
 		renderOpenGL(img, window, texture)
 		return !window.ShouldClose(), nil
 	}
@@ -51,7 +51,7 @@ func setupOpenGLGui(sys *system.System) (guiRender func() (bool, error), guiClea
 	return render, cleanup, nil
 }
 
-func setupOpenGL(sys *system.System) (*glfw.Window, uint32, error) {
+func setupOpenGL(bus *bus.Bus) (*glfw.Window, uint32, error) {
 	// setup GLFW
 	if err := glfw.Init(); err != nil {
 		return nil, 0, fmt.Errorf("initializing GLFW: %w", err)
@@ -67,7 +67,7 @@ func setupOpenGL(sys *system.System) (*glfw.Window, uint32, error) {
 		return nil, 0, fmt.Errorf("creating GLFW window: %w", err)
 	}
 
-	window.SetKeyCallback(onGLFWKey(sys))
+	window.SetKeyCallback(onGLFWKey(bus))
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)
 
@@ -79,7 +79,7 @@ func setupOpenGL(sys *system.System) (*glfw.Window, uint32, error) {
 	var texture uint32
 	gl.GenTextures(1, &texture)
 	gl.BindTexture(gl.TEXTURE_2D, texture)
-	img := sys.PPU.Image()
+	img := bus.PPU.Image()
 	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, ppu.Width, ppu.Height,
 		0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(&img.Pix[0]))
 
@@ -118,7 +118,7 @@ func renderOpenGL(img *image.RGBA, window *glfw.Window, texture uint32) {
 	glfw.PollEvents()
 }
 
-func onGLFWKey(sys *system.System) func(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
+func onGLFWKey(bus *bus.Bus) func(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
 	return func(window *glfw.Window, key glfw.Key, _ int, action glfw.Action, _ glfw.ModifierKey) {
 		if action == glfw.Press && key == glfw.KeyEscape {
 			window.SetShouldClose(true)
@@ -130,9 +130,9 @@ func onGLFWKey(sys *system.System) func(window *glfw.Window, key glfw.Key, _ int
 		}
 		switch action {
 		case glfw.Press:
-			sys.Controller1.SetButtonState(controllerKey, true)
+			bus.Controller1.SetButtonState(controllerKey, true)
 		case glfw.Release:
-			sys.Controller1.SetButtonState(controllerKey, false)
+			bus.Controller1.SetButtonState(controllerKey, false)
 		}
 	}
 }

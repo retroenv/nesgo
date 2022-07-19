@@ -9,7 +9,8 @@ import (
 	"image"
 	"time"
 
-	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/memory"
 )
 
 const (
@@ -44,16 +45,10 @@ type state struct {
 	Mask    byte
 }
 
-type cpu interface {
-	Cycles() uint64
-	StallCycles(cycles uint16)
-}
-
 // PPU represents the Picture Processing Unit.
 type PPU struct {
-	cpu     cpu
+	bus     *bus.Bus
 	ram     ram
-	mapper  mapper.Memory
 	control control
 	mask    mask
 	state   state
@@ -71,11 +66,10 @@ type PPU struct {
 }
 
 // New returns a new PPU.
-func New(ram ram, mapper mapper.Memory, cpu cpu) *PPU {
+func New(bus *bus.Bus) *PPU {
 	p := &PPU{
-		ram:    ram,
-		mapper: mapper,
-		cpu:    cpu,
+		bus: bus,
+		ram: memory.NewRAM(0x2000),
 	}
 	p.reset()
 	return p
@@ -118,7 +112,7 @@ func (p *PPU) ReadMemory(address uint16) uint8 {
 
 	default:
 		if address < 0x2000 {
-			return p.mapper.ReadMemory(address)
+			return p.bus.Mapper.ReadMemory(address)
 		}
 
 		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
@@ -147,7 +141,7 @@ func (p *PPU) WriteMemory(address uint16, value uint8) {
 
 	default:
 		if address < 0x2000 {
-			p.mapper.WriteMemory(address, value)
+			p.bus.Mapper.WriteMemory(address, value)
 			return
 		}
 
@@ -260,10 +254,10 @@ func (p *PPU) writeOamDMA(value byte) {
 	// 1 wait state cycle while waiting for writes to complete,
 	// +1 if on an odd CPU cycle, then 256 alternating read/write cycles
 	stall := uint16(1 + 256 + 256)
-	if p.cpu.Cycles()%2 == 1 {
+	if p.bus.CPU.Cycles()%2 == 1 {
 		stall++
 	}
-	p.cpu.StallCycles(stall)
+	p.bus.CPU.StallCycles(stall)
 }
 
 func (p *PPU) writeData(value byte) {
