@@ -70,7 +70,7 @@ func LoadFile(reader io.Reader) (*Cartridge, error) {
 		RAM:         header.NumRAM,
 		Trainer:     trainer,
 		Mapper:      mapper,
-		Mirror:      mirror,
+		Mirror:      MirrorMode(mirror),
 		Battery:     battery,
 		VideoFormat: header.VideoFormat,
 	}, nil

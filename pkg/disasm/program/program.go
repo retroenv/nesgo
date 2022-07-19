@@ -32,7 +32,7 @@ type Program struct {
 
 	Handlers    Handlers
 	Battery     byte
-	Mirror      byte
+	Mirror      cartridge.MirrorMode
 	Mapper      byte
 	VideoFormat byte
 

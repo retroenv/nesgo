@@ -14,10 +14,10 @@ type Cartridge struct {
 	RAM     byte   // PRG-RAM banks
 	Trainer []byte
 
-	Mapper      byte // mapper type
-	Mirror      byte // mirroring mode
-	Battery     byte // battery present
-	VideoFormat byte // 0 NTSC, 1 PAL
+	Mapper      byte       // mapper type
+	Mirror      MirrorMode // mirroring mode
+	Battery     byte       // battery present
+	VideoFormat byte       // 0 NTSC, 1 PAL
 }
 
 // New returns a new cartridge.
@@ -41,7 +41,7 @@ func (c *Cartridge) Save(writer io.Writer) error {
 		VideoFormat: c.VideoFormat,
 	}
 
-	header.Control1, header.Control2 = ControlBytes(c.Battery, c.Mirror, c.Mapper, len(c.Trainer) > 0)
+	header.Control1, header.Control2 = ControlBytes(c.Battery, byte(c.Mirror), c.Mapper, len(c.Trainer) > 0)
 
 	if err := binary.Write(writer, binary.LittleEndian, header); err != nil {
 		return fmt.Errorf("writing header: %w", err)

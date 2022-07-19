@@ -41,7 +41,7 @@ const dataBytesPerLine = 16
 
 // Write writes the assembly file content including header, footer, code and data.
 func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
-	control1, control2 := cartridge.ControlBytes(app.Battery, app.Mirror, app.Mapper, len(app.Trainer) > 0)
+	control1, control2 := cartridge.ControlBytes(app.Battery, byte(app.Mirror), app.Mapper, len(app.Trainer) > 0)
 
 	var writes []interface{}
 
