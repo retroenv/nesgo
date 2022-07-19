@@ -41,14 +41,14 @@ func (m *Memory) LinkRegisters(x *uint8, y *uint8, globalX *uint8, globalY *uint
 	m.globalY = globalY
 }
 
-// WriteMemory writes a byte to a memory address.
-func (m *Memory) WriteMemory(address uint16, value byte) {
+// Write a byte to a memory address.
+func (m *Memory) Write(address uint16, value byte) {
 	switch {
 	case address < 0x2000:
-		m.ram.WriteMemory(address&0x07FF, value)
+		m.ram.Write(address&0x07FF, value)
 
 	case address < 0x4000:
-		m.bus.PPU.WriteMemory(address, value)
+		m.bus.PPU.Write(address, value)
 
 	case address == controller.JOYPAD1:
 		m.bus.Controller1.SetStrobeMode(value)
@@ -58,21 +58,21 @@ func (m *Memory) WriteMemory(address uint16, value byte) {
 		return // TODO apu support
 
 	case address >= addressing.CodeBaseAddress:
-		m.bus.Mapper.WriteMemory(address, value)
+		m.bus.Mapper.Write(address, value)
 
 	default:
 		panic(fmt.Sprintf("unhandled memory write at address: 0x%04X", address))
 	}
 }
 
-// ReadMemory reads a byte from a memory address.
-func (m *Memory) ReadMemory(address uint16) byte {
+// Read a byte from a memory address.
+func (m *Memory) Read(address uint16) byte {
 	switch {
 	case address < 0x2000:
-		return m.ram.ReadMemory(address & 0x07FF)
+		return m.ram.Read(address & 0x07FF)
 
 	case address < 0x4000:
-		return m.bus.PPU.ReadMemory(address)
+		return m.bus.PPU.Read(address)
 
 	case address == controller.JOYPAD1:
 		return m.bus.Controller1.Read()
@@ -84,34 +84,34 @@ func (m *Memory) ReadMemory(address uint16) byte {
 		return 0xff // TODO apu support
 
 	case address >= addressing.CodeBaseAddress:
-		return m.bus.Mapper.ReadMemory(address)
+		return m.bus.Mapper.Read(address)
 
 	default:
 		panic(fmt.Sprintf("unhandled memory read at address: 0x%04X", address))
 	}
 }
 
-// ReadMemory16 reads a word from a memory address.
-func (m *Memory) ReadMemory16(address uint16) uint16 {
-	low := uint16(m.ReadMemory(address))
-	high := uint16(m.ReadMemory(address + 1))
+// ReadWord reads a word from a memory address.
+func (m *Memory) ReadWord(address uint16) uint16 {
+	low := uint16(m.Read(address))
+	high := uint16(m.Read(address + 1))
 	w := (high << 8) | low
 	return w
 }
 
-// ReadMemory16Bug reads a word from a memory address
+// ReadWordBug reads a word from a memory address
 // and emulates a 6502 bug that caused the low byte to wrap
 // without incrementing the high byte.
-func (m *Memory) ReadMemory16Bug(address uint16) uint16 {
-	low := uint16(m.ReadMemory(address))
+func (m *Memory) ReadWordBug(address uint16) uint16 {
+	low := uint16(m.Read(address))
 	offset := (address & 0xFF00) | uint16(byte(address)+1)
-	high := uint16(m.ReadMemory(offset))
+	high := uint16(m.Read(offset))
 	w := (high << 8) | low
 	return w
 }
 
-// WriteMemory16 writes a word to a memory address.
-func (m *Memory) WriteMemory16(address, value uint16) {
-	m.WriteMemory(address, byte(value))
-	m.WriteMemory(address+1, byte(value>>8))
+// WriteWord writes a word to a memory address.
+func (m *Memory) WriteWord(address, value uint16) {
+	m.Write(address, byte(value))
+	m.Write(address+1, byte(value>>8))
 }

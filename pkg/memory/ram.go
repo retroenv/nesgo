@@ -30,16 +30,16 @@ func (r *RAM) Reset() {
 	r.mu.Unlock()
 }
 
-// ReadMemory reads a byte from a memory address.
-func (r *RAM) ReadMemory(address uint16) byte {
+// Read a byte from a memory address.
+func (r *RAM) Read(address uint16) byte {
 	r.mu.RLock()
 	b := r.data[address-r.offset]
 	r.mu.RUnlock()
 	return b
 }
 
-// WriteMemory writes a byte to a memory address.
-func (r *RAM) WriteMemory(address uint16, value byte) {
+// Write a byte to a memory address.
+func (r *RAM) Write(address uint16, value byte) {
 	r.mu.Lock()
 	r.data[address-r.offset] = value
 	r.mu.Unlock()

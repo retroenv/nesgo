@@ -10,7 +10,7 @@ import (
 	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
-// WriteMemoryAddressModes writes to memory using different address modes:
+// WriteAddressModes writes to memory using different address modes:
 // Absolute: the absolut memory address is used to write the value
 // Absolute, X: the absolut memory address with offset from X is used
 // Absolute, Y: the absolut memory address with offset from Y is used
@@ -19,7 +19,7 @@ import (
 // (Indirect), Y: the pointer to the memory address is read from the
 //                indirect parameter and adjusted after reading it
 //                by adding Y. The value is read from this pointer
-func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
+func (m *Memory) WriteAddressModes(value byte, params ...interface{}) {
 	param := params[0]
 	var register interface{}
 	if len(params) > 1 {
@@ -44,7 +44,7 @@ func (m *Memory) WriteMemoryAddressModes(value byte, params ...interface{}) {
 
 func (m *Memory) writeMemoryIndirect(address interface{}, value byte, register interface{}) {
 	pointer := m.indirectMemoryPointer(address, register)
-	m.WriteMemory(pointer, value)
+	m.Write(pointer, value)
 }
 
 func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register interface{}) {
@@ -90,31 +90,31 @@ func (m *Memory) writeMemoryZeroPage(address ZeroPage, value byte, register inte
 func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offset uint16) {
 	switch addr := address.(type) {
 	case int8:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	case uint8:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	case *uint8:
 		*addr = value
 	case uint16:
-		m.WriteMemory(addr+offset, value)
+		m.Write(addr+offset, value)
 	case *uint16:
 		*addr = uint16(value)
 	case int:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	case Absolute:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	case AbsoluteX:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	case AbsoluteY:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	case ZeroPage:
-		m.WriteMemory(uint16(addr)+offset, value)
+		m.Write(uint16(addr)+offset, value)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write with register", address))
 	}
 }
 
-// ReadMemoryAddressModes reads memory using different address modes:
+// ReadAddressModes reads memory using different address modes:
 // Immediate: if immediate is true and the passed first param fits into
 //            a byte, it's immediate value is returned
 // Absolute: the absolut memory address is used to read the value
@@ -125,7 +125,7 @@ func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offs
 // (Indirect), Y: the pointer to the memory address is read from the
 //                indirect parameter and adjusted after reading it
 //                by adding Y. The value is written to this pointer
-func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) byte {
+func (m *Memory) ReadAddressModes(immediate bool, params ...interface{}) byte {
 	param := params[0]
 	var register interface{}
 	if len(params) > 1 {
@@ -137,13 +137,13 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 		if immediate && register == nil && address <= math.MaxUint8 {
 			return uint8(address) // immediate, not an address
 		}
-		return m.ReadMemoryAbsolute(address, register)
+		return m.ReadAbsolute(address, register)
 	case uint8:
 		return address // immediate, not an address
 	case *uint8: // variable
 		return *address
 	case Absolute, AbsoluteX, AbsoluteY:
-		return m.ReadMemoryAbsolute(address, register)
+		return m.ReadAbsolute(address, register)
 	case ZeroPage:
 		return m.ReadMemoryZeroPage(address, register)
 	case Indirect, IndirectResolved:
@@ -153,10 +153,10 @@ func (m *Memory) ReadMemoryAddressModes(immediate bool, params ...interface{}) b
 	}
 }
 
-// ReadMemoryAbsolute reads a byte from an address using absolute addressing.
-func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) byte {
+// ReadAbsolute reads a byte from an address using absolute addressing.
+func (m *Memory) ReadAbsolute(address interface{}, register interface{}) byte {
 	if register == nil {
-		return m.readMemoryAbsoluteOffset(address, 0)
+		return m.readAbsoluteOffset(address, 0)
 	}
 
 	var offset uint16
@@ -168,14 +168,14 @@ func (m *Memory) ReadMemoryAbsolute(address interface{}, register interface{}) b
 	default:
 		panic(fmt.Sprintf("unsupported extra parameter type %T for absolute memory read", register))
 	}
-	return m.readMemoryAbsoluteOffset(address, offset)
+	return m.readAbsoluteOffset(address, offset)
 }
 
 // ReadMemoryZeroPage reads a byte from an address in zeropage using absolute addressing.
 // Support 6502 bug, index will not leave zeropage when page boundary is crossed.
 func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register interface{}) byte {
 	if register == nil {
-		return m.readMemoryAbsoluteOffset(address, 0)
+		return m.readAbsoluteOffset(address, 0)
 	}
 
 	var offset byte
@@ -188,10 +188,10 @@ func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register interface{}) byte
 		panic(fmt.Sprintf("unsupported extra parameter type %T for zero page memory read", register))
 	}
 	addr := uint16(byte(address) + offset)
-	return m.readMemoryAbsoluteOffset(addr, 0)
+	return m.readAbsoluteOffset(addr, 0)
 }
 
-func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) byte {
+func (m *Memory) readAbsoluteOffset(address interface{}, offset uint16) byte {
 	switch addr := address.(type) {
 	case *uint8:
 		if offset != 0 {
@@ -199,21 +199,21 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 		}
 		return *addr
 	case uint16:
-		return m.ReadMemory(addr + offset)
+		return m.Read(addr + offset)
 	case int:
-		return m.ReadMemory(uint16(addr) + offset)
+		return m.Read(uint16(addr) + offset)
 	case Absolute:
-		return m.ReadMemory(uint16(addr) + offset)
+		return m.Read(uint16(addr) + offset)
 	case AbsoluteX:
-		val := m.ReadMemory(uint16(addr))
+		val := m.Read(uint16(addr))
 		val += byte(offset)
 		return val
 	case AbsoluteY:
-		val := m.ReadMemory(uint16(addr))
+		val := m.Read(uint16(addr))
 		val += byte(offset)
 		return val
 	case ZeroPage:
-		return m.ReadMemory(uint16(addr) + offset)
+		return m.Read(uint16(addr) + offset)
 	default:
 		panic(fmt.Sprintf("unsupported address type %T for absolute memory write", address))
 	}
@@ -221,7 +221,7 @@ func (m *Memory) readMemoryAbsoluteOffset(address interface{}, offset uint16) by
 
 func (m *Memory) readMemoryIndirect(address interface{}, register interface{}) byte {
 	pointer := m.indirectMemoryPointer(address, register)
-	return m.ReadMemory(pointer)
+	return m.Read(pointer)
 }
 
 func (m *Memory) indirectMemoryPointer(addressParam interface{}, register interface{}) uint16 {
@@ -249,9 +249,9 @@ func (m *Memory) indirectMemoryPointer(addressParam interface{}, register interf
 	var pointer uint16
 	switch {
 	case p == m.globalX, p == m.x:
-		pointer = m.ReadMemory16(address + uint16(*p))
+		pointer = m.ReadWord(address + uint16(*p))
 	case p == m.globalY, p == m.y:
-		pointer = m.ReadMemory16(address)
+		pointer = m.ReadWord(address)
 		pointer += uint16(*p)
 	default:
 		panic("only X and Y registers are supported for indirect addressing")

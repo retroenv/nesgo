@@ -69,10 +69,10 @@ func (p *PPU) reset() {
 	p.setOamAddress(0x00)
 }
 
-// ReadMemory reads from a PPU memory address.
-func (p *PPU) ReadMemory(address uint16) uint8 {
+// Read from a PPU memory address.
+func (p *PPU) Read(address uint16) uint8 {
 	if address < 0x2000 {
-		return p.bus.Mapper.ReadMemory(address)
+		return p.bus.Mapper.Read(address)
 	}
 	if address > 0x3FFF {
 		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
@@ -96,10 +96,10 @@ func (p *PPU) ReadMemory(address uint16) uint8 {
 	}
 }
 
-// WriteMemory writes to a PPU memory address.
-func (p *PPU) WriteMemory(address uint16, value uint8) {
+// Write to a PPU memory address.
+func (p *PPU) Write(address uint16, value uint8) {
 	if address < 0x2000 {
-		p.bus.Mapper.WriteMemory(address, value)
+		p.bus.Mapper.Write(address, value)
 		return
 	}
 	if address > 0x3FFF {
@@ -131,16 +131,16 @@ func (p *PPU) WriteMemory(address uint16, value uint8) {
 }
 
 func (p *PPU) setVBlank() {
-	status := p.ram.ReadMemory(PPU_STATUS)
+	status := p.ram.Read(PPU_STATUS)
 	status |= 0x80
-	p.ram.WriteMemory(PPU_STATUS, status)
+	p.ram.Write(PPU_STATUS, status)
 	// TODO handle NMI
 }
 
 func (p *PPU) clearVBlank() {
-	status := p.ram.ReadMemory(PPU_STATUS)
+	status := p.ram.Read(PPU_STATUS)
 	status &= 0x7f
-	p.ram.WriteMemory(PPU_STATUS, status)
+	p.ram.Write(PPU_STATUS, status)
 }
 
 func (p *PPU) readData() byte {
@@ -150,7 +150,7 @@ func (p *PPU) readData() byte {
 	// when reading data, the contents of an internal read buffer is returned and the buffer
 	// gets updated with the newly read data
 	data := p.dataReadBuffer
-	p.dataReadBuffer = p.ram.ReadMemory(address)
+	p.dataReadBuffer = p.ram.Read(address)
 
 	// palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
 	if address > 0x3EFF {
@@ -166,7 +166,7 @@ func (p *PPU) writeData(value byte) {
 	address := p.vramAddress.address()
 	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
 
-	p.ram.WriteMemory(address, value)
+	p.ram.Write(address, value)
 	p.vramAddress.increment(p.control.VRAMIncrement)
 }
 

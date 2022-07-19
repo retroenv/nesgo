@@ -79,7 +79,7 @@ func (dis *Disasm) initializeOffsetInfo(offset uint16) (*offset, bool) {
 	}
 
 	offsetInfo.OpcodeBytes = make([]byte, 1, 3)
-	offsetInfo.OpcodeBytes[0] = dis.sys.Bus.Memory.ReadMemory(*nes.PC)
+	offsetInfo.OpcodeBytes[0] = dis.sys.Bus.Memory.Read(*nes.PC)
 
 	if offsetInfo.IsType(program.DataOffset) {
 		return offsetInfo, false // was set by CDL

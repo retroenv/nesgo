@@ -24,7 +24,7 @@ func (p *PPU) writeOamDMA(value byte) {
 	address := uint16(value) << 8
 
 	for i := 0; i < 256; i++ {
-		data := p.bus.Memory.ReadMemory(address)
+		data := p.bus.Memory.Read(address)
 		p.oamData[p.oamAddress] = data
 		p.oamAddress++
 		address++

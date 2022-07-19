@@ -11,7 +11,7 @@ func TestSetControl(t *testing.T) {
 	t.Parallel()
 
 	p := New(nil)
-	p.WriteMemory(PPU_CTRL, 0b11111111)
+	p.Write(PPU_CTRL, 0b11111111)
 
 	assert.Equal(t, 0x2C00, p.control.BaseNameTable)
 	assert.Equal(t, 32, p.control.VRAMIncrement)
@@ -27,7 +27,7 @@ func TestSetMask(t *testing.T) {
 	t.Parallel()
 
 	p := New(nil)
-	p.WriteMemory(PPU_MASK, 0b11111111)
+	p.Write(PPU_MASK, 0b11111111)
 
 	assert.True(t, p.mask.Grayscale)
 	assert.True(t, p.mask.RenderBackgroundLeft)

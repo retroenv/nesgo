@@ -12,7 +12,7 @@ type mapper0 struct {
 	prgMod uint16
 }
 
-func (m mapper0) ReadMemory(address uint16) uint8 {
+func (m mapper0) Read(address uint16) uint8 {
 	switch {
 	case address < 0x2000:
 		return m.bus.Cartridge.CHR[address]
@@ -24,7 +24,7 @@ func (m mapper0) ReadMemory(address uint16) uint8 {
 	}
 }
 
-func (m mapper0) WriteMemory(address uint16, value uint8) {
+func (m mapper0) Write(address uint16, value uint8) {
 }
 
 func newMapper0(bus *bus.Bus) bus.BasicMemory {

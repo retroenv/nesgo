@@ -37,22 +37,20 @@ type CPU interface {
 
 // BasicMemory represents a basic memory access interface.
 type BasicMemory interface {
-	// TODO remove memory from function names
-	ReadMemory(address uint16) uint8
-	WriteMemory(address uint16, value uint8)
+	Read(address uint16) uint8
+	Write(address uint16, value uint8)
 }
 
 // Memory represents an advanced memory access interface.
 type Memory interface {
 	BasicMemory
 
-	// TODO remove memory from function names
-	ReadMemory16(address uint16) uint16
-	ReadMemory16Bug(address uint16) uint16
-	ReadMemoryAbsolute(address interface{}, register interface{}) byte
-	ReadMemoryAddressModes(immediate bool, params ...interface{}) byte
-	WriteMemory16(address, value uint16)
-	WriteMemoryAddressModes(value byte, params ...interface{})
+	ReadAbsolute(address interface{}, register interface{}) byte
+	ReadAddressModes(immediate bool, params ...interface{}) byte
+	ReadWord(address uint16) uint16
+	ReadWordBug(address uint16) uint16
+	WriteAddressModes(value byte, params ...interface{})
+	WriteWord(address, value uint16)
 
 	LinkRegisters(x *uint8, y *uint8, globalX *uint8, globalY *uint8)
 }

@@ -63,7 +63,7 @@ func New(bus *bus.Bus, irqHandler *func()) *CPU {
 	}
 
 	// read reset interrupt handler address
-	c.PC = bus.Memory.ReadMemory16(0xFFFC)
+	c.PC = bus.Memory.ReadWord(0xFFFC)
 
 	c.setFlags(initialFlags)
 	return c

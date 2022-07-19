@@ -16,9 +16,9 @@ func (p *PPU) StartRender() {
 
 // FinishRender finishes the rendering process.
 func (p *PPU) FinishRender() {
-	status := p.ram.ReadMemory(PPU_STATUS)
+	status := p.ram.Read(PPU_STATUS)
 	status &= 0xbf
-	p.ram.WriteMemory(PPU_STATUS, status)
+	p.ram.Write(PPU_STATUS, status)
 	p.clearVBlank()
 }
 
@@ -35,7 +35,7 @@ func (p *PPU) Image() *image.RGBA {
 }
 
 func (p *PPU) renderBackground() {
-	idx := int(p.ram.ReadMemory(PALETTE_START))
+	idx := int(p.ram.Read(PALETTE_START))
 	idx %= len(colors)
 	c := colors[idx]
 

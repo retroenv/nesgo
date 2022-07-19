@@ -38,7 +38,7 @@ func (dis *Disasm) processData() {
 		}
 
 		address := uint16(i + CodeBaseAddress)
-		b := dis.sys.Bus.Memory.ReadMemory(address)
+		b := dis.sys.Bus.Memory.Read(address)
 		dis.offsets[i].OpcodeBytes = []byte{b}
 	}
 }

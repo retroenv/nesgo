@@ -105,7 +105,7 @@ func runEmulatorSteps(sys *system.System, stopAt int) {
 
 // DecodePCInstruction decodes the current instruction that the program counter points to.
 func DecodePCInstruction(sys *system.System) (cpu.Opcode, error) {
-	b := sys.Bus.Memory.ReadMemory(*PC)
+	b := sys.Bus.Memory.Read(*PC)
 	opcode, ok := cpu.Opcodes[b]
 	if !ok {
 		return cpu.Opcode{}, fmt.Errorf("unsupported opcode %00x", b)
