@@ -31,8 +31,10 @@ type PPU struct {
 	vramAddress  register
 	tempAddress  register
 
-	fineX uint16
+	fineX          uint16
+	dataReadBuffer byte
 
+	// Object Attribute Memory
 	oamData    [256]byte
 	oamAddress byte
 
@@ -53,7 +55,9 @@ func (p *PPU) reset() {
 	p.vramAddress = register{}
 	p.tempAddress = register{}
 	p.addressLatch = false
+
 	p.fineX = 0
+	p.dataReadBuffer = 0
 
 	p.image = image.NewRGBA(image.Rect(0, 0, Width, Height))
 	p.oamData = [256]byte{}
@@ -143,7 +147,16 @@ func (p *PPU) readData() byte {
 	address := p.vramAddress.address()
 	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
 
-	data := p.ram.ReadMemory(address)
+	// when reading data, the contents of an internal read buffer is returned and the buffer
+	// gets updated with the newly read data
+	data := p.dataReadBuffer
+	p.dataReadBuffer = p.ram.ReadMemory(address)
+
+	// palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
+	if address > 0x3EFF {
+		data = p.dataReadBuffer
+	}
+
 	// TODO handle special case of reading during rendering
 	p.vramAddress.increment(p.control.VRAMIncrement)
 	return data
