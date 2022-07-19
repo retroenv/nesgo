@@ -7,7 +7,6 @@ package ppu
 import (
 	"fmt"
 	"image"
-	"time"
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/memory"
@@ -19,39 +18,14 @@ const (
 	FPS    = 60
 )
 
-type control struct {
-	BaseNameTable          uint16
-	VRAMIncrement          uint8 // 0: add 1, going across; 1: add 32, going down
-	SpritePatternTable     uint16
-	BackgroundPatternTable uint16
-	SpriteSize             uint8 // 0: 8x8 pixels; 1: 8x16 pixels
-	MasterSlave            uint8
-	NmiOutput              bool
-}
-
-type mask struct {
-	Grayscale            bool
-	RenderBackgroundLeft bool
-	RenderSpritesLeft    bool
-	RenderBackground     bool
-	RenderSprites        bool
-	EnhanceRed           bool
-	EnhanceGreen         bool
-	EnhanceBlue          bool
-}
-
-type state struct {
-	Control byte
-	Mask    byte
-}
-
 // PPU represents the Picture Processing Unit.
 type PPU struct {
-	bus     *bus.Bus
-	ram     ram
+	bus *bus.Bus
+	ram ram
+
 	control control
 	mask    mask
-	state   state
+	status  status
 
 	addressLatch bool
 	vramAddress  register
@@ -85,43 +59,51 @@ func (p *PPU) reset() {
 	p.oamData = [256]byte{}
 	p.ram.Reset()
 
+	p.status = status{}
 	p.setControl(0x00)
 	p.setMask(0x00)
 	p.setOamAddress(0x00)
 }
 
-// Image returns the rendered image to display.
-func (p *PPU) Image() *image.RGBA {
-	return p.image
-}
-
 // ReadMemory reads from a PPU memory address.
 func (p *PPU) ReadMemory(address uint16) uint8 {
-	switch address {
+	if address < 0x2000 {
+		return p.bus.Mapper.ReadMemory(address)
+	}
+	if address > 0x3FFF {
+		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
+	}
+
+	base := mirroredAddressToBase(address)
+	switch base {
 	case PPU_CTRL:
-		return p.state.Control
-
+		return p.control.value
 	case PPU_MASK:
-		return p.state.Mask
-
+		return p.mask.value
 	case PPU_STATUS:
-		p.addressLatch = false
-		b := p.ram.ReadMemory(address)
-		p.clearVBlank()
-		return b
+		return p.getStatus()
+	case OAM_DATA:
+		return p.readOamData()
+	case PPU_DATA:
+		return p.readData()
 
 	default:
-		if address < 0x2000 {
-			return p.bus.Mapper.ReadMemory(address)
-		}
-
 		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
 	}
 }
 
 // WriteMemory writes to a PPU memory address.
 func (p *PPU) WriteMemory(address uint16, value uint8) {
-	switch address {
+	if address < 0x2000 {
+		p.bus.Mapper.WriteMemory(address, value)
+		return
+	}
+	if address > 0x3FFF {
+		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
+	}
+
+	base := mirroredAddressToBase(address)
+	switch base {
 	case PPU_CTRL:
 		p.setControl(value)
 	case PPU_MASK:
@@ -140,11 +122,6 @@ func (p *PPU) WriteMemory(address uint16, value uint8) {
 		p.writeOamDMA(value)
 
 	default:
-		if address < 0x2000 {
-			p.bus.Mapper.WriteMemory(address, value)
-			return
-		}
-
 		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
 	}
 }
@@ -162,102 +139,14 @@ func (p *PPU) clearVBlank() {
 	p.ram.WriteMemory(PPU_STATUS, status)
 }
 
-// StartRender starts the rendering process.
-func (p *PPU) StartRender() {
-	p.setVBlank()
-	time.Sleep(time.Second / FPS)
-}
+func (p *PPU) readData() byte {
+	address := p.vramAddress.address()
+	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
 
-// FinishRender finishes the rendering process.
-func (p *PPU) FinishRender() {
-	status := p.ram.ReadMemory(PPU_STATUS)
-	status &= 0xbf
-	p.ram.WriteMemory(PPU_STATUS, status)
-	p.clearVBlank()
-}
-
-// RenderScreen renders the screen into the internal image.
-func (p *PPU) RenderScreen() {
-	if p.mask.RenderBackground {
-		p.renderBackground()
-	}
-}
-
-func (p *PPU) renderBackground() {
-	idx := int(p.ram.ReadMemory(PALETTE_START))
-	idx %= len(colors)
-	c := colors[idx]
-
-	for y := 0; y < Height; y++ {
-		for x := 0; x < Width; x++ {
-			p.image.SetRGBA(x, y, c)
-		}
-	}
-}
-
-func (p *PPU) setControl(value byte) {
-	p.state.Control = value
-
-	p.control.BaseNameTable = (uint16(value&CTRL_NT_2C00) << 10) + 0x2000
-
-	increment := (value & CTRL_INC_32) >> 2
-	if increment == 0 {
-		p.control.VRAMIncrement = 1
-	} else {
-		p.control.VRAMIncrement = 32
-	}
-
-	p.control.SpritePatternTable = uint16(value&CTRL_SPR_1000) << 9
-	p.control.BackgroundPatternTable = uint16(value&CTRL_BG_1000) << 8
-	p.control.SpriteSize = value & CTRL_8x16 >> 5
-	p.control.MasterSlave = value & CTRL_MASTERSLAVE >> 6
-	p.control.NmiOutput = value&CTRL_NMI != 0
-
-	p.tempAddress.NameTableX = uint16(value & CTRL_NT_2400)
-	p.tempAddress.NameTableY = uint16(value&CTRL_NT_2800) >> 1
-}
-
-func (p *PPU) setMask(value byte) {
-	p.state.Mask = value
-
-	p.mask.Grayscale = value&MASK_MONO != 0
-	p.mask.RenderBackgroundLeft = value&MASK_BG_CLIP != 0
-	p.mask.RenderSpritesLeft = value&MASK_SPR_CLIP != 0
-	p.mask.RenderBackground = value&MASK_BG != 0
-	p.mask.RenderSprites = value&MASK_SPR != 0
-	p.mask.EnhanceRed = value&MASK_TINT_RED != 0
-	p.mask.EnhanceGreen = value&MASK_TINT_GREEN != 0
-	p.mask.EnhanceBlue = value&MASK_TINT_BLUE != 0
-}
-
-func (p *PPU) setOamAddress(value byte) {
-	p.oamAddress = value
-}
-
-func (p *PPU) writeOamData(value byte) {
-	p.oamData[p.oamAddress] = value
-	p.oamAddress++
-
-	// TODO handle scroll glitch
-}
-
-func (p *PPU) writeOamDMA(value byte) {
-	address := uint16(value) << 8
-
-	for i := 0; i < 256; i++ {
-		data := p.ram.ReadMemory(address)
-		p.oamData[p.oamAddress] = data
-		p.oamAddress++
-		address++
-	}
-
-	// 1 wait state cycle while waiting for writes to complete,
-	// +1 if on an odd CPU cycle, then 256 alternating read/write cycles
-	stall := uint16(1 + 256 + 256)
-	if p.bus.CPU.Cycles()%2 == 1 {
-		stall++
-	}
-	p.bus.CPU.StallCycles(stall)
+	data := p.ram.ReadMemory(address)
+	// TODO handle special case of reading during rendering
+	p.vramAddress.increment(p.control.VRAMIncrement)
+	return data
 }
 
 func (p *PPU) writeData(value byte) {
@@ -293,4 +182,11 @@ func (p *PPU) setAddress(value uint16) {
 	}
 
 	p.addressLatch = !p.addressLatch
+}
+
+// mirroredAddressToBase converts the mirrored addresses to the base address.
+// PPU registers are mirrored in every 8 bytes from $2008 through $3FFF.
+func mirroredAddressToBase(address uint16) uint16 {
+	base := 0x2000 + address&0b00000111
+	return base
 }
