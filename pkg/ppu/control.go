@@ -12,7 +12,6 @@ type control struct {
 	BackgroundPatternTable uint16
 	SpriteSize             uint8 // 0: 8x8 pixels; 1: 8x16 pixels
 	MasterSlave            uint8
-	NmiOutput              bool
 }
 
 func (p *PPU) setControl(value byte) {
@@ -28,11 +27,23 @@ func (p *PPU) setControl(value byte) {
 	}
 
 	p.control.SpritePatternTable = uint16(value&CTRL_SPR_1000) << 9
-	p.control.BackgroundPatternTable = uint16(value&CTRL_BG_1000) << 8
-	p.control.SpriteSize = value & CTRL_8x16 >> 5
-	p.control.MasterSlave = value & CTRL_MASTERSLAVE >> 6
-	p.control.NmiOutput = value&CTRL_NMI != 0
+	p.sprites.SetSpritePatternTable(p.control.SpritePatternTable)
 
-	p.tempAddress.NameTableX = uint16(value & CTRL_NT_2400)
-	p.tempAddress.NameTableY = uint16(value&CTRL_NT_2800) >> 1
+	p.control.BackgroundPatternTable = uint16(value&CTRL_BG_1000) << 8
+
+	p.control.SpriteSize = value & CTRL_8x16 >> 5
+	if p.control.SpriteSize == 0 {
+		p.sprites.SetSpriteSize(8)
+	} else {
+		p.sprites.SetSpriteSize(16)
+	}
+
+	p.control.MasterSlave = value & CTRL_MASTERSLAVE >> 6
+
+	p.nmi.output = value&CTRL_NMI != 0
+	p.nmi.change()
+
+	nameTableX := value & CTRL_NT_2400
+	nameTableY := value & CTRL_NT_2800 >> 1
+	p.addressing.SetTempNameTables(nameTableX, nameTableY)
 }

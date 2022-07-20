@@ -1,23 +1,28 @@
 //go:build !nesgo
 // +build !nesgo
 
-package ppu
+// Package palette handles PPU palette support.
+package palette
 
-type palette struct {
+// Palette implements PPU palette support.
+type Palette struct {
 	data [32]byte // contains color indexes
 }
 
-func (p *palette) reset() {
-	p.data = [32]byte{}
+// New returns a new palette manager.
+func New() *Palette {
+	return &Palette{}
 }
 
-func (p palette) read(address uint16) byte {
+// Read a value from the palette address.
+func (p Palette) Read(address uint16) byte {
 	base := mirroredPaletteAddressToBase(address)
 	value := p.data[base]
 	return value
 }
 
-func (p *palette) write(address uint16, value byte) {
+// Write a value to a palette address.
+func (p *Palette) Write(address uint16, value byte) {
 	base := mirroredPaletteAddressToBase(address)
 	p.data[base] = value
 }

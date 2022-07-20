@@ -9,6 +9,13 @@ import (
 	"image"
 
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/ppu/addressing"
+	"github.com/retroenv/nesgo/pkg/ppu/mask"
+	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+	"github.com/retroenv/nesgo/pkg/ppu/palette"
+	"github.com/retroenv/nesgo/pkg/ppu/renderstate"
+	"github.com/retroenv/nesgo/pkg/ppu/sprites"
+	"github.com/retroenv/nesgo/pkg/ppu/status"
 )
 
 const (
@@ -22,18 +29,23 @@ type PPU struct {
 	bus *bus.Bus
 
 	control control
-	mask    mask
-	status  status
-
-	addressLatch bool
-	vramAddress  register
-	tempAddress  register
 
 	fineX          uint16
 	dataReadBuffer byte
 
-	palette     *palette
-	renderState *renderState
+	addressing  *addressing.Addressing
+	mask        *mask.Mask
+	nameTable   *nametable.NameTable
+	nmi         *nmi
+	palette     *palette.Palette
+	renderState *renderstate.RenderState
+	sprites     *sprites.Sprites
+	status      *status.Status
+
+	attributeTableByte byte
+	lowTileByte        byte
+	highTileByte       byte
+	tileData           uint64
 
 	back  *image.RGBA // rendering in progress image
 	front *image.RGBA // visible image
@@ -42,34 +54,34 @@ type PPU struct {
 // New returns a new PPU.
 func New(bus *bus.Bus) *PPU {
 	p := &PPU{
-		bus:     bus,
-		palette: &palette{},
+		bus: bus,
 	}
 	p.reset()
 	return p
 }
 
 func (p *PPU) reset() {
-	p.addressLatch = false
-	p.vramAddress = register{}
-	p.tempAddress = register{}
-
 	p.fineX = 0
 	p.dataReadBuffer = 0
 
 	p.back = image.NewRGBA(image.Rect(0, 0, Width, Height))
 	p.front = image.NewRGBA(image.Rect(0, 0, Width, Height))
 
-	p.palette.reset()
-	p.renderState = newRenderState()
+	p.addressing = addressing.New()
+	p.mask = mask.New()
+	p.nameTable = nametable.New(p.bus.Mapper)
+	p.nmi = &nmi{}
+	p.palette = palette.New()
+	p.renderState = renderstate.New()
+	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.renderState, p.status)
+	p.status = status.New()
 
 	p.setControl(0x00)
-	p.setMask(0x00)
-	p.status = status{}
+	p.mask.Set(0x00)
 }
 
 func (p *PPU) readData() byte {
-	address := p.vramAddress.address()
+	address := p.addressing.Address()
 	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
 
 	// when reading data, the contents of an internal read buffer is returned and the buffer
@@ -78,61 +90,56 @@ func (p *PPU) readData() byte {
 
 	switch {
 	case address >= 0x2000 && address < 0x3F00:
-		p.dataReadBuffer = 0 // TODO
+		p.dataReadBuffer = p.nameTable.Read(address, p.bus.Cartridge.Mirror)
+
 	case address >= 0x3F00:
-		p.dataReadBuffer = p.palette.read(address)
-		// palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
+		p.dataReadBuffer = p.palette.Read(address)
+		// Palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
 		data = p.dataReadBuffer
+
 	default:
 		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
 	}
 
 	// TODO handle special case of reading during rendering
-	p.vramAddress.increment(p.control.VRAMIncrement)
+	p.addressing.Increment(p.control.VRAMIncrement)
 	return data
 }
 
 func (p *PPU) writeData(value byte) {
-	address := p.vramAddress.address()
+	address := p.addressing.Address()
 	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
 
 	switch {
 	case address >= 0x2000 && address < 0x3F00:
-		// TODO
+		p.nameTable.Write(address, value, p.bus.Cartridge.Mirror)
+
 	case address >= 0x3F00:
-		p.palette.write(address, value)
+		p.palette.Write(address, value)
+
 	default:
 		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
 	}
 
-	p.vramAddress.increment(p.control.VRAMIncrement)
+	p.addressing.Increment(p.control.VRAMIncrement)
 }
 
-func (p *PPU) setScroll(value uint16) {
-	if p.addressLatch {
-		p.tempAddress.FineY = value & 0x07
-		p.tempAddress.CoarseY = value >> 3
-	} else {
-		p.fineX = value & 0x07
-		p.tempAddress.CoarseX = value >> 3
+func (p *PPU) setScroll(value byte) {
+	if !p.addressing.Latch() {
+		p.fineX = uint16(value) & 0x07
 	}
-
-	p.addressLatch = !p.addressLatch
+	p.addressing.SetScroll(value)
 }
 
-func (p *PPU) setAddress(value uint16) {
-	if p.addressLatch {
-		address := p.tempAddress.address() & 0xFF00
-		address |= value
-		p.tempAddress.set(address)
-		p.vramAddress = p.tempAddress
-	} else {
-		address := p.tempAddress.address() & 0x00FF
-		address |= value << 8
-		p.tempAddress.set(address)
-	}
+func (p *PPU) getStatus() byte {
+	p.addressing.ClearLatch()
 
-	p.addressLatch = !p.addressLatch
+	p.status.SetVerticalBlank(p.nmi.occurred)
+	p.nmi.occurred = false
+	p.nmi.change()
+
+	value := p.status.Value()
+	return value
 }
 
 // mirroredAddressToBase converts the mirrored addresses to the base address.

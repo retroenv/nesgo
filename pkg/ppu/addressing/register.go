@@ -1,9 +1,11 @@
 //go:build !nesgo
 // +build !nesgo
 
-package ppu
+package addressing
 
 // register represents an internal PPU register that has the address decoded to fields.
+// It is also known as loopy register. The data could be stored more efficient as a
+// single uint16 but the decomposed structure is chosen for ease of development and readability of code.
 type register struct {
 	CoarseX    uint16 // 0000 0000 0001 1111
 	CoarseY    uint16 // 0000 0011 1110 0000

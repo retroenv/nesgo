@@ -16,11 +16,11 @@ func (p *PPU) Read(address uint16) uint8 {
 	case PPU_CTRL:
 		return p.control.value
 	case PPU_MASK:
-		return p.mask.value
+		return p.mask.Value()
 	case PPU_STATUS:
 		return p.getStatus()
 	case OAM_DATA:
-		return 0 // TODO
+		return p.sprites.Read()
 	case PPU_DATA:
 		return p.readData()
 
@@ -41,19 +41,19 @@ func (p *PPU) Write(address uint16, value uint8) {
 	case PPU_CTRL:
 		p.setControl(value)
 	case PPU_MASK:
-		p.setMask(value)
+		p.mask.Set(value)
 	case OAM_ADDR:
-		// TODO
+		p.sprites.SetAddress(value)
 	case OAM_DATA:
-		// TODO
+		p.sprites.Write(value)
 	case PPU_SCROLL:
-		p.setScroll(uint16(value))
+		p.setScroll(value)
 	case PPU_ADDR:
-		p.setAddress(uint16(value))
+		p.addressing.SetAddress(value)
 	case PPU_DATA:
 		p.writeData(value)
 	case OAM_DMA:
-		// TODO
+		p.sprites.WriteDMA(value)
 
 	default:
 		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
