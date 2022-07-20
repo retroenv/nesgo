@@ -52,6 +52,9 @@ func parsePackage(name string) (*Package, error) {
 		if strings.HasSuffix(strings.ToLower(fileName), testFileSuffix) {
 			continue
 		}
+		if entry.Type() == os.ModeDir {
+			continue // TODO parse recursively
+		}
 
 		fullPath := path.Join(dir, fileName)
 		data, err := os.ReadFile(fullPath)
