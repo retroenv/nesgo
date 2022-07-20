@@ -64,8 +64,5 @@ type PPU interface {
 	BasicMemory
 
 	Image() *image.RGBA
-
-	FinishRender()
-	RenderScreen()
-	StartRender()
+	Step()
 }

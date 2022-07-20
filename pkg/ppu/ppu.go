@@ -5,12 +5,12 @@
 package ppu
 
 import (
-	"fmt"
 	"image"
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/ppu/addressing"
 	"github.com/retroenv/nesgo/pkg/ppu/mask"
+	"github.com/retroenv/nesgo/pkg/ppu/memory"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 	"github.com/retroenv/nesgo/pkg/ppu/palette"
 	"github.com/retroenv/nesgo/pkg/ppu/renderstate"
@@ -35,6 +35,7 @@ type PPU struct {
 
 	addressing  *addressing.Addressing
 	mask        *mask.Mask
+	memory      *memory.Memory
 	nameTable   *nametable.NameTable
 	nmi         *nmi
 	palette     *palette.Palette
@@ -69,12 +70,14 @@ func (p *PPU) reset() {
 
 	p.addressing = addressing.New()
 	p.mask = mask.New()
-	p.nameTable = nametable.New(p.bus.Mapper)
+	p.nameTable = nametable.New(p.bus.Cartridge.Mirror)
 	p.nmi = &nmi{}
 	p.palette = palette.New()
 	p.renderState = renderstate.New()
-	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.renderState, p.status)
 	p.status = status.New()
+
+	p.memory = memory.New(p.bus.Mapper, p.nameTable, p.palette)
+	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.renderState, p.status)
 
 	p.setControl(0x00)
 	p.mask.Set(0x00)
@@ -88,40 +91,16 @@ func (p *PPU) readData() byte {
 	// gets updated with the newly read data
 	data := p.dataReadBuffer
 
-	switch {
-	case address >= 0x2000 && address < 0x3F00:
-		p.dataReadBuffer = p.nameTable.Read(address, p.bus.Cartridge.Mirror)
+	p.dataReadBuffer = p.memory.Read(address)
 
-	case address >= 0x3F00:
-		p.dataReadBuffer = p.palette.Read(address)
+	if address >= 0x3F00 {
 		// Palette data reads are unbuffered, $3F00-$3FFF are Palette RAM indexes and mirrors of it
 		data = p.dataReadBuffer
-
-	default:
-		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
 	}
 
 	// TODO handle special case of reading during rendering
 	p.addressing.Increment(p.control.VRAMIncrement)
 	return data
-}
-
-func (p *PPU) writeData(value byte) {
-	address := p.addressing.Address()
-	address &= 0x3FFF // valid addresses are $0000-$3FFF; higher addresses will be mirrored down
-
-	switch {
-	case address >= 0x2000 && address < 0x3F00:
-		p.nameTable.Write(address, value, p.bus.Cartridge.Mirror)
-
-	case address >= 0x3F00:
-		p.palette.Write(address, value)
-
-	default:
-		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
-	}
-
-	p.addressing.Increment(p.control.VRAMIncrement)
 }
 
 func (p *PPU) setScroll(value byte) {
@@ -140,11 +119,4 @@ func (p *PPU) getStatus() byte {
 
 	value := p.status.Value()
 	return value
-}
-
-// mirroredAddressToBase converts the mirrored addresses to the base address.
-// PPU registers are mirrored in every 8 bytes from $2008 through $3FFF.
-func mirroredAddressToBase(address uint16) uint16 {
-	base := 0x2000 + address&0b00000111
-	return base
 }

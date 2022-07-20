@@ -5,22 +5,22 @@ package ppu
 
 import "fmt"
 
-// Read from a PPU memory address.
+// Read from a PPU memory register address.
 func (p *PPU) Read(address uint16) uint8 {
-	if address < 0x2000 {
-		return p.bus.Mapper.Read(address)
-	}
-
-	base := mirroredAddressToBase(address)
+	base := mirroredRegisterAddressToBase(address)
 	switch base {
 	case PPU_CTRL:
 		return p.control.value
+
 	case PPU_MASK:
 		return p.mask.Value()
+
 	case PPU_STATUS:
 		return p.getStatus()
+
 	case OAM_DATA:
 		return p.sprites.Read()
+
 	case PPU_DATA:
 		return p.readData()
 
@@ -29,33 +29,44 @@ func (p *PPU) Read(address uint16) uint8 {
 	}
 }
 
-// Write to a PPU memory address.
+// Write to a PPU memory register address.
 func (p *PPU) Write(address uint16, value uint8) {
-	if address < 0x2000 {
-		p.bus.Mapper.Write(address, value)
-		return
-	}
-
-	base := mirroredAddressToBase(address)
+	base := mirroredRegisterAddressToBase(address)
 	switch base {
 	case PPU_CTRL:
 		p.setControl(value)
+
 	case PPU_MASK:
 		p.mask.Set(value)
+
 	case OAM_ADDR:
 		p.sprites.SetAddress(value)
+
 	case OAM_DATA:
 		p.sprites.Write(value)
+
 	case PPU_SCROLL:
 		p.setScroll(value)
+
 	case PPU_ADDR:
 		p.addressing.SetAddress(value)
+
 	case PPU_DATA:
-		p.writeData(value)
+		address := p.addressing.Address()
+		p.memory.Write(address, value)
+		p.addressing.Increment(p.control.VRAMIncrement)
+
 	case OAM_DMA:
 		p.sprites.WriteDMA(value)
 
 	default:
 		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
 	}
+}
+
+// mirroredRegisterAddressToBase converts the mirrored addresses to the base address.
+// PPU registers are mirrored in every 8 bytes from $2008 through $3FFF.
+func mirroredRegisterAddressToBase(address uint16) uint16 {
+	base := 0x2000 + address&0b00000111
+	return base
 }

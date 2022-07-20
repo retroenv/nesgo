@@ -5,15 +5,17 @@
 package nametable
 
 import (
-	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
 const (
-	baseAddress    = 0x2000 // $2000  contains the nametables
-	count          = 4      // 4 nametables
-	maximumAddress = 0x2FFF // $2FFF end of nametable 4
-	size           = 0x0400 // 1024 byte per nametable
+	baseAddress   = 0x2000 // $2000 contains the nametables
+	count         = 4      // 4 nametables
+	nameTableSize = 0x0400 // 1024 byte per nametable
+	// normally mapped to the 2kB NES internal VRAM, providing 2 nametables with a mirroring configuration
+	// controlled by the cartridge, but it can be partly or fully remapped to RAM on the cartridge,
+	// allowing up to 4 simultaneous nametables
+	vramSize = count * nameTableSize
 )
 
 // NameTable implements PPU nametable support.
@@ -23,34 +25,35 @@ const (
 // With each tile being 8x8 pixels, this makes a total of 256x240 pixels in one map,
 // the same size as one full screen.
 type NameTable struct {
-	mapper bus.Mapper
-	value  byte
+	mirrorMode cartridge.MirrorMode
+
+	value byte
+	vram  [vramSize]byte
 }
 
 // New returns a new nametable manager.
-func New(mapper bus.Mapper) *NameTable {
+func New(mirrorMode cartridge.MirrorMode) *NameTable {
 	return &NameTable{
-		mapper: mapper,
+		mirrorMode: mirrorMode,
 	}
 }
 
 // Read a value from the nametable address.
-func (n NameTable) Read(address uint16, mirrorMode cartridge.MirrorMode) byte {
-	base := mirroredNameTableAddressToBase(address, mirrorMode)
-	value := n.mapper.Read(base)
+func (n NameTable) Read(address uint16) byte {
+	base := n.mirroredNameTableAddressToBase(address)
+	value := n.vram[base]
 	return value
 }
 
 // Write a value to a nametable address.
-func (n *NameTable) Write(address uint16, value byte, mirrorMode cartridge.MirrorMode) {
-	base := mirroredNameTableAddressToBase(address, mirrorMode)
-	n.mapper.Write(base, value)
+func (n *NameTable) Write(address uint16, value byte) {
+	base := n.mirroredNameTableAddressToBase(address)
+	n.vram[base] = value
 }
 
 // Fetch a byte from the address and store it in the internal value storage for later retrieval.
 func (n *NameTable) Fetch(address uint16) {
-	address &= maximumAddress
-	n.value = n.mapper.Read(address)
+	n.value = n.Read(address)
 }
 
 // Value returns the earlier fetched value.
@@ -58,14 +61,14 @@ func (n NameTable) Value() byte {
 	return n.value
 }
 
-func mirroredNameTableAddressToBase(address uint16, mirrorMode cartridge.MirrorMode) uint16 {
-	address = (address - baseAddress) % (count * size)
-	table := address / size
-	offset := address % size
+func (n *NameTable) mirroredNameTableAddressToBase(address uint16) uint16 {
+	address = (address - baseAddress) % (count * nameTableSize)
+	table := address / nameTableSize
+	offset := address % nameTableSize
 
-	nameTableIndexes := mirrorMode.NametableIndexes()
+	nameTableIndexes := n.mirrorMode.NametableIndexes()
 	nameTableIndex := nameTableIndexes[table]
 
-	base := baseAddress + nameTableIndex*size + offset
+	base := nameTableIndex*nameTableSize + offset
 	return base
 }

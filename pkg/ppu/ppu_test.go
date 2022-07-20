@@ -5,6 +5,7 @@ import (
 
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/memory"
 )
 
@@ -12,7 +13,9 @@ import (
 func TestSetControl(t *testing.T) {
 	t.Parallel()
 
-	sys := &bus.Bus{}
+	sys := &bus.Bus{
+		Cartridge: cartridge.New(),
+	}
 	sys.Mapper = memory.New(sys)
 	p := New(sys)
 
@@ -31,7 +34,9 @@ func TestSetControl(t *testing.T) {
 func TestSetMask(t *testing.T) {
 	t.Parallel()
 
-	sys := &bus.Bus{}
+	sys := &bus.Bus{
+		Cartridge: cartridge.New(),
+	}
 	sys.Mapper = memory.New(sys)
 	p := New(sys)
 

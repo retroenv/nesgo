@@ -6,10 +6,12 @@ package nes
 import (
 	"fmt"
 	"sync/atomic"
+	"time"
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/retroenv/nesgo/pkg/system"
 )
 
@@ -88,9 +90,11 @@ func runEmulatorSteps(sys *system.System, stopAt int) {
 		}
 
 		ins := opcode.Instruction
+		startCycles := sys.CPU.Cycles()
 		if ins.NoParamFunc != nil {
 			ins.NoParamFunc()
 			updatePC(sys, ins, oldPC, 1)
+			runPPUSteps(sys, startCycles)
 			continue
 		}
 
@@ -100,6 +104,16 @@ func runEmulatorSteps(sys *system.System, stopAt int) {
 
 		ins.ParamFunc(params...)
 		updatePC(sys, ins, oldPC, len(sys.TraceStep.Opcode))
+		runPPUSteps(sys, startCycles)
+	}
+}
+
+func runPPUSteps(sys *system.System, startCycles uint64) {
+	cpuCycles := sys.CPU.Cycles() - startCycles
+
+	ppuCycles := int(cpuCycles) * 3
+	for i := 0; i < ppuCycles; i++ {
+		sys.Bus.PPU.Step()
 	}
 }
 
@@ -157,10 +171,6 @@ func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) e
 	}()
 
 	for atomic.LoadUint64(&running) == 1 {
-		sys.Bus.PPU.StartRender()
-
-		sys.Bus.PPU.RenderScreen()
-
 		continueRunning, err := render()
 		if err != nil {
 			return err
@@ -169,7 +179,8 @@ func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) e
 			atomic.StoreUint64(&running, 0)
 		}
 
-		sys.Bus.PPU.FinishRender()
+		// TODO replace with better solution
+		time.Sleep(time.Second / ppu.FPS)
 	}
 	return nil
 }

@@ -39,10 +39,10 @@ func (p *PPU) tileAddress() uint16 {
 
 func (p *PPU) fetchLowTileByte() {
 	address := p.tileAddress()
-	p.lowTileByte = p.bus.Memory.Read(address)
+	p.lowTileByte = p.memory.Read(address)
 }
 
 func (p *PPU) fetchHighTileByte() {
 	address := p.tileAddress()
-	p.highTileByte = p.bus.Memory.Read(address + 8)
+	p.highTileByte = p.memory.Read(address + 8)
 }

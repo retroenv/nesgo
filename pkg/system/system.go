@@ -30,13 +30,14 @@ func New(cart *cartridge.Cartridge) *System {
 		Controller2: controller.New(),
 	}
 	systemBus.Memory = memory.New(systemBus)
-	systemBus.PPU = ppu.New(systemBus)
 
 	var err error
 	systemBus.Mapper, err = mapper.New(systemBus)
 	if err != nil {
 		panic(err)
 	}
+
+	systemBus.PPU = ppu.New(systemBus)
 
 	sys := &System{
 		Bus: systemBus,
