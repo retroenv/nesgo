@@ -17,7 +17,7 @@ type Bus struct {
 	Controller1 Controller
 	Controller2 Controller
 	CPU         CPU
-	Mapper      BasicMemory
+	Mapper      Mapper
 	Memory      Memory
 	PPU         PPU
 }
@@ -35,6 +35,9 @@ type CPU interface {
 	StallCycles(cycles uint16)
 	TriggerNMI()
 }
+
+// Mapper represents a mapper memory access interface.
+type Mapper BasicMemory
 
 // BasicMemory represents a basic memory access interface.
 type BasicMemory interface {
