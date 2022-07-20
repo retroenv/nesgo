@@ -4,6 +4,13 @@ import (
 	. "github.com/retroenv/nesgo/pkg/addressing"
 )
 
+// aliases for instructions that are referenced in emulator code for special handling
+var (
+	JmpInstruction = jmp.Name
+	JsrInstruction = jsr.Name
+	NopInstruction = nop.Name
+)
+
 // AddressingInfo contains the opcode and timing info for an instruction addressing mode.
 type AddressingInfo struct {
 	Opcode byte

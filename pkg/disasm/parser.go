@@ -47,7 +47,7 @@ func (dis *Disasm) followExecutionFlow() error {
 
 		dis.checkInstructionOverlap(offsetInfo, offset)
 
-		if instruction.Name == "nop" && instruction.Unofficial {
+		if instruction.Name == cpu.NopInstruction && instruction.Unofficial {
 			dis.handleUnofficialNop(offset)
 			continue
 		}
@@ -171,7 +171,7 @@ func (dis *Disasm) addTarget(target uint16, currentInstruction *cpu.Instruction,
 	offset := dis.addressToOffset(target)
 	offsetInfo := &dis.offsets[offset]
 
-	if currentInstruction != nil && currentInstruction.Name == "jsr" {
+	if currentInstruction != nil && currentInstruction.Name == cpu.JsrInstruction {
 		offsetInfo.SetType(program.CallTarget)
 	}
 	if jumpTarget {
