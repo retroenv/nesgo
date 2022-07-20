@@ -7,9 +7,17 @@ import (
 	. "github.com/retroenv/nesgo/pkg/nes"
 )
 
-func TestParser(t *testing.T) {
-	InitializeSystem()
+func TestClearRAM(t *testing.T) {
+	sys := NewSystem(nil)
+	sys.LinkAliases()
+
+	sys.Bus.Memory.Write(0x7FF, 1)
+
+	value := sys.Bus.Memory.Read(0x7FF)
+	assert.Equal(t, 1, value)
+
 	ClearRAM()
-	// TODO add test
-	assert.Equal(t, 0, *X)
+
+	value = sys.Bus.Memory.Read(0x7FF)
+	assert.Equal(t, 0, value)
 }

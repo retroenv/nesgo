@@ -10,8 +10,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/cpu"
 )
 
-// Options contains options for the nesgo system.
-type Options struct {
+// options contains options for the nesgo system.
+type options struct {
 	entrypoint int
 	stopAt     int
 
@@ -27,15 +27,15 @@ type Options struct {
 }
 
 // Option defines a Start parameter.
-type Option func(*Options)
+type Option func(*options)
 
-// NewOptions creates a new options instance from the passed options.
-func NewOptions(options ...Option) *Options {
-	opts := &Options{
+// newOptions creates a new options instance from the passed options.
+func newOptions(optionList ...Option) *options {
+	opts := &options{
 		entrypoint: -1,
 		stopAt:     -1,
 	}
-	for _, option := range options {
+	for _, option := range optionList {
 		option(opts)
 	}
 
@@ -47,65 +47,65 @@ func NewOptions(options ...Option) *Options {
 }
 
 // WithCartridge sets a cartridge to load.
-func WithCartridge(cart *cartridge.Cartridge) func(*Options) {
-	return func(options *Options) {
+func WithCartridge(cart *cartridge.Cartridge) func(*options) {
+	return func(options *options) {
 		options.cartridge = cart
 	}
 }
 
 // WithEmulator sets the emulator mode.
-func WithEmulator() func(*Options) {
-	return func(options *Options) {
+func WithEmulator() func(*options) {
+	return func(options *options) {
 		options.emulator = true
 	}
 }
 
 // WithIrqHandler sets an Irq Handler for the program.
-func WithIrqHandler(f func()) func(*Options) {
-	return func(options *Options) {
+func WithIrqHandler(f func()) func(*options) {
+	return func(options *options) {
 		options.irqHandler = f
 	}
 }
 
 // WithNmiHandler sets a Nmi Handler for the program.
-func WithNmiHandler(f func()) func(*Options) {
-	return func(options *Options) {
+func WithNmiHandler(f func()) func(*options) {
+	return func(options *options) {
 		options.nmiHandler = f
 	}
 }
 
 // WithTracing enables tracing for the program.
-func WithTracing() func(*Options) {
-	return func(options *Options) {
+func WithTracing() func(*options) {
+	return func(options *options) {
 		options.tracing = cpu.GoTracing
 	}
 }
 
 // WithTracingTarget set the tracing target io writer.
-func WithTracingTarget(target io.Writer) func(*Options) {
-	return func(options *Options) {
+func WithTracingTarget(target io.Writer) func(*options) {
+	return func(options *options) {
 		options.tracing = cpu.GoTracing
 		options.tracingTarget = target
 	}
 }
 
 // WithEntrypoint enables tracing for the program.
-func WithEntrypoint(address int) func(*Options) {
-	return func(options *Options) {
+func WithEntrypoint(address int) func(*options) {
+	return func(options *options) {
 		options.entrypoint = address
 	}
 }
 
 // WithStopAt stops execution of the program at a specific address.
-func WithStopAt(address int) func(*Options) {
-	return func(options *Options) {
+func WithStopAt(address int) func(*options) {
+	return func(options *options) {
 		options.stopAt = address
 	}
 }
 
 // WithDisabledGUI disabled the GUI.
-func WithDisabledGUI() func(*Options) {
-	return func(options *Options) {
+func WithDisabledGUI() func(*options) {
+	return func(options *options) {
 		options.noGui = true
 	}
 }

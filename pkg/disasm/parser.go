@@ -86,7 +86,7 @@ func (dis *Disasm) initializeOffsetInfo(offset uint16) (*offset, bool) {
 	}
 
 	var err error
-	offsetInfo.opcode, err = nes.DecodePCInstruction(dis.sys)
+	offsetInfo.opcode, err = dis.sys.DecodeInstructionAtPC()
 	if err != nil {
 		// consider an unknown instruction as start of data
 		offsetInfo.SetType(program.DataOffset)

@@ -15,7 +15,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
-	"github.com/retroenv/nesgo/pkg/system"
 )
 
 type fileWriter interface {
@@ -36,7 +35,7 @@ type offset struct {
 type Disasm struct {
 	options *disasmoptions.Options
 
-	sys        *system.System
+	sys        *nes.System
 	converter  param.Converter
 	fileWriter fileWriter
 	cart       *cartridge.Cartridge
@@ -59,7 +58,7 @@ type Disasm struct {
 func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, error) {
 	dis := &Disasm{
 		options:         options,
-		sys:             nes.InitializeSystem(nes.WithCartridge(cart)),
+		sys:             nes.NewSystem(cart),
 		cart:            cart,
 		codeBaseAddress: uint16(0x10000 - len(cart.PRG)),
 		variables:       map[uint16]*variable{},
@@ -74,6 +73,7 @@ func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, er
 			IRQ:   "0",
 		},
 	}
+	dis.sys.LinkAliases()
 
 	var err error
 	dis.constants, err = buildConstMap()

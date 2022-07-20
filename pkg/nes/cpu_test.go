@@ -5,15 +5,13 @@ import (
 
 	"github.com/retroenv/nesgo/internal/assert"
 	. "github.com/retroenv/nesgo/pkg/addressing"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
-	"github.com/retroenv/nesgo/pkg/system"
 )
 
 type cpuTest struct {
 	Name  string
-	Setup func(sys *system.System)
-	Check func(sys *system.System)
+	Setup func(sys *System)
+	Check func(sys *System)
 }
 
 func runCPUTest(t *testing.T, tests []cpuTest) {
@@ -22,7 +20,7 @@ func runCPUTest(t *testing.T, tests []cpuTest) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			t.Parallel()
-			sys := system.New(cartridge.New())
+			sys := NewSystem(nil)
 			test.Setup(sys)
 			test.Check(sys)
 		})
@@ -34,33 +32,33 @@ func TestAdc(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "result 0x00",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 2
 				sys.Adc(0xff)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 			},
 		},
 		{
 			Name: "result 0x01",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Adc(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 			},
 		},
 		{
 			Name: "result 0x102",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 2
 				sys.Flags.C = 1
 				sys.Adc(0xff)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 			},
@@ -71,7 +69,7 @@ func TestAdc(t *testing.T) {
 
 func TestAnd(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.A = 0x12
 	sys.And(2)
@@ -81,7 +79,7 @@ func TestAnd(t *testing.T) {
 
 func TestAsl(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.A = 0b00000001
 	sys.Asl()
@@ -105,7 +103,7 @@ func TestAsl(t *testing.T) {
 
 func TestBcc(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, true, sys.Bcc())
 
@@ -115,7 +113,7 @@ func TestBcc(t *testing.T) {
 
 func TestBcs(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, false, sys.Bcs())
 
@@ -125,7 +123,7 @@ func TestBcs(t *testing.T) {
 
 func TestBeq(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, false, sys.Beq())
 
@@ -138,12 +136,12 @@ func TestBit(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "value 1",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 1)
 				sys.A = 1
 				sys.Bit(Absolute(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.A)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 0, sys.Flags.V)
@@ -152,12 +150,12 @@ func TestBit(t *testing.T) {
 		},
 		{
 			Name: "value 0xff",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 0xff)
 				sys.A = 0xf0
 				sys.Bit(Absolute(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0xf0, sys.A)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 1, sys.Flags.V)
@@ -170,7 +168,7 @@ func TestBit(t *testing.T) {
 
 func TestBmi(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, false, sys.Bmi())
 
@@ -180,7 +178,7 @@ func TestBmi(t *testing.T) {
 
 func TestBne(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, true, sys.Bne())
 
@@ -190,7 +188,7 @@ func TestBne(t *testing.T) {
 
 func TestBpl(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, true, sys.Bpl())
 
@@ -200,7 +198,7 @@ func TestBpl(t *testing.T) {
 
 func TestBrk(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	called := false
 	sys.IrqHandler = func() {
@@ -213,7 +211,7 @@ func TestBrk(t *testing.T) {
 
 func TestBvc(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, true, sys.Bvc())
 
@@ -223,7 +221,7 @@ func TestBvc(t *testing.T) {
 
 func TestBvs(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	assert.Equal(t, false, sys.Bvs())
 
@@ -233,7 +231,7 @@ func TestBvs(t *testing.T) {
 
 func TestClc(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Flags.C = 1
 	sys.Clc()
@@ -243,7 +241,7 @@ func TestClc(t *testing.T) {
 
 func TestCld(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Flags.D = 1
 	sys.Cld()
@@ -253,7 +251,7 @@ func TestCld(t *testing.T) {
 
 func TestCli(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Flags.I = 1
 	sys.Cli()
@@ -263,7 +261,7 @@ func TestCli(t *testing.T) {
 
 func TestClv(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Flags.V = 1
 	sys.Clv()
@@ -276,12 +274,12 @@ func TestCmp(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "equal immediate",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 1)
 				sys.A = 1
 				sys.Cmp(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 1, sys.Flags.Z)
@@ -290,12 +288,12 @@ func TestCmp(t *testing.T) {
 		},
 		{
 			Name: "unequal absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 0xff)
 				sys.A = 1
 				sys.Cmp(Absolute(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -311,12 +309,12 @@ func TestCpx(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "equal immediate",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 1)
 				sys.X = 1
 				sys.Cpx(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.X)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 1, sys.Flags.Z)
@@ -325,12 +323,12 @@ func TestCpx(t *testing.T) {
 		},
 		{
 			Name: "unequal absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 0xff)
 				sys.X = 1
 				sys.Cpx(Absolute(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.X)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -346,12 +344,12 @@ func TestCpy(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "equal immediate",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 1)
 				sys.Y = 1
 				sys.Cpy(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Y)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 1, sys.Flags.Z)
@@ -360,12 +358,12 @@ func TestCpy(t *testing.T) {
 		},
 		{
 			Name: "unequal absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x100, 0xff)
 				sys.Y = 1
 				sys.Cpy(Absolute(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Y)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -381,43 +379,43 @@ func TestDec(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "zeropage",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(1, 2)
 				sys.Dec(ZeroPage(1))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Bus.Memory.Read(1))
 			},
 		},
 		{
 			Name: "zeropage x",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 2)
 				sys.X = 1
 				sys.Dec(ZeroPage(1), sys.X)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Bus.Memory.Read(2))
 			},
 		},
 		{
 			Name: "absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x101, 2)
 				sys.Dec(Absolute(0x101))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Bus.Memory.Read(0x101))
 			},
 		},
 		{
 			Name: "absolute x",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 2)
 				sys.X = 1
 				sys.Dec(Absolute(0x101), sys.X)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Bus.Memory.Read(0x102))
 			},
 		},
@@ -427,7 +425,7 @@ func TestDec(t *testing.T) {
 
 func TestDex(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.X = 2
 	sys.Dex()
@@ -437,7 +435,7 @@ func TestDex(t *testing.T) {
 
 func TestDey(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Y = 2
 	sys.Dey()
@@ -447,7 +445,7 @@ func TestDey(t *testing.T) {
 
 func TestEor(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	// TODO add test
 	sys.Eor(0)
@@ -458,43 +456,43 @@ func TestInc(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "zeropage",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(1, 1)
 				sys.Inc(ZeroPage(1))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.Bus.Memory.Read(1))
 			},
 		},
 		{
 			Name: "zeropage x",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 1)
 				sys.X = 1
 				sys.Inc(ZeroPage(1), sys.X)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.Bus.Memory.Read(2))
 			},
 		},
 		{
 			Name: "absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x101, 1)
 				sys.Inc(Absolute(0x101))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.Bus.Memory.Read(0x101))
 			},
 		},
 		{
 			Name: "absolute x",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 1)
 				sys.X = 1
 				sys.Inc(Absolute(0x101), sys.X)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.Bus.Memory.Read(0x102))
 			},
 		},
@@ -504,7 +502,7 @@ func TestInc(t *testing.T) {
 
 func TestInx(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Inx()
 
@@ -513,7 +511,7 @@ func TestInx(t *testing.T) {
 
 func TestIny(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Iny()
 
@@ -525,20 +523,20 @@ func TestJmp(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Jmp(Absolute(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0x100, sys.PC)
 			},
 		},
 		{
 			Name: "indirect",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.WriteWord(0x100, 0x200)
 				sys.Jmp(Indirect(0x100))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0x200, sys.PC)
 			},
 		},
@@ -548,7 +546,7 @@ func TestJmp(t *testing.T) {
 
 func TestJsr(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.PC = CodeBaseAddress
 	sys.Jsr(Absolute(0x101))
@@ -561,7 +559,7 @@ func TestJsr(t *testing.T) {
 
 func TestLda(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Lda(1)
 
@@ -573,32 +571,32 @@ func TestLdx(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "immediate",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Ldx(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.X)
 			},
 		},
 		{
 			Name: "zeropage y",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 8)
 				sys.Y = 1
 				sys.Ldx(ZeroPage(1), sys.Y)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.X)
 			},
 		},
 		{
 			Name: "absolute y",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 8)
 				sys.Y = 1
 				sys.Ldx(Absolute(0x101), sys.Y)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.X)
 			},
 		},
@@ -611,32 +609,32 @@ func TestLdy(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "immediate",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Ldy(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Y)
 			},
 		},
 		{
 			Name: "zeropage x",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 8)
 				sys.X = 1
 				sys.Ldy(ZeroPage(1), sys.X)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.Y)
 			},
 		},
 		{
 			Name: "absolute x",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 8)
 				sys.X = 1
 				sys.Ldy(Absolute(0x101), sys.X)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.Y)
 			},
 		},
@@ -649,11 +647,11 @@ func TestLsr(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "value 0b00000010 accumulator",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 0b00000010
 				sys.Lsr()
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0b00000001, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -662,11 +660,11 @@ func TestLsr(t *testing.T) {
 		},
 		{
 			Name: "value 0b01111111 accumulator",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 0b01111111
 				sys.Lsr()
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0b00111111, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -675,11 +673,11 @@ func TestLsr(t *testing.T) {
 		},
 		{
 			Name: "value 0b01111111 absolute",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x101, 0b01111111)
 				sys.Lsr(Absolute(0x101))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				b := sys.Bus.Memory.Read(0x101)
 				assert.Equal(t, 0b00111111, b)
 				assert.Equal(t, 0, sys.A)
@@ -694,14 +692,14 @@ func TestLsr(t *testing.T) {
 
 func TestNop(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Nop()
 }
 
 func TestOra(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	// TODO add test
 	sys.Ora(0)
@@ -709,7 +707,7 @@ func TestOra(t *testing.T) {
 
 func TestPha(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.A = 1
 	sys.Pha()
@@ -721,7 +719,7 @@ func TestPha(t *testing.T) {
 
 func TestPhp(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Php()
 
@@ -731,7 +729,7 @@ func TestPhp(t *testing.T) {
 
 func TestPla(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.SP = 1
 	sys.Bus.Memory.Write(cpu.StackBase+2, 1)
@@ -743,7 +741,7 @@ func TestPla(t *testing.T) {
 
 func TestPlp(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.SP = 1
 	sys.Bus.Memory.Write(cpu.StackBase+2, 1)
@@ -758,11 +756,11 @@ func TestRol(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "value 0b00000010 accumulator",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 0b00000010
 				sys.Rol()
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0b00000100, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -771,11 +769,11 @@ func TestRol(t *testing.T) {
 		},
 		{
 			Name: "value 0b11111110 accumulator C0",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 0b11111110
 				sys.Rol()
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0b11111100, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -784,12 +782,12 @@ func TestRol(t *testing.T) {
 		},
 		{
 			Name: "value 0b11111110 absolute C1",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x101, 0b11111110)
 				sys.Flags.C = 1
 				sys.Rol(Absolute(0x101))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				b := sys.Bus.Memory.Read(0x101)
 				assert.Equal(t, 0b11111101, b)
 				assert.Equal(t, 0, sys.A)
@@ -807,11 +805,11 @@ func TestRor(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "value 0b00000010 accumulator",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 0b00000010
 				sys.Ror()
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0b00000001, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -820,11 +818,11 @@ func TestRor(t *testing.T) {
 		},
 		{
 			Name: "value 0b01111111 accumulator C0",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 0b01111111
 				sys.Ror()
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0b00111111, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -833,12 +831,12 @@ func TestRor(t *testing.T) {
 		},
 		{
 			Name: "value 0b01111111 absolute C1",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x101, 0b01111111)
 				sys.Flags.C = 1
 				sys.Ror(Absolute(0x101))
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				b := sys.Bus.Memory.Read(0x101)
 				assert.Equal(t, 0b10111111, b)
 				assert.Equal(t, 0, sys.A)
@@ -853,14 +851,14 @@ func TestRor(t *testing.T) {
 
 func TestRti(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Rti()
 }
 
 func TestRts(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Push16(0x100)
 	sys.Rts()
@@ -872,32 +870,32 @@ func TestSbc(t *testing.T) {
 	tests := []cpuTest{
 		{
 			Name: "result 0 C0",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.A = 2
 				sys.Sbc(2)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 			},
 		},
 		{
 			Name: "result 0xff C0",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Sbc(1)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0xff, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 			},
 		},
 		{
 			Name: "result 0xff C1",
-			Setup: func(sys *system.System) {
+			Setup: func(sys *System) {
 				sys.Flags.C = 1
 				sys.Sbc(0)
 			},
-			Check: func(sys *system.System) {
+			Check: func(sys *System) {
 				assert.Equal(t, 0x00, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 			},
@@ -908,7 +906,7 @@ func TestSbc(t *testing.T) {
 
 func TestSec(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Sec()
 
@@ -917,7 +915,7 @@ func TestSec(t *testing.T) {
 
 func TestSed(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Sed()
 
@@ -926,7 +924,7 @@ func TestSed(t *testing.T) {
 
 func TestSei(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Sei()
 
@@ -935,7 +933,7 @@ func TestSei(t *testing.T) {
 
 func TestSta(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.A = 11
 	sys.Sta(0)
@@ -952,7 +950,7 @@ func TestSta(t *testing.T) {
 
 func TestStx(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.X = 11
 	sys.Stx(0)
@@ -969,7 +967,7 @@ func TestStx(t *testing.T) {
 
 func TestSty(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Y = 11
 	sys.Sty(0)
@@ -986,7 +984,7 @@ func TestSty(t *testing.T) {
 
 func TestTax(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.A = 2
 	sys.Tax()
@@ -996,7 +994,7 @@ func TestTax(t *testing.T) {
 
 func TestTay(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.A = 2
 	sys.Tay()
@@ -1006,7 +1004,7 @@ func TestTay(t *testing.T) {
 
 func TestTsx(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Tsx()
 
@@ -1016,7 +1014,7 @@ func TestTsx(t *testing.T) {
 
 func TestTxa(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.X = 2
 	sys.Txa()
@@ -1026,7 +1024,7 @@ func TestTxa(t *testing.T) {
 
 func TestTxs(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.X = 2
 	sys.Txs()
@@ -1036,7 +1034,7 @@ func TestTxs(t *testing.T) {
 
 func TestTya(t *testing.T) {
 	t.Parallel()
-	sys := system.New(cartridge.New())
+	sys := NewSystem(nil)
 
 	sys.Y = 2
 	sys.Tya()

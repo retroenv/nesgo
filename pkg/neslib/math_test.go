@@ -8,7 +8,8 @@ import (
 )
 
 func TestDivSigned16(t *testing.T) {
-	sys := InitializeSystem()
+	sys := NewSystem(nil)
+	sys.LinkAliases()
 	sys.ResetCycles()
 
 	*A = 0b10000001 // -127
@@ -22,7 +23,8 @@ func TestDivSigned16(t *testing.T) {
 }
 
 func TestDivSigned8(t *testing.T) {
-	sys := InitializeSystem()
+	sys := NewSystem(nil)
+	sys.LinkAliases()
 	sys.ResetCycles()
 
 	*A = 0b10000001 // -127

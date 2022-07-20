@@ -10,115 +10,68 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/nesgo/pkg/memory"
 	"github.com/retroenv/nesgo/pkg/ppu"
-	"github.com/retroenv/nesgo/pkg/system"
 )
 
-type guiInitializer func(bus *bus.Bus) (guiRender func() (bool, error), guiCleanup func(), err error)
+// System implements a NES system.
+type System struct {
+	*cpu.CPU
 
-// GuiStarter will be set by the chosen and imported GUI renderer.
-var GuiStarter guiInitializer
+	Bus *bus.Bus
 
-// Start is the main entrypoint for a NES program that starts the execution.
-// Different options can be passed.
-// Following callback function that will be called by NES when different events occur:
-// resetHandler: called when the system gets turned on or reset
-// nmiHandler:   occurs when the PPU starts preparing the next frame of
-//               graphics, 60 times per second
-// irqHandler:   can be triggered by the NES sound processor or from
-//               certain types of cartridge hardware.
-func Start(resetHandlerParam func(), options ...Option) {
-	sys := InitializeSystem(options...)
-
-	opts := NewOptions(options...)
-	if opts.emulator {
-		sys.ResetHandler = func() {
-			runEmulatorSteps(sys, opts.stopAt)
-		}
-	} else {
-		sys.ResetHandler = resetHandlerParam
-		sys.CPU.SetResetHandlerTraceInfo(resetHandlerParam)
-	}
-
-	guiStarter := setupNoGui
-	if GuiStarter != nil && !opts.noGui {
-		guiStarter = GuiStarter
-	}
-	if err := runRenderer(sys, opts, guiStarter); err != nil {
-		panic(err)
-	}
+	NmiHandler   func()
+	IrqHandler   func()
+	ResetHandler func()
 }
 
-// InitializeSystem initializes the NES system.
-// This needs to be called for any unit code that does not use the Start()
-// function, for example in unit tests.
-func InitializeSystem(options ...Option) *system.System {
-	opts := NewOptions(options...)
-	if opts.cartridge == nil {
-		opts.cartridge = cartridge.New()
+// NewSystem creates a new NES system.
+func NewSystem(cart *cartridge.Cartridge) *System {
+	if cart == nil {
+		cart = cartridge.New()
 	}
 
-	sys := system.New(opts.cartridge)
-	if opts.entrypoint >= 0 {
-		sys.PC = uint16(opts.entrypoint)
+	systemBus := &bus.Bus{
+		Cartridge:   cart,
+		Controller1: controller.New(),
+		Controller2: controller.New(),
+	}
+	systemBus.Memory = memory.New(systemBus)
+
+	var err error
+	systemBus.Mapper, err = mapper.New(systemBus)
+	if err != nil {
+		panic(err)
 	}
 
+	systemBus.PPU = ppu.New(systemBus)
+
+	sys := &System{
+		Bus: systemBus,
+	}
+
+	sys.CPU = cpu.New(systemBus, &sys.IrqHandler)
+	systemBus.CPU = sys.CPU
+	return sys
+}
+
+// LinkAliases links the register and CPU instruction globals to the actual instance.
+// Can not be used in tests in combination with t.Parallel().
+func (sys *System) LinkAliases() {
 	setAliases(sys.CPU)
 	A = &sys.CPU.A
 	X = &sys.CPU.X
 	Y = &sys.CPU.Y
 	PC = &sys.CPU.PC
-	sys.CPU.SetTracing(opts.tracing, opts.tracingTarget)
 	cpu.LinkInstructionFuncs(sys.CPU)
 	sys.Bus.Memory.LinkRegisters(&sys.CPU.X, &sys.CPU.Y, X, Y)
-
-	return sys
 }
 
-// runEmulatorSteps runs the emulator until it is quit or reaches the given stop address.
-func runEmulatorSteps(sys *system.System, stopAt int) {
-	for {
-		if stopAt >= 0 && sys.PC == uint16(stopAt) {
-			return
-		}
-
-		oldPC := *PC
-		opcode, err := DecodePCInstruction(sys)
-		if err != nil {
-			panic(err)
-		}
-
-		ins := opcode.Instruction
-		startCycles := sys.CPU.Cycles()
-		if ins.NoParamFunc != nil {
-			ins.NoParamFunc()
-			updatePC(sys, ins, oldPC, 1)
-			runPPUSteps(sys, startCycles)
-			continue
-		}
-
-		params, opcodes, pageCrossed := ReadOpParams(sys.Bus.Memory, opcode.Addressing, true)
-		sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
-		sys.TraceStep.PageCrossed = pageCrossed
-
-		ins.ParamFunc(params...)
-		updatePC(sys, ins, oldPC, len(sys.TraceStep.Opcode))
-		runPPUSteps(sys, startCycles)
-	}
-}
-
-func runPPUSteps(sys *system.System, startCycles uint64) {
-	cpuCycles := sys.CPU.Cycles() - startCycles
-
-	ppuCycles := int(cpuCycles) * 3
-	for i := 0; i < ppuCycles; i++ {
-		sys.Bus.PPU.Step()
-	}
-}
-
-// DecodePCInstruction decodes the current instruction that the program counter points to.
-func DecodePCInstruction(sys *system.System) (cpu.Opcode, error) {
+// DecodeInstructionAtPC decodes the current instruction at the program counter.
+func (sys *System) DecodeInstructionAtPC() (cpu.Opcode, error) {
 	b := sys.Bus.Memory.Read(*PC)
 	opcode, ok := cpu.Opcodes[b]
 	if !ok {
@@ -136,7 +89,48 @@ func DecodePCInstruction(sys *system.System) (cpu.Opcode, error) {
 	return opcode, nil
 }
 
-func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int) {
+// runEmulatorSteps runs the emulator until it is quit or reaches the given stop address.
+func (sys *System) runEmulatorSteps(stopAt int) {
+	for {
+		if stopAt >= 0 && sys.PC == uint16(stopAt) {
+			return
+		}
+
+		oldPC := *PC
+		opcode, err := sys.DecodeInstructionAtPC()
+		if err != nil {
+			panic(err)
+		}
+
+		ins := opcode.Instruction
+		startCycles := sys.CPU.Cycles()
+		if ins.NoParamFunc != nil {
+			ins.NoParamFunc()
+			sys.updatePC(ins, oldPC, 1)
+			sys.runPPUSteps(startCycles)
+			continue
+		}
+
+		params, opcodes, pageCrossed := ReadOpParams(sys.Bus.Memory, opcode.Addressing, true)
+		sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
+		sys.TraceStep.PageCrossed = pageCrossed
+
+		ins.ParamFunc(params...)
+		sys.updatePC(ins, oldPC, len(sys.TraceStep.Opcode))
+		sys.runPPUSteps(startCycles)
+	}
+}
+
+func (sys *System) runPPUSteps(startCycles uint64) {
+	cpuCycles := sys.CPU.Cycles() - startCycles
+
+	ppuCycles := int(cpuCycles) * 3
+	for i := 0; i < ppuCycles; i++ {
+		sys.Bus.PPU.Step()
+	}
+}
+
+func (sys *System) updatePC(ins *cpu.Instruction, oldPC uint16, amount int) {
 	// update PC only if the instruction execution did not change it
 	if oldPC == *PC {
 		*PC += uint16(amount)
@@ -152,7 +146,7 @@ func updatePC(sys *system.System, ins *cpu.Instruction, oldPC uint16, amount int
 }
 
 // runRenderer starts the chosen GUI renderer.
-func runRenderer(sys *system.System, opts *Options, guiStarter guiInitializer) error {
+func (sys *System) runRenderer(opts *options, guiStarter guiInitializer) error {
 	render, cleanup, err := guiStarter(sys.Bus)
 	if err != nil {
 		return err
