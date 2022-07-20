@@ -5,8 +5,6 @@
 package memory
 
 import (
-	"fmt"
-
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 	"github.com/retroenv/nesgo/pkg/ppu/palette"
@@ -39,11 +37,8 @@ func (m *Memory) Read(address uint16) uint8 {
 	case address < 0x3F00:
 		return m.nametable.Read(address)
 
-	case address >= 0x3F00:
+	default: // >= 0x3F00
 		return m.palette.Read(address)
-
-	default:
-		panic(fmt.Sprintf("unhandled ppu read at address: 0x%04X", address))
 	}
 }
 
@@ -58,10 +53,7 @@ func (m *Memory) Write(address uint16, value uint8) {
 	case address < 0x3F00:
 		m.nametable.Write(address, value)
 
-	case address >= 0x3F00:
+	default: // >= 0x3F00
 		m.palette.Write(address, value)
-
-	default:
-		panic(fmt.Sprintf("unhandled ppu write at address: 0x%04X", address))
 	}
 }

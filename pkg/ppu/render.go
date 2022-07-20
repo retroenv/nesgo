@@ -14,7 +14,8 @@ func (p *PPU) Image() *image.RGBA {
 
 // Step executes a PPU cycle.
 func (p *PPU) Step() {
-	p.tick()
+	p.nmi.checkTrigger(p.bus.CPU)
+	p.renderState.Tick(p.mask)
 
 	if p.mask.RenderBackground || p.mask.RenderSprites {
 		p.renderBackground()
@@ -36,12 +37,6 @@ func (p *PPU) Step() {
 		p.status.SetSpriteOverflow(false)
 		p.status.SetSpriteZeroHit(false)
 	}
-}
-
-// tick updates cycle, scanLine and frame counters.
-func (p *PPU) tick() {
-	p.nmi.checkTrigger(p.bus.CPU)
-	p.renderState.Tick(p.mask)
 }
 
 func (p *PPU) renderBackground() {

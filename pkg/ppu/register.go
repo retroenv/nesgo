@@ -8,6 +8,7 @@ import "fmt"
 // Read from a PPU memory register address.
 func (p *PPU) Read(address uint16) uint8 {
 	base := mirroredRegisterAddressToBase(address)
+
 	switch base {
 	case PPU_CTRL:
 		return p.control.value
@@ -32,6 +33,7 @@ func (p *PPU) Read(address uint16) uint8 {
 // Write to a PPU memory register address.
 func (p *PPU) Write(address uint16, value uint8) {
 	base := mirroredRegisterAddressToBase(address)
+
 	switch base {
 	case PPU_CTRL:
 		p.setControl(value)
