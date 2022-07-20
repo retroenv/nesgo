@@ -28,7 +28,7 @@ type Memory struct {
 func New(bus *bus.Bus) *Memory {
 	return &Memory{
 		bus: bus,
-		ram: NewRAM(0),
+		ram: NewRAM(0, 0x2000),
 	}
 }
 

@@ -11,13 +11,15 @@ import (
 type RAM struct {
 	mu     sync.RWMutex // protects data
 	offset uint16
+	size   uint16
 	data   []byte
 }
 
 // NewRAM returns a new ram.
-func NewRAM(offset uint16) *RAM {
+func NewRAM(offset, size uint16) *RAM {
 	r := &RAM{
 		offset: offset,
+		size:   size,
 	}
 	r.Reset()
 	return r
@@ -26,7 +28,7 @@ func NewRAM(offset uint16) *RAM {
 // Reset resets the RAM content.
 func (r *RAM) Reset() {
 	r.mu.Lock()
-	r.data = make([]byte, 0x2000)
+	r.data = make([]byte, r.size)
 	r.mu.Unlock()
 }
 
