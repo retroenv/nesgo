@@ -133,6 +133,10 @@ func (sys *System) runPPUSteps(startCycles uint64) {
 func (sys *System) updatePC(ins *cpu.Instruction, oldPC uint16, amount int) {
 	// update PC only if the instruction execution did not change it
 	if oldPC == *PC {
+		if ins.Name == cpu.JmpInstruction {
+			return // endless loop detected
+		}
+
 		*PC += uint16(amount)
 	} else {
 		// page crossing is measured based on the start of the instruction that follows the
