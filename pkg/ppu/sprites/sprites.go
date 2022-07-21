@@ -6,9 +6,6 @@ package sprites
 
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/ppu/mask"
-	"github.com/retroenv/nesgo/pkg/ppu/renderstate"
-	"github.com/retroenv/nesgo/pkg/ppu/status"
 )
 
 const (
@@ -19,12 +16,21 @@ const (
 	spriteStructSize   = 4 // size of sprite structure
 )
 
+type renderState interface {
+	Cycle() int
+	ScanLine() int
+}
+
+type status interface {
+	SetSpriteOverflow(value bool)
+}
+
 // Sprites implements PPU sprites support.
 type Sprites struct {
 	cpu         bus.CPU
 	mapper      bus.Mapper
-	renderState *renderstate.RenderState
-	status      *status.Status
+	renderState renderState
+	status      status
 
 	spriteSize         int // 8: 8x8 pixels; 16: 8x16 pixels
 	spritePatternTable uint16
@@ -37,7 +43,7 @@ type Sprites struct {
 }
 
 // New returns a new sprites manager.
-func New(cpu bus.CPU, mapper bus.Mapper, renderState *renderstate.RenderState, status *status.Status) *Sprites {
+func New(cpu bus.CPU, mapper bus.Mapper, renderState renderState, status status) *Sprites {
 	return &Sprites{
 		cpu:         cpu,
 		mapper:      mapper,
@@ -192,11 +198,7 @@ func (s *Sprites) fetchSpritePattern(sprite *Sprite, row int) uint32 {
 // 1. sprite of which a pixel is drawn
 // 2. flag whether the sprite is sprite with index 0
 // 3. the color pattern of the sprite pixel
-func (s *Sprites) Pixel(mask *mask.Mask) (*Sprite, bool, byte) {
-	if !mask.RenderSprites {
-		return nil, false, 0
-	}
-
+func (s *Sprites) Pixel() (*Sprite, bool, byte) {
 	for i := 0; i < s.visibleSpriteCount; i++ {
 		index := s.visibleSprites[i]
 		sprite := &s.sprites[index]

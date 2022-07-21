@@ -5,11 +5,13 @@ package ppu
 
 import (
 	"image"
+
+	"github.com/retroenv/nesgo/pkg/ppu/sprites"
 )
 
 // Image returns the rendered image to display.
 func (p *PPU) Image() *image.RGBA {
-	return p.front
+	return p.screen.Image()
 }
 
 // Step executes a PPU cycle.
@@ -17,7 +19,7 @@ func (p *PPU) Step() {
 	p.nmi.checkTrigger(p.bus.CPU)
 	p.renderState.Tick(p.mask)
 
-	if p.mask.RenderBackground || p.mask.RenderSprites {
+	if p.mask.RenderBackground() || p.mask.RenderSprites() {
 		p.renderBackground()
 		p.sprites.Render()
 	}
@@ -57,7 +59,7 @@ func (p *PPU) renderBackground() {
 	}
 
 	if renderLine && fetchCycle {
-		p.fetchCycle(cycle)
+		p.tiles.FetchCycle(cycle)
 	}
 
 	if preLine && cycle >= 280 && cycle <= 304 {
@@ -66,22 +68,6 @@ func (p *PPU) renderBackground() {
 
 	if renderLine {
 		p.renderLine(cycle, fetchCycle)
-	}
-}
-
-func (p *PPU) fetchCycle(cycle int) {
-	p.tileData <<= 4
-	switch cycle % 8 {
-	case 0:
-		p.storeTileData()
-	case 1:
-		p.nameTable.Fetch(p.addressing.Address())
-	case 3:
-		p.fetchAttributeTableByte()
-	case 5:
-		p.fetchLowTileByte()
-	case 7:
-		p.fetchHighTileByte()
 	}
 }
 
@@ -101,30 +87,38 @@ func (p *PPU) renderPixel() {
 	x := p.renderState.Cycle() - 1
 	y := p.renderState.ScanLine()
 
-	background := p.backgroundPixel()
-	sprite, spriteZeroHit, spriteColor := p.sprites.Pixel(p.mask)
+	var backgroundColor byte
+	if p.mask.RenderBackground() {
+		backgroundColor = p.tiles.BackgroundPixel(p.fineX)
+	}
+
+	var sprite *sprites.Sprite
+	var spriteZeroHit bool
+	var spriteColor byte
+
+	if p.mask.RenderSprites() {
+		sprite, spriteZeroHit, spriteColor = p.sprites.Pixel()
+	}
 
 	if x < 8 {
 		if !p.mask.RenderBackgroundLeft {
-			background = 0
+			backgroundColor = 0
 		}
 		if !p.mask.RenderSpritesLeft {
 			spriteColor = 0
 		}
 	}
 
-	b := background%4 != 0
-	s := spriteColor%4 != 0
+	hasBackground := backgroundColor%4 != 0
+	hasSprite := spriteColor%4 != 0
 	var color byte
 
 	switch {
-	case !b && !s:
-		color = 0
-	case !b && s:
+	case !hasBackground && hasSprite:
 		color = spriteColor | 0x10
-	case b && !s:
-		color = background
-	default:
+	case hasBackground && !hasSprite:
+		color = backgroundColor
+	case hasBackground && hasSprite:
 		if spriteZeroHit && x < 255 {
 			p.status.SetSpriteZeroHit(true)
 		}
@@ -132,12 +126,12 @@ func (p *PPU) renderPixel() {
 		if priority == 0 {
 			color = spriteColor | 0x10
 		} else {
-			color = background
+			color = backgroundColor
 		}
 	}
 
 	colorIndex := p.palette.Read(uint16(color))
 	colorIndex %= 64
 	c := colors[colorIndex]
-	p.back.SetRGBA(x, y, c)
+	p.screen.SetPixel(x, y, c)
 }

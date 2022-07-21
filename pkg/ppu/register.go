@@ -48,7 +48,10 @@ func (p *PPU) Write(address uint16, value uint8) {
 		p.sprites.Write(value)
 
 	case PPU_SCROLL:
-		p.setScroll(value)
+		if !p.addressing.Latch() {
+			p.fineX = uint16(value) & 0x07
+		}
+		p.addressing.SetScroll(value)
 
 	case PPU_ADDR:
 		p.addressing.SetAddress(value)

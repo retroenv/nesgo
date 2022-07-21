@@ -6,19 +6,17 @@ package memory
 
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/ppu/nametable"
-	"github.com/retroenv/nesgo/pkg/ppu/palette"
 )
 
 // Memory implements PPU memory support.
 type Memory struct {
 	mapper    bus.Mapper
-	nametable *nametable.NameTable
-	palette   *palette.Palette
+	nametable bus.BasicMemory
+	palette   bus.BasicMemory
 }
 
 // New returns a new memory manager.
-func New(mapper bus.Mapper, nametable *nametable.NameTable, palette *palette.Palette) *Memory {
+func New(mapper bus.Mapper, nametable bus.BasicMemory, palette bus.BasicMemory) *Memory {
 	return &Memory{
 		mapper:    mapper,
 		nametable: nametable,

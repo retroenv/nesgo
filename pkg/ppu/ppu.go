@@ -5,8 +5,6 @@
 package ppu
 
 import (
-	"image"
-
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/ppu/addressing"
 	"github.com/retroenv/nesgo/pkg/ppu/mask"
@@ -14,42 +12,37 @@ import (
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 	"github.com/retroenv/nesgo/pkg/ppu/palette"
 	"github.com/retroenv/nesgo/pkg/ppu/renderstate"
+	"github.com/retroenv/nesgo/pkg/ppu/screen"
 	"github.com/retroenv/nesgo/pkg/ppu/sprites"
 	"github.com/retroenv/nesgo/pkg/ppu/status"
+	"github.com/retroenv/nesgo/pkg/ppu/tiles"
 )
 
 const (
-	Width  = 256
-	Height = 240
 	FPS    = 60
+	Height = screen.Height
+	Width  = screen.Width
 )
 
 // PPU represents the Picture Processing Unit.
 type PPU struct {
 	bus *bus.Bus
 
-	control control
-
 	fineX          uint16
 	dataReadBuffer byte
 
 	addressing  *addressing.Addressing
+	control     control
 	mask        *mask.Mask
 	memory      *memory.Memory
 	nameTable   *nametable.NameTable
 	nmi         *nmi
 	palette     *palette.Palette
 	renderState *renderstate.RenderState
+	screen      *screen.Screen
 	sprites     *sprites.Sprites
 	status      *status.Status
-
-	attributeTableByte byte
-	lowTileByte        byte
-	highTileByte       byte
-	tileData           uint64
-
-	back  *image.RGBA // rendering in progress image
-	front *image.RGBA // visible image
+	tiles       *tiles.Tiles
 }
 
 // New returns a new PPU.
@@ -65,22 +58,21 @@ func (p *PPU) reset() {
 	p.fineX = 0
 	p.dataReadBuffer = 0
 
-	p.back = image.NewRGBA(image.Rect(0, 0, Width, Height))
-	p.front = image.NewRGBA(image.Rect(0, 0, Width, Height))
-
 	p.addressing = addressing.New()
 	p.mask = mask.New()
 	p.nameTable = nametable.New(p.bus.Cartridge.Mirror)
 	p.nmi = &nmi{}
 	p.palette = palette.New()
 	p.renderState = renderstate.New()
+	p.screen = screen.New()
 	p.status = status.New()
 
 	p.memory = memory.New(p.bus.Mapper, p.nameTable, p.palette)
 	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.renderState, p.status)
 
+	p.tiles = tiles.New(p.addressing, p.memory, p.nameTable)
+
 	p.setControl(0x00)
-	p.mask.Set(0x00)
 }
 
 func (p *PPU) readData() byte {
@@ -101,13 +93,6 @@ func (p *PPU) readData() byte {
 	// TODO handle special case of reading during rendering
 	p.addressing.Increment(p.control.VRAMIncrement)
 	return data
-}
-
-func (p *PPU) setScroll(value byte) {
-	if !p.addressing.Latch() {
-		p.fineX = uint16(value) & 0x07
-	}
-	p.addressing.SetScroll(value)
 }
 
 func (p *PPU) getStatus() byte {

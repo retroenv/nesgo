@@ -12,10 +12,13 @@ func (s Sprite) field(index byte) byte {
 	switch index {
 	case 0:
 		return s.y
+
 	case 1:
 		return s.index
+
 	case 2:
 		return s.attributes
+
 	default:
 		return s.x
 	}
@@ -25,10 +28,13 @@ func (s *Sprite) setField(index, value byte) {
 	switch index {
 	case 0:
 		s.y = value
+
 	case 1:
 		s.index = value
+
 	case 2:
 		s.attributes = value
+
 	default:
 		s.x = value
 	}

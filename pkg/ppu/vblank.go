@@ -4,8 +4,7 @@
 package ppu
 
 func (p *PPU) setVerticalBlank() {
-	p.front, p.back = p.back, p.front
-
+	p.screen.FinishRendering()
 	p.nmi.occurred = true
 	p.nmi.change()
 }

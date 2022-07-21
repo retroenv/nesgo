@@ -30,6 +30,7 @@ func (p *PPU) setControl(value byte) {
 	p.sprites.SetSpritePatternTable(p.control.SpritePatternTable)
 
 	p.control.BackgroundPatternTable = uint16(value&CTRL_BG_1000) << 8
+	p.tiles.SetBackgroundPatternTable(p.control.BackgroundPatternTable)
 
 	p.control.SpriteSize = value & CTRL_8x16 >> 5
 	if p.control.SpriteSize == 0 {

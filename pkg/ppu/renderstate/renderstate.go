@@ -4,9 +4,10 @@
 // Package renderstate handles PPU render handling of cycles, scan lines and frames.
 package renderstate
 
-import (
-	"github.com/retroenv/nesgo/pkg/ppu/mask"
-)
+type mask interface {
+	RenderBackground() bool
+	RenderSprites() bool
+}
 
 // RenderState implements a PPU render state manager.
 type RenderState struct {
@@ -24,8 +25,8 @@ func New() *RenderState {
 }
 
 // Tick updates cycle, scanLine and frame counters.
-func (r *RenderState) Tick(mask *mask.Mask) {
-	if mask.RenderBackground || mask.RenderSprites {
+func (r *RenderState) Tick(mask mask) {
+	if mask.RenderBackground() || mask.RenderSprites() {
 		// for odd frames, the cycle at the end of the scanline is skipped
 		if r.scanLine == 261 && r.cycle == 339 && r.frame%2 == 1 {
 			r.nextFrame()
