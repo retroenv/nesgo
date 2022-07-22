@@ -7,9 +7,11 @@ package ppu
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/ppu/addressing"
+	"github.com/retroenv/nesgo/pkg/ppu/control"
 	"github.com/retroenv/nesgo/pkg/ppu/mask"
 	"github.com/retroenv/nesgo/pkg/ppu/memory"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+	"github.com/retroenv/nesgo/pkg/ppu/nmi"
 	"github.com/retroenv/nesgo/pkg/ppu/palette"
 	"github.com/retroenv/nesgo/pkg/ppu/renderstate"
 	"github.com/retroenv/nesgo/pkg/ppu/screen"
@@ -32,11 +34,11 @@ type PPU struct {
 	dataReadBuffer byte
 
 	addressing  *addressing.Addressing
-	control     control
+	control     *control.Control
 	mask        *mask.Mask
 	memory      *memory.Memory
 	nameTable   *nametable.NameTable
-	nmi         *nmi
+	nmi         *nmi.Nmi
 	palette     *palette.Palette
 	renderState *renderstate.RenderState
 	screen      *screen.Screen
@@ -61,7 +63,7 @@ func (p *PPU) reset() {
 	p.addressing = addressing.New()
 	p.mask = mask.New()
 	p.nameTable = nametable.New(p.bus.Cartridge.Mirror)
-	p.nmi = &nmi{}
+	p.nmi = nmi.New()
 	p.palette = palette.New()
 	p.renderState = renderstate.New()
 	p.screen = screen.New()
@@ -72,7 +74,7 @@ func (p *PPU) reset() {
 
 	p.tiles = tiles.New(p.addressing, p.memory, p.nameTable)
 
-	p.setControl(0x00)
+	p.control = control.New(p.addressing, p.nmi, p.sprites, p.tiles)
 }
 
 func (p *PPU) readData() byte {
@@ -98,9 +100,8 @@ func (p *PPU) readData() byte {
 func (p *PPU) getStatus() byte {
 	p.addressing.ClearLatch()
 
-	p.status.SetVerticalBlank(p.nmi.occurred)
-	p.nmi.occurred = false
-	p.nmi.change()
+	p.status.SetVerticalBlank(p.nmi.Occurred())
+	p.nmi.SetOccurred(false)
 
 	value := p.status.Value()
 	return value

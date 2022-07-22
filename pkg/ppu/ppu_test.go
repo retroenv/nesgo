@@ -27,7 +27,7 @@ func TestSetControl(t *testing.T) {
 	assert.Equal(t, 0x1000, p.control.BackgroundPatternTable)
 	assert.Equal(t, 0x01, p.control.SpriteSize)
 	assert.Equal(t, 0x01, p.control.MasterSlave)
-	assert.True(t, p.nmi.output)
+	assert.True(t, p.nmi.Enabled())
 }
 
 // TestSetMask verifies that the mask byte gets handled correctly.

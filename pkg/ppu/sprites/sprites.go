@@ -199,7 +199,7 @@ func (s *Sprites) fetchSpritePattern(sprite *Sprite, row int) uint32 {
 // 1. priority of the sprite of which a pixel is drawn
 // 2. flag whether the sprite is sprite with index 0
 // 3. the color pattern of the sprite pixel
-func (s *Sprites) Pixel() (byte, bool, byte) {
+func (s *Sprites) Pixel() (bool, bool, byte) {
 	for i := 0; i < s.visibleSpriteCount; i++ {
 		index := s.visibleSprites[i]
 		sprite := &s.sprites[index]
@@ -218,5 +218,5 @@ func (s *Sprites) Pixel() (byte, bool, byte) {
 		priority := sprite.Priority()
 		return priority, zeroHit, color
 	}
-	return 0, false, 0
+	return false, false, 0
 }

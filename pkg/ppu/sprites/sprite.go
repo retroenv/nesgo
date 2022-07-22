@@ -40,10 +40,10 @@ func (s *Sprite) setField(index, value byte) {
 	}
 }
 
-// Priority returns the sprite priority attribute.
-func (s Sprite) Priority() byte {
+// Priority returns whether the sprite has the priority bit set.
+func (s Sprite) Priority() bool {
 	priority := (s.attributes >> 5) & 1
-	return priority
+	return priority == 1
 }
 
 func (s Sprite) flipHorizontally() bool {

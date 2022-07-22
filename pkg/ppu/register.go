@@ -11,7 +11,7 @@ func (p *PPU) Read(address uint16) uint8 {
 
 	switch base {
 	case PPU_CTRL:
-		return p.control.value
+		return p.control.Value()
 
 	case PPU_MASK:
 		return p.mask.Value()
@@ -36,7 +36,7 @@ func (p *PPU) Write(address uint16, value uint8) {
 
 	switch base {
 	case PPU_CTRL:
-		p.setControl(value)
+		p.control.Set(value)
 
 	case PPU_MASK:
 		p.mask.Set(value)

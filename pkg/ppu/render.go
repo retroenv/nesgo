@@ -14,7 +14,7 @@ func (p *PPU) Image() *image.RGBA {
 
 // Step executes a PPU cycle.
 func (p *PPU) Step() {
-	p.nmi.checkTrigger(p.bus.CPU)
+	p.nmi.Trigger(p.bus.CPU)
 	p.renderState.Tick(p.mask)
 
 	if p.mask.RenderBackground() || p.mask.RenderSprites() {
@@ -31,10 +31,11 @@ func (p *PPU) Step() {
 	case 241:
 		// the vertical blank flag of the PPU is set at tick 1 (the second tick) of scanline 241,
 		// where the vertical blank NMI also occurs
-		p.setVerticalBlank()
+		p.screen.FinishRendering()
+		p.nmi.SetOccurred(true)
 
 	case 261:
-		p.clearVerticalBlank()
+		p.nmi.SetOccurred(false)
 		p.status.SetSpriteOverflow(false)
 		p.status.SetSpriteZeroHit(false)
 	}
@@ -83,21 +84,17 @@ func (p *PPU) renderLine(cycle int, fetchCycle bool) {
 }
 
 func (p *PPU) renderPixel() {
-	x := p.renderState.Cycle() - 1
-	y := p.renderState.ScanLine()
-
-	var backgroundColor byte
+	var backgroundColor, spriteColor byte
 	if p.mask.RenderBackground() {
 		backgroundColor = p.tiles.BackgroundPixel(p.fineX)
 	}
 
-	var spriteZeroHit bool
-	var spritePriority, spriteColor byte
-
+	var spritePriority, spriteZeroHit bool
 	if p.mask.RenderSprites() {
 		spritePriority, spriteZeroHit, spriteColor = p.sprites.Pixel()
 	}
 
+	x := p.renderState.Cycle() - 1
 	if x < 8 {
 		if !p.mask.RenderBackgroundLeft() {
 			backgroundColor = 0
@@ -114,14 +111,16 @@ func (p *PPU) renderPixel() {
 	switch {
 	case !hasBackground && hasSprite:
 		paletteIndex = spriteColor | 0x10
+
 	case hasBackground && !hasSprite:
 		paletteIndex = backgroundColor
+
 	case hasBackground && hasSprite:
 		if spriteZeroHit && x < 255 {
 			p.status.SetSpriteZeroHit(true)
 		}
 
-		if spritePriority == 0 {
+		if spritePriority {
 			paletteIndex = spriteColor | 0x10
 		} else {
 			paletteIndex = backgroundColor
@@ -131,5 +130,6 @@ func (p *PPU) renderPixel() {
 	colorIndex := p.palette.Read(uint16(paletteIndex))
 	colorIndex %= 64
 	color := colors[colorIndex]
+	y := p.renderState.ScanLine()
 	p.screen.SetPixel(x, y, color)
 }
