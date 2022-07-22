@@ -43,8 +43,8 @@ func TestSetMask(t *testing.T) {
 	p.Write(PPU_MASK, 0b11111111)
 
 	assert.True(t, p.mask.Grayscale)
-	assert.True(t, p.mask.RenderBackgroundLeft)
-	assert.True(t, p.mask.RenderSpritesLeft)
+	assert.True(t, p.mask.RenderBackgroundLeft())
+	assert.True(t, p.mask.RenderSpritesLeft())
 	assert.True(t, p.mask.RenderBackground())
 	assert.True(t, p.mask.RenderSprites())
 	assert.True(t, p.mask.EnhanceRed)

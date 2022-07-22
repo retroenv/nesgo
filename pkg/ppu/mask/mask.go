@@ -9,8 +9,8 @@ type Mask struct {
 	value byte // cached value since the fields are never modified directly
 
 	Grayscale            bool
-	RenderBackgroundLeft bool
-	RenderSpritesLeft    bool
+	renderBackgroundLeft bool
+	renderSpritesLeft    bool
 	renderBackground     bool
 	renderSprites        bool
 	EnhanceRed           bool
@@ -28,8 +28,8 @@ func (m *Mask) Set(value byte) {
 	m.value = value
 
 	m.Grayscale = value&MASK_MONO != 0
-	m.RenderBackgroundLeft = value&MASK_BG_CLIP != 0
-	m.RenderSpritesLeft = value&MASK_SPR_CLIP != 0
+	m.renderBackgroundLeft = value&MASK_BG_CLIP != 0
+	m.renderSpritesLeft = value&MASK_SPR_CLIP != 0
 	m.renderBackground = value&MASK_BG != 0
 	m.renderSprites = value&MASK_SPR != 0
 	m.EnhanceRed = value&MASK_TINT_RED != 0
@@ -50,4 +50,14 @@ func (m Mask) RenderBackground() bool {
 // RenderSprites returns a flag whether the sprites should be rendered.
 func (m Mask) RenderSprites() bool {
 	return m.renderSprites
+}
+
+// RenderBackgroundLeft returns a flag whether the background should be rendered in leftmost 8 pixels of screen.
+func (m Mask) RenderBackgroundLeft() bool {
+	return m.renderBackgroundLeft
+}
+
+// RenderSpritesLeft returns a flag whether the sprites should be rendered in leftmost 8 pixels of screen.
+func (m Mask) RenderSpritesLeft() bool {
+	return m.renderSpritesLeft
 }

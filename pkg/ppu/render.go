@@ -5,8 +5,6 @@ package ppu
 
 import (
 	"image"
-
-	"github.com/retroenv/nesgo/pkg/ppu/sprites"
 )
 
 // Image returns the rendered image to display.
@@ -21,6 +19,7 @@ func (p *PPU) Step() {
 
 	if p.mask.RenderBackground() || p.mask.RenderSprites() {
 		p.renderBackground()
+		// sprite evaluation occurs if either the sprite layer or background layer is enabled
 		p.sprites.Render()
 	}
 
@@ -92,46 +91,45 @@ func (p *PPU) renderPixel() {
 		backgroundColor = p.tiles.BackgroundPixel(p.fineX)
 	}
 
-	var sprite *sprites.Sprite
 	var spriteZeroHit bool
-	var spriteColor byte
+	var spritePriority, spriteColor byte
 
 	if p.mask.RenderSprites() {
-		sprite, spriteZeroHit, spriteColor = p.sprites.Pixel()
+		spritePriority, spriteZeroHit, spriteColor = p.sprites.Pixel()
 	}
 
 	if x < 8 {
-		if !p.mask.RenderBackgroundLeft {
+		if !p.mask.RenderBackgroundLeft() {
 			backgroundColor = 0
 		}
-		if !p.mask.RenderSpritesLeft {
+		if !p.mask.RenderSpritesLeft() {
 			spriteColor = 0
 		}
 	}
 
 	hasBackground := backgroundColor%4 != 0
 	hasSprite := spriteColor%4 != 0
-	var color byte
+	var paletteIndex byte
 
 	switch {
 	case !hasBackground && hasSprite:
-		color = spriteColor | 0x10
+		paletteIndex = spriteColor | 0x10
 	case hasBackground && !hasSprite:
-		color = backgroundColor
+		paletteIndex = backgroundColor
 	case hasBackground && hasSprite:
 		if spriteZeroHit && x < 255 {
 			p.status.SetSpriteZeroHit(true)
 		}
-		priority := sprite.Priority()
-		if priority == 0 {
-			color = spriteColor | 0x10
+
+		if spritePriority == 0 {
+			paletteIndex = spriteColor | 0x10
 		} else {
-			color = backgroundColor
+			paletteIndex = backgroundColor
 		}
 	}
 
-	colorIndex := p.palette.Read(uint16(color))
+	colorIndex := p.palette.Read(uint16(paletteIndex))
 	colorIndex %= 64
-	c := colors[colorIndex]
-	p.screen.SetPixel(x, y, c)
+	color := colors[colorIndex]
+	p.screen.SetPixel(x, y, color)
 }
