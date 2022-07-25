@@ -5,7 +5,6 @@ package cpu
 
 import (
 	"fmt"
-	"time"
 )
 
 // instructionHook is a hook that is executed before a CPU instruction is executed.
@@ -31,9 +30,6 @@ func (c *CPU) instructionHook(instruction *Instruction, params ...interface{}) {
 			c.cycles++
 		}
 	}
-
-	// TODO slow down emulation and add option to disable it
-	time.Sleep(time.Microsecond)
 }
 
 // AccountBranchingPageCrossCycle accounts for a branch page crossing extra CPU cycle.
