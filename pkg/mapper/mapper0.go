@@ -1,37 +1,26 @@
 package mapper
 
-import (
-	"fmt"
+/*
+Name: NROM
+Boards: NROM, HROM*, RROM, RTROM, SROM, STROM
+PRG ROM capacity: 16K or 32K
+CHR capacity: 8K
+*/
 
-	"github.com/retroenv/nesgo/pkg/addressing"
+import (
 	"github.com/retroenv/nesgo/pkg/bus"
 )
 
 type mapper0 struct {
-	bus    *bus.Bus
-	prgMod uint16
-}
-
-func (m mapper0) Read(address uint16) uint8 {
-	switch {
-	case address < 0x2000:
-		return m.bus.Cartridge.CHR[address]
-
-	case address >= addressing.CodeBaseAddress:
-		offset := (address - addressing.CodeBaseAddress) % m.prgMod
-		return m.bus.Cartridge.PRG[offset]
-
-	default:
-		panic(fmt.Sprintf("invalid read from address #%0000x", address))
-	}
-}
-
-func (m mapper0) Write(address uint16, value uint8) {
+	*Base
 }
 
 func newMapper0(bus *bus.Bus) bus.Mapper {
-	return &mapper0{
-		bus:    bus,
-		prgMod: uint16(len(bus.Cartridge.PRG)),
+	m := &mapper0{
+		Base: newBase(bus),
 	}
+	m.setDefaultBankSizes()
+	m.setBanks()
+	m.setWindows()
+	return m
 }

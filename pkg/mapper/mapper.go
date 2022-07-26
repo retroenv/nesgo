@@ -15,6 +15,8 @@ type mapperInitializer func(*bus.Bus) bus.Mapper
 
 var mappers = map[byte]mapperInitializer{
 	0: newMapper0,
+	2: newMapper2,
+	3: newMapper3,
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
