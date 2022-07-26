@@ -23,10 +23,10 @@ type Cartridge struct {
 // New returns a new cartridge.
 func New() *Cartridge {
 	return &Cartridge{
-		PRG:     make([]byte, 2*16384),
-		CHR:     make([]byte, 8192),
+		PRG:     make([]byte, 0x8000),
+		CHR:     make([]byte, 0x2000),
 		Mapper:  0,
-		Mirror:  1,
+		Mirror:  MirrorVertical,
 		Battery: 0,
 	}
 }
