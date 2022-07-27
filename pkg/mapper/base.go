@@ -52,6 +52,11 @@ func (b *Base) Name() string {
 	return b.name
 }
 
+// SetName sets the name of the mapper.
+func (b *Base) SetName(name string) {
+	b.name = name
+}
+
 // Read a byte from a CHR or PRG memory address.
 func (b *Base) Read(address uint16) uint8 {
 	var value byte
@@ -85,8 +90,8 @@ func (b *Base) Write(address uint16, value uint8) {
 	panic(fmt.Sprintf("invalid write to address #%0000x", address))
 }
 
-// initialize the mapper base with default settings.
-func (b *Base) initialize() {
+// Initialize the mapper base with default settings.
+func (b *Base) Initialize() {
 	b.chrBankMapper = b.defaultChrBankMapper
 	b.prgBankMapper = b.defaultPrgBankMapper
 

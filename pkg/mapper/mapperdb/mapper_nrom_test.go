@@ -1,4 +1,4 @@
-package mapper
+package mapperdb_test
 
 import (
 	"testing"
@@ -6,9 +6,10 @@ import (
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/mapper"
 )
 
-func TestMapper0Prg16k(t *testing.T) {
+func TestMapperNROMPrg16k(t *testing.T) {
 	chr := make([]byte, 0x2000)
 	prg := make([]byte, 0x4000)
 
@@ -20,7 +21,7 @@ func TestMapper0Prg16k(t *testing.T) {
 		},
 	}
 
-	m, err := New(b)
+	m, err := mapper.New(b)
 	assert.NoError(t, err)
 
 	chr[0x0001] = 0x02 // bank 0
@@ -31,7 +32,7 @@ func TestMapper0Prg16k(t *testing.T) {
 	assert.Equal(t, 0x03, m.Read(0xC010))
 }
 
-func TestMapper0Prg32k(t *testing.T) {
+func TestMapperNROMPrg32k(t *testing.T) {
 	chr := make([]byte, 0x2000)
 	prg := make([]byte, 0x8000)
 
@@ -43,7 +44,7 @@ func TestMapper0Prg32k(t *testing.T) {
 		},
 	}
 
-	m, err := New(b)
+	m, err := mapper.New(b)
 	assert.NoError(t, err)
 
 	chr[0x0001] = 0x02 // bank 0

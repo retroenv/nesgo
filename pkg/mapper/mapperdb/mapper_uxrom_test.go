@@ -1,4 +1,4 @@
-package mapper
+package mapperdb_test
 
 import (
 	"testing"
@@ -6,9 +6,10 @@ import (
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/mapper"
 )
 
-func TestMapper2(t *testing.T) {
+func TestMapperUxROM(t *testing.T) {
 	prg := make([]byte, 0xC000)
 
 	b := &bus.Bus{
@@ -19,7 +20,7 @@ func TestMapper2(t *testing.T) {
 		},
 	}
 
-	m, err := New(b)
+	m, err := mapper.New(b)
 	assert.NoError(t, err)
 
 	prg[0x0010] = 0x03 // bank 0

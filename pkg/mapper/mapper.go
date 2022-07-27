@@ -9,14 +9,15 @@ import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperdb"
 )
 
-type mapperInitializer func(*bus.Bus) bus.Mapper
+type mapperInitializer func(base mapperdb.Base) bus.Mapper
 
 var mappers = map[byte]mapperInitializer{
-	0: newMapper0,
-	2: newMapper2,
-	3: newMapper3,
+	0: mapperdb.NewMapperNROM,
+	2: mapperdb.NewMapperUxRom,
+	3: mapperdb.NewMapperCNROM,
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
@@ -27,6 +28,7 @@ func New(bus *bus.Bus) (bus.Mapper, error) {
 		return nil, fmt.Errorf("mapper %d is not supported", mapperNumber)
 	}
 
-	mapper := initializer(bus)
+	base := newBase(bus)
+	mapper := initializer(base)
 	return mapper, nil
 }

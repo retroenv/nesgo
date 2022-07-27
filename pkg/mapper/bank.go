@@ -102,3 +102,23 @@ func (b *Base) setWindows() {
 		}
 	}
 }
+
+// ChrBankCount returns the amount of CHR banks.
+func (b *Base) ChrBankCount() int {
+	return len(b.chrBanks)
+}
+
+// PrgBankCount returns the amount of PRG banks.
+func (b *Base) PrgBankCount() int {
+	return len(b.prgBanks)
+}
+
+// SetChrWindow sets a CHR window to a specific bank.
+func (b *Base) SetChrWindow(window, bank int) {
+	b.chrWindows[window] = bank
+}
+
+// SetPrgWindow sets a PRG window to a specific bank.
+func (b *Base) SetPrgWindow(window, bank int) {
+	b.prgWindows[window] = bank
+}
