@@ -15,9 +15,12 @@ import (
 type mapperInitializer func(base mapperdb.Base) bus.Mapper
 
 var mappers = map[byte]mapperInitializer{
-	0: mapperdb.NewMapperNROM,
-	2: mapperdb.NewMapperUxRom,
-	3: mapperdb.NewMapperCNROM,
+	000: mapperdb.NewMapperNROM,
+	// TODO 001: mapperdb.NewMapperMMC1,
+	002: mapperdb.NewMapperUxROM,
+	003: mapperdb.NewMapperCNROM,
+	// TODO 030: mapperdb.NewMapperUNROM512,
+	111: mapperdb.NewMapperGTROM,
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
@@ -28,7 +31,7 @@ func New(bus *bus.Bus) (bus.Mapper, error) {
 		return nil, fmt.Errorf("mapper %d is not supported", mapperNumber)
 	}
 
-	base := newBase(bus)
+	base := NewBase(bus)
 	mapper := initializer(base)
 	return mapper, nil
 }

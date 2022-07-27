@@ -16,12 +16,12 @@ func (b *Base) setDefaultBankSizes() {
 // In case of mixed sizing the bank sizes need to be initialized manually.
 func (b *Base) setDefaultPrgBankSizes() {
 	prgSize := len(b.bus.Cartridge.PRG)
-	banks := prgSize / b.prgWindow
+	banks := prgSize / b.prgWindowSize
 	b.prgBanks = make([]bank, banks)
 
 	for i := 0; i < banks; i++ {
 		bank := &b.prgBanks[i]
-		bank.length = b.prgWindow
+		bank.length = b.prgWindowSize
 	}
 }
 
@@ -30,12 +30,16 @@ func (b *Base) setDefaultPrgBankSizes() {
 // In case of mixed sizing the bank sizes need to be initialized manually.
 func (b *Base) setDefaultChrBankSizes() {
 	chrSize := len(b.bus.Cartridge.CHR)
-	banks := chrSize / b.chrWindow
+	if chrSize == 0 {
+		chrSize = len(b.chrRAM)
+	}
+
+	banks := chrSize / b.chrWindowSize
 	b.chrBanks = make([]bank, banks)
 
 	for i := 0; i < banks; i++ {
 		bank := &b.chrBanks[i]
-		bank.length = b.chrWindow
+		bank.length = b.chrWindowSize
 	}
 }
 
@@ -64,6 +68,10 @@ func (b *Base) setPrgBanks() {
 // have been set, either by calling setDefaultChrBankSizes() or setting it manually.
 func (b *Base) setChrBanks() {
 	chr := b.bus.Cartridge.CHR
+	if len(chr) == 0 {
+		chr = b.chrRAM
+	}
+
 	startOffset := 0
 
 	for i := 0; i < len(b.chrBanks); i++ {
@@ -76,7 +84,7 @@ func (b *Base) setChrBanks() {
 
 // setWindows sets the CHR and PRG windows to banks based on a static window size.
 func (b *Base) setWindows() {
-	windows := chrMemSize / b.chrWindow
+	windows := chrMemSize / b.chrWindowSize
 	b.chrWindows = make([]int, windows)
 	bank := 0
 	for i := 0; i < windows; i++ {
@@ -89,7 +97,7 @@ func (b *Base) setWindows() {
 		}
 	}
 
-	windows = prgMemSize / b.prgWindow
+	windows = prgMemSize / b.prgWindowSize
 	b.prgWindows = make([]int, windows)
 	bank = 0
 	for i := 0; i < windows; i++ {
@@ -121,4 +129,19 @@ func (b *Base) SetChrWindow(window, bank int) {
 // SetPrgWindow sets a PRG window to a specific bank.
 func (b *Base) SetPrgWindow(window, bank int) {
 	b.prgWindows[window] = bank
+}
+
+// SetChrWindowSize sets the CHR window size.
+func (b *Base) SetChrWindowSize(size int) {
+	b.chrWindowSize = size
+}
+
+// SetPrgWindowSize sets the PRG window size.
+func (b *Base) SetPrgWindowSize(size int) {
+	b.prgWindowSize = size
+}
+
+// SetChrRAM enables the usage of CHR RAM and sets the RAM buffer.
+func (b *Base) SetChrRAM(ram []byte) {
+	b.chrRAM = ram
 }

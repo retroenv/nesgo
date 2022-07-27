@@ -8,10 +8,10 @@ import (
 )
 
 const (
-	chrMemSize       = 0x2000 // 8K
-	defaultChrWindow = 0x2000 // 8K
-	defaultPrgWindow = 0x4000 // 16K
-	prgMemSize       = 0x8000 // 32K
+	chrMemSize           = 0x2000 // 8K
+	defaultChrWindowSize = 0x2000 // 8K
+	defaultPrgWindowSize = 0x4000 // 16K
+	prgMemSize           = 0x8000 // 32K
 )
 
 // bankMapper maps an address to a bank number and offset into that bank.
@@ -22,8 +22,10 @@ type Base struct {
 	bus  *bus.Bus
 	name string // optional
 
-	chrWindow int
-	prgWindow int
+	chrRAM []byte
+
+	chrWindowSize int
+	prgWindowSize int
 
 	chrBanks []bank
 	prgBanks []bank
@@ -34,16 +36,17 @@ type Base struct {
 	chrBankMapper bankMapper
 	prgBankMapper bankMapper
 
+	readHooks  []readHook
 	writeHooks []writeHook
 }
 
-// newBase creates a new mapper base.
-func newBase(bus *bus.Bus) *Base {
+// NewBase creates a new mapper base.
+func NewBase(bus *bus.Bus) *Base {
 	return &Base{
 		bus: bus,
 
-		chrWindow: defaultChrWindow,
-		prgWindow: defaultPrgWindow,
+		chrWindowSize: defaultChrWindowSize,
+		prgWindowSize: defaultPrgWindowSize,
 	}
 }
 
@@ -60,6 +63,13 @@ func (b *Base) SetName(name string) {
 // Read a byte from a CHR or PRG memory address.
 func (b *Base) Read(address uint16) uint8 {
 	var value byte
+
+	for _, hook := range b.readHooks {
+		if address >= hook.startAddress && address <= hook.endAddress {
+			value = hook.hook(address)
+			return value
+		}
+	}
 
 	switch {
 	case address < 0x2000:
@@ -87,6 +97,13 @@ func (b *Base) Write(address uint16, value uint8) {
 		}
 	}
 
+	if len(b.chrRAM) > 0 && address < 0x2000 {
+		bankNr, offset := b.chrBankMapper(address)
+		bank := &b.chrBanks[bankNr]
+		bank.data[offset] = value
+		return
+	}
+
 	panic(fmt.Sprintf("invalid write to address #%0000x", address))
 }
 
@@ -101,16 +118,16 @@ func (b *Base) Initialize() {
 }
 
 func (b *Base) defaultChrBankMapper(address uint16) (int, uint16) {
-	offset := address % uint16(b.chrWindow)
-	windowNr := address / uint16(b.chrWindow)
+	offset := address % uint16(b.chrWindowSize)
+	windowNr := address / uint16(b.chrWindowSize)
 	bankNr := b.chrWindows[windowNr]
 	return bankNr, offset
 }
 
 func (b *Base) defaultPrgBankMapper(address uint16) (int, uint16) {
 	address -= addressing.CodeBaseAddress
-	offset := address % uint16(b.prgWindow)
-	windowNr := address / uint16(b.prgWindow)
+	offset := address % uint16(b.prgWindowSize)
+	windowNr := address / uint16(b.prgWindowSize)
 	bankNr := b.prgWindows[windowNr]
 	return bankNr, offset
 }

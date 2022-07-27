@@ -7,7 +7,6 @@ package memory
 import (
 	"fmt"
 
-	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/controller"
 )
@@ -57,7 +56,7 @@ func (m *Memory) Write(address uint16, value byte) {
 	case address >= 0x4000 && address <= 0x4020:
 		return // TODO apu support
 
-	case address >= addressing.CodeBaseAddress:
+	case address >= 0x5000: // mappers like GTROM allow writes starting 0x5000
 		m.bus.Mapper.Write(address, value)
 
 	default:
@@ -83,7 +82,7 @@ func (m *Memory) Read(address uint16) byte {
 	case address >= 0x4000 && address <= 0x4020:
 		return 0xff // TODO apu support
 
-	case address >= addressing.CodeBaseAddress:
+	case address >= 0x5000: // mappers like GTROM allow writes starting 0x5000
 		return m.bus.Mapper.Read(address)
 
 	default:

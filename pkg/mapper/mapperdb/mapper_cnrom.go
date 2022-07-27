@@ -4,7 +4,7 @@ package mapperdb
 Boards: CNROM "and similar"
 PRG ROM capacity: 16K or 32K
 CHR capacity: 32K (2M oversize version)
-CHR window:8K
+CHR window: 8K
 */
 
 import (
@@ -22,6 +22,7 @@ func NewMapperCNROM(base Base) bus.Mapper {
 	}
 	m.SetName("CNROM")
 	m.Initialize()
+
 	m.AddWriteHook(0x8000, 0xFFFF, m.setChrWindow)
 	return m
 }

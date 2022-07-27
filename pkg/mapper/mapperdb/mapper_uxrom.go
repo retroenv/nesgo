@@ -3,7 +3,7 @@ package mapperdb
 /*
 Boards: UNROM, UOROM
 PRG ROM capacity: 256K/4096K
-PRG ROM window:16K + 16K fixed
+PRG ROM window: 16K + 16K fixed
 CHR capacity: 8K
 */
 
@@ -15,13 +15,14 @@ type mapperUxRom struct {
 	Base
 }
 
-// NewMapperUxRom returns a new mapper instance.
-func NewMapperUxRom(base Base) bus.Mapper {
+// NewMapperUxROM returns a new mapper instance.
+func NewMapperUxROM(base Base) bus.Mapper {
 	m := &mapperUxRom{
 		Base: base,
 	}
 	m.SetName("UxROM")
 	m.Initialize()
+
 	m.AddWriteHook(0x8000, 0xFFFF, m.setPrgWindow)
 	return m
 }
