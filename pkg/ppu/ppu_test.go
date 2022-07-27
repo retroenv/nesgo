@@ -6,7 +6,7 @@ import (
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
-	"github.com/retroenv/nesgo/pkg/memory"
+	"github.com/retroenv/nesgo/pkg/mapper"
 )
 
 // TestSetControl verifies that the control byte gets handled correctly.
@@ -16,7 +16,7 @@ func TestSetControl(t *testing.T) {
 	sys := &bus.Bus{
 		Cartridge: cartridge.New(),
 	}
-	sys.Mapper = memory.New(sys)
+	sys.Mapper = mapper.NewMockMapper(sys)
 	p := New(sys)
 
 	p.Write(PPU_CTRL, 0b11111111)
@@ -37,7 +37,7 @@ func TestSetMask(t *testing.T) {
 	sys := &bus.Bus{
 		Cartridge: cartridge.New(),
 	}
-	sys.Mapper = memory.New(sys)
+	sys.Mapper = mapper.NewMockMapper(sys)
 	p := New(sys)
 
 	p.Write(PPU_MASK, 0b11111111)

@@ -1,7 +1,6 @@
 package mapper
 
 /*
-Name: NROM
 Boards: NROM, HROM*, RROM, RTROM, SROM, STROM
 PRG ROM capacity: 16K or 32K
 CHR capacity: 8K
@@ -19,8 +18,7 @@ func newMapper0(bus *bus.Bus) bus.Mapper {
 	m := &mapper0{
 		Base: newBase(bus),
 	}
-	m.setDefaultBankSizes()
-	m.setBanks()
-	m.setWindows()
+	m.name = "NROM"
+	m.initialize()
 	return m
 }

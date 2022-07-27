@@ -19,7 +19,8 @@ type bankMapper func(address uint16) (int, uint16)
 
 // Base provides common functionality for most mappers.
 type Base struct {
-	bus *bus.Bus
+	bus  *bus.Bus
+	name string // optional
 
 	chrWindow int
 	prgWindow int
@@ -32,19 +33,23 @@ type Base struct {
 
 	chrBankMapper bankMapper
 	prgBankMapper bankMapper
+
+	writeHooks []writeHook
 }
 
 // newBase creates a new mapper base.
 func newBase(bus *bus.Bus) *Base {
-	b := &Base{
+	return &Base{
 		bus: bus,
 
 		chrWindow: defaultChrWindow,
 		prgWindow: defaultPrgWindow,
 	}
-	b.chrBankMapper = b.defaultChrBankMapper
-	b.prgBankMapper = b.defaultPrgBankMapper
-	return b
+}
+
+// Name returns the name of the mapper.
+func (b *Base) Name() string {
+	return b.name
 }
 
 // Read a byte from a CHR or PRG memory address.
@@ -70,7 +75,24 @@ func (b *Base) Read(address uint16) uint8 {
 
 // Write a byte to a CHR or PRG memory address.
 func (b *Base) Write(address uint16, value uint8) {
+	for _, hook := range b.writeHooks {
+		if address >= hook.startAddress && address <= hook.endAddress {
+			hook.hook(address, value)
+			return
+		}
+	}
+
 	panic(fmt.Sprintf("invalid write to address #%0000x", address))
+}
+
+// initialize the mapper base with default settings.
+func (b *Base) initialize() {
+	b.chrBankMapper = b.defaultChrBankMapper
+	b.prgBankMapper = b.defaultPrgBankMapper
+
+	b.setDefaultBankSizes()
+	b.setBanks()
+	b.setWindows()
 }
 
 func (b *Base) defaultChrBankMapper(address uint16) (int, uint16) {

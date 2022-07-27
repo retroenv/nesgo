@@ -37,7 +37,11 @@ type CPU interface {
 }
 
 // Mapper represents a mapper memory access interface.
-type Mapper BasicMemory
+type Mapper interface {
+	BasicMemory
+
+	Name() string
+}
 
 // BasicMemory represents a basic memory access interface.
 type BasicMemory interface {
