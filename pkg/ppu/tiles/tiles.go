@@ -10,16 +10,11 @@ type addressing interface {
 	FineY() uint16
 }
 
-type nameTable interface {
-	Fetch(address uint16)
-	Value() byte
-}
-
 // Tiles implements PPU tiles support.
 type Tiles struct {
 	addressing addressing
 	memory     bus.BasicMemory
-	nameTable  nameTable
+	nameTable  bus.NameTable
 
 	attribute              byte
 	backgroundPatternTable uint16
@@ -29,7 +24,7 @@ type Tiles struct {
 }
 
 // New returns a new tiles manager.
-func New(addressing addressing, memory bus.BasicMemory, nameTable nameTable) *Tiles {
+func New(addressing addressing, memory bus.BasicMemory, nameTable bus.NameTable) *Tiles {
 	return &Tiles{
 		addressing: addressing,
 		memory:     memory,

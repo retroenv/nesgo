@@ -11,12 +11,12 @@ import (
 // Memory implements PPU memory support.
 type Memory struct {
 	mapper    bus.Mapper
-	nametable bus.BasicMemory
+	nametable bus.NameTable
 	palette   bus.BasicMemory
 }
 
 // New returns a new memory manager.
-func New(mapper bus.Mapper, nametable bus.BasicMemory, palette bus.BasicMemory) *Memory {
+func New(mapper bus.Mapper, nametable bus.NameTable, palette bus.BasicMemory) *Memory {
 	return &Memory{
 		mapper:    mapper,
 		nametable: nametable,

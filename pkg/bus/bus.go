@@ -2,10 +2,7 @@
 package bus
 
 import (
-	"image"
-
 	"github.com/retroenv/nesgo/pkg/cartridge"
-	"github.com/retroenv/nesgo/pkg/controller"
 )
 
 // Bus contains all NES sub system components.
@@ -13,60 +10,12 @@ import (
 // allows an easy access and reduces the import dependencies and
 // initialization order issues.
 type Bus struct {
-	Cartridge   *cartridge.Cartridge
-	Controller1 Controller
-	Controller2 Controller
-	CPU         CPU
-	Mapper      Mapper
-	Memory      Memory
-	PPU         PPU
-}
-
-// Controller represents a hardware controller.
-type Controller interface {
-	Read() uint8
-	SetButtonState(key controller.Button, pressed bool)
-	SetStrobeMode(mode uint8)
-}
-
-// CPU represents the Central Processing Unit.
-type CPU interface {
-	Cycles() uint64
-	StallCycles(cycles uint16)
-	TriggerNMI()
-}
-
-// Mapper represents a mapper memory access interface.
-type Mapper interface {
-	BasicMemory
-
-	Name() string
-}
-
-// BasicMemory represents a basic memory access interface.
-type BasicMemory interface {
-	Read(address uint16) uint8
-	Write(address uint16, value uint8)
-}
-
-// Memory represents an advanced memory access interface.
-type Memory interface {
-	BasicMemory
-
-	ReadAbsolute(address interface{}, register interface{}) byte
-	ReadAddressModes(immediate bool, params ...interface{}) byte
-	ReadWord(address uint16) uint16
-	ReadWordBug(address uint16) uint16
-	WriteAddressModes(value byte, params ...interface{})
-	WriteWord(address, value uint16)
-
-	LinkRegisters(x *uint8, y *uint8, globalX *uint8, globalY *uint8)
-}
-
-// PPU represents the Picture Processing Unit.
-type PPU interface {
-	BasicMemory
-
-	Image() *image.RGBA
-	Step()
+	Cartridge   *cartridge.Cartridge // used by Mapper
+	Controller1 Controller           // used by Memory
+	Controller2 Controller           // used by Memory
+	CPU         CPU                  // used by PPU
+	Mapper      Mapper               // used by Memory and PPU
+	Memory      Memory               // used by CPU
+	NameTable   NameTable            // used by CPU and Mapper
+	PPU         PPU                  // used by Memory
 }

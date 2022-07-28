@@ -7,6 +7,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
 
 func TestMapperUxROM(t *testing.T) {
@@ -18,6 +19,7 @@ func TestMapperUxROM(t *testing.T) {
 			CHR:    make([]byte, 0x2000),
 			PRG:    prg,
 		},
+		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	}
 
 	m, err := mapper.New(b)

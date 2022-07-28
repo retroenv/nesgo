@@ -10,7 +10,6 @@ import (
 	"github.com/retroenv/nesgo/pkg/ppu/control"
 	"github.com/retroenv/nesgo/pkg/ppu/mask"
 	"github.com/retroenv/nesgo/pkg/ppu/memory"
-	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 	"github.com/retroenv/nesgo/pkg/ppu/nmi"
 	"github.com/retroenv/nesgo/pkg/ppu/palette"
 	"github.com/retroenv/nesgo/pkg/ppu/renderstate"
@@ -37,7 +36,6 @@ type PPU struct {
 	control     *control.Control
 	mask        *mask.Mask
 	memory      *memory.Memory
-	nameTable   *nametable.NameTable
 	nmi         *nmi.Nmi
 	palette     *palette.Palette
 	renderState *renderstate.RenderState
@@ -62,17 +60,16 @@ func (p *PPU) reset() {
 
 	p.addressing = addressing.New()
 	p.mask = mask.New()
-	p.nameTable = nametable.New(p.bus.Cartridge.Mirror)
 	p.nmi = nmi.New()
 	p.palette = palette.New()
 	p.renderState = renderstate.New()
 	p.screen = screen.New()
 	p.status = status.New()
 
-	p.memory = memory.New(p.bus.Mapper, p.nameTable, p.palette)
+	p.memory = memory.New(p.bus.Mapper, p.bus.NameTable, p.palette)
 	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.renderState, p.status)
 
-	p.tiles = tiles.New(p.addressing, p.memory, p.nameTable)
+	p.tiles = tiles.New(p.addressing, p.memory, p.bus.NameTable)
 
 	p.control = control.New(p.addressing, p.nmi, p.sprites, p.tiles)
 }

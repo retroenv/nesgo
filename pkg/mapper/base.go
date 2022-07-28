@@ -24,6 +24,9 @@ type Base struct {
 
 	chrRAM []byte
 
+	nameTableCount int
+	nameTableBanks []bank
+
 	chrWindowSize int
 	prgWindowSize int
 
@@ -47,6 +50,8 @@ func NewBase(bus *bus.Bus) *Base {
 
 		chrWindowSize: defaultChrWindowSize,
 		prgWindowSize: defaultPrgWindowSize,
+
+		nameTableCount: 1,
 	}
 }
 

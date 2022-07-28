@@ -11,13 +11,13 @@ import (
 	"github.com/retroenv/nesgo/pkg/bus"
 )
 
-type mapper3 struct {
+type mapperCNROM struct {
 	Base
 }
 
 // NewMapperCNROM returns a new mapper instance.
 func NewMapperCNROM(base Base) bus.Mapper {
-	m := &mapper3{
+	m := &mapperCNROM{
 		Base: base,
 	}
 	m.SetName("CNROM")
@@ -27,7 +27,7 @@ func NewMapperCNROM(base Base) bus.Mapper {
 	return m
 }
 
-func (m *mapper3) setChrWindow(address uint16, value uint8) {
+func (m *mapperCNROM) setChrWindow(address uint16, value uint8) {
 	// Select 8 KB CHR ROM bank for PPU $0000-$1FFF
 	banks := m.ChrBankCount()
 	bank := int(value) % banks

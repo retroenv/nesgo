@@ -15,6 +15,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/mapper"
 	"github.com/retroenv/nesgo/pkg/memory"
 	"github.com/retroenv/nesgo/pkg/ppu"
+	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
 
 // System implements a NES system.
@@ -38,6 +39,7 @@ func NewSystem(cart *cartridge.Cartridge) *System {
 		Cartridge:   cart,
 		Controller1: controller.New(),
 		Controller2: controller.New(),
+		NameTable:   nametable.New(cart.Mirror),
 	}
 	systemBus.Memory = memory.New(systemBus)
 

@@ -8,6 +8,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/mapper"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperdb"
+	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
 
 func TestMapperGTROM(t *testing.T) {
@@ -15,21 +16,20 @@ func TestMapperGTROM(t *testing.T) {
 
 	b := &bus.Bus{
 		Cartridge: &cartridge.Cartridge{
-			PRG: prg,
+			Mapper: 111,
+			PRG:    prg,
 		},
+		NameTable: nametable.New(cartridge.MirrorFour),
 	}
 
-	base := mapper.NewBase(b)
-	m := mapperdb.NewMapperGTROM(base)
-
-	type SetChrRAMMapper interface {
-		SetChrRAM(ram []byte)
-	}
-
-	gtromMapper, ok := m.(SetChrRAMMapper)
+	m, err := mapper.New(b)
+	assert.NoError(t, err)
+	base, ok := m.(mapperdb.Base)
 	assert.True(t, ok)
+
 	chr := make([]byte, 0x4000)
-	gtromMapper.SetChrRAM(chr)
+	base.SetChrRAM(chr)
+	base.Initialize()
 
 	prg[0x7010] = 0x03 // bank 0
 	prg[0xF010] = 0x04 // bank 1
@@ -45,4 +45,13 @@ func TestMapperGTROM(t *testing.T) {
 
 	m.Write(0x5000, 1<<4) // select bank 1
 	assert.Equal(t, 0x04, m.Read(0x1010))
+
+	data := base.NameTable(0)
+	data[0x0100] = 0x05 // bank 0
+	data = base.NameTable(1)
+	data[0x0100] = 0x06 // bank 1
+
+	assert.Equal(t, 0x05, b.NameTable.Read(0x2100))
+	m.Write(0x5000, 1<<5) // select bank 1
+	assert.Equal(t, 0x06, b.NameTable.Read(0x2100))
 }

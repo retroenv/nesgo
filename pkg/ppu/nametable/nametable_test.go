@@ -11,6 +11,7 @@ func TestNameTable(t *testing.T) {
 	t.Parallel()
 
 	n := New(cartridge.MirrorHorizontal)
+	n.SetVRAM(make([]byte, VramSize))
 
 	n.vram[0] = 1
 

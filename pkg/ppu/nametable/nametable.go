@@ -12,10 +12,11 @@ const (
 	baseAddress   = 0x2000 // $2000 contains the nametables
 	count         = 4      // 4 nametables
 	nameTableSize = 0x0400 // 1024 byte per nametable
-	// normally mapped to the 2kB NES internal VRAM, providing 2 nametables with a mirroring configuration
+	// VramSize is the size of the nametable buffer.
+	// It is normally mapped to the 2kB NES internal VRAM, providing 2 nametables with a mirroring configuration
 	// controlled by the cartridge, but it can be partly or fully remapped to RAM on the cartridge,
 	// allowing up to 4 simultaneous nametables
-	vramSize = count * nameTableSize
+	VramSize = count * nameTableSize
 )
 
 // NameTable implements PPU nametable support.
@@ -28,7 +29,7 @@ type NameTable struct {
 	mirrorMode cartridge.MirrorMode
 
 	value byte
-	vram  [vramSize]byte
+	vram  []byte
 }
 
 // New returns a new nametable manager.
@@ -36,6 +37,11 @@ func New(mirrorMode cartridge.MirrorMode) *NameTable {
 	return &NameTable{
 		mirrorMode: mirrorMode,
 	}
+}
+
+// SetVRAM sets the VRAM data buffer. This gets called by the mapper to allow nametable switching.
+func (n *NameTable) SetVRAM(vram []byte) {
+	n.vram = vram
 }
 
 // Read a value from the nametable address.

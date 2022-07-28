@@ -8,12 +8,17 @@ type Base interface {
 	bus.Mapper
 
 	ChrBankCount() int
-	PrgBankCount() int
 	SetChrRAM(ram []byte)
 	SetChrWindow(window, bank int)
 	SetChrWindowSize(size int)
+
+	PrgBankCount() int
 	SetPrgWindow(window, bank int)
 	SetPrgWindowSize(size int)
+
+	NameTable(bank int) []byte
+	SetNameTableCount(count int)
+	SetNameTableWindow(bank int)
 
 	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8)
 	AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8))

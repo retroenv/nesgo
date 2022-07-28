@@ -25,15 +25,14 @@ func NewMapperGTROM(base Base) bus.Mapper {
 	}
 	m.SetName("Cheapocabra (GTROM)")
 	m.SetPrgWindowSize(0x8000) // 32K
-	m.Base.SetChrRAM(make([]byte, 0x4000))
+	m.SetNameTableCount(2)
+	m.SetChrRAM(make([]byte, 0x4000))
 	m.Initialize()
 
 	m.AddReadHook(0x5000, 0x5FFF, m.getControl)
 	m.AddReadHook(0x7000, 0x7FFF, m.getControl)
 	m.AddWriteHook(0x5000, 0x5FFF, m.setBanks)
 	m.AddWriteHook(0x7000, 0x7FFF, m.setBanks)
-
-	// TODO support nametable RAM
 
 	return m
 }
@@ -54,11 +53,5 @@ func (m *mapperGTROM) setBanks(address uint16, value uint8) {
 	m.SetChrWindow(0, chrBank)
 
 	nameTableBank := int(value>>5) & 1
-	_ = nameTableBank // TODO support nametable switching
-}
-
-// SetChrRAM sets the CHR RAM and reinitializes the mapper base structures. Used in unit tests.
-func (m *mapperGTROM) SetChrRAM(ram []byte) {
-	m.Base.SetChrRAM(ram)
-	m.Initialize()
+	m.SetNameTableWindow(nameTableBank)
 }

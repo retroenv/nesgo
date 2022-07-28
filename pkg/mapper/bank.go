@@ -1,5 +1,7 @@
 package mapper
 
+import "github.com/retroenv/nesgo/pkg/ppu/nametable"
+
 type bank struct {
 	data   []byte
 	length int
@@ -48,6 +50,7 @@ func (b *Base) setDefaultChrBankSizes() {
 func (b *Base) setBanks() {
 	b.setChrBanks()
 	b.setPrgBanks()
+	b.createNameTableBanks()
 }
 
 // setPrgBanks sets the bank data based on each bank's length. This needs to be called after the bank lengths
@@ -80,6 +83,19 @@ func (b *Base) setChrBanks() {
 		bank.data = chr[startOffset:endOffset]
 		startOffset += bank.length
 	}
+}
+
+// createNameTableBanks creates the VRAM banks.
+func (b *Base) createNameTableBanks() {
+	b.nameTableBanks = make([]bank, b.nameTableCount)
+
+	for i := 0; i < b.nameTableCount; i++ {
+		bank := &b.nameTableBanks[i]
+		bank.length = nametable.VramSize
+		bank.data = make([]byte, bank.length)
+	}
+
+	b.SetNameTableWindow(0)
 }
 
 // setWindows sets the CHR and PRG windows to banks based on a static window size.
@@ -144,4 +160,23 @@ func (b *Base) SetPrgWindowSize(size int) {
 // SetChrRAM enables the usage of CHR RAM and sets the RAM buffer.
 func (b *Base) SetChrRAM(ram []byte) {
 	b.chrRAM = ram
+}
+
+// SetNameTableCount sets amount of nametables.
+func (b *Base) SetNameTableCount(count int) {
+	b.nameTableCount = count
+}
+
+// SetNameTableWindow sets the nametable window to a specific bank.
+func (b *Base) SetNameTableWindow(bank int) {
+	bank %= len(b.nameTableBanks)
+	nameTable := &b.nameTableBanks[bank]
+	b.bus.NameTable.SetVRAM(nameTable.data)
+}
+
+// NameTable returns the nametable buffer of a specific bank. Used in tests.
+func (b *Base) NameTable(bank int) []byte {
+	bank %= len(b.nameTableBanks)
+	nameTable := &b.nameTableBanks[bank]
+	return nameTable.data
 }
