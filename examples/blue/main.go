@@ -25,6 +25,6 @@ func resetHandler() {
 	PPUMask(MASK_BG_CLIP | MASK_SPR_CLIP | MASK_BG | MASK_SPR)
 
 	for {
-		
+
 	}
 }
