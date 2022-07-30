@@ -16,7 +16,7 @@ type mapperInitializer func(base mapperdb.Base) bus.Mapper
 
 var mappers = map[byte]mapperInitializer{
 	000: mapperdb.NewMapperNROM,
-	// TODO 001: mapperdb.NewMapperMMC1,
+	001: mapperdb.NewMapperMMC1,
 	002: mapperdb.NewMapperUxROM,
 	003: mapperdb.NewMapperCNROM,
 	// TODO 030: mapperdb.NewMapperUNROM512,

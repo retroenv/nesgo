@@ -1,7 +1,10 @@
 // Package mapperdb contains all mapper implementations.
 package mapperdb
 
-import "github.com/retroenv/nesgo/pkg/bus"
+import (
+	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/cartridge"
+)
 
 // Base defines the base mapper interface that contains helper functions for shared functionality.
 type Base interface {
@@ -18,6 +21,7 @@ type Base interface {
 
 	NameTable(bank int) []byte
 	SetNameTableCount(count int)
+	SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode)
 	SetNameTableWindow(bank int)
 
 	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8)
