@@ -44,6 +44,11 @@ func (n *NameTable) SetVRAM(vram []byte) {
 	n.vram = vram
 }
 
+// SetMirrorMode sets the mirror mode.
+func (n *NameTable) SetMirrorMode(mirrorMode cartridge.MirrorMode) {
+	n.mirrorMode = mirrorMode
+}
+
 // Read a value from the nametable address.
 func (n NameTable) Read(address uint16) byte {
 	base := n.mirroredNameTableAddressToBase(address)

@@ -1,6 +1,9 @@
 package mapper
 
-import "github.com/retroenv/nesgo/pkg/ppu/nametable"
+import (
+	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+)
 
 // createNameTableBanks creates the VRAM banks.
 func (b *Base) createNameTableBanks() {
@@ -32,4 +35,9 @@ func (b *Base) NameTable(bank int) []byte {
 	bank %= len(b.nameTableBanks)
 	nameTable := &b.nameTableBanks[bank]
 	return nameTable.data
+}
+
+// SetNameTableMirrorMode sets the nametable mirror mode.
+func (b *Base) SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode) {
+	b.bus.NameTable.SetMirrorMode(mirrorMode)
 }
