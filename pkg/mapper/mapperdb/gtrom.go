@@ -45,9 +45,7 @@ func (m *mapperGTROM) setBanks(address uint16, value uint8) {
 	prgBank := value & 0b00001111
 
 	// Select 32 KB PRG ROM bank for CPU $8000-$FFFF
-	banks := m.PrgBankCount()
-	bank := int(prgBank) % banks
-	m.SetPrgWindow(0, bank)
+	m.SetPrgWindow(0, int(prgBank))
 
 	chrBank := int(value>>4) & 1
 	m.SetChrWindow(0, chrBank)

@@ -29,7 +29,5 @@ func NewMapperUxROM(base Base) bus.Mapper {
 
 func (m *mapperUxRom) setPrgWindow(address uint16, value uint8) {
 	// Select 16 KB PRG ROM bank for CPU $8000-$BFFF
-	banks := m.PrgBankCount()
-	bank := int(value) % banks
-	m.SetPrgWindow(0, bank)
+	m.SetPrgWindow(0, int(value))
 }

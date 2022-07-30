@@ -35,6 +35,11 @@ func (b *Base) PrgBankCount() int {
 
 // SetPrgWindow sets a PRG window to a specific bank.
 func (b *Base) SetPrgWindow(window, bank int) {
+	if bank < 0 {
+		bank = len(b.prgBanks) - bank
+	}
+	bank %= len(b.prgBanks)
+
 	b.prgWindows[window] = bank
 }
 

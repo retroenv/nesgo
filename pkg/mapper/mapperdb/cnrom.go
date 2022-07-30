@@ -29,7 +29,5 @@ func NewMapperCNROM(base Base) bus.Mapper {
 
 func (m *mapperCNROM) setChrWindow(address uint16, value uint8) {
 	// Select 8 KB CHR ROM bank for PPU $0000-$1FFF
-	banks := m.ChrBankCount()
-	bank := int(value) % banks
-	m.SetChrWindow(0, bank)
+	m.SetChrWindow(0, int(value))
 }

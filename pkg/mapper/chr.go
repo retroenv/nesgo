@@ -43,6 +43,11 @@ func (b *Base) ChrBankCount() int {
 
 // SetChrWindow sets a CHR window to a specific bank.
 func (b *Base) SetChrWindow(window, bank int) {
+	if bank < 0 {
+		bank = len(b.chrBanks) - bank
+	}
+	bank %= len(b.chrBanks)
+
 	b.chrWindows[window] = bank
 }
 
