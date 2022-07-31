@@ -12,6 +12,9 @@ const (
 	defaultChrWindowSize = 0x2000 // 8K
 	defaultPrgWindowSize = 0x4000 // 16K
 	prgMemSize           = 0x8000 // 32K
+
+	prgRAMStart = 0x6000
+	prgRAMEnd   = 0x7FFF
 )
 
 // bankMapper maps an address to a bank number and offset into that bank.
@@ -23,6 +26,7 @@ type Base struct {
 	name string // optional
 
 	chrRAM []byte
+	prgRAM []byte
 
 	nameTableCount int
 	nameTableBanks []bank
@@ -84,6 +88,10 @@ func (b *Base) Read(address uint16) uint8 {
 		bank := &b.chrBanks[bankNr]
 		value = bank.data[offset]
 
+	case address >= prgRAMStart && address <= prgRAMEnd && len(b.prgRAM) > 0:
+		offset := address - prgRAMStart
+		value = b.prgRAM[offset]
+
 	case address >= addressing.CodeBaseAddress:
 		bankNr, offset := b.prgBankMapper(address)
 		bank := &b.prgBanks[bankNr]
@@ -106,14 +114,19 @@ func (b *Base) Write(address uint16, value uint8) {
 		}
 	}
 
-	if len(b.chrRAM) > 0 && address < 0x2000 {
+	switch {
+	case address < 0x2000 && len(b.chrRAM) > 0:
 		bankNr, offset := b.chrBankMapper(address)
 		bank := &b.chrBanks[bankNr]
 		bank.data[offset] = value
-		return
-	}
 
-	panic(fmt.Sprintf("invalid write to address #%0000x", address))
+	case address >= prgRAMStart && address <= prgRAMEnd && len(b.prgRAM) > 0:
+		offset := address - prgRAMStart
+		b.prgRAM[offset] = value
+
+	default:
+		panic(fmt.Sprintf("invalid write to address #%0000x", address))
+	}
 }
 
 // Initialize the mapper base with default settings.

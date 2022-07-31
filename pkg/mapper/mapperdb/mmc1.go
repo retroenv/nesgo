@@ -33,30 +33,18 @@ type mapperMMC1 struct {
 func NewMapperMMC1(base Base) bus.Mapper {
 	m := &mapperMMC1{
 		Base: base,
-		ram:  make([]byte, 0x2000),
+		ram:  make([]byte, 0x8000), // 32K
 	}
 	m.SetName("MMC1")
 	m.SetChrWindowSize(0x1000) // 4K
+	m.SetPrgRAM(m.ram)
 	m.Initialize()
 
-	m.AddReadHook(0x6000, 0x7FFF, m.readRAM)
-	m.AddWriteHook(0x6000, 0x7FFF, m.writeRAM)
 	m.AddWriteHook(0x8000, 0x7FFF, m.writeShiftBit)
 
 	// TODO support mmc1 variants
 
 	return m
-}
-
-func (m *mapperMMC1) readRAM(address uint16) uint8 {
-	address -= 0x6000
-	value := m.ram[address]
-	return value
-}
-
-func (m *mapperMMC1) writeRAM(address uint16, value uint8) {
-	address -= 0x6000
-	m.ram[address] = value
 }
 
 func (m *mapperMMC1) resetShift() {
@@ -134,9 +122,9 @@ func (m *mapperMMC1) applyControl() {
 	chrMode := (m.control >> 4) & 1
 	if chrMode == 0 {
 		// switch 8 KB at a time
-		m.SetChrWindow(0, m.chrBank0+1)
+		m.SetChrWindow(1, m.chrBank0+1)
 	} else {
 		// switch two separate 4 KB banks
-		m.SetChrWindow(0, m.chrBank1)
+		m.SetChrWindow(1, m.chrBank1)
 	}
 }

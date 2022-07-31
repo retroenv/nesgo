@@ -21,6 +21,7 @@ type Base interface {
 	SetChrWindowSize(size int)
 
 	PrgBankCount() int
+	SetPrgRAM(ram []byte)
 	SetPrgWindow(window, bank int)
 	SetPrgWindowSize(size int)
 
