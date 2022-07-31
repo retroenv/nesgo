@@ -6,6 +6,11 @@ import (
 	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
+// Hook defines a hook type that can be configured after creation.
+type Hook interface {
+	SetProxyOnly(proxy bool)
+}
+
 // Base defines the base mapper interface that contains helper functions for shared functionality.
 type Base interface {
 	bus.Mapper
@@ -24,8 +29,8 @@ type Base interface {
 	SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode)
 	SetNameTableWindow(bank int)
 
-	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8)
-	AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8))
+	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) Hook
+	AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8)) Hook
 	Initialize()
 	SetName(name string)
 }
