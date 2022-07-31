@@ -1,4 +1,4 @@
-package mapper
+package mapperbase
 
 import (
 	"github.com/retroenv/nesgo/pkg/cartridge"

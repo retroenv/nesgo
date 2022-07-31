@@ -1,4 +1,4 @@
-package mapperdb_test
+package mapperdb
 
 import (
 	"testing"
@@ -6,7 +6,7 @@ import (
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
-	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
 
@@ -14,17 +14,14 @@ func TestMapperNROMPrg16k(t *testing.T) {
 	chr := make([]byte, 0x2000)
 	prg := make([]byte, 0x4000)
 
-	b := &bus.Bus{
+	base := mapperbase.NewBase(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
-			Mapper: 0,
-			CHR:    chr,
-			PRG:    prg,
+			CHR: chr,
+			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
-	}
-
-	m, err := mapper.New(b)
-	assert.NoError(t, err)
+	})
+	m := NewMapperNROM(base)
 
 	chr[0x0001] = 0x02 // bank 0
 	assert.Equal(t, 0x02, m.Read(0x0001))
@@ -38,17 +35,14 @@ func TestMapperNROMPrg32k(t *testing.T) {
 	chr := make([]byte, 0x2000)
 	prg := make([]byte, 0x8000)
 
-	b := &bus.Bus{
+	base := mapperbase.NewBase(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
-			Mapper: 0,
-			CHR:    chr,
-			PRG:    prg,
+			CHR: chr,
+			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
-	}
-
-	m, err := mapper.New(b)
-	assert.NoError(t, err)
+	})
+	m := NewMapperNROM(base)
 
 	chr[0x0001] = 0x02 // bank 0
 	assert.Equal(t, 0x02, m.Read(0x0001))

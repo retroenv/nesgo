@@ -1,4 +1,4 @@
-package mapperdb_test
+package mapperdb
 
 import (
 	"testing"
@@ -6,24 +6,21 @@ import (
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
-	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
 
 func TestMapperCNROM(t *testing.T) {
 	chr := make([]byte, 0x6000)
 
-	b := &bus.Bus{
+	base := mapperbase.NewBase(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
-			Mapper: 3,
-			CHR:    chr,
-			PRG:    make([]byte, 0x4000),
+			CHR: chr,
+			PRG: make([]byte, 0x4000),
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
-	}
-
-	m, err := mapper.New(b)
-	assert.NoError(t, err)
+	})
+	m := NewMapperCNROM(base)
 
 	chr[0x0010] = 0x03 // bank 0
 	chr[0x2010] = 0x04 // bank 1

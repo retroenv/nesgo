@@ -1,4 +1,4 @@
-package mapper
+package mapperbase
 
 // setDefaultChrBankSizes creates the banks with default lengths set based on the CHR and CHR window size.
 // Some mapper and modes can have a mix of sizes, for example two 2KB banks and four 1KB banks for MMC6.

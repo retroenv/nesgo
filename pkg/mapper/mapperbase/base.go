@@ -1,4 +1,5 @@
-package mapper
+// Package mapperbase provides common functionality for most mappers.
+package mapperbase
 
 import (
 	"fmt"

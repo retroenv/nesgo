@@ -1,4 +1,4 @@
-package mapper
+package mapperbase
 
 // setDefaultPrgBankSizes creates the banks with default lengths set based on the PRG and PRG window size.
 // Some mapper and modes can have a mix of sizes, for example One 16KB bank and two 8KB banks for MMC5.

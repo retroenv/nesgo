@@ -1,4 +1,4 @@
-package mapper
+package mapperbase
 
 type bank struct {
 	data   []byte

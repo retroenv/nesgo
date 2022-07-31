@@ -1,6 +1,9 @@
-package mapper
+package mapperbase
 
-import "github.com/retroenv/nesgo/pkg/mapper/mapperdb"
+// Hook defines a hook type that can be configured after creation.
+type Hook interface {
+	SetProxyOnly(proxy bool)
+}
 
 type hook struct {
 	startAddress uint16
@@ -26,7 +29,7 @@ func (h *hook) SetProxyOnly(proxy bool) {
 }
 
 // AddReadHook adds an address range read hook that gets called when a read from given range is made.
-func (b *Base) AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) mapperdb.Hook {
+func (b *Base) AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) Hook {
 	hook := readHook{
 		hook: hook{
 			startAddress: startAddress,
@@ -39,7 +42,7 @@ func (b *Base) AddReadHook(startAddress, endAddress uint16, hookFunc func(addres
 }
 
 // AddWriteHook adds an address range write hook that gets called when a write into the given range is made.
-func (b *Base) AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8)) mapperdb.Hook {
+func (b *Base) AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8)) Hook {
 	hook := writeHook{
 		hook: hook{
 			startAddress: startAddress,

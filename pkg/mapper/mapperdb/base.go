@@ -4,12 +4,8 @@ package mapperdb
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 )
-
-// Hook defines a hook type that can be configured after creation.
-type Hook interface {
-	SetProxyOnly(proxy bool)
-}
 
 // Base defines the base mapper interface that contains helper functions for shared functionality.
 type Base interface {
@@ -30,8 +26,8 @@ type Base interface {
 	SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode)
 	SetNameTableWindow(bank int)
 
-	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) Hook
-	AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8)) Hook
+	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) mapperbase.Hook
+	AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8)) mapperbase.Hook
 	Initialize()
 	SetName(name string)
 }

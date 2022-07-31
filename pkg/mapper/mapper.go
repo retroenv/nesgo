@@ -9,6 +9,7 @@ import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperdb"
 )
 
@@ -34,7 +35,7 @@ func New(bus *bus.Bus) (bus.Mapper, error) {
 		return nil, fmt.Errorf("mapper %d is not supported", mapperNumber)
 	}
 
-	base := NewBase(bus)
+	base := mapperbase.NewBase(bus)
 	mapper := initializer(base)
 	return mapper, nil
 }

@@ -1,4 +1,4 @@
-package mapperdb_test
+package mapperdb
 
 import (
 	"testing"
@@ -6,24 +6,21 @@ import (
 	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
-	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
 
 func TestMapperAxROM(t *testing.T) {
 	prg := make([]byte, 0x8000*2)
 
-	b := &bus.Bus{
+	base := mapperbase.NewBase(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
-			Mapper: 7,
-			CHR:    make([]byte, 0x2000),
-			PRG:    prg,
+			CHR: make([]byte, 0x2000),
+			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
-	}
-
-	m, err := mapper.New(b)
-	assert.NoError(t, err)
+	})
+	m := NewMapperAxROM(base)
 
 	prg[0x0010] = 0x03 // bank 0
 	prg[0x8010] = 0x04 // bank 1
