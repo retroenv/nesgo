@@ -13,7 +13,7 @@ import (
 func TestMapperAxROM(t *testing.T) {
 	prg := make([]byte, 0x8000*2)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: make([]byte, 0x2000),
 			PRG: prg,

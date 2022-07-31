@@ -15,8 +15,8 @@ type mapperCNROM struct {
 	Base
 }
 
-// NewMapperCNROM returns a new mapper instance.
-func NewMapperCNROM(base Base) bus.Mapper {
+// NewCNROM returns a new mapper instance.
+func NewCNROM(base Base) bus.Mapper {
 	m := &mapperCNROM{
 		Base: base,
 	}

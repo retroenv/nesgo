@@ -16,8 +16,8 @@ type mapperUxROM struct {
 	windowIndex int
 }
 
-// NewMapperUxROMOr returns a new mapper instance with OR logic (74HC32) configuration.
-func NewMapperUxROMOr(base Base) bus.Mapper {
+// NewUxROMOr returns a new mapper instance with OR logic (74HC32) configuration.
+func NewUxROMOr(base Base) bus.Mapper {
 	m := newMapperUxROM(base)
 	m.SetName("UxROM")
 
@@ -27,8 +27,8 @@ func NewMapperUxROMOr(base Base) bus.Mapper {
 	return m
 }
 
-// NewMapperUN1ROM returns a new mapper instance with OR logic (74HC32) configuration and a value shifter of 2.
-func NewMapperUN1ROM(base Base) bus.Mapper {
+// NewUN1ROM returns a new mapper instance with OR logic (74HC32) configuration and a value shifter of 2.
+func NewUN1ROM(base Base) bus.Mapper {
 	m := newMapperUxROM(base)
 	m.SetName("UN1ROM")
 
@@ -39,8 +39,8 @@ func NewMapperUN1ROM(base Base) bus.Mapper {
 	return m
 }
 
-// NewMapperUxROMAnd returns a new mapper instance with AND logic (74HC08) configuration.
-func NewMapperUxROMAnd(base Base) bus.Mapper {
+// NewUxROMAnd returns a new mapper instance with AND logic (74HC08) configuration.
+func NewUxROMAnd(base Base) bus.Mapper {
 	m := newMapperUxROM(base)
 	m.SetName("UxROM")
 

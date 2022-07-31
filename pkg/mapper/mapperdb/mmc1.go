@@ -29,8 +29,8 @@ type mapperMMC1 struct {
 	prgBank  int
 }
 
-// NewMapperMMC1 returns a new mapper instance.
-func NewMapperMMC1(base Base) bus.Mapper {
+// NewMMC1 returns a new mapper instance.
+func NewMMC1(base Base) bus.Mapper {
 	m := &mapperMMC1{
 		Base: base,
 		ram:  make([]byte, 0x8000), // 32K
@@ -41,6 +41,8 @@ func NewMapperMMC1(base Base) bus.Mapper {
 	m.Initialize()
 
 	m.AddWriteHook(0x8000, 0x7FFF, m.writeShiftBit)
+
+	m.SetPrgWindow(1, -1)
 
 	// TODO support mmc1 variants
 

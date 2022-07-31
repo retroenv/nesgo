@@ -14,13 +14,13 @@ func TestMapperGTROM(t *testing.T) {
 	prg := make([]byte, 0x8000*2)
 
 	nameTable := nametable.New(cartridge.MirrorFour)
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			PRG: prg,
 		},
 		NameTable: nameTable,
 	})
-	m := NewMapperGTROM(base)
+	m := NewGTROM(base)
 
 	chr := make([]byte, 0x4000)
 	base.SetChrRAM(chr)

@@ -13,14 +13,14 @@ import (
 func TestMapperUxROMOr(t *testing.T) {
 	prg := make([]byte, 0xC000)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: make([]byte, 0x2000),
 			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	})
-	m := NewMapperUxROMOr(base)
+	m := NewUxROMOr(base)
 
 	prg[0x0010] = 0x03 // bank 0
 	prg[0x4010] = 0x04 // bank 1
@@ -35,14 +35,14 @@ func TestMapperUxROMOr(t *testing.T) {
 func TestMapperUxROMAnd(t *testing.T) {
 	prg := make([]byte, 0xC000)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: make([]byte, 0x2000),
 			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	})
-	m := NewMapperUxROMAnd(base)
+	m := NewUxROMAnd(base)
 
 	prg[0x0010] = 0x03 // bank 0
 	prg[0x4010] = 0x04 // bank 1
@@ -57,14 +57,14 @@ func TestMapperUxROMAnd(t *testing.T) {
 func TestMapperUN1ROM(t *testing.T) {
 	prg := make([]byte, 0xC000)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: make([]byte, 0x2000),
 			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	})
-	m := NewMapperUN1ROM(base)
+	m := NewUN1ROM(base)
 
 	prg[0x0010] = 0x03 // bank 0
 	prg[0x4010] = 0x04 // bank 1

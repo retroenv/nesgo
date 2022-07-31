@@ -14,14 +14,14 @@ func TestMapperNROMPrg16k(t *testing.T) {
 	chr := make([]byte, 0x2000)
 	prg := make([]byte, 0x4000)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: chr,
 			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	})
-	m := NewMapperNROM(base)
+	m := NewNROM(base)
 
 	chr[0x0001] = 0x02 // bank 0
 	assert.Equal(t, 0x02, m.Read(0x0001))
@@ -35,14 +35,14 @@ func TestMapperNROMPrg32k(t *testing.T) {
 	chr := make([]byte, 0x2000)
 	prg := make([]byte, 0x8000)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: chr,
 			PRG: prg,
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	})
-	m := NewMapperNROM(base)
+	m := NewNROM(base)
 
 	chr[0x0001] = 0x02 // bank 0
 	assert.Equal(t, 0x02, m.Read(0x0001))

@@ -48,8 +48,8 @@ type Base struct {
 	writeHooks []writeHook
 }
 
-// NewBase creates a new mapper base.
-func NewBase(bus *bus.Bus) *Base {
+// New creates a new mapper base.
+func New(bus *bus.Bus) *Base {
 	return &Base{
 		bus: bus,
 

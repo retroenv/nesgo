@@ -13,14 +13,14 @@ import (
 func TestMapperCNROM(t *testing.T) {
 	chr := make([]byte, 0x6000)
 
-	base := mapperbase.NewBase(&bus.Bus{
+	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			CHR: chr,
 			PRG: make([]byte, 0x4000),
 		},
 		NameTable: nametable.New(cartridge.MirrorHorizontal),
 	})
-	m := NewMapperCNROM(base)
+	m := NewCNROM(base)
 
 	chr[0x0010] = 0x03 // bank 0
 	chr[0x2010] = 0x04 // bank 1

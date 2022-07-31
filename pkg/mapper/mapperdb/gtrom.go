@@ -18,8 +18,8 @@ type mapperGTROM struct {
 	Base
 }
 
-// NewMapperGTROM returns a new mapper instance.
-func NewMapperGTROM(base Base) bus.Mapper {
+// NewGTROM returns a new mapper instance.
+func NewGTROM(base Base) bus.Mapper {
 	m := &mapperGTROM{
 		Base: base,
 	}
