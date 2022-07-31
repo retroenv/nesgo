@@ -47,3 +47,8 @@ func (b *Base) SetPrgWindow(window, bank int) {
 func (b *Base) SetPrgWindowSize(size int) {
 	b.prgWindowSize = size
 }
+
+// SetPrgRAM enables the usage of PRG RAM and sets the RAM buffer.
+func (b *Base) SetPrgRAM(ram []byte) {
+	b.prgRAM = ram
+}

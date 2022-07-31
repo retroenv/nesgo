@@ -82,7 +82,7 @@ func (m *Memory) Read(address uint16) byte {
 	case address >= 0x4000 && address <= 0x4020:
 		return 0xff // TODO apu support
 
-	case address >= 0x5000: // mappers like GTROM allow writes starting 0x5000
+	case address >= 0x5000: // GTROM allow writes starting 0x5000, MMC1 has RAM starting at 0x6000
 		return m.bus.Mapper.Read(address)
 
 	default:
