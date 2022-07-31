@@ -19,6 +19,7 @@ var mappers = map[byte]mapperInitializer{
 	// TODO 1: mapperdb.NewMapperMMC1,
 	2: mapperdb.NewMapperUxROMOr,
 	3: mapperdb.NewMapperCNROM,
+	7: mapperdb.NewMapperAxROM,
 	// TODO 30: mapperdb.NewMapperUNROM512,
 	94:  mapperdb.NewMapperUN1ROM,
 	111: mapperdb.NewMapperGTROM,
