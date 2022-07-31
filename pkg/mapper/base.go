@@ -71,8 +71,10 @@ func (b *Base) Read(address uint16) uint8 {
 
 	for _, hook := range b.readHooks {
 		if address >= hook.startAddress && address <= hook.endAddress {
-			value = hook.hook(address)
-			return value
+			value = hook.hookFunc(address)
+			if !hook.onlyProxy {
+				return value
+			}
 		}
 	}
 
@@ -97,8 +99,10 @@ func (b *Base) Read(address uint16) uint8 {
 func (b *Base) Write(address uint16, value uint8) {
 	for _, hook := range b.writeHooks {
 		if address >= hook.startAddress && address <= hook.endAddress {
-			hook.hook(address, value)
-			return
+			hook.hookFunc(address, value)
+			if !hook.onlyProxy {
+				return
+			}
 		}
 	}
 
