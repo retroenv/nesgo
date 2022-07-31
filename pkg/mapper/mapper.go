@@ -15,12 +15,15 @@ import (
 type mapperInitializer func(base mapperdb.Base) bus.Mapper
 
 var mappers = map[byte]mapperInitializer{
-	000: mapperdb.NewMapperNROM,
-	001: mapperdb.NewMapperMMC1,
-	002: mapperdb.NewMapperUxROM,
-	003: mapperdb.NewMapperCNROM,
-	// TODO 030: mapperdb.NewMapperUNROM512,
+	0: mapperdb.NewMapperNROM,
+	1: mapperdb.NewMapperMMC1,
+	2: mapperdb.NewMapperUxROMOr,
+	3: mapperdb.NewMapperCNROM,
+	7: mapperdb.NewMapperAxROM,
+	// TODO 30: mapperdb.NewMapperUNROM512,
+	94:  mapperdb.NewMapperUN1ROM,
 	111: mapperdb.NewMapperGTROM,
+	180: mapperdb.NewMapperUxROMAnd,
 }
 
 // New creates a new mapper for the mapper defined by the cartridge.
