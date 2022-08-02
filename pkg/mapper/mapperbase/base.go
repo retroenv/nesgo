@@ -29,8 +29,9 @@ type Base struct {
 	chrRAM []byte
 	prgRAM []byte
 
-	nameTableCount int
-	nameTableBanks []bank
+	mirrorModeTranslation MirrorModeTranslation
+	nameTableCount        int
+	nameTableBanks        []bank
 
 	chrWindowSize int
 	prgWindowSize int

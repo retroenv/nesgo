@@ -13,6 +13,7 @@ CHR window: 4K + 4K or 8K
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 )
 
 type mapperMMC1 struct {
@@ -43,6 +44,14 @@ func NewMMC1(base Base) bus.Mapper {
 	m.AddWriteHook(0x8000, 0xFFFF, m.writeShiftBit)
 
 	m.SetPrgWindow(1, -1)
+
+	translation := mapperbase.MirrorModeTranslation{
+		0: cartridge.MirrorSingle0,
+		1: cartridge.MirrorSingle1,
+		2: cartridge.MirrorVertical,
+		3: cartridge.MirrorHorizontal,
+	}
+	m.SetMirrorModeTranslation(translation)
 
 	// TODO support mmc1 variants
 
@@ -89,17 +98,8 @@ func (m *mapperMMC1) writeShiftBit(address uint16, value uint8) {
 }
 
 func (m *mapperMMC1) applyControl() {
-	mirror := m.control & 0b00000011
-	switch mirror {
-	case 0:
-		m.SetNameTableMirrorMode(cartridge.MirrorSingle0)
-	case 1:
-		m.SetNameTableMirrorMode(cartridge.MirrorSingle1)
-	case 2:
-		m.SetNameTableMirrorMode(cartridge.MirrorVertical)
-	case 3:
-		m.SetNameTableMirrorMode(cartridge.MirrorHorizontal)
-	}
+	mirrorMode := m.control & 0b00000011
+	m.SetNameTableMirrorModeIndex(mirrorMode)
 
 	prgMode := (m.control >> 2) & 0b00000011
 	switch prgMode {

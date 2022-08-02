@@ -22,8 +22,10 @@ type Base interface {
 	SetPrgWindowSize(size int)
 
 	NameTable(bank int) []byte
+	SetMirrorModeTranslation(translation mapperbase.MirrorModeTranslation)
 	SetNameTableCount(count int)
 	SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode)
+	SetNameTableMirrorModeIndex(index uint8)
 	SetNameTableWindow(bank int)
 
 	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) mapperbase.Hook

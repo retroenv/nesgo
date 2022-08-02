@@ -13,7 +13,7 @@ import (
 func TestMapperGTROM(t *testing.T) {
 	prg := make([]byte, 0x8000*2)
 
-	nameTable := nametable.New(cartridge.MirrorFour)
+	nameTable := nametable.New(cartridge.Mirror4)
 	base := mapperbase.New(&bus.Bus{
 		Cartridge: &cartridge.Cartridge{
 			PRG: prg,

@@ -1,9 +1,14 @@
 package mapperbase
 
 import (
+	"fmt"
+
 	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 )
+
+// MirrorModeTranslation maps a 8bit index to a nametable mirror mode.
+type MirrorModeTranslation map[uint8]cartridge.MirrorMode
 
 // createNameTableBanks creates the VRAM banks.
 func (b *Base) createNameTableBanks() {
@@ -45,4 +50,19 @@ func (b *Base) SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode) {
 // MirrorMode returns the set mirror mode.
 func (b *Base) MirrorMode() cartridge.MirrorMode {
 	return b.bus.NameTable.MirrorMode()
+}
+
+// SetMirrorModeTranslation set the mirror mode translation map.
+func (b *Base) SetMirrorModeTranslation(translation MirrorModeTranslation) {
+	b.mirrorModeTranslation = translation
+}
+
+// SetNameTableMirrorModeIndex sets the nametable mirror mode based on the value of the mapper based
+// translation map from index to mirror mode.
+func (b *Base) SetNameTableMirrorModeIndex(index uint8) {
+	mode, ok := b.mirrorModeTranslation[index]
+	if !ok {
+		panic(fmt.Sprintf("invalid nametable mirror mode index %d", index))
+	}
+	b.bus.NameTable.SetMirrorMode(mode)
 }
