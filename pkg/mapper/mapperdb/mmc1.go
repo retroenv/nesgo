@@ -40,7 +40,7 @@ func NewMMC1(base Base) bus.Mapper {
 	m.SetPrgRAM(m.ram)
 	m.Initialize()
 
-	m.AddWriteHook(0x8000, 0x7FFF, m.writeShiftBit)
+	m.AddWriteHook(0x8000, 0xFFFF, m.writeShiftBit)
 
 	m.SetPrgWindow(1, -1)
 
@@ -53,7 +53,7 @@ func (m *mapperMMC1) resetShift() {
 	m.shiftCount = 0
 	m.shiftRegister = 0
 	m.applyControl()
-	m.control = 0x0C
+	m.control |= 0x0C
 }
 
 func (m *mapperMMC1) writeShiftBit(address uint16, value uint8) {
@@ -65,8 +65,8 @@ func (m *mapperMMC1) writeShiftBit(address uint16, value uint8) {
 	// the shift register gets written from lowest to highest bit
 	bit := (value & 1) << m.shiftCount
 	m.shiftRegister |= bit
-	m.shiftCount++
 
+	m.shiftCount++
 	if m.shiftCount < 5 {
 		return
 	}

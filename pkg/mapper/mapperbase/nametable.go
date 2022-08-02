@@ -41,3 +41,8 @@ func (b *Base) NameTable(bank int) []byte {
 func (b *Base) SetNameTableMirrorMode(mirrorMode cartridge.MirrorMode) {
 	b.bus.NameTable.SetMirrorMode(mirrorMode)
 }
+
+// MirrorMode returns the set mirror mode.
+func (b *Base) MirrorMode() cartridge.MirrorMode {
+	return b.bus.NameTable.MirrorMode()
+}
