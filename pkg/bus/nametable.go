@@ -6,6 +6,7 @@ import "github.com/retroenv/nesgo/pkg/cartridge"
 type NameTable interface {
 	BasicMemory
 
+	MirrorMode() cartridge.MirrorMode
 	SetMirrorMode(mirrorMode cartridge.MirrorMode)
 	SetVRAM(vram []byte)
 

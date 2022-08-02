@@ -40,7 +40,7 @@ func NewMMC1(base Base) bus.Mapper {
 	m.SetPrgRAM(m.ram)
 	m.Initialize()
 
-	m.AddWriteHook(0x8000, 0x7FFF, m.writeShiftBit)
+	m.AddWriteHook(0x8000, 0xFFFF, m.writeShiftBit)
 
 	m.SetPrgWindow(1, -1)
 
