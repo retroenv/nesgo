@@ -1875,7 +1875,7 @@ var gotoTab = gotoTable{
 		-1, // FunctionBody
 		-1, // Parameters
 		-1, // ParameterDecl
-		63, // Type
+		64, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
 		-1, // IdentifierList
@@ -1969,7 +1969,7 @@ var gotoTab = gotoTable{
 		-1, // FunctionBody
 		-1, // Parameters
 		-1, // ParameterDecl
-		67, // Type
+		69, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
 		-1, // IdentifierList
@@ -2067,7 +2067,7 @@ var gotoTab = gotoTable{
 		-1, // TypeConstructor
 		-1, // MapConstructor
 		-1, // IdentifierList
-		69, // RepeatTerminator
+		71, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
 		-1, // SimpleStmt
@@ -2302,7 +2302,7 @@ var gotoTab = gotoTable{
 		-1, // TypeConstructor
 		-1, // MapConstructor
 		-1, // IdentifierList
-		72, // RepeatTerminator
+		74, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
 		-1, // SimpleStmt
@@ -2390,7 +2390,7 @@ var gotoTab = gotoTable{
 		-1, // FunctionMarker
 		-1, // FunctionName
 		-1, // FunctionBody
-		75, // Parameters
+		77, // Parameters
 		-1, // ParameterDecl
 		-1, // Type
 		-1, // TypeConstructor
@@ -2460,8 +2460,8 @@ var gotoTab = gotoTable{
 		-1, // SourceFile
 		-1, // PackageClause
 		-1, // ImportDecl
-		78, // ImportList
-		77, // ImportSpec
+		80, // ImportList
+		79, // ImportSpec
 		-1, // RepeatTopLevelDecl
 		-1, // TopLevelDecl
 		-1, // Declaration
@@ -2537,7 +2537,7 @@ var gotoTab = gotoTable{
 		-1, // TypeConstructor
 		-1, // MapConstructor
 		-1, // IdentifierList
-		81, // RepeatTerminator
+		83, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
 		-1, // SimpleStmt
@@ -2630,7 +2630,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
-		82, // IdentifierList
+		84, // IdentifierList
 		-1, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
@@ -2654,8 +2654,8 @@ var gotoTab = gotoTable{
 		-1, // TopLevelDecl
 		-1, // Declaration
 		-1, // VarDecl
-		84, // VarList
-		83, // VarSpec
+		86, // VarList
+		85, // VarSpec
 		-1, // TypeDecl
 		-1, // TypeDef
 		-1, // ConstDecl
@@ -2677,7 +2677,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
-		85, // IdentifierList
+		87, // IdentifierList
 		-1, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
@@ -2725,7 +2725,7 @@ var gotoTab = gotoTable{
 		-1, // TypeConstructor
 		-1, // MapConstructor
 		-1, // IdentifierList
-		86, // RepeatTerminator
+		88, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
 		-1, // SimpleStmt
@@ -2816,8 +2816,8 @@ var gotoTab = gotoTable{
 		-1, // Parameters
 		-1, // ParameterDecl
 		-1, // Type
-		88, // TypeConstructor
-		89, // MapConstructor
+		90, // TypeConstructor
+		91, // MapConstructor
 		-1, // IdentifierList
 		-1, // RepeatTerminator
 		-1, // StatementList
@@ -3241,7 +3241,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
-		94, // IdentifierList
+		-1, // IdentifierList
 		-1, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
@@ -3270,8 +3270,8 @@ var gotoTab = gotoTable{
 		-1, // TypeDecl
 		-1, // TypeDef
 		-1, // ConstDecl
-		97, // ConstList
-		96, // ConstSpec
+		-1, // ConstList
+		-1, // ConstSpec
 		-1, // Expression
 		-1, // PrimaryExpr
 		-1, // Operand
@@ -3288,7 +3288,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
-		95, // IdentifierList
+		-1, // IdentifierList
 		-1, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
@@ -3335,8 +3335,8 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // TypeConstructor
 		-1, // MapConstructor
-		-1, // IdentifierList
-		98, // RepeatTerminator
+		96, // IdentifierList
+		-1, // RepeatTerminator
 		-1, // StatementList
 		-1, // Statement
 		-1, // SimpleStmt
@@ -3348,6 +3348,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S71
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		99, // ConstList
+		98, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		97, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S72
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -3366,12 +3413,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		103, // Expression
-		106, // PrimaryExpr
-		105, // Operand
-		107, // Literal
-		110, // BasicLit
-		109, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -3379,11 +3426,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		102, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		-1,  // RepeatTerminator
+		100, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -3393,53 +3440,6 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
-	},
-	gotoRow{ // S72
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		114, // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		118, // Declaration
-		121, // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		120, // TypeDecl
-		-1,  // TypeDef
-		119, // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		124, // Expression
-		129, // PrimaryExpr
-		128, // Operand
-		130, // Literal
-		133, // BasicLit
-		132, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		123, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		135, // StatementList
-		136, // Statement
-		138, // SimpleStmt
-		125, // Block
-		143, // IfStmt
-		144, // ForStmt
-		-1,  // ForClause
-		145, // Assignment
-		137, // Label
 	},
 	gotoRow{ // S73
 		-1,  // S'
@@ -3460,12 +3460,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		105, // Expression
+		108, // PrimaryExpr
+		107, // Operand
+		109, // Literal
+		112, // BasicLit
+		111, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -3473,11 +3473,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		104, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		149, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -3493,143 +3493,49 @@ var gotoTab = gotoTable{
 		-1,  // Start
 		-1,  // SourceFile
 		-1,  // PackageClause
-		-1,  // ImportDecl
+		117, // ImportDecl
 		-1,  // ImportList
 		-1,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
+		121, // Declaration
+		124, // VarDecl
 		-1,  // VarList
 		-1,  // VarSpec
-		-1,  // TypeDecl
+		123, // TypeDecl
 		-1,  // TypeDef
-		-1,  // ConstDecl
+		122, // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		127, // Expression
+		132, // PrimaryExpr
+		131, // Operand
+		133, // Literal
+		136, // BasicLit
+		135, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
 		-1,  // FunctionName
 		-1,  // FunctionBody
 		-1,  // Parameters
-		157, // ParameterDecl
-		154, // Type
+		-1,  // ParameterDecl
+		126, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
-		153, // IdentifierList
-		150, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		138, // StatementList
+		139, // Statement
+		141, // SimpleStmt
+		128, // Block
+		146, // IfStmt
+		147, // ForStmt
 		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		148, // Assignment
+		140, // Label
 	},
 	gotoRow{ // S75
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S76
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S77
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -3665,7 +3571,7 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		161, // RepeatTerminator
+		152, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -3675,6 +3581,100 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
+	},
+	gotoRow{ // S76
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		160, // ParameterDecl
+		157, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		156, // IdentifierList
+		153, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S77
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S78
 		-1, // S'
@@ -3724,51 +3724,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S79
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		165, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S80
 		-1, // S'
@@ -3912,51 +3912,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S83
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		165, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S84
 		-1, // S'
@@ -4037,11 +4037,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		168, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		-1,  // RepeatTerminator
+		169, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -4118,12 +4118,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		173, // Expression
-		106, // PrimaryExpr
-		105, // Operand
-		107, // Literal
-		110, // BasicLit
-		109, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -4131,7 +4131,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		102, // Type
+		172, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -4194,51 +4194,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S89
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		178, // Expression
+		108, // PrimaryExpr
+		107, // Operand
+		109, // Literal
+		112, // BasicLit
+		111, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		104, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S90
 		-1, // S'
@@ -4523,51 +4523,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S96
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		177, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S97
 		-1, // S'
@@ -4617,51 +4617,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S98
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		182, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S99
 		-1, // S'
@@ -4711,51 +4711,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S100
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		184, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S101
 		-1, // S'
@@ -4805,51 +4805,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S102
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		189, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S103
 		-1, // S'
@@ -5087,51 +5087,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S108
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		198, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S109
 		-1, // S'
@@ -5181,51 +5181,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S110
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		203, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S111
 		-1, // S'
@@ -5416,98 +5416,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S115
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		200, // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S116
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		204, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S117
 		-1, // S'
@@ -5557,98 +5557,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S118
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		205, // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S119
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		209, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S120
 		-1, // S'
@@ -5745,51 +5745,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S122
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		206, // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		207, // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S123
 		-1, // S'
@@ -5886,6 +5886,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S125
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		211, // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		212, // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S126
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -5932,99 +5979,52 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
-	gotoRow{ // S126
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		211, // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
 	gotoRow{ // S127
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		215, // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		214, // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S128
 		-1, // S'
@@ -6074,100 +6074,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S129
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S130
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S131
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -6182,7 +6088,7 @@ var gotoTab = gotoTable{
 		-1,  // VarList
 		-1,  // VarSpec
 		-1,  // TypeDecl
-		-1,  // TypeDef
+		216, // TypeDef
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
@@ -6191,7 +6097,7 @@ var gotoTab = gotoTable{
 		-1,  // Operand
 		-1,  // Literal
 		-1,  // BasicLit
-		221, // OperandName
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -6213,6 +6119,100 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
+	},
+	gotoRow{ // S130
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		220, // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		219, // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S131
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S132
 		-1, // S'
@@ -6309,51 +6309,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S134
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		226, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S135
 		-1, // S'
@@ -6403,51 +6403,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S136
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		223, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S137
 		-1, // S'
@@ -6544,51 +6544,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S139
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		228, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S140
 		-1, // S'
@@ -6685,51 +6685,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S142
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		227, // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S143
 		-1, // S'
@@ -6826,53 +6826,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S145
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S146
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -6908,7 +6861,7 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		228, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -6917,9 +6870,150 @@ var gotoTab = gotoTable{
 		-1,  // ForStmt
 		-1,  // ForClause
 		-1,  // Assignment
-		-1,  // Label
+		232, // Label
+	},
+	gotoRow{ // S146
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S147
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S148
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S149
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -6938,12 +7032,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		233, // Expression
-		235, // PrimaryExpr
-		234, // Operand
-		236, // Literal
-		239, // BasicLit
-		238, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -6951,7 +7045,54 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		232, // Type
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		233, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S150
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		238, // Expression
+		240, // PrimaryExpr
+		239, // Operand
+		241, // Literal
+		244, // BasicLit
+		243, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		237, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -6965,147 +7106,6 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
-	},
-	gotoRow{ // S148
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		247, // Expression
-		250, // PrimaryExpr
-		249, // Operand
-		251, // Literal
-		254, // BasicLit
-		253, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		246, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		256, // SimpleStmt
-		248, // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		258, // ForClause
-		257, // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S149
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S150
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
 	},
 	gotoRow{ // S151
 		-1,  // S'
@@ -7126,12 +7126,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		252, // Expression
+		255, // PrimaryExpr
+		254, // Operand
+		256, // Literal
+		259, // BasicLit
+		258, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -7139,19 +7139,19 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		251, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		260, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
+		261, // SimpleStmt
+		253, // Block
 		-1,  // IfStmt
 		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
+		263, // ForClause
+		262, // Assignment
 		-1,  // Label
 	},
 	gotoRow{ // S152
@@ -7202,53 +7202,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S153
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		263, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S154
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -7294,6 +7247,53 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
+	},
+	gotoRow{ // S154
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		265, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S155
 		-1, // S'
@@ -7343,51 +7343,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S156
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		268, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S157
 		-1, // S'
@@ -7625,51 +7625,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S162
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		268, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S163
 		-1, // S'
@@ -7848,7 +7848,7 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		270, // RepeatTerminator
+		273, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -7954,53 +7954,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S169
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		272, // TypeConstructor
-		273, // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S170
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -8046,6 +7999,53 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
+	},
+	gotoRow{ // S170
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		275, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S171
 		-1, // S'
@@ -8142,6 +8142,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S173
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		277, // TypeConstructor
+		278, // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S174
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -8187,53 +8234,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S174
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		275, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S175
 		-1, // S'
@@ -8283,51 +8283,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S176
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		281, // Expression
-		283, // PrimaryExpr
-		282, // Operand
-		284, // Literal
-		287, // BasicLit
-		286, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		280, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S177
 		-1, // S'
@@ -8377,53 +8377,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S178
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		289, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S179
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -8469,6 +8422,53 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
+	},
+	gotoRow{ // S179
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		280, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S180
 		-1, // S'
@@ -8536,12 +8536,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		291, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
+		286, // Expression
+		288, // PrimaryExpr
+		287, // Operand
+		289, // Literal
+		292, // BasicLit
+		291, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -8549,7 +8549,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		183, // Type
+		285, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -8612,51 +8612,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S183
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		294, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S184
 		-1, // S'
@@ -8753,51 +8753,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S186
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		296, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S187
 		-1, // S'
@@ -8847,51 +8847,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S188
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		298, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S189
 		-1, // S'
@@ -9035,241 +9035,100 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S192
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		299, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S193
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		303, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S194
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		302, // Operand
-		303, // Literal
-		306, // BasicLit
-		305, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S195
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		308, // Operand
-		303, // Literal
-		306, // BasicLit
-		305, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S196
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		316, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S197
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -9315,6 +9174,147 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
+	},
+	gotoRow{ // S195
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S196
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S197
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		304, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S198
 		-1, // S'
@@ -9364,100 +9364,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S199
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S200
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S201
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -9478,10 +9384,10 @@ var gotoTab = gotoTable{
 		-1,  // ConstSpec
 		-1,  // Expression
 		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		307, // Operand
+		308, // Literal
+		311, // BasicLit
+		310, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -9493,7 +9399,101 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		323, // RepeatTerminator
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S200
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		313, // Operand
+		308, // Literal
+		311, // BasicLit
+		310, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S201
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		321, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -9646,53 +9646,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S205
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		326, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S206
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -9739,7 +9692,7 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
-	gotoRow{ // S207
+	gotoRow{ // S206
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -9771,11 +9724,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		327, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		-1,  // RepeatTerminator
+		328, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -9785,100 +9738,147 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
+	},
+	gotoRow{ // S207
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S208
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		332, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S209
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		337, // Expression
-		339, // PrimaryExpr
-		338, // Operand
-		340, // Literal
-		343, // BasicLit
-		342, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		336, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S210
 		-1,  // S'
@@ -9912,11 +9912,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		345, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		-1,  // RepeatTerminator
+		331, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -10006,7 +10006,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		349, // Type
+		332, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -10040,6 +10040,100 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
+		338, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S214
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		343, // Expression
+		345, // PrimaryExpr
+		344, // Operand
+		346, // Literal
+		349, // BasicLit
+		348, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		342, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S215
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
 		-1,  // Expression
 		-1,  // PrimaryExpr
 		-1,  // Operand
@@ -10053,11 +10147,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		351, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		350, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -10067,100 +10161,6 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
-	},
-	gotoRow{ // S214
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S215
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
 	},
 	gotoRow{ // S216
 		-1, // S'
@@ -10230,10 +10230,10 @@ var gotoTab = gotoTable{
 		-1,  // ConstSpec
 		-1,  // Expression
 		-1,  // PrimaryExpr
-		354, // Operand
-		355, // Literal
-		358, // BasicLit
-		357, // OperandName
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -10241,7 +10241,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		356, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -10277,10 +10277,10 @@ var gotoTab = gotoTable{
 		-1,  // ConstSpec
 		-1,  // Expression
 		-1,  // PrimaryExpr
-		360, // Operand
-		355, // Literal
-		358, // BasicLit
-		357, // OperandName
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -10292,7 +10292,7 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		-1,  // RepeatTerminator
+		357, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -10304,51 +10304,51 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S219
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		361, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S220
 		-1, // S'
@@ -10445,98 +10445,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S222
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		361, // Operand
+		362, // Literal
+		365, // BasicLit
+		364, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S223
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		367, // Operand
+		362, // Literal
+		365, // BasicLit
+		364, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S224
 		-1,  // S'
@@ -10557,24 +10557,24 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		368, // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
 		-1,  // FunctionName
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		317, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		362, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -10586,51 +10586,51 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S225
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		363, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S226
 		-1, // S'
@@ -10727,53 +10727,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S228
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		114, // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		118, // Declaration
-		121, // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		120, // TypeDecl
-		-1,  // TypeDef
-		119, // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		124, // Expression
-		129, // PrimaryExpr
-		128, // Operand
-		130, // Literal
-		133, // BasicLit
-		132, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		123, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		364, // StatementList
-		136, // Statement
-		138, // SimpleStmt
-		125, // Block
-		143, // IfStmt
-		144, // ForStmt
-		-1,  // ForClause
-		145, // Assignment
-		137, // Label
-	},
-	gotoRow{ // S229
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -10820,6 +10773,53 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
+	gotoRow{ // S229
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		369, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
 	gotoRow{ // S230
 		-1,  // S'
 		-1,  // Start
@@ -10839,12 +10839,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		365, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -10852,11 +10852,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		183, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		-1,  // RepeatTerminator
+		370, // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -10966,26 +10966,26 @@ var gotoTab = gotoTable{
 		-1,  // Start
 		-1,  // SourceFile
 		-1,  // PackageClause
-		-1,  // ImportDecl
+		117, // ImportDecl
 		-1,  // ImportList
 		-1,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
+		121, // Declaration
+		124, // VarDecl
 		-1,  // VarList
 		-1,  // VarSpec
-		-1,  // TypeDecl
+		123, // TypeDecl
 		-1,  // TypeDef
-		-1,  // ConstDecl
+		122, // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		127, // Expression
+		132, // PrimaryExpr
+		131, // Operand
+		133, // Literal
+		136, // BasicLit
+		135, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -10993,20 +10993,20 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		126, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
 		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		367, // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
+		371, // StatementList
+		139, // Statement
+		141, // SimpleStmt
+		128, // Block
+		146, // IfStmt
+		147, // ForStmt
 		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		148, // Assignment
+		140, // Label
 	},
 	gotoRow{ // S234
 		-1, // S'
@@ -11056,51 +11056,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S235
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		372, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S236
 		-1, // S'
@@ -11150,53 +11150,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S237
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		372, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S238
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -11242,6 +11195,53 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
+	},
+	gotoRow{ // S238
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		374, // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S239
 		-1, // S'
@@ -11338,51 +11338,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S241
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		373, // Expression
-		235, // PrimaryExpr
-		234, // Operand
-		236, // Literal
-		239, // BasicLit
-		238, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		232, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S242
 		-1,  // S'
@@ -11403,12 +11403,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		379, // Expression
-		381, // PrimaryExpr
-		380, // Operand
-		382, // Literal
-		385, // BasicLit
-		384, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		379, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -11416,7 +11416,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		378, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -11479,51 +11479,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S244
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		387, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S245
 		-1, // S'
@@ -11573,98 +11573,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S246
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		380, // Expression
+		240, // PrimaryExpr
+		239, // Operand
+		241, // Literal
+		244, // BasicLit
+		243, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		237, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S247
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		386, // Expression
+		388, // PrimaryExpr
+		387, // Operand
+		389, // Literal
+		392, // BasicLit
+		391, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		385, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S248
 		-1, // S'
@@ -11714,51 +11714,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S249
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		394, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S250
 		-1, // S'
@@ -11855,51 +11855,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S252
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		394, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S253
 		-1, // S'
@@ -12090,6 +12090,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S257
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		401, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S258
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -12135,53 +12182,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S258
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		396, // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S259
 		-1, // S'
@@ -12278,51 +12278,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S261
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		398, // ParameterDecl
-		154, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		397, // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S262
 		-1, // S'
@@ -12372,51 +12372,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S263
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		403, // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S264
 		-1, // S'
@@ -12543,11 +12543,11 @@ var gotoTab = gotoTable{
 		-1,  // FunctionName
 		-1,  // FunctionBody
 		-1,  // Parameters
-		400, // ParameterDecl
-		154, // Type
+		405, // ParameterDecl
+		157, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
-		153, // IdentifierList
+		404, // IdentifierList
 		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
@@ -12607,145 +12607,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S268
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		401, // ImportList
-		77,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S269
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		402, // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S270
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		403, // VarList
-		83,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		85,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S271
 		-1,  // S'
@@ -12766,23 +12766,23 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		404, // Expression
-		283, // PrimaryExpr
-		282, // Operand
-		284, // Literal
-		287, // BasicLit
-		286, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
 		-1,  // FunctionName
 		-1,  // FunctionBody
 		-1,  // Parameters
-		-1,  // ParameterDecl
-		280, // Type
+		407, // ParameterDecl
+		157, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
-		-1,  // IdentifierList
+		156, // IdentifierList
 		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
@@ -12842,192 +12842,192 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S273
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		408, // ImportList
+		79,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S274
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		409, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S275
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		410, // VarList
+		85,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		87,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S276
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		411, // Expression
+		288, // PrimaryExpr
+		287, // Operand
+		289, // Literal
+		292, // BasicLit
+		291, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		285, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S277
 		-1, // S'
@@ -13077,51 +13077,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S278
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		409, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S279
 		-1, // S'
@@ -13312,51 +13312,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S283
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		416, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S284
 		-1, // S'
@@ -13406,51 +13406,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S285
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		415, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S286
 		-1, // S'
@@ -13594,51 +13594,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S289
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		416, // ConstList
-		96,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		95,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S290
 		-1,  // S'
@@ -13664,7 +13664,7 @@ var gotoTab = gotoTable{
 		-1,  // Operand
 		-1,  // Literal
 		-1,  // BasicLit
-		-1,  // OperandName
+		422, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -13676,7 +13676,7 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		417, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
@@ -13735,51 +13735,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S292
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		419, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S293
 		-1, // S'
@@ -13829,6 +13829,100 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S294
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		423, // ConstList
+		98,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		97,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S295
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		424, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S296
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -13875,100 +13969,6 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
-	gotoRow{ // S295
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		422, // Operand
-		423, // Literal
-		426, // BasicLit
-		425, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S296
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		428, // Operand
-		423, // Literal
-		426, // BasicLit
-		425, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
 	gotoRow{ // S297
 		-1,  // S'
 		-1,  // Start
@@ -13988,20 +13988,20 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		429, // Arguments
+		426, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
 		-1,  // FunctionName
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		312, // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -14111,145 +14111,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S300
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		429, // Operand
+		430, // Literal
+		433, // BasicLit
+		432, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S301
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		435, // Operand
+		430, // Literal
+		433, // BasicLit
+		432, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S302
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		436, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S303
 		-1, // S'
@@ -14299,51 +14299,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S304
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		431, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S305
 		-1, // S'
@@ -14534,6 +14534,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S309
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		438, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S310
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -14579,53 +14626,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S310
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		432, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S311
 		-1, // S'
@@ -14816,51 +14816,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S315
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		439, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S316
 		-1, // S'
@@ -14957,51 +14957,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S318
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		441, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S319
 		-1, // S'
@@ -15197,8 +15197,8 @@ var gotoTab = gotoTable{
 		-1,  // SourceFile
 		-1,  // PackageClause
 		-1,  // ImportDecl
-		442, // ImportList
-		77,  // ImportSpec
+		-1,  // ImportList
+		-1,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
 		-1,  // Declaration
@@ -15215,7 +15215,7 @@ var gotoTab = gotoTable{
 		-1,  // Operand
 		-1,  // Literal
 		-1,  // BasicLit
-		-1,  // OperandName
+		448, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -15333,51 +15333,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S326
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		443, // VarList
-		83,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		85,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S327
 		-1, // S'
@@ -15432,8 +15432,8 @@ var gotoTab = gotoTable{
 		-1,  // SourceFile
 		-1,  // PackageClause
 		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
+		449, // ImportList
+		79,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
 		-1,  // Declaration
@@ -15459,8 +15459,8 @@ var gotoTab = gotoTable{
 		-1,  // Parameters
 		-1,  // ParameterDecl
 		-1,  // Type
-		445, // TypeConstructor
-		446, // MapConstructor
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
 		-1,  // IdentifierList
 		-1,  // RepeatTerminator
 		-1,  // StatementList
@@ -15568,51 +15568,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S331
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		450, // VarList
+		85,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		87,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S332
 		-1, // S'
@@ -15662,6 +15662,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S333
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		452, // TypeConstructor
+		453, // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S334
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -15707,53 +15754,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S334
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		449, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S335
 		-1, // S'
@@ -15991,6 +15991,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S340
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		456, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S341
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -16036,53 +16083,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S341
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		455, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S342
 		-1, // S'
@@ -16320,51 +16320,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S347
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		462, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S348
 		-1, // S'
@@ -16461,98 +16461,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S350
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		457, // ConstList
-		96,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		95,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S351
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		458, // Expression
-		339, // PrimaryExpr
-		338, // Operand
-		340, // Literal
-		343, // BasicLit
-		342, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		336, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S352
 		-1, // S'
@@ -16743,6 +16743,100 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S356
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S357
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		464, // ConstList
+		98,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		97,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S358
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -16761,12 +16855,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		459, // OperandName
+		465, // Expression
+		345, // PrimaryExpr
+		344, // Operand
+		346, // Literal
+		349, // BasicLit
+		348, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -16774,7 +16868,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		342, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -16788,100 +16882,6 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
-	},
-	gotoRow{ // S357
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
-	gotoRow{ // S358
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
 	},
 	gotoRow{ // S359
 		-1, // S'
@@ -17025,77 +17025,77 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S362
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		114, // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		118, // Declaration
-		121, // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		120, // TypeDecl
-		-1,  // TypeDef
-		119, // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		124, // Expression
-		129, // PrimaryExpr
-		128, // Operand
-		130, // Literal
-		133, // BasicLit
-		132, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		123, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		461, // StatementList
-		136, // Statement
-		138, // SimpleStmt
-		125, // Block
-		143, // IfStmt
-		144, // ForStmt
-		-1,  // ForClause
-		145, // Assignment
-		137, // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S363
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
 		-1,  // PackageClause
-		114, // ImportDecl
+		-1,  // ImportDecl
 		-1,  // ImportList
 		-1,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
-		118, // Declaration
-		121, // VarDecl
+		-1,  // Declaration
+		-1,  // VarDecl
 		-1,  // VarList
 		-1,  // VarSpec
-		120, // TypeDecl
+		-1,  // TypeDecl
 		-1,  // TypeDef
-		119, // ConstDecl
+		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		124, // Expression
-		129, // PrimaryExpr
-		128, // Operand
-		130, // Literal
-		133, // BasicLit
-		132, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		466, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -17103,20 +17103,20 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		123, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
 		-1,  // RepeatTerminator
 		-1,  // StatementList
-		462, // Statement
-		138, // SimpleStmt
-		125, // Block
-		143, // IfStmt
-		144, // ForStmt
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
 		-1,  // ForClause
-		145, // Assignment
-		137, // Label
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S364
 		-1, // S'
@@ -17213,51 +17213,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S366
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		465, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S367
 		-1, // S'
@@ -17358,26 +17358,26 @@ var gotoTab = gotoTable{
 		-1,  // Start
 		-1,  // SourceFile
 		-1,  // PackageClause
-		-1,  // ImportDecl
+		117, // ImportDecl
 		-1,  // ImportList
 		-1,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
+		121, // Declaration
+		124, // VarDecl
 		-1,  // VarList
 		-1,  // VarSpec
-		-1,  // TypeDecl
+		123, // TypeDecl
 		-1,  // TypeDef
-		-1,  // ConstDecl
+		122, // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		468, // Operand
-		469, // Literal
-		472, // BasicLit
-		471, // OperandName
+		127, // Expression
+		132, // PrimaryExpr
+		131, // Operand
+		133, // Literal
+		136, // BasicLit
+		135, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -17385,46 +17385,46 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		126, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
 		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
+		468, // StatementList
+		139, // Statement
+		141, // SimpleStmt
+		128, // Block
+		146, // IfStmt
+		147, // ForStmt
 		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		148, // Assignment
+		140, // Label
 	},
 	gotoRow{ // S370
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
 		-1,  // PackageClause
-		-1,  // ImportDecl
+		117, // ImportDecl
 		-1,  // ImportList
 		-1,  // ImportSpec
 		-1,  // RepeatTopLevelDecl
 		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
+		121, // Declaration
+		124, // VarDecl
 		-1,  // VarList
 		-1,  // VarSpec
-		-1,  // TypeDecl
+		123, // TypeDecl
 		-1,  // TypeDef
-		-1,  // ConstDecl
+		122, // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		474, // Operand
-		469, // Literal
-		472, // BasicLit
-		471, // OperandName
+		127, // Expression
+		132, // PrimaryExpr
+		131, // Operand
+		133, // Literal
+		136, // BasicLit
+		135, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -17432,67 +17432,67 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		126, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
 		-1,  // RepeatTerminator
 		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
+		469, // Statement
+		141, // SimpleStmt
+		128, // Block
+		146, // IfStmt
+		147, // ForStmt
 		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		148, // Assignment
+		140, // Label
 	},
 	gotoRow{ // S371
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		475, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S372
 		-1, // S'
@@ -17560,12 +17560,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		472, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -17573,54 +17573,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		476, // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S374
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		477, // Expression
-		235, // PrimaryExpr
-		234, // Operand
-		236, // Literal
-		239, // BasicLit
-		238, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		232, // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -17634,6 +17587,53 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
+	},
+	gotoRow{ // S374
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S375
 		-1, // S'
@@ -17701,12 +17701,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		478, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		475, // Operand
+		476, // Literal
+		479, // BasicLit
+		478, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -17714,7 +17714,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		183, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -17730,98 +17730,98 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S377
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		481, // Operand
+		476, // Literal
+		479, // BasicLit
+		478, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S378
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		482, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S379
 		-1, // S'
@@ -17871,98 +17871,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S380
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		483, // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S381
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		484, // Expression
+		240, // PrimaryExpr
+		239, // Operand
+		241, // Literal
+		244, // BasicLit
+		243, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		237, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S382
 		-1, // S'
@@ -18030,12 +18030,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		485, // OperandName
+		485, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -18043,7 +18043,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -18247,100 +18247,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S388
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		487, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S389
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		492, // Expression
-		494, // PrimaryExpr
-		493, // Operand
-		495, // Literal
-		498, // BasicLit
-		497, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		491, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S390
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -18387,7 +18293,54 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
-	gotoRow{ // S391
+	gotoRow{ // S389
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S390
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -18408,10 +18361,10 @@ var gotoTab = gotoTable{
 		-1,  // ConstSpec
 		-1,  // Expression
 		-1,  // PrimaryExpr
-		502, // Operand
-		503, // Literal
-		506, // BasicLit
-		505, // OperandName
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		492, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -18433,100 +18386,147 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
+	},
+	gotoRow{ // S391
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S392
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		508, // Operand
-		503, // Literal
-		506, // BasicLit
-		505, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S393
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		509, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S394
 		-1, // S'
@@ -18594,12 +18594,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		511, // Expression
-		381, // PrimaryExpr
-		380, // Operand
-		382, // Literal
-		385, // BasicLit
-		384, // OperandName
+		494, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -18607,7 +18607,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		378, // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -18623,6 +18623,53 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S396
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		499, // Expression
+		501, // PrimaryExpr
+		500, // Operand
+		502, // Literal
+		505, // BasicLit
+		504, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		498, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S397
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -18669,7 +18716,7 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
-	gotoRow{ // S397
+	gotoRow{ // S398
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -18690,10 +18737,10 @@ var gotoTab = gotoTable{
 		-1,  // ConstSpec
 		-1,  // Expression
 		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
+		509, // Operand
+		510, // Literal
+		513, // BasicLit
+		512, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -18701,7 +18748,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		263, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -18716,146 +18763,99 @@ var gotoTab = gotoTable{
 		-1,  // Assignment
 		-1,  // Label
 	},
-	gotoRow{ // S398
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
-	},
 	gotoRow{ // S399
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		515, // Operand
+		510, // Literal
+		513, // BasicLit
+		512, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S400
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		516, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S401
 		-1, // S'
@@ -18905,51 +18905,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S402
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		518, // Expression
+		388, // PrimaryExpr
+		387, // Operand
+		389, // Literal
+		392, // BasicLit
+		391, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		385, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S403
 		-1, // S'
@@ -18999,6 +18999,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S404
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		268, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S405
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -19044,53 +19091,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S405
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		512, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S406
 		-1, // S'
@@ -19281,51 +19281,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S410
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		516, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S411
 		-1, // S'
@@ -19393,12 +19393,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		519, // Operand
-		520, // Literal
-		523, // BasicLit
-		522, // OperandName
+		519, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -19406,7 +19406,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -19422,98 +19422,98 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S413
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		525, // Operand
-		520, // Literal
-		523, // BasicLit
-		522, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S414
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		526, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S415
 		-1, // S'
@@ -19610,51 +19610,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S417
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		523, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S418
 		-1, // S'
@@ -19704,145 +19704,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S419
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		526, // Operand
+		527, // Literal
+		530, // BasicLit
+		529, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S420
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		532, // Operand
+		527, // Literal
+		530, // BasicLit
+		529, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S421
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		533, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S422
 		-1, // S'
@@ -19939,51 +19939,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S424
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		528, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S425
 		-1, // S'
@@ -20268,51 +20268,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S431
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		535, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S432
 		-1, // S'
@@ -20362,51 +20362,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S433
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		531, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S434
 		-1, // S'
@@ -20456,145 +20456,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S435
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		534, // Operand
-		535, // Literal
-		538, // BasicLit
-		537, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S436
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		540, // Operand
-		535, // Literal
-		538, // BasicLit
-		537, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S437
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		541, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S438
 		-1, // S'
@@ -20644,51 +20644,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S439
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		542, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S440
 		-1,  // S'
@@ -20709,12 +20709,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		543, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
+		538, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -20722,7 +20722,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		312, // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -20785,98 +20785,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S442
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		541, // Operand
+		542, // Literal
+		545, // BasicLit
+		544, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S443
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		547, // Operand
+		542, // Literal
+		545, // BasicLit
+		544, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S444
 		-1,  // S'
@@ -20897,20 +20897,20 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		546, // Expression
-		339, // PrimaryExpr
-		338, // Operand
-		340, // Literal
-		343, // BasicLit
-		342, // OperandName
-		-1,  // Arguments
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		548, // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
 		-1,  // FunctionName
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		336, // Type
+		317, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -20973,98 +20973,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S446
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		549, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S447
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		550, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S448
 		-1, // S'
@@ -21161,53 +21161,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S450
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		550, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S451
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -21254,7 +21207,7 @@ var gotoTab = gotoTable{
 		-1, // Assignment
 		-1, // Label
 	},
-	gotoRow{ // S452
+	gotoRow{ // S451
 		-1,  // S'
 		-1,  // Start
 		-1,  // SourceFile
@@ -21273,12 +21226,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		553, // Operand
-		554, // Literal
-		557, // BasicLit
-		556, // OperandName
+		553, // Expression
+		345, // PrimaryExpr
+		344, // Operand
+		346, // Literal
+		349, // BasicLit
+		348, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -21286,7 +21239,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		342, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -21300,100 +21253,147 @@ var gotoTab = gotoTable{
 		-1,  // ForClause
 		-1,  // Assignment
 		-1,  // Label
+	},
+	gotoRow{ // S452
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S453
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		559, // Operand
-		554, // Literal
-		557, // BasicLit
-		556, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S454
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		560, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S455
 		-1, // S'
@@ -21490,51 +21490,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S457
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		557, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S458
 		-1, // S'
@@ -21584,145 +21584,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S459
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		560, // Operand
+		561, // Literal
+		564, // BasicLit
+		563, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S460
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		566, // Operand
+		561, // Literal
+		564, // BasicLit
+		563, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S461
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		567, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S462
 		-1, // S'
@@ -22101,51 +22101,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S470
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		563, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S471
 		-1, // S'
@@ -22430,51 +22430,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S477
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		570, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S478
 		-1, // S'
@@ -22524,98 +22524,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S479
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		566, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S480
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		567, // Expression
-		235, // PrimaryExpr
-		234, // Operand
-		236, // Literal
-		239, // BasicLit
-		238, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		232, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S481
 		-1, // S'
@@ -22665,145 +22665,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S482
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		570, // Operand
-		571, // Literal
-		574, // BasicLit
-		573, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S483
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		576, // Operand
-		571, // Literal
-		574, // BasicLit
-		573, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S484
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		577, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S485
 		-1, // S'
@@ -22853,98 +22853,98 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S486
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		573, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S487
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		574, // Expression
+		240, // PrimaryExpr
+		239, // Operand
+		241, // Literal
+		244, // BasicLit
+		243, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		237, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S488
 		-1, // S'
@@ -23012,12 +23012,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		579, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		577, // Operand
+		578, // Literal
+		581, // BasicLit
+		580, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -23025,7 +23025,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		183, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -23041,98 +23041,98 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S490
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		583, // Operand
+		578, // Literal
+		581, // BasicLit
+		580, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S491
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		584, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S492
 		-1, // S'
@@ -23341,12 +23341,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		585, // OperandName
+		586, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -23354,7 +23354,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		-1,  // Type
+		188, // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -23652,6 +23652,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S503
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		592, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S504
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -23697,53 +23744,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S504
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		586, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S505
 		-1, // S'
@@ -23981,53 +23981,6 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S510
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		588, // Expression
-		235, // PrimaryExpr
-		234, // Operand
-		236, // Literal
-		239, // BasicLit
-		238, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		232, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
-	},
-	gotoRow{ // S511
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -24073,6 +24026,53 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
+	},
+	gotoRow{ // S511
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		593, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S512
 		-1, // S'
@@ -24169,51 +24169,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S514
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		592, // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S515
 		-1, // S'
@@ -24310,51 +24310,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S517
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		595, // Expression
+		240, // PrimaryExpr
+		239, // Operand
+		241, // Literal
+		244, // BasicLit
+		243, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		237, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S518
 		-1, // S'
@@ -24521,7 +24521,7 @@ var gotoTab = gotoTable{
 		-1,  // Operand
 		-1,  // Literal
 		-1,  // BasicLit
-		594, // OperandName
+		-1,  // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -24537,7 +24537,7 @@ var gotoTab = gotoTable{
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
-		-1,  // Block
+		599, // Block
 		-1,  // IfStmt
 		-1,  // ForStmt
 		-1,  // ForClause
@@ -24827,51 +24827,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S528
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		601, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S529
 		-1, // S'
@@ -25203,51 +25203,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S536
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		597, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S537
 		-1, // S'
@@ -25532,51 +25532,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S543
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		604, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S544
 		-1, // S'
@@ -25720,51 +25720,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S547
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		599, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S548
 		-1, // S'
@@ -26049,6 +26049,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S554
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		606, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S555
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -26094,53 +26141,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S555
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		602, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S556
 		-1, // S'
@@ -26425,51 +26425,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S562
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		609, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S563
 		-1, // S'
@@ -26895,51 +26895,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S572
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		605, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S573
 		-1, // S'
@@ -27224,6 +27224,53 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S579
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		612, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S580
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile
@@ -27269,53 +27316,6 @@ var gotoTab = gotoTable{
 		-1, // ForClause
 		-1, // Assignment
 		-1, // Label
-	},
-	gotoRow{ // S580
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		608, // Expression
-		186, // PrimaryExpr
-		185, // Operand
-		187, // Literal
-		190, // BasicLit
-		189, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		183, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
 	},
 	gotoRow{ // S581
 		-1, // S'
@@ -27365,145 +27365,145 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S582
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		611, // Operand
-		612, // Literal
-		615, // BasicLit
-		614, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S583
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		617, // Operand
-		612, // Literal
-		615, // BasicLit
-		614, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S584
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		313, // Expression
-		315, // PrimaryExpr
-		314, // Operand
-		317, // Literal
-		320, // BasicLit
-		319, // OperandName
-		618, // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		312, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S585
 		-1, // S'
@@ -27600,51 +27600,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S587
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		615, // Expression
+		191, // PrimaryExpr
+		190, // Operand
+		192, // Literal
+		195, // BasicLit
+		194, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		188, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S588
 		-1, // S'
@@ -27712,12 +27712,12 @@ var gotoTab = gotoTable{
 		-1,  // ConstDecl
 		-1,  // ConstList
 		-1,  // ConstSpec
-		619, // Expression
-		235, // PrimaryExpr
-		234, // Operand
-		236, // Literal
-		239, // BasicLit
-		238, // OperandName
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		618, // Operand
+		619, // Literal
+		622, // BasicLit
+		621, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -27725,7 +27725,7 @@ var gotoTab = gotoTable{
 		-1,  // FunctionBody
 		-1,  // Parameters
 		-1,  // ParameterDecl
-		232, // Type
+		-1,  // Type
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
@@ -27741,98 +27741,98 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S590
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		624, // Operand
+		619, // Literal
+		622, // BasicLit
+		621, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S591
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		318, // Expression
+		320, // PrimaryExpr
+		319, // Operand
+		322, // Literal
+		325, // BasicLit
+		324, // OperandName
+		625, // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		317, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S592
 		-1, // S'
@@ -28023,51 +28023,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S596
-		-1, // S'
-		-1, // Start
-		-1, // SourceFile
-		-1, // PackageClause
-		-1, // ImportDecl
-		-1, // ImportList
-		-1, // ImportSpec
-		-1, // RepeatTopLevelDecl
-		-1, // TopLevelDecl
-		-1, // Declaration
-		-1, // VarDecl
-		-1, // VarList
-		-1, // VarSpec
-		-1, // TypeDecl
-		-1, // TypeDef
-		-1, // ConstDecl
-		-1, // ConstList
-		-1, // ConstSpec
-		-1, // Expression
-		-1, // PrimaryExpr
-		-1, // Operand
-		-1, // Literal
-		-1, // BasicLit
-		-1, // OperandName
-		-1, // Arguments
-		-1, // FunctionDecl
-		-1, // FunctionMarker
-		-1, // FunctionName
-		-1, // FunctionBody
-		-1, // Parameters
-		-1, // ParameterDecl
-		-1, // Type
-		-1, // TypeConstructor
-		-1, // MapConstructor
-		-1, // IdentifierList
-		-1, // RepeatTerminator
-		-1, // StatementList
-		-1, // Statement
-		-1, // SimpleStmt
-		-1, // Block
-		-1, // IfStmt
-		-1, // ForStmt
-		-1, // ForClause
-		-1, // Assignment
-		-1, // Label
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		626, // Expression
+		240, // PrimaryExpr
+		239, // Operand
+		241, // Literal
+		244, // BasicLit
+		243, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		237, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
 	},
 	gotoRow{ // S597
 		-1, // S'
@@ -28822,51 +28822,51 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S613
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		624, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		-1,  // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S614
 		-1, // S'
@@ -29174,7 +29174,7 @@ var gotoTab = gotoTable{
 		-1,  // Operand
 		-1,  // Literal
 		-1,  // BasicLit
-		-1,  // OperandName
+		631, // OperandName
 		-1,  // Arguments
 		-1,  // FunctionDecl
 		-1,  // FunctionMarker
@@ -29190,7 +29190,7 @@ var gotoTab = gotoTable{
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
-		626, // Block
+		-1,  // Block
 		-1,  // IfStmt
 		-1,  // ForStmt
 		-1,  // ForClause
@@ -29515,11 +29515,11 @@ var gotoTab = gotoTable{
 		-1,  // TypeConstructor
 		-1,  // MapConstructor
 		-1,  // IdentifierList
-		629, // RepeatTerminator
+		-1,  // RepeatTerminator
 		-1,  // StatementList
 		-1,  // Statement
 		-1,  // SimpleStmt
-		-1,  // Block
+		633, // Block
 		-1,  // IfStmt
 		-1,  // ForStmt
 		-1,  // ForClause
@@ -29527,98 +29527,98 @@ var gotoTab = gotoTable{
 		-1,  // Label
 	},
 	gotoRow{ // S628
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		-1,  // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		-1,  // Declaration
-		-1,  // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		-1,  // TypeDecl
-		-1,  // TypeDef
-		-1,  // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		-1,  // Expression
-		-1,  // PrimaryExpr
-		-1,  // Operand
-		-1,  // Literal
-		-1,  // BasicLit
-		-1,  // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		-1,  // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		-1,  // StatementList
-		-1,  // Statement
-		-1,  // SimpleStmt
-		630, // Block
-		-1,  // IfStmt
-		-1,  // ForStmt
-		-1,  // ForClause
-		-1,  // Assignment
-		-1,  // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S629
-		-1,  // S'
-		-1,  // Start
-		-1,  // SourceFile
-		-1,  // PackageClause
-		114, // ImportDecl
-		-1,  // ImportList
-		-1,  // ImportSpec
-		-1,  // RepeatTopLevelDecl
-		-1,  // TopLevelDecl
-		118, // Declaration
-		121, // VarDecl
-		-1,  // VarList
-		-1,  // VarSpec
-		120, // TypeDecl
-		-1,  // TypeDef
-		119, // ConstDecl
-		-1,  // ConstList
-		-1,  // ConstSpec
-		124, // Expression
-		129, // PrimaryExpr
-		128, // Operand
-		130, // Literal
-		133, // BasicLit
-		132, // OperandName
-		-1,  // Arguments
-		-1,  // FunctionDecl
-		-1,  // FunctionMarker
-		-1,  // FunctionName
-		-1,  // FunctionBody
-		-1,  // Parameters
-		-1,  // ParameterDecl
-		123, // Type
-		-1,  // TypeConstructor
-		-1,  // MapConstructor
-		-1,  // IdentifierList
-		-1,  // RepeatTerminator
-		631, // StatementList
-		136, // Statement
-		138, // SimpleStmt
-		125, // Block
-		143, // IfStmt
-		144, // ForStmt
-		-1,  // ForClause
-		145, // Assignment
-		137, // Label
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
 	},
 	gotoRow{ // S630
 		-1, // S'
@@ -29715,6 +29715,335 @@ var gotoTab = gotoTable{
 		-1, // Label
 	},
 	gotoRow{ // S632
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S633
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S634
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		636, // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		-1,  // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S635
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		-1,  // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		-1,  // Declaration
+		-1,  // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		-1,  // TypeDecl
+		-1,  // TypeDef
+		-1,  // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		-1,  // Expression
+		-1,  // PrimaryExpr
+		-1,  // Operand
+		-1,  // Literal
+		-1,  // BasicLit
+		-1,  // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		-1,  // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		-1,  // StatementList
+		-1,  // Statement
+		-1,  // SimpleStmt
+		637, // Block
+		-1,  // IfStmt
+		-1,  // ForStmt
+		-1,  // ForClause
+		-1,  // Assignment
+		-1,  // Label
+	},
+	gotoRow{ // S636
+		-1,  // S'
+		-1,  // Start
+		-1,  // SourceFile
+		-1,  // PackageClause
+		117, // ImportDecl
+		-1,  // ImportList
+		-1,  // ImportSpec
+		-1,  // RepeatTopLevelDecl
+		-1,  // TopLevelDecl
+		121, // Declaration
+		124, // VarDecl
+		-1,  // VarList
+		-1,  // VarSpec
+		123, // TypeDecl
+		-1,  // TypeDef
+		122, // ConstDecl
+		-1,  // ConstList
+		-1,  // ConstSpec
+		127, // Expression
+		132, // PrimaryExpr
+		131, // Operand
+		133, // Literal
+		136, // BasicLit
+		135, // OperandName
+		-1,  // Arguments
+		-1,  // FunctionDecl
+		-1,  // FunctionMarker
+		-1,  // FunctionName
+		-1,  // FunctionBody
+		-1,  // Parameters
+		-1,  // ParameterDecl
+		126, // Type
+		-1,  // TypeConstructor
+		-1,  // MapConstructor
+		-1,  // IdentifierList
+		-1,  // RepeatTerminator
+		638, // StatementList
+		139, // Statement
+		141, // SimpleStmt
+		128, // Block
+		146, // IfStmt
+		147, // ForStmt
+		-1,  // ForClause
+		148, // Assignment
+		140, // Label
+	},
+	gotoRow{ // S637
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S638
+		-1, // S'
+		-1, // Start
+		-1, // SourceFile
+		-1, // PackageClause
+		-1, // ImportDecl
+		-1, // ImportList
+		-1, // ImportSpec
+		-1, // RepeatTopLevelDecl
+		-1, // TopLevelDecl
+		-1, // Declaration
+		-1, // VarDecl
+		-1, // VarList
+		-1, // VarSpec
+		-1, // TypeDecl
+		-1, // TypeDef
+		-1, // ConstDecl
+		-1, // ConstList
+		-1, // ConstSpec
+		-1, // Expression
+		-1, // PrimaryExpr
+		-1, // Operand
+		-1, // Literal
+		-1, // BasicLit
+		-1, // OperandName
+		-1, // Arguments
+		-1, // FunctionDecl
+		-1, // FunctionMarker
+		-1, // FunctionName
+		-1, // FunctionBody
+		-1, // Parameters
+		-1, // ParameterDecl
+		-1, // Type
+		-1, // TypeConstructor
+		-1, // MapConstructor
+		-1, // IdentifierList
+		-1, // RepeatTerminator
+		-1, // StatementList
+		-1, // Statement
+		-1, // SimpleStmt
+		-1, // Block
+		-1, // IfStmt
+		-1, // ForStmt
+		-1, // ForClause
+		-1, // Assignment
+		-1, // Label
+	},
+	gotoRow{ // S639
 		-1, // S'
 		-1, // Start
 		-1, // SourceFile

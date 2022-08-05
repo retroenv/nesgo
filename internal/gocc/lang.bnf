@@ -8,6 +8,7 @@ terminator : ';' '\n'
            | _blockComment ;
 
 // --- [ Keywords ] ------------------------------------------------------------
+kwdAny       : 'a' 'n' 'y' ;
 kwdBreak     : 'b' 'r' 'e' 'a' 'k' ;
 kwdConst     : 'c' 'o' 'n' 's' 't' ;
 kwdContinue  : 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e';
@@ -258,6 +259,7 @@ ParameterDecl
 Type
         : "*" type      << ast.NewType(string($0.(*token.Token).Lit)) >>
         | type          << ast.NewType(string($0.(*token.Token).Lit)) >>
+        | kwdAny        << ast.NewType(string($0.(*token.Token).Lit)) >>
         | kwdInterface  << ast.NewType(string($0.(*token.Token).Lit)) >>
         ;
 
