@@ -54,7 +54,7 @@ type FunctionDefinition struct {
 }
 
 // NewFunction returns a function declaration.
-func NewFunction(def *FunctionDefinition, body interface{}) (Node, error) {
+func NewFunction(def *FunctionDefinition, body any) (Node, error) {
 	f := &Function{
 		Definition: def,
 		Body:       &NodeList{},
@@ -78,7 +78,7 @@ func NewFunction(def *FunctionDefinition, body interface{}) (Node, error) {
 }
 
 // NewFunctionHeader returns a function header.
-func NewFunctionHeader(id *Identifier, signature interface{}) (interface{}, error) {
+func NewFunctionHeader(id *Identifier, signature any) (any, error) {
 	f := &FunctionDefinition{
 		Name:             id.Name,
 		ParamInitializer: map[string]*Instruction{},
@@ -159,7 +159,7 @@ func (i Inline) String() string {
 
 // NewUntypedParamListEntry handles a function parameter list entry without
 // a type specifier.
-func NewUntypedParamListEntry(name string, definition interface{}) interface{} {
+func NewUntypedParamListEntry(name string, definition any) any {
 	list, ok := definition.(*NodeList)
 	if !ok {
 		return nil

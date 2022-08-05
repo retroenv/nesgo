@@ -122,7 +122,7 @@ func (dis *Disasm) processParamInstruction(offset uint16, offsetInfo *offset) (s
 
 // replaceParamByAlias replaces the absolute address with an alias name if it can match it to
 // a constant, zero page variable or a code reference.
-func (dis *Disasm) replaceParamByAlias(offset uint16, opcode cpu.Opcode, param interface{}, paramAsString string) string {
+func (dis *Disasm) replaceParamByAlias(offset uint16, opcode cpu.Opcode, param any, paramAsString string) string {
 	if _, ok := cpu.BranchingInstructions[opcode.Instruction.Name]; ok {
 		return paramAsString
 	}

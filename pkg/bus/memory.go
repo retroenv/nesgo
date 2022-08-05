@@ -10,11 +10,11 @@ type BasicMemory interface {
 type Memory interface {
 	BasicMemory
 
-	ReadAbsolute(address interface{}, register interface{}) byte
-	ReadAddressModes(immediate bool, params ...interface{}) byte
+	ReadAbsolute(address any, register any) byte
+	ReadAddressModes(immediate bool, params ...any) byte
 	ReadWord(address uint16) uint16
 	ReadWordBug(address uint16) uint16
-	WriteAddressModes(value byte, params ...interface{})
+	WriteAddressModes(value byte, params ...any)
 	WriteWord(address, value uint16)
 
 	LinkRegisters(x *uint8, y *uint8, globalX *uint8, globalY *uint8)

@@ -19,7 +19,7 @@ func StartPPUTransfer(address uint16, _ ...Inline) {
 }
 
 // PPUTransfer transfers a constant to the PPU.
-func PPUTransfer(data interface{}, _ ...Inline) {
+func PPUTransfer(data any, _ ...Inline) {
 	Lda(data)
 	Sta(PPU_DATA)
 }

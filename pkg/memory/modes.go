@@ -19,9 +19,9 @@ import (
 // (Indirect), Y: the pointer to the memory address is read from the
 //                indirect parameter and adjusted after reading it
 //                by adding Y. The value is read from this pointer
-func (m *Memory) WriteAddressModes(value byte, params ...interface{}) {
+func (m *Memory) WriteAddressModes(value byte, params ...any) {
 	param := params[0]
-	var register interface{}
+	var register any
 	if len(params) > 1 {
 		register = params[1]
 	}
@@ -42,12 +42,12 @@ func (m *Memory) WriteAddressModes(value byte, params ...interface{}) {
 	}
 }
 
-func (m *Memory) writeMemoryIndirect(address interface{}, value byte, register interface{}) {
+func (m *Memory) writeMemoryIndirect(address any, value byte, register any) {
 	pointer := m.indirectMemoryPointer(address, register)
 	m.Write(pointer, value)
 }
 
-func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register interface{}) {
+func (m *Memory) writeMemoryAbsolute(address any, value byte, register any) {
 	if register == nil {
 		m.writeMemoryAbsoluteOffset(address, value, 0)
 		return
@@ -67,7 +67,7 @@ func (m *Memory) writeMemoryAbsolute(address interface{}, value byte, register i
 }
 
 // Support 6502 bug, index will not leave zeropage when page boundary is crossed.
-func (m *Memory) writeMemoryZeroPage(address ZeroPage, value byte, register interface{}) {
+func (m *Memory) writeMemoryZeroPage(address ZeroPage, value byte, register any) {
 	if register == nil {
 		m.writeMemoryAbsoluteOffset(address, value, 0)
 		return
@@ -87,7 +87,7 @@ func (m *Memory) writeMemoryZeroPage(address ZeroPage, value byte, register inte
 	m.writeMemoryAbsoluteOffset(addr, value, 0)
 }
 
-func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offset uint16) {
+func (m *Memory) writeMemoryAbsoluteOffset(address any, value byte, offset uint16) {
 	switch addr := address.(type) {
 	case int8:
 		m.Write(uint16(addr)+offset, value)
@@ -125,9 +125,9 @@ func (m *Memory) writeMemoryAbsoluteOffset(address interface{}, value byte, offs
 // (Indirect), Y: the pointer to the memory address is read from the
 //                indirect parameter and adjusted after reading it
 //                by adding Y. The value is written to this pointer
-func (m *Memory) ReadAddressModes(immediate bool, params ...interface{}) byte {
+func (m *Memory) ReadAddressModes(immediate bool, params ...any) byte {
 	param := params[0]
-	var register interface{}
+	var register any
 	if len(params) > 1 {
 		register = params[1]
 	}
@@ -154,7 +154,7 @@ func (m *Memory) ReadAddressModes(immediate bool, params ...interface{}) byte {
 }
 
 // ReadAbsolute reads a byte from an address using absolute addressing.
-func (m *Memory) ReadAbsolute(address interface{}, register interface{}) byte {
+func (m *Memory) ReadAbsolute(address any, register any) byte {
 	if register == nil {
 		return m.readAbsoluteOffset(address, 0)
 	}
@@ -173,7 +173,7 @@ func (m *Memory) ReadAbsolute(address interface{}, register interface{}) byte {
 
 // ReadMemoryZeroPage reads a byte from an address in zeropage using absolute addressing.
 // Support 6502 bug, index will not leave zeropage when page boundary is crossed.
-func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register interface{}) byte {
+func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register any) byte {
 	if register == nil {
 		return m.readAbsoluteOffset(address, 0)
 	}
@@ -191,7 +191,7 @@ func (m *Memory) ReadMemoryZeroPage(address ZeroPage, register interface{}) byte
 	return m.readAbsoluteOffset(addr, 0)
 }
 
-func (m *Memory) readAbsoluteOffset(address interface{}, offset uint16) byte {
+func (m *Memory) readAbsoluteOffset(address any, offset uint16) byte {
 	switch addr := address.(type) {
 	case *uint8:
 		if offset != 0 {
@@ -219,12 +219,12 @@ func (m *Memory) readAbsoluteOffset(address interface{}, offset uint16) byte {
 	}
 }
 
-func (m *Memory) readMemoryIndirect(address interface{}, register interface{}) byte {
+func (m *Memory) readMemoryIndirect(address any, register any) byte {
 	pointer := m.indirectMemoryPointer(address, register)
 	return m.Read(pointer)
 }
 
-func (m *Memory) indirectMemoryPointer(addressParam interface{}, register interface{}) uint16 {
+func (m *Memory) indirectMemoryPointer(addressParam any, register any) uint16 {
 	if register == nil {
 		panic("register parameter missing for indirect memory addressing")
 	}

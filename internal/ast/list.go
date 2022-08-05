@@ -11,7 +11,7 @@ type NodeList struct {
 }
 
 // NewNodeList returns a statement list.
-func NewNodeList(nodes ...interface{}) (Node, error) {
+func NewNodeList(nodes ...any) (Node, error) {
 	top := &NodeList{}
 
 	for _, node := range nodes {
@@ -62,8 +62,8 @@ type ExpressionList struct {
 }
 
 // NewExpressionList returns a expression list.
-func NewExpressionList(operand1 interface{}, expression string,
-	operands ...interface{}) (interface{}, error) {
+func NewExpressionList(operand1 any, expression string,
+	operands ...any) (any, error) {
 	list, ok := operand1.(*ExpressionList)
 	if !ok {
 		list = &ExpressionList{}

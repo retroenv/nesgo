@@ -20,7 +20,7 @@ type Instruction struct {
 }
 
 // newInstruction creates an instruction specification.
-func newInstruction(name string, arg interface{}) (*Instruction, error) {
+func newInstruction(name string, arg any) (*Instruction, error) {
 	i := &Instruction{
 		Name: name,
 	}
@@ -36,7 +36,7 @@ func newInstruction(name string, arg interface{}) (*Instruction, error) {
 	return i, nil
 }
 
-func (i *Instruction) addArgument(info *cpu.Instruction, arg interface{}) error {
+func (i *Instruction) addArgument(info *cpu.Instruction, arg any) error {
 	switch val := arg.(type) {
 	case *Identifier:
 		if err := i.addIdentifierArgument(val); err != nil {

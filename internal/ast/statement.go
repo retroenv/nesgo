@@ -17,7 +17,7 @@ func (s Statement) String() string {
 }
 
 // NewAssignStatement returns an assignment statement.
-func NewAssignStatement(id *Identifier, val interface{}) (Node, error) {
+func NewAssignStatement(id *Identifier, val any) (Node, error) {
 	s := &Statement{
 		Op: "=",
 	}

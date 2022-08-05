@@ -14,7 +14,7 @@ type paramMemReader interface {
 	ReadWordBug(address uint16) uint16
 }
 
-type paramReaderFunc func(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool)
+type paramReaderFunc func(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool)
 
 var paramReader = map[Mode]paramReaderFunc{
 	ImpliedAddressing:     paramReaderImplied,
@@ -36,7 +36,7 @@ var paramReader = map[Mode]paramReaderFunc{
 // and translates it into emulator specific types.
 // resolveIndirect specifies if indirect addresses should be resolved,
 // for Disassembler usage this is not wanted but for Emulator usage.
-func ReadOpParams(mem paramMemReader, addressing Mode, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func ReadOpParams(mem paramMemReader, addressing Mode, resolveIndirect bool) ([]any, []byte, bool) {
 	fun, ok := paramReader[addressing]
 	if !ok {
 		err := fmt.Errorf("unsupported addressing mode %00x", addressing)
@@ -47,78 +47,78 @@ func ReadOpParams(mem paramMemReader, addressing Mode, resolveIndirect bool) ([]
 	return params, opcodes, pageCrossed
 }
 
-func paramReaderImplied(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderImplied(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	return nil, nil, false
 }
 
-func paramReaderImmediate(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderImmediate(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b := mem.Read(*PC + 1)
-	params := []interface{}{int(b)}
+	params := []any{int(b)}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
 
-func paramReaderAccumulator(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
-	params := []interface{}{Accumulator(0)}
+func paramReaderAccumulator(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
+	params := []any{Accumulator(0)}
 	return params, nil, false
 }
 
-func paramReaderAbsolute(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderAbsolute(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b1 := uint16(mem.Read(*PC + 1))
 	b2 := uint16(mem.Read(*PC + 2))
 
-	params := []interface{}{Absolute(b2<<8 | b1)}
+	params := []any{Absolute(b2<<8 | b1)}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes, false
 }
 
-func paramReaderAbsoluteX(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderAbsoluteX(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b1 := uint16(mem.Read(*PC + 1))
 	b2 := uint16(mem.Read(*PC + 2))
 	w := b2<<8 | b1
 	_, pageCrossed := offsetAddress(w, *X)
 
-	params := []interface{}{Absolute(w), *X}
+	params := []any{Absolute(w), *X}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes, pageCrossed
 }
 
-func paramReaderAbsoluteY(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderAbsoluteY(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b1 := uint16(mem.Read(*PC + 1))
 	b2 := uint16(mem.Read(*PC + 2))
 	w := b2<<8 | b1
 	_, pageCrossed := offsetAddress(w, *Y)
 
-	params := []interface{}{Absolute(w), *Y}
+	params := []any{Absolute(w), *Y}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes, pageCrossed
 }
 
-func paramReaderZeroPage(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderZeroPage(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b := mem.Read(*PC + 1)
 
-	params := []interface{}{Absolute(b)}
+	params := []any{Absolute(b)}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
 
-func paramReaderZeroPageX(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderZeroPageX(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b := mem.Read(*PC + 1)
 
-	params := []interface{}{ZeroPage(b), X}
+	params := []any{ZeroPage(b), X}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
 
-func paramReaderZeroPageY(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderZeroPageY(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b := mem.Read(*PC + 1)
 
-	params := []interface{}{ZeroPage(b), Y}
+	params := []any{ZeroPage(b), Y}
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
 
-func paramReaderRelative(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderRelative(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	offset := uint16(mem.Read(*PC + 1))
 
 	var address uint16
@@ -128,50 +128,50 @@ func paramReaderRelative(mem paramMemReader, resolveIndirect bool) ([]interface{
 		address = *PC + 2 + offset - 0x100
 	}
 
-	params := []interface{}{Absolute(address)}
+	params := []any{Absolute(address)}
 	opcodes := []byte{byte(offset)}
 	return params, opcodes, false
 }
 
-func paramReaderIndirect(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderIndirect(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	address := mem.ReadWordBug(*PC + 1)
 	b1 := uint16(mem.Read(*PC + 1))
 	b2 := uint16(mem.Read(*PC + 2))
 
-	params := []interface{}{Indirect(address)}
+	params := []any{Indirect(address)}
 	opcodes := []byte{byte(b1), byte(b2)}
 	return params, opcodes, false
 }
 
-func paramReaderIndirectX(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderIndirectX(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b := mem.Read(*PC + 1)
 	offset := uint16(b + *X)
 
 	address := uint16(b)
-	var params []interface{}
+	var params []any
 	if resolveIndirect {
 		address = mem.ReadWordBug(offset)
-		params = []interface{}{IndirectResolved(address), X}
+		params = []any{IndirectResolved(address), X}
 	} else {
-		params = []interface{}{Indirect(address), X}
+		params = []any{Indirect(address), X}
 	}
 
 	opcodes := []byte{b}
 	return params, opcodes, false
 }
 
-func paramReaderIndirectY(mem paramMemReader, resolveIndirect bool) ([]interface{}, []byte, bool) {
+func paramReaderIndirectY(mem paramMemReader, resolveIndirect bool) ([]any, []byte, bool) {
 	b := mem.Read(*PC + 1)
 
 	var pageCrossed bool
 	address := uint16(b)
-	var params []interface{}
+	var params []any
 	if resolveIndirect {
 		address = mem.ReadWordBug(uint16(b))
 		address, pageCrossed = offsetAddress(address, *Y)
-		params = []interface{}{IndirectResolved(address), Y}
+		params = []any{IndirectResolved(address), Y}
 	} else {
-		params = []interface{}{Indirect(address), Y}
+		params = []any{Indirect(address), Y}
 	}
 
 	opcodes := []byte{b}

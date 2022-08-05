@@ -24,7 +24,7 @@ type Instruction struct {
 	// instruction has no parameters
 	NoParamFunc func()
 	// instruction has parameters
-	ParamFunc func(params ...interface{})
+	ParamFunc func(params ...any)
 
 	// maps addressing mode to cpu cycles
 	Addressing map[Mode]AddressingInfo

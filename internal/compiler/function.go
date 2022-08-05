@@ -360,7 +360,7 @@ func (c *Compiler) inlineFunctionCallParameters(calledFun *Function,
 // getArgument returns the evaluated function call argument to use it for
 // inlining the function.
 func (f *Function) getArgument(packages map[string]*Package,
-	item interface{}) (string, error) {
+	item any) (string, error) {
 	switch n := item.(type) {
 	case *ast.Value:
 		return n.Value, nil

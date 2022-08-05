@@ -6,7 +6,7 @@ import . "github.com/retroenv/nesgo/pkg/nes"
 
 const PPU_CTRL = 0x2000
 
-type inline interface{}
+type inline any
 
 const (
   A = 0x1000
@@ -21,7 +21,7 @@ var (
 )
 
 
-type inter interface{}
+type inter any
 
 // comment1
 

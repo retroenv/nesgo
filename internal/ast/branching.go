@@ -47,7 +47,7 @@ type Label struct {
 }
 
 // NewLabel returns a label definition.
-func NewLabel(id *Identifier, instruction interface{}) (Node, error) {
+func NewLabel(id *Identifier, instruction any) (Node, error) {
 	l := &Label{
 		Name: id.Name,
 	}
@@ -64,7 +64,7 @@ func (l Label) String() string {
 
 // NewCall handles a function call that could represent an alias
 // for a CPU instruction.
-func NewCall(expr *Identifier, arg interface{}) (Node, error) {
+func NewCall(expr *Identifier, arg any) (Node, error) {
 	name := strings.ToLower(expr.Name)
 	if strings.HasPrefix(name, "fmt.") {
 		return nil, nil // nolint: nilnil
@@ -92,7 +92,7 @@ func NewCall(expr *Identifier, arg interface{}) (Node, error) {
 // Call is a call declaration.
 type Call struct {
 	Function  string
-	Parameter []interface{}
+	Parameter []any
 }
 
 // String implement the fmt.Stringer interface.
@@ -109,7 +109,7 @@ func (c Call) String() string {
 }
 
 // newCall returns a call instruction.
-func newCall(name string, arg interface{}) (Node, error) {
+func newCall(name string, arg any) (Node, error) {
 	c := &Call{
 		Function: name,
 	}

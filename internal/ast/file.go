@@ -6,7 +6,7 @@ import (
 )
 
 // NewFile initializes file relevant data structures.
-func NewFile(pkg *Package, content interface{}) (Node, error) {
+func NewFile(pkg *Package, content any) (Node, error) {
 	f := &File{
 		Package: pkg,
 	}

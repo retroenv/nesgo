@@ -17,7 +17,7 @@ type Variable struct {
 }
 
 // NewVariable creates a variable specification.
-func NewVariable(expr Node, t *Type, value interface{}) (Node, error) {
+func NewVariable(expr Node, t *Type, value any) (Node, error) {
 	v := &Variable{
 		Type: t.Name,
 	}

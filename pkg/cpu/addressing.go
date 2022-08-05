@@ -8,14 +8,14 @@ import (
 )
 
 // addressModeFromCall gets the addressing mode from the passed params.
-func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{}) Mode {
+func (c *CPU) addressModeFromCall(instruction *Instruction, params ...any) Mode {
 	if len(params) == 0 {
 		mode := addressModeFromCallNoParam(instruction)
 		return mode
 	}
 
 	firstParam := params[0]
-	var register interface{}
+	var register any
 	if len(params) > 1 {
 		register = params[1]
 	}
@@ -47,7 +47,7 @@ func (c *CPU) addressModeFromCall(instruction *Instruction, params ...interface{
 	}
 }
 
-func (c *CPU) addressModeInt(address int, instruction *Instruction, firstParam, register interface{}) Mode {
+func (c *CPU) addressModeInt(address int, instruction *Instruction, firstParam, register any) Mode {
 	if instruction.HasAddressing(ImmediateAddressing) && register == nil && address <= math.MaxUint8 {
 		return ImmediateAddressing
 	}
@@ -75,7 +75,7 @@ func (c *CPU) addressModeAbsolute(instruction *Instruction) Mode {
 	return AbsoluteAddressing
 }
 
-func (c *CPU) addressModeIndirect(register interface{}) Mode {
+func (c *CPU) addressModeIndirect(register any) Mode {
 	if register == nil {
 		return IndirectAddressing
 	}
@@ -91,7 +91,7 @@ func (c *CPU) addressModeIndirect(register interface{}) Mode {
 	}
 }
 
-func (c *CPU) addressModeZeroPage(register interface{}) Mode {
+func (c *CPU) addressModeZeroPage(register any) Mode {
 	if register == 0 {
 		return ZeroPageAddressing
 	}

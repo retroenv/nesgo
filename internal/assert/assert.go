@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func equal(expected, actual interface{}) bool {
+func equal(expected, actual any) bool {
 	if expected == nil || actual == nil {
 		return expected == actual
 	}
@@ -38,7 +38,7 @@ func fail(t *testing.T, message string, errorMessage ...string) {
 }
 
 // Equal asserts that two objects are equal.
-func Equal(t *testing.T, expected, actual interface{}, errorMessage ...string) {
+func Equal(t *testing.T, expected, actual any, errorMessage ...string) {
 	t.Helper()
 	if equal(expected, actual) {
 		return

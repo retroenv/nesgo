@@ -8,7 +8,7 @@ import (
 )
 
 // execute branch jump if the branching op result is true.
-func (c *CPU) branch(branchTo bool, param interface{}) {
+func (c *CPU) branch(branchTo bool, param any) {
 	// disable trace while calling the go mode branch code
 	// TODO refactor to avoid this
 	trace := c.tracing
@@ -26,7 +26,7 @@ func (c *CPU) branch(branchTo bool, param interface{}) {
 
 // hasAccumulatorParam returns whether the passed or missing parameter
 // indicates usage of the accumulator register.
-func hasAccumulatorParam(params ...interface{}) bool {
+func hasAccumulatorParam(params ...any) bool {
 	if params == nil {
 		return true
 	}

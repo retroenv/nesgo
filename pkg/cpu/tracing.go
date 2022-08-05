@@ -61,7 +61,7 @@ func (t TraceStep) print(cpu *CPU) {
 
 // Trace logs the trace information of the passed instruction and its parameters.
 // Params can be of length 0 to 2.
-func (c *CPU) trace(instruction *Instruction, params ...interface{}) error {
+func (c *CPU) trace(instruction *Instruction, params ...any) error {
 	var paramsAsString string
 
 	if c.tracing == GoTracing {
@@ -83,7 +83,7 @@ func (c *CPU) trace(instruction *Instruction, params ...interface{}) error {
 	return nil
 }
 
-func (c *CPU) traceGoMode(instruction *Instruction, params ...interface{}) (string, error) {
+func (c *CPU) traceGoMode(instruction *Instruction, params ...any) (string, error) {
 	c.TraceStep.Addressing = c.addressModeFromCall(instruction, params...)
 	if !instruction.HasAddressing(c.TraceStep.Addressing) {
 		return "", fmt.Errorf("unexpected addressing mode type %T", c.TraceStep.Addressing)
@@ -92,7 +92,7 @@ func (c *CPU) traceGoMode(instruction *Instruction, params ...interface{}) (stri
 	opcodeByte := instruction.Addressing[c.TraceStep.Addressing].Opcode
 
 	var err error
-	var firstParam interface{}
+	var firstParam any
 	if len(params) > 0 {
 		firstParam = params[0]
 	}

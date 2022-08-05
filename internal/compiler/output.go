@@ -97,12 +97,12 @@ func (c *Compiler) outputFunction(fun *Function) error {
 	return nil
 }
 
-func (c *Compiler) outputLine(format string, a ...interface{}) {
+func (c *Compiler) outputLine(format string, a ...any) {
 	s := fmt.Sprintf(format+"\n", a...)
 	c.output = append(c.output, s)
 }
 
-func (c *Compiler) outputLineWithComment(comment, format string, a ...interface{}) {
+func (c *Compiler) outputLineWithComment(comment, format string, a ...any) {
 	if comment == "" || c.cfg.DisableComments {
 		c.outputLine(format, a...)
 		return

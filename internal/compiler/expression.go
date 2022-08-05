@@ -15,7 +15,7 @@ func evaluateExpressionList(functionContext *Function, call *ast.Call,
 		return "", fmt.Errorf("parsing expression list: %w", err)
 	}
 
-	stack := make([]interface{}, 0)
+	stack := make([]any, 0)
 
 	for i := 0; i < len(rpn) || len(stack) > 1; i++ {
 		item := rpn[i]
@@ -60,12 +60,12 @@ func evaluateExpressionList(functionContext *Function, call *ast.Call,
 	return s, nil
 }
 
-func popStack(stack []interface{}) (interface{}, []interface{}) {
+func popStack(stack []any) (any, []any) {
 	return stack[len(stack)-1], stack[:len(stack)-1]
 }
 
-func evaluateStatement(stack []interface{}, statement *ast.Statement) ([]interface{}, error) {
-	var a, b interface{}
+func evaluateStatement(stack []any, statement *ast.Statement) ([]any, error) {
+	var a, b any
 	b, stack = popStack(stack)
 	a, stack = popStack(stack)
 
@@ -85,16 +85,16 @@ func evaluateStatement(stack []interface{}, statement *ast.Statement) ([]interfa
 	return stack, nil
 }
 
-func evaluateIdentifier(stack []interface{}, identifier string, functionContext *Function,
-	call *ast.Call, packages map[string]*Package) ([]interface{}, error) {
+func evaluateIdentifier(stack []any, identifier string, functionContext *Function,
+	call *ast.Call, packages map[string]*Package) ([]any, error) {
 	if call != nil {
 		return evaluateCallIdentifier(stack, identifier, functionContext, call, packages)
 	}
 	return evaluateConstant(stack, identifier, functionContext, packages)
 }
 
-func evaluateCallIdentifier(stack []interface{}, identifier string,
-	functionContext *Function, call *ast.Call, packages map[string]*Package) ([]interface{}, error) {
+func evaluateCallIdentifier(stack []any, identifier string,
+	functionContext *Function, call *ast.Call, packages map[string]*Package) ([]any, error) {
 	idx, ok := functionContext.Definition.ParamIndex[identifier]
 	if !ok {
 		return nil, fmt.Errorf("call identifier '%s' is not a parameter", identifier)
@@ -119,8 +119,8 @@ func evaluateCallIdentifier(stack []interface{}, identifier string,
 	}
 }
 
-func evaluateConstant(stack []interface{}, identifier string,
-	functionContext *Function, packages map[string]*Package) ([]interface{}, error) {
+func evaluateConstant(stack []any, identifier string,
+	functionContext *Function, packages map[string]*Package) ([]any, error) {
 	p := functionContext.Package
 	con, err := p.findConstant(packages, functionContext.Definition.Name, identifier)
 	if err != nil {
@@ -131,7 +131,7 @@ func evaluateConstant(stack []interface{}, identifier string,
 	return stack, nil
 }
 
-func evaluateOperator(p1, p2 interface{}, statement *ast.Statement) (int, error) {
+func evaluateOperator(p1, p2 any, statement *ast.Statement) (int, error) {
 	a, ok := p1.(int)
 	if !ok {
 		return 0, fmt.Errorf("unexpected operator param type %T", p1)
@@ -161,7 +161,7 @@ func evaluateOperator(p1, p2 interface{}, statement *ast.Statement) (int, error)
 	}
 }
 
-func evaluateCast(p1, p2 interface{}) (int, error) {
+func evaluateCast(p1, p2 any) (int, error) {
 	typ, ok := p1.(*ast.Type)
 	if !ok {
 		return 0, fmt.Errorf("unexpected cast param type %T", p1)
@@ -184,8 +184,8 @@ func evaluateCast(p1, p2 interface{}) (int, error) {
 }
 
 // convert an expression list to Reverse Polish Notation.
-func expressionListToRPN(list *ast.ExpressionList) ([]interface{}, error) {
-	var rpn []interface{}
+func expressionListToRPN(list *ast.ExpressionList) ([]any, error) {
+	var rpn []any
 	var ops []*ast.Statement
 
 	var leftParen, rightParen int

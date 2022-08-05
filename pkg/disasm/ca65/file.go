@@ -43,10 +43,10 @@ const dataBytesPerLine = 16
 func (f FileWriter) Write(options *disasmoptions.Options, app *program.Program, writer io.Writer) error {
 	control1, control2 := cartridge.ControlBytes(app.Battery, byte(app.Mirror), app.Mapper, len(app.Trainer) > 0)
 
-	var writes []interface{}
+	var writes []any
 
 	if !options.CodeOnly {
-		writes = []interface{}{
+		writes = []any{
 			lineWrite(cpuSelector),
 			segmentWrite{name: "HEADER"},
 			lineWrite(iNESHeader),

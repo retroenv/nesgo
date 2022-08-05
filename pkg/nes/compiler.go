@@ -4,7 +4,7 @@ package nes
 // This should be used as last parameter in a function, as variadic parameter
 // so that any caller does not need to pass any extra argument, for example:
 // func Name(_ ...Inline)
-type Inline interface{}
+type Inline any
 
 // VariableInit is a placeholder for a variable initialization function
 // that nesgo uses to initialize variables on program startup. If the function

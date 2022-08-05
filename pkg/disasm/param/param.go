@@ -10,23 +10,23 @@ import (
 // Converter is an interface for the conversion of the instruction parameters to
 // specific assembler implementation outputs.
 type Converter interface {
-	Absolute(param interface{}) string
-	AbsoluteX(param interface{}) string
-	AbsoluteY(param interface{}) string
+	Absolute(param any) string
+	AbsoluteX(param any) string
+	AbsoluteY(param any) string
 	Accumulator() string
-	Immediate(param interface{}) string
-	Indirect(param interface{}) string
-	IndirectX(param interface{}) string
-	IndirectY(param interface{}) string
-	Relative(param interface{}) string
-	ZeroPage(param interface{}) string
-	ZeroPageX(param interface{}) string
-	ZeroPageY(param interface{}) string
+	Immediate(param any) string
+	Indirect(param any) string
+	IndirectX(param any) string
+	IndirectY(param any) string
+	Relative(param any) string
+	ZeroPage(param any) string
+	ZeroPageX(param any) string
+	ZeroPageY(param any) string
 }
 
 // String returns the parameters as a string that is compatible to the
 // assembler presented by the converter.
-func String(converter Converter, addressing Mode, param interface{}) (string, error) {
+func String(converter Converter, addressing Mode, param any) (string, error) {
 	switch addressing {
 	case ImpliedAddressing:
 		return "", nil

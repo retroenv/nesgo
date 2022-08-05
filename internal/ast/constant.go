@@ -18,7 +18,7 @@ type Constant struct {
 }
 
 // NewConstant returns a constant specification.
-func NewConstant(expr *Identifier, arg interface{}) (Node, error) {
+func NewConstant(expr *Identifier, arg any) (Node, error) {
 	constant := &Constant{
 		Name: expr.Name,
 	}
