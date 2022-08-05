@@ -30,6 +30,7 @@ type Base interface {
 
 	AddReadHook(startAddress, endAddress uint16, hookFunc func(address uint16) uint8) mapperbase.Hook
 	AddWriteHook(startAddress, endAddress uint16, hookFunc func(address uint16, value uint8)) mapperbase.Hook
+	Cartridge() *cartridge.Cartridge
 	Initialize()
 	SetName(name string)
 }

@@ -17,8 +17,8 @@ type mapperAxROM struct {
 	Base
 }
 
-// NewMapperAxROM returns a new mapper instance.
-func NewMapperAxROM(base Base) bus.Mapper {
+// NewAxROM returns a new mapper instance.
+func NewAxROM(base Base) bus.Mapper {
 	m := &mapperAxROM{
 		Base: base,
 	}

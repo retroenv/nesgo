@@ -26,7 +26,7 @@ func NewGTROM(base Base) bus.Mapper {
 	m.SetName("Cheapocabra (GTROM)")
 	m.SetPrgWindowSize(0x8000) // 32K
 	m.SetNameTableCount(2)
-	m.SetChrRAM(make([]byte, 0x4000))
+	m.SetChrRAM(make([]byte, 0x4000)) // 16K
 	m.Initialize()
 
 	m.AddReadHook(0x5000, 0x5FFF, m.getControl)

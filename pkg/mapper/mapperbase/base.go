@@ -6,6 +6,7 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
 const (
@@ -139,6 +140,11 @@ func (b *Base) Initialize() {
 	b.setDefaultBankSizes()
 	b.setBanks()
 	b.setWindows()
+}
+
+// Cartridge returns the current cartridge.
+func (b *Base) Cartridge() *cartridge.Cartridge {
+	return b.bus.Cartridge
 }
 
 func (b *Base) defaultChrBankMapper(address uint16) (int, uint16) {
