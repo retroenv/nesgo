@@ -11,6 +11,7 @@ linters:
     - contextcheck # check the function whether use a non-inherited context
     - cyclop # checks function and package cyclomatic complexity
     - deadcode # Finds unused code
+    - decorder # check declaration order and count of types, constants, variables and functions
     - depguard # Go linter that checks if package imports are in a list of acceptable packages
     - dogsled # Checks assignments with too many blank identifiers (e.g. x, _, _, _, := f())
     - durationcheck # check for two durations multiplied together
@@ -19,7 +20,6 @@ linters:
     - errorlint # finds code that will cause problems with the error wrapping scheme introduced in Go 1.13
     - exportloopref # checks for pointers to enclosing loop variables
     - funlen # Tool for detection of long functions
-    - gofmt # checks whether code was gofmt-ed
     - gocognit # Computes and checks the cognitive complexity of functions
     - goconst # Finds repeated strings that could be replaced by a constant
     - gocritic # Provides diagnostics that check for bugs, performance and style issues
@@ -28,10 +28,9 @@ linters:
     - goerr113 # Golang linter to check the errors handling expressions
     - gosimple # Linter for Go source code that specializes in simplifying a code
     - govet # reports suspicious constructs, such as Printf calls with wrong arguments
-    - ifshort # Checks that code uses short syntax for if-statements whenever possible
     - ineffassign # Detects when assignments to existing variables are not used
-    - makezero # Finds slice declarations with non-zero initial length
     - maintidx # measures the maintainability index of each function
+    - makezero # Finds slice declarations with non-zero initial length
     - misspell # Finds commonly misspelled English words in comments
     - nakedret # Finds naked returns in functions
     - nestif # Reports deeply nested if statements
@@ -50,6 +49,7 @@ linters:
     - unconvert # Remove unnecessary type conversions
     - unparam # Reports unused function parameters
     - unused # Checks Go code for unused constants, variables, functions and types
+    - usestdlibvars # detect the possibility to use variables/constants from the Go standard library
     - varcheck # Finds unused global variables and constants
     - wastedassign # finds wasted assignment statements
     - whitespace # detects leading and trailing whitespace
