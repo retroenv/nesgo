@@ -12,14 +12,14 @@ func TestDivSigned16(t *testing.T) {
 	sys.LinkAliases()
 	sys.ResetCycles()
 
-	*A = 0b10000001 // -127
+	*A = 0b1000_0001 // -127
 	DivSigned16()
-	assert.Equal(t, 0b11111000, *A)   // -8
+	assert.Equal(t, 0b1111_1000, *A)  // -8
 	assert.Equal(t, 14, sys.Cycles()) // -16
 
-	*A = 0b00101010 // 42
+	*A = 0b0010_1010 // 42
 	DivSigned16()
-	assert.Equal(t, 0b00000010, *A) // 2
+	assert.Equal(t, 0b0000_0010, *A) // 2
 }
 
 func TestDivSigned8(t *testing.T) {
@@ -27,12 +27,12 @@ func TestDivSigned8(t *testing.T) {
 	sys.LinkAliases()
 	sys.ResetCycles()
 
-	*A = 0b10000001 // -127
+	*A = 0b1000_0001 // -127
 	DivSigned8()
-	assert.Equal(t, 0b11110000, *A)   // -16
+	assert.Equal(t, 0b1111_0000, *A)  // -16
 	assert.Equal(t, 12, sys.Cycles()) // -16
 
-	*A = 0b00101010 // 42
+	*A = 0b0010_1010 // 42
 	DivSigned8()
-	assert.Equal(t, 0b00000101, *A) // 5
+	assert.Equal(t, 0b0000_0101, *A) // 5
 }

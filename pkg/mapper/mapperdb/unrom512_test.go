@@ -33,7 +33,7 @@ func TestMapperUNROM512(t *testing.T) {
 	prg[0x8010] = 0x04 // bank 1
 	assert.Equal(t, 0x03, m.Read(0x8010))
 
-	m.Write(0x8000, 0b10100010) // select mirror mode 1, chr bank 1, prg bank 2
+	m.Write(0x8000, 0b1010_0010) // select mirror mode 1, chr bank 1, prg bank 2
 	assert.Equal(t, 0x04, m.Read(0x8010))
 
 	assert.Equal(t, cartridge.MirrorSingle1, m.MirrorMode())

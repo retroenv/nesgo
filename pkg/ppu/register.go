@@ -72,6 +72,6 @@ func (p *PPU) Write(address uint16, value uint8) {
 // mirroredRegisterAddressToBase converts the mirrored addresses to the base address.
 // PPU registers are mirrored in every 8 bytes from $2008 through $3FFF.
 func mirroredRegisterAddressToBase(address uint16) uint16 {
-	base := 0x2000 + address&0b00000111
+	base := 0x2000 + address&0b0000_0111
 	return base
 }

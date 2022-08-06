@@ -398,7 +398,7 @@ func (c *CPU) Php() {
 	c.instructionHook(php)
 
 	f := c.GetFlags()
-	f |= 0b00010000 // break is set to 1
+	f |= 0b0001_0000 // break is set to 1
 	c.push(f)
 }
 
@@ -415,8 +415,8 @@ func (c *CPU) Plp() {
 	c.instructionHook(plp)
 
 	f := c.Pop()
-	f &= 0b11101111 // break flag is ignored
-	f |= 0b00100000 // unused flag is set
+	f &= 0b1110_1111 // break flag is ignored
+	f |= 0b0010_0000 // unused flag is set
 	c.setFlags(f)
 }
 
@@ -474,8 +474,8 @@ func (c *CPU) RtiInternal() {
 	c.instructionHook(rti)
 
 	b := c.Pop()
-	b &= 0b11101111 // break flag is ignored
-	b |= 0b00100000 // unused flag is set
+	b &= 0b1110_1111 // break flag is ignored
+	b |= 0b0010_0000 // unused flag is set
 	c.setFlags(b)
 	c.PC = c.Pop16()
 }

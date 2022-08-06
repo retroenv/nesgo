@@ -81,10 +81,10 @@ const (
 	MASK_MONO       = ppu.MASK_MONO       // Display in Monochrome
 
 	// read flags
-	F_BLANK   = 0b10000000 // VBlank Active
-	F_SPRITE0 = 0b01000000 // VBlank hit Sprite 0
-	F_SCAN8   = 0b00100000 // More than 8 sprites on current scanline
-	F_WIGNORE = 0b00010000 // VRAM Writes currently ignored.
+	F_BLANK   = 0b1000_0000 // VBlank Active
+	F_SPRITE0 = 0b0100_0000 // VBlank hit Sprite 0
+	F_SCAN8   = 0b0010_0000 // More than 8 sprites on current scanline
+	F_WIGNORE = 0b0001_0000 // VRAM Writes currently ignored.
 )
 
 const (

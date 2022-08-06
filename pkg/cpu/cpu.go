@@ -13,7 +13,7 @@ const (
 	StackBase = 0x100
 
 	initialCycles = 7
-	initialFlags  = 0b00100100 // I and U flags are 1, the rest 0
+	initialFlags  = 0b0010_0100 // I and U flags are 1, the rest 0
 	InitialStack  = 0xFD
 )
 

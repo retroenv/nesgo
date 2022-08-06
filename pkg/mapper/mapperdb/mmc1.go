@@ -91,17 +91,17 @@ func (m *mapperMMC1) writeShiftBit(address uint16, value uint8) {
 		m.chrBank1 = int(m.shiftRegister)
 
 	case address >= 0xE000: // $E000-$FFFF
-		m.prgBank = int(m.shiftRegister) & 0b00001111
+		m.prgBank = int(m.shiftRegister) & 0b0000_1111
 	}
 
 	m.resetShift()
 }
 
 func (m *mapperMMC1) applyControl() {
-	mirrorMode := m.control & 0b00000011
+	mirrorMode := m.control & 0b0000_0011
 	m.SetNameTableMirrorModeIndex(mirrorMode)
 
-	prgMode := (m.control >> 2) & 0b00000011
+	prgMode := (m.control >> 2) & 0b0000_0011
 	switch prgMode {
 	case 0, 1:
 		// switch 32 KB at $8000, ignoring low bit of bank number

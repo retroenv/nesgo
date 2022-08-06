@@ -45,11 +45,11 @@ func NewUNROM512(base Base) bus.Mapper {
 }
 
 func (m *mapperUNROM512) setBanks(address uint16, value uint8) {
-	prgBank := value & 0b00011111
+	prgBank := value & 0b0001_1111
 
 	m.SetPrgWindow(0, int(prgBank)) // select 16 KB PRG ROM bank at $8000
 
-	chrBank := int(value>>5) & 0b00000011
+	chrBank := int(value>>5) & 0b0000_0011
 	m.SetChrWindow(0, chrBank)
 
 	screen := int(value>>7) & 1

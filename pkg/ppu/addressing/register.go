@@ -28,11 +28,11 @@ func (r register) address() uint16 {
 
 // set the internal decoded fields from an address.
 func (r *register) set(address uint16) {
-	r.CoarseX = address & 0b00011111
-	r.CoarseY = (address >> 5) & 0b00011111
+	r.CoarseX = address & 0b0001_1111
+	r.CoarseY = (address >> 5) & 0b0001_1111
 	r.NameTableX = (address >> 10) & 1
 	r.NameTableY = (address >> 11) & 1
-	r.FineY = (address >> 12) & 0b00000111
+	r.FineY = (address >> 12) & 0b0000_0111
 	r.Unused = (address >> 15) & 1
 }
 

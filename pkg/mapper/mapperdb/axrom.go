@@ -37,7 +37,7 @@ func NewAxROM(base Base) bus.Mapper {
 }
 
 func (m *mapperAxROM) setPrgWindow(address uint16, value uint8) {
-	value &= 0b00000111
+	value &= 0b0000_0111
 	m.SetPrgWindow(0, int(value)) // select 32 KB PRG ROM bank for CPU $8000-$FFFF
 
 	mirrorMode := (value >> 4) & 1

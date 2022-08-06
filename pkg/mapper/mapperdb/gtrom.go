@@ -42,7 +42,7 @@ func (m *mapperGTROM) getControl(address uint16) uint8 {
 }
 
 func (m *mapperGTROM) setBanks(address uint16, value uint8) {
-	prgBank := value & 0b00001111
+	prgBank := value & 0b0000_1111
 
 	m.SetPrgWindow(0, int(prgBank)) // select 32 KB PRG ROM bank for CPU $8000-$FFFF
 

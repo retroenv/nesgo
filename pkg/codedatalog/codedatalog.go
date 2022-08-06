@@ -15,17 +15,17 @@ type PrgFlag byte
 type ChrFlag byte
 
 const (
-	Code              PrgFlag = 0b00000001
-	Data              PrgFlag = 0b00000010
-	RomBankMappedLow  PrgFlag = 0b00000100
-	RomBankMappedHigh PrgFlag = 0b00001000
-	IndirectCode      PrgFlag = 0b00010000
-	IndirectData      PrgFlag = 0b00100000
-	PCMAudio          PrgFlag = 0b01000000
-	SubEntryPoint     PrgFlag = 0b10000000
+	Code              PrgFlag = 0b0000_0001
+	Data              PrgFlag = 0b0000_0010
+	RomBankMappedLow  PrgFlag = 0b0000_0100
+	RomBankMappedHigh PrgFlag = 0b0000_1000
+	IndirectCode      PrgFlag = 0b0001_0000
+	IndirectData      PrgFlag = 0b0010_0000
+	PCMAudio          PrgFlag = 0b0100_0000
+	SubEntryPoint     PrgFlag = 0b1000_0000
 
-	DrawnOnScreen        ChrFlag = 0b00000001
-	ReadProgrammatically ChrFlag = 0b00000010
+	DrawnOnScreen        ChrFlag = 0b0000_0001
+	ReadProgrammatically ChrFlag = 0b0000_0010
 )
 
 // LoadFile loads an .cdl file in FCEUX/Mesen Code/Data Logger format.

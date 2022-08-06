@@ -19,7 +19,7 @@ func TestSetControl(t *testing.T) {
 	sys.Mapper = mapper.NewMockMapper(sys)
 	p := New(sys)
 
-	p.Write(PPU_CTRL, 0b11111111)
+	p.Write(PPU_CTRL, 0b1111_1111)
 
 	assert.Equal(t, 0x2C00, p.control.BaseNameTable)
 	assert.Equal(t, 32, p.control.VRAMIncrement)
@@ -40,7 +40,7 @@ func TestSetMask(t *testing.T) {
 	sys.Mapper = mapper.NewMockMapper(sys)
 	p := New(sys)
 
-	p.Write(PPU_MASK, 0b11111111)
+	p.Write(PPU_MASK, 0b1111_1111)
 
 	assert.True(t, p.mask.Grayscale)
 	assert.True(t, p.mask.RenderBackgroundLeft())

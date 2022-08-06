@@ -62,6 +62,6 @@ func newMapperUxROM(base Base) *mapperUxROM {
 
 func (m *mapperUxROM) setPrgWindow(address uint16, value uint8) {
 	value >>= m.valueShift
-	value &= 0b00000111                       // UNROM uses bits 2-0; UOROM/UN1ROM uses bits 3-0
+	value &= 0b0000_0111                      // UNROM uses bits 2-0; UOROM/UN1ROM uses bits 3-0
 	m.SetPrgWindow(m.windowIndex, int(value)) // select 16 KB PRG ROM bank
 }

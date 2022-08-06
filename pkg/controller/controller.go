@@ -10,14 +10,14 @@ import "sync/atomic"
 type Button uint64
 
 const (
-	A      Button = 0b00000001
-	B      Button = 0b00000010
-	Select Button = 0b00000100
-	Start  Button = 0b00001000
-	Up     Button = 0b00010000
-	Down   Button = 0b00100000
-	Left   Button = 0b01000000
-	Right  Button = 0b10000000
+	A      Button = 0b0000_0001
+	B      Button = 0b0000_0010
+	Select Button = 0b0000_0100
+	Start  Button = 0b0000_1000
+	Up     Button = 0b0001_0000
+	Down   Button = 0b0010_0000
+	Left   Button = 0b0100_0000
+	Right  Button = 0b1000_0000
 )
 
 // Controller represents a hardware controller.

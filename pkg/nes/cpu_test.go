@@ -81,24 +81,24 @@ func TestAsl(t *testing.T) {
 	t.Parallel()
 	sys := NewSystem(nil)
 
-	sys.A = 0b00000001
+	sys.A = 0b0000_0001
 	sys.Asl()
-	assert.Equal(t, 0b00000010, sys.A)
+	assert.Equal(t, 0b0000_0010, sys.A)
 	assert.Equal(t, 0, sys.Flags.C)
 
-	sys.A = 0b11111110
+	sys.A = 0b1111_1110
 	sys.Asl()
-	assert.Equal(t, 0b11111100, sys.A)
+	assert.Equal(t, 0b1111_1100, sys.A)
 	assert.Equal(t, 1, sys.Flags.C)
 
-	sys.Bus.Memory.Write(1, 0b00000010)
+	sys.Bus.Memory.Write(1, 0b0000_0010)
 	sys.Asl(Absolute(1))
-	assert.Equal(t, 0b00000100, sys.Bus.Memory.Read(1))
+	assert.Equal(t, 0b0000_0100, sys.Bus.Memory.Read(1))
 
-	sys.Bus.Memory.Write(4, 0b00000010)
+	sys.Bus.Memory.Write(4, 0b0000_0010)
 	sys.X = 3
 	sys.Asl(Absolute(1), sys.X)
-	assert.Equal(t, 0b00000100, sys.Bus.Memory.Read(4))
+	assert.Equal(t, 0b0000_0100, sys.Bus.Memory.Read(4))
 }
 
 func TestBcc(t *testing.T) {
@@ -646,40 +646,40 @@ func TestLsr(t *testing.T) {
 	t.Parallel()
 	tests := []cpuTest{
 		{
-			Name: "value 0b00000010 accumulator",
+			Name: "value 0b0000_0010 accumulator",
 			Setup: func(sys *System) {
-				sys.A = 0b00000010
+				sys.A = 0b0000_0010
 				sys.Lsr()
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0b00000001, sys.A)
+				assert.Equal(t, 0b0000_0001, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 0, sys.Flags.N)
 			},
 		},
 		{
-			Name: "value 0b01111111 accumulator",
+			Name: "value 0b0111_1111 accumulator",
 			Setup: func(sys *System) {
-				sys.A = 0b01111111
+				sys.A = 0b0111_1111
 				sys.Lsr()
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0b00111111, sys.A)
+				assert.Equal(t, 0b0011_1111, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 0, sys.Flags.N)
 			},
 		},
 		{
-			Name: "value 0b01111111 absolute",
+			Name: "value 0b0111_1111 absolute",
 			Setup: func(sys *System) {
-				sys.Bus.Memory.Write(0x101, 0b01111111)
+				sys.Bus.Memory.Write(0x101, 0b0111_1111)
 				sys.Lsr(Absolute(0x101))
 			},
 			Check: func(sys *System) {
 				b := sys.Bus.Memory.Read(0x101)
-				assert.Equal(t, 0b00111111, b)
+				assert.Equal(t, 0b0011_1111, b)
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -724,7 +724,7 @@ func TestPhp(t *testing.T) {
 	sys.Php()
 
 	b := sys.Bus.Memory.Read(cpu.StackBase + cpu.InitialStack)
-	assert.Equal(t, 0b00110100, b)
+	assert.Equal(t, 0b0011_0100, b)
 }
 
 func TestPla(t *testing.T) {
@@ -747,7 +747,7 @@ func TestPlp(t *testing.T) {
 	sys.Bus.Memory.Write(cpu.StackBase+2, 1)
 	sys.Plp()
 
-	assert.Equal(t, 0b00100001, sys.GetFlags())
+	assert.Equal(t, 0b0010_0001, sys.GetFlags())
 	assert.Equal(t, 2, sys.SP)
 }
 
@@ -755,41 +755,41 @@ func TestRol(t *testing.T) {
 	t.Parallel()
 	tests := []cpuTest{
 		{
-			Name: "value 0b00000010 accumulator",
+			Name: "value 0b0000_0010 accumulator",
 			Setup: func(sys *System) {
-				sys.A = 0b00000010
+				sys.A = 0b0000_0010
 				sys.Rol()
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0b00000100, sys.A)
+				assert.Equal(t, 0b0000_0100, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 0, sys.Flags.N)
 			},
 		},
 		{
-			Name: "value 0b11111110 accumulator C0",
+			Name: "value 0b1111_1110 accumulator C0",
 			Setup: func(sys *System) {
-				sys.A = 0b11111110
+				sys.A = 0b1111_1110
 				sys.Rol()
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0b11111100, sys.A)
+				assert.Equal(t, 0b1111_1100, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 1, sys.Flags.N)
 			},
 		},
 		{
-			Name: "value 0b11111110 absolute C1",
+			Name: "value 0b1111_1110 absolute C1",
 			Setup: func(sys *System) {
-				sys.Bus.Memory.Write(0x101, 0b11111110)
+				sys.Bus.Memory.Write(0x101, 0b1111_1110)
 				sys.Flags.C = 1
 				sys.Rol(Absolute(0x101))
 			},
 			Check: func(sys *System) {
 				b := sys.Bus.Memory.Read(0x101)
-				assert.Equal(t, 0b11111101, b)
+				assert.Equal(t, 0b1111_1101, b)
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
@@ -804,41 +804,41 @@ func TestRor(t *testing.T) {
 	t.Parallel()
 	tests := []cpuTest{
 		{
-			Name: "value 0b00000010 accumulator",
+			Name: "value 0b0000_0010 accumulator",
 			Setup: func(sys *System) {
-				sys.A = 0b00000010
+				sys.A = 0b0000_0010
 				sys.Ror()
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0b00000001, sys.A)
+				assert.Equal(t, 0b0000_0001, sys.A)
 				assert.Equal(t, 0, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 0, sys.Flags.N)
 			},
 		},
 		{
-			Name: "value 0b01111111 accumulator C0",
+			Name: "value 0b0111_1111 accumulator C0",
 			Setup: func(sys *System) {
-				sys.A = 0b01111111
+				sys.A = 0b0111_1111
 				sys.Ror()
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0b00111111, sys.A)
+				assert.Equal(t, 0b0011_1111, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
 				assert.Equal(t, 0, sys.Flags.N)
 			},
 		},
 		{
-			Name: "value 0b01111111 absolute C1",
+			Name: "value 0b0111_1111 absolute C1",
 			Setup: func(sys *System) {
-				sys.Bus.Memory.Write(0x101, 0b01111111)
+				sys.Bus.Memory.Write(0x101, 0b0111_1111)
 				sys.Flags.C = 1
 				sys.Ror(Absolute(0x101))
 			},
 			Check: func(sys *System) {
 				b := sys.Bus.Memory.Read(0x101)
-				assert.Equal(t, 0b10111111, b)
+				assert.Equal(t, 0b1011_1111, b)
 				assert.Equal(t, 0, sys.A)
 				assert.Equal(t, 1, sys.Flags.C)
 				assert.Equal(t, 0, sys.Flags.Z)
