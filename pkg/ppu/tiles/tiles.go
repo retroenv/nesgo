@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package tiles handles PPU tiles support.
 package tiles

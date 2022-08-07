@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package palette handles PPU palette support.
 package palette

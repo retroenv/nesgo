@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package ppu provides PPU (Picture Processing Unit) functionality.
 package ppu

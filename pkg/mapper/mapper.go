@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package mapper provides hardware mapper support.
 // It maps CHR and PRG chips into the NES address space.

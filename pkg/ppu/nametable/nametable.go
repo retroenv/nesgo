@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package nametable handles PPU nametables.
 package nametable

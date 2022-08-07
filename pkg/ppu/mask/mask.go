@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package mask contains the PPU mask.
 package mask

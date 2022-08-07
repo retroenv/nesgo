@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // This file contains support for unofficial CPU instructions.
 // https://www.nesdev.org/wiki/Programming_with_unofficial_opcodes

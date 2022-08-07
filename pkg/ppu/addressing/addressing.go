@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package addressing handles PPU addressing of X/Y coordinates and nametables.
 package addressing

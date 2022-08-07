@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package sprites handles PPU sprites handling.
 package sprites

@@ -1,5 +1,4 @@
 //go:build !nesgo && !nogui && !noopengl
-// +build !nesgo,!nogui,!noopengl
 
 package gui
 

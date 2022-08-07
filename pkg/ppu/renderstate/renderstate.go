@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package renderstate handles PPU render handling of cycles, scan lines and frames.
 package renderstate

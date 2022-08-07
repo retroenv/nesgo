@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package memory provides PPU memory access.
 package memory

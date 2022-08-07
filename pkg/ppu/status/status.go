@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package status handles PPU status fields.
 package status

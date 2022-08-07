@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package memory provides Memory functionality.
 package memory

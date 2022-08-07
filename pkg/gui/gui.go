@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package gui implements multiple emulator GUIs.
 package gui

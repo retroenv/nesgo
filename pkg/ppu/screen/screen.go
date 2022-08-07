@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package screen handles PPU screen drawing.
 package screen

@@ -1,5 +1,4 @@
 //go:build !nesgo && !nogui && sdl
-// +build !nesgo,!nogui,sdl
 
 package gui
 

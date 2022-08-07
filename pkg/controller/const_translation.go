@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 package controller
 

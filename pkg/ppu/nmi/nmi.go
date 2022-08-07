@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package nmi contains the PPU NMI manager.
 package nmi

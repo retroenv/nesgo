@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package controller provides hardware controller functionality.
 package controller

@@ -1,5 +1,4 @@
 //go:build !nesgo
-// +build !nesgo
 
 // Package control contains the PPU control manager.
 package control
