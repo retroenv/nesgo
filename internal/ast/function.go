@@ -13,7 +13,7 @@ type Function struct {
 }
 
 // String implement the fmt.Stringer interface.
-func (f Function) String() string {
+func (f *Function) String() string {
 	b := &strings.Builder{}
 	_, _ = fmt.Fprint(b, "func, ")
 

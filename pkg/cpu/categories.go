@@ -37,7 +37,7 @@ var MemoryReadInstructions = map[string]struct{}{
 	unofficialLax.Name: {},
 }
 
-// MemoryWriteInstructions contains all instructions that can write to a
+// MemoryWriteInstructions contains all instructions that can write to an
 // absolute memory address.
 var MemoryWriteInstructions = map[string]struct{}{
 	sta.Name:           {},

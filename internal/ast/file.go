@@ -45,7 +45,7 @@ type File struct {
 }
 
 // String implement the fmt.Stringer interface.
-func (f File) String() string {
+func (f *File) String() string {
 	b := &strings.Builder{}
 	_, _ = fmt.Fprintln(b, f.Package)
 	for _, v := range f.Imports {

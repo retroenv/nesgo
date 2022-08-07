@@ -17,7 +17,7 @@ func New() *Status {
 }
 
 // Value returns the status fields encoded as byte.
-func (s Status) Value() byte {
+func (s *Status) Value() byte {
 	value := s.openBus // TODO implement support for open bus value reading
 	if s.spriteOverflow {
 		value |= 1 << 5

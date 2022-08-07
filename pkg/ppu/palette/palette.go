@@ -14,7 +14,7 @@ func New() *Palette {
 }
 
 // Read a value from the palette address.
-func (p Palette) Read(address uint16) byte {
+func (p *Palette) Read(address uint16) byte {
 	base := mirroredPaletteAddressToBase(address)
 	value := p.data[base]
 	return value

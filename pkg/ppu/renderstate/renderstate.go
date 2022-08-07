@@ -53,11 +53,11 @@ func (r *RenderState) nextFrame() {
 }
 
 // Cycle returns the current cycle, possible values are 0-340.
-func (r RenderState) Cycle() int {
+func (r *RenderState) Cycle() int {
 	return r.cycle
 }
 
 // ScanLine returns the current scanline, possible values are 0-261.
-func (r RenderState) ScanLine() int {
+func (r *RenderState) ScanLine() int {
 	return r.scanLine
 }

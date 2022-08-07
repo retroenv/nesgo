@@ -15,7 +15,7 @@ type register struct {
 }
 
 // address returns the final address calculated from the internal fields.
-func (r register) address() uint16 {
+func (r *register) address() uint16 {
 	address := r.CoarseX
 	address |= r.CoarseY << 5
 	address |= r.NameTableX << 10

@@ -83,6 +83,6 @@ func (c *Control) Set(value byte) {
 }
 
 // Value returns the control fields encoded as byte.
-func (c Control) Value() byte {
+func (c *Control) Value() byte {
 	return c.value
 }

@@ -56,17 +56,17 @@ func (a *Addressing) ClearLatch() {
 }
 
 // Latch returns the address latch toggle.
-func (a Addressing) Latch() bool {
+func (a *Addressing) Latch() bool {
 	return a.latch
 }
 
 // Address returns the current vram address.
-func (a Addressing) Address() uint16 {
+func (a *Addressing) Address() uint16 {
 	return a.vram.address()
 }
 
 // FineY returns FineY of the vram.
-func (a Addressing) FineY() uint16 {
+func (a *Addressing) FineY() uint16 {
 	return a.vram.FineY
 }
 

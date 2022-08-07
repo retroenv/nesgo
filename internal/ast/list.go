@@ -46,7 +46,7 @@ func (t *NodeList) AddNodes(nodes ...Node) {
 }
 
 // String implement the fmt.Stringer interface.
-func (t NodeList) String() string {
+func (t *NodeList) String() string {
 	b := &strings.Builder{}
 	for _, n := range t.Nodes {
 		_, _ = fmt.Fprintf(b, "%s\n", n)

@@ -37,26 +37,26 @@ func (m *Mask) Set(value byte) {
 }
 
 // Value returns the mask fields encoded as byte.
-func (m Mask) Value() byte {
+func (m *Mask) Value() byte {
 	return m.value
 }
 
 // RenderBackground returns a flag whether the background should be rendered.
-func (m Mask) RenderBackground() bool {
+func (m *Mask) RenderBackground() bool {
 	return m.renderBackground
 }
 
 // RenderSprites returns a flag whether the sprites should be rendered.
-func (m Mask) RenderSprites() bool {
+func (m *Mask) RenderSprites() bool {
 	return m.renderSprites
 }
 
 // RenderBackgroundLeft returns a flag whether the background should be rendered in leftmost 8 pixels of screen.
-func (m Mask) RenderBackgroundLeft() bool {
+func (m *Mask) RenderBackgroundLeft() bool {
 	return m.renderBackgroundLeft
 }
 
 // RenderSpritesLeft returns a flag whether the sprites should be rendered in leftmost 8 pixels of screen.
-func (m Mask) RenderSpritesLeft() bool {
+func (m *Mask) RenderSpritesLeft() bool {
 	return m.renderSpritesLeft
 }

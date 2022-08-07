@@ -146,7 +146,7 @@ func (i *Instruction) addValueArgument(info *cpu.Instruction, val *Value) {
 }
 
 // String implement the fmt.Stringer interface.
-func (i Instruction) String() string {
+func (i *Instruction) String() string {
 	b := &strings.Builder{}
 	_, _ = fmt.Fprintf(b, "inst, %s", i.Name)
 	switch i.Addressing {
