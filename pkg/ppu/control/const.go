@@ -1,8 +1,6 @@
 package control
 
 const (
-	// TODO remove duplicate from ppu once compiler supports parsing subdirectories
-
 	// PPU_CTRL flags
 	CTRL_NMI         = 0b1000_0000 // Execute Non-Maskable Interrupt on VBlank
 	CTRL_MASTERSLAVE = 0b0100_0000 // Master/Slave select

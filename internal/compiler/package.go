@@ -26,54 +26,57 @@ type Package struct {
 	functionFile map[string]*File
 }
 
-func parsePackage(name string) (*Package, error) {
+func parsePackage(name string) (*Package, []string, error) {
 	packName, directory, err := currentPackage()
 	if err != nil {
-		return nil, fmt.Errorf("getting current package: %w", err)
+		return nil, nil, fmt.Errorf("getting current package: %w", err)
 	}
 
 	pack := newPackage(packName)
 	// TODO support external packages
 	if !strings.HasPrefix(name, packName) {
 		if name == "fmt" {
-			return pack, nil
+			return pack, nil, nil
 		}
-		return nil, errors.New("external packages are not support yet")
+		return nil, nil, errors.New("external packages are not support yet")
 	}
 
 	dir := path.Join(directory, strings.TrimPrefix(name, packName))
 	files, err := os.ReadDir(dir)
 	if err != nil {
-		return nil, fmt.Errorf("reading package '%s' directory: %w", name, err)
+		return nil, nil, fmt.Errorf("reading package '%s' directory: %w", name, err)
 	}
 
+	var subPackages []string
 	for _, entry := range files {
-		fileName := entry.Name()
-		if strings.HasSuffix(strings.ToLower(fileName), testFileSuffix) {
+		entryName := entry.Name()
+		if entry.Type() == os.ModeDir {
+			subDir := path.Join(name, entryName)
+			subPackages = append(subPackages, subDir)
 			continue
 		}
-		if entry.Type() == os.ModeDir {
-			continue // TODO parse recursively
+		if strings.HasSuffix(strings.ToLower(entryName), testFileSuffix) {
+			continue
 		}
 
-		fullPath := path.Join(dir, fileName)
+		fullPath := path.Join(dir, entryName)
 		data, err := os.ReadFile(fullPath)
 		if err != nil {
-			return nil, fmt.Errorf("reading file: %w", err)
+			return nil, nil, fmt.Errorf("reading file: %w", err)
 		}
 		file, err := parseFile(fullPath, data)
 		if err != nil {
-			return nil, fmt.Errorf("parsing file '%s': %w", fullPath, err)
+			return nil, nil, fmt.Errorf("parsing file '%s': %w", fullPath, err)
 		}
 		if file.IsIgnored {
 			continue
 		}
 		pack.name = file.Package // update package name once a file is parsed
-		if err = pack.addFile(fileName, file); err != nil {
-			return nil, fmt.Errorf("processing file '%s': %w", fullPath, err)
+		if err = pack.addFile(entryName, file); err != nil {
+			return nil, nil, fmt.Errorf("processing file '%s': %w", fullPath, err)
 		}
 	}
-	return pack, nil
+	return pack, subPackages, nil
 }
 
 func newPackage(name string) *Package {

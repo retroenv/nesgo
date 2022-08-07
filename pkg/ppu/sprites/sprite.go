@@ -1,3 +1,6 @@
+//go:build !nesgo
+// +build !nesgo
+
 package sprites
 
 // Sprite defines a sprite that can be drawn on screen and moved.
@@ -8,7 +11,7 @@ type Sprite struct {
 	x          byte // x position of left side of sprite.
 }
 
-func (s Sprite) field(index byte) byte {
+func (s *Sprite) field(index byte) byte {
 	switch index {
 	case 0:
 		return s.y
@@ -41,17 +44,17 @@ func (s *Sprite) setField(index, value byte) {
 }
 
 // Priority returns whether the sprite has the priority bit set.
-func (s Sprite) Priority() bool {
+func (s *Sprite) Priority() bool {
 	priority := (s.attributes >> 5) & 1
 	return priority == 1
 }
 
-func (s Sprite) flipHorizontally() bool {
+func (s *Sprite) flipHorizontally() bool {
 	flip := (s.attributes >> 6) & 1
 	return flip == 1
 }
 
-func (s Sprite) flipVertically() bool {
+func (s *Sprite) flipVertically() bool {
 	flip := (s.attributes >> 7) & 1
 	return flip == 1
 }

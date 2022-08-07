@@ -76,19 +76,21 @@ func (c *Compiler) Parse(fileName string, data []byte) error {
 		return fmt.Errorf("processing file '%s': %w", fileName, err)
 	}
 	c.packages[file.Package] = pack
-	c.updatePackagesToLoad(file.Imports)
+	c.updatePackagesToLoadFromImports(file.Imports)
 
 	for len(c.packagesToLoad) > 0 {
 		for packageName := range c.packagesToLoad {
-			if pack, err = parsePackage(packageName); err != nil {
+			var subPackages []string
+			if pack, subPackages, err = parsePackage(packageName); err != nil {
 				return fmt.Errorf("parsing package '%s': %w", fileName, err)
 			}
 			c.packages[packageName] = pack
 			delete(c.packagesToLoad, packageName)
 
 			for _, file = range pack.files {
-				c.updatePackagesToLoad(file.Imports)
+				c.updatePackagesToLoadFromImports(file.Imports)
 			}
+			c.updatePackagesToLoad(subPackages)
 		}
 	}
 
@@ -177,8 +179,7 @@ func (c *Compiler) optimize() error {
 	return c.inlineFunctions()
 }
 
-// addHandlersToParse parses the main function to get the entrypoints
-// for the NES handlers.
+// addHandlersToParse parses the main function to get the entrypoints for the NES handlers.
 func (c *Compiler) addHandlersToParse(mainPackage *Package) error {
 	mainFunc := mainPackage.functions["main"]
 	if mainFunc == nil {
@@ -214,12 +215,20 @@ func (c *Compiler) addHandlersToParse(mainPackage *Package) error {
 	return nil
 }
 
-// updatePackagesToLoad adds imports that are not loaded yet to the list
-// of packages to load.
-func (c *Compiler) updatePackagesToLoad(imports []*ast.Import) {
+// updatePackagesToLoadFromImports adds imports that are not loaded yet to the list of packages to load.
+func (c *Compiler) updatePackagesToLoadFromImports(imports []*ast.Import) {
 	for _, imp := range imports {
 		if _, ok := c.packages[imp.Path]; !ok {
 			c.packagesToLoad[imp.Path] = struct{}{}
+		}
+	}
+}
+
+// updatePackagesToLoad adds packages that are not loaded yet to the list of packages to load.
+func (c *Compiler) updatePackagesToLoad(packages []string) {
+	for _, pack := range packages {
+		if _, ok := c.packages[pack]; !ok {
+			c.packagesToLoad[pack] = struct{}{}
 		}
 	}
 }
