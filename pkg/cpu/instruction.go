@@ -41,8 +41,10 @@ func (ins Instruction) HasAddressing(flags ...Mode) bool {
 	return false
 }
 
-// LinkInstructionFuncs links cpu instruction emulation functions
-// to the CPU instance.
+// LinkInstructionFuncs links cpu instruction emulation functions to the CPU instance.
+// Defining it directly in the instruction instances like ParamFunc: (CPU*).Adc does not work
+// due to an initialization loop of Opcodes refers to adc refers to CPU.Adc refers to
+// instructionHook refers to Opcodes.
 // nolint: funlen
 func LinkInstructionFuncs(cpu *CPU) {
 	adc.ParamFunc = cpu.Adc
