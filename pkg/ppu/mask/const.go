@@ -1,8 +1,6 @@
 package mask
 
 const (
-	// TODO remove duplicate from ppu once compiler supports parsing subdirectories
-
 	// PPU_MASK flags
 	MASK_COLOR      = 0b0000_0000 // Display in Color
 	MASK_MONO       = 0b0000_0001 // Display in Monochrome
