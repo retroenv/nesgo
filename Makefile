@@ -5,10 +5,6 @@ generate: ## regenerate all files
 	cd internal/gocc && gocc -p github.com/retroenv/nesgo/internal/gocc -a lang.bnf
 
 lint: ## run code linters
-	flint ./cmd/...
-	flint ./internal/ast/...
-	flint ./internal/gocc/...
-	flint ./pkg/nes/...
 	golangci-lint run
 
 build-all: ## build code with all 3 GUI mode settings
@@ -43,7 +39,6 @@ install-no-gui: ## install all binaries with gui disabled
 	go install -tags nogui ./cmd/...
 
 install-linters: ## install all used linters
-	go install github.com/fraugster/flint@v0.1.1
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.48.0
 
 release: ## build release binaries for current git tag and publish on github
