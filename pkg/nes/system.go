@@ -74,8 +74,8 @@ func (sys *System) LinkAliases() {
 // DecodeInstructionAtPC decodes the current instruction at the program counter.
 func (sys *System) DecodeInstructionAtPC() (cpu.Opcode, error) {
 	b := sys.Bus.Memory.Read(*PC)
-	opcode, ok := cpu.Opcodes[b]
-	if !ok {
+	opcode := cpu.Opcodes[b]
+	if opcode.Instruction == nil {
 		return cpu.Opcode{}, fmt.Errorf("unsupported opcode %00x", b)
 	}
 
