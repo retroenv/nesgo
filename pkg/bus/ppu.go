@@ -7,5 +7,5 @@ type PPU interface {
 	BasicMemory
 
 	Image() *image.RGBA
-	Step()
+	Step(cycles int)
 }

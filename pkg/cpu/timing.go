@@ -10,6 +10,8 @@ import (
 // It allows for accounting of the instruction timing and trace logging.
 // Params can be of length 0 to 2.
 func (c *CPU) instructionHook(instruction *Instruction, params ...any) {
+	startCycles := c.cycles
+
 	if c.tracing == NoTracing {
 		addressing := c.addressModeFromCall(instruction, params...)
 		if !instruction.HasAddressing(addressing) {
@@ -29,6 +31,11 @@ func (c *CPU) instructionHook(instruction *Instruction, params ...any) {
 			c.cycles++
 		}
 	}
+
+	// this executes the ppu steps before the instruction
+	cpuCycles := c.cycles - startCycles
+	ppuCycles := cpuCycles * 3
+	c.bus.PPU.Step(int(ppuCycles))
 }
 
 // AccountBranchingPageCrossCycle accounts for a branch page crossing extra CPU cycle.

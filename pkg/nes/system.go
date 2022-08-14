@@ -104,11 +104,9 @@ func (sys *System) runEmulatorSteps(stopAt int) {
 		}
 
 		ins := opcode.Instruction
-		startCycles := sys.CPU.Cycles()
 		if ins.NoParamFunc != nil {
 			ins.NoParamFunc()
 			sys.updatePC(ins, oldPC, 1)
-			sys.runPPUSteps(startCycles)
 			continue
 		}
 
@@ -118,16 +116,6 @@ func (sys *System) runEmulatorSteps(stopAt int) {
 
 		ins.ParamFunc(params...)
 		sys.updatePC(ins, oldPC, len(sys.TraceStep.Opcode))
-		sys.runPPUSteps(startCycles)
-	}
-}
-
-func (sys *System) runPPUSteps(startCycles uint64) {
-	cpuCycles := sys.CPU.Cycles() - startCycles
-
-	ppuCycles := int(cpuCycles) * 3
-	for i := 0; i < ppuCycles; i++ {
-		sys.Bus.PPU.Step()
 	}
 }
 

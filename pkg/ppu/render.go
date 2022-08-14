@@ -11,8 +11,14 @@ func (p *PPU) Image() *image.RGBA {
 	return p.screen.Image()
 }
 
-// Step executes a PPU cycle.
-func (p *PPU) Step() {
+// Step executes PPU cycles.
+func (p *PPU) Step(cycles int) {
+	for i := 0; i < cycles; i++ {
+		p.step()
+	}
+}
+
+func (p *PPU) step() {
 	p.nmi.Trigger(p.bus.CPU)
 	p.renderState.Tick(p.mask)
 
