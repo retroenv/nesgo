@@ -20,29 +20,26 @@ func New() *Palette {
 
 // Read a value from the palette address.
 func (p *Palette) Read(address uint16) byte {
-	p.mu.RLock()
-	defer p.mu.RUnlock()
-
 	base := mirroredPaletteAddressToBase(address)
+	p.mu.RLock()
 	value := p.data[base]
+	p.mu.RUnlock()
 	return value
 }
 
 // Write a value to a palette address.
 func (p *Palette) Write(address uint16, value byte) {
-	p.mu.Lock()
-	defer p.mu.Unlock()
-
 	base := mirroredPaletteAddressToBase(address)
+	p.mu.Lock()
 	p.data[base] = value
+	p.mu.Unlock()
 }
 
 // Data returns the palette data as byte array.
 func (p *Palette) Data() [32]byte {
 	p.mu.RLock()
-	defer p.mu.RUnlock()
-
 	data := p.data
+	p.mu.RUnlock()
 	return data
 }
 

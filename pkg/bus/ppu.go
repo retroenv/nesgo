@@ -1,6 +1,10 @@
 package bus
 
-import "image"
+import (
+	"image"
+
+	"github.com/retroenv/nesgo/pkg/cartridge"
+)
 
 // PPU represents the Picture Processing Unit.
 type PPU interface {
@@ -11,9 +15,22 @@ type PPU interface {
 	Step(cycles int)
 }
 
-// Palette returns the PPU palette.
+// Palette represents the PPU palette.
 type Palette interface {
 	BasicMemory
 
 	Data() [32]byte
+}
+
+// NameTable represents a name table interface.
+type NameTable interface {
+	BasicMemory
+
+	Data() [4][]byte
+	MirrorMode() cartridge.MirrorMode
+	SetMirrorMode(mirrorMode cartridge.MirrorMode)
+	SetVRAM(vram []byte)
+
+	Fetch(address uint16)
+	Value() byte
 }
