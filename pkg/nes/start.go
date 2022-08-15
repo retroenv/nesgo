@@ -30,11 +30,18 @@ func Start(resetHandlerParam func(), options ...Option) {
 		sys.CPU.SetResetHandlerTraceInfo(resetHandlerParam)
 	}
 
+	ctx := Context()
+	var debugServer *debugServer
+	if opts.debug {
+		debugServer = newDebugServer(opts.debugAddress, sys)
+		go debugServer.start(ctx)
+	}
+
 	guiStarter := setupNoGui
 	if GuiStarter != nil && !opts.noGui {
 		guiStarter = GuiStarter
 	}
-	if err := sys.runRenderer(opts, guiStarter); err != nil {
+	if err := sys.runRenderer(ctx, opts, guiStarter); err != nil {
 		panic(err)
 	}
 }

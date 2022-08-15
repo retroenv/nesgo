@@ -14,6 +14,9 @@ import (
 type optionFlags struct {
 	input string
 
+	debug        bool
+	debugAddress string
+
 	entrypoint int
 	noGui      bool
 	stopAt     int
@@ -33,8 +36,10 @@ func readArguments() optionFlags {
 	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 	options := optionFlags{}
 
-	flags.BoolVar(&options.noGui, "c", false, "console mode, disable GUI")
+	flags.BoolVar(&options.debug, "d", false, "start built-in webserver for debug mode")
+	flags.StringVar(&options.debugAddress, "a", "127.0.0.1:8080", "listening address for the debug server to use")
 	flags.IntVar(&options.entrypoint, "e", -1, "entrypoint to start the CPU")
+	flags.BoolVar(&options.noGui, "c", false, "console mode, disable GUI")
 	flags.IntVar(&options.stopAt, "s", -1, "stop execution at address")
 	flags.BoolVar(&options.tracing, "t", false, "print CPU tracing")
 
@@ -75,6 +80,9 @@ func emulateFile(options optionFlags) error {
 		nes.WithCartridge(cart),
 	}
 
+	if options.debug {
+		opts = append(opts, nes.WithDebug(options.debugAddress))
+	}
 	if options.tracing {
 		opts = append(opts, nes.WithTracing())
 	}

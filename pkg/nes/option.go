@@ -14,6 +14,9 @@ type options struct {
 	entrypoint int
 	stopAt     int
 
+	debug        bool
+	debugAddress string
+
 	emulator  bool
 	noGui     bool
 	cartridge *cartridge.Cartridge
@@ -70,6 +73,14 @@ func WithIrqHandler(f func()) func(*options) {
 func WithNmiHandler(f func()) func(*options) {
 	return func(options *options) {
 		options.nmiHandler = f
+	}
+}
+
+// WithDebug enables the debugging mode and webserver.
+func WithDebug(debugAddress string) func(*options) {
+	return func(options *options) {
+		options.debug = true
+		options.debugAddress = debugAddress
 	}
 }
 

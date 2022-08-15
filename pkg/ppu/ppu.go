@@ -102,3 +102,8 @@ func (p *PPU) getStatus() byte {
 	value := p.status.Value()
 	return value
 }
+
+// Palette returns the palette.
+func (p *PPU) Palette() bus.Palette {
+	return p.palette
+}

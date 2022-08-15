@@ -3,6 +3,7 @@
 package nes
 
 import (
+	"context"
 	"fmt"
 	"sync/atomic"
 	"time"
@@ -139,7 +140,7 @@ func (sys *System) updatePC(ins *cpu.Instruction, oldPC uint16, amount int) {
 }
 
 // runRenderer starts the chosen GUI renderer.
-func (sys *System) runRenderer(opts *options, guiStarter guiInitializer) error {
+func (sys *System) runRenderer(ctx context.Context, opts *options, guiStarter guiInitializer) error {
 	render, cleanup, err := guiStarter(sys.Bus)
 	if err != nil {
 		return err
@@ -162,6 +163,13 @@ func (sys *System) runRenderer(opts *options, guiStarter guiInitializer) error {
 		if err != nil {
 			return err
 		}
+
+		select {
+		case <-ctx.Done():
+			continueRunning = false
+		default:
+		}
+
 		if !continueRunning {
 			atomic.StoreUint64(&running, 0)
 		}
