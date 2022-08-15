@@ -12,6 +12,9 @@ func TestVerifyOpcodes(t *testing.T) {
 
 	for b, op := range Opcodes {
 		ins := op.Instruction
+		if ins == nil {
+			continue
+		}
 		if ins.Unofficial && ins.Name == NopInstruction {
 			// unofficial nop has multiple opcodes for the
 			// same addressing mode
