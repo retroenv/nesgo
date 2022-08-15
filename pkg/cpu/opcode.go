@@ -29,12 +29,13 @@ var Opcodes = [256]Opcode{
 	{Instruction: ora, Addressing: ImmediateAddressing, Timing: 2},           // 0x09
 	{Instruction: asl, Addressing: AccumulatorAddressing, Timing: 2},         // 0x0a
 	{}, // 0x0b
-	{Instruction: unofficialNop, Addressing: AbsoluteAddressing, Timing: 4},                        // 0x0c
-	{Instruction: ora, Addressing: AbsoluteAddressing, Timing: 4},                                  // 0x0d
-	{Instruction: asl, Addressing: AbsoluteAddressing, Timing: 6},                                  // 0x0e
-	{Instruction: unofficialSlo, Addressing: AbsoluteAddressing, Timing: 6},                        // 0x0f
-	{Instruction: bpl, Addressing: RelativeAddressing, Timing: 2},                                  // 0x10
-	{Instruction: ora, Addressing: IndirectYAddressing, Timing: 5, PageCrossCycle: true},           // 0x11
+	{Instruction: unofficialNop, Addressing: AbsoluteAddressing, Timing: 4},              // 0x0c
+	{Instruction: ora, Addressing: AbsoluteAddressing, Timing: 4},                        // 0x0d
+	{Instruction: asl, Addressing: AbsoluteAddressing, Timing: 6},                        // 0x0e
+	{Instruction: unofficialSlo, Addressing: AbsoluteAddressing, Timing: 6},              // 0x0f
+	{Instruction: bpl, Addressing: RelativeAddressing, Timing: 2},                        // 0x10
+	{Instruction: ora, Addressing: IndirectYAddressing, Timing: 5, PageCrossCycle: true}, // 0x11
+	{}, // 0x12
 	{Instruction: unofficialSlo, Addressing: IndirectYAddressing, Timing: 8},                       // 0x13
 	{Instruction: unofficialNop, Addressing: ZeroPageXAddressing, Timing: 4},                       // 0x14
 	{Instruction: ora, Addressing: ZeroPageXAddressing, Timing: 4},                                 // 0x15
@@ -45,12 +46,11 @@ var Opcodes = [256]Opcode{
 	{Instruction: unofficialNop, Addressing: ImpliedAddressing, Timing: 2},                         // 0x1a
 	{Instruction: unofficialSlo, Addressing: AbsoluteYAddressing, Timing: 7},                       // 0x1b
 	{Instruction: unofficialNop, Addressing: AbsoluteXAddressing, Timing: 4, PageCrossCycle: true}, // 0x1c
-	{}, // 0x1c
-	{Instruction: ora, Addressing: AbsoluteXAddressing, Timing: 4, PageCrossCycle: true}, // 0x1d
-	{Instruction: asl, Addressing: AbsoluteXAddressing, Timing: 7},                       // 0x1e
-	{Instruction: unofficialSlo, Addressing: AbsoluteXAddressing, Timing: 7},             // 0x1f
-	{Instruction: jsr, Addressing: AbsoluteAddressing, Timing: 6},                        // 0x20
-	{Instruction: and, Addressing: IndirectXAddressing, Timing: 6},                       // 0x21
+	{Instruction: ora, Addressing: AbsoluteXAddressing, Timing: 4, PageCrossCycle: true},           // 0x1d
+	{Instruction: asl, Addressing: AbsoluteXAddressing, Timing: 7},                                 // 0x1e
+	{Instruction: unofficialSlo, Addressing: AbsoluteXAddressing, Timing: 7},                       // 0x1f
+	{Instruction: jsr, Addressing: AbsoluteAddressing, Timing: 6},                                  // 0x20
+	{Instruction: and, Addressing: IndirectXAddressing, Timing: 6},                                 // 0x21
 	{}, // 0x22
 	{Instruction: unofficialRla, Addressing: IndirectXAddressing, Timing: 8}, // 0x23
 	{Instruction: bit, Addressing: ZeroPageAddressing, Timing: 3},            // 0x24
