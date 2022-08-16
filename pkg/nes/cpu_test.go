@@ -858,7 +858,7 @@ func TestRti(t *testing.T) {
 
 func TestRts(t *testing.T) {
 	t.Parallel()
-	sys := NewSystem(nil)
+	sys := NewSystem(NewOptions(WithEmulator()))
 
 	sys.Push16(0x100)
 	sys.Rts()

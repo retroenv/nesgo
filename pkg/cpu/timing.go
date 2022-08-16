@@ -11,6 +11,11 @@ import (
 // Params can be of length 0 to 2.
 // At the end of the function the write lock is taken and a unlocker function returned.
 func (c *CPU) instructionHook(instruction *Instruction, params ...any) func() {
+	if !c.emulator {
+		// trigger interrupt checking here as the system is not looping through the instructions in go mode
+		c.CheckInterrupts()
+	}
+
 	startCycles := c.cycles
 
 	if c.tracing == NoTracing {

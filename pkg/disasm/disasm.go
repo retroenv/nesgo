@@ -56,9 +56,10 @@ type Disasm struct {
 
 // New creates a new NES disassembler that creates output compatible with the chosen assembler.
 func New(cart *cartridge.Cartridge, options *disasmoptions.Options) (*Disasm, error) {
+	nesOpts := nes.NewOptions(nes.WithCartridge(cart))
 	dis := &Disasm{
 		options:         options,
-		sys:             nes.NewSystem(cart),
+		sys:             nes.NewSystem(nesOpts),
 		cart:            cart,
 		codeBaseAddress: uint16(0x10000 - len(cart.PRG)),
 		variables:       map[uint16]*variable{},

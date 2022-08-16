@@ -27,5 +27,6 @@ type CPU interface {
 	Cycles() uint64
 	StallCycles(cycles uint16)
 	State() CPUState
+	TriggerIrq()
 	TriggerNMI()
 }

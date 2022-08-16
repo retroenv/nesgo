@@ -150,11 +150,7 @@ func (c *CPU) BplInternal(params ...any) {
 // Brk - Force Interrupt.
 func (c *CPU) Brk() {
 	defer c.instructionHook(brk)()
-
-	if *c.irqHandler != nil {
-		f := *c.irqHandler
-		f()
-	}
+	c.irq()
 }
 
 // Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
@@ -396,7 +392,10 @@ func (c *CPU) Pha() {
 // Php - Push Processor Status - push status flags to stack.
 func (c *CPU) Php() {
 	defer c.instructionHook(php)()
+	c.phpInternal()
+}
 
+func (c *CPU) phpInternal() {
 	f := c.GetFlags()
 	f |= 0b0001_0000 // break is set to 1
 	c.push(f)
@@ -467,11 +466,6 @@ func (c *CPU) rorInternal(params ...any) {
 // Rti - Return from Interrupt.
 func (c *CPU) Rti() {
 	defer c.instructionHook(rti)()
-}
-
-// RtiInternal - Return from Interrupt.
-func (c *CPU) RtiInternal() {
-	defer c.instructionHook(rti)()
 
 	b := c.Pop()
 	b &= 0b1110_1111 // break flag is ignored
@@ -484,7 +478,9 @@ func (c *CPU) RtiInternal() {
 func (c *CPU) Rts() {
 	defer c.instructionHook(rts)()
 
-	c.PC = c.Pop16() + 1
+	if c.emulator {
+		c.PC = c.Pop16() + 1
+	}
 }
 
 // Sbc - subtract with Carry.

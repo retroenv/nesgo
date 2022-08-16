@@ -88,7 +88,7 @@ func LinkInstructionFuncs(cpu *CPU) {
 	plp.NoParamFunc = cpu.Plp
 	rol.ParamFunc = cpu.Rol
 	ror.ParamFunc = cpu.Ror
-	rti.NoParamFunc = cpu.RtiInternal
+	rti.NoParamFunc = cpu.Rti
 	rts.NoParamFunc = cpu.Rts
 	sbc.ParamFunc = cpu.Sbc
 	sec.NoParamFunc = cpu.Sec

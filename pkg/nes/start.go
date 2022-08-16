@@ -16,8 +16,8 @@ import "github.com/retroenv/nesgo/pkg/nes/debugger"
 //
 //	certain types of cartridge hardware.
 func Start(resetHandlerParam func(), options ...Option) {
-	opts := newOptions(options...)
-	sys := NewSystem(opts.cartridge)
+	opts := NewOptions(options...)
+	sys := NewSystem(opts)
 	if opts.entrypoint >= 0 {
 		sys.PC = uint16(opts.entrypoint)
 	}

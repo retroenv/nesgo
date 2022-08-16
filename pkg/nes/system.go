@@ -30,7 +30,11 @@ type System struct {
 }
 
 // NewSystem creates a new NES system.
-func NewSystem(cart *cartridge.Cartridge) *System {
+func NewSystem(opts *Options) *System {
+	if opts == nil {
+		opts = &Options{}
+	}
+	cart := opts.cartridge
 	if cart == nil {
 		cart = cartridge.New()
 	}
@@ -52,10 +56,12 @@ func NewSystem(cart *cartridge.Cartridge) *System {
 	systemBus.PPU = ppu.New(systemBus)
 
 	sys := &System{
-		Bus: systemBus,
+		Bus:        systemBus,
+		NmiHandler: opts.nmiHandler,
+		IrqHandler: opts.irqHandler,
 	}
 
-	sys.CPU = cpu.New(systemBus, &sys.IrqHandler)
+	sys.CPU = cpu.New(systemBus, &sys.NmiHandler, &sys.IrqHandler, opts.emulator)
 	systemBus.CPU = sys.CPU
 	return sys
 }
@@ -98,26 +104,31 @@ func (sys *System) runEmulatorSteps(stopAt int) {
 			return
 		}
 
-		oldPC := *PC
-		opcode, err := sys.DecodeInstructionAtPC()
-		if err != nil {
-			panic(err)
-		}
-
-		ins := opcode.Instruction
-		if ins.NoParamFunc != nil {
-			ins.NoParamFunc()
-			sys.updatePC(ins, oldPC, 1)
-			continue
-		}
-
-		params, opcodes, pageCrossed := ReadOpParams(sys.Bus.Memory, opcode.Addressing, true)
-		sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
-		sys.TraceStep.PageCrossed = pageCrossed
-
-		ins.ParamFunc(params...)
-		sys.updatePC(ins, oldPC, len(sys.TraceStep.Opcode))
+		sys.CPU.CheckInterrupts()
+		sys.runEmulatorStep()
 	}
+}
+
+func (sys *System) runEmulatorStep() {
+	oldPC := *PC
+	opcode, err := sys.DecodeInstructionAtPC()
+	if err != nil {
+		panic(err)
+	}
+
+	ins := opcode.Instruction
+	if ins.NoParamFunc != nil {
+		ins.NoParamFunc()
+		sys.updatePC(ins, oldPC, 1)
+		return
+	}
+
+	params, opcodes, pageCrossed := ReadOpParams(sys.Bus.Memory, opcode.Addressing, true)
+	sys.TraceStep.Opcode = append(sys.TraceStep.Opcode, opcodes...)
+	sys.TraceStep.PageCrossed = pageCrossed
+
+	ins.ParamFunc(params...)
+	sys.updatePC(ins, oldPC, len(sys.TraceStep.Opcode))
 }
 
 func (sys *System) updatePC(ins *cpu.Instruction, oldPC uint16, amount int) {
@@ -140,7 +151,7 @@ func (sys *System) updatePC(ins *cpu.Instruction, oldPC uint16, amount int) {
 }
 
 // runRenderer starts the chosen GUI renderer.
-func (sys *System) runRenderer(ctx context.Context, opts *options, guiStarter guiInitializer) error {
+func (sys *System) runRenderer(ctx context.Context, opts *Options, guiStarter guiInitializer) error {
 	render, cleanup, err := guiStarter(sys.Bus)
 	if err != nil {
 		return err
