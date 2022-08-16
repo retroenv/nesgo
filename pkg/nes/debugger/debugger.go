@@ -30,6 +30,11 @@ func New(listenAddress string, bus *bus.Bus) *Debugger {
 
 	r := chi.NewRouter()
 
+	r.Route("/cpu", func(r chi.Router) {
+		r.Get("/", d.cpuState)
+		r.Post("/pause", d.cpuPause)
+	})
+
 	r.Route("/ppu", func(r chi.Router) {
 		r.Get("/palette", d.ppuPalette)
 		r.Get("/nametables", d.ppuNameTables)

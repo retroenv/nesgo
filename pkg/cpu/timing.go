@@ -9,7 +9,8 @@ import (
 // instructionHook is a hook that is executed before a CPU instruction is executed.
 // It allows for accounting of the instruction timing and trace logging.
 // Params can be of length 0 to 2.
-func (c *CPU) instructionHook(instruction *Instruction, params ...any) {
+// At the end of the function the write lock is taken and a unlocker function returned.
+func (c *CPU) instructionHook(instruction *Instruction, params ...any) func() {
 	startCycles := c.cycles
 
 	if c.tracing == NoTracing {
@@ -36,6 +37,8 @@ func (c *CPU) instructionHook(instruction *Instruction, params ...any) {
 	cpuCycles := c.cycles - startCycles
 	ppuCycles := cpuCycles * 3
 	c.bus.PPU.Step(int(ppuCycles))
+
+	return c.writeLock()
 }
 
 // AccountBranchingPageCrossCycle accounts for a branch page crossing extra CPU cycle.

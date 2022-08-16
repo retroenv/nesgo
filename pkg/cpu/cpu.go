@@ -3,6 +3,7 @@ package cpu
 
 import (
 	"io"
+	"sync"
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
@@ -19,6 +20,8 @@ const (
 
 // CPU implements a MOS Technology 6502 CPU.
 type CPU struct {
+	mu sync.RWMutex
+
 	A     uint8  // accumulator
 	X     uint8  // x register
 	Y     uint8  // y register
@@ -96,4 +99,15 @@ func (c *CPU) StallCycles(cycles uint16) {
 // TriggerNMI causes a non-maskable interrupt to occur on the next cycle.
 func (c *CPU) TriggerNMI() {
 	c.triggerNmi = true
+}
+
+// writeLock takes the mutex write lock and returns a function to write unlock to allow an easy use for
+// the lock/unlock mechanism in the form of defer c.writeLock()()
+func (c *CPU) writeLock() func() {
+	c.mu.Lock()
+	return c.writeUnlock
+}
+
+func (c *CPU) writeUnlock() {
+	c.mu.Unlock()
 }
