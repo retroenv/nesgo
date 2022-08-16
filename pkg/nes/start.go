@@ -2,14 +2,19 @@
 
 package nes
 
+import "github.com/retroenv/nesgo/pkg/nes/debugger"
+
 // Start is the main entrypoint for a NES program that starts the execution.
 // Different options can be passed.
 // Following callback function that will be called by NES when different events occur:
 // resetHandler: called when the system gets turned on or reset
 // nmiHandler:   occurs when the PPU starts preparing the next frame of
-//               graphics, 60 times per second
+//
+//	graphics, 60 times per second
+//
 // irqHandler:   can be triggered by the NES sound processor or from
-//               certain types of cartridge hardware.
+//
+//	certain types of cartridge hardware.
 func Start(resetHandlerParam func(), options ...Option) {
 	opts := newOptions(options...)
 	sys := NewSystem(opts.cartridge)
@@ -31,10 +36,10 @@ func Start(resetHandlerParam func(), options ...Option) {
 	}
 
 	ctx := Context()
-	var debugServer *debugServer
+	var debugServer *debugger.Debugger
 	if opts.debug {
-		debugServer = newDebugServer(opts.debugAddress, sys)
-		go debugServer.start(ctx)
+		debugServer = debugger.New(opts.debugAddress, sys.Bus)
+		go debugServer.Start(ctx)
 	}
 
 	guiStarter := setupNoGui

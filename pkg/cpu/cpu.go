@@ -17,7 +17,7 @@ const (
 	InitialStack  = 0xFD
 )
 
-// CPU implements a MOS Technology 650 CPU.
+// CPU implements a MOS Technology 6502 CPU.
 type CPU struct {
 	A     uint8  // accumulator
 	X     uint8  // x register
