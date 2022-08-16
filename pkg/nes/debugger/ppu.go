@@ -3,40 +3,68 @@
 package debugger
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/http"
-	"strings"
 )
+
+type ppuPaletteBackground struct {
+	Color    hexArray `json:"color"`
+	Palette0 hexArray `json:"palette0"`
+	Palette1 hexArray `json:"palette1"`
+	Palette2 hexArray `json:"palette2"`
+}
+
+type ppuPaletteSprite struct {
+	Palette0 hexArray `json:"palette0"`
+	Palette1 hexArray `json:"palette1"`
+	Palette2 hexArray `json:"palette2"`
+	Palette3 hexArray `json:"palette3"`
+}
+
+type ppuPalette struct {
+	Background ppuPaletteBackground `json:"background"`
+	Sprite     ppuPaletteSprite     `json:"sprite"`
+}
 
 func (d *Debugger) ppuPalette(w http.ResponseWriter, r *http.Request) {
 	palette := d.bus.PPU.Palette()
 	data := palette.Data()
 
-	buf := strings.Builder{}
-	fmt.Fprintf(&buf, "background color: %s\n", bytesToHex(data[0:1]))
-	fmt.Fprintf(&buf, "background palette 0: %s\n", bytesToHex(data[1:4]))
-	fmt.Fprintf(&buf, "background palette 1: %s\n", bytesToHex(data[4:7]))
-	fmt.Fprintf(&buf, "background palette 2: %s\n", bytesToHex(data[7:10]))
-	fmt.Fprintf(&buf, "sprite palette 0: %s\n", bytesToHex(data[10:13]))
-	fmt.Fprintf(&buf, "sprite palette 1: %s\n", bytesToHex(data[13:16]))
-	fmt.Fprintf(&buf, "sprite palette 2: %s\n", bytesToHex(data[16:19]))
-	fmt.Fprintf(&buf, "sprite palette 3: %s\n", bytesToHex(data[19:22]))
-	_, _ = w.Write([]byte(buf.String()))
+	res := ppuPalette{
+		Background: ppuPaletteBackground{
+			Color:    data[0:1],
+			Palette0: data[1:4],
+			Palette1: data[4:7],
+			Palette2: data[7:10],
+		},
+		Sprite: ppuPaletteSprite{
+			Palette0: data[10:13],
+			Palette1: data[13:16],
+			Palette2: data[16:19],
+			Palette3: data[19:22],
+		},
+	}
+
+	_ = json.NewEncoder(w).Encode(res)
+}
+
+type ppuNameTables struct {
+	NameTable0 []hexArrayCombined `json:"nametable0"`
+	NameTable1 []hexArrayCombined `json:"nametable1"`
+	NameTable2 []hexArrayCombined `json:"nametable2"`
+	NameTable3 []hexArrayCombined `json:"nametable3"`
 }
 
 func (d *Debugger) ppuNameTables(w http.ResponseWriter, r *http.Request) {
 	tables := d.bus.NameTable.Data()
 
-	buf := strings.Builder{}
-
-	for table := 0; table < 4; table++ {
-		fmt.Fprintf(&buf, "nametable %d\n", table)
-
-		data := tables[table]
-		for row := 0; row < 30; row++ {
-			address := row * 32
-			fmt.Fprintf(&buf, "%s\n", bytesToHex(data[address:address+32]))
-		}
+	tableLen := 30 * 32
+	res := ppuNameTables{
+		NameTable0: bytesToSliceArrayCombined(tables[0][:tableLen], 30, 32),
+		NameTable1: bytesToSliceArrayCombined(tables[1][:tableLen], 30, 32),
+		NameTable2: bytesToSliceArrayCombined(tables[2][:tableLen], 30, 32),
+		NameTable3: bytesToSliceArrayCombined(tables[3][:tableLen], 30, 32),
 	}
-	_, _ = w.Write([]byte(buf.String()))
+
+	_ = json.NewEncoder(w).Encode(res)
 }

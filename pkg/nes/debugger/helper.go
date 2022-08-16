@@ -3,15 +3,45 @@
 package debugger
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 )
 
-func bytesToHex(data []byte) string {
-	parts := make([]string, 0, len(data))
-	for _, b := range data {
-		parts = append(parts, fmt.Sprintf("%02X", b))
+// hexArray implements a byte array alias that JSON marshalls to a hex array output.
+type hexArray []byte
+
+func (a hexArray) MarshalJSON() ([]byte, error) {
+	parts := make([]string, len(a))
+	for i, b := range a {
+		parts[i] = fmt.Sprintf("%02X", b)
 	}
-	s := strings.Join(parts, ",")
-	return s
+
+	return json.Marshal(parts)
+}
+
+// hexArrayCombined implements a byte array alias that JSON marshalls to a hex string output.
+type hexArrayCombined []byte
+
+func (a hexArrayCombined) MarshalJSON() ([]byte, error) {
+	buf := strings.Builder{}
+
+	for _, b := range a {
+		s := fmt.Sprintf("%02X", b)
+		buf.WriteString(s)
+	}
+
+	return json.Marshal(buf.String())
+}
+
+// nolint: unparam
+func bytesToSliceArrayCombined(data []byte, rows, width int) []hexArrayCombined {
+	var result []hexArrayCombined
+
+	for row := 0; row < rows; row++ {
+		offset := row * width
+		result = append(result, data[offset:offset+width])
+	}
+
+	return result
 }
