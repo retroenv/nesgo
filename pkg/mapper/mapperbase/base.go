@@ -3,6 +3,7 @@ package mapperbase
 
 import (
 	"fmt"
+	"sync"
 
 	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/bus"
@@ -24,6 +25,7 @@ type bankMapper func(address uint16) (int, uint16)
 
 // Base provides common functionality for most mappers.
 type Base struct {
+	mu   sync.RWMutex
 	bus  *bus.Bus
 	name string // optional
 
@@ -62,14 +64,26 @@ func New(bus *bus.Bus) *Base {
 	}
 }
 
-// Name returns the name of the mapper.
-func (b *Base) Name() string {
-	return b.name
+// State returns the current state of the mapper.
+func (b *Base) State() bus.MapperState {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
+
+	state := bus.MapperState{
+		ID:         b.bus.Cartridge.Mapper,
+		Name:       b.name,
+		ChrWindows: b.chrWindows,
+		PrgWindows: b.prgWindows,
+	}
+
+	return state
 }
 
 // SetName sets the name of the mapper.
 func (b *Base) SetName(name string) {
+	b.mu.Lock()
 	b.name = name
+	b.mu.Unlock()
 }
 
 // Read a byte from a CHR or PRG memory address.
@@ -88,7 +102,9 @@ func (b *Base) Read(address uint16) uint8 {
 	switch {
 	case address < 0x2000:
 		bankNr, offset := b.chrBankMapper(address)
+		b.mu.RLock()
 		bank := &b.chrBanks[bankNr]
+		b.mu.RUnlock()
 		value = bank.data[offset]
 
 	case address >= prgRAMStart && address <= prgRAMEnd && len(b.prgRAM) > 0:
@@ -97,7 +113,9 @@ func (b *Base) Read(address uint16) uint8 {
 
 	case address >= addressing.CodeBaseAddress:
 		bankNr, offset := b.prgBankMapper(address)
+		b.mu.RLock()
 		bank := &b.prgBanks[bankNr]
+		b.mu.RUnlock()
 		value = bank.data[offset]
 
 	default:
@@ -148,6 +166,9 @@ func (b *Base) Cartridge() *cartridge.Cartridge {
 }
 
 func (b *Base) defaultChrBankMapper(address uint16) (int, uint16) {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
+
 	offset := address % uint16(b.chrWindowSize)
 	windowNr := address / uint16(b.chrWindowSize)
 	bankNr := b.chrWindows[windowNr]
@@ -155,6 +176,9 @@ func (b *Base) defaultChrBankMapper(address uint16) (int, uint16) {
 }
 
 func (b *Base) defaultPrgBankMapper(address uint16) (int, uint16) {
+	b.mu.RLock()
+	defer b.mu.RUnlock()
+
 	address -= addressing.CodeBaseAddress
 	offset := address % uint16(b.prgWindowSize)
 	windowNr := address / uint16(b.prgWindowSize)

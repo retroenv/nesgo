@@ -2,10 +2,19 @@ package bus
 
 import "github.com/retroenv/nesgo/pkg/cartridge"
 
+// MapperState contains the current state of the mapper.
+type MapperState struct {
+	ID   byte   `json:"id"`
+	Name string `json:"name"`
+
+	ChrWindows []int `json:"chrWindows"`
+	PrgWindows []int `json:"prgWindows"`
+}
+
 // Mapper represents a mapper memory access interface.
 type Mapper interface {
 	BasicMemory
 
 	MirrorMode() cartridge.MirrorMode
-	Name() string
+	State() MapperState
 }

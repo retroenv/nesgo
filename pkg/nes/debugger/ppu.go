@@ -5,6 +5,8 @@ package debugger
 import (
 	"encoding/json"
 	"net/http"
+
+	"github.com/retroenv/nesgo/pkg/cartridge"
 )
 
 type ppuPaletteBackground struct {
@@ -64,6 +66,20 @@ func (d *Debugger) ppuNameTables(w http.ResponseWriter, r *http.Request) {
 		NameTable1: bytesToSliceArrayCombined(tables[1][:tableLen], 30, 32),
 		NameTable2: bytesToSliceArrayCombined(tables[2][:tableLen], 30, 32),
 		NameTable3: bytesToSliceArrayCombined(tables[3][:tableLen], 30, 32),
+	}
+
+	_ = json.NewEncoder(w).Encode(res)
+}
+
+type ppuMirrorMode struct {
+	MirrorMode cartridge.MirrorMode `json:"mirrorMode"`
+}
+
+func (d *Debugger) ppuMirrorMode(w http.ResponseWriter, r *http.Request) {
+	mirrorMode := d.bus.NameTable.MirrorMode()
+
+	res := ppuMirrorMode{
+		MirrorMode: mirrorMode,
 	}
 
 	_ = json.NewEncoder(w).Encode(res)

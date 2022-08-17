@@ -18,9 +18,9 @@ func NewMockMapper(bus *bus.Bus) bus.Mapper {
 	}
 }
 
-// Name returns the name of the mapper.
-func (m *MockMapper) Name() string {
-	return ""
+// State returns the current state of the mapper.
+func (m *MockMapper) State() bus.MapperState {
+	return bus.MapperState{}
 }
 
 // MirrorMode returns the set mirror mode.

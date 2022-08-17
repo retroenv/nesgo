@@ -40,7 +40,9 @@ func (b *Base) SetPrgWindow(window, bank int) {
 	}
 	bank %= len(b.prgBanks)
 
+	b.mu.Lock()
 	b.prgWindows[window] = bank
+	b.mu.Unlock()
 }
 
 // SetPrgWindowSize sets the PRG window size.

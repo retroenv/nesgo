@@ -35,8 +35,13 @@ func New(listenAddress string, bus *bus.Bus) *Debugger {
 		r.Post("/pause", d.cpuPause)
 	})
 
+	r.Route("/mapper", func(r chi.Router) {
+		r.Get("/", d.mapperState)
+	})
+
 	r.Route("/ppu", func(r chi.Router) {
 		r.Get("/palette", d.ppuPalette)
+		r.Get("/mirrormode", d.ppuMirrorMode)
 		r.Get("/nametables", d.ppuNameTables)
 	})
 
