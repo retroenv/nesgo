@@ -149,7 +149,8 @@ func (c *CPU) BplInternal(params ...any) {
 
 // Brk - Force Interrupt.
 func (c *CPU) Brk() {
-	defer c.instructionHook(brk)()
+	unlock := c.instructionHook(brk)
+	unlock()
 	c.irq()
 }
 
@@ -472,6 +473,10 @@ func (c *CPU) Rti() {
 	b |= 0b0010_0000 // unused flag is set
 	c.setFlags(b)
 	c.PC = c.Pop16()
+
+	// lock is already taken
+	c.irqRunning = false
+	c.nmiRunning = false
 }
 
 // Rts - return from subroutine.

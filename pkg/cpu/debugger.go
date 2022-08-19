@@ -8,11 +8,12 @@ func (c *CPU) State() bus.CPUState {
 	defer c.mu.RUnlock()
 
 	state := bus.CPUState{
-		A:  c.A,
-		X:  c.X,
-		Y:  c.Y,
-		PC: c.PC,
-		SP: c.SP,
+		A:      c.A,
+		X:      c.X,
+		Y:      c.Y,
+		PC:     c.PC,
+		SP:     c.SP,
+		Cycles: c.cycles,
 		Flags: bus.CPUFlags{
 			C: c.Flags.C,
 			Z: c.Flags.Z,
@@ -22,7 +23,12 @@ func (c *CPU) State() bus.CPUState {
 			V: c.Flags.V,
 			N: c.Flags.N,
 		},
-		Cycles: c.cycles,
+		Interrupts: bus.CPUInterrupts{
+			NMITriggered: c.triggerNmi,
+			NMIRunning:   c.nmiRunning,
+			IrqTriggered: c.triggerIrq,
+			IrqRunning:   c.irqRunning,
+		},
 	}
 	return state
 }

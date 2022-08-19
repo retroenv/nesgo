@@ -18,13 +18,24 @@ type cpuFlags struct {
 }
 
 type cpuState struct {
-	A      hexByte  `json:"a"`
-	X      hexByte  `json:"x"`
-	Y      hexByte  `json:"y"`
-	PC     hexWord  `json:"pc"`
-	SP     hexByte  `json:"sp"`
-	Cycles hexQword `json:"cycles"`
-	Flags  cpuFlags `json:"flags"`
+	A          hexByte       `json:"a"`
+	X          hexByte       `json:"x"`
+	Y          hexByte       `json:"y"`
+	PC         hexWord       `json:"pc"`
+	SP         hexByte       `json:"sp"`
+	Cycles     hexQword      `json:"cycles"`
+	Flags      cpuFlags      `json:"flags"`
+	Interrupts cpuInterrupts `json:"interrupts"`
+}
+
+type cpuInterrupts struct {
+	NMI cpuInterruptState `json:"nmi"`
+	IRQ cpuInterruptState `json:"irq"`
+}
+
+type cpuInterruptState struct {
+	Running   bool `json:"running"`
+	Triggered bool `json:"triggered"`
 }
 
 func (d *Debugger) cpuState(w http.ResponseWriter, r *http.Request) {
@@ -45,6 +56,16 @@ func (d *Debugger) cpuState(w http.ResponseWriter, r *http.Request) {
 			B: hexByte(state.Flags.B),
 			V: hexByte(state.Flags.V),
 			N: hexByte(state.Flags.N),
+		},
+		Interrupts: cpuInterrupts{
+			NMI: cpuInterruptState{
+				Running:   state.Interrupts.NMIRunning,
+				Triggered: state.Interrupts.NMITriggered,
+			},
+			IRQ: cpuInterruptState{
+				Running:   state.Interrupts.IrqRunning,
+				Triggered: state.Interrupts.IrqTriggered,
+			},
 		},
 	}
 

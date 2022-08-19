@@ -34,8 +34,10 @@ type CPU struct {
 	emulator   bool
 	irqAddress uint16
 	irqHandler *func()
+	irqRunning bool
 	nmiAddress uint16
 	nmiHandler *func()
+	nmiRunning bool
 	triggerIrq bool
 	triggerNmi bool
 

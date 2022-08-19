@@ -11,12 +11,20 @@ func (c *CPU) CheckInterrupts() {
 }
 
 func (c *CPU) nmi() {
+	c.mu.Lock()
 	c.triggerNmi = false
+	c.nmiRunning = true
+	c.mu.Unlock()
+
 	c.executeInterrupt(c.nmiHandler, c.nmiAddress)
 }
 
 func (c *CPU) irq() {
+	c.mu.Lock()
 	c.triggerIrq = false
+	c.irqRunning = true
+	c.mu.Unlock()
+
 	c.executeInterrupt(c.irqHandler, c.irqAddress)
 }
 

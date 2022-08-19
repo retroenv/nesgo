@@ -11,15 +11,24 @@ type CPUFlags struct {
 	N uint8
 }
 
+// CPUInterrupts contains the CPU interrupt info.
+type CPUInterrupts struct {
+	NMITriggered bool
+	NMIRunning   bool
+	IrqTriggered bool
+	IrqRunning   bool
+}
+
 // CPUState contains the current state of the CPU.
 type CPUState struct {
-	A      uint8
-	X      uint8
-	Y      uint8
-	PC     uint16
-	SP     uint8
-	Cycles uint64
-	Flags  CPUFlags
+	A          uint8
+	X          uint8
+	Y          uint8
+	PC         uint16
+	SP         uint8
+	Cycles     uint64
+	Flags      CPUFlags
+	Interrupts CPUInterrupts
 }
 
 // CPU represents the Central Processing Unit.
