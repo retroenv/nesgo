@@ -59,8 +59,8 @@ func (t *Tiles) FetchCycle(cycle int) {
 }
 
 // SetBackgroundPatternTable sets the temp register nametable from the passed PPU control byte.
-func (t *Tiles) SetBackgroundPatternTable(backgroundPatternTable uint16) {
-	t.backgroundPatternTable = backgroundPatternTable
+func (t *Tiles) SetBackgroundPatternTable(table uint16) {
+	t.backgroundPatternTable = table * 0x1000
 }
 
 // BackgroundPixel returns the background pixel for the given X coordinate.
@@ -96,8 +96,7 @@ func (t *Tiles) storeTileData() {
 }
 
 func (t *Tiles) tileAddress() uint16 {
-	table := t.backgroundPatternTable
 	tile := t.nameTable.Value()
-	address := 0x1000*table + uint16(tile)*16 + t.addressing.FineY()
+	address := t.backgroundPatternTable + uint16(tile)*16 + t.addressing.FineY()
 	return address
 }

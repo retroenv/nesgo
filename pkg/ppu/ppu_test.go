@@ -23,8 +23,8 @@ func TestSetControl(t *testing.T) {
 
 	assert.Equal(t, 0x2C00, p.control.BaseNameTable)
 	assert.Equal(t, 32, p.control.VRAMIncrement)
-	assert.Equal(t, 0x1000, p.control.SpritePatternTable)
-	assert.Equal(t, 0x1000, p.control.BackgroundPatternTable)
+	assert.Equal(t, 0x01, p.control.SpritePatternTable)
+	assert.Equal(t, 0x01, p.control.BackgroundPatternTable)
 	assert.Equal(t, 0x01, p.control.SpriteSize)
 	assert.Equal(t, 0x01, p.control.MasterSlave)
 	assert.True(t, p.nmi.Enabled())

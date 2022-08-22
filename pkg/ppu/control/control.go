@@ -60,10 +60,10 @@ func (c *Control) Set(value byte) {
 		c.VRAMIncrement = 32
 	}
 
-	c.SpritePatternTable = uint16(value&CTRL_SPR_1000) << 9
+	c.SpritePatternTable = uint16(value&CTRL_SPR_1000) >> 3
 	c.sprites.SetSpritePatternTable(c.SpritePatternTable)
 
-	c.BackgroundPatternTable = uint16(value&CTRL_BG_1000) << 8
+	c.BackgroundPatternTable = uint16(value&CTRL_BG_1000) >> 4
 	c.tiles.SetBackgroundPatternTable(c.BackgroundPatternTable)
 
 	c.SpriteSize = value & CTRL_8x16 >> 5

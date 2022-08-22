@@ -64,8 +64,8 @@ func (s *Sprites) SetSpriteSize(size int) {
 }
 
 // SetSpritePatternTable sets the address of the sprite pattern table.
-func (s *Sprites) SetSpritePatternTable(address uint16) {
-	s.spritePatternTable = address
+func (s *Sprites) SetSpritePatternTable(table uint16) {
+	s.spritePatternTable = table * 0x1000
 }
 
 // Read a sprite field, based on the previously set address.
@@ -155,7 +155,7 @@ func (s *Sprites) fetchSpritePattern(sprite *Sprite, row int) uint32 {
 		if sprite.flipVertically() {
 			row = 7 - row
 		}
-		address = 0x1000*s.spritePatternTable + uint16(tile)*16 + uint16(row)
+		address = s.spritePatternTable + uint16(tile)*16 + uint16(row)
 	} else {
 		if sprite.flipVertically() {
 			row = 15 - row
