@@ -1,3 +1,4 @@
+// Package main implements a NES Game Genie decoder/encoder
 package main
 
 import (

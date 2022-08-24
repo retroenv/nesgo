@@ -1,3 +1,4 @@
+// Package main implements a NES ROM emulator
 package main
 
 import (

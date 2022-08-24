@@ -11,7 +11,6 @@ linters:
     - containedctx # detects struct contained context.Context field
     - contextcheck # check the function whether use a non-inherited context
     - cyclop # checks function and package cyclomatic complexity
-    - deadcode # Finds unused code
     - decorder # check declaration order and count of types, constants, variables and functions
     - depguard # Go linter that checks if package imports are in a list of acceptable packages
     - dogsled # Checks assignments with too many blank identifiers (e.g. x, _, _, _, := f())
@@ -28,6 +27,7 @@ linters:
     - gocyclo # Computes and checks the cyclomatic complexity of functions
     - godot # Check if comments end in a period
     - goerr113 # Golang linter to check the errors handling expressions
+    - gofmt # checks whether code was gofmt-ed
     - gosimple # Linter for Go source code that specializes in simplifying a code
     - govet # reports suspicious constructs, such as Printf calls with wrong arguments
     - ineffassign # Detects when assignments to existing variables are not used
@@ -40,9 +40,9 @@ linters:
     - nilnil # Checks that there is no simultaneous return of `nil` error and an invalid value
     - prealloc # Finds slice declarations that could potentially be preallocated
     - predeclared # find code that shadows one of Go's predeclared identifiers
+    - reassign # Checks that package variables are not reassigned
     - revive # drop-in replacement of golint
     - staticcheck # drop-in replacement of go vet
-    - structcheck # Finds unused struct fields
     - stylecheck # Stylecheck is a replacement for golint
     - tenv # detects using os.Setenv instead of t.Setenv
     - thelper # checks the consistency of test helpers
@@ -52,7 +52,6 @@ linters:
     - unparam # Reports unused function parameters
     - unused # Checks Go code for unused constants, variables, functions and types
     - usestdlibvars # detect the possibility to use variables/constants from the Go standard library
-    - varcheck # Finds unused global variables and constants
     - wastedassign # finds wasted assignment statements
     - whitespace # detects leading and trailing whitespace
 

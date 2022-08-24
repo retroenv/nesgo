@@ -13,11 +13,9 @@ import (
 // Absolute: the absolut memory address is used to write the value
 // Absolute, X: the absolut memory address with offset from X is used
 // Absolute, Y: the absolut memory address with offset from Y is used
-// (Indirect, X): the absolut memory address to read the value from is
-//                read from (indirect address + X)
-// (Indirect), Y: the pointer to the memory address is read from the
-//                indirect parameter and adjusted after reading it
-//                by adding Y. The value is read from this pointer
+// (Indirect, X): the absolut memory address to write the value to is read from (indirect address + X)
+// (Indirect), Y: the pointer to the memory address is read from the indirect parameter and adjusted after
+// reading it by adding Y. The value is written to this pointer.
 func (m *Memory) WriteAddressModes(value byte, params ...any) {
 	param := params[0]
 	var register any
@@ -114,16 +112,13 @@ func (m *Memory) writeMemoryAbsoluteOffset(address any, value byte, offset uint1
 }
 
 // ReadAddressModes reads memory using different address modes:
-// Immediate: if immediate is true and the passed first param fits into
-//            a byte, it's immediate value is returned
+// Immediate: if immediate is true and the passed first param fits into a byte, it's immediate value is returned
 // Absolute: the absolut memory address is used to read the value
 // Absolute, X: the absolut memory address with offset from X is used
 // Absolute, Y: the absolut memory address with offset from Y is used
-// (Indirect, X): the absolut memory address to write the value to is
-//                read from (indirect address + X)
-// (Indirect), Y: the pointer to the memory address is read from the
-//                indirect parameter and adjusted after reading it
-//                by adding Y. The value is written to this pointer
+// (Indirect, X): the absolut memory address to write the value to is read from (indirect address + X)
+// (Indirect), Y: the pointer to the memory address is read from the indirect parameter and adjusted after
+// reading it by adding Y. The value is read from this pointer.
 func (m *Memory) ReadAddressModes(immediate bool, params ...any) byte {
 	param := params[0]
 	var register any

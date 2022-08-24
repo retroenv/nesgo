@@ -1,3 +1,4 @@
+// Package main implements a Golang for NES Compiler
 package main
 
 import (

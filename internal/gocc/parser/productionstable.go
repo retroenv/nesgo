@@ -23,7 +23,7 @@ type (
 
 var productionsTable = ProdTab{
 	ProdTabEntry{
-		String: `S' : Start	<<  >>`,
+		String:     `S' : Start	<<  >>`,
 		Id:         "S'",
 		NTType:     0,
 		Index:      0,
@@ -33,7 +33,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Start : SourceFile	<<  >>`,
+		String:     `Start : SourceFile	<<  >>`,
 		Id:         "Start",
 		NTType:     1,
 		Index:      1,
@@ -43,7 +43,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `SourceFile : RepeatTerminator PackageClause terminator RepeatTerminator RepeatTopLevelDecl	<< ast.NewFile(X[1].(*ast.Package), X[4]) >>`,
+		String:     `SourceFile : RepeatTerminator PackageClause terminator RepeatTerminator RepeatTopLevelDecl	<< ast.NewFile(X[1].(*ast.Package), X[4]) >>`,
 		Id:         "SourceFile",
 		NTType:     2,
 		Index:      2,
@@ -53,7 +53,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `PackageClause : kwdPackage identifier	<< ast.NewPackage(string(X[1].(*token.Token).Lit)) >>`,
+		String:     `PackageClause : kwdPackage identifier	<< ast.NewPackage(string(X[1].(*token.Token).Lit)) >>`,
 		Id:         "PackageClause",
 		NTType:     3,
 		Index:      3,
@@ -63,7 +63,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportDecl : kwdImport ImportSpec	<< X[1], nil >>`,
+		String:     `ImportDecl : kwdImport ImportSpec	<< X[1], nil >>`,
 		Id:         "ImportDecl",
 		NTType:     4,
 		Index:      4,
@@ -73,7 +73,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportDecl : kwdImport "(" RepeatTerminator ImportList ")"	<< X[3], nil >>`,
+		String:     `ImportDecl : kwdImport "(" RepeatTerminator ImportList ")"	<< X[3], nil >>`,
 		Id:         "ImportDecl",
 		NTType:     4,
 		Index:      5,
@@ -83,7 +83,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportList : ImportSpec terminator RepeatTerminator ImportList	<< ast.NewNodeList(X[0], X[3]) >>`,
+		String:     `ImportList : ImportSpec terminator RepeatTerminator ImportList	<< ast.NewNodeList(X[0], X[3]) >>`,
 		Id:         "ImportList",
 		NTType:     5,
 		Index:      6,
@@ -93,7 +93,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportList : ImportSpec RepeatTerminator	<< X[0], nil >>`,
+		String:     `ImportList : ImportSpec RepeatTerminator	<< X[0], nil >>`,
 		Id:         "ImportList",
 		NTType:     5,
 		Index:      7,
@@ -103,7 +103,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportSpec : "." stringLit	<< ast.NewImport(".", string(X[1].(*token.Token).Lit)) >>`,
+		String:     `ImportSpec : "." stringLit	<< ast.NewImport(".", string(X[1].(*token.Token).Lit)) >>`,
 		Id:         "ImportSpec",
 		NTType:     6,
 		Index:      8,
@@ -113,7 +113,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportSpec : identifier stringLit	<< ast.NewImport(string(X[0].(*token.Token).Lit), string(X[1].(*token.Token).Lit)) >>`,
+		String:     `ImportSpec : identifier stringLit	<< ast.NewImport(string(X[0].(*token.Token).Lit), string(X[1].(*token.Token).Lit)) >>`,
 		Id:         "ImportSpec",
 		NTType:     6,
 		Index:      9,
@@ -123,7 +123,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ImportSpec : stringLit	<< ast.NewImport("", string(X[0].(*token.Token).Lit)) >>`,
+		String:     `ImportSpec : stringLit	<< ast.NewImport("", string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "ImportSpec",
 		NTType:     6,
 		Index:      10,
@@ -133,7 +133,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RepeatTopLevelDecl : TopLevelDecl RepeatTopLevelDecl	<< ast.NewNodeList(X[0], X[1]) >>`,
+		String:     `RepeatTopLevelDecl : TopLevelDecl RepeatTopLevelDecl	<< ast.NewNodeList(X[0], X[1]) >>`,
 		Id:         "RepeatTopLevelDecl",
 		NTType:     7,
 		Index:      11,
@@ -143,7 +143,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RepeatTopLevelDecl : empty	<<  >>`,
+		String:     `RepeatTopLevelDecl : empty	<<  >>`,
 		Id:         "RepeatTopLevelDecl",
 		NTType:     7,
 		Index:      12,
@@ -153,7 +153,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `TopLevelDecl : Declaration RepeatTerminator	<< X[0], nil >>`,
+		String:     `TopLevelDecl : Declaration RepeatTerminator	<< X[0], nil >>`,
 		Id:         "TopLevelDecl",
 		NTType:     8,
 		Index:      13,
@@ -163,7 +163,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `TopLevelDecl : FunctionDecl RepeatTerminator	<< X[0], nil >>`,
+		String:     `TopLevelDecl : FunctionDecl RepeatTerminator	<< X[0], nil >>`,
 		Id:         "TopLevelDecl",
 		NTType:     8,
 		Index:      14,
@@ -173,7 +173,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Declaration : ConstDecl	<<  >>`,
+		String:     `Declaration : ConstDecl	<<  >>`,
 		Id:         "Declaration",
 		NTType:     9,
 		Index:      15,
@@ -183,7 +183,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Declaration : TypeDecl	<<  >>`,
+		String:     `Declaration : TypeDecl	<<  >>`,
 		Id:         "Declaration",
 		NTType:     9,
 		Index:      16,
@@ -193,7 +193,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Declaration : VarDecl	<<  >>`,
+		String:     `Declaration : VarDecl	<<  >>`,
 		Id:         "Declaration",
 		NTType:     9,
 		Index:      17,
@@ -203,7 +203,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Declaration : ImportDecl	<<  >>`,
+		String:     `Declaration : ImportDecl	<<  >>`,
 		Id:         "Declaration",
 		NTType:     9,
 		Index:      18,
@@ -213,7 +213,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarDecl : kwdVar VarSpec	<< X[1], nil >>`,
+		String:     `VarDecl : kwdVar VarSpec	<< X[1], nil >>`,
 		Id:         "VarDecl",
 		NTType:     10,
 		Index:      19,
@@ -223,7 +223,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarDecl : kwdVar "(" RepeatTerminator VarList ")"	<< X[3], nil >>`,
+		String:     `VarDecl : kwdVar "(" RepeatTerminator VarList ")"	<< X[3], nil >>`,
 		Id:         "VarDecl",
 		NTType:     10,
 		Index:      20,
@@ -233,7 +233,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarList : VarSpec terminator RepeatTerminator VarList	<< ast.NewNodeList(X[0], X[3]) >>`,
+		String:     `VarList : VarSpec terminator RepeatTerminator VarList	<< ast.NewNodeList(X[0], X[3]) >>`,
 		Id:         "VarList",
 		NTType:     11,
 		Index:      21,
@@ -243,7 +243,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarList : VarSpec RepeatTerminator	<< X[0], nil >>`,
+		String:     `VarList : VarSpec RepeatTerminator	<< X[0], nil >>`,
 		Id:         "VarList",
 		NTType:     11,
 		Index:      22,
@@ -253,7 +253,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarSpec : IdentifierList Type	<< ast.NewVariable(X[0].(ast.Node), X[1].(*ast.Type), nil) >>`,
+		String:     `VarSpec : IdentifierList Type	<< ast.NewVariable(X[0].(ast.Node), X[1].(*ast.Type), nil) >>`,
 		Id:         "VarSpec",
 		NTType:     12,
 		Index:      23,
@@ -263,7 +263,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarSpec : IdentifierList Type "=" Expression	<< ast.NewVariable(X[0].(ast.Node), X[1].(*ast.Type), X[3]) >>`,
+		String:     `VarSpec : IdentifierList Type "=" Expression	<< ast.NewVariable(X[0].(ast.Node), X[1].(*ast.Type), X[3]) >>`,
 		Id:         "VarSpec",
 		NTType:     12,
 		Index:      24,
@@ -273,7 +273,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarSpec : IdentifierList "=" TypeConstructor "(" Expression ")"	<< ast.NewVariable(X[0].(ast.Node), X[2].(*ast.Type), X[4]) >>`,
+		String:     `VarSpec : IdentifierList "=" TypeConstructor "(" Expression ")"	<< ast.NewVariable(X[0].(ast.Node), X[2].(*ast.Type), X[4]) >>`,
 		Id:         "VarSpec",
 		NTType:     12,
 		Index:      25,
@@ -283,7 +283,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarSpec : IdentifierList "=" MapConstructor "[" type "]" type Block	<< nil, nil >>`,
+		String:     `VarSpec : IdentifierList "=" MapConstructor "[" type "]" type Block	<< nil, nil >>`,
 		Id:         "VarSpec",
 		NTType:     12,
 		Index:      26,
@@ -293,7 +293,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `VarSpec : empty	<<  >>`,
+		String:     `VarSpec : empty	<<  >>`,
 		Id:         "VarSpec",
 		NTType:     12,
 		Index:      27,
@@ -303,7 +303,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `TypeDecl : kwdType TypeDef	<< nil, nil >>`,
+		String:     `TypeDecl : kwdType TypeDef	<< nil, nil >>`,
 		Id:         "TypeDecl",
 		NTType:     13,
 		Index:      28,
@@ -313,7 +313,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `TypeDef : identifier Type	<<  >>`,
+		String:     `TypeDef : identifier Type	<<  >>`,
 		Id:         "TypeDef",
 		NTType:     14,
 		Index:      29,
@@ -323,7 +323,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `TypeDef : kwdInline Type	<<  >>`,
+		String:     `TypeDef : kwdInline Type	<<  >>`,
 		Id:         "TypeDef",
 		NTType:     14,
 		Index:      30,
@@ -333,7 +333,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ConstDecl : kwdConst ConstSpec	<< X[1], nil >>`,
+		String:     `ConstDecl : kwdConst ConstSpec	<< X[1], nil >>`,
 		Id:         "ConstDecl",
 		NTType:     15,
 		Index:      31,
@@ -343,7 +343,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ConstDecl : kwdConst "(" RepeatTerminator ConstList ")"	<< X[3], nil >>`,
+		String:     `ConstDecl : kwdConst "(" RepeatTerminator ConstList ")"	<< X[3], nil >>`,
 		Id:         "ConstDecl",
 		NTType:     15,
 		Index:      32,
@@ -353,7 +353,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ConstList : ConstSpec terminator RepeatTerminator ConstList	<< ast.NewNodeList(X[0], X[3]) >>`,
+		String:     `ConstList : ConstSpec terminator RepeatTerminator ConstList	<< ast.NewNodeList(X[0], X[3]) >>`,
 		Id:         "ConstList",
 		NTType:     16,
 		Index:      33,
@@ -363,7 +363,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ConstList : ConstSpec RepeatTerminator	<< X[0], nil >>`,
+		String:     `ConstList : ConstSpec RepeatTerminator	<< X[0], nil >>`,
 		Id:         "ConstList",
 		NTType:     16,
 		Index:      34,
@@ -373,7 +373,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ConstSpec : IdentifierList "=" Expression	<< ast.NewConstant(X[0].(*ast.Identifier), X[2]) >>`,
+		String:     `ConstSpec : IdentifierList "=" Expression	<< ast.NewConstant(X[0].(*ast.Identifier), X[2]) >>`,
 		Id:         "ConstSpec",
 		NTType:     17,
 		Index:      35,
@@ -383,7 +383,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Expression : "(" Expression ")"	<< X[1], nil >>`,
+		String:     `Expression : "(" Expression ")"	<< X[1], nil >>`,
 		Id:         "Expression",
 		NTType:     18,
 		Index:      36,
@@ -393,7 +393,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Expression : Type "(" Expression ")"	<< ast.NewExpressionList(X[0], "cast", X[2]) >>`,
+		String:     `Expression : Type "(" Expression ")"	<< ast.NewExpressionList(X[0], "cast", X[2]) >>`,
 		Id:         "Expression",
 		NTType:     18,
 		Index:      37,
@@ -403,7 +403,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Expression : Operand singleOperators	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit)) >>`,
+		String:     `Expression : Operand singleOperators	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit)) >>`,
 		Id:         "Expression",
 		NTType:     18,
 		Index:      38,
@@ -413,7 +413,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Expression : Operand operators Operand	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit), X[2]) >>`,
+		String:     `Expression : Operand operators Operand	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit), X[2]) >>`,
 		Id:         "Expression",
 		NTType:     18,
 		Index:      39,
@@ -423,7 +423,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Expression : Operand relOp Operand	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit), X[2]) >>`,
+		String:     `Expression : Operand relOp Operand	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit), X[2]) >>`,
 		Id:         "Expression",
 		NTType:     18,
 		Index:      40,
@@ -433,7 +433,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Expression : PrimaryExpr	<<  >>`,
+		String:     `Expression : PrimaryExpr	<<  >>`,
 		Id:         "Expression",
 		NTType:     18,
 		Index:      41,
@@ -443,7 +443,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `PrimaryExpr : Operand	<<  >>`,
+		String:     `PrimaryExpr : Operand	<<  >>`,
 		Id:         "PrimaryExpr",
 		NTType:     19,
 		Index:      42,
@@ -453,7 +453,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `PrimaryExpr : PrimaryExpr "(" Arguments ")"	<< ast.NewCall(X[0].(*ast.Identifier), X[2]) >>`,
+		String:     `PrimaryExpr : PrimaryExpr "(" Arguments ")"	<< ast.NewCall(X[0].(*ast.Identifier), X[2]) >>`,
 		Id:         "PrimaryExpr",
 		NTType:     19,
 		Index:      43,
@@ -463,7 +463,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Operand : Literal	<< X[0], nil >>`,
+		String:     `Operand : Literal	<< X[0], nil >>`,
 		Id:         "Operand",
 		NTType:     20,
 		Index:      44,
@@ -473,7 +473,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Operand : "*" OperandName	<< X[1], nil >>`,
+		String:     `Operand : "*" OperandName	<< X[1], nil >>`,
 		Id:         "Operand",
 		NTType:     20,
 		Index:      45,
@@ -483,7 +483,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Operand : OperandName	<< X[0], nil >>`,
+		String:     `Operand : OperandName	<< X[0], nil >>`,
 		Id:         "Operand",
 		NTType:     20,
 		Index:      46,
@@ -493,7 +493,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Literal : BasicLit	<<  >>`,
+		String:     `Literal : BasicLit	<<  >>`,
 		Id:         "Literal",
 		NTType:     21,
 		Index:      47,
@@ -503,7 +503,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `BasicLit : intLit	<< ast.NewValue(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `BasicLit : intLit	<< ast.NewValue(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "BasicLit",
 		NTType:     22,
 		Index:      48,
@@ -513,7 +513,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `BasicLit : stringLit	<< ast.NewValue(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `BasicLit : stringLit	<< ast.NewValue(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "BasicLit",
 		NTType:     22,
 		Index:      49,
@@ -523,7 +523,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `OperandName : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `OperandName : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "OperandName",
 		NTType:     23,
 		Index:      50,
@@ -533,7 +533,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Arguments : empty	<<  >>`,
+		String:     `Arguments : empty	<<  >>`,
 		Id:         "Arguments",
 		NTType:     24,
 		Index:      51,
@@ -543,7 +543,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Arguments : Expression	<< X[0], nil >>`,
+		String:     `Arguments : Expression	<< X[0], nil >>`,
 		Id:         "Arguments",
 		NTType:     24,
 		Index:      52,
@@ -553,7 +553,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Arguments : Arguments "," Expression	<< ast.NewNodeList(X[0], X[2]) >>`,
+		String:     `Arguments : Arguments "," Expression	<< ast.NewNodeList(X[0], X[2]) >>`,
 		Id:         "Arguments",
 		NTType:     24,
 		Index:      53,
@@ -563,7 +563,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Arguments : Arguments operators Expression	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit), X[2]) >>`,
+		String:     `Arguments : Arguments operators Expression	<< ast.NewExpressionList(X[0], string(X[1].(*token.Token).Lit), X[2]) >>`,
 		Id:         "Arguments",
 		NTType:     24,
 		Index:      54,
@@ -573,7 +573,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `FunctionDecl : FunctionMarker FunctionBody	<< ast.NewFunction(X[0].(*ast.FunctionDefinition), X[1]) >>`,
+		String:     `FunctionDecl : FunctionMarker FunctionBody	<< ast.NewFunction(X[0].(*ast.FunctionDefinition), X[1]) >>`,
 		Id:         "FunctionDecl",
 		NTType:     25,
 		Index:      55,
@@ -583,7 +583,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `FunctionMarker : kwdFunc FunctionName Parameters	<< ast.NewFunctionHeader(X[1].(*ast.Identifier), X[2]) >>`,
+		String:     `FunctionMarker : kwdFunc FunctionName Parameters	<< ast.NewFunctionHeader(X[1].(*ast.Identifier), X[2]) >>`,
 		Id:         "FunctionMarker",
 		NTType:     26,
 		Index:      56,
@@ -593,7 +593,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `FunctionName : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `FunctionName : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "FunctionName",
 		NTType:     27,
 		Index:      57,
@@ -603,7 +603,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `FunctionBody : Block	<<  >>`,
+		String:     `FunctionBody : Block	<<  >>`,
 		Id:         "FunctionBody",
 		NTType:     28,
 		Index:      58,
@@ -613,7 +613,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Parameters : "(" RepeatTerminator ")"	<<  >>`,
+		String:     `Parameters : "(" RepeatTerminator ")"	<<  >>`,
 		Id:         "Parameters",
 		NTType:     29,
 		Index:      59,
@@ -623,7 +623,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Parameters : "(" ParameterDecl ")"	<< X[1], nil >>`,
+		String:     `Parameters : "(" ParameterDecl ")"	<< X[1], nil >>`,
 		Id:         "Parameters",
 		NTType:     29,
 		Index:      60,
@@ -633,7 +633,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ParameterDecl : IdentifierList Type	<< ast.NewVariable(X[0].(ast.Node), X[1].(*ast.Type), nil) >>`,
+		String:     `ParameterDecl : IdentifierList Type	<< ast.NewVariable(X[0].(ast.Node), X[1].(*ast.Type), nil) >>`,
 		Id:         "ParameterDecl",
 		NTType:     30,
 		Index:      61,
@@ -643,7 +643,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ParameterDecl : Type	<<  >>`,
+		String:     `ParameterDecl : Type	<<  >>`,
 		Id:         "ParameterDecl",
 		NTType:     30,
 		Index:      62,
@@ -653,7 +653,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ParameterDecl : identifier kwdVariadic kwdInline	<< ast.NewInline() >>`,
+		String:     `ParameterDecl : identifier kwdVariadic kwdInline	<< ast.NewInline() >>`,
 		Id:         "ParameterDecl",
 		NTType:     30,
 		Index:      63,
@@ -663,7 +663,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ParameterDecl : kwdVariadic kwdInline	<< ast.NewInline() >>`,
+		String:     `ParameterDecl : kwdVariadic kwdInline	<< ast.NewInline() >>`,
 		Id:         "ParameterDecl",
 		NTType:     30,
 		Index:      64,
@@ -673,7 +673,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ParameterDecl : ParameterDecl "," ParameterDecl	<< ast.NewNodeList(X[0], X[2]) >>`,
+		String:     `ParameterDecl : ParameterDecl "," ParameterDecl	<< ast.NewNodeList(X[0], X[2]) >>`,
 		Id:         "ParameterDecl",
 		NTType:     30,
 		Index:      65,
@@ -683,7 +683,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ParameterDecl : identifier "," ParameterDecl	<< ast.NewNodeList(ast.NewUntypedParamListEntry(string(X[0].(*token.Token).Lit), X[2]), X[2]) >>`,
+		String:     `ParameterDecl : identifier "," ParameterDecl	<< ast.NewNodeList(ast.NewUntypedParamListEntry(string(X[0].(*token.Token).Lit), X[2]), X[2]) >>`,
 		Id:         "ParameterDecl",
 		NTType:     30,
 		Index:      66,
@@ -693,7 +693,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Type : "*" type	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `Type : "*" type	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "Type",
 		NTType:     31,
 		Index:      67,
@@ -703,7 +703,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Type : type	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `Type : type	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "Type",
 		NTType:     31,
 		Index:      68,
@@ -713,7 +713,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Type : kwdAny	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `Type : kwdAny	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "Type",
 		NTType:     31,
 		Index:      69,
@@ -723,7 +723,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Type : kwdInterface	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `Type : kwdInterface	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "Type",
 		NTType:     31,
 		Index:      70,
@@ -733,7 +733,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `TypeConstructor : typeConstructor	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `TypeConstructor : typeConstructor	<< ast.NewType(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "TypeConstructor",
 		NTType:     32,
 		Index:      71,
@@ -743,7 +743,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `MapConstructor : mapConstructor	<<  >>`,
+		String:     `MapConstructor : mapConstructor	<<  >>`,
 		Id:         "MapConstructor",
 		NTType:     33,
 		Index:      72,
@@ -753,7 +753,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `IdentifierList : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `IdentifierList : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "IdentifierList",
 		NTType:     34,
 		Index:      73,
@@ -763,7 +763,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `IdentifierList : identifier "," IdentifierList	<< ast.NewNodeList(ast.NewIdentifierNoError(string(X[0].(*token.Token).Lit)), X[2]) >>`,
+		String:     `IdentifierList : identifier "," IdentifierList	<< ast.NewNodeList(ast.NewIdentifierNoError(string(X[0].(*token.Token).Lit)), X[2]) >>`,
 		Id:         "IdentifierList",
 		NTType:     34,
 		Index:      74,
@@ -773,7 +773,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RepeatTerminator : terminator RepeatTerminator	<<  >>`,
+		String:     `RepeatTerminator : terminator RepeatTerminator	<<  >>`,
 		Id:         "RepeatTerminator",
 		NTType:     35,
 		Index:      75,
@@ -783,7 +783,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RepeatTerminator : empty	<<  >>`,
+		String:     `RepeatTerminator : empty	<<  >>`,
 		Id:         "RepeatTerminator",
 		NTType:     35,
 		Index:      76,
@@ -793,7 +793,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `StatementList : Statement terminator RepeatTerminator StatementList	<< ast.NewNodeList(X[0], X[3]) >>`,
+		String:     `StatementList : Statement terminator RepeatTerminator StatementList	<< ast.NewNodeList(X[0], X[3]) >>`,
 		Id:         "StatementList",
 		NTType:     36,
 		Index:      77,
@@ -803,7 +803,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `StatementList : Statement RepeatTerminator	<< ast.NewNodeList(X[0]) >>`,
+		String:     `StatementList : Statement RepeatTerminator	<< ast.NewNodeList(X[0]) >>`,
 		Id:         "StatementList",
 		NTType:     36,
 		Index:      78,
@@ -813,7 +813,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : Declaration	<<  >>`,
+		String:     `Statement : Declaration	<<  >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      79,
@@ -823,7 +823,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : Label ":" RepeatTerminator Statement	<< ast.NewLabel(X[0].(*ast.Identifier), X[3]) >>`,
+		String:     `Statement : Label ":" RepeatTerminator Statement	<< ast.NewLabel(X[0].(*ast.Identifier), X[3]) >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      80,
@@ -833,7 +833,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : SimpleStmt	<<  >>`,
+		String:     `Statement : SimpleStmt	<<  >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      81,
@@ -843,7 +843,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : kwdRet	<< ast.NewReturnStatement() >>`,
+		String:     `Statement : kwdRet	<< ast.NewReturnStatement() >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      82,
@@ -853,7 +853,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : kwdBreak	<< ast.NewBranching(string(X[0].(*token.Token).Lit), "") >>`,
+		String:     `Statement : kwdBreak	<< ast.NewBranching(string(X[0].(*token.Token).Lit), "") >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      83,
@@ -863,7 +863,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : kwdContinue	<< ast.NewBranching(string(X[0].(*token.Token).Lit), "") >>`,
+		String:     `Statement : kwdContinue	<< ast.NewBranching(string(X[0].(*token.Token).Lit), "") >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      84,
@@ -873,7 +873,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : kwdGoto Label	<< ast.NewBranching(string(X[0].(*token.Token).Lit), X[1].(*ast.Identifier).Name) >>`,
+		String:     `Statement : kwdGoto Label	<< ast.NewBranching(string(X[0].(*token.Token).Lit), X[1].(*ast.Identifier).Name) >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      85,
@@ -883,7 +883,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : Block	<<  >>`,
+		String:     `Statement : Block	<<  >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      86,
@@ -893,7 +893,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : IfStmt	<<  >>`,
+		String:     `Statement : IfStmt	<<  >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      87,
@@ -903,7 +903,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Statement : ForStmt	<<  >>`,
+		String:     `Statement : ForStmt	<<  >>`,
 		Id:         "Statement",
 		NTType:     37,
 		Index:      88,
@@ -913,7 +913,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `SimpleStmt : empty	<<  >>`,
+		String:     `SimpleStmt : empty	<<  >>`,
 		Id:         "SimpleStmt",
 		NTType:     38,
 		Index:      89,
@@ -923,7 +923,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `SimpleStmt : Assignment	<<  >>`,
+		String:     `SimpleStmt : Assignment	<<  >>`,
 		Id:         "SimpleStmt",
 		NTType:     38,
 		Index:      90,
@@ -933,7 +933,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `SimpleStmt : Expression	<<  >>`,
+		String:     `SimpleStmt : Expression	<<  >>`,
 		Id:         "SimpleStmt",
 		NTType:     38,
 		Index:      91,
@@ -943,7 +943,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Block : "{" RepeatTerminator StatementList "}"	<< X[2], nil >>`,
+		String:     `Block : "{" RepeatTerminator StatementList "}"	<< X[2], nil >>`,
 		Id:         "Block",
 		NTType:     39,
 		Index:      92,
@@ -953,7 +953,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `IfStmt : kwdIf not Expression Block	<< ast.NewIfStatement(true, X[2].(*ast.Branching), X[3].(ast.Node)) >>`,
+		String:     `IfStmt : kwdIf not Expression Block	<< ast.NewIfStatement(true, X[2].(*ast.Branching), X[3].(ast.Node)) >>`,
 		Id:         "IfStmt",
 		NTType:     40,
 		Index:      93,
@@ -963,7 +963,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `IfStmt : kwdIf Expression Block	<< ast.NewIfStatement(false, X[1].(*ast.Branching), X[2].(ast.Node)) >>`,
+		String:     `IfStmt : kwdIf Expression Block	<< ast.NewIfStatement(false, X[1].(*ast.Branching), X[2].(ast.Node)) >>`,
 		Id:         "IfStmt",
 		NTType:     40,
 		Index:      94,
@@ -973,7 +973,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForStmt : kwdFor Block	<< ast.NewForStatement(nil, X[1].(ast.Node)) >>`,
+		String:     `ForStmt : kwdFor Block	<< ast.NewForStatement(nil, X[1].(ast.Node)) >>`,
 		Id:         "ForStmt",
 		NTType:     41,
 		Index:      95,
@@ -983,7 +983,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForStmt : kwdFor ForClause Block	<< ast.NewForStatement(X[1].(ast.Node), X[2].(ast.Node)) >>`,
+		String:     `ForStmt : kwdFor ForClause Block	<< ast.NewForStatement(X[1].(ast.Node), X[2].(ast.Node)) >>`,
 		Id:         "ForStmt",
 		NTType:     41,
 		Index:      96,
@@ -993,7 +993,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : terminator terminator	<< ast.NewForClause(nil, nil, nil) >>`,
+		String:     `ForClause : terminator terminator	<< ast.NewForClause(nil, nil, nil) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      97,
@@ -1003,7 +1003,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : SimpleStmt terminator terminator	<< ast.NewForClause(X[0].(ast.Node), nil, nil) >>`,
+		String:     `ForClause : SimpleStmt terminator terminator	<< ast.NewForClause(X[0].(ast.Node), nil, nil) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      98,
@@ -1013,7 +1013,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : SimpleStmt terminator Expression terminator	<< ast.NewForClause(X[0].(ast.Node), X[2].(ast.Node), nil) >>`,
+		String:     `ForClause : SimpleStmt terminator Expression terminator	<< ast.NewForClause(X[0].(ast.Node), X[2].(ast.Node), nil) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      99,
@@ -1023,7 +1023,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : SimpleStmt terminator Expression terminator Expression	<< ast.NewForClause(X[0].(ast.Node), X[2].(ast.Node), X[4].(ast.Node)) >>`,
+		String:     `ForClause : SimpleStmt terminator Expression terminator Expression	<< ast.NewForClause(X[0].(ast.Node), X[2].(ast.Node), X[4].(ast.Node)) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      100,
@@ -1033,7 +1033,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : SimpleStmt terminator terminator Expression	<< ast.NewForClause(X[0].(ast.Node), nil, X[3].(ast.Node)) >>`,
+		String:     `ForClause : SimpleStmt terminator terminator Expression	<< ast.NewForClause(X[0].(ast.Node), nil, X[3].(ast.Node)) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      101,
@@ -1043,7 +1043,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : terminator terminator Expression	<< ast.NewForClause(nil, nil, X[2].(ast.Node)) >>`,
+		String:     `ForClause : terminator terminator Expression	<< ast.NewForClause(nil, nil, X[2].(ast.Node)) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      102,
@@ -1053,7 +1053,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : terminator Expression terminator Expression	<< ast.NewForClause(nil, X[1].(ast.Node), X[3].(ast.Node)) >>`,
+		String:     `ForClause : terminator Expression terminator Expression	<< ast.NewForClause(nil, X[1].(ast.Node), X[3].(ast.Node)) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      103,
@@ -1063,7 +1063,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `ForClause : SimpleStmt	<< ast.NewForClause(nil, X[0].(ast.Node), nil) >>`,
+		String:     `ForClause : SimpleStmt	<< ast.NewForClause(nil, X[0].(ast.Node), nil) >>`,
 		Id:         "ForClause",
 		NTType:     42,
 		Index:      104,
@@ -1073,7 +1073,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Assignment : Expression "=" Expression	<< ast.NewAssignStatement(X[0].(*ast.Identifier), X[2]) >>`,
+		String:     `Assignment : Expression "=" Expression	<< ast.NewAssignStatement(X[0].(*ast.Identifier), X[2]) >>`,
 		Id:         "Assignment",
 		NTType:     43,
 		Index:      105,
@@ -1083,7 +1083,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `Label : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
+		String:     `Label : identifier	<< ast.NewIdentifier(string(X[0].(*token.Token).Lit)) >>`,
 		Id:         "Label",
 		NTType:     44,
 		Index:      106,
