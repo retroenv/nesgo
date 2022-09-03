@@ -1,10 +1,10 @@
 # nesgoemu - Emulator for NES ROMs
 
-nesgoemu allows you to emulator ROMs for the Nintendo Entertainment System (NES).
+nesgoemu allows you to emulate ROMs for the Nintendo Entertainment System (NES).
 
 ## Features
 
-* Offers the GUI in SDL or OpenGL output mode
+* Offers the GUI in SDL or OpenGL mode
 * Can be used headless without a GUI
 * Supports outputting of CPU traces
 * Supports undocumented 6502 CPU opcodes
@@ -46,7 +46,13 @@ nesgoemu example.nes
 ```
 usage: nesgoemu [options] <file to emulate>
 
+  -a string
+    	listening address for the debug server to use (default "127.0.0.1:8080")
+  -c	console mode, disable GUI
+  -d	start built-in webserver for debug mode
   -e int
     	entrypoint to start the CPU (default -1)
+  -s int
+    	stop execution at address (default -1)
   -t	print CPU tracing
 ```
