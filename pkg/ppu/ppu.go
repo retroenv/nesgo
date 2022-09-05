@@ -66,7 +66,7 @@ func (p *PPU) reset() {
 	p.status = status.New()
 
 	p.memory = memory.New(p.bus.Mapper, p.bus.NameTable, p.palette)
-	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.renderState, p.status)
+	p.sprites = sprites.New(p.bus.CPU, p.bus.Mapper, p.bus.Memory, p.renderState, p.status)
 
 	p.tiles = tiles.New(p.addressing, p.memory, p.bus.NameTable)
 

@@ -53,8 +53,6 @@ func NewSystem(opts *Options) *System {
 		panic(err)
 	}
 
-	systemBus.PPU = ppu.New(systemBus)
-
 	sys := &System{
 		Bus:        systemBus,
 		NmiHandler: opts.nmiHandler,
@@ -63,6 +61,7 @@ func NewSystem(opts *Options) *System {
 
 	sys.CPU = cpu.New(systemBus, &sys.NmiHandler, &sys.IrqHandler, opts.emulator)
 	systemBus.CPU = sys.CPU
+	systemBus.PPU = ppu.New(systemBus)
 	return sys
 }
 

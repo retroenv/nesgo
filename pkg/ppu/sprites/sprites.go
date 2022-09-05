@@ -28,6 +28,7 @@ type status interface {
 type Sprites struct {
 	cpu         bus.CPU
 	mapper      bus.Mapper
+	memory      bus.Memory
 	renderState renderState
 	status      status
 
@@ -42,10 +43,11 @@ type Sprites struct {
 }
 
 // New returns a new sprites manager.
-func New(cpu bus.CPU, mapper bus.Mapper, renderState renderState, status status) *Sprites {
+func New(cpu bus.CPU, mapper bus.Mapper, memory bus.Memory, renderState renderState, status status) *Sprites {
 	return &Sprites{
 		cpu:         cpu,
 		mapper:      mapper,
+		memory:      memory,
 		renderState: renderState,
 		status:      status,
 
@@ -96,7 +98,7 @@ func (s *Sprites) WriteDMA(value byte) {
 	address := uint16(value) << 8
 
 	for i := 0; i < oamMemorySize; i++ {
-		data := s.mapper.Read(address)
+		data := s.memory.Read(address)
 		s.Write(data)
 		address++
 	}

@@ -45,7 +45,7 @@ func (m *Memory) Write(address uint16, value byte) {
 	case address < 0x2000:
 		m.ram.Write(address&0x07FF, value)
 
-	case address < 0x4000:
+	case address < 0x4000, address == 0x4014: // OAM_DMA
 		m.bus.PPU.Write(address, value)
 
 	case address == controller.JOYPAD1:
