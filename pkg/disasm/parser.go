@@ -3,11 +3,10 @@ package disasm
 import (
 	"fmt"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
-	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // followExecutionFlow parses opcodes and follows the execution flow to parse all code.
@@ -103,7 +102,7 @@ func (dis *Disasm) processParamInstruction(offset uint16, offsetInfo *offset) (s
 	offsetInfo.OpcodeBytes = append(offsetInfo.OpcodeBytes, opcodes...)
 
 	firstParam := params[0]
-	paramAsString, err := param.String(dis.converter, opcode.Addressing, firstParam)
+	paramAsString, err := ParamString(dis.converter, opcode.Addressing, firstParam)
 	if err != nil {
 		return "", err
 	}

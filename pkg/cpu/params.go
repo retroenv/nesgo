@@ -3,7 +3,7 @@ package cpu
 import (
 	"fmt"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 type paramConverterFunc func(c *CPU, instruction *Instruction, params ...any) string

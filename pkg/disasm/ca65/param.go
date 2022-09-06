@@ -4,7 +4,7 @@ package ca65
 import (
 	"fmt"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/retrogolib/nes/addressing"
 )
 
 const Name = "ca65"
@@ -27,7 +27,7 @@ func (c ParamConverter) Accumulator() string {
 // Absolute converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) Absolute(param any) string {
 	switch val := param.(type) {
-	case int, Absolute:
+	case int, addressing.Absolute:
 		return fmt.Sprintf("$%04X", val)
 	case string:
 		return val
@@ -39,7 +39,7 @@ func (c ParamConverter) Absolute(param any) string {
 // AbsoluteX converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) AbsoluteX(param any) string {
 	switch val := param.(type) {
-	case int, Absolute:
+	case int, addressing.Absolute:
 		return fmt.Sprintf("$%04X,X", val)
 	case string:
 		return fmt.Sprintf("%s,X", val)
@@ -51,7 +51,7 @@ func (c ParamConverter) AbsoluteX(param any) string {
 // AbsoluteY converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) AbsoluteY(param any) string {
 	switch val := param.(type) {
-	case int, Absolute:
+	case int, addressing.Absolute:
 		return fmt.Sprintf("$%04X,Y", val)
 	case string:
 		return fmt.Sprintf("%s,Y", val)
@@ -63,7 +63,7 @@ func (c ParamConverter) AbsoluteY(param any) string {
 // ZeroPage converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) ZeroPage(param any) string {
 	switch val := param.(type) {
-	case int, Absolute, ZeroPage:
+	case int, addressing.Absolute, addressing.ZeroPage:
 		return fmt.Sprintf("$%02X", val)
 	case string:
 		return val
@@ -75,7 +75,7 @@ func (c ParamConverter) ZeroPage(param any) string {
 // ZeroPageX converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) ZeroPageX(param any) string {
 	switch val := param.(type) {
-	case int, Absolute, ZeroPage:
+	case int, addressing.Absolute, addressing.ZeroPage:
 		return fmt.Sprintf("$%02X,X", val)
 	case string:
 		return fmt.Sprintf("%s,X", val)
@@ -87,7 +87,7 @@ func (c ParamConverter) ZeroPageX(param any) string {
 // ZeroPageY converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) ZeroPageY(param any) string {
 	switch val := param.(type) {
-	case int, Absolute, ZeroPage:
+	case int, addressing.Absolute, addressing.ZeroPage:
 		return fmt.Sprintf("$%02X,Y", val)
 	case string:
 		return fmt.Sprintf("%s,Y", val)
@@ -106,7 +106,7 @@ func (c ParamConverter) Relative(param any) string {
 
 // Indirect converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) Indirect(param any) string {
-	address, ok := param.(Indirect)
+	address, ok := param.(addressing.Indirect)
 	if ok {
 		return fmt.Sprintf("($%04X)", address)
 	}
@@ -116,7 +116,7 @@ func (c ParamConverter) Indirect(param any) string {
 
 // IndirectX converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) IndirectX(param any) string {
-	address, ok := param.(Indirect)
+	address, ok := param.(addressing.Indirect)
 	if ok {
 		return fmt.Sprintf("($%04X,X)", address)
 	}
@@ -126,7 +126,7 @@ func (c ParamConverter) IndirectX(param any) string {
 
 // IndirectY converts the parameters to the assembler implementation compatible string.
 func (c ParamConverter) IndirectY(param any) string {
-	address, ok := param.(Indirect)
+	address, ok := param.(addressing.Indirect)
 	if ok {
 		return fmt.Sprintf("($%04X),Y", address)
 	}

@@ -3,10 +3,9 @@ package disasm
 import (
 	"fmt"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
-	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 const (
@@ -87,7 +86,7 @@ func (dis *Disasm) processVariables() error {
 			offset := dis.addressToOffset(usedAddress)
 			offsetInfo := &dis.offsets[offset]
 
-			converted, err := param.String(dis.converter, offsetInfo.opcode.Addressing, reference)
+			converted, err := ParamString(dis.converter, offsetInfo.opcode.Addressing, reference)
 			if err != nil {
 				return err
 			}

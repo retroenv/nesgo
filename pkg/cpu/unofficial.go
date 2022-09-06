@@ -6,7 +6,7 @@
 package cpu
 
 import (
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 func linkUnofficialInstructionFuncs(cpu *CPU) {

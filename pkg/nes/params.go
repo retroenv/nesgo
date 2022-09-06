@@ -5,7 +5,7 @@ package nes
 import (
 	"fmt"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 type paramMemReader interface {

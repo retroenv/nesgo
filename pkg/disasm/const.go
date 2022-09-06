@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"strings"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/apu"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/ppu"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 type constTranslation struct {

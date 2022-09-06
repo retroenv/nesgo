@@ -1,8 +1,8 @@
 package disasm
 
 import (
-	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // changeOffsetRangeToData sets a range of code offsets to data types.

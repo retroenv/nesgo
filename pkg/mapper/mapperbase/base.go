@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/retrogolib/nes/addressing"
 	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 

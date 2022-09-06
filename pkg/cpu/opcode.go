@@ -3,7 +3,7 @@
 package cpu
 
 import (
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // Opcode is a NES CPU opcode that contains the instruction info and used addressing mode.

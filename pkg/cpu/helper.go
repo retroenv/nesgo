@@ -3,7 +3,7 @@
 package cpu
 
 import (
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // execute branch jump if the branching op result is true.

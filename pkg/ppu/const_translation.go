@@ -2,7 +2,7 @@
 
 package ppu
 
-import . "github.com/retroenv/nesgo/pkg/addressing"
+import . "github.com/retroenv/retrogolib/nes/addressing"
 
 // AddressToName maps address constants from address to name.
 var AddressToName = map[uint16]AccessModeConstant{

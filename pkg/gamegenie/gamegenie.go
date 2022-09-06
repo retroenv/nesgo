@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // Patch defines a patch to apply to a NES ROM.

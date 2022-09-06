@@ -6,14 +6,13 @@ import (
 	"io"
 	"strings"
 
-	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/codedatalog"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
-	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
@@ -36,7 +35,7 @@ type Disasm struct {
 	options *disasmoptions.Options
 
 	sys        *nes.System
-	converter  param.Converter
+	converter  ParamConverter
 	fileWriter fileWriter
 	cart       *cartridge.Cartridge
 	handlers   program.Handlers
@@ -208,7 +207,7 @@ func (dis *Disasm) convertToProgram() (*program.Program, error) {
 }
 
 func (dis *Disasm) addressToOffset(address uint16) uint16 {
-	offset := address - addressing.CodeBaseAddress
+	offset := address - CodeBaseAddress
 	offset %= uint16(len(dis.cart.PRG))
 	return offset
 }

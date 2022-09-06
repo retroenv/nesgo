@@ -7,7 +7,7 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
-	"github.com/retroenv/nesgo/pkg/disasm/param"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 const (
@@ -47,7 +47,7 @@ type CPU struct {
 	tracing        TracingMode
 	tracingTarget  io.Writer
 	TraceStep      TraceStep
-	paramConverter param.Converter
+	paramConverter ParamConverter
 	lastFunction   string
 }
 

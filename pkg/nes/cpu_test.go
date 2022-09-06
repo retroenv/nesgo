@@ -3,9 +3,9 @@ package nes
 import (
 	"testing"
 
-	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/retrogolib/assert"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 type cpuTest struct {

@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/retroenv/nesgo/internal/ast"
-	. "github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/cpu"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // TODO refactor to use asmoutput pkg

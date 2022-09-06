@@ -1,7 +1,7 @@
 package cpu
 
 import (
-	. "github.com/retroenv/nesgo/pkg/addressing"
+	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 // aliases for instructions that are referenced in emulator code for special handling
