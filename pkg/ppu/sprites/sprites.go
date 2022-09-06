@@ -125,6 +125,36 @@ func (s *Sprites) Render() {
 	}
 }
 
+// Pixel returns the rendered sprite pixel for the current render state position.
+// The returned values are:
+// 1. priority of the sprite of which a pixel is drawn
+// 2. flag whether the sprite is sprite with index 0
+// 3. the color pattern of the sprite pixel
+func (s *Sprites) Pixel() (bool, bool, byte) {
+	cycle := s.renderState.Cycle() - 1
+
+	for i := 0; i < s.visibleSpriteCount; i++ {
+		index := s.visibleSprites[i]
+		sprite := &s.sprites[index]
+
+		offset := cycle - int(sprite.x)
+		if offset < 0 || offset > 7 {
+			continue
+		}
+		offset = 7 - offset
+
+		color := byte((s.patterns[i] >> byte(offset*4)) & 0x0F)
+		if color%4 == 0 {
+			continue
+		}
+
+		zeroHit := i == 0
+		priority := sprite.priority()
+		return priority, zeroHit, color
+	}
+	return false, false, 0
+}
+
 // Sprite evaluation does not cause sprite 0 hit. This is handled by sprite rendering instead.
 func (s *Sprites) evaluate() {
 	s.visibleSpriteCount = 0
@@ -193,31 +223,4 @@ func (s *Sprites) fetchSpritePattern(sprite *Sprite, row int) uint32 {
 		data |= uint32(a | p1 | p2)
 	}
 	return data
-}
-
-// Pixel returns the rendered sprite pixel for the current render state position.
-// The returned values are:
-// 1. priority of the sprite of which a pixel is drawn
-// 2. flag whether the sprite is sprite with index 0
-// 3. the color pattern of the sprite pixel
-func (s *Sprites) Pixel() (bool, bool, byte) {
-	for i := 0; i < s.visibleSpriteCount; i++ {
-		index := s.visibleSprites[i]
-		sprite := &s.sprites[index]
-
-		offset := (s.renderState.Cycle() - 1) - int(sprite.x)
-		if offset < 0 || offset > 7 {
-			continue
-		}
-		offset = 7 - offset
-
-		color := byte((s.patterns[i] >> byte(offset*4)) & 0x0F)
-		if color%4 == 0 {
-			continue
-		}
-		zeroHit := i == 0
-		priority := sprite.Priority()
-		return priority, zeroHit, color
-	}
-	return false, false, 0
 }
