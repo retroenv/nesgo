@@ -3,7 +3,7 @@ package bus
 import (
 	"image"
 
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // PPU represents the Picture Processing Unit.

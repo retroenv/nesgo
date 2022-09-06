@@ -6,7 +6,7 @@ package nametable
 import (
 	"sync"
 
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 const (

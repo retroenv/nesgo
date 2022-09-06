@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/nes"
+	"github.com/retroenv/retrogolib/assert"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 func TestNestest(t *testing.T) {

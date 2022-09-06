@@ -3,8 +3,8 @@ package compiler
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/internal/ast"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 func TestFixLabelNameCollisions(t *testing.T) {

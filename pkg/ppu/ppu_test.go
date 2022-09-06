@@ -3,10 +3,10 @@ package ppu
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/retrogolib/assert"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // TestSetControl verifies that the control byte gets handled correctly.

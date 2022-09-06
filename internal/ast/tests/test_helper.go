@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
 	goccErrors "github.com/retroenv/nesgo/internal/gocc/errors"
 	"github.com/retroenv/nesgo/internal/gocc/lexer"
 	"github.com/retroenv/nesgo/internal/gocc/parser"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 var header = []byte(`package main

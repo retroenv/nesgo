@@ -3,8 +3,8 @@ package memory
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
 	. "github.com/retroenv/nesgo/pkg/addressing"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 func TestMemoryImmediate(t *testing.T) {

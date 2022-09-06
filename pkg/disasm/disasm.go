@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/retroenv/nesgo/pkg/addressing"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/codedatalog"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
@@ -15,6 +14,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/disasm/param"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
 	"github.com/retroenv/nesgo/pkg/nes"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 type fileWriter interface {

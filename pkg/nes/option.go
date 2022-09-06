@@ -5,8 +5,8 @@ package nes
 import (
 	"io"
 
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // Options contains options for the nesgo system.

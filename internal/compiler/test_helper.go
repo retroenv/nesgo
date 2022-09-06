@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 var testFileHeader = []byte(`package main

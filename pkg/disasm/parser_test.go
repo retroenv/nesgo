@@ -3,7 +3,7 @@ package disasm
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 func TestChangeOffsetRangeToData(t *testing.T) {

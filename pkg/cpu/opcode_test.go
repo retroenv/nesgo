@@ -3,7 +3,7 @@ package cpu
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 // TestVerifyOpcodes verifies that all opcode and addressing mode info match.

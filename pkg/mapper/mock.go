@@ -2,8 +2,8 @@ package mapper
 
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/memory"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // MockMapper implements a mock mapper for use in tests.

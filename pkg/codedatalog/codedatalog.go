@@ -5,7 +5,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // PrgFlag defines flags for the PRG ROM.

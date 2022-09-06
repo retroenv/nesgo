@@ -3,7 +3,7 @@ package controller
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 func TestController(t *testing.T) {

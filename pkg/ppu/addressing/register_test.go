@@ -3,7 +3,7 @@ package addressing
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 func TestRegisterIncrementX(t *testing.T) {

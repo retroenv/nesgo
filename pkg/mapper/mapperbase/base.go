@@ -7,7 +7,7 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/addressing"
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 const (

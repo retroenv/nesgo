@@ -7,9 +7,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
 	"github.com/retroenv/nesgo/pkg/disasm/program"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 var cpuSelector = `.setcpu "6502x"` // allow unofficial opcodes

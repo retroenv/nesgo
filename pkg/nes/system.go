@@ -9,13 +9,13 @@ import (
 	"time"
 
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/controller"
 	"github.com/retroenv/nesgo/pkg/cpu"
 	"github.com/retroenv/nesgo/pkg/mapper"
 	"github.com/retroenv/nesgo/pkg/memory"
 	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // System implements a NES system.

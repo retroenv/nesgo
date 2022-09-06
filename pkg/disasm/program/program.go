@@ -2,7 +2,7 @@
 package program
 
 import (
-	"github.com/retroenv/nesgo/pkg/cartridge"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // Offset defines the content of an offset in a program that can represent data or code.

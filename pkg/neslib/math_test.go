@@ -3,8 +3,8 @@ package neslib
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
 	. "github.com/retroenv/nesgo/pkg/nes"
+	"github.com/retroenv/retrogolib/assert"
 )
 
 func TestDivSigned16(t *testing.T) {

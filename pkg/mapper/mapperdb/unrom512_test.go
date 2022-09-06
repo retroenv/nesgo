@@ -3,11 +3,11 @@ package mapperdb
 import (
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+	"github.com/retroenv/retrogolib/assert"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 func TestMapperUNROM512(t *testing.T) {

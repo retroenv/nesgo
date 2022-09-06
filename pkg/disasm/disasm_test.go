@@ -5,10 +5,10 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/retroenv/nesgo/internal/assert"
-	"github.com/retroenv/nesgo/pkg/cartridge"
 	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	"github.com/retroenv/nesgo/pkg/disasm/disasmoptions"
+	"github.com/retroenv/retrogolib/assert"
+	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 var testCodeDefault = []byte{
