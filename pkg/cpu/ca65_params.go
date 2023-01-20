@@ -1,5 +1,4 @@
-// Package ca65 provides helpers to create ca65 assembler compatible asm output.
-package ca65
+package cpu
 
 import (
 	"fmt"
@@ -7,25 +6,22 @@ import (
 	"github.com/retroenv/retrogolib/nes/addressing"
 )
 
-const Name = "ca65"
-
-// ParamConverter converts the opcode parameters to ca65
-// compatible output.
-type ParamConverter struct {
+// ca65ParamConverter converts the opcode parameters to ca65 compatible output.
+type ca65ParamConverter struct {
 }
 
 // Immediate converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Immediate(param any) string {
+func (c ca65ParamConverter) Immediate(param any) string {
 	return fmt.Sprintf("#$%02X", param)
 }
 
 // Accumulator converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Accumulator() string {
+func (c ca65ParamConverter) Accumulator() string {
 	return "a"
 }
 
 // Absolute converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Absolute(param any) string {
+func (c ca65ParamConverter) Absolute(param any) string {
 	switch val := param.(type) {
 	case int, addressing.Absolute:
 		return fmt.Sprintf("$%04X", val)
@@ -37,7 +33,7 @@ func (c ParamConverter) Absolute(param any) string {
 }
 
 // AbsoluteX converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) AbsoluteX(param any) string {
+func (c ca65ParamConverter) AbsoluteX(param any) string {
 	switch val := param.(type) {
 	case int, addressing.Absolute:
 		return fmt.Sprintf("$%04X,X", val)
@@ -49,7 +45,7 @@ func (c ParamConverter) AbsoluteX(param any) string {
 }
 
 // AbsoluteY converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) AbsoluteY(param any) string {
+func (c ca65ParamConverter) AbsoluteY(param any) string {
 	switch val := param.(type) {
 	case int, addressing.Absolute:
 		return fmt.Sprintf("$%04X,Y", val)
@@ -61,7 +57,7 @@ func (c ParamConverter) AbsoluteY(param any) string {
 }
 
 // ZeroPage converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) ZeroPage(param any) string {
+func (c ca65ParamConverter) ZeroPage(param any) string {
 	switch val := param.(type) {
 	case int, addressing.Absolute, addressing.ZeroPage:
 		return fmt.Sprintf("$%02X", val)
@@ -73,7 +69,7 @@ func (c ParamConverter) ZeroPage(param any) string {
 }
 
 // ZeroPageX converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) ZeroPageX(param any) string {
+func (c ca65ParamConverter) ZeroPageX(param any) string {
 	switch val := param.(type) {
 	case int, addressing.Absolute, addressing.ZeroPage:
 		return fmt.Sprintf("$%02X,X", val)
@@ -85,7 +81,7 @@ func (c ParamConverter) ZeroPageX(param any) string {
 }
 
 // ZeroPageY converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) ZeroPageY(param any) string {
+func (c ca65ParamConverter) ZeroPageY(param any) string {
 	switch val := param.(type) {
 	case int, addressing.Absolute, addressing.ZeroPage:
 		return fmt.Sprintf("$%02X,Y", val)
@@ -97,7 +93,7 @@ func (c ParamConverter) ZeroPageY(param any) string {
 }
 
 // Relative converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Relative(param any) string {
+func (c ca65ParamConverter) Relative(param any) string {
 	if param == nil {
 		return ""
 	}
@@ -105,7 +101,7 @@ func (c ParamConverter) Relative(param any) string {
 }
 
 // Indirect converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) Indirect(param any) string {
+func (c ca65ParamConverter) Indirect(param any) string {
 	address, ok := param.(addressing.Indirect)
 	if ok {
 		return fmt.Sprintf("($%04X)", address)
@@ -115,7 +111,7 @@ func (c ParamConverter) Indirect(param any) string {
 }
 
 // IndirectX converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) IndirectX(param any) string {
+func (c ca65ParamConverter) IndirectX(param any) string {
 	address, ok := param.(addressing.Indirect)
 	if ok {
 		return fmt.Sprintf("($%04X,X)", address)
@@ -125,7 +121,7 @@ func (c ParamConverter) IndirectX(param any) string {
 }
 
 // IndirectY converts the parameters to the assembler implementation compatible string.
-func (c ParamConverter) IndirectY(param any) string {
+func (c ca65ParamConverter) IndirectY(param any) string {
 	address, ok := param.(addressing.Indirect)
 	if ok {
 		return fmt.Sprintf("($%04X),Y", address)

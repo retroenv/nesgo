@@ -18,16 +18,16 @@ SEGMENTS {
     HEADER:     load = HDR, type = ro;
     CODE:       load = PRG, type = ro, start = $%04X;
     DPCM:       load = PRG, type = ro, start = $C000, optional = yes;
-    VECTORS:    load = PRG, type = ro, start = $FFFA;
+    VECTORS:    load = PRG, type = ro, start = $%04X;
     TILES:      load = CHR, type = ro;
 }
 `
 
-// generateMapperConfig generates a ca65 linker config dynamically based on the passed ROM settings.
-func generateMapperConfig(conf Config) string {
+// GenerateMapperConfig generates a ca65 linker config dynamically based on the passed ROM settings.
+func GenerateMapperConfig(conf Config) string {
 	prgSize := conf.PRGSize
-	prgStart := 0x10000 - prgSize
+	vectorStart := conf.PrgBase + prgSize - 6
 
-	generatedConfig := fmt.Sprintf(mapper0Config, prgStart, prgSize, conf.CHRSize, prgStart)
+	generatedConfig := fmt.Sprintf(mapper0Config, conf.PrgBase, prgSize, conf.CHRSize, conf.PrgBase, vectorStart)
 	return generatedConfig
 }

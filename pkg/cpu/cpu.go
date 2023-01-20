@@ -6,7 +6,6 @@ import (
 	"sync"
 
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/nesgo/pkg/disasm/ca65"
 	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
@@ -60,7 +59,7 @@ func New(bus *bus.Bus, nmiHandler, irqHandler *func(), emulator bool) *CPU {
 		irqHandler:     irqHandler,
 		nmiHandler:     nmiHandler,
 		cycles:         initialCycles,
-		paramConverter: ca65.ParamConverter{},
+		paramConverter: ca65ParamConverter{},
 	}
 
 	// read interrupt handler addresses

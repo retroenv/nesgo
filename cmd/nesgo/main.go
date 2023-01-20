@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/retroenv/nesgo/internal/compiler"
-	"github.com/retroenv/nesgo/pkg/disasm/ca65"
+	"github.com/retroenv/nesgo/pkg/ca65"
 	"github.com/retroenv/retrogolib/buildinfo"
 )
 

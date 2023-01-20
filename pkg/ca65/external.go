@@ -1,9 +1,11 @@
+// Package ca65 provides helpers to create ca65 assembler compatible asm output.
 package ca65
 
 import (
 	"fmt"
 	"os"
 	"os/exec"
+	"strings"
 )
 
 const (
@@ -13,6 +15,7 @@ const (
 
 // Config holds the ROM building configuration.
 type Config struct {
+	PrgBase int
 	PRGSize int
 	CHRSize int
 }
@@ -29,18 +32,18 @@ func AssembleUsingExternalApp(asmFile, objectFile, outputFile string, conf Confi
 
 	cmd := exec.Command(assembler, asmFile, "-o", objectFile)
 	if out, err := cmd.CombinedOutput(); err != nil {
-		return fmt.Errorf("assembling file: %s: %w", string(out), err)
+		return fmt.Errorf("assembling file: %s: %w", strings.TrimSpace(string(out)), err)
 	}
 
 	configFile, err := os.CreateTemp("", "rom"+".*.cfg")
 	if err != nil {
-		return err
+		return fmt.Errorf("creating temp file: %w", err)
 	}
 	defer func() {
 		_ = os.Remove(configFile.Name())
 	}()
 
-	mapperConfig := generateMapperConfig(conf)
+	mapperConfig := GenerateMapperConfig(conf)
 
 	if err := os.WriteFile(configFile.Name(), []byte(mapperConfig), 0444); err != nil {
 		return fmt.Errorf("writing linker config: %w", err)

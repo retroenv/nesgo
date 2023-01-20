@@ -12,7 +12,6 @@ nesgo offers tooling for the Nintendo Entertainment System (NES), written in Gol
 | Tool                                                                       | Description                     |
 |----------------------------------------------------------------------------|---------------------------------|
 | [nesgo](https://github.com/retroenv/nesgo/tree/main/cmd/nesgo)             | Golang to NES compiler          |
-| [nesgodisasm](https://github.com/retroenv/nesgo/tree/main/cmd/nesgodisasm) | Disassembler for NES ROMs       |
 | [nesgoemu](https://github.com/retroenv/nesgo/tree/main/cmd/nesgoemu)       | Emulator for NES ROMs           |
 | [nesgogg](https://github.com/retroenv/nesgo/tree/main/cmd/nesgogg)         | NES Game Genie decoder/encoder  |
 
