@@ -6,6 +6,7 @@ import (
 	"sync"
 
 	"github.com/retroenv/nesgo/pkg/bus"
+	"github.com/retroenv/retrogolib/nes/parameter"
 )
 
 const (
@@ -45,7 +46,7 @@ type CPU struct {
 	tracing        TracingMode
 	tracingTarget  io.Writer
 	TraceStep      TraceStep
-	paramConverter ParamConverter
+	paramConverter parameter.Converter
 	lastFunction   string
 }
 
@@ -58,7 +59,7 @@ func New(bus *bus.Bus, nmiHandler, irqHandler *func(), emulator bool) *CPU {
 		irqHandler:     irqHandler,
 		nmiHandler:     nmiHandler,
 		cycles:         initialCycles,
-		paramConverter: ca65ParamConverter{},
+		paramConverter: parameter.Ca65Converter{},
 	}
 
 	// read interrupt handler addresses

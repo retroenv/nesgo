@@ -8,6 +8,7 @@ import (
 
 	. "github.com/retroenv/retrogolib/nes/addressing"
 	"github.com/retroenv/retrogolib/nes/cpu"
+	"github.com/retroenv/retrogolib/nes/parameter"
 )
 
 // TracingMode defines a tracing mode.
@@ -96,7 +97,7 @@ func (c *CPU) traceGoMode(instruction *cpu.Instruction, params ...any) (string, 
 	if len(params) > 0 {
 		firstParam = params[0]
 	}
-	paramsAsString, err := ParamString(c.paramConverter, c.TraceStep.Addressing, firstParam)
+	paramsAsString, err := parameter.String(c.paramConverter, c.TraceStep.Addressing, firstParam)
 	if err != nil {
 		return "", err
 	}
