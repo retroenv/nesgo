@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/retroenv/nesgo/pkg/cpu"
 	. "github.com/retroenv/retrogolib/nes/addressing"
+	"github.com/retroenv/retrogolib/nes/cpu"
 )
 
 // Instruction is an instruction declaration.

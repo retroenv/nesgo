@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/retroenv/nesgo/pkg/cpu"
+	"github.com/retroenv/retrogolib/nes/cpu"
 )
 
 const (

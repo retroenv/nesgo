@@ -7,11 +7,12 @@ import (
 	"math"
 
 	. "github.com/retroenv/retrogolib/nes/addressing"
+	"github.com/retroenv/retrogolib/nes/cpu"
 )
 
 // Adc - Add with Carry.
 func (c *CPU) Adc(params ...any) {
-	defer c.instructionHook(adc, params...)()
+	defer c.instructionHook(cpu.Adc, params...)()
 
 	c.adcInternal(params...)
 }
@@ -33,7 +34,7 @@ func (c *CPU) adcInternal(params ...any) {
 
 // And - AND with accumulator.
 func (c *CPU) And(params ...any) {
-	defer c.instructionHook(and, params...)()
+	defer c.instructionHook(cpu.And, params...)()
 	c.andInternal(params...)
 }
 
@@ -45,7 +46,7 @@ func (c *CPU) andInternal(params ...any) {
 
 // Asl - Arithmetic Shift Left.
 func (c *CPU) Asl(params ...any) {
-	defer c.instructionHook(asl, params...)()
+	defer c.instructionHook(cpu.Asl, params...)()
 	c.aslInternal(params...)
 }
 
@@ -67,43 +68,43 @@ func (c *CPU) aslInternal(params ...any) {
 // Bcc - Branch if Carry Clear - returns whether the
 // carry flag is clear.
 func (c *CPU) Bcc() bool {
-	defer c.instructionHook(bcc)()
+	defer c.instructionHook(cpu.Bcc)()
 	return c.Flags.C == 0
 }
 
 // BccInternal - Branch if Carry Clear.
 func (c *CPU) BccInternal(params ...any) {
-	defer c.instructionHook(bcc, params...)()
+	defer c.instructionHook(cpu.Bcc, params...)()
 	c.branch(c.Flags.C == 0, params[0])
 }
 
 // Bcs - Branch if Carry Set - returns whether the carry flag is set.
 func (c *CPU) Bcs() bool {
-	defer c.instructionHook(bcs)()
+	defer c.instructionHook(cpu.Bcs)()
 	return c.Flags.C != 0
 }
 
 // BcsInternal - Branch if Carry Set.
 func (c *CPU) BcsInternal(params ...any) {
-	defer c.instructionHook(bcs, params...)()
+	defer c.instructionHook(cpu.Bcs, params...)()
 	c.branch(c.Flags.C != 0, params[0])
 }
 
 // Beq - Branch if Equal - returns whether the zero flag is set.
 func (c *CPU) Beq() bool {
-	defer c.instructionHook(beq)()
+	defer c.instructionHook(cpu.Beq)()
 	return c.Flags.Z != 0
 }
 
 // BeqInternal - Branch if Equal.
 func (c *CPU) BeqInternal(params ...any) {
-	defer c.instructionHook(beq, params...)()
+	defer c.instructionHook(cpu.Beq, params...)()
 	c.branch(c.Flags.Z != 0, params[0])
 }
 
 // Bit - Bit Test - set the Z flag by ANDing A with given address content.
 func (c *CPU) Bit(params ...any) {
-	defer c.instructionHook(bit, params...)()
+	defer c.instructionHook(cpu.Bit, params...)()
 
 	value := c.bus.Memory.ReadAbsolute(params[0], nil)
 	c.setV((value>>6)&1 == 1)
@@ -113,98 +114,98 @@ func (c *CPU) Bit(params ...any) {
 
 // Bmi - Branch if Minus - returns whether the negative flag is set.
 func (c *CPU) Bmi() bool {
-	defer c.instructionHook(bmi)()
+	defer c.instructionHook(cpu.Bmi)()
 	return c.Flags.N != 0
 }
 
 // BmiInternal - Branch if Minus.
 func (c *CPU) BmiInternal(params ...any) {
-	defer c.instructionHook(bmi, params...)()
+	defer c.instructionHook(cpu.Bmi, params...)()
 	c.branch(c.Flags.N != 0, params[0])
 }
 
 // Bne - Branch if Not Equal - returns whether the zero flag is clear.
 func (c *CPU) Bne() bool {
-	defer c.instructionHook(bne)()
+	defer c.instructionHook(cpu.Bne)()
 	return c.Flags.Z == 0
 }
 
 // BneInternal - Branch if Not Equal.
 func (c *CPU) BneInternal(params ...any) {
-	defer c.instructionHook(bne, params...)()
+	defer c.instructionHook(cpu.Bne, params...)()
 	c.branch(c.Flags.Z == 0, params[0])
 }
 
 // Bpl - Branch if Positive - returns whether the negative flag is clear.
 func (c *CPU) Bpl() bool {
-	defer c.instructionHook(bpl)()
+	defer c.instructionHook(cpu.Bpl)()
 	return c.Flags.N == 0
 }
 
 // BplInternal - Branch if Positive.
 func (c *CPU) BplInternal(params ...any) {
-	defer c.instructionHook(bpl, params...)()
+	defer c.instructionHook(cpu.Bpl, params...)()
 	c.branch(c.Flags.N == 0, params[0])
 }
 
 // Brk - Force Interrupt.
 func (c *CPU) Brk() {
-	unlock := c.instructionHook(brk)
+	unlock := c.instructionHook(cpu.Brk)
 	unlock()
 	c.irq()
 }
 
 // Bvc - Branch if Overflow Clear - returns whether the overflow flag is clear.
 func (c *CPU) Bvc() bool {
-	defer c.instructionHook(bvc)()
+	defer c.instructionHook(cpu.Bvc)()
 	return c.Flags.V == 0
 }
 
 // BvcInternal - Branch if Overflow Clear.
 func (c *CPU) BvcInternal(params ...any) {
-	defer c.instructionHook(bvc, params...)()
+	defer c.instructionHook(cpu.Bvc, params...)()
 	c.branch(c.Flags.V == 0, params[0])
 }
 
 // Bvs - Branch if Overflow Set - returns whether the overflow flag is set.
 func (c *CPU) Bvs() bool {
-	defer c.instructionHook(bvs)()
+	defer c.instructionHook(cpu.Bvs)()
 	return c.Flags.V != 0
 }
 
 // BvsInternal - Branch if Overflow Set.
 func (c *CPU) BvsInternal(params ...any) {
-	defer c.instructionHook(bvs, params...)()
+	defer c.instructionHook(cpu.Bvs, params...)()
 	c.branch(c.Flags.V != 0, params[0])
 }
 
 // Clc - Clear Carry Flag.
 func (c *CPU) Clc() {
-	defer c.instructionHook(clc)()
+	defer c.instructionHook(cpu.Clc)()
 	c.Flags.C = 0
 }
 
 // Cld - Clear Decimal Mode.
 func (c *CPU) Cld() {
-	defer c.instructionHook(cld)()
+	defer c.instructionHook(cpu.Cld)()
 	c.Flags.D = 0
 }
 
 // Cli - Clear Interrupt Disable.
 func (c *CPU) Cli() {
-	defer c.instructionHook(cli)()
+	defer c.instructionHook(cpu.Cli)()
 	c.Flags.I = 0
 }
 
 // Clv - Clear Overflow Flag.
 func (c *CPU) Clv() {
-	defer c.instructionHook(clv)()
+	defer c.instructionHook(cpu.Clv)()
 	c.Flags.V = 0
 }
 
 // Cmp - Compare - compares the contents of A.
 func (c *CPU) Cmp(params ...any) {
-	defer c.instructionHook(cmp, params...)()
+	defer c.instructionHook(cpu.Cmp, params...)()
 
 	val := c.bus.Memory.ReadAddressModes(true, params...)
 	c.compare(c.A, val)
@@ -212,7 +213,7 @@ func (c *CPU) Cmp(params ...any) {
 
 // Cpx - Compare X Register - compares the contents of X.
 func (c *CPU) Cpx(params ...any) {
-	defer c.instructionHook(cpx, params...)()
+	defer c.instructionHook(cpu.Cpx, params...)()
 
 	val := c.bus.Memory.ReadAddressModes(true, params[0])
 	c.compare(c.X, val)
@@ -220,7 +221,7 @@ func (c *CPU) Cpx(params ...any) {
 
 // Cpy - Compare Y Register - compares the contents of Y.
 func (c *CPU) Cpy(params ...any) {
-	defer c.instructionHook(cpy, params...)()
+	defer c.instructionHook(cpu.Cpy, params...)()
 
 	val := c.bus.Memory.ReadAddressModes(true, params[0])
 	c.compare(c.Y, val)
@@ -228,7 +229,7 @@ func (c *CPU) Cpy(params ...any) {
 
 // Dec - Decrement memory.
 func (c *CPU) Dec(params ...any) {
-	defer c.instructionHook(dec, params...)()
+	defer c.instructionHook(cpu.Dec, params...)()
 	c.decInternal(params...)
 }
 
@@ -241,7 +242,7 @@ func (c *CPU) decInternal(params ...any) {
 
 // Dex - Decrement X Register.
 func (c *CPU) Dex() {
-	defer c.instructionHook(dex)()
+	defer c.instructionHook(cpu.Dex)()
 
 	c.X--
 	c.setZN(c.X)
@@ -249,7 +250,7 @@ func (c *CPU) Dex() {
 
 // Dey - Decrement Y Register.
 func (c *CPU) Dey() {
-	defer c.instructionHook(dey)()
+	defer c.instructionHook(cpu.Dey)()
 
 	c.Y--
 	c.setZN(c.Y)
@@ -257,7 +258,7 @@ func (c *CPU) Dey() {
 
 // Eor - Exclusive OR - XOR.
 func (c *CPU) Eor(params ...any) {
-	defer c.instructionHook(eor, params...)()
+	defer c.instructionHook(cpu.Eor, params...)()
 	c.eorInternal(params...)
 }
 
@@ -269,7 +270,7 @@ func (c *CPU) eorInternal(params ...any) {
 
 // Inc - Increments memory.
 func (c *CPU) Inc(params ...any) {
-	defer c.instructionHook(inc, params...)()
+	defer c.instructionHook(cpu.Inc, params...)()
 	c.incInternal(params...)
 }
 
@@ -282,7 +283,7 @@ func (c *CPU) incInternal(params ...any) {
 
 // Inx - Increment X Register.
 func (c *CPU) Inx() {
-	defer c.instructionHook(inx)()
+	defer c.instructionHook(cpu.Inx)()
 
 	c.X++
 	c.setZN(c.X)
@@ -290,7 +291,7 @@ func (c *CPU) Inx() {
 
 // Iny - Increment Y Register.
 func (c *CPU) Iny() {
-	defer c.instructionHook(iny)()
+	defer c.instructionHook(cpu.Iny)()
 
 	c.Y++
 	c.setZN(c.Y)
@@ -298,7 +299,7 @@ func (c *CPU) Iny() {
 
 // Jmp - jump to address.
 func (c *CPU) Jmp(params ...any) {
-	defer c.instructionHook(jmp, params...)()
+	defer c.instructionHook(cpu.Jmp, params...)()
 
 	param := params[0]
 	switch address := param.(type) {
@@ -314,7 +315,7 @@ func (c *CPU) Jmp(params ...any) {
 
 // Jsr - jump to subroutine.
 func (c *CPU) Jsr(params ...any) {
-	defer c.instructionHook(jsr, params...)()
+	defer c.instructionHook(cpu.Jsr, params...)()
 
 	c.Push16(c.PC + 2)
 
@@ -324,7 +325,7 @@ func (c *CPU) Jsr(params ...any) {
 
 // Lda - Load Accumulator - load a byte into A.
 func (c *CPU) Lda(params ...any) {
-	defer c.instructionHook(lda, params...)()
+	defer c.instructionHook(cpu.Lda, params...)()
 
 	c.A = c.bus.Memory.ReadAddressModes(true, params...)
 	c.setZN(c.A)
@@ -332,7 +333,7 @@ func (c *CPU) Lda(params ...any) {
 
 // Ldx - Load X Register - load a byte into X.
 func (c *CPU) Ldx(params ...any) {
-	defer c.instructionHook(ldx, params...)()
+	defer c.instructionHook(cpu.Ldx, params...)()
 
 	c.X = c.bus.Memory.ReadAddressModes(true, params...)
 	c.setZN(c.X)
@@ -340,7 +341,7 @@ func (c *CPU) Ldx(params ...any) {
 
 // Ldy - Load Y Register - load a byte into Y.
 func (c *CPU) Ldy(params ...any) {
-	defer c.instructionHook(ldy, params...)()
+	defer c.instructionHook(cpu.Ldy, params...)()
 
 	c.Y = c.bus.Memory.ReadAddressModes(true, params...)
 	c.setZN(c.Y)
@@ -348,7 +349,7 @@ func (c *CPU) Ldy(params ...any) {
 
 // Lsr - Logical Shift Right.
 func (c *CPU) Lsr(params ...any) {
-	defer c.instructionHook(lsr, params...)()
+	defer c.instructionHook(cpu.Lsr, params...)()
 	c.lsrInternal(params...)
 }
 
@@ -369,12 +370,12 @@ func (c *CPU) lsrInternal(params ...any) {
 
 // Nop - No Operation.
 func (c *CPU) Nop() {
-	defer c.instructionHook(nop)()
+	defer c.instructionHook(cpu.Nop)()
 }
 
 // Ora - OR with Accumulator.
 func (c *CPU) Ora(params ...any) {
-	defer c.instructionHook(ora, params...)()
+	defer c.instructionHook(cpu.Ora, params...)()
 	c.oraInternal(params...)
 }
 
@@ -386,13 +387,13 @@ func (c *CPU) oraInternal(params ...any) {
 
 // Pha - Push Accumulator - push A content to stack.
 func (c *CPU) Pha() {
-	defer c.instructionHook(pha)()
+	defer c.instructionHook(cpu.Pha)()
 	c.push(c.A)
 }
 
 // Php - Push Processor Status - push status flags to stack.
 func (c *CPU) Php() {
-	defer c.instructionHook(php)()
+	defer c.instructionHook(cpu.Php)()
 	c.phpInternal()
 }
 
@@ -404,7 +405,7 @@ func (c *CPU) phpInternal() {
 
 // Pla - Pull Accumulator - pull A content from stack.
 func (c *CPU) Pla() {
-	defer c.instructionHook(pla)()
+	defer c.instructionHook(cpu.Pla)()
 
 	c.A = c.Pop()
 	c.setZN(c.A)
@@ -412,7 +413,7 @@ func (c *CPU) Pla() {
 
 // Plp - Pull Processor Status - pull status flags from stack.
 func (c *CPU) Plp() {
-	defer c.instructionHook(plp)()
+	defer c.instructionHook(cpu.Plp)()
 
 	f := c.Pop()
 	f &= 0b1110_1111 // break flag is ignored
@@ -422,7 +423,7 @@ func (c *CPU) Plp() {
 
 // Rol - Rotate Left.
 func (c *CPU) Rol(params ...any) {
-	defer c.instructionHook(rol, params...)()
+	defer c.instructionHook(cpu.Rol, params...)()
 	c.rolInternal(params...)
 }
 
@@ -444,7 +445,7 @@ func (c *CPU) rolInternal(params ...any) {
 
 // Ror - Rotate Right.
 func (c *CPU) Ror(params ...any) {
-	defer c.instructionHook(ror, params...)()
+	defer c.instructionHook(cpu.Ror, params...)()
 	c.rorInternal(params...)
 }
 
@@ -466,7 +467,7 @@ func (c *CPU) rorInternal(params ...any) {
 
 // Rti - Return from Interrupt.
 func (c *CPU) Rti() {
-	defer c.instructionHook(rti)()
+	defer c.instructionHook(cpu.Rti)()
 
 	b := c.Pop()
 	b &= 0b1110_1111 // break flag is ignored
@@ -481,7 +482,7 @@ func (c *CPU) Rti() {
 
 // Rts - return from subroutine.
 func (c *CPU) Rts() {
-	defer c.instructionHook(rts)()
+	defer c.instructionHook(cpu.Rts)()
 
 	if c.emulator {
 		c.PC = c.Pop16() + 1
@@ -490,7 +491,7 @@ func (c *CPU) Rts() {
 
 // Sbc - subtract with Carry.
 func (c *CPU) Sbc(params ...any) {
-	defer c.instructionHook(sbc, params...)()
+	defer c.instructionHook(cpu.Sbc, params...)()
 	c.sbcInternal(params...)
 }
 
@@ -511,46 +512,46 @@ func (c *CPU) sbcInternal(params ...any) {
 
 // Sec - Set Carry Flag.
 func (c *CPU) Sec() {
-	defer c.instructionHook(sec)()
+	defer c.instructionHook(cpu.Sec)()
 	c.Flags.C = 1
 }
 
 // Sed - Set Decimal Flag.
 func (c *CPU) Sed() {
-	defer c.instructionHook(sed)()
+	defer c.instructionHook(cpu.Sed)()
 	c.Flags.D = 1
 }
 
 // Sei - Set Interrupt Disable.
 func (c *CPU) Sei() {
-	defer c.instructionHook(sei)()
+	defer c.instructionHook(cpu.Sei)()
 	c.Flags.I = 1
 }
 
 // Sta - Store Accumulator - store content of A at address Addr and
 // add an optional register to the address.
 func (c *CPU) Sta(params ...any) {
-	defer c.instructionHook(sta, params...)()
+	defer c.instructionHook(cpu.Sta, params...)()
 	c.bus.Memory.WriteAddressModes(c.A, params...)
 }
 
 // Stx - Store X Register - store content of X at address Addr and
 // add an optional register to the address.
 func (c *CPU) Stx(params ...any) {
-	defer c.instructionHook(stx, params...)()
+	defer c.instructionHook(cpu.Stx, params...)()
 	c.bus.Memory.WriteAddressModes(c.X, params...)
 }
 
 // Sty - Store Y Register - store content of Y at address Addr and
 // add an optional register to the address.
 func (c *CPU) Sty(params ...any) {
-	defer c.instructionHook(sty, params...)()
+	defer c.instructionHook(cpu.Sty, params...)()
 	c.bus.Memory.WriteAddressModes(c.Y, params...)
 }
 
 // Tax - Transfer Accumulator to X.
 func (c *CPU) Tax() {
-	defer c.instructionHook(tax)()
+	defer c.instructionHook(cpu.Tax)()
 
 	c.X = c.A
 	c.setZN(c.X)
@@ -558,7 +559,7 @@ func (c *CPU) Tax() {
 
 // Tay - Transfer Accumulator to Y.
 func (c *CPU) Tay() {
-	defer c.instructionHook(tay)()
+	defer c.instructionHook(cpu.Tay)()
 
 	c.Y = c.A
 	c.setZN(c.Y)
@@ -566,7 +567,7 @@ func (c *CPU) Tay() {
 
 // Tsx - Transfer Stack Pointer to X.
 func (c *CPU) Tsx() {
-	defer c.instructionHook(tsx)()
+	defer c.instructionHook(cpu.Tsx)()
 
 	c.X = c.SP
 	c.setZN(c.X)
@@ -574,7 +575,7 @@ func (c *CPU) Tsx() {
 
 // Txa - Transfer X to Accumulator.
 func (c *CPU) Txa() {
-	defer c.instructionHook(txa)()
+	defer c.instructionHook(cpu.Txa)()
 
 	c.A = c.X
 	c.setZN(c.A)
@@ -582,84 +583,94 @@ func (c *CPU) Txa() {
 
 // Txs - Transfer X to Stack Pointer.
 func (c *CPU) Txs() {
-	defer c.instructionHook(txs)()
+	defer c.instructionHook(cpu.Txs)()
 	c.SP = c.X
 }
 
 // Tya - Transfer Y to Accumulator.
 func (c *CPU) Tya() {
-	defer c.instructionHook(tya)()
+	defer c.instructionHook(cpu.Tya)()
 
 	c.A = c.Y
 	c.setZN(c.A)
 }
 
-func (c *CPU) unofficialDcp(params ...any) {
-	defer c.instructionHook(unofficialDcp, params...)()
+// Dcp ...
+func (c *CPU) Dcp(params ...any) {
+	defer c.instructionHook(cpu.Dcp, params...)()
 
 	c.decInternal(params...)
 	val := c.bus.Memory.ReadAddressModes(false, params...)
 	c.compare(c.A, val)
 }
 
-func (c *CPU) unofficialIsb(params ...any) {
-	defer c.instructionHook(unofficialIsb, params...)()
+// Isc ...
+func (c *CPU) Isc(params ...any) {
+	defer c.instructionHook(cpu.Isc, params...)()
 
 	c.incInternal(params...)
 	c.sbcInternal(params...)
 }
 
-func (c *CPU) unofficialLax(params ...any) {
-	defer c.instructionHook(unofficialLax, params...)()
+// Lax ...
+func (c *CPU) Lax(params ...any) {
+	defer c.instructionHook(cpu.Lax, params...)()
 
 	c.A = c.bus.Memory.ReadAddressModes(false, params...)
 	c.X = c.A
 	c.setZN(c.A)
 }
 
-func (c *CPU) unofficialNop(params ...any) {
-	defer c.instructionHook(unofficialNop, params...)()
+// NopUnofficial ...
+func (c *CPU) NopUnofficial(params ...any) {
+	defer c.instructionHook(cpu.NopUnofficial, params...)()
 
 	if len(params) > 0 {
 		c.bus.Memory.ReadAddressModes(false, params...)
 	}
 }
 
-func (c *CPU) unofficialRla(params ...any) {
-	defer c.instructionHook(unofficialRla, params...)()
+// Rla ...
+func (c *CPU) Rla(params ...any) {
+	defer c.instructionHook(cpu.Rla, params...)()
 
 	c.rolInternal(params...)
 	c.andInternal(params...)
 }
 
-func (c *CPU) unofficialRra(params ...any) {
-	defer c.instructionHook(unofficialRra, params...)()
+// Rra ...
+func (c *CPU) Rra(params ...any) {
+	defer c.instructionHook(cpu.Rra, params...)()
 
 	c.rorInternal(params...)
 	c.adcInternal(params...)
 }
 
-func (c *CPU) unofficialSax(params ...any) {
-	defer c.instructionHook(unofficialSax, params...)()
+// Sax ...
+func (c *CPU) Sax(params ...any) {
+	defer c.instructionHook(cpu.Sax, params...)()
 
 	val := c.A & c.X
 	c.bus.Memory.WriteAddressModes(val, params...)
 }
 
-func (c *CPU) unofficialSbc(params ...any) {
-	defer c.instructionHook(unofficialSbc, params...)()
+// SbcUnofficial ...
+func (c *CPU) SbcUnofficial(params ...any) {
+	defer c.instructionHook(cpu.SbcUnofficial, params...)()
 	c.sbcInternal(params...)
 }
 
-func (c *CPU) unofficialSlo(params ...any) {
-	defer c.instructionHook(unofficialSlo, params...)()
+// Slo ...
+func (c *CPU) Slo(params ...any) {
+	defer c.instructionHook(cpu.Slo, params...)()
 
 	c.aslInternal(params...)
 	c.oraInternal(params...)
 }
 
-func (c *CPU) unofficialSre(params ...any) {
-	defer c.instructionHook(unofficialSre, params...)()
+// Sre ...
+func (c *CPU) Sre(params ...any) {
+	defer c.instructionHook(cpu.Sre, params...)()
 
 	c.lsrInternal(params...)
 	c.eorInternal(params...)

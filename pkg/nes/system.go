@@ -16,6 +16,7 @@ import (
 	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
 	"github.com/retroenv/retrogolib/nes/cartridge"
+	cpulib "github.com/retroenv/retrogolib/nes/cpu"
 )
 
 // System implements a NES system.
@@ -78,11 +79,11 @@ func (sys *System) LinkAliases() {
 }
 
 // DecodeInstructionAtPC decodes the current instruction at the program counter.
-func (sys *System) DecodeInstructionAtPC() (cpu.Opcode, error) {
+func (sys *System) DecodeInstructionAtPC() (cpulib.Opcode, error) {
 	b := sys.Bus.Memory.Read(*PC)
-	opcode := cpu.Opcodes[b]
+	opcode := cpulib.Opcodes[b]
 	if opcode.Instruction == nil {
-		return cpu.Opcode{}, fmt.Errorf("unsupported opcode %00x", b)
+		return cpulib.Opcode{}, fmt.Errorf("unsupported opcode %00x", b)
 	}
 
 	sys.TraceStep = cpu.TraceStep{
@@ -130,10 +131,10 @@ func (sys *System) runEmulatorStep() {
 	sys.updatePC(ins, oldPC, len(sys.TraceStep.Opcode))
 }
 
-func (sys *System) updatePC(ins *cpu.Instruction, oldPC uint16, amount int) {
+func (sys *System) updatePC(ins *cpulib.Instruction, oldPC uint16, amount int) {
 	// update PC only if the instruction execution did not change it
 	if oldPC == *PC {
-		if ins.Name == cpu.JmpInstruction {
+		if ins.Name == cpulib.Jmp.Name {
 			return // endless loop detected
 		}
 

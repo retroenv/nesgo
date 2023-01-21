@@ -5,10 +5,11 @@ import (
 	"math"
 
 	. "github.com/retroenv/retrogolib/nes/addressing"
+	"github.com/retroenv/retrogolib/nes/cpu"
 )
 
 // addressModeFromCall gets the addressing mode from the passed params.
-func (c *CPU) addressModeFromCall(instruction *Instruction, params ...any) Mode {
+func (c *CPU) addressModeFromCall(instruction *cpu.Instruction, params ...any) Mode {
 	if len(params) == 0 {
 		mode := addressModeFromCallNoParam(instruction)
 		return mode
@@ -47,7 +48,7 @@ func (c *CPU) addressModeFromCall(instruction *Instruction, params ...any) Mode 
 	}
 }
 
-func (c *CPU) addressModeInt(address int, instruction *Instruction, firstParam, register any) Mode {
+func (c *CPU) addressModeInt(address int, instruction *cpu.Instruction, firstParam, register any) Mode {
 	if instruction.HasAddressing(ImmediateAddressing) && register == nil && address <= math.MaxUint8 {
 		return ImmediateAddressing
 	}
@@ -66,7 +67,7 @@ func (c *CPU) addressModeInt(address int, instruction *Instruction, firstParam, 
 	}
 }
 
-func (c *CPU) addressModeAbsolute(instruction *Instruction) Mode {
+func (c *CPU) addressModeAbsolute(instruction *cpu.Instruction) Mode {
 	// branches in emulation mode
 	if instruction.HasAddressing(RelativeAddressing) {
 		return RelativeAddressing

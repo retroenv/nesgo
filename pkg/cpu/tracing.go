@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	. "github.com/retroenv/retrogolib/nes/addressing"
+	"github.com/retroenv/retrogolib/nes/cpu"
 )
 
 // TracingMode defines a tracing mode.
@@ -60,7 +61,7 @@ func (t TraceStep) print(cpu *CPU) {
 
 // Trace logs the trace information of the passed instruction and its parameters.
 // Params can be of length 0 to 2.
-func (c *CPU) trace(instruction *Instruction, params ...any) error {
+func (c *CPU) trace(instruction *cpu.Instruction, params ...any) error {
 	var paramsAsString string
 
 	if c.tracing == GoTracing {
@@ -82,7 +83,7 @@ func (c *CPU) trace(instruction *Instruction, params ...any) error {
 	return nil
 }
 
-func (c *CPU) traceGoMode(instruction *Instruction, params ...any) (string, error) {
+func (c *CPU) traceGoMode(instruction *cpu.Instruction, params ...any) (string, error) {
 	c.TraceStep.Addressing = c.addressModeFromCall(instruction, params...)
 	if !instruction.HasAddressing(c.TraceStep.Addressing) {
 		return "", fmt.Errorf("unexpected addressing mode type %T", c.TraceStep.Addressing)
@@ -122,8 +123,8 @@ func (c *CPU) checkCurrentFunc(funcName string) {
 
 	c.lastFunction = funcName
 	step := TraceStep{
-		Instruction: strings.ToUpper(jsr.Name),
-		Opcode:      []byte{jsr.Addressing[AbsoluteAddressing].Opcode},
+		Instruction: strings.ToUpper(cpu.Jsr.Name),
+		Opcode:      []byte{cpu.Jsr.Addressing[AbsoluteAddressing].Opcode},
 	}
 	if len(funcName) > maxFuncLenToPrint {
 		step.Instruction += " ..." + funcName[len(funcName)-maxFuncLenToPrint:]
@@ -154,7 +155,7 @@ func shouldOutputMemoryContent(address uint16) bool {
 	}
 }
 
-func addressModeFromCallNoParam(instruction *Instruction) Mode {
+func addressModeFromCallNoParam(instruction *cpu.Instruction) Mode {
 	if instruction.HasAddressing(AccumulatorAddressing) {
 		return AccumulatorAddressing
 	}
