@@ -87,6 +87,7 @@ func compileFile(options optionFlags) error {
 
 	// TODO pass real options
 	ca65Config := ca65.Config{
+		PrgBase: 0x8000,
 		PRGSize: 0x8000,
 		CHRSize: 0x2000,
 	}
