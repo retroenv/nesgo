@@ -10,7 +10,6 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-chi/chi/v5"
 	"github.com/retroenv/nesgo/pkg/bus"
 )
 
@@ -28,26 +27,20 @@ func New(listenAddress string, bus *bus.Bus) *Debugger {
 		bus: bus,
 	}
 
-	r := chi.NewRouter()
+	mux := http.NewServeMux()
 
-	r.Route("/cpu", func(r chi.Router) {
-		r.Get("/", d.cpuState)
-		r.Post("/pause", d.cpuPause)
-	})
+	mux.HandleFunc("/cpu", d.cpuState)
+	mux.HandleFunc("/cpu/pause", d.cpuPause)
 
-	r.Route("/mapper", func(r chi.Router) {
-		r.Get("/", d.mapperState)
-	})
+	mux.HandleFunc("/mapper", d.mapperState)
 
-	r.Route("/ppu", func(r chi.Router) {
-		r.Get("/palette", d.ppuPalette)
-		r.Get("/mirrormode", d.ppuMirrorMode)
-		r.Get("/nametables", d.ppuNameTables)
-	})
+	mux.HandleFunc("/ppu/palette", d.ppuPalette)
+	mux.HandleFunc("/ppu/mirrormode", d.ppuMirrorMode)
+	mux.HandleFunc("/ppu/nametables", d.ppuNameTables)
 
 	d.server = &http.Server{
 		Addr:         listenAddress,
-		Handler:      r,
+		Handler:      mux,
 		ReadTimeout:  defaultWebserverTimeout,
 		WriteTimeout: defaultWebserverTimeout,
 	}

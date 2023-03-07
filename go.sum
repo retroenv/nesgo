@@ -1,10 +1,8 @@
-github.com/go-chi/chi/v5 v5.0.8 h1:lD+NLqFcAi1ovnVZpsnObHGW4xb4J8lNmoYVfECH1Y0=
-github.com/go-chi/chi/v5 v5.0.8/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
 github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6 h1:zDw5v7qm4yH7N8C8uWd+8Ii9rROdgWxQuGoJ9WDXxfk=
 github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6/go.mod h1:9YTyiznxEY1fVinfM7RvRcjRHbw2xLBJ3AAGIT0I4Nw=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20221017161538-93cebf72946b h1:GgabKamyOYguHqHjSkDACcgoPIz3w0Dis/zJ1wyHHHU=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20221017161538-93cebf72946b/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=
-github.com/retroenv/retrogolib v0.0.0-20230121020516-78a82ca107b2 h1:axVgS+1l3vBXUxM252ZRyJlRpPhsJdgmm2DfS9e3paI=
-github.com/retroenv/retrogolib v0.0.0-20230121020516-78a82ca107b2/go.mod h1:qtX54XkWhbADqI6hD1mlflCJrrZuMaSrcp2ItBYcSaE=
+github.com/retroenv/retrogolib v0.0.0-20230301042327-c71c11d27501 h1:iz/er3e2mZHGtVtVY68qoet9HeiQ8K4GcDZ6TvukBN0=
+github.com/retroenv/retrogolib v0.0.0-20230301042327-c71c11d27501/go.mod h1:qBEQZCRXH0q9vJc+QSPP4+Lzikhj+GsXcBdvyx9hKOA=
 github.com/veandco/go-sdl2 v0.5.0-alpha.4 h1:+XyPktayFrjYA6n3qUWiQDw6jOVJye27q8gmXvnYAHQ=
 github.com/veandco/go-sdl2 v0.5.0-alpha.4/go.mod h1:OROqMhHD43nT4/i9crJukyVecjPNYYuCofep6SNiAjY=
