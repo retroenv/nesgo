@@ -42,6 +42,7 @@ func TestDecode(t *testing.T) {
 	t.Parallel()
 
 	for _, test := range testCases {
+		test := test
 		t.Run(test.Code, func(t *testing.T) {
 			t.Parallel()
 
@@ -67,6 +68,7 @@ func TestEncode(t *testing.T) {
 	t.Parallel()
 
 	for _, test := range testCases {
+		test := test
 		t.Run(test.Code, func(t *testing.T) {
 			t.Parallel()
 
