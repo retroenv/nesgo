@@ -54,7 +54,7 @@ func (n *NameTable) Data() [4][]byte {
 		b := n.vram[base : base+size]
 		data[table] = b
 	}
-	n.mu.RLock()
+	n.mu.RUnlock()
 	return data
 }
 
