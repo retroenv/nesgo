@@ -2,7 +2,10 @@
 
 package nes
 
-import "github.com/retroenv/nesgo/pkg/nes/debugger"
+import (
+	"github.com/retroenv/nesgo/pkg/nes/debugger"
+	"github.com/retroenv/retrogolib/gui"
+)
 
 // Start is the main entrypoint for a NES program that starts the execution.
 // Different options can be passed.
@@ -43,8 +46,8 @@ func Start(resetHandlerParam func(), options ...Option) {
 	}
 
 	guiStarter := setupNoGui
-	if GuiStarter != nil && !opts.noGui {
-		guiStarter = GuiStarter
+	if gui.Setup != nil && !opts.noGui {
+		guiStarter = gui.Setup
 	}
 	if err := sys.runRenderer(ctx, opts, guiStarter); err != nil {
 		panic(err)

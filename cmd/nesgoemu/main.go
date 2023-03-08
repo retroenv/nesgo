@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"os"
 
-	_ "github.com/retroenv/nesgo/pkg/gui"
 	"github.com/retroenv/nesgo/pkg/nes"
 	"github.com/retroenv/retrogolib/buildinfo"
 	"github.com/retroenv/retrogolib/nes/cartridge"
