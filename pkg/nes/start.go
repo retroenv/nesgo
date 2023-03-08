@@ -4,6 +4,7 @@ package nes
 
 import (
 	"github.com/retroenv/nesgo/pkg/nes/debugger"
+	"github.com/retroenv/retrogolib/app"
 	"github.com/retroenv/retrogolib/gui"
 )
 
@@ -38,7 +39,7 @@ func Start(resetHandlerParam func(), options ...Option) {
 		sys.CPU.SetResetHandlerTraceInfo(resetHandlerParam)
 	}
 
-	ctx := Context()
+	ctx := app.Context()
 	var debugServer *debugger.Debugger
 	if opts.debug {
 		debugServer = debugger.New(opts.debugAddress, sys.Bus)
