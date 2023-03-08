@@ -5,6 +5,7 @@ package nes
 import (
 	"context"
 	"fmt"
+	"image"
 	"sync/atomic"
 	"time"
 
@@ -15,6 +16,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/memory"
 	"github.com/retroenv/nesgo/pkg/ppu"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+	"github.com/retroenv/nesgo/pkg/ppu/screen"
+	"github.com/retroenv/retrogolib/gui"
 	"github.com/retroenv/retrogolib/nes/cartridge"
 	cpulib "github.com/retroenv/retrogolib/nes/cpu"
 )
@@ -28,6 +31,8 @@ type System struct {
 	NmiHandler   func()
 	IrqHandler   func()
 	ResetHandler func()
+
+	dimensions gui.Dimensions
 }
 
 // NewSystem creates a new NES system.
@@ -58,6 +63,11 @@ func NewSystem(opts *Options) *System {
 		Bus:        systemBus,
 		NmiHandler: opts.nmiHandler,
 		IrqHandler: opts.irqHandler,
+		dimensions: gui.Dimensions{
+			ScaleFactor: 2.0,
+			Height:      screen.Height,
+			Width:       screen.Width,
+		},
 	}
 
 	sys.CPU = cpu.New(systemBus, &sys.NmiHandler, &sys.IrqHandler, opts.emulator)
@@ -151,8 +161,8 @@ func (sys *System) updatePC(ins *cpulib.Instruction, oldPC uint16, amount int) {
 }
 
 // runRenderer starts the chosen GUI renderer.
-func (sys *System) runRenderer(ctx context.Context, opts *Options, guiStarter guiInitializer) error {
-	render, cleanup, err := guiStarter(sys.Bus)
+func (sys *System) runRenderer(ctx context.Context, opts *Options, guiStarter gui.Initializer) error {
+	render, cleanup, err := guiStarter(sys)
 	if err != nil {
 		return err
 	}
@@ -189,4 +199,19 @@ func (sys *System) runRenderer(ctx context.Context, opts *Options, guiStarter gu
 		time.Sleep(time.Second / ppu.FPS)
 	}
 	return nil
+}
+
+// Image returns the emulator screen to show.
+func (sys *System) Image() *image.RGBA {
+	return sys.Bus.PPU.Image()
+}
+
+// Dimensions returns the dimensions for the emulator window.
+func (sys *System) Dimensions() gui.Dimensions {
+	return sys.dimensions
+}
+
+// WindowTitle returns the window title to show.
+func (sys *System) WindowTitle() string {
+	return "nesgo"
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	_ "github.com/retroenv/nesgo/pkg/gui"
 	. "github.com/retroenv/nesgo/pkg/nes"
 	. "github.com/retroenv/nesgo/pkg/neslib"
 )
