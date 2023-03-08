@@ -93,7 +93,7 @@ func (c *CPU) addressModeIndirect(register any) Mode {
 }
 
 func (c *CPU) addressModeZeroPage(register any) Mode {
-	if register == 0 {
+	if register == nil {
 		return ZeroPageAddressing
 	}
 

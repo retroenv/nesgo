@@ -393,7 +393,7 @@ func TestDec(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 2)
 				sys.X = 1
-				sys.Dec(ZeroPage(1), sys.X)
+				sys.Dec(ZeroPage(1), &sys.X)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Bus.Memory.Read(2))
@@ -414,7 +414,7 @@ func TestDec(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 2)
 				sys.X = 1
-				sys.Dec(Absolute(0x101), sys.X)
+				sys.Dec(Absolute(0x101), &sys.X)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 1, sys.Bus.Memory.Read(0x102))
@@ -470,7 +470,7 @@ func TestInc(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 1)
 				sys.X = 1
-				sys.Inc(ZeroPage(1), sys.X)
+				sys.Inc(ZeroPage(1), &sys.X)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.Bus.Memory.Read(2))
@@ -491,7 +491,7 @@ func TestInc(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 1)
 				sys.X = 1
-				sys.Inc(Absolute(0x101), sys.X)
+				sys.Inc(Absolute(0x101), &sys.X)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 2, sys.Bus.Memory.Read(0x102))
@@ -584,7 +584,7 @@ func TestLdx(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 8)
 				sys.Y = 1
-				sys.Ldx(ZeroPage(1), sys.Y)
+				sys.Ldx(ZeroPage(1), &sys.Y)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.X)
@@ -595,7 +595,7 @@ func TestLdx(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 8)
 				sys.Y = 1
-				sys.Ldx(Absolute(0x101), sys.Y)
+				sys.Ldx(Absolute(0x101), &sys.Y)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.X)
@@ -622,7 +622,7 @@ func TestLdy(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(2, 8)
 				sys.X = 1
-				sys.Ldy(ZeroPage(1), sys.X)
+				sys.Ldy(ZeroPage(1), &sys.X)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.Y)
@@ -633,7 +633,7 @@ func TestLdy(t *testing.T) {
 			Setup: func(sys *System) {
 				sys.Bus.Memory.Write(0x102, 8)
 				sys.X = 1
-				sys.Ldy(Absolute(0x101), sys.X)
+				sys.Ldy(Absolute(0x101), &sys.X)
 			},
 			Check: func(sys *System) {
 				assert.Equal(t, 8, sys.Y)
@@ -870,28 +870,28 @@ func TestSbc(t *testing.T) {
 	t.Parallel()
 	tests := []cpuTest{
 		{
-			Name: "result 0 C0",
+			Name: "result 0xff C0",
 			Setup: func(sys *System) {
 				sys.A = 2
 				sys.Sbc(2)
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0, sys.A)
-				assert.Equal(t, 1, sys.Flags.C)
+				assert.Equal(t, 0xff, sys.A)
+				assert.Equal(t, 0, sys.Flags.C)
 			},
 		},
 		{
-			Name: "result 0xff C0",
+			Name: "result 0xfe C0",
 			Setup: func(sys *System) {
 				sys.Sbc(1)
 			},
 			Check: func(sys *System) {
-				assert.Equal(t, 0xff, sys.A)
-				assert.Equal(t, 1, sys.Flags.C)
+				assert.Equal(t, 0xfe, sys.A)
+				assert.Equal(t, 0, sys.Flags.C)
 			},
 		},
 		{
-			Name: "result 0xff C1",
+			Name: "result 0x00 C1",
 			Setup: func(sys *System) {
 				sys.Flags.C = 1
 				sys.Sbc(0)
@@ -943,7 +943,7 @@ func TestSta(t *testing.T) {
 	assert.Equal(t, sys.A, b)
 
 	sys.X = 0x22
-	sys.Sta(Absolute(0), sys.X)
+	sys.Sta(Absolute(0), &sys.X)
 
 	b = sys.Bus.Memory.Read(0x22)
 	assert.Equal(t, sys.A, b)
@@ -960,7 +960,7 @@ func TestStx(t *testing.T) {
 	assert.Equal(t, sys.X, b)
 
 	sys.Y = 0x22
-	sys.Stx(Absolute(0), sys.Y)
+	sys.Stx(Absolute(0), &sys.Y)
 
 	b = sys.Bus.Memory.Read(0x22)
 	assert.Equal(t, sys.X, b)
@@ -977,7 +977,7 @@ func TestSty(t *testing.T) {
 	assert.Equal(t, sys.Y, b)
 
 	sys.X = 0x22
-	sys.Sty(Absolute(0), sys.X)
+	sys.Sty(Absolute(0), &sys.X)
 
 	b = sys.Bus.Memory.Read(0x22)
 	assert.Equal(t, sys.Y, b)
