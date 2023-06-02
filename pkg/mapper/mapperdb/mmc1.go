@@ -13,7 +13,7 @@ CHR window: 4K + 4K or 8K
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
-	"github.com/retroenv/retrogolib/nes/cartridge"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 )
 
 type mapperMMC1 struct {

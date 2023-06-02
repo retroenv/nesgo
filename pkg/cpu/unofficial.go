@@ -5,17 +5,19 @@
 
 package cpu
 
-import "github.com/retroenv/retrogolib/nes/cpu"
+import (
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
+)
 
 func linkUnofficialInstructionFuncs(c *CPU) {
-	cpu.Dcp.ParamFunc = c.Dcp
-	cpu.Isc.ParamFunc = c.Isc
-	cpu.Lax.ParamFunc = c.Lax
-	cpu.NopUnofficial.ParamFunc = c.NopUnofficial
-	cpu.Rla.ParamFunc = c.Rla
-	cpu.Rra.ParamFunc = c.Rra
-	cpu.Sax.ParamFunc = c.Sax
-	cpu.SbcUnofficial.ParamFunc = c.SbcUnofficial
-	cpu.Slo.ParamFunc = c.Slo
-	cpu.Sre.ParamFunc = c.Sre
+	m6502.Dcp.ParamFunc = c.Dcp
+	m6502.Isc.ParamFunc = c.Isc
+	m6502.Lax.ParamFunc = c.Lax
+	m6502.NopUnofficial.ParamFunc = c.NopUnofficial
+	m6502.Rla.ParamFunc = c.Rla
+	m6502.Rra.ParamFunc = c.Rra
+	m6502.Sax.ParamFunc = c.Sax
+	m6502.SbcUnofficial.ParamFunc = c.SbcUnofficial
+	m6502.Slo.ParamFunc = c.Slo
+	m6502.Sre.ParamFunc = c.Sre
 }

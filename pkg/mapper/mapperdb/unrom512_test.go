@@ -6,8 +6,8 @@ import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 	"github.com/retroenv/retrogolib/assert"
-	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 func TestMapperUNROM512(t *testing.T) {

@@ -6,8 +6,9 @@ import (
 	"strings"
 
 	"github.com/retroenv/nesgo/internal/ast"
-	. "github.com/retroenv/retrogolib/nes/addressing"
-	"github.com/retroenv/retrogolib/nes/cpu"
+	. "github.com/retroenv/retrogolib/addressing"
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
+	"github.com/retroenv/retrogolib/cpu"
 )
 
 // TODO refactor to use asmoutput pkg
@@ -114,7 +115,7 @@ func (c *Compiler) outputLineWithComment(comment, format string, a ...any) {
 }
 
 func (c *Compiler) outputInstruction(ins *ast.Instruction) error {
-	info := cpu.Instructions[ins.Name]
+	info := m6502.Instructions[ins.Name]
 
 	switch len(ins.Arguments) {
 	case 0:

@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/retrogolib/nes/parameter"
+	"github.com/retroenv/retrogolib/arch/nes/parameter"
 )
 
 const (

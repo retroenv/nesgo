@@ -2,7 +2,7 @@
 
 package apu
 
-import . "github.com/retroenv/retrogolib/nes/addressing"
+import . "github.com/retroenv/retrogolib/addressing"
 
 // AddressToName maps address constants from address to name.
 var AddressToName = map[uint16]AccessModeConstant{

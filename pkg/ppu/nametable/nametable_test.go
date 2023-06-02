@@ -3,8 +3,8 @@ package nametable
 import (
 	"testing"
 
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 	"github.com/retroenv/retrogolib/assert"
-	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 func TestNameTable(t *testing.T) {

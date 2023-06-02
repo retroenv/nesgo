@@ -6,9 +6,11 @@ import (
 	"runtime"
 	"strings"
 
-	. "github.com/retroenv/retrogolib/nes/addressing"
-	"github.com/retroenv/retrogolib/nes/cpu"
-	"github.com/retroenv/retrogolib/nes/parameter"
+	. "github.com/retroenv/retrogolib/addressing"
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
+	"github.com/retroenv/retrogolib/arch/nes"
+	"github.com/retroenv/retrogolib/arch/nes/parameter"
+	"github.com/retroenv/retrogolib/cpu"
 )
 
 // TracingMode defines a tracing mode.
@@ -124,8 +126,8 @@ func (c *CPU) checkCurrentFunc(funcName string) {
 
 	c.lastFunction = funcName
 	step := TraceStep{
-		Instruction: strings.ToUpper(cpu.Jsr.Name),
-		Opcode:      []byte{cpu.Jsr.Addressing[AbsoluteAddressing].Opcode},
+		Instruction: strings.ToUpper(m6502.Jsr.Name),
+		Opcode:      []byte{m6502.Jsr.Addressing[AbsoluteAddressing].Opcode},
 	}
 	if len(funcName) > maxFuncLenToPrint {
 		step.Instruction += " ..." + funcName[len(funcName)-maxFuncLenToPrint:]
@@ -149,7 +151,7 @@ func shouldOutputMemoryContent(address uint16) bool {
 		return true
 	case address >= 0x4000 && address <= 0x4020:
 		return true
-	case address >= CodeBaseAddress:
+	case address >= nes.CodeBaseAddress:
 		return true
 	default:
 		return false

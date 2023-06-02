@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/retroenv/nesgo/pkg/nes"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 	"github.com/retroenv/retrogolib/buildinfo"
-	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 type optionFlags struct {

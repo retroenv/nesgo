@@ -6,8 +6,8 @@ import (
 	"sync"
 
 	"github.com/retroenv/nesgo/pkg/bus"
-	"github.com/retroenv/retrogolib/nes/addressing"
-	"github.com/retroenv/retrogolib/nes/cartridge"
+	"github.com/retroenv/retrogolib/arch/nes"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 )
 
 const (
@@ -111,7 +111,7 @@ func (b *Base) Read(address uint16) uint8 {
 		offset := address - prgRAMStart
 		value = b.prgRAM[offset]
 
-	case address >= addressing.CodeBaseAddress:
+	case address >= nes.CodeBaseAddress:
 		bankNr, offset := b.prgBankMapper(address)
 		b.mu.RLock()
 		bank := &b.prgBanks[bankNr]
@@ -179,7 +179,7 @@ func (b *Base) defaultPrgBankMapper(address uint16) (int, uint16) {
 	b.mu.RLock()
 	defer b.mu.RUnlock()
 
-	address -= addressing.CodeBaseAddress
+	address -= nes.CodeBaseAddress
 	offset := address % uint16(b.prgWindowSize)
 	windowNr := address / uint16(b.prgWindowSize)
 	bankNr := b.prgWindows[windowNr]

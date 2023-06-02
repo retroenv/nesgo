@@ -3,7 +3,7 @@ package mapperdb
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
-	"github.com/retroenv/retrogolib/nes/cartridge"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 )
 
 /*

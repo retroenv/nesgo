@@ -2,7 +2,7 @@
 package bus
 
 import (
-	"github.com/retroenv/retrogolib/nes/cartridge"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 )
 
 // Bus contains all NES sub system components.

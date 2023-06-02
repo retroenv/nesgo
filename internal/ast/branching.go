@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/retroenv/retrogolib/nes/cpu"
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
 )
 
 const (
@@ -70,7 +70,7 @@ func NewCall(expr *Identifier, arg any) (Node, error) {
 		return nil, nil // nolint: nilnil
 	}
 
-	if _, ok := cpu.BranchingInstructions[name]; ok {
+	if _, ok := m6502.BranchingInstructions[name]; ok {
 		var destination string
 		if ins, ok := arg.(*Instruction); ok {
 			destination = ins.Name
@@ -78,7 +78,7 @@ func NewCall(expr *Identifier, arg any) (Node, error) {
 		return NewBranching(name, destination)
 	}
 
-	if _, isInst := cpu.Instructions[name]; isInst {
+	if _, isInst := m6502.Instructions[name]; isInst {
 		i, err := newInstruction(name, arg)
 		if err != nil {
 			return nil, err

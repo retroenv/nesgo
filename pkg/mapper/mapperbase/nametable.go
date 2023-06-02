@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/retroenv/nesgo/pkg/ppu/nametable"
-	"github.com/retroenv/retrogolib/nes/cartridge"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 )
 
 // MirrorModeTranslation maps a 8bit index to a nametable mirror mode.

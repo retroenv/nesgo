@@ -4,8 +4,9 @@ import (
 	"testing"
 
 	"github.com/retroenv/nesgo/pkg/cpu"
+	. "github.com/retroenv/retrogolib/addressing"
+	"github.com/retroenv/retrogolib/arch/nes"
 	"github.com/retroenv/retrogolib/assert"
-	. "github.com/retroenv/retrogolib/nes/addressing"
 )
 
 type cpuTest struct {
@@ -549,7 +550,7 @@ func TestJsr(t *testing.T) {
 	t.Parallel()
 	sys := NewSystem(nil)
 
-	sys.PC = CodeBaseAddress
+	sys.PC = nes.CodeBaseAddress
 	sys.Jsr(Absolute(0x101))
 
 	assert.Equal(t, cpu.InitialStack-2, sys.SP)

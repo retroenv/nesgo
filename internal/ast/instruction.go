@@ -6,8 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	. "github.com/retroenv/retrogolib/nes/addressing"
-	"github.com/retroenv/retrogolib/nes/cpu"
+	. "github.com/retroenv/retrogolib/addressing"
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
+	"github.com/retroenv/retrogolib/cpu"
 )
 
 // Instruction is an instruction declaration.
@@ -25,7 +26,7 @@ func newInstruction(name string, arg any) (*Instruction, error) {
 		Name: name,
 	}
 	if arg != nil {
-		info := cpu.Instructions[name]
+		info := m6502.Instructions[name]
 		if info == nil {
 			return nil, fmt.Errorf("missing instruction info for '%s'", name)
 		}

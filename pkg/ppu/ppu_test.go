@@ -5,8 +5,8 @@ import (
 
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/mapper"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 	"github.com/retroenv/retrogolib/assert"
-	"github.com/retroenv/retrogolib/nes/cartridge"
 )
 
 // TestSetControl verifies that the control byte gets handled correctly.

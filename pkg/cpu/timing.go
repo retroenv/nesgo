@@ -5,7 +5,8 @@ package cpu
 import (
 	"fmt"
 
-	"github.com/retroenv/retrogolib/nes/cpu"
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
+	"github.com/retroenv/retrogolib/cpu"
 )
 
 // instructionHook is a hook that is executed before a CPU instruction is executed.
@@ -27,7 +28,7 @@ func (c *CPU) instructionHook(instruction *cpu.Instruction, params ...any) func(
 		}
 
 		opcode := instruction.Addressing[addressing].Opcode
-		opcodeInfo := cpu.Opcodes[opcode]
+		opcodeInfo := m6502.Opcodes[opcode]
 		c.cycles += uint64(opcodeInfo.Timing)
 	} else {
 		if err := c.trace(instruction, params...); err != nil {
@@ -50,10 +51,10 @@ func (c *CPU) instructionHook(instruction *cpu.Instruction, params ...any) func(
 
 // AccountBranchingPageCrossCycle accounts for a branch page crossing extra CPU cycle.
 func (c *CPU) AccountBranchingPageCrossCycle(ins *cpu.Instruction) {
-	if _, ok := cpu.BranchingInstructions[ins.Name]; !ok {
+	if _, ok := m6502.BranchingInstructions[ins.Name]; !ok {
 		return
 	}
-	if ins.Name != cpu.Jmp.Name && ins.Name != cpu.Jsr.Name {
+	if ins.Name != m6502.Jmp.Name && ins.Name != m6502.Jsr.Name {
 		c.cycles++
 	}
 }

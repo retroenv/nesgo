@@ -4,7 +4,7 @@ package mapperdb
 import (
 	"github.com/retroenv/nesgo/pkg/bus"
 	"github.com/retroenv/nesgo/pkg/mapper/mapperbase"
-	"github.com/retroenv/retrogolib/nes/cartridge"
+	"github.com/retroenv/retrogolib/arch/nes/cartridge"
 )
 
 // Base defines the base mapper interface that contains helper functions for shared functionality.

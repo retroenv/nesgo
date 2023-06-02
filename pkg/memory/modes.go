@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"math"
 
-	. "github.com/retroenv/retrogolib/nes/addressing"
+	. "github.com/retroenv/retrogolib/addressing"
 )
 
 // WriteAddressModes writes to memory using different address modes:

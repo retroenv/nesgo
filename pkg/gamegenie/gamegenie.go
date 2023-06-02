@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/retroenv/retrogolib/nes/addressing"
+	"github.com/retroenv/retrogolib/arch/nes"
 )
 
 // Patch defines a patch to apply to a NES ROM.
@@ -34,7 +34,7 @@ func Decode(code string) (Patch, error) {
 		n[i] = uint16(value)
 	}
 
-	address := addressing.CodeBaseAddress + ((n[3] & 7) << 12) |
+	address := nes.CodeBaseAddress + ((n[3] & 7) << 12) |
 		((n[5] & 7) << 8) | ((n[4] & 8) << 8) |
 		((n[2] & 7) << 4) | ((n[1] & 8) << 4) |
 		(n[4] & 7) | (n[3] & 8)
@@ -56,7 +56,7 @@ func Decode(code string) (Patch, error) {
 
 // Encode encodes a NES ROM patch into a game genie code.
 func Encode(patch Patch) (string, error) {
-	if patch.Address < addressing.CodeBaseAddress {
+	if patch.Address < nes.CodeBaseAddress {
 		return "", fmt.Errorf("address $%04X is not supported", patch.Address)
 	}
 

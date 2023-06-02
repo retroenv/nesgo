@@ -1,6 +1,6 @@
 package cpu
 
-import "github.com/retroenv/retrogolib/nes/cpu"
+import "github.com/retroenv/retrogolib/arch/cpu/m6502"
 
 // LinkInstructionFuncs links cpu instruction emulation functions to the CPU instance.
 // Defining it directly in the instruction instances like ParamFunc: (CPU*).Adc does not work
@@ -8,62 +8,62 @@ import "github.com/retroenv/retrogolib/nes/cpu"
 // instructionHook refers to Opcodes.
 // nolint: funlen
 func LinkInstructionFuncs(c *CPU) {
-	cpu.Adc.ParamFunc = c.Adc
-	cpu.And.ParamFunc = c.And
-	cpu.Asl.ParamFunc = c.Asl
-	cpu.Bcc.ParamFunc = c.BccInternal
-	cpu.Bcs.ParamFunc = c.BcsInternal
-	cpu.Beq.ParamFunc = c.BeqInternal
-	cpu.Bit.ParamFunc = c.Bit
-	cpu.Bmi.ParamFunc = c.BmiInternal
-	cpu.Bne.ParamFunc = c.BneInternal
-	cpu.Bpl.ParamFunc = c.BplInternal
-	cpu.Brk.NoParamFunc = c.Brk
-	cpu.Bvc.ParamFunc = c.BvcInternal
-	cpu.Bvs.ParamFunc = c.BvsInternal
-	cpu.Clc.NoParamFunc = c.Clc
-	cpu.Cld.NoParamFunc = c.Cld
-	cpu.Cli.NoParamFunc = c.Cli
-	cpu.Clv.NoParamFunc = c.Clv
-	cpu.Cmp.ParamFunc = c.Cmp
-	cpu.Cpx.ParamFunc = c.Cpx
-	cpu.Cpy.ParamFunc = c.Cpy
-	cpu.Dec.ParamFunc = c.Dec
-	cpu.Dex.NoParamFunc = c.Dex
-	cpu.Dey.NoParamFunc = c.Dey
-	cpu.Eor.ParamFunc = c.Eor
-	cpu.Inc.ParamFunc = c.Inc
-	cpu.Inx.NoParamFunc = c.Inx
-	cpu.Iny.NoParamFunc = c.Iny
-	cpu.Jmp.ParamFunc = c.Jmp
-	cpu.Jsr.ParamFunc = c.Jsr
-	cpu.Lda.ParamFunc = c.Lda
-	cpu.Ldx.ParamFunc = c.Ldx
-	cpu.Ldy.ParamFunc = c.Ldy
-	cpu.Lsr.ParamFunc = c.Lsr
-	cpu.Nop.NoParamFunc = c.Nop
-	cpu.Ora.ParamFunc = c.Ora
-	cpu.Pha.NoParamFunc = c.Pha
-	cpu.Php.NoParamFunc = c.Php
-	cpu.Pla.NoParamFunc = c.Pla
-	cpu.Plp.NoParamFunc = c.Plp
-	cpu.Rol.ParamFunc = c.Rol
-	cpu.Ror.ParamFunc = c.Ror
-	cpu.Rti.NoParamFunc = c.Rti
-	cpu.Rts.NoParamFunc = c.Rts
-	cpu.Sbc.ParamFunc = c.Sbc
-	cpu.Sec.NoParamFunc = c.Sec
-	cpu.Sed.NoParamFunc = c.Sed
-	cpu.Sei.NoParamFunc = c.Sei
-	cpu.Sta.ParamFunc = c.Sta
-	cpu.Stx.ParamFunc = c.Stx
-	cpu.Sty.ParamFunc = c.Sty
-	cpu.Tax.NoParamFunc = c.Tax
-	cpu.Tay.NoParamFunc = c.Tay
-	cpu.Tsx.NoParamFunc = c.Tsx
-	cpu.Txa.NoParamFunc = c.Txa
-	cpu.Txs.NoParamFunc = c.Txs
-	cpu.Tya.NoParamFunc = c.Tya
+	m6502.Adc.ParamFunc = c.Adc
+	m6502.And.ParamFunc = c.And
+	m6502.Asl.ParamFunc = c.Asl
+	m6502.Bcc.ParamFunc = c.BccInternal
+	m6502.Bcs.ParamFunc = c.BcsInternal
+	m6502.Beq.ParamFunc = c.BeqInternal
+	m6502.Bit.ParamFunc = c.Bit
+	m6502.Bmi.ParamFunc = c.BmiInternal
+	m6502.Bne.ParamFunc = c.BneInternal
+	m6502.Bpl.ParamFunc = c.BplInternal
+	m6502.Brk.NoParamFunc = c.Brk
+	m6502.Bvc.ParamFunc = c.BvcInternal
+	m6502.Bvs.ParamFunc = c.BvsInternal
+	m6502.Clc.NoParamFunc = c.Clc
+	m6502.Cld.NoParamFunc = c.Cld
+	m6502.Cli.NoParamFunc = c.Cli
+	m6502.Clv.NoParamFunc = c.Clv
+	m6502.Cmp.ParamFunc = c.Cmp
+	m6502.Cpx.ParamFunc = c.Cpx
+	m6502.Cpy.ParamFunc = c.Cpy
+	m6502.Dec.ParamFunc = c.Dec
+	m6502.Dex.NoParamFunc = c.Dex
+	m6502.Dey.NoParamFunc = c.Dey
+	m6502.Eor.ParamFunc = c.Eor
+	m6502.Inc.ParamFunc = c.Inc
+	m6502.Inx.NoParamFunc = c.Inx
+	m6502.Iny.NoParamFunc = c.Iny
+	m6502.Jmp.ParamFunc = c.Jmp
+	m6502.Jsr.ParamFunc = c.Jsr
+	m6502.Lda.ParamFunc = c.Lda
+	m6502.Ldx.ParamFunc = c.Ldx
+	m6502.Ldy.ParamFunc = c.Ldy
+	m6502.Lsr.ParamFunc = c.Lsr
+	m6502.Nop.NoParamFunc = c.Nop
+	m6502.Ora.ParamFunc = c.Ora
+	m6502.Pha.NoParamFunc = c.Pha
+	m6502.Php.NoParamFunc = c.Php
+	m6502.Pla.NoParamFunc = c.Pla
+	m6502.Plp.NoParamFunc = c.Plp
+	m6502.Rol.ParamFunc = c.Rol
+	m6502.Ror.ParamFunc = c.Ror
+	m6502.Rti.NoParamFunc = c.Rti
+	m6502.Rts.NoParamFunc = c.Rts
+	m6502.Sbc.ParamFunc = c.Sbc
+	m6502.Sec.NoParamFunc = c.Sec
+	m6502.Sed.NoParamFunc = c.Sed
+	m6502.Sei.NoParamFunc = c.Sei
+	m6502.Sta.ParamFunc = c.Sta
+	m6502.Stx.ParamFunc = c.Stx
+	m6502.Sty.ParamFunc = c.Sty
+	m6502.Tax.NoParamFunc = c.Tax
+	m6502.Tay.NoParamFunc = c.Tay
+	m6502.Tsx.NoParamFunc = c.Tsx
+	m6502.Txa.NoParamFunc = c.Txa
+	m6502.Txs.NoParamFunc = c.Txs
+	m6502.Tya.NoParamFunc = c.Tya
 
 	linkUnofficialInstructionFuncs(c)
 }

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"math"
 
-	. "github.com/retroenv/retrogolib/nes/addressing"
-	"github.com/retroenv/retrogolib/nes/cpu"
+	. "github.com/retroenv/retrogolib/addressing"
+	"github.com/retroenv/retrogolib/cpu"
 )
 
 // addressModeFromCall gets the addressing mode from the passed params.

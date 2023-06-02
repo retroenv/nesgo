@@ -2,7 +2,7 @@ module github.com/retroenv/nesgo
 
 go 1.19
 
-require github.com/retroenv/retrogolib v0.0.0-20230308050250-05304443fd7e
+require github.com/retroenv/retrogolib v0.0.0-20230531002314-647312eaa5e7
 
 require (
 	github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6 // indirect

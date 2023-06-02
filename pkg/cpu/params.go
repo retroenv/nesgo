@@ -3,8 +3,9 @@ package cpu
 import (
 	"fmt"
 
-	. "github.com/retroenv/retrogolib/nes/addressing"
-	"github.com/retroenv/retrogolib/nes/cpu"
+	. "github.com/retroenv/retrogolib/addressing"
+	"github.com/retroenv/retrogolib/arch/cpu/m6502"
+	"github.com/retroenv/retrogolib/cpu"
 )
 
 type paramConverterFunc func(c *CPU, instruction *cpu.Instruction, params ...any) string
@@ -52,7 +53,7 @@ func paramConverterAccumulator(_ *CPU, _ *cpu.Instruction, _ ...any) string {
 
 func paramConverterAbsolute(c *CPU, instruction *cpu.Instruction, params ...any) string {
 	address := params[0].(Absolute)
-	if _, ok := cpu.BranchingInstructions[instruction.Name]; ok {
+	if _, ok := m6502.BranchingInstructions[instruction.Name]; ok {
 		return fmt.Sprintf("$%04X", address)
 	}
 	if !shouldOutputMemoryContent(uint16(address)) {
