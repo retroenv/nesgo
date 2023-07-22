@@ -176,6 +176,8 @@ func (sys *System) runRenderer(ctx context.Context, opts *Options, guiStarter gu
 			atomic.StoreUint64(&running, 0)
 			return
 		}
+
+		// nolint: revive
 		for { // forever loop in case reset handler returns
 		}
 	}()

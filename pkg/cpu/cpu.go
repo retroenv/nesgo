@@ -59,7 +59,7 @@ func New(bus *bus.Bus, nmiHandler, irqHandler *func(), emulator bool) *CPU {
 		irqHandler:     irqHandler,
 		nmiHandler:     nmiHandler,
 		cycles:         initialCycles,
-		paramConverter: parameter.Ca65Converter{},
+		paramConverter: parameter.New(),
 	}
 
 	// read interrupt handler addresses

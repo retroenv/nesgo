@@ -1,3 +1,5 @@
+GOLANGCI_VERSION = v1.53.3
+
 help: ## show help, shown by default if no target is specified
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -36,7 +38,7 @@ install-no-gui: ## install all binaries with gui disabled
 	go install -tags nogui ./cmd/...
 
 install-linters: ## install all used linters
-	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.51.2
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@${GOLANGCI_VERSION}
 
 release: ## build release binaries for current git tag and publish on github
 	goreleaser release
